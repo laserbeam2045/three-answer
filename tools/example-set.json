@@ -1,0 +1,33 @@
+{
+  "id": "set0",
+  "title": "カプリティオ例示セット（検証用）",
+  "difficulty": 3,
+  "description": "バリデータ検証用",
+  "hands": {
+    "A": ["ぱん", "ぺぐ", "さんご", "ぶるー", "むーん", "ぎる", "わ", "いたりあ", "ぼっちゃ", "ものがたり"],
+    "B": ["れたす", "ぴっく", "しる", "くかんしょう", "らいと", "まりー", "ら", "あめりか", "ごーる", "てつどう"],
+    "C": ["はむ", "ふれっと", "さけ", "かなくりしそうはい", "ごーるど", "べりー", "ん", "ふらんす", "ぼーる", "でんせつ"]
+  },
+  "questions": [
+    { "q": "漫画『DEATH NOTE』の主人公・夜神のファーストネームは、月曜日の「月」という漢字を書いて何と読むでしょう？", "answerDisplay": "月（ライト）", "answerReading": "らいと", "required": [{ "role": "B", "card": "らいと" }], "explanation": "テスト", "source": "original" },
+    { "q": "レンタカーのナンバープレートに使われる2種類のひらがなは「れ」と何でしょう？", "answerDisplay": "わ", "answerReading": "わ", "required": [{ "role": "A", "card": "わ" }], "explanation": "テスト", "source": "original" },
+    { "q": "色の一種「コーラルピンク」のコーラルとは、日本語では何を意味する英単語でしょう？", "answerDisplay": "サンゴ", "answerReading": "さんご", "required": [{ "role": "A", "card": "さんご" }], "explanation": "テスト", "source": "original" },
+    { "q": "一般的なサンドイッチを作る時に、必ず使われる食材は何でしょう？", "answerDisplay": "パン", "answerReading": "ぱん", "required": [{ "role": "A", "card": "ぱん" }], "explanation": "テスト", "source": "original" },
+    { "q": "ゲーム『ドラゴンクエスト』シリーズにおいて用いられる通貨単位は何でしょう？", "answerDisplay": "ゴールド", "answerReading": "ごーるど", "required": [{ "role": "C", "card": "ごーるど" }], "explanation": "テスト", "source": "original" },
+    { "q": "童謡『青い目の人形』で、人形はどこの国で生まれたとされているでしょう？", "answerDisplay": "アメリカ", "answerReading": "あめりか", "required": [{ "role": "B", "card": "あめりか" }], "explanation": "テスト", "source": "original" },
+    { "q": "人気ゲーム『桃太郎電鉄』の元となった、ハドソンが発売したRPGシリーズは「桃太郎何」でしょう？", "answerDisplay": "伝説", "answerReading": "でんせつ", "required": [{ "role": "C", "card": "でんせつ" }], "explanation": "テスト", "source": "original" },
+    { "q": "ギターで、フィンガーボードを区切るようにつけられている金属の棒を何というでしょう？", "answerDisplay": "フレット", "answerReading": "ふれっと", "required": [{ "role": "C", "card": "ふれっと" }], "explanation": "テスト", "source": "original" },
+    { "q": "箱根駅伝において、各区で最も早いタイムを出した人に授与されるものは何でしょう？", "answerDisplay": "区間賞", "answerReading": "くかんしょう", "required": [{ "role": "B", "card": "くかんしょう" }], "explanation": "テスト", "source": "original" },
+    { "q": "「ジャックボール」と呼ばれる白い球に、赤や青の球をどれだけ近づけられるかを競う障害者スポーツといえば何でしょう？", "answerDisplay": "ボッチャ", "answerReading": "ぼっちゃ", "required": [{ "role": "A", "card": "ぼっちゃ" }], "explanation": "テスト", "source": "original" },
+    { "q": "いわゆる「大根役者」のことを、英語では「何アクター」というでしょう？", "answerDisplay": "ハム", "answerReading": "はむ", "required": [{ "role": "C", "card": "はむ" }], "explanation": "テスト", "source": "original" },
+    { "q": "森永のロングセラービスケットで、黄色のパッケージのものは「チョイス」ですが、青色のパッケージのものは何でしょう？", "answerDisplay": "ムーンライト", "answerReading": "むーんらいと", "required": [{ "role": "A", "card": "むーん" }, { "role": "B", "card": "らいと" }], "explanation": "テスト", "source": "original" },
+    { "q": "ゴルフのスコア付けやアンケートの記入の際などに用いられる、上部がクリップ状になった筆記用具は何でしょう？", "answerDisplay": "ペグシル", "answerReading": "ぺぐしる", "required": [{ "role": "A", "card": "ぺぐ" }, { "role": "B", "card": "しる" }], "explanation": "テスト", "source": "original" },
+    { "q": "コーヒー豆の焙煎度合いを8段階に分けた時、最も深煎りなのは「何ロースト」でしょう？", "answerDisplay": "イタリアンロースト", "answerReading": "いたりあん", "required": [{ "role": "A", "card": "いたりあ" }, { "role": "C", "card": "ん" }], "explanation": "テスト", "source": "original" },
+    { "q": "「風の強さがちょっと」という歌い出しで始まる、2018年リリースのヒット曲は何でしょう？", "answerDisplay": "マリーゴールド", "answerReading": "まりーごーるど", "required": [{ "role": "B", "card": "まりー" }, { "role": "C", "card": "ごーるど" }], "explanation": "テスト", "source": "original" },
+    { "q": "うらなり、野だいこ、赤シャツなどのキャラクターが登場する有名な小説は何でしょう？", "answerDisplay": "坊っちゃん", "answerReading": "ぼっちゃん", "required": [{ "role": "A", "card": "ぼっちゃ" }, { "role": "C", "card": "ん" }], "explanation": "テスト", "source": "original" },
+    { "q": "1895年に、フランス、ドイツ帝国、ロシア帝国の3つの国が日本に対して行った勧告のことを一般に何というでしょう？", "answerDisplay": "三国干渉", "answerReading": "さんごくかんしょう", "required": [{ "role": "A", "card": "さんご" }, { "role": "B", "card": "くかんしょう" }], "explanation": "テスト", "source": "original" },
+    { "q": "1864年にクロード・ブランシェが発見した果物の品種は何でしょう？", "answerDisplay": "ラ・フランス", "answerReading": "らふらんす", "required": [{ "role": "B", "card": "ら" }, { "role": "C", "card": "ふらんす" }], "explanation": "テスト", "source": "original" },
+    { "q": "ユネスコによると「表紙を除いて5ページから48ページまでのもの」と定義されているものは何でしょう？", "answerDisplay": "パンフレット", "answerReading": "ぱんふれっと", "required": [{ "role": "A", "card": "ぱん" }, { "role": "C", "card": "ふれっと" }], "explanation": "テスト", "source": "original" },
+    { "q": "4人組アイドルグループ・DALI最大のヒット曲は何でしょう？", "answerDisplay": "ムーンライト伝説", "answerReading": "むーんらいとでんせつ", "required": [{ "role": "A", "card": "むーん" }, { "role": "B", "card": "らいと" }, { "role": "C", "card": "でんせつ" }], "explanation": "テスト", "source": "original" }
+  ]
+}

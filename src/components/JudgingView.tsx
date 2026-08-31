@@ -1,0 +1,167 @@
+"use client";
+
+import { useEffect, useState, type MouseEvent } from "react";
+import CardTile from "@/components/CardTile";
+import type { UseRoomResult } from "@/hooks/useRoom";
+import { ROLES, type Role } from "@/lib/types";
+
+const ROLE_BG: Record<Role, string> = {
+  A: "bg-player-a",
+  B: "bg-player-b",
+  C: "bg-player-c",
+};
+
+/** 演出段階の切替時刻（マウント起点、ms）。stateは全員同一なので自然に同期する */
+const STAGE_TIMES = [900, 1600, 2200, 2600] as const;
+const MAX_STAGE = STAGE_TIMES.length;
+
+export default function JudgingView({ room }: { room: UseRoomResult }) {
+  const { state, send } = room;
+  const judged = state?.judged ?? null;
+  const qIndex = judged?.result.qIndex ?? 0;
+
+  const [stage, setStage] = useState(0);
+  const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    setStage(0);
+    const timers = STAGE_TIMES.map((ms, i) =>
+      setTimeout(() => setStage((s) => Math.max(s, i + 1)), ms)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [qIndex]);
+
+  if (!state || !judged) return null;
+
+  const { result, question } = judged;
+  const isSeated = state.you.role !== null;
+  const isLast = state.qIndex === 19;
+
+  const seatName = (role: Role): string =>
+    state.seats.find((s) => s.role === role)?.name ?? `プレイヤー${role}`;
+
+  /** ボタン以外の領域クリックで演出を即時完了（誤送信なし） */
+  const skip = () => setStage(MAX_STAGE);
+
+  const onNext = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (sending) return;
+    setSending(true);
+    void send({ type: "next" }).then((ok) => {
+      if (!ok) setSending(false);
+    });
+  };
+
+  return (
+    <div
+      className="flex-1 w-full max-w-3xl mx-auto flex flex-col items-center gap-5 px-4 py-6 sm:gap-6 select-none"
+      onClick={skip}
+    >
+      {/* 段階1 (0ms): 問題文 + みんなの出したカード */}
+      <div className="w-full text-center">
+        <p className="text-muted text-xs font-bold tracking-widest mb-1">
+          第{state.qIndex + 1}問 / 20 ── 判定
+        </p>
+        <p className="text-sm sm:text-base text-ink/90 leading-relaxed">{question.q}</p>
+      </div>
+
+      <section className="w-full">
+        <h2 className="text-muted text-xs font-bold tracking-widest text-center mb-3">
+          みんなの出したカード
+        </h2>
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
+          {ROLES.map((role, i) => {
+            const played = result.played.find((p) => p.role === role) ?? null;
+            return (
+              <div
+                key={role}
+                className="flip-in bg-panel border border-line rounded-xl p-2 sm:p-3 flex flex-col items-center gap-2"
+                style={{ animationDelay: `${i * 200}ms` }}
+              >
+                <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+                  <span className={`${ROLE_BG[role]} w-2.5 h-2.5 rounded-full shrink-0`} />
+                  <span className="text-xs sm:text-sm font-bold truncate">{seatName(role)}</span>
+                </div>
+                {played ? (
+                  <CardTile word={played.card} role={role} size="sm" state="revealed" />
+                ) : (
+                  <div className="rounded-lg border border-dashed border-line bg-panel-2 text-muted text-xs sm:text-sm px-3 py-3 sm:py-4">
+                    出さない
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 段階2 (900ms): 判定ドーン */}
+      <section className="min-h-20 sm:min-h-24 flex items-center justify-center">
+        {stage >= 1 &&
+          (result.correct ? (
+            <div className="pop-in gold-glow bg-panel border border-gold/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
+              <span className="text-3xl sm:text-5xl font-black text-gold whitespace-nowrap">
+                ⭕ 正解！
+              </span>
+            </div>
+          ) : (
+            <div className="pop-in bg-panel border border-red-500/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
+              <span className="text-3xl sm:text-5xl font-black text-red-400 whitespace-nowrap">
+                ❌ 不正解…
+              </span>
+            </div>
+          ))}
+      </section>
+
+      {/* 段階3 (1600ms): 正解パネル */}
+      {stage >= 2 && (
+        <section className="pop-in w-full bg-panel border border-line rounded-xl p-4 sm:p-5 text-center">
+          <p className="text-muted text-xs font-bold tracking-widest mb-2">
+            {result.correct ? "カードが合体して正解が完成！" : "本来の正解はこれ"}
+          </p>
+          <p className="text-muted text-xs sm:text-sm">{question.answerReading}</p>
+          <p className="text-2xl sm:text-4xl font-black text-gold mb-3">{question.answerDisplay}</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {question.required.map((r, i) => (
+              <div key={`${r.role}-${r.card}`} className="flex items-center gap-2">
+                {i > 0 && <span className="text-gold text-xl sm:text-2xl font-black">＋</span>}
+                <div className="flip-in" style={{ animationDelay: `${i * 250}ms` }}>
+                  <CardTile word={r.card} role={r.role} size="md" state="revealed" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 段階4 (2200ms): 解説パネル */}
+      {stage >= 3 && (
+        <section className="pop-in w-full bg-panel-2 border border-line rounded-xl p-4 sm:p-5">
+          <h3 className="text-gold text-xs font-bold tracking-widest mb-1.5">解説</h3>
+          <p className="text-sm sm:text-base leading-relaxed text-ink/90">
+            {question.explanation}
+          </p>
+        </section>
+      )}
+
+      {/* 最終段階: 次へボタン（着席者のみ活性） */}
+      {stage >= MAX_STAGE ? (
+        <div className="pop-in mt-auto pt-2 flex flex-col items-center gap-2">
+          {isSeated ? (
+            <button
+              onClick={onNext}
+              disabled={sending}
+              className="bg-gold text-card-ink font-bold text-lg px-8 py-3 rounded-xl shadow-lg hover:brightness-110 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition"
+            >
+              {isLast ? "結果発表へ" : "次の問題へ"}
+            </button>
+          ) : (
+            <p className="text-muted text-sm">プレイヤーの操作待ち…</p>
+          )}
+        </div>
+      ) : (
+        <p className="text-muted/70 text-xs mt-auto">タップで演出をスキップ</p>
+      )}
+    </div>
+  );
+}

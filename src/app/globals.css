@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0f1117;
+  --color-panel: #1a1e2a;
+  --color-panel-2: #232838;
+  --color-line: #333a4e;
+  --color-ink: #e8eaf2;
+  --color-muted: #8b93a8;
+  --color-player-a: #f43f5e;
+  --color-player-b: #3b82f6;
+  --color-player-c: #22c55e;
+  --color-gold: #fbbf24;
+  --color-card-face: #f8f7f2;
+  --color-card-ink: #1e2438;
+  --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  min-height: 100%;
+}
+
+/* カード札 */
+.card-tile {
+  background: var(--color-card-face);
+  color: var(--color-card-ink);
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, outline-color 0.12s ease;
+  user-select: none;
+}
+.card-tile:hover {
+  transform: translateY(-3px);
+}
+.card-tile.selected {
+  outline: 3px solid var(--color-gold);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45), 0 10px 18px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes flip-in {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+.flip-in {
+  animation: flip-in 0.45s ease both;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pop-in {
+  animation: pop-in 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes gold-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 34px rgba(251, 191, 36, 0.7);
+  }
+}
+.gold-glow {
+  animation: gold-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+.typewriter-caret::after {
+  content: "｜";
+  animation: blink-caret 0.9s step-end infinite;
+  color: var(--color-gold);
+}

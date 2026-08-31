@@ -1,0 +1,171 @@
+// 問題セットの機械的検証。npm run validate-sets で実行。
+// エラー(致命的)と警告(要判断)を報告し、エラーがあれば exit 1。
+import fs from "fs";
+import path from "path";
+import type { QuestionSet, Role } from "../src/lib/types";
+
+const ROLES: Role[] = ["A", "B", "C"];
+const KANA_RE = /^[ぁ-ゔー]+$/;
+
+const setsDir = path.join(__dirname, "..", "data", "sets");
+const files = fs
+  .readdirSync(setsDir)
+  .filter((f) => f.endsWith(".json"))
+  .sort();
+
+let totalErrors = 0;
+const globalAnswers = new Map<string, string[]>(); // answerReading -> [setId]
+
+/** 手札から高々1枚ずつ選んで answerReading を綴る全ての方法を列挙 */
+function waysToSpell(hands: Record<Role, string[]>, target: string): { role: Role; card: string }[][] {
+  const ways: { role: Role; card: string }[][] = [];
+  // 使用カード列（順序あり・プレイヤー重複なし）の深さ優先探索
+  function dfs(remaining: string, used: { role: Role; card: string }[], usedRoles: Set<Role>) {
+    if (remaining === "") {
+      ways.push([...used]);
+      return;
+    }
+    if (used.length >= 3) return;
+    for (const role of ROLES) {
+      if (usedRoles.has(role)) continue;
+      for (const card of hands[role]) {
+        if (remaining.startsWith(card)) {
+          usedRoles.add(role);
+          used.push({ role, card });
+          dfs(remaining.slice(card.length), used, usedRoles);
+          used.pop();
+          usedRoles.delete(role);
+        }
+      }
+    }
+  }
+  dfs(target, [], new Set());
+  return ways;
+}
+
+for (const file of files) {
+  const raw = JSON.parse(fs.readFileSync(path.join(setsDir, file), "utf8")) as QuestionSet;
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const info: string[] = [];
+
+  // --- 基本構造 ---
+  if (!raw.id || !raw.title || !raw.description) errors.push("id/title/description が必要");
+  if (![1, 2, 3, 4, 5].includes(raw.difficulty)) errors.push("difficulty は 1..5");
+  for (const role of ROLES) {
+    if (!raw.hands?.[role] || raw.hands[role].length !== 10)
+      errors.push(`hands.${role} は10枚必要 (現在 ${raw.hands?.[role]?.length ?? 0})`);
+    for (const card of raw.hands?.[role] ?? []) {
+      if (!KANA_RE.test(card)) errors.push(`カード「${card}」(${role}) がかな以外を含む`);
+      if (card.length > 10) warnings.push(`カード「${card}」が長すぎる(${card.length}文字)`);
+    }
+  }
+  const allCards = ROLES.flatMap((r) => (raw.hands?.[r] ?? []).map((c) => ({ role: r, card: c })));
+  const cardCount = new Map<string, number>();
+  for (const { card } of allCards) cardCount.set(card, (cardCount.get(card) ?? 0) + 1);
+  for (const [card, n] of cardCount) if (n > 1) errors.push(`カード「${card}」が${n}枚重複`);
+
+  const questions = raw.questions ?? [];
+  if (questions.length !== 20 && !raw.title.includes("スタブ"))
+    errors.push(`問題数は20必要 (現在 ${questions.length})`);
+
+  // --- 各問題 ---
+  const usedCards = new Set<string>();
+  const patternSeq: string[] = [];
+  const answerReadings = new Map<string, number>();
+  questions.forEach((q, i) => {
+    const qn = `Q${i + 1}`;
+    if (!q.q || q.q.length < 8) errors.push(`${qn}: 問題文が短すぎる`);
+    if (!q.answerDisplay) errors.push(`${qn}: answerDisplay が必要`);
+    if (!q.explanation) warnings.push(`${qn}: explanation が空`);
+    if (!KANA_RE.test(q.answerReading)) errors.push(`${qn}: answerReading がかな以外を含む`);
+    if (!q.required || q.required.length < 1 || q.required.length > 3)
+      errors.push(`${qn}: required は1〜3要素`);
+
+    const n = answerReadings.get(q.answerReading);
+    if (n !== undefined) errors.push(`${qn}: answerReading「${q.answerReading}」がQ${n + 1}と重複`);
+    answerReadings.set(q.answerReading, i);
+    if (!globalAnswers.has(q.answerReading)) globalAnswers.set(q.answerReading, []);
+    globalAnswers.get(q.answerReading)!.push(raw.id);
+
+    // required整合
+    const roles = new Set<Role>();
+    let concat = "";
+    for (const r of q.required ?? []) {
+      if (roles.has(r.role)) errors.push(`${qn}: 同一プレイヤー${r.role}から2枚要求`);
+      roles.add(r.role);
+      if (!raw.hands?.[r.role]?.includes(r.card))
+        errors.push(`${qn}: ${r.role}の手札に「${r.card}」が無い`);
+      concat += r.card;
+      usedCards.add(`${r.role}:${r.card}`);
+    }
+    if (concat !== q.answerReading)
+      errors.push(`${qn}: requiredの連結「${concat}」≠ answerReading「${q.answerReading}」`);
+
+    patternSeq.push((q.required ?? []).map((r) => r.role).sort().join("+") || "-");
+
+    // 曖昧性: answerReading を綴る別の出し方が存在しないか
+    if (raw.hands && concat === q.answerReading) {
+      const ways = waysToSpell(raw.hands, q.answerReading);
+      const canonical = JSON.stringify(
+        [...(q.required ?? [])].sort((a, b) => a.role.localeCompare(b.role))
+      );
+      const others = ways.filter(
+        (w) => JSON.stringify([...w].sort((a, b) => a.role.localeCompare(b.role))) !== canonical
+      );
+      if (others.length > 0)
+        errors.push(
+          `${qn}: 正解「${q.answerReading}」を別の出し方で綴れてしまう: ${others
+            .map((w) => w.map((x) => `${x.role}:${x.card}`).join("+"))
+            .join(" / ")}`
+        );
+      if (ways.length === 0) errors.push(`${qn}: requiredで正解を綴れない(バグ)`);
+    }
+  });
+
+  // --- 構成レポート ---
+  const singles = patternSeq.filter((p) => p.length === 1).length;
+  const doubles = patternSeq.filter((p) => p.length === 3).length; // "A+B"
+  const triples = patternSeq.filter((p) => p.length === 5).length;
+  info.push(`構成: 単独${singles} / 2枚${doubles} / 3枚${triples}`);
+  info.push(`パターン列: ${patternSeq.join(" ")}`);
+
+  const unused = allCards.filter(({ role, card }) => !usedCards.has(`${role}:${card}`));
+  info.push(
+    `未使用カード(${unused.length}): ${unused.map((u) => `${u.role}:${u.card}`).join(", ") || "なし"}`
+  );
+  if (unused.length > 7) warnings.push(`未使用カードが多すぎる (${unused.length}枚)`);
+
+  const perRole = ROLES.map(
+    (r) => `${r}=${questions.flatMap((q) => q.required).filter((x) => x.role === r).length}`
+  );
+  info.push(`必要カード回数: ${perRole.join(" ")}`);
+
+  // 単独→2枚→3枚の流れ（前半に3枚合体が来ていないか）
+  questions.forEach((q, i) => {
+    if (i < 8 && q.required.length > 1) warnings.push(`Q${i + 1}: 序盤(Q1-8)に${q.required.length}枚合体`);
+    if (i === questions.length - 1 && q.required.length !== 3 && questions.length === 20)
+      warnings.push(`最終問題が3枚合体でない`);
+  });
+
+  // --- 出力 ---
+  console.log(`\n=== ${file} (${raw.id}: ${raw.title}) ===`);
+  for (const e of errors) console.log(`  ERROR: ${e}`);
+  for (const w of warnings) console.log(`  warn : ${w}`);
+  for (const s of info) console.log(`  info : ${s}`);
+  if (errors.length === 0) console.log("  OK");
+  totalErrors += errors.length;
+}
+
+// --- セット間の答え重複（警告のみ） ---
+const dups = [...globalAnswers.entries()].filter(([, sets]) => sets.length > 1);
+if (dups.length > 0) {
+  console.log("\n--- セット間で重複する答え ---");
+  for (const [reading, sets] of dups) console.log(`  warn : 「${reading}」 が ${sets.join(", ")} で重複`);
+}
+
+if (totalErrors > 0) {
+  console.log(`\n合計 ${totalErrors} エラー`);
+  process.exit(1);
+}
+console.log("\n全セット検証OK");
