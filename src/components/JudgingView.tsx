@@ -117,7 +117,11 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
       {stage >= 2 && (
         <section className="pop-in w-full bg-panel border border-line rounded-xl p-4 sm:p-5 text-center">
           <p className="text-muted text-xs font-bold tracking-widest mb-2">
-            {result.correct ? "カードが合体して正解が完成！" : "本来の正解はこれ"}
+            {result.correct
+              ? question.required.length >= 2
+                ? "カードが合体して正解が完成！"
+                : "みごと正解！"
+              : "本来の正解はこれ"}
           </p>
           <p className="text-muted text-xs sm:text-sm">{question.answerReading}</p>
           <p className="text-2xl sm:text-4xl font-black text-gold mb-3">{question.answerDisplay}</p>
