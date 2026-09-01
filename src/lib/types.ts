@@ -10,6 +10,13 @@ export interface SetQuestion {
   required: { role: Role; card: string }[];
   explanation: string;
   source: string;
+  /**
+   * 設計メタデータ（クライアントには送らない）。
+   * この問題で「正解に不要なのに出すか悩む」札を記録する。
+   * 罠は必ず required 以外のプレイヤーが持ち、答えと同カテゴリの兄弟概念で、
+   * かつ問題文の限定句で明確に切れるものであること。
+   */
+  traps?: { role: Role; card: string; why: string }[];
 }
 
 export interface QuestionSet {

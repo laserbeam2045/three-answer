@@ -142,6 +142,57 @@ for (const file of files) {
     });
   }
 
+  // --- 罠（緊張）の検査 ---
+  // 全問について「正解に不要なプレイヤーの誰かが出すか悩む札」が必要。
+  // traps は設計メタデータ（アプリは使わない）。
+  {
+    const tensionGrid: Record<Role, string[]> = { A: [], B: [], C: [] };
+    questions.forEach((q, i) => {
+      const qn = `Q${i + 1}`;
+      const requiredRoles = new Set((q.required ?? []).map((r) => r.role));
+      const traps = q.traps ?? [];
+      for (const t of traps) {
+        if (!ROLES.includes(t.role)) {
+          errors.push(`${qn}: trap の role が不正 (${t.role})`);
+          continue;
+        }
+        if (!raw.hands?.[t.role]?.includes(t.card))
+          errors.push(`${qn}: trap「${t.card}」が${t.role}の手札に無い`);
+        if (requiredRoles.has(t.role))
+          errors.push(`${qn}: trap「${t.card}」の持ち主${t.role}はこの問題の必要プレイヤー`);
+        if (!t.why || t.why.length < 4) warnings.push(`${qn}: trap「${t.card}」に理由(why)が無い`);
+      }
+      const trapRoles = new Set(traps.map((t) => t.role));
+      if (requiredRoles.size < 3 && trapRoles.size === 0)
+        errors.push(`${qn}: 誰も悩まない問題（罠が1つも無い）`);
+
+      for (const role of ROLES) {
+        tensionGrid[role].push(
+          requiredRoles.has(role) ? "R" : trapRoles.has(role) ? "T" : "-"
+        );
+      }
+    });
+
+    // 連続無関心区間（3問以上）の検出
+    for (const role of ROLES) {
+      const seq = tensionGrid[role];
+      let run = 0;
+      let worst = 0;
+      let at = 0;
+      seq.forEach((v, i) => {
+        if (v === "-") {
+          run++;
+          if (run > worst) {
+            worst = run;
+            at = i - run + 2;
+          }
+        } else run = 0;
+      });
+      if (worst >= 3) warnings.push(`${role}: Q${at}から${worst}問連続で出番も悩みも無い`);
+      info.push(`緊張 ${role}: ${seq.join("")}`);
+    }
+  }
+
   // --- 構成レポート ---
   const singles = patternSeq.filter((p) => p.length === 1).length;
   const doubles = patternSeq.filter((p) => p.length === 3).length; // "A+B"
