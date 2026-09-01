@@ -35,7 +35,7 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
   const decideLabel = passSelected ? "出さないで決定" : "この選択で決定";
 
   return (
-    <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-4 p-4 sm:p-6">
+    <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-2.5 sm:gap-4 p-3 sm:p-6">
       {/* 上部: 問題番号バッジ + タイマー */}
       <div className="flex items-center gap-3">
         <span className="shrink-0 inline-flex items-baseline gap-1 rounded-full bg-gold text-card-ink font-bold px-4 py-1.5 text-sm sm:text-base shadow">
@@ -48,14 +48,14 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
       </div>
 
       {/* 問題文パネル */}
-      <section className="bg-panel border border-line rounded-2xl px-5 py-8 sm:px-10 sm:py-12 shadow-lg min-h-36 sm:min-h-44 flex items-center justify-center">
-        <p className="text-xl sm:text-2xl font-bold leading-relaxed text-center text-ink">
+      <section className="bg-panel border border-line rounded-2xl px-4 py-4 sm:px-10 sm:py-12 shadow-lg min-h-28 sm:min-h-44 flex items-center justify-center">
+        <p className="text-base sm:text-2xl font-bold leading-relaxed text-center text-ink">
           {inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
         </p>
       </section>
 
       {/* 席ステータス行 */}
-      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
         {seats.map((seat) => (
           <SeatBadge key={seat.role} seat={seat} isYou={seat.role === you.role} />
         ))}
@@ -64,15 +64,15 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
       {isSeated && myHand && mySelection ? (
         <>
           {/* 手札 */}
-          <section className="bg-panel-2/60 border border-line rounded-2xl p-4 sm:p-5">
-            <h2 className="text-sm text-muted font-bold mb-3">あなたの手札</h2>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <section className="bg-panel-2/60 border border-line rounded-2xl p-2.5 sm:p-5">
+            <h2 className="text-xs sm:text-sm text-muted font-bold mb-2 sm:mb-3">あなたの手札</h2>
+            <div className="flex flex-wrap justify-center gap-1.5 sm:gap-3">
               {myHand.map((word, index) => (
                 <CardTile
                   key={`${qIndex}-${index}`}
                   word={word}
                   role={you.role}
-                  size="md"
+                  size="hand"
                   flip
                   state={
                     locked
@@ -92,12 +92,12 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
           </section>
 
           {/* 操作列 */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <button
               type="button"
               disabled={locked}
               onClick={() => void send({ type: "select", cardIndex: null })}
-              className={`rounded-xl px-5 py-2.5 font-bold border transition-colors ${
+              className={`rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-bold border transition-colors ${
                 passSelected
                   ? "border-gold text-gold bg-gold/10 shadow-[0_0_12px_rgba(251,191,36,0.25)]"
                   : "border-line text-muted hover:text-ink hover:border-ink/40"
@@ -110,19 +110,19 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
               <button
                 type="button"
                 onClick={() => void send({ type: "lock" })}
-                className="rounded-xl px-6 py-2.5 font-bold bg-gold text-card-ink shadow hover:brightness-110 cursor-pointer transition-[filter]"
+                className="rounded-xl px-5 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base font-bold bg-gold text-card-ink shadow hover:brightness-110 cursor-pointer transition-[filter]"
               >
                 {decideLabel}
               </button>
             ) : (
               <>
-                <span className="rounded-xl px-6 py-2.5 font-bold border border-gold text-gold bg-panel">
+                <span className="rounded-xl px-5 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base font-bold border border-gold text-gold bg-panel">
                   決定済み ✓
                 </span>
                 <button
                   type="button"
                   onClick={() => void send({ type: "unlock" })}
-                  className="rounded-xl px-5 py-2.5 font-bold border border-line text-muted hover:text-ink hover:border-ink/40 cursor-pointer transition-colors"
+                  className="rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-bold border border-line text-muted hover:text-ink hover:border-ink/40 cursor-pointer transition-colors"
                 >
                   選び直す
                 </button>

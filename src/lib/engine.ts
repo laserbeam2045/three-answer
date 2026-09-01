@@ -189,8 +189,8 @@ export function applyAction(
 
     case "start": {
       if (state.phase !== "lobby") throw new EngineError("すでに開始しています");
-      if (role === null && token !== state.hostToken)
-        throw new EngineError("着席者またはホストのみ開始できます");
+      if (token !== state.hostToken)
+        throw new EngineError("ルーム作成者のみゲームを開始できます");
       const set = state.setId ? getSet(state.setId) : undefined;
       if (!set) throw new EngineError("問題セットを選択してください");
       for (const r of ROLES) {

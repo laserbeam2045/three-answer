@@ -100,9 +100,9 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
   let youChipMarked = false;
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col gap-6 p-4 sm:p-6 pb-16">
+    <div className="w-full max-w-3xl mx-auto flex flex-col gap-3 sm:gap-6 p-3 sm:p-6 pb-16">
       {/* 1. 招待パネル */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>友達を招待</SectionTitle>
         <div className="flex flex-col sm:flex-row gap-2">
           <input
@@ -128,7 +128,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 2. 名前編集 */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>あなたの名前</SectionTitle>
         <div className="flex gap-2">
           <input
@@ -154,9 +154,9 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 3. 席パネル */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>プレイヤー席</SectionTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
           {state.seats.map((seat) => {
             const style = SEAT_STYLES[seat.role];
             const isYou = seat.role === state.you.role;
@@ -165,30 +165,33 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             return (
               <div
                 key={seat.role}
-                className={`rounded-xl border-2 p-4 min-h-36 flex flex-col items-center justify-between gap-3 ${
+                className={`rounded-xl border-2 p-1.5 sm:p-4 min-h-28 sm:min-h-36 flex flex-col items-center justify-between gap-1.5 sm:gap-3 min-w-0 ${
                   isEmpty ? "border-dashed" : ""
                 } ${style.border} ${isYou ? `${style.tint} ${style.ring}` : "bg-panel-2"}`}
               >
-                <div className={`text-2xl font-black ${style.text}`}>{seat.role}</div>
+                <div className={`text-lg sm:text-2xl font-black ${style.text}`}>{seat.role}</div>
                 {isEmpty ? (
                   <>
-                    <p className="text-muted text-sm">空席</p>
+                    <p className="text-muted text-xs sm:text-sm">空席</p>
                     <button
                       type="button"
                       onClick={() => void send({ type: "sit", role: seat.role })}
-                      className={`w-full py-2 rounded-lg font-bold text-white text-sm ${style.btn} transition`}
+                      className={`w-full py-1.5 sm:py-2 rounded-lg font-bold text-white text-xs sm:text-sm ${style.btn} transition`}
                     >
-                      この席に座る
+                      <span className="sm:hidden">座る</span>
+                      <span className="hidden sm:inline">この席に座る</span>
                     </button>
                   </>
                 ) : (
                   <>
-                    <SeatBadge seat={seat} isYou={isYou} />
+                    <div className="min-w-0 max-w-full">
+                      <SeatBadge seat={seat} isYou={isYou} />
+                    </div>
                     {isYou ? (
                       <button
                         type="button"
                         onClick={() => void send({ type: "standUp" })}
-                        className="w-full py-2 rounded-lg font-bold text-sm bg-panel border border-line text-ink hover:border-gold transition-colors"
+                        className="w-full py-1.5 sm:py-2 rounded-lg font-bold text-xs sm:text-sm bg-panel border border-line text-ink hover:border-gold transition-colors"
                       >
                         席を立つ
                       </button>
@@ -196,12 +199,13 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                       <button
                         type="button"
                         onClick={() => void send({ type: "sit", role: seat.role })}
-                        className={`w-full py-2 rounded-lg font-bold text-white text-sm ${style.btn} transition`}
+                        className={`w-full py-1.5 sm:py-2 rounded-lg font-bold text-white text-xs sm:text-sm ${style.btn} transition`}
                       >
-                        代わりに座る
+                        <span className="sm:hidden">交代する</span>
+                        <span className="hidden sm:inline">代わりに座る</span>
                       </button>
                     ) : (
-                      <div className="h-9" aria-hidden />
+                      <div className="h-7 sm:h-9" aria-hidden />
                     )}
                   </>
                 )}
@@ -212,7 +216,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 4. 観戦者 */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>観戦者</SectionTitle>
         {state.spectators.length === 0 ? (
           <p className="text-muted text-sm">観戦者はいません</p>
@@ -247,7 +251,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 5. 問題セット選択 */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>問題セットを選ぶ</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {state.setMeta.map((m) => {
@@ -275,7 +279,9 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                   <span className="text-gold">{"★".repeat(m.difficulty)}</span>
                   <span className="text-muted">{"☆".repeat(Math.max(0, 5 - m.difficulty))}</span>
                 </div>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{m.description}</p>
+                <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2 sm:line-clamp-none">
+                  {m.description}
+                </p>
               </button>
             );
           })}
@@ -283,7 +289,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 6. 制限時間設定 */}
-      <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
         <SectionTitle>解答時間（1問あたり）</SectionTitle>
         <div className="inline-flex rounded-lg border border-line overflow-hidden">
           {SECONDS_OPTIONS.map((sec) => {
@@ -306,24 +312,31 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         </div>
       </section>
 
-      {/* 7. 開始ボタン */}
+      {/* 7. 開始ボタン（ルーム作成者のみ） */}
       <section>
-        <button
-          type="button"
-          disabled={!canStart}
-          onClick={() => void send({ type: "start" })}
-          className={`w-full py-4 rounded-xl text-xl font-black tracking-widest transition ${
-            canStart
-              ? "bg-gold text-card-ink hover:brightness-110 gold-glow"
-              : "bg-panel-2 text-muted cursor-not-allowed border border-line"
-          }`}
-        >
-          ゲーム開始
-        </button>
+        {state.you.isHost ? (
+          <button
+            type="button"
+            disabled={!canStart}
+            onClick={() => void send({ type: "start" })}
+            className={`w-full py-3.5 sm:py-4 rounded-xl text-lg sm:text-xl font-black tracking-widest transition ${
+              canStart
+                ? "bg-gold text-card-ink hover:brightness-110 gold-glow"
+                : "bg-panel-2 text-muted cursor-not-allowed border border-line"
+            }`}
+          >
+            ゲーム開始
+          </button>
+        ) : (
+          <div className="w-full py-3.5 sm:py-4 rounded-xl text-center bg-panel-2 border border-line text-muted text-sm">
+            ゲーム開始はルーム作成者
+            {state.hostName ? `（${state.hostName}さん）` : ""}が行います
+          </div>
+        )}
         {!canStart && (
           <ul className="mt-2 flex flex-col gap-1">
             {startReasons.map((r) => (
-              <li key={r} className="text-sm text-muted text-center">
+              <li key={r} className="text-xs sm:text-sm text-muted text-center">
                 ・{r}
               </li>
             ))}
@@ -333,7 +346,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
 
       {/* 8. これまでの記録 */}
       {state.gameRecords.length > 0 && (
-        <section className="bg-panel border border-line rounded-xl p-4 sm:p-5">
+        <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
           <SectionTitle>これまでの記録</SectionTitle>
           <ul className="flex flex-col gap-1.5">
             {state.gameRecords.map((rec, i) => (

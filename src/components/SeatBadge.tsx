@@ -12,15 +12,15 @@ export default function SeatBadge({ seat, isYou }: { seat: SeatView; isYou: bool
   const occupied = seat.token !== null;
 
   return (
-    <div className="inline-flex items-center gap-2 min-w-0">
+    <div className="inline-flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-full">
       <span
-        className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-extrabold text-white shadow ${ROLE_BG[seat.role]} ${occupied ? "" : "opacity-40"}`}
+        className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs sm:text-sm font-extrabold text-white shadow ${ROLE_BG[seat.role]} ${occupied ? "" : "opacity-40"}`}
       >
         {seat.role}
       </span>
       <span className="min-w-0 flex items-center gap-1.5">
         <span
-          className={`truncate font-bold ${occupied ? "text-ink" : "text-muted font-normal"}`}
+          className={`truncate font-bold text-sm sm:text-base ${occupied ? "text-ink" : "text-muted font-normal"}`}
         >
           {seat.name ?? "空席"}
         </span>

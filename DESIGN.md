@@ -127,7 +127,7 @@ interface QuestionResult {
   - `{ type: "sit", role }`（空席のみ。ゲーム中は非アクティブ席の引き継ぎも可）
   - `{ type: "standUp" }`（lobbyのみ）
   - `{ type: "selectSet", setId }`（host or 着席者、lobbyのみ）
-  - `{ type: "start" }`（3席埋まり・全席アクティブ・setId選択済み、lobby→question。answers初期化）
+  - `{ type: "start" }`（**ルーム作成者(hostToken)のみ**。3席埋まり・全席アクティブ・setId選択済み、lobby→question。answers初期化）
   - `{ type: "select", cardIndex: number | null }`（着席者、questionフェーズ、未locked時）
   - `{ type: "lock" }` / `{ type: "unlock" }`（unlockは全員locked前のみ）
   - `{ type: "next" }`（judgingフェーズ、着席者なら誰でも。qIndex<19→次のquestion、=19→results。resultsで playedSetIds に追加）
@@ -140,7 +140,7 @@ interface QuestionResult {
 
 `/room/[roomId]` は `phase` に応じて切替:
 
-1. **Lobby**: 名前設定、A/B/C席（クリックで着席、codenames風）、観戦者一覧、セット選択（難易度表示・遊了バッジ付きカードUI）、開始ボタン（条件未満はdisabled + 理由表示）。
+1. **Lobby**: 名前設定、A/B/C席（クリックで着席、codenames風。**スマホでも3席横並び**）、観戦者一覧、セット選択（難易度表示・遊了バッジ付きカードUI）、開始ボタン（**ルーム作成者のみ表示**。条件未満はdisabled + 理由表示。非ホストには「開始は作成者が行います」表記）。
 2. **Question**: 上部に「第n問 / 20」、問題文タイプライター、残り時間バー+秒数。下部に自分の手札10枚（カードUI、選択でハイライト）、「出さない」ボタン、「決定」（ロック）。他プレイヤーの状態インジケータ（考え中/決定済み）。観戦者は手札の代わりに「決定状況」を見る（revealトグルONなら全手札表示）。
 3. **Judging（全員同一表示）**: 場に出たカードをプレイヤー別に表示 → 正解/不正解を大きく演出（○/×、色）。正解の場合は出たカードが連結して正解語になる演出。**毎問、本来の正解（answerDisplay + 読み）と解説を表示**。「次の問題へ」ボタン。
 4. **Results**: スコア（n/20）大表示、全20問の履歴テーブル（問題・正解・必要カード・出たカード・○×・解説の展開）、全員の手札公開、「ロビーに戻る（別セットで再戦）」。

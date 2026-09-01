@@ -3,7 +3,7 @@
 import type { Role } from "@/lib/types";
 
 type TileState = "normal" | "selected" | "disabled" | "revealed";
-type TileSize = "sm" | "md" | "lg";
+type TileSize = "sm" | "md" | "lg" | "hand";
 
 const ROLE_BAR: Record<Role, string> = {
   A: "bg-player-a",
@@ -15,6 +15,8 @@ const SIZE_CLS: Record<TileSize, string> = {
   sm: "min-w-12 px-2 pt-1.5 pb-2.5 text-sm",
   md: "min-w-16 px-3 pt-2 pb-3.5 text-base",
   lg: "min-w-20 px-4 pt-3 pb-4.5 text-xl",
+  // 手札用: スマホでは小さく、sm以上でmd相当
+  hand: "min-w-11 px-1.5 pt-1.5 pb-2.5 text-sm sm:min-w-16 sm:px-3 sm:pt-2 sm:pb-3.5 sm:text-base",
 };
 
 export default function CardTile({

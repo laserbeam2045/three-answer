@@ -296,6 +296,26 @@ describe("engine: バリデーション", () => {
     expect(state.phase).toBe("lobby");
   });
 
+  it("start はルーム作成者(host)以外は拒否される", () => {
+    const now = 1_000_000;
+    const p = activePresence(now);
+    const state = createRoom("r1", "tokA", "ホスト", now);
+    applyAction(state, "tokA", { type: "sit", role: "A" }, p, now, getSet, allSets);
+    applyAction(state, "tokB", { type: "sit", role: "B" }, p, now, getSet, allSets);
+    applyAction(state, "tokC", { type: "sit", role: "C" }, p, now, getSet, allSets);
+    applyAction(state, "tokA", { type: "selectSet", setId: "set2" }, p, now, getSet, allSets);
+
+    // 着席者でもホストでなければ開始できない
+    expect(() =>
+      applyAction(state, "tokB", { type: "start" }, p, now, getSet, allSets)
+    ).toThrow(EngineError);
+    expect(state.phase).toBe("lobby");
+
+    // ホストなら開始できる
+    applyAction(state, "tokA", { type: "start" }, p, now, getSet, allSets);
+    expect(state.phase).toBe("question");
+  });
+
   it("2問セットでは 2問目の next で results になる", () => {
     let now = 1_000_000;
     const state = setupQuestionPhase("set2", now);

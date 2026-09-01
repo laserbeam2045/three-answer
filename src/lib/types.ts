@@ -121,6 +121,7 @@ export interface RedactedState {
     role: Role | null; // null = 観戦者
     isHost: boolean;
   };
+  hostName: string | null;
   seats: SeatView[];
   spectators: { name: string; active: boolean }[];
   setId: string | null;

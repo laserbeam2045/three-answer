@@ -73,6 +73,7 @@ export function redact(
       role: myRole,
       isHost: token === state.hostToken,
     },
+    hostName: state.clients[state.hostToken]?.name ?? null,
     seats,
     spectators,
     setId: state.setId,
