@@ -57,6 +57,37 @@ export function useRoom(roomId: string): UseRoomResult {
   const inFlightRef = useRef(false);
   const revealRef = useRef(false);
   revealRef.current = spectatorReveal;
+  // 送信中アクションの楽観的反映（サーバー応答前にUIへ反映し、応答が来たら上書き）
+  const pendingRef = useRef<Action[]>([]);
+
+  const applyOptimistic = (s: RedactedState, action: Action): RedactedState => {
+    switch (action.type) {
+      case "select":
+        if (s.phase === "question" && s.mySelection && !s.mySelection.locked) {
+          return { ...s, mySelection: { ...s.mySelection, cardIndex: action.cardIndex } };
+        }
+        return s;
+      case "lock":
+        if (s.phase === "question" && s.mySelection) {
+          return { ...s, mySelection: { ...s.mySelection, locked: true } };
+        }
+        return s;
+      case "unlock":
+        if (s.phase === "question" && s.mySelection) {
+          return { ...s, mySelection: { ...s.mySelection, locked: false } };
+        }
+        return s;
+      case "selectSet":
+        return { ...s, setId: action.setId };
+      case "setAnswerSeconds":
+        return { ...s, settings: { ...s.settings, answerSeconds: action.seconds } };
+      default:
+        return s;
+    }
+  };
+
+  const withPendingOverlay = (s: RedactedState): RedactedState =>
+    pendingRef.current.reduce(applyOptimistic, s);
 
   const acceptState = useCallback((s: RedactedState, serverNow: number) => {
     const sample = serverNow - Date.now();
@@ -64,7 +95,7 @@ export function useRoom(roomId: string): UseRoomResult {
       offsetRef.current === 0 ? sample : offsetRef.current * 0.7 + sample * 0.3;
     if (stateRef.current && s.v < stateRef.current.v) return;
     stateRef.current = s;
-    setState(s);
+    setState(withPendingOverlay(s));
   }, []);
 
   const poll = useCallback(async () => {
@@ -111,6 +142,13 @@ export function useRoom(roomId: string): UseRoomResult {
 
   const send = useCallback(
     async (action: Action): Promise<boolean> => {
+      // 楽観的反映: サーバー応答を待たず即座にUIへ
+      pendingRef.current.push(action);
+      if (stateRef.current) setState(withPendingOverlay(stateRef.current));
+      const removePending = () => {
+        const i = pendingRef.current.indexOf(action);
+        if (i !== -1) pendingRef.current.splice(i, 1);
+      };
       try {
         const res = await fetch(`/api/rooms/${roomId}/actions`, {
           method: "POST",
@@ -118,24 +156,30 @@ export function useRoom(roomId: string): UseRoomResult {
           body: JSON.stringify({ token: tokenRef.current, action }),
         });
         if (res.status === 404) {
+          removePending();
           setFatalError("ルームが見つかりません。");
           return false;
         }
         const data = (await res.json()) as
           | { state: RedactedState; serverNow: number }
           | { error: string };
+        removePending();
         if (!res.ok) {
           const msg = "error" in data ? data.error : "操作に失敗しました";
           setActionError(msg);
           setTimeout(() => setActionError(null), 3000);
+          // 楽観的反映を巻き戻す（最新のサーバー状態で再描画 + 再ポーリング）
+          if (stateRef.current) setState(withPendingOverlay(stateRef.current));
           void poll();
           return false;
         }
         if ("state" in data) acceptState(data.state, data.serverNow);
         return true;
       } catch {
+        removePending();
         setActionError("通信エラーが発生しました");
         setTimeout(() => setActionError(null), 3000);
+        if (stateRef.current) setState(withPendingOverlay(stateRef.current));
         return false;
       }
     },

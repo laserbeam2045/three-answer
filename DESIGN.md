@@ -126,11 +126,12 @@ interface QuestionResult {
   - `{ type: "setName", name }`
   - `{ type: "sit", role }`（空席のみ。ゲーム中は非アクティブ席の引き継ぎも可）
   - `{ type: "standUp" }`（lobbyのみ）
-  - `{ type: "selectSet", setId }`（host or 着席者、lobbyのみ）
+  - `{ type: "selectSet", setId }`（**ルーム作成者のみ**、lobbyのみ）
+  - `{ type: "setAnswerSeconds", seconds }`（**ルーム作成者のみ**、lobbyのみ）
   - `{ type: "start" }`（**ルーム作成者(hostToken)のみ**。3席埋まり・全席アクティブ・setId選択済み、lobby→question。answers初期化）
   - `{ type: "select", cardIndex: number | null }`（着席者、questionフェーズ、未locked時）
   - `{ type: "lock" }` / `{ type: "unlock" }`（unlockは全員locked前のみ）
-  - `{ type: "next" }`（judgingフェーズ、着席者なら誰でも。qIndex<19→次のquestion、=19→results。resultsで playedSetIds に追加）
+  - `{ type: "next" }`（judgingフェーズ、**ルーム作成者のみ**。qIndex<19→次のquestion、=19→results。resultsで playedSetIds に追加）
   - `{ type: "backToLobby" }`（resultsフェーズ、着席者。スコア履歴はルームに保持したまま lobby へ。別セットを選んで再戦可能）
 - 書き込みは全て CAS リトライループ（`store.ts` の `mutate(roomId, fn)`）。
 
@@ -182,4 +183,7 @@ tests/*.test.ts         … engine/judge/time のユニットテスト
   - 引っかけ: 正解には不要だが「出すべきか？」と悩む札を意図的に配る（例: サンドイッチ問題に れたす・はむ、駅伝問題に かなくりしそうはい）。**各問題に最低1枚は引っかけ候補があること**。引っかけは熟考すれば「出さない」と判断できる明確な根拠があること。
   - 未使用カードは最小限に（0〜3枚程度。全て引っかけとして機能させる）。
 - 禁止事項: 30枚に重複、正解が2通りの出し方で作れる構成、必要カードを複数人が持つ構成、判定の曖昧さ。
-- `explanation` には「なぜこの答えか」+「引っかけの種明かし」（例: 「Cの『てつどう』を出したくなるが、問われているのは元となったRPGなので『でんせつ』」）。
+- `explanation` には「なぜこの答えか」+「引っかけの種明かし」を書く。ただし**手札のネタバレ禁止**:
+  第i問の判定時点で公開済みなのは Q1〜Qi の required のカードのみ。それ以外のカードは
+  名前を出すだけで「誰かが持っている」ことがバレるため、カード名・持ち主とも言及禁止
+  （概念レベルの言い換えで種明かしする。バリデータが「」引用の未公開カード名を機械検出する）。

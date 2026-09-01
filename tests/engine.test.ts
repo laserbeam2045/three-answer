@@ -311,6 +311,14 @@ describe("engine: バリデーション", () => {
     ).toThrow(EngineError);
     expect(state.phase).toBe("lobby");
 
+    // セット選択・解答時間の変更もホスト限定
+    expect(() =>
+      applyAction(state, "tokB", { type: "selectSet", setId: "set2" }, p, now, getSet, allSets)
+    ).toThrow(EngineError);
+    expect(() =>
+      applyAction(state, "tokC", { type: "setAnswerSeconds", seconds: 60 }, p, now, getSet, allSets)
+    ).toThrow(EngineError);
+
     // ホストなら開始できる
     applyAction(state, "tokA", { type: "start" }, p, now, getSet, allSets);
     expect(state.phase).toBe("question");

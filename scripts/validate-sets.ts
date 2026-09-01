@@ -123,6 +123,25 @@ for (const file of files) {
     }
   });
 
+  // --- 解説のネタバレ検査 ---
+  // 判定画面(Q i)の時点で公開済みのカード = Q1..Qi の required（正誤に関わらず判定画面で公開される）。
+  // それ以外のカード名を解説が「」付きで名指ししていたら、手札情報のネタバレとしてエラー。
+  {
+    const allCardNames = new Set(allCards.map((c) => c.card));
+    const publicByNow = new Set<string>();
+    questions.forEach((q, i) => {
+      for (const r of q.required ?? []) publicByNow.add(r.card);
+      const quoted = [...(q.explanation ?? "").matchAll(/「([^」]+)」/g)].map((m) => m[1]);
+      for (const t of quoted) {
+        if (allCardNames.has(t) && !publicByNow.has(t)) {
+          errors.push(
+            `Q${i + 1}: 解説が未公開カード「${t}」に言及している（手札のネタバレ）`
+          );
+        }
+      }
+    });
+  }
+
   // --- 構成レポート ---
   const singles = patternSeq.filter((p) => p.length === 1).length;
   const doubles = patternSeq.filter((p) => p.length === 3).length; // "A+B"

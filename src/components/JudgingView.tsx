@@ -34,7 +34,7 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
   if (!state || !judged) return null;
 
   const { result, question } = judged;
-  const isSeated = state.you.role !== null;
+  const isHost = state.you.isHost;
   const isLast = state.qIndex === 19;
 
   const seatName = (role: Role): string =>
@@ -151,16 +151,16 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
       {/* 最終段階: 次へボタン（着席者のみ活性） */}
       {stage >= MAX_STAGE ? (
         <div className="pop-in mt-auto pt-2 flex flex-col items-center gap-2">
-          {isSeated ? (
+          {isHost ? (
             <button
               onClick={onNext}
               disabled={sending}
               className="bg-gold text-card-ink font-bold text-lg px-8 py-3 rounded-xl shadow-lg hover:brightness-110 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition"
             >
-              {isLast ? "結果発表へ" : "次の問題へ"}
+              {sending ? "読み込み中…" : isLast ? "結果発表へ" : "次の問題へ"}
             </button>
           ) : (
-            <p className="text-muted text-sm">プレイヤーの操作待ち…</p>
+            <p className="text-muted text-sm">ルーム作成者の操作待ち…</p>
           )}
         </div>
       ) : (

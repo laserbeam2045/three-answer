@@ -257,9 +257,16 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         )}
       </section>
 
-      {/* 5. 問題セット選択 */}
+      {/* 5. 問題セット選択（ルーム作成者のみ操作可） */}
       <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
-        <SectionTitle>問題セットを選ぶ</SectionTitle>
+        <SectionTitle>
+          問題セット
+          {!state.you.isHost && (
+            <span className="ml-2 font-normal normal-case tracking-normal">
+              （ルーム作成者が選びます）
+            </span>
+          )}
+        </SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {state.setMeta.map((m) => {
             const selected = state.setId === m.id;
@@ -267,11 +274,18 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
               <button
                 key={m.id}
                 type="button"
-                onClick={() => void send({ type: "selectSet", setId: m.id })}
+                disabled={!state.you.isHost}
+                onClick={
+                  state.you.isHost
+                    ? () => void send({ type: "selectSet", setId: m.id })
+                    : undefined
+                }
                 className={`text-left rounded-xl p-4 border-2 transition-colors ${
                   selected
                     ? "border-gold bg-gold/5 gold-glow"
-                    : "border-line bg-panel-2 hover:border-muted"
+                    : "border-line bg-panel-2"
+                } ${state.you.isHost ? "hover:border-muted cursor-pointer" : "cursor-default opacity-80"} ${
+                  selected ? "opacity-100" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
@@ -295,9 +309,16 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         </div>
       </section>
 
-      {/* 6. 制限時間設定 */}
+      {/* 6. 制限時間設定（ルーム作成者のみ操作可） */}
       <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
-        <SectionTitle>解答時間（1問あたり）</SectionTitle>
+        <SectionTitle>
+          解答時間（1問あたり）
+          {!state.you.isHost && (
+            <span className="ml-2 font-normal normal-case tracking-normal">
+              （ルーム作成者が選びます）
+            </span>
+          )}
+        </SectionTitle>
         <div className="inline-flex rounded-lg border border-line overflow-hidden">
           {SECONDS_OPTIONS.map((sec) => {
             const active = state.settings.answerSeconds === sec;
@@ -305,12 +326,17 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
               <button
                 key={sec}
                 type="button"
-                onClick={() => void send({ type: "setAnswerSeconds", seconds: sec })}
+                disabled={!state.you.isHost}
+                onClick={
+                  state.you.isHost
+                    ? () => void send({ type: "setAnswerSeconds", seconds: sec })
+                    : undefined
+                }
                 className={`px-4 sm:px-6 py-2 text-sm font-bold transition-colors ${
                   active
                     ? "bg-gold text-card-ink"
-                    : "bg-panel-2 text-muted hover:text-ink"
-                }`}
+                    : `bg-panel-2 text-muted ${state.you.isHost ? "hover:text-ink" : ""}`
+                } ${state.you.isHost ? "" : "cursor-default"}`}
               >
                 {sec}秒
               </button>

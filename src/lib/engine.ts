@@ -174,6 +174,8 @@ export function applyAction(
 
     case "selectSet": {
       if (state.phase !== "lobby") throw new EngineError("ロビーでのみ選択できます");
+      if (token !== state.hostToken)
+        throw new EngineError("問題セットはルーム作成者のみ選べます");
       if (!getSet(action.setId)) throw new EngineError("セットが見つかりません");
       state.setId = action.setId;
       return;
@@ -181,6 +183,8 @@ export function applyAction(
 
     case "setAnswerSeconds": {
       if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
+      if (token !== state.hostToken)
+        throw new EngineError("解答時間はルーム作成者のみ変更できます");
       const s = Math.round(action.seconds);
       if (![30, 45, 60, 90].includes(s)) throw new EngineError("不正な秒数です");
       state.settings.answerSeconds = s;
@@ -240,7 +244,8 @@ export function applyAction(
 
     case "next": {
       if (state.phase !== "judging") throw new EngineError("判定フェーズではありません");
-      if (role === null) throw new EngineError("着席者のみ進められます");
+      if (token !== state.hostToken)
+        throw new EngineError("次へ進めるのはルーム作成者のみです");
       const set = getSet(state.setId!);
       if (!set) throw new EngineError("set not found");
       if (state.qIndex >= set.questions.length - 1) {
