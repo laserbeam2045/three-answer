@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getLocalName, getLocalToken, setLocalName } from "@/hooks/useRoom";
+import RulesContent from "@/components/RulesContent";
 
 export default function Home() {
   const router = useRouter();
@@ -56,13 +57,7 @@ export default function Home() {
 
       <div className="max-w-lg w-full bg-panel rounded-2xl border border-line p-6 space-y-4">
         <h2 className="font-bold text-lg">あそびかた</h2>
-        <ul className="text-sm text-muted space-y-2 leading-relaxed">
-          <li>・3人のプレイヤーに、それぞれ10枚のひらがなカードが配られます。自分の手札しか見えません。</li>
-          <li>・クイズの正解は、場に出されたカードの読みをつなげた言葉。序盤は1枚、後半は2枚・3枚の合体で完成します。</li>
-          <li>・正解に必要なカードを持つ人が過不足なく出せたときだけ正解。不要な人が出したり、必要な人が出さなかったら不正解！</li>
-          <li>・相談は禁止。「自分の札が必要かどうか」を読み切るのがこのゲームの醍醐味です。</li>
-          <li>・全20問。3人以外は観戦者として参加できます。</li>
-        </ul>
+        <RulesContent />
       </div>
 
       <div className="max-w-lg w-full bg-panel rounded-2xl border border-line p-6 space-y-4">

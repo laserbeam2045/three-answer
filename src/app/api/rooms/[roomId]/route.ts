@@ -23,6 +23,7 @@ export async function GET(
   if (!token || token.length < 8) token = tokenGen();
   const visible = url.searchParams.get("visible") !== "0";
   const spectatorReveal = url.searchParams.get("reveal") === "1";
+  const name = (url.searchParams.get("name") ?? "").trim().slice(0, 20) || undefined;
   const now = Date.now();
 
   const store = getStore();
@@ -31,7 +32,7 @@ export async function GET(
     const presence = await store.getPresence(roomId);
 
     const state = await store.mutate(roomId, (s) => {
-      const addedClient = ensureClient(s, token);
+      const addedClient = ensureClient(s, token, name);
       const ticked = tick(s, presence, now, getSet);
       return addedClient || ticked; // 変化がなければ書き込まない
     });

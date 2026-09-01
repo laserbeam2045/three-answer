@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { setLocalName, type UseRoomResult } from "@/hooks/useRoom";
+import { getLocalName, setLocalName, type UseRoomResult } from "@/hooks/useRoom";
 import SeatBadge from "@/components/SeatBadge";
+import RulesContent from "@/components/RulesContent";
 import type { Role } from "@/lib/types";
 
 const SEAT_STYLES: Record<
@@ -45,7 +46,13 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
 
   const [origin, setOrigin] = useState("");
   const [copied, setCopied] = useState(false);
-  const [nameInput, setNameInput] = useState(() => room.state?.you.name ?? "");
+  // 前回入力した名前(localStorage)を最優先。自動割当の「観戦者N」は空欄として扱う
+  const [nameInput, setNameInput] = useState(() => {
+    const local = getLocalName();
+    if (local) return local;
+    const server = room.state?.you.name ?? "";
+    return server.startsWith("観戦者") ? "" : server;
+  });
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -364,20 +371,15 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         </section>
       )}
 
-      {/* 9. ルール要約 */}
+      {/* 9. ルール説明 */}
       <section className="bg-panel border border-line rounded-xl overflow-hidden">
         <details>
           <summary className="cursor-pointer select-none p-4 sm:p-5 text-sm font-bold tracking-widest text-muted hover:text-ink transition-colors">
             はじめての方へ — ルールを見る
           </summary>
-          <ul className="px-5 pb-5 flex flex-col gap-2 text-sm text-ink leading-relaxed">
-            <li>・3人（A・B・C）に、それぞれ異なるひらがなカードが10枚ずつ配られます。</li>
-            <li>・見えるのは自分の手札だけ。仲間の手札は見えません。</li>
-            <li>・クイズが20問出題され、正解は「場に出たカードの読みをつなげた言葉」です。</li>
-            <li>・各問題で「カードを1枚出す」か「出さない」かを制限時間内に選びます。相談は禁止。</li>
-            <li>・必要なカードを持つ人全員がちょうど1枚ずつ出し、不要な人が誰も出さなければ正解。</li>
-            <li>・カードは消費されません。同じカードが後の問題で再び活躍することもあります。</li>
-          </ul>
+          <div className="px-4 sm:px-5 pb-5">
+            <RulesContent />
+          </div>
         </details>
       </section>
     </div>

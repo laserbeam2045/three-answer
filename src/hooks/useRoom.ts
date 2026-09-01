@@ -74,8 +74,11 @@ export function useRoom(roomId: string): UseRoomResult {
       const visible =
         typeof document !== "undefined" && document.visibilityState === "visible" ? "1" : "0";
       const reveal = revealRef.current ? "&reveal=1" : "";
+      // 未登録クライアントの初回登録時に使われる表示名（登録済みなら無視される）
+      const localName = getLocalName();
+      const nameParam = localName ? `&name=${encodeURIComponent(localName)}` : "";
       const res = await fetch(
-        `/api/rooms/${roomId}?token=${tokenRef.current}&visible=${visible}${reveal}`,
+        `/api/rooms/${roomId}?token=${tokenRef.current}&visible=${visible}${reveal}${nameParam}`,
         { cache: "no-store" }
       );
       if (res.status === 404) {
