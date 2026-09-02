@@ -71,15 +71,10 @@ for (const file of fs.readdirSync(setsDir).filter((f) => f.endsWith(".json")).so
   if (inversions > 3) console.log("  warn : セット内の難易度が単調に上がっていない");
 }
 
-// セット間のグラデーション
-console.log("\n=== セット間の難易度 ===");
+// セット間は難易度差をつけない（各セットが単体で易→難に推移する）。参考表示のみ。
+console.log("\n=== セット別の平均正答率（参考。セット間の差は問わない） ===");
 const ordered = setAvg.filter((s) => s.avg !== null).sort((a, b) => a.id.localeCompare(b.id));
-for (const s of ordered) console.log(`  ${s.id}: 平均正答率 ${s.avg.toFixed(2)}`);
-for (let i = 0; i + 1 < ordered.length; i++) {
-  if (ordered[i].avg < ordered[i + 1].avg) {
-    console.log(`  warn : ${ordered[i].id} より ${ordered[i + 1].id} の方が易しい（逆転）`);
-  }
-}
+for (const s of ordered) console.log(`  ${s.id}: ${s.avg.toFixed(2)}`);
 
 if (errors > 0) {
   console.log(`\n合計 ${errors} 件の出典エラー`);

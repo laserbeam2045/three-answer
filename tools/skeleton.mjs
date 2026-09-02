@@ -15,29 +15,31 @@ const DIR = path.dirname(new URL(import.meta.url).pathname);
 const pool = JSON.parse(fs.readFileSync(path.join(DIR, "mined", "pool.json"), "utf8"));
 const wordByReading = new Map(pool.words.map((w) => [w.r, w]));
 
-const setNo = Number(process.argv[2] || 1);
+// --all: 5セット分をまとめて生成する（互いの答え・札を避けながら順に作る）。
+// 単体指定時は既存の他セットを避ける。
+const ALL = process.argv.includes("--all");
+let currentSetNo = 1;
+const setNo = ALL ? 0 : Number(process.argv[2] || 1);
 const WANT = Number(process.argv[3] || 3);
 
-// ---------- 難易度バンド（セット番号が上がるほど難しく＝正答率が低く） ----------
-// [合体語のacc下限, 上限] / 単独問題のacc下限
-const BANDS = {
-  1: { lo: 0.6, hi: 1.0, single: 0.75 },
-  2: { lo: 0.48, hi: 0.85, single: 0.62 },
-  3: { lo: 0.38, hi: 0.7, single: 0.52 },
-  4: { lo: 0.3, hi: 0.55, single: 0.44 },
-  5: { lo: 0.2, hi: 0.45, single: 0.34 },
-};
-const band = BANDS[setNo] ?? BANDS[3];
+// ---------- 難易度 ----------
+// セット間の難易度差はつけない。どのセットも「Q1が最も易しく、Q20に向けて難しくなる」。
+// 単独5問(Q1〜Q5)は易しい側、複合14問(Q6〜Q19)は易→難へ滑らかに下降させる。
+const band = { lo: 0.18, hi: 1.0, single: 0.68 };
+/** 複合14問それぞれの目標正答率（易→難） */
+const TARGET_ACC = Array.from({ length: 14 }, (_, i) => 0.78 - (i * (0.78 - 0.26)) / 13);
 
-// ---------- 他セットで使用済みの答え・カードを除外 ----------
+// ---------- 使用済みの答え・カード（セット間の重複を避ける） ----------
 const used = new Set();
 const usedCards = new Set();
 const setsDir = path.join(DIR, "..", "data", "sets");
-for (const f of fs.readdirSync(setsDir).filter((x) => x.endsWith(".json"))) {
-  if (f === `set${setNo}.json`) continue;
-  const s = JSON.parse(fs.readFileSync(path.join(setsDir, f), "utf8"));
-  for (const q of s.questions) used.add(q.answerReading);
-  for (const r of ["A", "B", "C"]) for (const c of s.hands[r]) usedCards.add(c);
+if (!ALL) {
+  for (const f of fs.readdirSync(setsDir).filter((x) => x.endsWith(".json"))) {
+    if (f === `set${setNo}.json`) continue;
+    const s = JSON.parse(fs.readFileSync(path.join(setsDir, f), "utf8"));
+    for (const q of s.questions) used.add(q.answerReading);
+    for (const r of ["A", "B", "C"]) for (const c of s.hands[r]) usedCards.add(c);
+  }
 }
 
 // ---------- 候補 ----------
@@ -62,33 +64,39 @@ const partScore = (p) => {
   return 1;
 };
 const quality = (c) => c.parts.reduce((s, p) => s + partScore(p), 0) / c.parts.length;
-// 平均1.5未満（＝ほとんどの部品が単発の語）は不自然な分割として除外
+// すべての部品が「2問以上作れる確立した語」であることを要求する。
+// これを満たさない分割（例: サンガリア = さん+がりあ）はカードとして不自然。
+const allPartsSolid = (c) => c.parts.every((p) => partScore(p) >= 2);
 const NATURAL = 1.5;
+/** 同じ部品を使い回せる上限（1枚の札が問題を占有しすぎないように） */
+const MAX_PART_USE = 3;
 
 // 候補が足りない場合はバンドを段階的に広げる（難易度の狙いは保ちつつ実現可能性を優先）
 let cand2 = [];
 let cand3 = [];
-let widen = 0;
-for (; widen <= 5; widen += 1) {
-  const w = widen * 0.03;
-  const lo = Math.max(0, band.lo - w);
-  const hi = Math.min(1, band.hi + w);
-  const ok = (c) =>
-    c.acc !== null &&
-    c.acc >= lo &&
-    c.acc <= hi &&
-    !used.has(c.r) &&
-    c.parts.every((p) => p.length >= 1 && p.length <= 6 && !usedCards.has(p)) &&
-    new Set(c.parts).size === c.parts.length &&
-    quality(c) >= NATURAL;
-  cand2 = pool.compounds2.filter(ok);
-  cand3 = pool.compounds3.filter(ok);
-  if (cand2.length >= 45 && cand3.length >= 2) break;
+function computeCandidates(label) {
+  let widen = 0;
+  for (; widen <= 5; widen += 1) {
+    const w = widen * 0.03;
+    const lo = Math.max(0, band.lo - w);
+    const hi = Math.min(1, band.hi + w);
+    const ok = (c) =>
+      c.acc !== null &&
+      c.acc >= lo &&
+      c.acc <= hi &&
+      // 答えの重複は避ける。カードの語自体は別セットと共有してよい
+      // （セットは独立したゲームなので、同じ語が別の問題に使われても問題ない）
+      !used.has(c.r) &&
+      c.parts.every((p) => p.length >= 1 && p.length <= 6) &&
+      new Set(c.parts).size === c.parts.length &&
+      quality(c) >= NATURAL &&
+      allPartsSolid(c);
+    cand2 = pool.compounds2.filter(ok);
+    cand3 = pool.compounds3.filter(ok);
+    if (cand2.length >= 45 && cand3.length >= 2) break;
+  }
+  console.error(`${label}: 候補 2枚=${cand2.length} 3枚=${cand3.length}`);
 }
-console.error(
-  `set${setNo}: 候補 2枚=${cand2.length} 3枚=${cand3.length} ` +
-    `(acc ${(band.lo - widen * 0.03).toFixed(2)}〜${Math.min(1, band.hi + widen * 0.03).toFixed(2)}, 自然さ${NATURAL}以上)`
-);
 
 // ---------- 順序付き3彩色ソルバー ----------
 /**
@@ -198,21 +206,35 @@ function build(seedNo) {
   const chosen = [T];
   const readings = new Set([T.r]);
   const cards = new Set(T.parts);
+  const partUse = new Map(T.parts.map((p) => [p, 1]));
 
-  // 2枚合体を14個、再利用を優先しつつ追加（毎回彩色可能性を確認）
-  const shuffled = cand2.slice().sort(() => rng() - 0.5);
-  for (const c of shuffled) {
+  // 2枚合体を14個。各スロットの目標正答率（易→難）に近いものを選び、
+  // 再利用が起きる候補を優先する。毎回 A→B→C 彩色の可能性を確認する。
+  const remaining = new Set(cand2);
+  for (const target of TARGET_ACC) {
     if (chosen.length >= 15) break;
-    if (readings.has(c.r) || cards.has(c.r)) continue;
-    if (c.parts.some((p) => readings.has(p) === false && cards.size >= 24 && !cards.has(p))) continue;
-    const shared = c.parts.filter((p) => cards.has(p)).length;
-    // 再利用ゼロの候補は確率的に見送り、部品数の膨張を抑える
-    if (shared === 0 && rng() > 0.35) continue;
-    const trial = [...chosen, c];
-    if (assignLevels(trial) === null) continue;
-    chosen.push(c);
-    readings.add(c.r);
-    for (const p of c.parts) cards.add(p);
+    const scored = [];
+    for (const c of remaining) {
+      if (readings.has(c.r) || cards.has(c.r)) continue;
+      if (c.parts.some((p) => (partUse.get(p) ?? 0) >= MAX_PART_USE)) continue;
+      if (c.parts.some((p) => !cards.has(p)) && cards.size >= 25) continue;
+      const shared = c.parts.filter((p) => cards.has(p)).length;
+      const dist = Math.abs((c.acc ?? 0) - target);
+      // 目標正答率への近さを最重視し、再利用と部品の自然さで加点
+      scored.push({ c, score: -dist * 10 + shared * 1.2 + quality(c) * 0.3 + rng() * 0.25 });
+    }
+    scored.sort((a, b) => b.score - a.score);
+    for (const { c } of scored.slice(0, 12)) {
+      if (assignLevels([...chosen, c]) === null) continue;
+      chosen.push(c);
+      readings.add(c.r);
+      for (const p of c.parts) {
+        cards.add(p);
+        partUse.set(p, (partUse.get(p) ?? 0) + 1);
+      }
+      remaining.delete(c);
+      break;
+    }
   }
   if (chosen.length < 15) return null;
 
@@ -250,9 +272,14 @@ function build(seedNo) {
 
   const freeSlots = { A: 10 - perRole.A.length, B: 10 - perRole.B.length, C: 10 - perRole.C.length };
   const accs = [...singles.map((s) => s.best.acc), ...sortedCompounds.map((c) => c.acc), T.acc];
+  // Q1〜Q19の正答率が単調に下がっているか（逆転の数。少ないほど良い）
+  const seq = [...singles.map((s) => s.best.acc), ...sortedCompounds.map((c) => c.acc)];
+  let inversions = 0;
+  for (let i = 0; i + 1 < seq.length; i++) if (seq[i] < seq[i + 1] - 0.12) inversions++;
+  const spread = +(Math.max(...seq) - Math.min(...seq)).toFixed(2);
 
   return {
-    setNo,
+    setNo: currentSetNo,
     finale: { reading: T.r, display: T.display, parts: T.parts, acc: T.acc, q: T.q, id: T.id, prefixPair: T.prefixPair },
     compounds: sortedCompounds.map((c) => ({
       reading: c.r,
@@ -270,38 +297,67 @@ function build(seedNo) {
     avgAcc: +(accs.reduce((s, a) => s + a, 0) / accs.length).toFixed(3),
     reuse: chosen.flatMap((c) => c.parts).length - cards.size,
     quality: +(chosen.reduce((s, c) => s + quality(c), 0) / chosen.length).toFixed(2),
+    inversions,
+    spread,
   };
 }
 
-const results = [];
-for (let s = 1; s <= 400 && results.length < WANT; s++) {
-  const r = build(s);
-  if (r) results.push(r);
-}
-
-if (results.length === 0) {
-  console.error(`set${setNo}: 骨格が見つかりませんでした（バンド ${band.lo}〜${band.hi}）`);
-  process.exit(1);
-}
-results.sort((a, b) => b.quality - a.quality || b.reuse - a.reuse);
-
-fs.writeFileSync(
-  path.join(DIR, "mined", `skeleton-set${setNo}.json`),
-  JSON.stringify(results, null, 1)
-);
-
-for (const r of results) {
+// ---------- 実行 ----------
+function runOne(n, want) {
+  currentSetNo = n;
+  computeCandidates(`set${n}`);
+  const results = [];
+  for (let seed = 1; seed <= 500 && results.length < want; seed++) {
+    const r = build(seed);
+    if (r) results.push(r);
+  }
+  if (results.length === 0) {
+    console.error(`set${n}: 骨格が見つかりませんでした`);
+    return null;
+  }
+  // 難易度の幅が広く逆転が少ないものを優先し、次いで自然さ・再利用
+  results.sort(
+    (a, b) =>
+      b.spread - a.spread - (b.inversions - a.inversions) * 0.05 ||
+      b.quality - a.quality ||
+      b.reuse - a.reuse
+  );
+  fs.writeFileSync(
+    path.join(DIR, "mined", `skeleton-set${n}.json`),
+    JSON.stringify(results, null, 1)
+  );
+  const r = results[0];
   console.log(
-    `\n=== set${setNo} 骨格候補（自然さ${r.quality} / 再利用${r.reuse} / 平均正答率${r.avgAcc}） ===`
+    `\n=== set${n} 骨格（難易度の幅${r.spread} / 逆転${r.inversions} / 自然さ${r.quality} / 再利用${r.reuse}） ===`
   );
   console.log(`空き枠 A:${r.freeSlots.A} B:${r.freeSlots.B} C:${r.freeSlots.C}`);
   console.log("単独5問(易→難):");
-  for (const s of r.singles) console.log(`  ${s.role}:${s.reading} acc=${s.best.acc} 「${s.best.q.slice(0, 34)}」`);
+  for (const x of r.singles)
+    console.log(`  ${x.role}:${x.reading} acc=${x.best.acc} 「${x.best.q.slice(0, 34)}」`);
   console.log("複合14問(易→難):");
   for (const c of r.compounds)
-    console.log(`  ${c.display}(${c.reading}) = ${c.roles.map((ro, i) => ro + ":" + c.parts[i]).join(" + ")} acc=${c.acc}`);
+    console.log(
+      `  ${c.display}(${c.reading}) = ${c.roles.map((ro, i) => ro + ":" + c.parts[i]).join(" + ")} acc=${c.acc}`
+    );
   console.log(
-    `決め所: ${r.finale.display}(${r.finale.reading}) = ${r.finaleRoles.map((ro, i) => ro + ":" + r.finale.parts[i]).join(" + ")} acc=${r.finale.acc}`
+    `決め所: ${r.finale.display}(${r.finale.reading}) = ${r.finaleRoles
+      .map((ro, i) => ro + ":" + r.finale.parts[i])
+      .join(" + ")} acc=${r.finale.acc}`
   );
+  console.error(`→ tools/mined/skeleton-set${n}.json に ${results.length} 件`);
+  return r;
 }
-console.error(`\n→ tools/mined/skeleton-set${setNo}.json に ${results.length} 件書き出しました`);
+
+if (ALL) {
+  for (let n = 1; n <= 5; n++) {
+    const r = runOne(n, WANT);
+    if (!r) continue;
+    // 次のセットが同じ答え・札を使わないように記録する
+    for (const x of r.singles) used.add(x.reading);
+    for (const c of r.compounds) used.add(c.reading);
+    used.add(r.finale.reading);
+    for (const role of ["A", "B", "C"]) for (const c of r.hands[role]) usedCards.add(c);
+  }
+} else {
+  runOne(setNo, WANT);
+}
