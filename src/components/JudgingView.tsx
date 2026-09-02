@@ -3,14 +3,9 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import CardTile from "@/components/CardTile";
 import Confetti from "@/components/Confetti";
+import PlaySlots from "@/components/PlaySlots";
 import type { UseRoomResult } from "@/hooks/useRoom";
 import { ROLES, type Role } from "@/lib/types";
-
-const ROLE_BG: Record<Role, string> = {
-  A: "bg-player-a",
-  B: "bg-player-b",
-  C: "bg-player-c",
-};
 
 /** 演出段階の切替時刻（マウント起点、ms）。stateは全員同一なので自然に同期する */
 const STAGE_TIMES = [900, 1600, 2200, 2600] as const;
@@ -66,35 +61,23 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
         <p className="text-sm sm:text-base text-ink/90 leading-relaxed">{question.q}</p>
       </div>
 
-      <section className="w-full">
-        <h2 className="text-muted text-xs font-bold tracking-widest text-center mb-3">
-          みんなの出したカード
-        </h2>
-        <div className="grid grid-cols-3 gap-2 sm:gap-4">
-          {ROLES.map((role, i) => {
-            const played = result.played.find((p) => p.role === role) ?? null;
-            return (
-              <div
-                key={role}
-                className="flip-in bg-panel border border-line rounded-xl p-2 sm:p-3 flex flex-col items-center gap-2"
-                style={{ animationDelay: `${i * 200}ms` }}
-              >
-                <div className="flex items-center gap-1.5 min-w-0 max-w-full">
-                  <span className={`${ROLE_BG[role]} w-2.5 h-2.5 rounded-full shrink-0`} />
-                  <span className="text-xs sm:text-sm font-bold truncate">{seatName(role)}</span>
-                </div>
-                {played ? (
-                  <CardTile word={played.card} role={role} size="sm" state="revealed" />
-                ) : (
-                  <div className="rounded-lg border border-dashed border-line bg-panel-2 text-muted text-xs sm:text-sm px-3 py-3 sm:py-4">
-                    出さない
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <PlaySlots
+        title="みんなの出したカード"
+        reveal
+        slots={ROLES.map((role) => {
+          const played = result.played.find((p) => p.role === role) ?? null;
+          const seat = state.seats.find((s) => s.role === role);
+          return {
+            role,
+            name: seatName(role),
+            active: seat?.active ?? true,
+            isYou: state.you.role === role,
+            content: played
+              ? ({ kind: "card", word: played.card } as const)
+              : ({ kind: "pass" } as const),
+          };
+        })}
+      />
 
       {/* 段階2 (900ms): 判定ドーン */}
       {stage >= 1 && result.correct && (

@@ -65,45 +65,63 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
                 Three Answer
               </span>
             </a>
+            {/* URLコピー: スマホではアイコンのみ（問題番号と重ならないように） */}
             <button
               type="button"
               onClick={copyUrl}
-              className={`shrink-0 text-xs px-2 py-1 rounded-md border transition-colors ${
+              title="ルームURLをコピー"
+              aria-label="ルームURLをコピー"
+              className={`shrink-0 text-xs rounded-md border transition-colors px-2 py-1 ${
                 copied
                   ? "border-gold text-gold"
                   : "border-line text-muted hover:text-ink hover:border-muted"
               }`}
             >
-              {copied ? "コピーしました" : "ルームURLをコピー"}
+              <span className="sm:hidden" aria-hidden>
+                {copied ? "✓" : "🔗"}
+              </span>
+              <span className="hidden sm:inline">
+                {copied ? "コピーしました" : "ルームURLをコピー"}
+              </span>
             </button>
           </div>
 
           {/* 中央: 問題番号（ゲーム中のみ） */}
-          <div className="shrink-0 text-center">
+          <div className="shrink-0 text-center px-1">
             {inGame && (
-              <span className="font-extrabold text-base sm:text-lg tracking-wider">
+              <span className="font-extrabold text-sm sm:text-lg tracking-wider whitespace-nowrap">
                 第{state.qIndex + 1}問
-                <span className="text-muted text-sm font-normal"> / 20</span>
+                <span className="text-muted text-xs sm:text-sm font-normal"> / 20</span>
               </span>
             )}
           </div>
 
           {/* 右: 観戦者数 + 観戦者用トグル */}
           <div className="flex items-center gap-2 justify-end min-w-0 flex-1">
-            <span className="text-xs text-muted whitespace-nowrap">
-              観戦者 {state.spectators.length}人
+            <span
+              className="text-xs text-muted whitespace-nowrap"
+              title={`観戦者 ${state.spectators.length}人`}
+            >
+              <span className="sm:hidden" aria-hidden>
+                👀 {state.spectators.length}
+              </span>
+              <span className="hidden sm:inline">観戦者 {state.spectators.length}人</span>
             </span>
             {isSpectator && state.phase !== "lobby" && (
               <button
                 type="button"
                 onClick={() => setSpectatorReveal(!spectatorReveal)}
+                title="全員の手札を表示"
                 className={`shrink-0 text-xs px-2 py-1 rounded-md border font-bold transition-colors ${
                   spectatorReveal
                     ? "bg-gold text-card-ink border-gold"
                     : "border-line text-muted hover:text-ink hover:border-muted"
                 }`}
               >
-                全手札を見る
+                <span className="sm:hidden" aria-hidden>
+                  🃏
+                </span>
+                <span className="hidden sm:inline">全手札を見る</span>
               </button>
             )}
           </div>

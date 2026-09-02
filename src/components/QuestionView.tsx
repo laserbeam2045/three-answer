@@ -2,6 +2,7 @@
 
 import CardTile from "@/components/CardTile";
 import SeatBadge from "@/components/SeatBadge";
+import PlaySlots from "@/components/PlaySlots";
 import TimerBar from "@/components/TimerBar";
 import { useTimer } from "@/hooks/useTimer";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -54,12 +55,28 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
         </p>
       </section>
 
-      {/* 席ステータス行 */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
-        {seats.map((seat) => (
-          <SeatBadge key={seat.role} seat={seat} isYou={seat.role === you.role} />
-        ))}
-      </div>
+      {/* 場のスロット（判定画面と同じUI。他プレイヤーの内容は伏せられる） */}
+      <PlaySlots
+        title="みんなの出すカード"
+        slots={seats.map((seat) => {
+          const isYou = seat.role === you.role;
+          const myCard =
+            isYou && mySelection && mySelection.cardIndex !== null && myHand
+              ? myHand[mySelection.cardIndex]
+              : null;
+          return {
+            role: seat.role,
+            name: seat.name ?? `${seat.role}席`,
+            active: seat.active,
+            isYou,
+            content: isYou
+              ? myCard !== null
+                ? ({ kind: "card", word: myCard } as const)
+                : ({ kind: "pass" } as const)
+              : ({ kind: "hidden", decided: seat.locked } as const),
+          };
+        })}
+      />
 
       {isSeated && myHand && mySelection ? (
         <>
