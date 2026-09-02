@@ -19,6 +19,8 @@ const wordByReading = new Map(pool.words.map((w) => [w.r, w]));
 // 単体指定時は既存の他セットを避ける。
 const ALL = process.argv.includes("--all");
 let currentSetNo = 1;
+/** 役割ペア(A+B / A+C / B+C)それぞれの最低出現数。見つからなければ緩める */
+let MIN_PAIR = 3;
 const setNo = ALL ? 0 : Number(process.argv[2] || 1);
 const WANT = Number(process.argv[3] || 3);
 
@@ -240,9 +242,9 @@ function build(seedNo) {
 
   const levels = assignLevels(chosen);
   if (!levels) return null;
+  const roleName = ["", "A", "B", "C"];
 
   // 単独5問: 合体部品のうち単独問題も作れる語を優先（再利用）
-  const roleName = ["", "A", "B", "C"];
   const perRole = { A: [], B: [], C: [] };
   for (const [card, L] of levels) perRole[roleName[L]].push(card);
 
@@ -263,6 +265,17 @@ function build(seedNo) {
     usedSingleRoles.push(role);
   }
   if (singles.length < 5) return null;
+
+  // 役割ペアの偏りを棄却（A+B ばかりになると C の出番が無くなる）
+  {
+    const pairCount = { "A+B": 0, "A+C": 0, "B+C": 0 };
+    for (const c of chosen) {
+      if (c.parts.length !== 2) continue;
+      const key = c.parts.map((p) => roleName[levels.get(p)]).join("+");
+      if (pairCount[key] !== undefined) pairCount[key]++;
+    }
+    if (Object.values(pairCount).some((v) => v < MIN_PAIR)) return null;
+  }
 
   // 難易度順（易→難）に並べる
   const sortedCompounds = chosen
@@ -306,15 +319,20 @@ function build(seedNo) {
 function runOne(n, want) {
   currentSetNo = n;
   computeCandidates(`set${n}`);
-  const results = [];
-  for (let seed = 1; seed <= 500 && results.length < want; seed++) {
-    const r = build(seed);
-    if (r) results.push(r);
+  let results = [];
+  for (MIN_PAIR = 3; MIN_PAIR >= 1; MIN_PAIR--) {
+    results = [];
+    for (let seed = 1; seed <= 600 && results.length < want; seed++) {
+      const r = build(seed);
+      if (r) results.push(r);
+    }
+    if (results.length > 0) break;
   }
   if (results.length === 0) {
     console.error(`set${n}: 骨格が見つかりませんでした`);
     return null;
   }
+  if (MIN_PAIR < 3) console.error(`set${n}: 役割ペアの最低数を ${MIN_PAIR} に緩めました`);
   // 難易度の幅が広く逆転が少ないものを優先し、次いで自然さ・再利用
   results.sort(
     (a, b) =>

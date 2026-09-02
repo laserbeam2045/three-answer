@@ -227,14 +227,20 @@ for (const file of files) {
   );
   if (unused.length > 7) warnings.push(`未使用カードが多すぎる (${unused.length}枚)`);
 
-  const perRole = ROLES.map(
-    (r) => `${r}=${questions.flatMap((q) => q.required).filter((x) => x.role === r).length}`
+  const perRoleCount = ROLES.map(
+    (r) => questions.flatMap((q) => q.required ?? []).filter((x) => x.role === r).length
   );
-  info.push(`必要カード回数: ${perRole.join(" ")}`);
+  info.push(`必要カード回数: ${ROLES.map((r, i) => `${r}=${perRoleCount[i]}`).join(" ")}`);
+  const minReq = Math.min(...perRoleCount);
+  const maxReq = Math.max(...perRoleCount);
+  if (maxReq - minReq >= 6)
+    warnings.push(
+      `出番の偏りが大きい（${ROLES.map((r, i) => `${r}=${perRoleCount[i]}`).join(" ")}）`
+    );
 
   // 単独→2枚→3枚の流れ（前半に3枚合体が来ていないか）
   questions.forEach((q, i) => {
-    if (i < 8 && q.required.length > 1) warnings.push(`Q${i + 1}: 序盤(Q1-8)に${q.required.length}枚合体`);
+    // 構成は「Q1〜Q5=単独 / Q6〜Q20=複合」に変更済み（上でERROR検査している）
     if (i === questions.length - 1 && q.required.length !== 3 && questions.length === 20)
       warnings.push(`最終問題が3枚合体でない`);
   });
