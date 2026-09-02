@@ -50,8 +50,8 @@ export default function Home() {
     <main className="min-h-dvh flex flex-col items-center justify-center gap-8 p-6">
       <div className="text-center">
         <p className="text-gold font-bold tracking-widest mb-2">3人協力型クイズゲーム</p>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
-          カード<span className="text-gold">合体</span>クイズ
+        <h1 className="text-4xl sm:text-6xl font-black tracking-tight">
+          <span className="text-gold">Three</span> Answer
         </h1>
       </div>
 

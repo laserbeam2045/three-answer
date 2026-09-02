@@ -9,9 +9,9 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "カード合体クイズ - 3人協力型クイズゲーム",
+  title: "Three Answer - 3人協力型クイズゲーム",
   description:
-    "3人のプレイヤーが手札のひらがなカードを出し合い、正解の言葉を完成させる協力型クイズゲーム。",
+    "3人のプレイヤーが手札のひらがなカードを出し合って答える、協力型クイズゲーム。",
 };
 
 export const viewport: Viewport = {

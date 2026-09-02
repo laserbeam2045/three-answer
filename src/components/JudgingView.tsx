@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import CardTile from "@/components/CardTile";
+import Confetti from "@/components/Confetti";
 import type { UseRoomResult } from "@/hooks/useRoom";
 import { ROLES, type Role } from "@/lib/types";
 
@@ -96,10 +97,16 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 段階2 (900ms): 判定ドーン */}
+      {stage >= 1 && result.correct && (
+        <>
+          <Confetti fireKey={`q${qIndex}`} />
+          <div aria-hidden className="pointer-events-none fixed inset-0 z-30 flash-gold" />
+        </>
+      )}
       <section className="min-h-20 sm:min-h-24 flex items-center justify-center">
         {stage >= 1 &&
           (result.correct ? (
-            <div className="pop-in gold-glow bg-panel border border-gold/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
+            <div className="pop-in gold-glow burst-ring relative bg-panel border border-gold/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
               <span className="text-3xl sm:text-5xl font-black text-gold whitespace-nowrap">
                 ⭕ 正解！
               </span>

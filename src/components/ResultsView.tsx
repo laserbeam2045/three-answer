@@ -6,6 +6,7 @@ import type { Role } from "@/lib/types";
 import { ROLES } from "@/lib/types";
 import CardTile from "@/components/CardTile";
 import SeatBadge from "@/components/SeatBadge";
+import Confetti from "@/components/Confetti";
 
 const ROLE_BG: Record<Role, string> = {
   A: "bg-player-a",
@@ -86,6 +87,8 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-8 space-y-10">
+      {highScore && <Confetti fireKey="results" intensity={score >= total ? 2.2 : 1.4} />}
+
       {/* 1. スコア発表 */}
       <section
         className={`bg-panel border border-line rounded-2xl px-6 py-10 text-center ${

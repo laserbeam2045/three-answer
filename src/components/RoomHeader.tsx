@@ -51,14 +51,20 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
     <>
       <header className="sticky top-0 z-30 bg-panel/90 backdrop-blur border-b border-line">
         <div className="flex items-center gap-2 px-3 py-2 sm:px-4">
-          {/* 左: ロゴ + URLコピー */}
+          {/* 左: ロゴ（トップへ戻る） + URLコピー */}
           <div className="flex items-center gap-2 min-w-0 flex-1">
-            <span className="shrink-0 w-6 h-6 rounded bg-card-face text-card-ink text-xs font-extrabold flex items-center justify-center shadow">
-              札
-            </span>
-            <span className="hidden sm:inline font-extrabold tracking-wide text-sm whitespace-nowrap">
-              カード合体クイズ
-            </span>
+            <a
+              href="/"
+              title="トップページへ"
+              className="flex items-center gap-2 min-w-0 shrink-0 rounded px-1 -mx-1 py-0.5 hover:bg-panel-2 transition-colors"
+            >
+              <span className="shrink-0 w-6 h-6 rounded bg-card-face text-card-ink text-[10px] font-extrabold flex items-center justify-center shadow">
+                3A
+              </span>
+              <span className="hidden sm:inline font-extrabold tracking-wide text-sm whitespace-nowrap">
+                Three Answer
+              </span>
+            </a>
             <button
               type="button"
               onClick={copyUrl}
