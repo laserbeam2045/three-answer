@@ -2,7 +2,7 @@
 
 import { useEffect, useReducer } from "react";
 import type { TimerState } from "@/lib/types";
-import { effectiveElapsed, remainingMs as calcRemainingMs } from "@/lib/time";
+import { effectiveElapsed, remainingMs as calcRemainingMs, LEAD_IN_MS } from "@/lib/time";
 
 export interface UseTimerResult {
   elapsedMs: number;
@@ -12,6 +12,8 @@ export interface UseTimerResult {
   inReveal: boolean;
   /** 0..1。タイプライターの進捗 */
   revealProgress: number;
+  /** 問題文が出る前の「タメ」の最中か（「問題」演出を出す） */
+  inLeadIn: boolean;
 }
 
 /**
@@ -28,14 +30,22 @@ export function useTimer(timer: TimerState | null, nowServer: () => number): Use
   }, [timer]);
 
   if (!timer) {
-    return { elapsedMs: 0, remainingMs: 0, remainingSec: 0, inReveal: false, revealProgress: 0 };
+    return {
+      elapsedMs: 0,
+      remainingMs: 0,
+      remainingSec: 0,
+      inReveal: false,
+      revealProgress: 0,
+      inLeadIn: false,
+    };
   }
 
   const now = nowServer();
   const elapsedMs = effectiveElapsed(timer, now);
   const remainingMs = calcRemainingMs(timer, now);
-  const revealProgress =
-    timer.revealMs > 0 ? Math.min(1, elapsedMs / timer.revealMs) : 1;
+  // タイプライターは「タメ」の後から始まる
+  const typeMs = Math.max(1, timer.revealMs - LEAD_IN_MS);
+  const revealProgress = Math.max(0, Math.min(1, (elapsedMs - LEAD_IN_MS) / typeMs));
 
   return {
     elapsedMs,
@@ -43,5 +53,6 @@ export function useTimer(timer: TimerState | null, nowServer: () => number): Use
     remainingSec: Math.max(0, Math.ceil(remainingMs / 1000)),
     inReveal: elapsedMs < timer.revealMs,
     revealProgress,
+    inLeadIn: elapsedMs < LEAD_IN_MS,
   };
 }

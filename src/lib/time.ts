@@ -1,11 +1,15 @@
 import type { TimerState } from "./types";
 
+/** 問題文が出るまでの「タメ」。この間は「問題」の演出だけを見せる */
+export const LEAD_IN_MS = 1800;
+
 export function revealMsFor(questionText: string): number {
   return Math.min(12000, 400 + questionText.length * 100);
 }
 
 export function newTimer(questionText: string, answerSeconds: number, now: number): TimerState {
-  const revealMs = revealMsFor(questionText);
+  // revealMs には「タメ」を含める。タイプライターは LEAD_IN_MS 経過後に始まる
+  const revealMs = LEAD_IN_MS + revealMsFor(questionText);
   return {
     totalMs: revealMs + answerSeconds * 1000,
     revealMs,

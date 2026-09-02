@@ -144,6 +144,44 @@ for (const file of files) {
     }
   });
 
+  // --- 判定の公平性検査 ---
+  // プレイヤーは自分の手札と問題文だけで「出すべきか」を決められなければならない。
+  // 自分の札が正解の読みの中に、自分の席順と矛盾しない位置で現れる場合、
+  // 「前後の人が残りを持っているかもしれない」と考えるのが合理的になり、
+  // 出しても出さなくても筋が通る＝理不尽な判定になる。
+  // 例: 正解「しんぞう」でCが「ぞう」を持つ → Cは「誰かが しん を持つのでは」と考えうる。
+  // 例: 正解「しょうかき」でAが「しょうか」と「しょう」を両方持つ → どちらを出すか決められない。
+  {
+    const rolesBefore: Record<Role, number> = { A: 0, B: 1, C: 2 };
+    const rolesAfter: Record<Role, number> = { A: 2, B: 1, C: 0 };
+    questions.forEach((q, i) => {
+      const qn = `Q${i + 1}`;
+      const R = q.answerReading ?? "";
+      const requiredOf = new Map<Role, string>();
+      for (const r of q.required ?? []) requiredOf.set(r.role, r.card);
+
+      for (const role of ROLES) {
+        for (const card of raw.hands?.[role] ?? []) {
+          if (requiredOf.get(role) === card) continue; // 正しい札は当然一致する
+          for (let at = R.indexOf(card); at !== -1; at = R.indexOf(card, at + 1)) {
+            const preLen = at;
+            const sufLen = R.length - at - card.length;
+            const preOk = preLen === 0 || rolesBefore[role] >= 1;
+            const sufOk = sufLen === 0 || rolesAfter[role] >= 1;
+            if (preOk && sufOk) {
+              errors.push(
+                `${qn}: 正解「${R}」に対し${role}の「${card}」が` +
+                  `${preLen === 0 ? "先頭" : sufLen === 0 ? "末尾" : "途中"}に一致する。` +
+                  `${role}は出すべきか論理的に判断できない（理不尽な判定）`
+              );
+              break;
+            }
+          }
+        }
+      }
+    });
+  }
+
   // --- 解説のネタバレ検査 ---
   // 判定画面(Q i)の時点で公開済みのカード = Q1..Qi の required（正誤に関わらず判定画面で公開される）。
   // それ以外のカード名を解説が「」付きで名指ししていたら、手札情報のネタバレとしてエラー。

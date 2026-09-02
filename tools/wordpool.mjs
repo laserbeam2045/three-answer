@@ -104,28 +104,46 @@ const wordByReading = new Map(words.map((w) => [w.r, w]));
 
 // ---------- 3. 兄弟語（同カテゴリ）検出 ----------
 console.error("loading bunruidb for sibling detection...");
-// classOf は全語（合体語の罠も引けるように）、membersOf はプール語のみ
-// （罠として配るカードは「それ自体もクイズの答えになる語」であってほしいため）
+// 意味分類の索引。**読みだけで引くと同音異義語のノイズが入る**ため
+// （例: 「かんぞう」は 肝臓 と 甘草 の両方に一致し、肝臓の罠に ほうれんそう が出る）、
+// 可能な限り表記（headword）で引く。
 const coreReadings = new Set(words.filter((w) => w.qCount >= 2).map((w) => w.r));
-const classOf = new Map(); // reading -> Set(class_number)
-const membersOf = new Map(); // class_number -> Set(reading in pool)
+const norm = (x) => String(x ?? "").replace(/[−▽△〔〕・（）()『』「」\s]/g, "");
+
+const classByWord = new Map(); // 表記 -> Set(class)
+const classByReading = new Map(); // 読み -> Set(class)（表記で引けないときの保険）
+const membersOf = new Map(); // class -> Set(読み)。プール語のみ
 for (const row of loadJsonl("bunruidb.jsonl")) {
   const reading = kataToHira(String(row.read ?? "").trim());
   if (!KANA_RE.test(reading)) continue;
   const cls = String(row.cls ?? "");
   if (!cls) continue;
-  if (!classOf.has(reading)) classOf.set(reading, new Set());
-  classOf.get(reading).add(cls);
+  const hw = norm(row.hw);
+  if (hw) {
+    if (!classByWord.has(hw)) classByWord.set(hw, new Set());
+    classByWord.get(hw).add(cls);
+  }
+  if (!classByReading.has(reading)) classByReading.set(reading, new Set());
+  classByReading.get(reading).add(cls);
   if (coreReadings.has(reading)) {
     if (!membersOf.has(cls)) membersOf.set(cls, new Set());
     membersOf.get(cls).add(reading);
   }
 }
 
-/** reading と同じ意味分類に属する「core語」を返す（＝同カテゴリの罠候補） */
-function siblingsOf(reading) {
+/**
+ * 同じ意味分類に属する「core語」を返す（＝同カテゴリの罠候補）。
+ * display（漢字表記）が分かる場合はそれで引くことで同音異義語のノイズを避ける。
+ */
+function siblingsOf(reading, display) {
+  const d = norm(display);
+  const classes =
+    (d && classByWord.get(d)) ||
+    (d && classByWord.get(d.replace(/(の部|作用|実験|地方|時代|運動)$/, ""))) ||
+    classByReading.get(reading) ||
+    new Set();
   const sib = new Set();
-  for (const cls of classOf.get(reading) ?? []) {
+  for (const cls of classes) {
     for (const other of membersOf.get(cls) ?? []) if (other !== reading) sib.add(other);
   }
   return [...sib];
@@ -133,7 +151,7 @@ function siblingsOf(reading) {
 
 const siblings = {};
 for (const w of words) {
-  const s = siblingsOf(w.r);
+  const s = siblingsOf(w.r, w.display);
   if (s.length) siblings[w.r] = s.slice(0, 40);
 }
 console.error(`readings with sibling traps: ${Object.keys(siblings).length}`);
@@ -163,7 +181,7 @@ for (const [reading, list] of byReading) {
         n: best.n,
         acc: best.acc,
         partQ: [wordByReading.get(p1).qCount, wordByReading.get(p2).qCount],
-        sib: siblingsOf(reading).slice(0, 12), // 合体語そのものの兄弟＝この問題の罠候補
+        sib: siblingsOf(reading, best.ans).slice(0, 12), // 合体語そのものの兄弟＝罠候補
       });
     }
     for (let j = i + 1; j < L; j++) {
@@ -185,7 +203,7 @@ for (const [reading, list] of byReading) {
             wordByReading.get(c).qCount,
           ],
           prefixPair: byReading.has(reading.slice(0, j)) ? reading.slice(0, j) : null,
-          sib: siblingsOf(reading).slice(0, 12),
+          sib: siblingsOf(reading, best.ans).slice(0, 12),
         });
       }
     }

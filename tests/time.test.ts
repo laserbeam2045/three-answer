@@ -6,16 +6,17 @@ import {
   pauseTimer,
   remainingMs,
   revealMsFor,
+  LEAD_IN_MS,
 } from "@/lib/time";
 import { resumeTimer } from "@/lib/time";
 
 const NOW = 1_000_000;
 
 describe("newTimer / revealMsFor", () => {
-  it("revealMs = 400 + 文字数*100、totalMs = revealMs + answerSeconds*1000", () => {
-    const t = newTimer("あいうえお", 45, NOW); // 5文字 -> 900ms
-    expect(t.revealMs).toBe(900);
-    expect(t.totalMs).toBe(900 + 45_000);
+  it("revealMs = タメ + 400 + 文字数*100、totalMs = revealMs + answerSeconds*1000", () => {
+    const t = newTimer("あいうえお", 45, NOW); // 5文字 -> タメ + 900ms
+    expect(t.revealMs).toBe(LEAD_IN_MS + 900);
+    expect(t.totalMs).toBe(LEAD_IN_MS + 900 + 45_000);
     expect(t.elapsedBeforeResumeMs).toBe(0);
     expect(t.resumedAt).toBe(NOW);
     expect(t.paused).toBe(false);
@@ -23,7 +24,7 @@ describe("newTimer / revealMsFor", () => {
 
   it("revealMs は 12000ms が上限", () => {
     expect(revealMsFor("あ".repeat(200))).toBe(12_000);
-    expect(newTimer("あ".repeat(500), 30, NOW).totalMs).toBe(12_000 + 30_000);
+    expect(newTimer("あ".repeat(500), 30, NOW).totalMs).toBe(LEAD_IN_MS + 12_000 + 30_000);
   });
 });
 

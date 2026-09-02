@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
-import { effectiveElapsed, revealMsFor } from "@/lib/time";
+import { effectiveElapsed, revealMsFor, LEAD_IN_MS } from "@/lib/time";
 import type {
   PresenceMap,
   QuestionSet,
@@ -97,7 +97,7 @@ describe("engine: 20問フルフロー", () => {
     expect(state.phase).toBe("question");
     expect(state.qIndex).toBe(0);
     expect(state.timer).not.toBeNull();
-    expect(state.timer!.totalMs).toBe(revealMsFor(Q_TEXT) + 60_000);
+    expect(state.timer!.totalMs).toBe(LEAD_IN_MS + revealMsFor(Q_TEXT) + 60_000);
     expect(state.timer!.resumedAt).toBe(now);
 
     for (let i = 0; i < 20; i++) {

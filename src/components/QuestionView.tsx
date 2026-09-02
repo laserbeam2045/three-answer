@@ -48,11 +48,22 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
         </div>
       </div>
 
-      {/* 問題文パネル */}
-      <section className="bg-panel border border-line rounded-2xl px-4 py-4 sm:px-10 sm:py-12 shadow-lg min-h-28 sm:min-h-44 flex items-center justify-center">
-        <p className="text-base sm:text-2xl font-bold leading-relaxed text-center text-ink">
-          {inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
-        </p>
+      {/* 問題文パネル。出題前は「問題」の演出だけを見せる */}
+      <section className="relative bg-panel border border-line rounded-2xl px-4 py-4 sm:px-10 sm:py-12 shadow-lg min-h-28 sm:min-h-44 flex items-center justify-center overflow-hidden">
+        {timer.inLeadIn ? (
+          <div className="q-ripple relative flex flex-col items-center justify-center">
+            <span className="q-badge text-3xl sm:text-5xl font-black text-gold tracking-[0.25em] pl-[0.25em] select-none">
+              問題
+            </span>
+            <span className="mt-2 text-xs sm:text-sm text-muted font-bold tracking-widest">
+              第{qIndex + 1}問
+            </span>
+          </div>
+        ) : (
+          <p className="text-base sm:text-2xl font-bold leading-relaxed text-center text-ink">
+            {inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
+          </p>
+        )}
       </section>
 
       {/* 場のスロット（判定画面と同じUI。他プレイヤーの内容は伏せられる） */}
