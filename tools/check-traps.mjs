@@ -60,6 +60,36 @@ function sameCategory(answerReading, answerDisplay, trapCard) {
   return false;
 }
 
+// 合体語の答えでは、罠札が「他人の必要札と組んで別の語を作れる」ことがある。
+// 例: 答え 腎臓(じん+ぞう) に対し 罠「かん」は、他人の「ぞう」と組んで 肝臓 を作れる。
+// これは同カテゴリの立派な罠なので、置換して出来る語も判定に含める。
+const poolPath = path.join(DIR, "mined", "pool.json");
+const pool = fs.existsSync(poolPath) ? JSON.parse(fs.readFileSync(poolPath, "utf8")) : null;
+const compoundByReading = new Map();
+if (pool) {
+  for (const c of [...pool.compounds2, ...pool.compounds3])
+    if (!compoundByReading.has(c.r)) compoundByReading.set(c.r, c);
+}
+
+/** 罠札で必要札の1枚を置き換えて出来る語が、答えと同カテゴリか */
+function substitutionIsSibling(q, trapCard) {
+  const parts = (q.required ?? []).map((r) => r.card);
+  if (parts.length < 2) return false;
+  for (let i = 0; i < parts.length; i++) {
+    const alt = [...parts];
+    alt[i] = trapCard;
+    const r = alt.join("");
+    const c = compoundByReading.get(r);
+    if (!c) continue;
+    if (sameCategory(q.answerReading, q.answerDisplay, r) === true) return true;
+    // 合体語同士の分類を直接比較する
+    const ca = classesOf(q.answerReading, q.answerDisplay);
+    const cb = classesOf(r, c.display);
+    if (ca && cb) for (const x of ca) if (cb.has(x)) return true;
+  }
+  return false;
+}
+
 let weak = 0;
 let unknown = 0;
 let ok = 0;
@@ -69,7 +99,9 @@ for (const file of fs.readdirSync(setsDir).filter((f) => f.endsWith(".json")).so
   const msgs = [];
   set.questions.forEach((q, i) => {
     for (const t of q.traps ?? []) {
-      const verdict = sameCategory(q.answerReading, q.answerDisplay, t.card);
+      let verdict = sameCategory(q.answerReading, q.answerDisplay, t.card);
+      // 単体で同カテゴリでなくても、必要札と組んで兄弟語を作れるなら有効な罠
+      if (verdict !== true && substitutionIsSibling(q, t.card)) verdict = true;
       if (verdict === true) ok++;
       else if (verdict === null) {
         unknown++;

@@ -29,9 +29,13 @@ let currentSetNo = 1;
 
 // ---------- 難易度 ----------
 // セット間の難易度差はつけない。どのセットも Q1 が最も易しく Q20 に向けて難しくなる。
-const MIN_ACC = 0.3;
-const TARGET_ACC = Array.from({ length: 14 }, (_, i) => 0.8 - (i * (0.8 - 0.36)) / 13);
-const SINGLE_MIN_ACC = 0.62;
+// 難易度のレンジは中央寄りに絞る（Q1で正答率0.70前後、Q19で0.40前後）。
+// 0.9台は簡単すぎ、0.35以下は「知らないと解けない」ため両端を切る。
+let MIN_ACC = 0.36;
+let MAX_ACC = 0.76;
+const TARGET_ACC = Array.from({ length: 14 }, (_, i) => 0.68 - (i * (0.68 - 0.4)) / 13);
+let SINGLE_MIN_ACC = 0.6;
+let SINGLE_MAX_ACC = 0.76;
 
 // ---------- 使用済みの答え（セット間の重複回避） ----------
 const used = new Set();
@@ -98,7 +102,8 @@ function computeCandidates(label) {
   const ok = (c) =>
     c.acc !== null &&
     c.acc >= MIN_ACC &&
-    !used.has(c.r) &&
+    c.acc <= MAX_ACC &&
+    (ALLOW_DUP || !used.has(c.r)) &&
     c.parts.every((p) => p.length >= 1 && p.length <= 6) &&
     new Set(c.parts).size === c.parts.length &&
     // 罠ファースト: 答えと同カテゴリの札が確保できる合体語だけを使う
@@ -200,13 +205,23 @@ function mulberry32(seed) {
 }
 
 let MIN_PAIR = 3;
+/** 出番（必要カード回数）の最大差。見つからなければ緩める */
+let MAX_IMBALANCE = 4;
+/** 最終手段: セット間の答えの重複を許す（材料が尽きた場合のみ） */
+let ALLOW_DUP = false;
 
 // ---------- 骨格探索 ----------
 function build(seedNo) {
   const rng = mulberry32(seedNo * 7919 + currentSetNo * 131);
+  // 重複許容モードでも、未使用の語を優先する（セットが同一になるのを防ぐ）
   const triples = cand3
     .slice()
-    .sort((a, b) => (b.prefixPair ? 1 : 0) - (a.prefixPair ? 1 : 0) || b.n - a.n);
+    .sort(
+      (a, b) =>
+        (used.has(a.r) ? 1 : 0) - (used.has(b.r) ? 1 : 0) ||
+        (b.prefixPair ? 1 : 0) - (a.prefixPair ? 1 : 0) ||
+        b.n - a.n
+    );
   if (triples.length === 0) return null;
   const T = triples[Math.floor(rng() * Math.min(triples.length, 20))];
 
@@ -225,7 +240,15 @@ function build(seedNo) {
       if (c.parts.some((p) => !cards.has(p)) && cards.size >= 22) continue;
       const shared = c.parts.filter((p) => cards.has(p)).length;
       const dist = Math.abs((c.acc ?? 0) - target);
-      scored.push({ c, score: -dist * 10 + shared * 1.2 + quality(c) * 0.7 + rng() * 0.25 });
+      scored.push({
+        c,
+        score:
+          -dist * 10 +
+          shared * 1.2 +
+          quality(c) * 0.7 +
+          rng() * 0.25 -
+          (used.has(c.r) ? 1.5 : 0), // 既出の答えは減点（重複許容時のみ効く）
+      });
     }
     scored.sort((a, b) => b.score - a.score);
     for (const { c } of scored.slice(0, 14)) {
@@ -265,23 +288,54 @@ function build(seedNo) {
     .map((c) => wordByReading.get(c))
     .filter(Boolean)
     // 単独問題の答えも他セットと重複させない（合体語と同じ扱い）
-    .filter((w) => !used.has(w.r))
-    .filter((w) => w.qs.some((q) => q.acc !== null && q.acc >= SINGLE_MIN_ACC))
-    .filter((w) => trapCandidates(w.r).length > 0)
-    .sort((a, b) => b.qCount - a.qCount);
+    .filter((w) => ALLOW_DUP || !used.has(w.r))
+    .filter((w) =>
+      w.qs.some((q) => q.acc !== null && q.acc >= SINGLE_MIN_ACC && q.acc <= SINGLE_MAX_ACC)
+    )
+    .filter((w) => trapCandidates(w.r).length > 0);
+  /** その語で作れる問題のうち、レンジ内で最も易しいもの */
+  const bestSingle = (w) =>
+    w.qs
+      .filter((q) => q.acc !== null && q.acc >= SINGLE_MIN_ACC && q.acc <= SINGLE_MAX_ACC)
+      .sort((x, y) => y.acc - x.acc)[0];
+  // 単独5問は「最も易しい5問」でなければならない（Q1〜Q5に置くため）
+  singleCands.sort(
+    (a, b) =>
+      (used.has(a.r) ? 1 : 0) - (used.has(b.r) ? 1 : 0) ||
+      (bestSingle(b)?.acc ?? 0) - (bestSingle(a)?.acc ?? 0)
+  );
   const singles = [];
   for (const w of singleCands) {
     if (singles.length >= 5) break;
     const role = roleName[levels.get(w.r)];
     if (singles.filter((s) => s.role === role).length >= 2) continue;
-    singles.push({
-      reading: w.r,
-      role,
-      best: w.qs.filter((q) => q.acc !== null && q.acc >= SINGLE_MIN_ACC)[0],
-    });
+    singles.push({ reading: w.r, role, best: bestSingle(w) });
+  }
+  // 合体部品だけでは5問に満たない場合、プールから単独問題用の札を補う
+  if (singles.length < 5) {
+    for (const w of pool.words) {
+      if (singles.length >= 5) break;
+      if (w.qCount < 2 || (!ALLOW_DUP && used.has(w.r)) || cards.has(w.r)) continue;
+      if (trapCandidates(w.r).length === 0) continue;
+      const b = bestSingle(w);
+      if (!b) continue;
+      const role = ROLES.filter(
+        (r) => hands[r].length < 9 && singles.filter((x) => x.role === r).length < 2
+      ).sort((x, y) => hands[x].length - hands[y].length)[0];
+      if (!role) continue;
+      hands[role].push(w.r);
+      cards.add(w.r);
+      singles.push({ reading: w.r, role, best: b });
+    }
   }
   if (singles.length < 5) return null;
   singles.sort((a, b) => b.best.acc - a.best.acc);
+  // 単独問題が合体問題より難しいと Q5→Q6 で逆転する。最も難しい単独が
+  // 最も易しい合体以上であることを求める（多少の重なりは許容）。
+  const easiestCompoundAcc = Math.max(
+    ...chosen.filter((c) => c !== T).map((c) => c.acc ?? 0)
+  );
+  if (singles[4].best.acc < easiestCompoundAcc - 0.12) return null;
 
   const questions = [
     ...singles.map((s) => ({
@@ -390,6 +444,12 @@ function build(seedNo) {
   const spread = +(Math.max(...seq) - Math.min(...seq)).toFixed(2);
   const reqCount = { A: 0, B: 0, C: 0 };
   for (const qq of questions) for (const r of qq.roles) reqCount[r]++;
+  // 出番の偏りが大きい骨格は棄却（バリデータは差6以上を警告する）
+  if (
+    Math.max(...Object.values(reqCount)) - Math.min(...Object.values(reqCount)) >
+    MAX_IMBALANCE
+  )
+    return null;
 
   return {
     setNo: currentSetNo,
@@ -407,22 +467,37 @@ function build(seedNo) {
 function runOne(n, want) {
   currentSetNo = n;
   let results = [];
-  outer: for (const [cm, cm3] of [
-    [1000, 600],
-    [800, 500],
-    [600, 400],
-    [400, 300],
+  // 材料が尽きたら、具体性 → 正答率レンジ の順に段階的に緩める
+  // 難易度レンジ(acc)は最優先で守る。材料が足りないときは
+  // 具体性 → 重複許容 の順に譲り、accレンジは最後まで動かさない。
+  outer: for (const [cm, cm3, lo, hi, slo, dup] of [
+    [1000, 600, 0.36, 0.76, 0.6],
+    [700, 420, 0.36, 0.76, 0.6],
+    [400, 250, 0.36, 0.76, 0.58],
+    [200, 150, 0.36, 0.76, 0.56],
+    [700, 420, 0.36, 0.76, 0.6, true], // ここから重複許容（accレンジは維持）
+    [400, 250, 0.36, 0.76, 0.58, true],
+    [200, 150, 0.36, 0.76, 0.56, true],
+    [400, 250, 0.33, 0.8, 0.56, true], // 最終手段: accレンジも緩める
+    [200, 150, 0.3, 0.85, 0.5, true],
   ]) {
     CONCRETE_MIN = cm;
     CONCRETE_MIN_3 = cm3;
-    computeCandidates(`set${n}(具体性${cm})`);
-    for (MIN_PAIR = 3; MIN_PAIR >= 1; MIN_PAIR--) {
-      results = [];
-      for (let seed = 1; seed <= 1500 && results.length < want; seed++) {
-        const r = build(seed);
-        if (r) results.push(r);
+    ALLOW_DUP = !!dup;
+    MIN_ACC = lo;
+    MAX_ACC = hi;
+    SINGLE_MIN_ACC = slo;
+    SINGLE_MAX_ACC = hi - 0.02;
+    computeCandidates(`set${n}(具体性${cm} acc${lo}-${hi}${dup ? " 重複許容" : ""})`);
+    for (MAX_IMBALANCE = 4; MAX_IMBALANCE <= 5; MAX_IMBALANCE++) {
+      for (MIN_PAIR = 3; MIN_PAIR >= 1; MIN_PAIR--) {
+        results = [];
+        for (let seed = 1; seed <= 2200 && results.length < want; seed++) {
+          const r = build(seed);
+          if (r) results.push(r);
+        }
+        if (results.length > 0) break outer;
       }
-      if (results.length > 0) break outer;
     }
   }
   if (results.length === 0) {
