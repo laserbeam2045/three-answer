@@ -80,7 +80,6 @@ export function redact(
     setMeta: allSets().map((s) => ({
       id: s.id,
       title: s.title,
-      difficulty: s.difficulty,
       description: s.description,
       played: state.playedSetIds.includes(s.id),
     })),

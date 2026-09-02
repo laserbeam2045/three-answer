@@ -51,7 +51,6 @@ for (const file of files) {
 
   // --- 基本構造 ---
   if (!raw.id || !raw.title || !raw.description) errors.push("id/title/description が必要");
-  if (![1, 2, 3, 4, 5].includes(raw.difficulty)) errors.push("difficulty は 1..5");
   for (const role of ROLES) {
     if (!raw.hands?.[role] || raw.hands[role].length !== 10)
       errors.push(`hands.${role} は10枚必要 (現在 ${raw.hands?.[role]?.length ?? 0})`);

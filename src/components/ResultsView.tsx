@@ -303,11 +303,6 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                   <span className="font-bold truncate min-w-0">
                     {meta?.title ?? r.setId}
                   </span>
-                  {meta && (
-                    <span className="text-gold text-xs shrink-0">
-                      {"★".repeat(meta.difficulty)}
-                    </span>
-                  )}
                   <span className="ml-auto shrink-0 font-black text-gold">
                     {r.score}
                     <span className="text-muted font-normal text-xs"> / {r.total}</span>

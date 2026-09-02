@@ -267,6 +267,9 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             </span>
           )}
         </SectionTitle>
+        <p className="text-xs text-muted mb-3 -mt-1">
+          どのセットも全20問で、難しさは同じくらいです。好きなものを選んでください。
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {state.setMeta.map((m) => {
             const selected = state.setId === m.id;
@@ -295,10 +298,6 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                       プレイ済み
                     </span>
                   )}
-                </div>
-                <div className="mt-1 text-sm tracking-wider" aria-label={`難易度 ${m.difficulty} / 5`}>
-                  <span className="text-gold">{"★".repeat(m.difficulty)}</span>
-                  <span className="text-muted">{"☆".repeat(Math.max(0, 5 - m.difficulty))}</span>
                 </div>
                 <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2 sm:line-clamp-none">
                   {m.description}

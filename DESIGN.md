@@ -33,8 +33,7 @@ type Role = "A" | "B" | "C";
 
 interface QuestionSet {
   id: string;            // "set1" .. "set5"
-  title: string;         // 表示名
-  difficulty: 1|2|3|4|5; // セット全体の難易度
+  title: string;         // 表示名（合体のネタバレを含めないこと）
   description: string;   // ロビーでの説明文
   hands: Record<Role, string[]>; // 各10語のひらがなカード
   questions: SetQuestion[];      // ちょうど20問

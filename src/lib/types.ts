@@ -22,7 +22,6 @@ export interface SetQuestion {
 export interface QuestionSet {
   id: string;
   title: string;
-  difficulty: 1 | 2 | 3 | 4 | 5;
   description: string;
   hands: Record<Role, string[]>;
   questions: SetQuestion[];
@@ -132,7 +131,7 @@ export interface RedactedState {
   seats: SeatView[];
   spectators: { name: string; active: boolean }[];
   setId: string | null;
-  setMeta: { id: string; title: string; difficulty: number; description: string; played: boolean }[];
+  setMeta: { id: string; title: string; description: string; played: boolean }[];
   playedSetIds: string[];
   gameRecords: GameRecord[];
   qIndex: number;

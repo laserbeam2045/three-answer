@@ -33,7 +33,6 @@ const qTriple = q("むーんらいとでんせつ", [
 const set: QuestionSet = {
   id: "test-set",
   title: "テストセット",
-  difficulty: 1,
   description: "テスト用",
   hands,
   questions: [qSingle, qDouble, qTriple],

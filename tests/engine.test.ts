@@ -34,7 +34,6 @@ function makeSet(id: string, questionCount: number): QuestionSet {
   return {
     id,
     title: `テストセット${id}`,
-    difficulty: 1,
     description: "テスト用",
     hands,
     questions: Array.from({ length: questionCount }, () => makeQuestion()),
