@@ -88,6 +88,27 @@ for (const file of files) {
     if (!globalAnswers.has(q.answerReading)) globalAnswers.set(q.answerReading, []);
     globalAnswers.get(q.answerReading)!.push(raw.id);
 
+    // 出す順序は必ず A→B→C（場に並べたときの読みの順序）
+    const reqRoles = (q.required ?? []).map((r) => r.role);
+    const sortedRoles = [...reqRoles].sort();
+    if (reqRoles.join("") !== sortedRoles.join("")) {
+      errors.push(
+        `${qn}: requiredの順序がA→B→Cでない（${reqRoles.join("→")}）。` +
+          `場では席順に並ぶため「${(q.required ?? [])
+            .slice()
+            .sort((a, b) => a.role.localeCompare(b.role))
+            .map((r) => r.card)
+            .join("")}」と読まれてしまう`
+      );
+    }
+
+    // 構成: Q1〜Q5 は単独、Q6〜Q20 は複合
+    if (questions.length === 20) {
+      const n = q.required?.length ?? 0;
+      if (i < 5 && n !== 1) errors.push(`${qn}: Q1〜Q5は単独1枚である必要がある（現在${n}枚）`);
+      if (i >= 5 && n < 2) errors.push(`${qn}: Q6〜Q20は2枚以上の複合である必要がある（現在${n}枚）`);
+    }
+
     // required整合
     const roles = new Set<Role>();
     let concat = "";

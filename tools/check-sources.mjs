@@ -22,20 +22,24 @@ for (const line of fs
 
 let errors = 0;
 const setsDir = path.join(ROOT, "data", "sets");
+const setAvg = [];
 for (const file of fs.readdirSync(setsDir).filter((f) => f.endsWith(".json")).sort()) {
   const set = JSON.parse(fs.readFileSync(path.join(setsDir, file), "utf8"));
   const msgs = [];
+  const accs = [];
   set.questions.forEach((q, i) => {
     const qn = `Q${i + 1}`;
     const m = /^quizzes3:(\d+)$/.exec(q.source ?? "");
     if (!m) {
       if (q.source !== "original") msgs.push(`${qn}: source の形式が不正 (${q.source})`);
+      accs.push(null);
       return;
     }
     const row = db.get(m[1]);
     if (!row) {
       msgs.push(`${qn}: quizzes3 に id=${m[1]} が存在しない`);
       errors++;
+      accs.push(null);
       return;
     }
     const dbReading = kataToHira(String(row.read ?? "").trim());
@@ -45,10 +49,36 @@ for (const file of fs.readdirSync(setsDir).filter((f) => f.endsWith(".json")).so
       );
       errors++;
     }
+    accs.push(row.n >= 20 ? +((row.c ?? 0) / row.n).toFixed(2) : null);
   });
+
+  // 難易度のグラデーション（正答率が高い＝易しい。Q1→Q19で下がるのが理想。
+  // Q20は3枚合体の決め所なので知識難易度の順序からは除く）
+  const known = accs.slice(0, 19).map((a, i) => ({ a, i })).filter((x) => x.a !== null);
+  let inversions = 0;
+  for (let x = 0; x < known.length - 1; x++)
+    if (known[x].a < known[x + 1].a - 0.12) inversions++;
+  const avg = known.length ? known.reduce((s, x) => s + x.a, 0) / known.length : null;
+  setAvg.push({ file, avg, id: set.id });
+
   console.log(`\n=== ${file} ===`);
   if (msgs.length === 0) console.log("  出典OK");
   else for (const m of msgs) console.log(`  ${m}`);
+  console.log(`  正答率: ${accs.map((a) => (a === null ? "--" : String(Math.round(a * 100)).padStart(2))).join(" ")}`);
+  console.log(
+    `  平均正答率 ${avg === null ? "-" : avg.toFixed(2)} / 難易度の逆転(0.12超) ${inversions}箇所`
+  );
+  if (inversions > 3) console.log("  warn : セット内の難易度が単調に上がっていない");
+}
+
+// セット間のグラデーション
+console.log("\n=== セット間の難易度 ===");
+const ordered = setAvg.filter((s) => s.avg !== null).sort((a, b) => a.id.localeCompare(b.id));
+for (const s of ordered) console.log(`  ${s.id}: 平均正答率 ${s.avg.toFixed(2)}`);
+for (let i = 0; i + 1 < ordered.length; i++) {
+  if (ordered[i].avg < ordered[i + 1].avg) {
+    console.log(`  warn : ${ordered[i].id} より ${ordered[i + 1].id} の方が易しい（逆転）`);
+  }
 }
 
 if (errors > 0) {
