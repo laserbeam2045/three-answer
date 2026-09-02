@@ -21,6 +21,10 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   min-height: 100%;
+  /* 演出（拡大するリング等）や長い語がはみ出しても横スクロールを生まない。
+     overflow-x: hidden と違いスクロールコンテナを作らないので sticky が壊れない。 */
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* カード札 */
@@ -70,6 +74,22 @@ body {
 }
 .pop-in {
   animation: pop-in 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+/* 横幅いっぱいの要素用。scale で横に広がると画面外へはみ出すため、
+   縦の動きとフェードだけで登場させる。 */
+@keyframes rise-in {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.rise-in {
+  animation: rise-in 0.4s cubic-bezier(0.2, 0.9, 0.3, 1) both;
 }
 
 @keyframes gold-glow {
@@ -146,8 +166,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 220px;
-  height: 220px;
+  width: min(220px, 45vw);
+  height: min(220px, 45vw);
   border: 6px solid var(--color-gold);
   border-radius: 9999px;
   pointer-events: none;

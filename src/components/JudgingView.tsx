@@ -105,7 +105,7 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
 
       {/* 段階3 (1600ms): 正解パネル */}
       {stage >= 2 && (
-        <section className="pop-in w-full bg-panel border border-line rounded-xl p-4 sm:p-5 text-center">
+        <section className="rise-in w-full bg-panel border border-line rounded-xl p-4 sm:p-5 text-center">
           <p className="text-muted text-xs font-bold tracking-widest mb-2">
             {result.correct
               ? question.required.length >= 2
@@ -130,7 +130,7 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
 
       {/* 段階4 (2200ms): 解説パネル */}
       {stage >= 3 && (
-        <section className="pop-in w-full bg-panel-2 border border-line rounded-xl p-4 sm:p-5">
+        <section className="rise-in w-full bg-panel-2 border border-line rounded-xl p-4 sm:p-5">
           <h3 className="text-gold text-xs font-bold tracking-widest mb-1.5">解説</h3>
           <p className="text-sm sm:text-base leading-relaxed text-ink/90">
             {question.explanation}

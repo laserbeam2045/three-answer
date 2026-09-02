@@ -15,7 +15,7 @@ export default function PauseOverlay({ room }: { room: UseRoomResult }) {
 
   return (
     <div className="fixed inset-0 z-40 bg-bg/80 backdrop-blur-sm flex items-center justify-center p-6">
-      <div className="pop-in w-full max-w-md bg-panel border border-line rounded-2xl shadow-2xl p-8 text-center">
+      <div className="rise-in w-full max-w-md bg-panel border border-line rounded-2xl shadow-2xl p-8 text-center">
         <p className="text-3xl font-extrabold tracking-wide mb-6">⏸ 一時停止中</p>
         <ul className="space-y-2 mb-6">
           {state.pausedRoles.map((role) => {

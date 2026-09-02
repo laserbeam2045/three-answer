@@ -131,7 +131,7 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
       {/* 名前入力モーダル */}
       {showNameModal && (
         <div className="fixed inset-0 z-50 bg-bg/80 backdrop-blur-sm flex items-center justify-center p-6">
-          <div className="pop-in w-full max-w-sm bg-panel border border-line rounded-2xl shadow-2xl p-6">
+          <div className="rise-in w-full max-w-sm bg-panel border border-line rounded-2xl shadow-2xl p-6">
             <p className="text-lg font-extrabold mb-1">名前を入力してください</p>
             <p className="text-sm text-muted mb-4">他のプレイヤーに表示されます。</p>
             <form
