@@ -264,6 +264,8 @@ function build(seedNo) {
   const singleCands = [...cards]
     .map((c) => wordByReading.get(c))
     .filter(Boolean)
+    // 単独問題の答えも他セットと重複させない（合体語と同じ扱い）
+    .filter((w) => !used.has(w.r))
     .filter((w) => w.qs.some((q) => q.acc !== null && q.acc >= SINGLE_MIN_ACC))
     .filter((w) => trapCandidates(w.r).length > 0)
     .sort((a, b) => b.qCount - a.qCount);
