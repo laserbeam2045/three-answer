@@ -225,7 +225,9 @@ for (const file of files) {
   info.push(
     `未使用カード(${unused.length}): ${unused.map((u) => `${u.role}:${u.card}`).join(", ") || "なし"}`
   );
-  if (unused.length > 7) warnings.push(`未使用カードが多すぎる (${unused.length}枚)`);
+  // Q6〜Q20を全て複合にした構成では、再利用が効くほど必要札は少なくなる。
+  // 残りは罠専用の札として機能する（本家の例も30枚中11枚が未使用）。
+  if (unused.length > 15) warnings.push(`未使用カードが多すぎる (${unused.length}枚)`);
 
   const perRoleCount = ROLES.map(
     (r) => questions.flatMap((q) => q.required ?? []).filter((x) => x.role === r).length

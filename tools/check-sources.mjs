@@ -20,6 +20,9 @@ for (const line of fs
   } catch {}
 }
 
+/** 正答率の下限。これを下回る問題は「知らないと解けない」ため使わない */
+const MIN_ACC = 0.3;
+
 let errors = 0;
 const setsDir = path.join(ROOT, "data", "sets");
 const setAvg = [];
@@ -69,6 +72,16 @@ for (const file of fs.readdirSync(setsDir).filter((f) => f.endsWith(".json")).so
     `  平均正答率 ${avg === null ? "-" : avg.toFixed(2)} / 難易度の逆転(0.12超) ${inversions}箇所`
   );
   if (inversions > 3) console.log("  warn : セット内の難易度が単調に上がっていない");
+
+  // 難易度の下限。正答率0.3未満は「知らないと解けない」領域になりやすい
+  const tooHard = accs
+    .map((a, i) => ({ a, qn: `Q${i + 1}` }))
+    .filter((x) => x.a !== null && x.a < MIN_ACC);
+  if (tooHard.length > 0) {
+    for (const x of tooHard)
+      console.log(`  ERROR: ${x.qn}: 正答率 ${x.a} が下限 ${MIN_ACC} を下回る（難しすぎる）`);
+    errors += tooHard.length;
+  }
 }
 
 // セット間は難易度差をつけない（各セットが単体で易→難に推移する）。参考表示のみ。
