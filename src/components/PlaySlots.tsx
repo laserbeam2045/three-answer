@@ -51,7 +51,6 @@ export default function PlaySlots({
           const slot = byRole.get(role);
           if (!slot) return <div key={role} />;
           const { content } = slot;
-          const decided = content.kind !== "hidden" || content.decided;
 
           return (
             <div
@@ -88,14 +87,6 @@ export default function PlaySlots({
                   {content.decided ? "決定済み" : "考え中…"}
                 </div>
               )}
-
-              <span
-                className={`text-[10px] sm:text-xs font-bold h-4 ${
-                  decided ? "text-gold" : "text-muted/70"
-                }`}
-              >
-                {slot.isYou ? "あなた" : decided ? "✓" : ""}
-              </span>
             </div>
           );
         })}
