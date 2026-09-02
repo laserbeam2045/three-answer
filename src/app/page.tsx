@@ -84,6 +84,52 @@ export default function Home() {
           ルームを作るとURLが発行されます。URLを共有すれば、開くだけで参加できます。
         </p>
       </div>
+
+      {/* 原案クレジット */}
+      <div className="max-w-lg w-full bg-panel rounded-2xl border border-line p-6 space-y-4">
+        <h2 className="font-bold text-lg">
+          原案：<span className="text-gold">カプリティオチャンネル</span>
+        </h2>
+        <p className="text-sm text-ink/90 leading-relaxed">
+          このゲームは、クイズ法人カプリティオのYouTubeチャンネル「カプリティオチャンネル」の動画
+          『【30択】協力して正解せよ‼️』で考案・実演された協力型カードゲームに着想を得た、
+          ファンによる非公式のWebアプリです。素晴らしいゲームへのリスペクトを込めて制作しました。
+        </p>
+
+        <div className="relative w-full overflow-hidden rounded-xl border border-line bg-black aspect-video">
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src="https://www.youtube-nocookie.com/embed/5Q5BLPpKVcY"
+            title="カプリティオチャンネル - 原案となった動画"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+          <a
+            href="https://www.youtube.com/watch?v=5Q5BLPpKVcY"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold hover:underline"
+          >
+            YouTubeで動画を見る ↗
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCA5eUNhmpBCbT-IJxBvP5tA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold hover:underline"
+          >
+            カプリティオチャンネル ↗
+          </a>
+        </div>
+        <p className="text-xs text-muted leading-relaxed">
+          本アプリはカプリティオおよび関係各社とは一切関係のない非公式作品です。
+          問題はオリジナルに作成しており、動画内の問題は使用していません。
+        </p>
+      </div>
     </main>
   );
 }
