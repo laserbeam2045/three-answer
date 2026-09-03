@@ -37,12 +37,14 @@ body {
   max-width: 100%;
 }
 
-/* ---------- 舞台の背景: 七宝つなぎの地紋 + 上からのスポットライト ---------- */
+/* ---------- 舞台の背景: 菱格子の地紋 + 上からのスポットライト ---------- */
+/* 丸を敷き詰めた模様（七宝つなぎ等）は集合体恐怖症を刺激するため使わない。
+   斜めの格子線だけで構成した菱格子にする。 */
 .stage {
   background-color: var(--color-bg);
   background-image:
     radial-gradient(ellipse 90% 55% at 50% -12%, rgba(226, 192, 91, 0.16), transparent 62%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23e2c05b' stroke-opacity='0.055' stroke-width='1'%3E%3Ccircle cx='24' cy='24' r='16'/%3E%3Ccircle cx='0' cy='0' r='16'/%3E%3Ccircle cx='48' cy='0' r='16'/%3E%3Ccircle cx='0' cy='48' r='16'/%3E%3Ccircle cx='48' cy='48' r='16'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23e2c05b' stroke-width='1'%3E%3Cpath d='M0 32 L32 0 L64 32 L32 64 Z' stroke-opacity='0.06'/%3E%3Cpath d='M32 0 L32 64 M0 32 L64 32' stroke-opacity='0.025'/%3E%3C/g%3E%3C/svg%3E"),
     linear-gradient(180deg, #0d1121 0%, #0a0d17 60%, #080a12 100%);
   background-attachment: fixed, fixed, fixed;
 }
@@ -263,11 +265,11 @@ body {
     0 0 16px rgba(226, 192, 91, 0.35);
 }
 
-/* 裏向きの札（回答中は誰が何を出すか分からない）: 紺地に金の七宝 */
+/* 裏向きの札（回答中は誰が何を出すか分からない）: 紺地に金の菱格子 */
 .card-back {
   color: var(--color-muted);
   background-color: #10142a;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23e2c05b' stroke-opacity='0.22' stroke-width='0.8'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='24' cy='0' r='8'/%3E%3Ccircle cx='0' cy='24' r='8'/%3E%3Ccircle cx='24' cy='24' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M0 8 L8 0 L16 8 L8 16 Z' fill='none' stroke='%23e2c05b' stroke-opacity='0.28' stroke-width='0.8'/%3E%3C/svg%3E");
   border: 1px solid var(--color-gold-3);
   box-shadow:
     inset 0 0 0 3px #10142a,
