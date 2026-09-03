@@ -1,6 +1,7 @@
 "use client";
 
 import CardTile from "@/components/CardTile";
+import OrnateTitle from "@/components/OrnateTitle";
 import SeatBadge from "@/components/SeatBadge";
 import PlaySlots from "@/components/PlaySlots";
 import TimerBar from "@/components/TimerBar";
@@ -39,9 +40,9 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
     <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-2.5 sm:gap-4 p-3 sm:p-6">
       {/* 上部: 問題番号バッジ + タイマー */}
       <div className="flex items-center gap-3">
-        <span className="shrink-0 inline-flex items-baseline gap-1 rounded-full bg-gold text-card-ink font-bold px-4 py-1.5 text-sm sm:text-base shadow">
+        <span className="plaque shrink-0 px-3.5 py-1 text-sm sm:text-base">
           第{qIndex + 1}問
-          <span className="text-xs opacity-70">/ 20</span>
+          <span className="text-xs opacity-70 font-sans font-bold">/ 20</span>
         </span>
         <div className="flex-1 min-w-0">
           <TimerBar room={room} />
@@ -49,18 +50,18 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
       </div>
 
       {/* 問題文パネル。出題前は「問題」の演出だけを見せる */}
-      <section className="relative bg-panel border border-line rounded-2xl px-4 py-4 sm:px-10 sm:py-12 shadow-lg min-h-28 sm:min-h-44 flex items-center justify-center overflow-hidden">
+      <section className="ornate ornate-lit px-2 py-4 sm:px-8 sm:py-10 min-h-32 sm:min-h-48 flex items-center justify-center overflow-hidden">
         {timer.inLeadIn ? (
           <div className="q-ripple relative flex flex-col items-center justify-center">
-            <span className="q-badge text-3xl sm:text-5xl font-black text-gold tracking-[0.25em] pl-[0.25em] select-none">
+            <span className="q-badge font-display text-gilt text-4xl sm:text-6xl font-extrabold tracking-[0.25em] pl-[0.25em] select-none">
               問題
             </span>
-            <span className="mt-2 text-xs sm:text-sm text-muted font-bold tracking-widest">
+            <span className="mt-3 font-display text-xs sm:text-sm text-gold-3 font-bold tracking-[0.3em]">
               第{qIndex + 1}問
             </span>
           </div>
         ) : (
-          <p className="text-base sm:text-2xl font-bold leading-relaxed text-center text-ink">
+          <p className="font-display text-lg sm:text-2xl font-semibold leading-relaxed text-center text-ink">
             {inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
           </p>
         )}
@@ -92,8 +93,8 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
       {isSeated && myHand && mySelection ? (
         <>
           {/* 手札 */}
-          <section className="bg-panel-2/60 border border-line rounded-2xl p-2.5 sm:p-5">
-            <h2 className="text-xs sm:text-sm text-muted font-bold mb-2 sm:mb-3">あなたの手札</h2>
+          <section className="ornate-2 p-2 sm:p-4">
+            <OrnateTitle className="mb-2 sm:mb-3">あなたの手札</OrnateTitle>
             <div className="flex flex-wrap justify-center gap-1.5 sm:gap-3">
               {myHand.map((word, index) => (
                 <CardTile
@@ -125,11 +126,9 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
               type="button"
               disabled={locked}
               onClick={() => void send({ type: "select", cardIndex: null })}
-              className={`rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-bold border transition-colors ${
-                passSelected
-                  ? "border-gold text-gold bg-gold/10 shadow-[0_0_12px_rgba(251,191,36,0.25)]"
-                  : "border-line text-muted hover:text-ink hover:border-ink/40"
-              } ${locked ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+              className={`btn-ghost px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base ${
+                passSelected ? "on" : ""
+              }`}
             >
               出さない
             </button>
@@ -138,19 +137,19 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
               <button
                 type="button"
                 onClick={() => void send({ type: "lock" })}
-                className="rounded-xl px-5 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base font-bold bg-gold text-card-ink shadow hover:brightness-110 cursor-pointer transition-[filter]"
+                className="btn-gold px-6 py-2 sm:px-8 sm:py-2.5 text-sm sm:text-base"
               >
                 {decideLabel}
               </button>
             ) : (
               <>
-                <span className="rounded-xl px-5 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base font-bold border border-gold text-gold bg-panel">
+                <span className="btn-ghost on px-5 py-2 sm:px-6 sm:py-2.5 text-sm sm:text-base cursor-default">
                   決定済み ✓
                 </span>
                 <button
                   type="button"
                   onClick={() => void send({ type: "unlock" })}
-                  className="rounded-xl px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-bold border border-line text-muted hover:text-ink hover:border-ink/40 cursor-pointer transition-colors"
+                  className="btn-ghost px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base"
                 >
                   選び直す
                 </button>
@@ -164,17 +163,13 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
         </>
       ) : (
         /* 観戦者ビュー */
-        <section className="bg-panel-2/60 border border-line rounded-2xl p-4 sm:p-5 flex flex-col gap-4">
+        <section className="ornate-2 p-3 sm:p-4 flex flex-col gap-4">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-sm text-muted font-bold">プレイヤーの決定状況</h2>
+            <h2 className="font-display text-sm text-gold font-bold tracking-widest">プレイヤーの決定状況</h2>
             <button
               type="button"
               onClick={() => setSpectatorReveal(!spectatorReveal)}
-              className={`text-xs rounded-lg px-3 py-1.5 font-bold border cursor-pointer transition-colors ${
-                spectatorReveal
-                  ? "border-gold text-gold bg-gold/10"
-                  : "border-line text-muted hover:text-ink"
-              }`}
+              className={`btn-ghost text-xs px-3 py-1.5 ${spectatorReveal ? "on" : ""}`}
             >
               {spectatorReveal ? "手札を隠す" : "全員の手札を見る"}
             </button>
@@ -184,7 +179,7 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
             {seats.map((seat) => (
               <div
                 key={seat.role}
-                className="flex items-center justify-between gap-3 bg-panel border border-line rounded-xl px-4 py-2.5"
+                className="slot flex items-center justify-between gap-3 px-4 py-2.5"
               >
                 <SeatBadge seat={seat} isYou={false} />
                 <span

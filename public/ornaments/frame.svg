@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- 金の額縁。border-image-slice: 40 で四隅(40x40)と辺(40px)に分割して使う -->
+  <defs>
+    <g id="corner">
+      <!-- 隅の扇 -->
+      <path d="M 9 34 Q 9 9 34 9" fill="none" stroke="#d9b24c" stroke-width="1.1" opacity="0.95"/>
+      <path d="M 9 26 Q 9 13 26 9" fill="none" stroke="#d9b24c" stroke-width="0.7" opacity="0.6"/>
+      <!-- 隅の菱形 -->
+      <polygon points="15.5,10 21,15.5 15.5,21 10,15.5" fill="#f0d78a" stroke="#a8862a" stroke-width="0.8"/>
+      <circle cx="15.5" cy="15.5" r="1.4" fill="#a8862a"/>
+      <!-- 扇の端の飾り -->
+      <circle cx="34" cy="9" r="1.5" fill="#f0d78a" stroke="#a8862a" stroke-width="0.6"/>
+      <circle cx="9" cy="34" r="1.5" fill="#f0d78a" stroke="#a8862a" stroke-width="0.6"/>
+    </g>
+    <g id="edge">
+      <!-- 辺の連珠（40pxタイルで継ぎ目なく繰り返す） -->
+      <circle cx="46.67" cy="6" r="1.1" fill="#d9b24c" opacity="0.85"/>
+      <circle cx="60" cy="6" r="1.6" fill="#f0d78a" stroke="#a8862a" stroke-width="0.5"/>
+      <circle cx="73.33" cy="6" r="1.1" fill="#d9b24c" opacity="0.85"/>
+    </g>
+  </defs>
+  <!-- 外枠（太）と内枠（細） -->
+  <rect x="3" y="3" width="114" height="114" fill="none" stroke="#d9b24c" stroke-width="2"/>
+  <rect x="9" y="9" width="102" height="102" fill="none" stroke="#d9b24c" stroke-width="0.9" opacity="0.8"/>
+  <use href="#corner"/>
+  <use href="#corner" transform="rotate(90 60 60)"/>
+  <use href="#corner" transform="rotate(180 60 60)"/>
+  <use href="#corner" transform="rotate(270 60 60)"/>
+  <use href="#edge"/>
+  <use href="#edge" transform="rotate(90 60 60)"/>
+  <use href="#edge" transform="rotate(180 60 60)"/>
+  <use href="#edge" transform="rotate(270 60 60)"/>
+</svg>

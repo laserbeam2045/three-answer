@@ -1,6 +1,7 @@
 "use client";
 
 import CardTile from "@/components/CardTile";
+import OrnateTitle from "@/components/OrnateTitle";
 import type { Role } from "@/lib/types";
 import { ROLES } from "@/lib/types";
 
@@ -43,9 +44,7 @@ export default function PlaySlots({
 
   return (
     <section className="w-full">
-      <h2 className="text-muted text-xs font-bold tracking-widest text-center mb-2 sm:mb-3">
-        {title}
-      </h2>
+      <OrnateTitle className="mb-2 sm:mb-3">{title}</OrnateTitle>
       <div className="grid grid-cols-3 gap-2 sm:gap-4">
         {ROLES.map((role, i) => {
           const slot = byRole.get(role);
@@ -55,9 +54,9 @@ export default function PlaySlots({
           return (
             <div
               key={role}
-              className={`${reveal ? "flip-in" : ""} bg-panel border rounded-xl p-2 sm:p-3 flex flex-col items-center gap-2 min-w-0 transition-colors ${
-                slot.isYou ? "border-gold/50" : "border-line"
-              }`}
+              className={`${reveal ? "flip-in" : ""} slot ${
+                slot.isYou ? "slot-you" : ""
+              } p-2 sm:p-3 flex flex-col items-center gap-2 min-w-0 transition-colors`}
               style={reveal ? { animationDelay: `${i * 200}ms` } : undefined}
             >
               <div className="flex items-center gap-1.5 min-w-0 max-w-full">
@@ -75,13 +74,13 @@ export default function PlaySlots({
               {content.kind === "card" ? (
                 <CardTile word={content.word} role={role} size="sm" state="revealed" />
               ) : content.kind === "pass" ? (
-                <div className="rounded-lg border border-dashed border-line bg-panel-2 text-muted text-xs sm:text-sm px-3 py-3 sm:py-4 whitespace-nowrap">
+                <div className="card-pass text-xs sm:text-sm px-3 py-3 sm:py-4 whitespace-nowrap">
                   出さない
                 </div>
               ) : (
                 <div
                   className={`card-back rounded-lg px-3 py-3 sm:py-4 text-xs sm:text-sm font-bold whitespace-nowrap ${
-                    content.decided ? "card-back-decided" : "opacity-60"
+                    content.decided ? "card-back-decided" : "opacity-70"
                   }`}
                 >
                   {content.decided ? "決定済み" : "考え中…"}

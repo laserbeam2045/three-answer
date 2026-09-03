@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 function RuleSection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section>
-      <h3 className="text-gold text-xs font-bold tracking-widest mb-1.5">{title}</h3>
+      <h3 className="font-display text-gold text-xs sm:text-sm font-bold tracking-[0.25em] mb-1.5">
+        {title}
+      </h3>
       <div className="text-sm text-ink/90 leading-relaxed space-y-1.5">{children}</div>
     </section>
   );
@@ -13,7 +15,7 @@ function Card({ children, role }: { children: ReactNode; role: "a" | "b" | "c" }
   const bar = { a: "border-b-player-a", b: "border-b-player-b", c: "border-b-player-c" }[role];
   return (
     <span
-      className={`inline-block bg-card-face text-card-ink font-bold text-xs px-1.5 pt-0.5 pb-1 rounded border-b-2 ${bar} mx-0.5 align-middle`}
+      className={`inline-block bg-card-face text-card-ink font-display font-extrabold text-xs px-1.5 pt-0.5 pb-1 rounded border border-gold-3/60 border-b-2 ${bar} mx-0.5 align-middle`}
     >
       {children}
     </span>

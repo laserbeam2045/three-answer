@@ -3,42 +3,26 @@
 import { useEffect, useRef, useState } from "react";
 import { getLocalName, setLocalName, type UseRoomResult } from "@/hooks/useRoom";
 import SeatBadge from "@/components/SeatBadge";
+import OrnateTitle from "@/components/OrnateTitle";
 import RulesContent from "@/components/RulesContent";
 import type { Role } from "@/lib/types";
 
-const SEAT_STYLES: Record<
-  Role,
-  { border: string; text: string; tint: string; ring: string; btn: string }
-> = {
-  A: {
-    border: "border-player-a/60",
-    text: "text-player-a",
-    tint: "bg-player-a/10",
-    ring: "ring-2 ring-player-a",
-    btn: "bg-player-a hover:brightness-110",
-  },
-  B: {
-    border: "border-player-b/60",
-    text: "text-player-b",
-    tint: "bg-player-b/10",
-    ring: "ring-2 ring-player-b",
-    btn: "bg-player-b hover:brightness-110",
-  },
-  C: {
-    border: "border-player-c/60",
-    text: "text-player-c",
-    tint: "bg-player-c/10",
-    ring: "ring-2 ring-player-c",
-    btn: "bg-player-c hover:brightness-110",
-  },
+const SEAT_STYLES: Record<Role, { color: string; text: string; btn: string }> = {
+  A: { color: "#ec4899", text: "text-player-a", btn: "bg-player-a hover:brightness-110" },
+  B: { color: "#3b82f6", text: "text-player-b", btn: "bg-player-b hover:brightness-110" },
+  C: { color: "#22c55e", text: "text-player-c", btn: "bg-player-c hover:brightness-110" },
 };
 
 const SECONDS_OPTIONS = [30, 45, 60, 90];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="text-sm font-bold tracking-widest text-muted mb-3">{children}</h2>
-  );
+  return <OrnateTitle className="mb-3">{children}</OrnateTitle>;
+}
+
+/** ルーム作成者以外に表示する補足 */
+function HostOnlyNote({ show }: { show: boolean }) {
+  if (!show) return null;
+  return <p className="text-xs text-muted text-center -mt-2 mb-3">ルーム作成者が選びます</p>;
 }
 
 export default function LobbyView({ room }: { room: UseRoomResult }) {
@@ -109,22 +93,20 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
   return (
     <div className="w-full max-w-3xl mx-auto flex flex-col gap-3 sm:gap-6 p-3 sm:p-6 pb-16">
       {/* 1. 招待パネル */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
+      <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>友達を招待</SectionTitle>
         <div className="flex flex-col sm:flex-row gap-2">
           <input
             readOnly
             value={roomUrl}
             onFocus={(e) => e.currentTarget.select()}
-            className="flex-1 min-w-0 bg-panel-2 border border-line rounded-lg px-3 py-2 text-sm text-ink font-mono"
+            className="field flex-1 min-w-0 px-3 py-2 text-sm font-mono"
             aria-label="ルームURL"
           />
           <button
             type="button"
             onClick={() => void copyUrl()}
-            className={`shrink-0 px-4 py-2 rounded-lg font-bold text-sm transition-colors ${
-              copied ? "bg-player-c text-white" : "bg-gold text-card-ink hover:brightness-110"
-            }`}
+            className={copied ? "btn-ghost on shrink-0 px-4 py-2 text-sm" : "btn-gold shrink-0 px-4 py-2 text-sm"}
           >
             {copied ? "コピーしました！" : "URLをコピー"}
           </button>
@@ -135,7 +117,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 2. 名前編集 */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
+      <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>あなたの名前</SectionTitle>
         <div className="flex gap-2">
           <input
@@ -146,14 +128,14 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             }}
             maxLength={16}
             placeholder="名前を入力"
-            className="flex-1 min-w-0 bg-panel-2 border border-line rounded-lg px-3 py-2 text-ink focus:outline-none focus:border-gold"
+            className="field flex-1 min-w-0 px-3 py-2"
             aria-label="あなたの名前"
           />
           <button
             type="button"
             onClick={submitName}
             disabled={!nameInput.trim() || nameInput.trim() === state.you.name}
-            className="shrink-0 px-4 py-2 rounded-lg font-bold text-sm bg-panel-2 border border-line text-ink hover:border-gold disabled:opacity-40 disabled:hover:border-line transition-colors"
+            className="btn-ghost shrink-0 px-4 py-2 text-sm"
           >
             変更
           </button>
@@ -161,7 +143,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 3. 席パネル */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
+      <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>プレイヤー席</SectionTitle>
         <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
           {state.seats.map((seat) => {
@@ -172,11 +154,14 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             return (
               <div
                 key={seat.role}
-                className={`rounded-xl border-2 p-1.5 sm:p-4 min-h-28 sm:min-h-36 flex flex-col items-center justify-between gap-1.5 sm:gap-3 min-w-0 ${
-                  isEmpty ? "border-dashed" : ""
-                } ${style.border} ${isYou ? `${style.tint} ${style.ring}` : "bg-panel-2"}`}
+                className={`seat-card p-1.5 pt-3 sm:p-4 sm:pt-5 min-h-28 sm:min-h-36 flex flex-col items-center justify-between gap-1.5 sm:gap-3 min-w-0 ${
+                  isEmpty ? "seat-empty" : ""
+                } ${isYou ? "seat-you" : ""}`}
+                style={{ "--seat-color": style.color } as React.CSSProperties}
               >
-                <div className={`text-lg sm:text-2xl font-black ${style.text}`}>{seat.role}</div>
+                <div className={`font-display text-2xl sm:text-3xl font-extrabold ${style.text}`}>
+                  {seat.role}
+                </div>
                 {isEmpty ? (
                   <>
                     <p className="text-muted text-xs sm:text-sm">空席</p>
@@ -198,7 +183,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                       <button
                         type="button"
                         onClick={() => void send({ type: "standUp" })}
-                        className="w-full py-1.5 sm:py-2 rounded-lg font-bold text-xs sm:text-sm bg-panel border border-line text-ink hover:border-gold transition-colors"
+                        className="btn-ghost w-full py-1.5 sm:py-2 text-xs sm:text-sm"
                       >
                         席を立つ
                       </button>
@@ -223,7 +208,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 4. 観戦者 */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
+      <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>観戦者</SectionTitle>
         {state.spectators.length === 0 ? (
           <p className="text-muted text-sm">観戦者はいません</p>
@@ -258,16 +243,10 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 5. 問題セット選択（ルーム作成者のみ操作可） */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
-        <SectionTitle>
-          問題セット
-          {!state.you.isHost && (
-            <span className="ml-2 font-normal normal-case tracking-normal">
-              （ルーム作成者が選びます）
-            </span>
-          )}
-        </SectionTitle>
-        <p className="text-xs text-muted mb-3 -mt-1">
+      <section className="ornate-2 p-3 sm:p-5">
+        <SectionTitle>問題セット</SectionTitle>
+        <HostOnlyNote show={!state.you.isHost} />
+        <p className="text-xs text-muted mb-3 -mt-1 text-center">
           どのセットも全20問で、難しさは同じくらいです。好きなものを選んでください。
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -283,16 +262,20 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                     ? () => void send({ type: "selectSet", setId: m.id })
                     : undefined
                 }
-                className={`text-left rounded-xl p-4 border-2 transition-colors ${
-                  selected
-                    ? "border-gold bg-gold/5 gold-glow"
-                    : "border-line bg-panel-2"
-                } ${state.you.isHost ? "hover:border-muted cursor-pointer" : "cursor-default opacity-80"} ${
+                className={`slot text-left p-4 transition-colors ${
+                  selected ? "slot-you gold-glow" : ""
+                } ${state.you.isHost ? "hover:border-gold-3 cursor-pointer" : "cursor-default opacity-80"} ${
                   selected ? "opacity-100" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="font-bold text-ink">{m.title}</span>
+                  <span
+                    className={`font-display text-lg font-extrabold tracking-widest ${
+                      selected ? "text-gilt" : "text-ink"
+                    }`}
+                  >
+                    {m.title}
+                  </span>
                   {m.played && (
                     <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border border-line text-muted bg-panel">
                       プレイ済み
@@ -309,16 +292,11 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {/* 6. 制限時間設定（ルーム作成者のみ操作可） */}
-      <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
-        <SectionTitle>
-          解答時間（1問あたり）
-          {!state.you.isHost && (
-            <span className="ml-2 font-normal normal-case tracking-normal">
-              （ルーム作成者が選びます）
-            </span>
-          )}
-        </SectionTitle>
-        <div className="inline-flex rounded-lg border border-line overflow-hidden">
+      <section className="ornate-2 p-3 sm:p-5">
+        <SectionTitle>解答時間（1問あたり）</SectionTitle>
+        <HostOnlyNote show={!state.you.isHost} />
+        <div className="flex justify-center">
+        <div className="inline-flex rounded-lg border border-gold-3 overflow-hidden">
           {SECONDS_OPTIONS.map((sec) => {
             const active = state.settings.answerSeconds === sec;
             return (
@@ -333,14 +311,15 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                 }
                 className={`px-4 sm:px-6 py-2 text-sm font-bold transition-colors ${
                   active
-                    ? "bg-gold text-card-ink"
-                    : `bg-panel-2 text-muted ${state.you.isHost ? "hover:text-ink" : ""}`
+                    ? "plaque rounded-none shadow-none"
+                    : `bg-panel-2 text-muted ${state.you.isHost ? "hover:text-ink cursor-pointer" : ""}`
                 } ${state.you.isHost ? "" : "cursor-default"}`}
               >
                 {sec}秒
               </button>
             );
           })}
+        </div>
         </div>
       </section>
 
@@ -351,16 +330,14 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             type="button"
             disabled={!canStart}
             onClick={() => void send({ type: "start" })}
-            className={`w-full py-3.5 sm:py-4 rounded-xl text-lg sm:text-xl font-black tracking-widest transition ${
-              canStart
-                ? "bg-gold text-card-ink hover:brightness-110 gold-glow"
-                : "bg-panel-2 text-muted cursor-not-allowed border border-line"
+            className={`btn-gold w-full py-3.5 sm:py-4 text-xl sm:text-2xl tracking-[0.3em] pl-[0.3em] ${
+              canStart ? "gold-glow" : ""
             }`}
           >
             ゲーム開始
           </button>
         ) : (
-          <div className="w-full py-3.5 sm:py-4 rounded-xl text-center bg-panel-2 border border-line text-muted text-sm">
+          <div className="ornate-2 w-full py-3 sm:py-4 text-center text-muted text-sm">
             ゲーム開始はルーム作成者
             {state.hostName ? `（${state.hostName}さん）` : ""}が行います
           </div>
@@ -378,13 +355,13 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
 
       {/* 8. これまでの記録 */}
       {state.gameRecords.length > 0 && (
-        <section className="bg-panel border border-line rounded-xl p-3 sm:p-5">
+        <section className="ornate-2 p-3 sm:p-5">
           <SectionTitle>これまでの記録</SectionTitle>
           <ul className="flex flex-col gap-1.5">
             {state.gameRecords.map((rec, i) => (
               <li
                 key={`${rec.setId}-${rec.finishedAt}-${i}`}
-                className="flex items-center justify-between gap-2 text-sm bg-panel-2 border border-line rounded-lg px-3 py-2"
+                className="slot flex items-center justify-between gap-2 text-sm px-3 py-2"
               >
                 <span className="text-ink truncate">{titleOf(rec.setId)}</span>
                 <span className="shrink-0 font-bold text-gold">
@@ -397,10 +374,10 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       )}
 
       {/* 9. ルール説明 */}
-      <section className="bg-panel border border-line rounded-xl overflow-hidden">
+      <section className="ornate-2 overflow-hidden">
         <details>
-          <summary className="cursor-pointer select-none p-4 sm:p-5 text-sm font-bold tracking-widest text-muted hover:text-ink transition-colors">
-            はじめての方へ — ルールを見る
+          <summary className="cursor-pointer select-none p-3 sm:p-4 font-display text-sm font-bold tracking-widest text-gold hover:text-gold-2 transition-colors text-center">
+            はじめての方へ ── ルールを見る
           </summary>
           <div className="px-4 sm:px-5 pb-5">
             <RulesContent />

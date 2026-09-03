@@ -14,9 +14,11 @@ export default function PauseOverlay({ room }: { room: UseRoomResult }) {
   if (!state || state.pausedRoles.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 z-40 bg-bg/80 backdrop-blur-sm flex items-center justify-center p-6">
-      <div className="rise-in w-full max-w-md bg-panel border border-line rounded-2xl shadow-2xl p-8 text-center">
-        <p className="text-3xl font-extrabold tracking-wide mb-6">⏸ 一時停止中</p>
+    <div className="fixed inset-0 z-40 bg-bg/85 backdrop-blur-sm flex items-center justify-center p-6">
+      <div className="rise-in ornate ornate-lit w-full max-w-md p-6 sm:p-8 text-center">
+        <p className="font-display text-gilt text-3xl font-extrabold tracking-widest mb-6">
+          一時停止中
+        </p>
         <ul className="space-y-2 mb-6">
           {state.pausedRoles.map((role) => {
             const seat = state.seats.find((s) => s.role === role);

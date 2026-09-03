@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 176" width="220" height="176">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ec"/><stop offset="1" stop-color="#efe6d2"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e3a1"/><stop offset="0.5" stop-color="#d9b24c"/><stop offset="1" stop-color="#a8862a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.6" r="0.6">
+      <stop offset="0" stop-color="#d9b24c" stop-opacity="0.35"/><stop offset="1" stop-color="#d9b24c" stop-opacity="0"/>
+    </radialGradient>
+    <g id="card">
+      <rect x="-32" y="-46" width="64" height="92" rx="6" fill="url(#paper)" stroke="url(#gold)" stroke-width="2.5"/>
+      <rect x="-26" y="-40" width="52" height="80" rx="3" fill="none" stroke="#a8862a" stroke-width="0.8" opacity="0.7"/>
+    </g>
+  </defs>
+  <ellipse cx="110" cy="150" rx="110" ry="34" fill="url(#glow)"/>
+  <g transform="translate(110 90)">
+    <g transform="rotate(-18) translate(-46 -2)">
+      <use href="#card"/>
+      <rect x="-24" y="30" width="48" height="5" rx="2.5" fill="#ec4899"/>
+      <text x="0" y="8" text-anchor="middle" font-family="'Shippori Mincho B1','Hiragino Mincho ProN',serif" font-weight="800" font-size="30" fill="#ec4899">A</text>
+    </g>
+    <g transform="rotate(18) translate(46 -2)">
+      <use href="#card"/>
+      <rect x="-24" y="30" width="48" height="5" rx="2.5" fill="#22c55e"/>
+      <text x="0" y="8" text-anchor="middle" font-family="'Shippori Mincho B1','Hiragino Mincho ProN',serif" font-weight="800" font-size="30" fill="#22c55e">C</text>
+    </g>
+    <g transform="translate(0 -14)">
+      <use href="#card"/>
+      <rect x="-24" y="30" width="48" height="5" rx="2.5" fill="#3b82f6"/>
+      <text x="0" y="8" text-anchor="middle" font-family="'Shippori Mincho B1','Hiragino Mincho ProN',serif" font-weight="800" font-size="30" fill="#3b82f6">B</text>
+    </g>
+  </g>
+</svg>

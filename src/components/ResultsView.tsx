@@ -7,6 +7,7 @@ import { ROLES } from "@/lib/types";
 import CardTile from "@/components/CardTile";
 import SeatBadge from "@/components/SeatBadge";
 import Confetti from "@/components/Confetti";
+import OrnateTitle from "@/components/OrnateTitle";
 
 const ROLE_BG: Record<Role, string> = {
   A: "bg-player-a",
@@ -90,18 +91,20 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
       {highScore && <Confetti fireKey="results" intensity={score >= total ? 2.2 : 1.4} />}
 
       {/* 1. スコア発表 */}
-      <section
-        className={`bg-panel border border-line rounded-2xl px-6 py-10 text-center ${
-          highScore ? "gold-glow" : ""
-        }`}
-      >
-        <p className="text-muted text-sm font-bold tracking-[0.3em] mb-3">最終スコア</p>
-        <p className="pop-in text-7xl sm:text-8xl font-black text-gold leading-none">
-          {score}
-          <span className="text-3xl sm:text-4xl text-muted font-bold"> / {total}</span>
-        </p>
+      <section className="text-center flex flex-col items-center py-4">
+        <div className={`rays ${highScore ? "" : "opacity-95"}`}>
+          <div className={`medallion pop-in ${highScore ? "gold-glow" : ""}`}>
+            <p className="font-display text-gold-3 text-[10px] sm:text-xs font-bold tracking-[0.35em] pl-[0.35em] mb-2">
+              最終スコア
+            </p>
+            <p className="font-display text-gilt text-6xl sm:text-7xl font-extrabold leading-none">
+              {score}
+            </p>
+            <p className="font-display text-muted text-base sm:text-lg font-bold mt-2">/ {total}</p>
+          </div>
+        </div>
         <p
-          className="pop-in mt-6 text-xl sm:text-2xl font-bold"
+          className="pop-in mt-8 font-display text-xl sm:text-2xl font-extrabold text-ink tracking-wider"
           style={{ animationDelay: "0.4s" }}
         >
           {scoreComment(score)}
@@ -111,10 +114,8 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
       {/* 2. 全問履歴 */}
       {history.length > 0 && (
         <section>
-          <h2 className="text-sm font-bold text-muted tracking-[0.25em] mb-3">
-            全{total}問のふりかえり
-          </h2>
-          <div className="bg-panel border border-line rounded-xl overflow-hidden">
+          <OrnateTitle className="mb-3">全{total}問のふりかえり</OrnateTitle>
+          <div className="ornate-2 overflow-hidden">
             {history.map((h, i) => {
               const open = openIdx === i;
               const requiredKeys = new Set(
@@ -240,15 +241,13 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
       {/* 3. 全員の手札公開 */}
       {state.allHands && (
         <section>
-          <h2 className="text-sm font-bold text-muted tracking-[0.25em] mb-3">
-            全員の手札公開
-          </h2>
+          <OrnateTitle className="mb-3">全員の手札公開</OrnateTitle>
           <div className="grid gap-4 md:grid-cols-3">
             {ROLES.map((role) => {
               const seat = state.seats.find((s) => s.role === role);
               const hand = state.allHands?.[role] ?? [];
               return (
-                <div key={role} className="bg-panel border border-line rounded-xl p-4">
+                <div key={role} className="slot p-4">
                   <div className="mb-3">
                     {seat ? (
                       <SeatBadge seat={seat} isYou={state.you.role === role} />
@@ -288,10 +287,8 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
       {/* 4. これまでの記録 */}
       {state.gameRecords.length > 0 && (
         <section>
-          <h2 className="text-sm font-bold text-muted tracking-[0.25em] mb-3">
-            これまでの記録
-          </h2>
-          <div className="bg-panel border border-line rounded-xl overflow-hidden">
+          <OrnateTitle className="mb-3">これまでの記録</OrnateTitle>
+          <div className="ornate-2 overflow-hidden">
             {state.gameRecords.map((r, i) => {
               const meta = metaOf(r.setId);
               return (
@@ -323,7 +320,7 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
           type="button"
           disabled={!isSeated || busy}
           onClick={onBackToLobby}
-          className="bg-gold text-card-ink font-bold text-lg px-8 py-3 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
+          className="btn-gold text-lg px-8 py-3"
         >
           ロビーに戻る（別のセットで遊ぶ）
         </button>

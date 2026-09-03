@@ -14,7 +14,7 @@ export default function SeatBadge({ seat, isYou }: { seat: SeatView; isYou: bool
   return (
     <div className="inline-flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-full">
       <span
-        className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs sm:text-sm font-extrabold text-white shadow ${ROLE_BG[seat.role]} ${occupied ? "" : "opacity-40"}`}
+        className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-display text-xs sm:text-sm font-extrabold text-white shadow ring-1 ring-white/25 ${ROLE_BG[seat.role]} ${occupied ? "" : "opacity-40"}`}
       >
         {seat.role}
       </span>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import CardTile from "@/components/CardTile";
+import OrnateTitle from "@/components/OrnateTitle";
 import Confetti from "@/components/Confetti";
 import PlaySlots from "@/components/PlaySlots";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -55,10 +56,8 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
     >
       {/* 段階1 (0ms): 問題文 + みんなの出したカード */}
       <div className="w-full text-center">
-        <p className="text-muted text-xs font-bold tracking-widest mb-1">
-          第{state.qIndex + 1}問 / 20 ── 判定
-        </p>
-        <p className="text-sm sm:text-base text-ink/90 leading-relaxed">{question.q}</p>
+        <OrnateTitle className="mb-2">第{state.qIndex + 1}問　判定</OrnateTitle>
+        <p className="font-display text-sm sm:text-base text-ink/90 leading-relaxed">{question.q}</p>
       </div>
 
       <PlaySlots
@@ -89,32 +88,34 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
       <section className="min-h-20 sm:min-h-24 flex items-center justify-center">
         {stage >= 1 &&
           (result.correct ? (
-            <div className="pop-in gold-glow burst-ring relative bg-panel border border-gold/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
-              <span className="text-3xl sm:text-5xl font-black text-gold whitespace-nowrap">
-                ⭕ 正解！
-              </span>
+            <div className="rays">
+              <div className="pop-in gold-glow burst-ring seal seal-ok text-3xl sm:text-5xl whitespace-nowrap">
+                <span className="seal-mark">○</span>
+                正解
+              </div>
             </div>
           ) : (
-            <div className="pop-in bg-panel border border-red-500/60 rounded-2xl px-8 py-3 sm:px-12 sm:py-4">
-              <span className="text-3xl sm:text-5xl font-black text-red-400 whitespace-nowrap">
-                ❌ 不正解…
-              </span>
+            <div className="pop-in seal seal-ng text-3xl sm:text-5xl whitespace-nowrap">
+              <span className="seal-mark">×</span>
+              不正解
             </div>
           ))}
       </section>
 
       {/* 段階3 (1600ms): 正解パネル */}
       {stage >= 2 && (
-        <section className="rise-in w-full bg-panel border border-line rounded-xl p-4 sm:p-5 text-center">
-          <p className="text-muted text-xs font-bold tracking-widest mb-2">
+        <section className="rise-in ornate ornate-lit w-full p-3 sm:p-5 text-center">
+          <OrnateTitle className="mb-3">
             {result.correct
               ? question.required.length >= 2
-                ? "カードが合体して正解が完成！"
-                : "みごと正解！"
+                ? "カードが合体して正解が完成"
+                : "みごと正解"
               : "本来の正解はこれ"}
-          </p>
+          </OrnateTitle>
           <p className="text-muted text-xs sm:text-sm">{question.answerReading}</p>
-          <p className="text-2xl sm:text-4xl font-black text-gold mb-3">{question.answerDisplay}</p>
+          <p className="font-display text-gilt text-3xl sm:text-5xl font-extrabold mb-4 leading-tight">
+            {question.answerDisplay}
+          </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {question.required.map((r, i) => (
               <div key={`${r.role}-${r.card}`} className="flex items-center gap-2">
@@ -130,8 +131,8 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
 
       {/* 段階4 (2200ms): 解説パネル */}
       {stage >= 3 && (
-        <section className="rise-in w-full bg-panel-2 border border-line rounded-xl p-4 sm:p-5">
-          <h3 className="text-gold text-xs font-bold tracking-widest mb-1.5">解説</h3>
+        <section className="rise-in ornate-2 w-full p-3 sm:p-5">
+          <OrnateTitle as="h3" className="mb-2">解説</OrnateTitle>
           <p className="text-sm sm:text-base leading-relaxed text-ink/90">
             {question.explanation}
           </p>
@@ -145,7 +146,7 @@ export default function JudgingView({ room }: { room: UseRoomResult }) {
             <button
               onClick={onNext}
               disabled={sending}
-              className="bg-gold text-card-ink font-bold text-lg px-8 py-3 rounded-xl shadow-lg hover:brightness-110 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition"
+              className="btn-gold text-lg px-10 py-3"
             >
               {sending ? "読み込み中…" : isLast ? "結果発表へ" : "次の問題へ"}
             </button>

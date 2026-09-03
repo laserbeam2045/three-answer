@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
+/*
+ * デザイン言語「金縁の舞台」
+ * 濃紺の舞台に金の装飾枠、和紙質感の札、明朝体の見出し。
+ * 装飾は SVG（/public/ornaments と data URI）で描き、拡大しても崩れない。
+ */
 @theme {
-  --color-bg: #0f1117;
-  --color-panel: #1a1e2a;
-  --color-panel-2: #232838;
-  --color-line: #333a4e;
-  --color-ink: #e8eaf2;
-  --color-muted: #8b93a8;
+  --color-bg: #0a0d17;
+  --color-panel: #151a2a;
+  --color-panel-2: #1d2335;
+  --color-line: #2f3752;
+  --color-ink: #ece7d9;
+  --color-muted: #9aa0b5;
   --color-player-a: #ec4899;
   --color-player-b: #3b82f6;
   --color-player-c: #22c55e;
-  --color-gold: #fbbf24;
-  --color-card-face: #f8f7f2;
-  --color-card-ink: #1e2438;
+  --color-gold: #e2c05b;
+  --color-gold-2: #f6e3a1;
+  --color-gold-3: #a8862a;
+  --color-crimson: #e14b4b;
+  --color-card-face: #f7f2e6;
+  --color-card-ink: #1c2136;
   --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP",
+    serif;
 }
 
 html,
@@ -27,24 +37,433 @@ body {
   max-width: 100%;
 }
 
-/* カード札 */
-.card-tile {
-  background: var(--color-card-face);
-  color: var(--color-card-ink);
+/* ---------- 舞台の背景: 七宝つなぎの地紋 + 上からのスポットライト ---------- */
+.stage {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -12%, rgba(226, 192, 91, 0.16), transparent 62%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23e2c05b' stroke-opacity='0.055' stroke-width='1'%3E%3Ccircle cx='24' cy='24' r='16'/%3E%3Ccircle cx='0' cy='0' r='16'/%3E%3Ccircle cx='48' cy='0' r='16'/%3E%3Ccircle cx='0' cy='48' r='16'/%3E%3Ccircle cx='48' cy='48' r='16'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, #0d1121 0%, #0a0d17 60%, #080a12 100%);
+  background-attachment: fixed, fixed, fixed;
+}
+@media (max-width: 640px) {
+  /* モバイルでは fixed 背景が重くなるため通常配置 */
+  .stage {
+    background-attachment: scroll, scroll, scroll;
+  }
+}
+
+/* ---------- 見出し用の明朝体 ---------- */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* 金の文字（グラデーション） */
+.text-gilt {
+  background: linear-gradient(180deg, #fff3c4 0%, var(--color-gold) 45%, #b8922e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+/* ---------- 金の額縁（border-image）---------- */
+/* 四隅に菱形と扇、辺に連珠。frame.svg を 40px で分割して使う */
+.ornate {
+  position: relative;
+  border: 14px solid transparent;
+  border-image: url("/ornaments/frame.svg") 40 / 14px / 0 round;
+  background: var(--color-panel);
+  background-clip: border-box;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 0 40px rgba(0, 0, 0, 0.35);
+}
+.ornate-2 {
+  /* 控えめな額縁（設定パネル等） */
+  position: relative;
+  border: 11px solid transparent;
+  border-image: url("/ornaments/frame.svg") 40 / 11px / 0 round;
+  background: var(--color-panel);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+/* 額縁の内側にうっすら光を落とす */
+.ornate-lit {
+  background-image: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    rgba(226, 192, 91, 0.1),
+    transparent 70%
+  );
+}
+
+/* ---------- 飾り罫つきの見出し ---------- */
+.title-ornate {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+}
+.title-ornate::before,
+.title-ornate::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  min-width: 0.75rem;
+  background: linear-gradient(90deg, transparent, var(--color-gold-3));
+}
+.title-ornate::after {
+  background: linear-gradient(90deg, var(--color-gold-3), transparent);
+}
+.title-ornate .dia {
+  font-size: 0.6em;
+  color: var(--color-gold-3);
+  transform: translateY(-0.05em);
+}
+
+/* ---------- 金のボタン ---------- */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #241b06;
+  background: linear-gradient(180deg, #fbeebb 0%, #e6c35b 48%, #c39a33 100%);
+  border: 1px solid #8a6a1c;
   border-radius: 0.6rem;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, outline-color 0.12s ease;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.16),
+    0 3px 0 #6e5312,
+    0 10px 20px rgba(0, 0, 0, 0.45);
+  transition:
+    filter 0.15s ease,
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.btn-gold:hover:not(:disabled) {
+  filter: brightness(1.07);
+}
+.btn-gold:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.16),
+    0 1px 0 #6e5312,
+    0 4px 10px rgba(0, 0, 0, 0.45);
+}
+.btn-gold:disabled {
+  filter: grayscale(0.7) brightness(0.62);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+/* 縁取りだけの控えめなボタン */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-gold);
+  background: rgba(226, 192, 91, 0.04);
+  border: 1px solid var(--color-gold-3);
+  border-radius: 0.6rem;
+  box-shadow: inset 0 0 0 1px rgba(226, 192, 91, 0.12);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(226, 192, 91, 0.12);
+  border-color: var(--color-gold);
+}
+.btn-ghost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-ghost.on {
+  background: rgba(226, 192, 91, 0.16);
+  border-color: var(--color-gold);
+  box-shadow:
+    inset 0 0 0 1px rgba(226, 192, 91, 0.25),
+    0 0 14px rgba(226, 192, 91, 0.25);
+}
+
+/* ---------- 金の銘板（第n問 など） ---------- */
+.plaque {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #241b06;
+  background: linear-gradient(180deg, #fbeebb 0%, #e6c35b 50%, #c39a33 100%);
+  border: 1px solid #8a6a1c;
+  border-radius: 0.35rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 0 #6e5312,
+    0 6px 14px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- 札（和紙質感・二重の縁取り） ---------- */
+.card-tile {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-card-ink);
+  background-color: var(--color-card-face);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.35 0 0 0 0 0.15 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #fbf7ec 0%, #f2ebdb 100%);
+  border-radius: 0.5rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(138, 106, 28, 0.55),
+    inset 0 0 0 3px #f7f2e6,
+    inset 0 0 0 4px rgba(138, 106, 28, 0.3),
+    0 2px 0 rgba(0, 0, 0, 0.5),
+    0 6px 14px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
   user-select: none;
 }
 .card-tile:hover {
   transform: translateY(-3px);
 }
 .card-tile.selected {
-  outline: 3px solid var(--color-gold);
   transform: translateY(-6px);
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45), 0 10px 18px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(138, 106, 28, 0.55),
+    inset 0 0 0 3px #f7f2e6,
+    inset 0 0 0 4px rgba(138, 106, 28, 0.3),
+    0 0 0 3px var(--color-gold),
+    0 6px 0 rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(226, 192, 91, 0.6),
+    0 12px 20px rgba(0, 0, 0, 0.45);
+}
+.card-tile.revealed {
+  box-shadow:
+    inset 0 0 0 1px rgba(138, 106, 28, 0.55),
+    inset 0 0 0 3px #f7f2e6,
+    inset 0 0 0 4px rgba(138, 106, 28, 0.3),
+    0 0 0 2px rgba(226, 192, 91, 0.75),
+    0 2px 0 rgba(0, 0, 0, 0.5),
+    0 0 16px rgba(226, 192, 91, 0.35);
 }
 
+/* 裏向きの札（回答中は誰が何を出すか分からない）: 紺地に金の七宝 */
+.card-back {
+  color: var(--color-muted);
+  background-color: #10142a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23e2c05b' stroke-opacity='0.22' stroke-width='0.8'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='24' cy='0' r='8'/%3E%3Ccircle cx='0' cy='24' r='8'/%3E%3Ccircle cx='24' cy='24' r='8'/%3E%3C/g%3E%3C/svg%3E");
+  border: 1px solid var(--color-gold-3);
+  box-shadow:
+    inset 0 0 0 3px #10142a,
+    inset 0 0 0 4px rgba(226, 192, 91, 0.35),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display);
+}
+.card-back-decided {
+  color: var(--color-gold-2);
+  border-color: var(--color-gold);
+  box-shadow:
+    inset 0 0 0 3px #10142a,
+    inset 0 0 0 4px rgba(226, 192, 91, 0.6),
+    0 0 14px rgba(226, 192, 91, 0.28);
+}
+/* 「出さない」の札置き（空の枠） */
+.card-pass {
+  color: var(--color-muted);
+  border: 1px dashed var(--color-gold-3);
+  border-radius: 0.5rem;
+  background: rgba(226, 192, 91, 0.04);
+}
+
+/* ---------- 場のスロット ---------- */
+.slot {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.12));
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.slot-you {
+  border-color: var(--color-gold-3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(226, 192, 91, 0.18),
+    0 0 18px rgba(226, 192, 91, 0.1);
+}
+
+/* ---------- 残り時間ゲージ ---------- */
+.gauge {
+  position: relative;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background: #0a0d19;
+  border: 1px solid var(--color-gold-3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+.gauge-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #fbeebb 0%, #e6c35b 55%, #c39a33 100%);
+  box-shadow: 0 0 10px rgba(226, 192, 91, 0.5);
+  transition: width 0.1s linear;
+}
+.gauge-fill.low {
+  background: linear-gradient(180deg, #ff9aa8 0%, #ec4899 55%, #b52c6d 100%);
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+}
+/* 目盛り */
+.gauge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(10% - 1px),
+    rgba(0, 0, 0, 0.45) calc(10% - 1px),
+    rgba(0, 0, 0, 0.45) 10%
+  );
+  pointer-events: none;
+}
+
+/* ---------- 判定の印（○ / ×） ---------- */
+.seal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  padding: 0.35em 1.1em;
+  border-radius: 0.9rem;
+  background: var(--color-panel);
+}
+.seal-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: 9999px;
+  border: 0.14em solid currentColor;
+  font-size: 0.95em;
+  line-height: 1;
+}
+.seal-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0.16em;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  opacity: 0.45;
+}
+.seal-ok {
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  box-shadow:
+    inset 0 0 0 3px var(--color-panel),
+    inset 0 0 0 4px rgba(226, 192, 91, 0.5);
+}
+.seal-ng {
+  color: var(--color-crimson);
+  border: 1px solid var(--color-crimson);
+  box-shadow:
+    inset 0 0 0 3px var(--color-panel),
+    inset 0 0 0 4px rgba(225, 75, 75, 0.45);
+}
+
+/* ---------- 結果のメダリオン ---------- */
+.medallion {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(15rem, 62vw);
+  height: min(15rem, 62vw);
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 40%, #1c2237 0%, #10142a 70%);
+  border: 3px solid var(--color-gold);
+  box-shadow:
+    inset 0 0 0 6px #10142a,
+    inset 0 0 0 7px rgba(226, 192, 91, 0.55),
+    inset 0 0 40px rgba(226, 192, 91, 0.12),
+    0 0 40px rgba(226, 192, 91, 0.25),
+    0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.medallion::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(226, 192, 91, 0.35);
+  pointer-events: none;
+}
+
+/* ---------- 席（ロビー） ---------- */
+.seat-card {
+  position: relative;
+  border-radius: 0.75rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.15));
+  border: 1px solid var(--color-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+.seat-card::before {
+  /* 上端の色帯 */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--seat-color, var(--color-gold));
+  opacity: 0.9;
+}
+.seat-card.seat-empty {
+  border-style: dashed;
+}
+.seat-card.seat-you {
+  border-color: var(--seat-color, var(--color-gold));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px color-mix(in srgb, var(--seat-color, var(--color-gold)) 40%, transparent),
+    0 0 20px color-mix(in srgb, var(--seat-color, var(--color-gold)) 22%, transparent);
+}
+
+/* ---------- 入力欄 ---------- */
+.field {
+  background: #0d1120;
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  color: var(--color-ink);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.field:focus {
+  border-color: var(--color-gold);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.45),
+    0 0 0 3px rgba(226, 192, 91, 0.15);
+}
+
+/* ---------- アニメーション ---------- */
 @keyframes flip-in {
   from {
     transform: rotateY(90deg);
@@ -95,34 +514,14 @@ body {
 @keyframes gold-glow {
   0%,
   100% {
-    box-shadow: 0 0 18px rgba(251, 191, 36, 0.35);
+    box-shadow: 0 0 18px rgba(226, 192, 91, 0.35);
   }
   50% {
-    box-shadow: 0 0 34px rgba(251, 191, 36, 0.7);
+    box-shadow: 0 0 34px rgba(226, 192, 91, 0.7);
   }
 }
 .gold-glow {
   animation: gold-glow 1.6s ease-in-out infinite;
-}
-
-/* 裏向きの札（回答中は誰が何を出すか分からない） */
-.card-back {
-  color: var(--color-muted);
-  background-color: var(--color-panel-2);
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.045) 0px,
-    rgba(255, 255, 255, 0.045) 5px,
-    transparent 5px,
-    transparent 10px
-  );
-  border: 1px solid var(--color-line);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-}
-.card-back-decided {
-  color: var(--color-gold);
-  border-color: color-mix(in srgb, var(--color-gold) 55%, transparent);
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.18);
 }
 
 /* 正解時: 画面全体の金色フラッシュ */
@@ -140,8 +539,8 @@ body {
 .flash-gold {
   background: radial-gradient(
     circle at 50% 45%,
-    rgba(251, 191, 36, 0.55) 0%,
-    rgba(251, 191, 36, 0.12) 45%,
+    rgba(226, 192, 91, 0.55) 0%,
+    rgba(226, 192, 91, 0.12) 45%,
     transparent 70%
   );
   animation: flash-gold 0.9s ease-out both;
@@ -177,12 +576,45 @@ body {
   animation-delay: 0.22s;
 }
 
+/* 正解時: 背後からゆっくり回る光条 */
+@keyframes rays-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.rays {
+  position: relative;
+  isolation: isolate;
+}
+.rays::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(520px, 120vw);
+  height: min(520px, 120vw);
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(226, 192, 91, 0.16) 0deg 9deg,
+    transparent 9deg 24deg
+  );
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, transparent 65%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, transparent 65%);
+  animation: rays-spin 24s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flash-gold,
   .burst-ring::before,
   .burst-ring::after {
     animation: none;
     opacity: 0;
+  }
+  .rays::before {
+    animation: none;
   }
 }
 
