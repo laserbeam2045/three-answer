@@ -21,7 +21,7 @@ for (const line of fs
 }
 
 /** 正答率の下限。これを下回る問題は「知らないと解けない」ため使わない */
-const MIN_ACC = 0.3;
+const MIN_ACC = 0.44; // 目標は Q19≈0.50。これ未満は「終盤が難しすぎる」
 
 let errors = 0;
 const setsDir = path.join(ROOT, "data", "sets");

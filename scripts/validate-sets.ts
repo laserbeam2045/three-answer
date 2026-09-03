@@ -257,6 +257,9 @@ for (const file of files) {
   const triples = patternSeq.filter((p) => p.length === 5).length;
   info.push(`構成: 単独${singles} / 2枚${doubles} / 3枚${triples}`);
   info.push(`パターン列: ${patternSeq.join(" ")}`);
+  // 3枚合体は Q20 だけでなく複数置く方針（3人全員で合わせる場面を増やす）
+  if (questions.length === 20 && triples < 2)
+    warnings.push(`3枚合体が${triples}問しかない（Q20 以外にも複数置く方針）`);
 
   const unused = allCards.filter(({ role, card }) => !usedCards.has(`${role}:${card}`));
   info.push(
