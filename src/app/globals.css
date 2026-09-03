@@ -21,7 +21,7 @@
   --color-crimson: #e14b4b;
   --color-card-face: #f7f2e6;
   --color-card-ink: #1c2136;
-  --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
   --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP",
     serif;
 }
@@ -356,25 +356,12 @@ body {
   border-radius: 0.9rem;
   background: var(--color-panel);
 }
+/* 記号（○/×）はそのまま置く。丸枠の中に記号を入れ子にしない */
 .seal-mark {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35em;
-  height: 1.35em;
-  border-radius: 9999px;
-  border: 0.14em solid currentColor;
-  font-size: 0.95em;
+  display: inline-block;
+  font-size: 1.1em;
   line-height: 1;
-}
-.seal-mark::after {
-  content: "";
-  position: absolute;
-  inset: 0.16em;
-  border-radius: 9999px;
-  border: 1px solid currentColor;
-  opacity: 0.45;
+  transform: translateY(-0.04em);
 }
 .seal-ok {
   color: var(--color-gold);

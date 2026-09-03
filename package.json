@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "validate-sets": "tsx scripts/validate-sets.ts",
+    "validate-sets": "tsx scripts/validate-sets.ts && node tools/check-extension.mjs",
     "check-sources": "node tools/check-sources.mjs"
   },
   "dependencies": {

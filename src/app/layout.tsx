@@ -1,18 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const notoSansJp = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-noto-sans-jp",
-});
 
-// 見出し・札・演出用の明朝体（Shippori Mincho B1）は Google Fonts から直接読み込む。
-// next/font で束ねると日本語フォントのスライス（240件超）をビルド時に取得する必要があり、
-// ネットワーク事情でビルドが落ちることがあるため、実行時に読む方式にしている。
-const DISPLAY_FONT_CSS =
-  "https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&display=swap";
+// フォントは Google Fonts から実行時に読み込む（本文: Noto Sans JP / 見出し・札・演出: Shippori Mincho B1）。
+// next/font で束ねると日本語フォントのスライス（各240件超）をビルド時に取得する必要があり、
+// ネットワーク事情でビルドが落ちるため、<link> で読む方式にしている。
+const FONT_CSS =
+  "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@600;800&display=swap";
 
 export const metadata: Metadata = {
   title: "Three Answer - 3人協力型クイズゲーム",
@@ -31,9 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href={DISPLAY_FONT_CSS} />
+        <link rel="stylesheet" href={FONT_CSS} />
       </head>
-      <body className={`${notoSansJp.variable} font-sans antialiased stage`}>{children}</body>
+      <body className="font-sans antialiased stage">{children}</body>
     </html>
   );
 }

@@ -21,6 +21,39 @@ import path from "path";
 const DIR = path.dirname(new URL(import.meta.url).pathname);
 const pool = JSON.parse(fs.readFileSync(path.join(DIR, "mined", "pool.json"), "utf8"));
 const wordByReading = new Map(pool.words.map((w) => [w.r, w]));
+
+// 表記 → 完全な読み（分類語彙表）。「何体？」形式の問題では答えの読みが
+// 表記より短くなる（染色体→せんしょく）。省かれた部分（たい）を席順の矛盾しない
+// プレイヤーが持っていると、出すべきか判断できず理不尽な判定になるため検出に使う。
+const kataToHira = (x) =>
+  String(x).replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+const normHw = (x) => String(x ?? "").replace(/[−▽△〔〕・（）()『』「」\s]/g, "");
+const dictReadings = new Map();
+for (const line of fs.readFileSync(path.join(DIR, "mined", "bunruidb.jsonl"), "utf8").split("\n")) {
+  if (!line.trim()) continue;
+  try {
+    const row = JSON.parse(line);
+    const hw = normHw(row.hw);
+    const r = kataToHira(String(row.read ?? "").trim());
+    if (!hw || !/^[ぁ-ゔー]+$/.test(r)) continue;
+    if (!dictReadings.has(hw)) dictReadings.set(hw, new Set());
+    dictReadings.get(hw).add(r);
+  } catch {}
+}
+/** 表記の完全な読みが答えの読みより長い場合、省かれた前後の部分を返す */
+function omittedParts(display, reading) {
+  const d = String(display ?? "");
+  const variants = [normHw(d), normHw(d.replace(/[（(][^）)]*[）)]/g, ""))];
+  const out = [];
+  for (const v of variants) {
+    for (const full of dictReadings.get(v) ?? []) {
+      if (full.length <= reading.length) continue;
+      if (full.startsWith(reading)) out.push({ kind: "suffix", text: full.slice(reading.length) });
+      if (full.endsWith(reading)) out.push({ kind: "prefix", text: full.slice(0, full.length - reading.length) });
+    }
+  }
+  return out;
+}
 const coreReadings = new Set(pool.words.filter((w) => w.qCount >= 2).map((w) => w.r));
 
 const ALL = process.argv.includes("--all");
@@ -485,6 +518,15 @@ function build(seedNo) {
       const idxOf = qq.roles.indexOf(role);
       const req = idxOf === -1 ? null : qq.parts ? qq.parts[idxOf] : qq.reading;
       if (!isFair(qq.reading, role, card, req)) return false;
+      // 表記より読みが短い問題: 省かれた部分の札を、席順の矛盾しない席に置かない
+      if (req === null) {
+        const first = qq.roles[0];
+        const last = qq.roles[qq.roles.length - 1];
+        for (const p of omittedParts(qq.display, qq.reading)) {
+          if (p.text !== card) continue;
+          if ((p.kind === "suffix" && role > last) || (p.kind === "prefix" && role < first)) return false;
+        }
+      }
     }
     return true;
   };
