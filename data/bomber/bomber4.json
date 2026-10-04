@@ -1,0 +1,167 @@
+{
+  "id": "bomber4",
+  "title": "のろし",
+  "description": "ノーベル賞・囲碁・神話・暦など、手ごわい問題が多めの10問。",
+  "questions": [
+    {
+      "q": "秋の七草を答えてください。",
+      "answers": [
+        { "display": "はぎ", "accept": ["萩"] },
+        { "display": "すすき", "accept": ["薄", "芒", "おばな", "尾花"] },
+        { "display": "くず", "accept": ["葛"] },
+        { "display": "なでしこ", "accept": ["撫子"] },
+        { "display": "おみなえし", "accept": ["女郎花"] },
+        { "display": "ふじばかま", "accept": ["藤袴"] },
+        { "display": "ききょう", "accept": ["桔梗"] }
+      ]
+    },
+    {
+      "q": "「北欧5か国」と呼ばれる国を答えてください。",
+      "answers": [
+        { "display": "デンマーク", "accept": [] },
+        { "display": "ノルウェー", "accept": [] },
+        { "display": "スウェーデン", "accept": [] },
+        { "display": "フィンランド", "accept": [] },
+        { "display": "アイスランド", "accept": [] }
+      ]
+    },
+    {
+      "q": "日本の政令指定都市を答えてください。",
+      "suffixes": ["市", "し"],
+      "answers": [
+        { "display": "札幌", "accept": ["さっぽろ"] },
+        { "display": "仙台", "accept": ["せんだい"] },
+        { "display": "さいたま", "accept": [] },
+        { "display": "千葉", "accept": ["ちば"] },
+        { "display": "川崎", "accept": ["かわさき"] },
+        { "display": "横浜", "accept": ["よこはま"] },
+        { "display": "相模原", "accept": ["さがみはら"] },
+        { "display": "新潟", "accept": ["にいがた"] },
+        { "display": "静岡", "accept": ["しずおか"] },
+        { "display": "浜松", "accept": ["はままつ"] },
+        { "display": "名古屋", "accept": ["なごや"] },
+        { "display": "京都", "accept": ["きょうと"] },
+        { "display": "大阪", "accept": ["おおさか"] },
+        { "display": "堺", "accept": ["さかい"] },
+        { "display": "神戸", "accept": ["こうべ"] },
+        { "display": "岡山", "accept": ["おかやま"] },
+        { "display": "広島", "accept": ["ひろしま"] },
+        { "display": "北九州", "accept": ["きたきゅうしゅう"] },
+        { "display": "福岡", "accept": ["ふくおか"] },
+        { "display": "熊本", "accept": ["くまもと"] }
+      ]
+    },
+    {
+      "q": "英語の国名が「-stan（スタン）」で終わる国を答えてください。",
+      "answers": [
+        { "display": "カザフスタン", "accept": [] },
+        { "display": "ウズベキスタン", "accept": [] },
+        { "display": "トルクメニスタン", "accept": [] },
+        { "display": "タジキスタン", "accept": [] },
+        { "display": "キルギス", "accept": ["キルギスタン"] },
+        { "display": "アフガニスタン", "accept": [] },
+        { "display": "パキスタン", "accept": [] }
+      ]
+    },
+    {
+      "q": "囲碁の「七大タイトル」を答えてください。",
+      "answers": [
+        { "display": "棋聖", "accept": ["きせい"] },
+        { "display": "名人", "accept": ["めいじん"] },
+        { "display": "本因坊", "accept": ["ほんいんぼう"] },
+        { "display": "王座", "accept": ["おうざ"] },
+        { "display": "天元", "accept": ["てんげん"] },
+        { "display": "碁聖", "accept": ["ごせい"] },
+        { "display": "十段", "accept": ["じゅうだん"] }
+      ]
+    },
+    {
+      "q": "現在発行されているアメリカ合衆国のドル紙幣に、肖像が描かれている人物を答えてください（姓だけでも可）。",
+      "answers": [
+        { "display": "ジョージ・ワシントン", "accept": ["ワシントン"] },
+        { "display": "トーマス・ジェファーソン", "accept": ["ジェファーソン", "ジェファソン", "トマスジェファソン"] },
+        { "display": "エイブラハム・リンカーン", "accept": ["リンカーン", "リンカン", "エイブラハムリンカン"] },
+        { "display": "アレクサンダー・ハミルトン", "accept": ["ハミルトン"] },
+        { "display": "アンドリュー・ジャクソン", "accept": ["ジャクソン"] },
+        { "display": "ユリシーズ・S・グラント", "accept": ["グラント", "ユリシーズグラント"] },
+        { "display": "ベンジャミン・フランクリン", "accept": ["フランクリン"] }
+      ]
+    },
+    {
+      "q": "2025年までにノーベル化学賞を受賞した日本人を答えてください（姓だけでも可）。",
+      "answers": [
+        { "display": "福井謙一", "accept": ["福井", "ふくい", "ふくいけんいち"] },
+        { "display": "白川英樹", "accept": ["白川", "しらかわ", "しらかわひでき"] },
+        { "display": "野依良治", "accept": ["野依", "のより", "のよりりょうじ"] },
+        { "display": "田中耕一", "accept": ["田中", "たなか", "たなかこういち"] },
+        { "display": "下村脩", "accept": ["下村", "しもむら", "しもむらおさむ"] },
+        { "display": "鈴木章", "accept": ["鈴木", "すずき", "すずきあきら"] },
+        { "display": "根岸英一", "accept": ["根岸", "ねぎし", "ねぎしえいいち"] },
+        { "display": "吉野彰", "accept": ["吉野", "よしの", "よしのあきら"] },
+        { "display": "北川進", "accept": ["北川", "きたがわ", "きたがわすすむ"] }
+      ]
+    },
+    {
+      "q": "SI接頭語のうち、10の3乗以上の大きさを表すもの（「キロ」など）を答えてください。",
+      "answers": [
+        { "display": "キロ", "accept": [] },
+        { "display": "メガ", "accept": [] },
+        { "display": "ギガ", "accept": [] },
+        { "display": "テラ", "accept": [] },
+        { "display": "ペタ", "accept": [] },
+        { "display": "エクサ", "accept": [] },
+        { "display": "ゼタ", "accept": ["ゼッタ"] },
+        { "display": "ヨタ", "accept": ["ヨッタ"] },
+        { "display": "ロナ", "accept": [] },
+        { "display": "クエタ", "accept": [] }
+      ]
+    },
+    {
+      "q": "ギリシャ神話で、オリュンポス山に住むとされる「オリュンポス十二神」を答えてください。",
+      "answers": [
+        { "display": "ゼウス", "accept": [] },
+        { "display": "ヘラ", "accept": ["ヘーラー", "ヘーラ"] },
+        { "display": "ポセイドン", "accept": ["ポセイドーン"] },
+        { "display": "デメテル", "accept": ["デーメーテール", "デメテール"] },
+        { "display": "アテナ", "accept": ["アテネ", "アテーナー", "アテーナ", "アテナー"] },
+        { "display": "アポロン", "accept": ["アポローン", "アポロ"] },
+        { "display": "アルテミス", "accept": [] },
+        { "display": "アレス", "accept": ["アレース"] },
+        { "display": "アフロディテ", "accept": ["アフロディーテ", "アプロディーテー", "アプロディテ"] },
+        { "display": "ヘパイストス", "accept": ["ヘーパイストス", "ヘファイストス"] },
+        { "display": "ヘルメス", "accept": ["ヘルメース"] },
+        { "display": "ヘスティア", "accept": ["ヘスティアー"] },
+        { "display": "ディオニュソス", "accept": ["ディオニューソス", "ディオニソス", "バッカス"] }
+      ]
+    },
+    {
+      "q": "季節の区切りを表す「二十四節気」を答えてください。",
+      "answers": [
+        { "display": "立春", "accept": ["りっしゅん"] },
+        { "display": "雨水", "accept": ["うすい"] },
+        { "display": "啓蟄", "accept": ["けいちつ"] },
+        { "display": "春分", "accept": ["しゅんぶん"] },
+        { "display": "清明", "accept": ["せいめい"] },
+        { "display": "穀雨", "accept": ["こくう"] },
+        { "display": "立夏", "accept": ["りっか"] },
+        { "display": "小満", "accept": ["しょうまん"] },
+        { "display": "芒種", "accept": ["ぼうしゅ"] },
+        { "display": "夏至", "accept": ["げし"] },
+        { "display": "小暑", "accept": ["しょうしょ"] },
+        { "display": "大暑", "accept": ["たいしょ"] },
+        { "display": "立秋", "accept": ["りっしゅう"] },
+        { "display": "処暑", "accept": ["しょしょ"] },
+        { "display": "白露", "accept": ["はくろ"] },
+        { "display": "秋分", "accept": ["しゅうぶん"] },
+        { "display": "寒露", "accept": ["かんろ"] },
+        { "display": "霜降", "accept": ["そうこう"] },
+        { "display": "立冬", "accept": ["りっとう"] },
+        { "display": "小雪", "accept": ["しょうせつ"] },
+        { "display": "大雪", "accept": ["たいせつ"] },
+        { "display": "冬至", "accept": ["とうじ"] },
+        { "display": "小寒", "accept": ["しょうかん"] },
+        { "display": "大寒", "accept": ["だいかん"] }
+      ]
+    }
+  ]
+}

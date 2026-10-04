@@ -1,0 +1,248 @@
+import type { BomberSet, PresenceMap, RoomState } from "../types";
+import { isActive } from "../types";
+import { EngineError } from "../errors";
+import { effectiveElapsed, isExpired, newTimer, pauseTimer, resumeTimer } from "../time";
+import {
+  BOMBER_MAX_PLAYERS,
+  BOMBER_POINTS,
+  BOMBER_SECONDS_OPTIONS,
+  BOMBER_SLOTS,
+  matchAnswer,
+} from "./match";
+
+export type GetBomberSet = (id: string) => BomberSet | undefined;
+
+/** 1問ぶんの得点 */
+export function roundPoints(slotCount: number): number {
+  return slotCount * BOMBER_POINTS;
+}
+
+export function totalBomberPoints(state: RoomState): number {
+  return state.bomberResults.reduce((sum, r) => sum + roundPoints(r.slots.length), 0);
+}
+
+export function maxBomberPoints(set: BomberSet): number {
+  return set.questions.length * roundPoints(BOMBER_SLOTS);
+}
+
+/** players の中で token の次の人（末尾の次は先頭に戻る） */
+function nextPlayer(players: string[], token: string): string {
+  const i = players.indexOf(token);
+  return players[(i + 1) % players.length];
+}
+
+/**
+ * 第 qIndex 問の1枠目を答える人。
+ * 1問で5枠ぶん順番が進むとみなすので、5人なら毎問同じ人から（番組と同じ）、
+ * それ以外の人数でも全員に均等に回る。
+ */
+export function firstAnswerer(players: string[], qIndex: number): string {
+  return players[(qIndex * BOMBER_SLOTS) % players.length];
+}
+
+function startRound(state: RoomState, set: BomberSet, now: number): void {
+  if (state.bomberPlayers.length === 0) throw new EngineError("参加者がいません");
+  const q = set.questions[state.qIndex];
+  state.phase = "question";
+  state.timer = newTimer(q.q, state.settings.bomberSeconds, now);
+  state.pausedRoles = [];
+  state.bomberRound = {
+    turnToken: firstAnswerer(state.bomberPlayers, state.qIndex),
+    slots: [],
+    lastMiss: null,
+    missCount: 0,
+  };
+}
+
+function finishRound(state: RoomState, cleared: boolean): void {
+  const round = state.bomberRound;
+  state.bomberResults = [
+    ...state.bomberResults.filter((r) => r.qIndex !== state.qIndex),
+    {
+      qIndex: state.qIndex,
+      cleared,
+      slots: round?.slots ?? [],
+      ...(cleared || !round ? {} : { heldBy: round.turnToken }),
+    },
+  ];
+  state.phase = "judging";
+  state.timer = null;
+  state.bomberRound = null;
+  state.pausedRoles = [];
+}
+
+function resetToLobby(state: RoomState): void {
+  state.phase = "lobby";
+  state.qIndex = 0;
+  state.timer = null;
+  state.pausedRoles = [];
+  state.bomberRound = null;
+  state.bomberResults = [];
+}
+
+/** 参加者を外す。回答中の人なら爆弾は次の人へ。誰もいなくなったらロビーへ戻す */
+function removePlayer(state: RoomState, target: string): void {
+  const players = state.bomberPlayers;
+  if (!players.includes(target)) return;
+  const round = state.bomberRound;
+  const wasTurn = round?.turnToken === target;
+  const next = wasTurn && players.length > 1 ? nextPlayer(players, target) : null;
+  state.bomberPlayers = players.filter((t) => t !== target);
+
+  if (state.bomberPlayers.length === 0) {
+    if (state.phase === "question" || state.phase === "judging") resetToLobby(state);
+    return;
+  }
+  if (round && wasTurn && next) {
+    round.turnToken = next;
+    round.lastMiss = null;
+  }
+}
+
+/** 遅延遷移: 回答者の離席で一時停止/再開、時間切れで爆発 */
+export function bomberTick(state: RoomState, presence: PresenceMap, now: number): boolean {
+  const round = state.bomberRound;
+  if (state.phase !== "question" || !state.timer || !round) return false;
+  let changed = false;
+
+  const answererActive = isActive(presence[round.turnToken], now);
+  if (!answererActive && !state.timer.paused) {
+    state.timer = pauseTimer(state.timer, now);
+    changed = true;
+  } else if (answererActive && state.timer.paused) {
+    state.timer = resumeTimer(state.timer, now);
+    changed = true;
+  }
+
+  if (isExpired(state.timer, now)) {
+    finishRound(state, false);
+    changed = true;
+  }
+  return changed;
+}
+
+function requireHost(state: RoomState, token: string, message: string): void {
+  if (token !== state.hostToken) throw new EngineError(message);
+}
+
+export function bomberStart(
+  state: RoomState,
+  token: string,
+  presence: PresenceMap,
+  now: number,
+  getBomberSet: GetBomberSet
+): void {
+  if (state.phase !== "lobby") throw new EngineError("すでに開始しています");
+  requireHost(state, token, "ルーム作成者のみゲームを開始できます");
+  const set = state.setId ? getBomberSet(state.setId) : undefined;
+  if (!set) throw new EngineError("問題セットを選択してください");
+  if (state.bomberPlayers.length === 0) throw new EngineError("参加者がいません");
+  for (const t of state.bomberPlayers) {
+    if (!isActive(presence[t], now))
+      throw new EngineError(`${state.clients[t]?.name ?? "参加者"}さんが非アクティブです`);
+  }
+  state.qIndex = 0;
+  state.bomberResults = [];
+  startRound(state, set, now);
+}
+
+export function bomberAnswer(
+  state: RoomState,
+  token: string,
+  text: string,
+  now: number,
+  getBomberSet: GetBomberSet
+): void {
+  const round = state.bomberRound;
+  if (state.phase !== "question" || !round || !state.timer)
+    throw new EngineError("回答フェーズではありません");
+  if (round.turnToken !== token) throw new EngineError("あなたの番ではありません");
+  if (state.timer.paused) throw new EngineError("一時停止中です");
+  if (effectiveElapsed(state.timer, now) < state.timer.revealMs)
+    throw new EngineError("問題文が出るまでお待ちください");
+  const input = String(text ?? "").trim().slice(0, 40);
+  if (!input) throw new EngineError("答えを入力してください");
+
+  const set = state.setId ? getBomberSet(state.setId) : undefined;
+  if (!set) throw new EngineError("set not found");
+  const question = set.questions[state.qIndex];
+
+  const index = matchAnswer(question, input);
+  const alreadyGiven = index >= 0 && round.slots.some((s) => s.answerIndex === index);
+  if (index < 0 || alreadyGiven) {
+    round.missCount += 1;
+    round.lastMiss = {
+      token,
+      text: input,
+      reason: alreadyGiven ? "dup" : "wrong",
+      seq: round.missCount,
+    };
+    return;
+  }
+
+  round.slots.push({ token, answerIndex: index, text: input });
+  round.lastMiss = null;
+  if (round.slots.length >= BOMBER_SLOTS) {
+    finishRound(state, true);
+  } else {
+    round.turnToken = nextPlayer(state.bomberPlayers, token);
+  }
+}
+
+export function bomberNext(
+  state: RoomState,
+  token: string,
+  now: number,
+  getBomberSet: GetBomberSet
+): void {
+  if (state.phase !== "judging") throw new EngineError("判定フェーズではありません");
+  requireHost(state, token, "次へ進めるのはルーム作成者のみです");
+  const set = state.setId ? getBomberSet(state.setId) : undefined;
+  if (!set) throw new EngineError("set not found");
+  if (state.qIndex >= set.questions.length - 1) {
+    state.phase = "results";
+    if (!state.playedSetIds.includes(set.id)) state.playedSetIds.push(set.id);
+    state.gameRecords.push({
+      mode: "bomber",
+      setId: set.id,
+      score: totalBomberPoints(state),
+      total: maxBomberPoints(set),
+      finishedAt: now,
+    });
+  } else {
+    state.qIndex += 1;
+    startRound(state, set, now);
+  }
+}
+
+export function bomberBackToLobby(state: RoomState, token: string): void {
+  if (state.phase !== "results") throw new EngineError("結果フェーズではありません");
+  if (!state.bomberPlayers.includes(token) && token !== state.hostToken)
+    throw new EngineError("参加者またはホストのみ操作できます");
+  resetToLobby(state);
+  state.setId = null;
+}
+
+export function bomberJoin(state: RoomState, token: string): void {
+  if (state.bomberPlayers.includes(token)) return;
+  if (state.bomberPlayers.length >= BOMBER_MAX_PLAYERS)
+    throw new EngineError(`参加できるのは${BOMBER_MAX_PLAYERS}人までです`);
+  state.bomberPlayers.push(token);
+}
+
+export function bomberLeave(state: RoomState, token: string): void {
+  removePlayer(state, token);
+}
+
+export function bomberKick(state: RoomState, token: string, target: string): void {
+  requireHost(state, token, "参加者を外せるのはルーム作成者のみです");
+  removePlayer(state, target);
+}
+
+export function setBomberSeconds(state: RoomState, token: string, seconds: number): void {
+  if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
+  requireHost(state, token, "制限時間はルーム作成者のみ変更できます");
+  const s = Math.round(seconds);
+  if (!BOMBER_SECONDS_OPTIONS.includes(s)) throw new EngineError("不正な秒数です");
+  state.settings.bomberSeconds = s;
+}

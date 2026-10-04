@@ -9,8 +9,22 @@ import type {
 import { ROLES, isActive } from "./types";
 import { judge } from "./judge";
 import { isExpired, newTimer, pauseTimer, resumeTimer } from "./time";
+import { EngineError } from "./errors";
+import { getBomberSet as defaultGetBomberSet } from "./sets";
+import {
+  bomberAnswer,
+  bomberBackToLobby,
+  bomberJoin,
+  bomberKick,
+  bomberLeave,
+  bomberNext,
+  bomberStart,
+  bomberTick,
+  setBomberSeconds,
+  type GetBomberSet,
+} from "./bomber/engine";
 
-export class EngineError extends Error {}
+export { EngineError };
 
 function freshAnswers(): Record<Role, AnswerState> {
   return {
@@ -42,8 +56,21 @@ export function createRoom(
     pausedRoles: [],
     answers: freshAnswers(),
     results: [],
-    settings: { answerSeconds: 45 },
+    settings: { answerSeconds: 45, bomberSeconds: 30 },
+    mode: "three",
+    bomberPlayers: [],
+    bomberRound: null,
+    bomberResults: [],
   };
+}
+
+/** ファイブボンバー追加前に作られたルームの欠けているフィールドを補う */
+export function normalizeRoom(state: RoomState): void {
+  state.mode ??= "three";
+  state.bomberPlayers ??= [];
+  state.bomberRound ??= null;
+  state.bomberResults ??= [];
+  state.settings.bomberSeconds ??= 30;
 }
 
 export function roleOf(state: RoomState, token: string): Role | null {
@@ -69,6 +96,9 @@ export function tick(
   now: number,
   getSet: (id: string) => QuestionSet | undefined
 ): boolean {
+  normalizeRoom(state);
+  if (state.mode === "bomber") return bomberTick(state, presence, now);
+
   let changed = false;
 
   if (state.phase !== "question" || !state.timer) return changed;
@@ -133,10 +163,25 @@ export function applyAction(
   presence: PresenceMap,
   now: number,
   getSet: (id: string) => QuestionSet | undefined,
-  allSets: () => QuestionSet[]
+  allSets: () => QuestionSet[],
+  getBomberSet: GetBomberSet = defaultGetBomberSet
 ): void {
+  normalizeRoom(state);
   ensureClient(state, token);
   const role = roleOf(state, token);
+  const bomber = state.mode === "bomber";
+
+  if (bomber && (action.type === "select" || action.type === "lock" || action.type === "unlock"))
+    throw new EngineError("このモードでは使えない操作です");
+  if (
+    !bomber &&
+    (action.type === "bomberJoin" ||
+      action.type === "bomberLeave" ||
+      action.type === "bomberKick" ||
+      action.type === "bomberAnswer" ||
+      action.type === "setBomberSeconds")
+  )
+    throw new EngineError("ファイブボンバーのモードではありません");
 
   switch (action.type) {
     case "setName": {
@@ -148,6 +193,7 @@ export function applyAction(
 
     case "sit": {
       if (!ROLES.includes(action.role)) throw new EngineError("不正な席です");
+      if (bomber && state.phase !== "lobby") throw new EngineError("ゲーム中は席を移動できません");
       const current = state.seats[action.role];
       if (current === token) return;
       if (role !== null && state.phase !== "lobby") throw new EngineError("ゲーム中は席を移動できません");
@@ -176,7 +222,8 @@ export function applyAction(
       if (state.phase !== "lobby") throw new EngineError("ロビーでのみ選択できます");
       if (token !== state.hostToken)
         throw new EngineError("問題セットはルーム作成者のみ選べます");
-      if (!getSet(action.setId)) throw new EngineError("セットが見つかりません");
+      const exists = bomber ? getBomberSet(action.setId) : getSet(action.setId);
+      if (!exists) throw new EngineError("セットが見つかりません");
       state.setId = action.setId;
       return;
     }
@@ -192,6 +239,7 @@ export function applyAction(
     }
 
     case "start": {
+      if (bomber) return bomberStart(state, token, presence, now, getBomberSet);
       if (state.phase !== "lobby") throw new EngineError("すでに開始しています");
       if (token !== state.hostToken)
         throw new EngineError("ルーム作成者のみゲームを開始できます");
@@ -243,6 +291,7 @@ export function applyAction(
     }
 
     case "next": {
+      if (bomber) return bomberNext(state, token, now, getBomberSet);
       if (state.phase !== "judging") throw new EngineError("判定フェーズではありません");
       if (token !== state.hostToken)
         throw new EngineError("次へ進めるのはルーム作成者のみです");
@@ -265,6 +314,7 @@ export function applyAction(
     }
 
     case "backToLobby": {
+      if (bomber) return bomberBackToLobby(state, token);
       if (state.phase !== "results") throw new EngineError("結果フェーズではありません");
       if (role === null && token !== state.hostToken)
         throw new EngineError("着席者またはホストのみ操作できます");
@@ -279,6 +329,33 @@ export function applyAction(
       void allSets;
       return;
     }
+
+    case "setMode": {
+      if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
+      if (token !== state.hostToken)
+        throw new EngineError("ゲームの種類はルーム作成者のみ選べます");
+      if (action.mode !== "three" && action.mode !== "bomber")
+        throw new EngineError("不正なモードです");
+      if (state.mode === action.mode) return;
+      state.mode = action.mode;
+      state.setId = null;
+      return;
+    }
+
+    case "setBomberSeconds":
+      return setBomberSeconds(state, token, action.seconds);
+
+    case "bomberJoin":
+      return bomberJoin(state, token);
+
+    case "bomberLeave":
+      return bomberLeave(state, token);
+
+    case "bomberKick":
+      return bomberKick(state, token, action.token);
+
+    case "bomberAnswer":
+      return bomberAnswer(state, token, action.text, now, getBomberSet);
 
     default: {
       const _exhaustive: never = action;

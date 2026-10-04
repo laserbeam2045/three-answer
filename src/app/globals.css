@@ -679,3 +679,140 @@ body {
     opacity: 0;
   }
 }
+
+/* ---------- ファイブボンバー ---------- */
+
+/* 爆弾のゆれ（残り5秒で速く） */
+@keyframes bomb-shake {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+.bomb-shake {
+  animation: bomb-shake 0.9s ease-in-out infinite;
+}
+.bomb-shake-fast {
+  animation: bomb-shake 0.18s linear infinite;
+}
+
+/* 導火線の火花 */
+@keyframes bomb-spark {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.6) rotate(25deg);
+    opacity: 0.7;
+  }
+}
+.bomb-spark {
+  animation: bomb-spark 0.25s ease-in-out infinite;
+}
+
+/* 回答中の枠 */
+.bomber-current {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 16px rgba(226, 192, 91, 0.35);
+}
+
+/* 残り5秒のカウントダウン */
+@keyframes countdown-pop {
+  0% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.25;
+  }
+}
+.countdown-pop {
+  animation: countdown-pop 1s ease-out both;
+  text-shadow: 0 0 18px rgba(225, 75, 75, 0.6);
+}
+
+/* 誤答の横ゆれ */
+@keyframes miss-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+.miss-shake {
+  animation: miss-shake 0.35s ease-in-out both;
+}
+
+/* 爆発 */
+@keyframes explode-pop {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.35) rotate(-4deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.95) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+.explode-pop {
+  animation: explode-pop 0.55s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+}
+
+@keyframes flash-crimson {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.flash-crimson {
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 220, 160, 0.7) 0%,
+    rgba(225, 75, 75, 0.35) 35%,
+    transparent 70%
+  );
+  animation: flash-crimson 0.8s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bomb-shake,
+  .bomb-shake-fast,
+  .bomb-spark,
+  .countdown-pop,
+  .miss-shake,
+  .explode-pop {
+    animation: none;
+  }
+  .flash-crimson {
+    display: none;
+  }
+}

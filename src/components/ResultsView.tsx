@@ -77,7 +77,8 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
   const highScore = score >= 16;
   const isSeated = state.you.role !== null;
 
-  const metaOf = (setId: string) => state.setMeta.find((m) => m.id === setId);
+  const metaOf = (setId: string) =>
+    [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId);
 
   const onBackToLobby = async () => {
     if (busy || !isSeated) return;
@@ -302,6 +303,7 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                   </span>
                   <span className="ml-auto shrink-0 font-black text-gold">
                     {r.score}
+                    {r.mode === "bomber" && "点"}
                     <span className="text-muted font-normal text-xs"> / {r.total}</span>
                   </span>
                   <span className="text-muted text-xs shrink-0 hidden sm:inline">

@@ -8,6 +8,9 @@ import JudgingView from "@/components/JudgingView";
 import ResultsView from "@/components/ResultsView";
 import PauseOverlay from "@/components/PauseOverlay";
 import RoomHeader from "@/components/RoomHeader";
+import BomberQuestionView from "@/components/bomber/BomberQuestionView";
+import BomberJudgingView from "@/components/bomber/BomberJudgingView";
+import BomberResultsView from "@/components/bomber/BomberResultsView";
 
 export default function RoomPage({ params }: { params: Promise<{ roomId: string }> }) {
   const { roomId } = use(params);
@@ -38,11 +41,23 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
       <RoomHeader room={room} />
       <div className="flex-1 flex flex-col">
         {state.phase === "lobby" && <LobbyView room={room} />}
-        {state.phase === "question" && <QuestionView room={room} />}
-        {state.phase === "judging" && <JudgingView room={room} />}
-        {state.phase === "results" && <ResultsView room={room} />}
+        {state.mode === "bomber" ? (
+          <>
+            {state.phase === "question" && <BomberQuestionView room={room} />}
+            {state.phase === "judging" && <BomberJudgingView room={room} />}
+            {state.phase === "results" && <BomberResultsView room={room} />}
+          </>
+        ) : (
+          <>
+            {state.phase === "question" && <QuestionView room={room} />}
+            {state.phase === "judging" && <JudgingView room={room} />}
+            {state.phase === "results" && <ResultsView room={room} />}
+          </>
+        )}
       </div>
-      {state.phase === "question" && state.pausedRoles.length > 0 && <PauseOverlay room={room} />}
+      {state.mode !== "bomber" && state.phase === "question" && state.pausedRoles.length > 0 && (
+        <PauseOverlay room={room} />
+      )}
       {actionError && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-player-a/90 text-white px-4 py-2 rounded-lg shadow-lg z-50">
           {actionError}

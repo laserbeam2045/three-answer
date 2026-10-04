@@ -81,6 +81,10 @@ export function useRoom(roomId: string): UseRoomResult {
         return { ...s, setId: action.setId };
       case "setAnswerSeconds":
         return { ...s, settings: { ...s.settings, answerSeconds: action.seconds } };
+      case "setBomberSeconds":
+        return { ...s, settings: { ...s.settings, bomberSeconds: action.seconds } };
+      case "setMode":
+        return s.mode === action.mode ? s : { ...s, mode: action.mode, setId: null };
       default:
         return s;
     }
@@ -129,7 +133,16 @@ export function useRoom(roomId: string): UseRoomResult {
   useEffect(() => {
     tokenRef.current = getLocalToken();
     void poll();
-    const interval = setInterval(poll, 1000);
+    // 通常は約1秒間隔。ファイブボンバーの回答中は爆弾が素早く回るので約0.5秒間隔
+    let lastPollAt = 0;
+    const interval = setInterval(() => {
+      const s = stateRef.current;
+      const fast = s?.mode === "bomber" && s.phase === "question";
+      const now = Date.now();
+      if (now - lastPollAt < (fast ? 450 : 950)) return;
+      lastPollAt = now;
+      void poll();
+    }, 250);
     const onVis = () => void poll();
     document.addEventListener("visibilitychange", onVis);
     window.addEventListener("focus", onVis);

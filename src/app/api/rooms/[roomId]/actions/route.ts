@@ -20,6 +20,12 @@ const VALID_TYPES = new Set([
   "unlock",
   "next",
   "backToLobby",
+  "setMode",
+  "setBomberSeconds",
+  "bomberJoin",
+  "bomberLeave",
+  "bomberKick",
+  "bomberAnswer",
 ]);
 
 export async function POST(

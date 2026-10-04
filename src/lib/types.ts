@@ -27,7 +27,68 @@ export interface QuestionSet {
   questions: SetQuestion[];
 }
 
+// ---------- ファイブボンバーの問題セット ----------
+
+/** 答えが5つ以上ある問題の、1つの正解 */
+export interface BomberAnswer {
+  /** 表示用の表記 */
+  display: string;
+  /** 表記以外に正解とする書き方（読み・別表記・略称など）。かなは自動でひらがな/カタカナ両対応 */
+  accept?: string[];
+}
+
+export interface BomberQuestion {
+  q: string;
+  answers: BomberAnswer[];
+  /** 各正解の後ろに付けても正解とする語（例: ["県", "けん"]） */
+  suffixes?: string[];
+  /** 各正解の前に付けても正解とする語（例: ["徳川", "とくがわ"]） */
+  prefixes?: string[];
+}
+
+export interface BomberSet {
+  id: string;
+  title: string;
+  description: string;
+  questions: BomberQuestion[];
+}
+
 // ---------- ルーム状態 ----------
+
+export type GameMode = "three" | "bomber";
+
+/** ファイブボンバーで1枠ぶん正解した記録 */
+export interface BomberSlot {
+  token: string;
+  answerIndex: number;
+  text: string;
+}
+
+export interface BomberMiss {
+  token: string;
+  text: string;
+  /** wrong = 不正解, dup = すでに出た答え */
+  reason: "wrong" | "dup";
+  /** 同じ誤答が続いても演出を出し直せるよう、誤答ごとに増える番号 */
+  seq: number;
+}
+
+export interface BomberRoundState {
+  /** 爆弾を持っている（回答中の）プレイヤー */
+  turnToken: string;
+  slots: BomberSlot[];
+  lastMiss: BomberMiss | null;
+  /** この問題での誤答の回数（BomberMiss.seq の採番用） */
+  missCount: number;
+}
+
+export interface BomberRoundResult {
+  qIndex: number;
+  cleared: boolean;
+  slots: BomberSlot[];
+  /** 爆発したときに爆弾を持っていた人 */
+  heldBy?: string;
+}
 
 export type Phase = "lobby" | "question" | "judging" | "results";
 
@@ -55,6 +116,8 @@ export interface QuestionResult {
 }
 
 export interface GameRecord {
+  /** 省略時は three（ファイブボンバー追加前の記録） */
+  mode?: GameMode;
   setId: string;
   score: number;
   total: number;
@@ -77,7 +140,12 @@ export interface RoomState {
   pausedRoles: Role[];
   answers: Record<Role, AnswerState>;
   results: QuestionResult[];
-  settings: { answerSeconds: number };
+  settings: { answerSeconds: number; bomberSeconds: number };
+  mode: GameMode;
+  /** ファイブボンバーの参加者（参加順。回答はこの順に回る） */
+  bomberPlayers: string[];
+  bomberRound: BomberRoundState | null;
+  bomberResults: BomberRoundResult[];
 }
 
 // ---------- アクション ----------
@@ -93,7 +161,13 @@ export type Action =
   | { type: "lock" }
   | { type: "unlock" }
   | { type: "next" }
-  | { type: "backToLobby" };
+  | { type: "backToLobby" }
+  | { type: "setMode"; mode: GameMode }
+  | { type: "setBomberSeconds"; seconds: number }
+  | { type: "bomberJoin" }
+  | { type: "bomberLeave" }
+  | { type: "bomberKick"; token: string }
+  | { type: "bomberAnswer"; text: string };
 
 // ---------- クライアントに返す状態（redact済み） ----------
 
@@ -147,7 +221,75 @@ export interface RedactedState {
   allHands: Record<Role, string[]> | null; // resultsフェーズ or 観戦reveal時
   history: { result: QuestionResult; question: RevealedQuestion }[] | null; // resultsフェーズ
   score: number | null; // resultsフェーズ
-  settings: { answerSeconds: number };
+  settings: { answerSeconds: number; bomberSeconds: number };
+  mode: GameMode;
+  /** 現在のモードのセットの問題数 */
+  questionCount: number;
+  bomber: BomberView;
+}
+
+// ---------- ファイブボンバーのクライアント向け状態 ----------
+
+export interface BomberPlayerView {
+  token: string;
+  name: string;
+  active: boolean;
+  isYou: boolean;
+}
+
+export interface BomberSlotView {
+  name: string;
+  isYou: boolean;
+  /** 正解の表記（入力した文字ではなく正式な表記） */
+  display: string;
+}
+
+export interface BomberRevealedAnswer {
+  display: string;
+  /** この問題で誰かが答えていれば、その人の名前 */
+  by: string | null;
+}
+
+export interface BomberView {
+  setMeta: { id: string; title: string; description: string; played: boolean }[];
+  players: BomberPlayerView[];
+  isPlayer: boolean;
+  /** questionフェーズ中のみ */
+  round: {
+    slots: BomberSlotView[];
+    /** 残りの枠を誰が答えるか（今の回答者から順に） */
+    upcoming: string[];
+    turnToken: string;
+    turnName: string;
+    isYourTurn: boolean;
+    lastMiss: { name: string; text: string; reason: "wrong" | "dup"; seq: number } | null;
+    /** 回答者の離席で止まっている */
+    waiting: boolean;
+  } | null;
+  /** judgingフェーズ中のみ */
+  judged: {
+    q: string;
+    cleared: boolean;
+    /** 爆発したときに爆弾を持っていた人の名前 */
+    heldBy: string | null;
+    slots: BomberSlotView[];
+    answers: BomberRevealedAnswer[];
+    points: number;
+  } | null;
+  /** resultsフェーズのみ */
+  history:
+    | {
+        q: string;
+        cleared: boolean;
+        heldBy: string | null;
+        slots: BomberSlotView[];
+        answers: BomberRevealedAnswer[];
+        points: number;
+      }[]
+    | null;
+  /** これまでの合計点（results では最終得点） */
+  totalPoints: number;
+  maxPoints: number;
 }
 
 // ---------- プレゼンス ----------

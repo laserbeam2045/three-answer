@@ -87,7 +87,7 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
             {inGame && (
               <span className="font-display font-extrabold text-gold text-sm sm:text-lg tracking-widest whitespace-nowrap">
                 第{state.qIndex + 1}問
-                <span className="text-muted text-xs sm:text-sm font-normal font-sans"> / 20</span>
+                <span className="text-muted text-xs sm:text-sm font-normal font-sans"> / {state.questionCount}</span>
               </span>
             )}
           </div>
@@ -103,7 +103,7 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
               </span>
               <span className="hidden sm:inline">観戦者 {state.spectators.length}人</span>
             </span>
-            {isSpectator && state.phase !== "lobby" && (
+            {isSpectator && state.mode !== "bomber" && state.phase !== "lobby" && (
               <button
                 type="button"
                 onClick={() => setSpectatorReveal(!spectatorReveal)}
