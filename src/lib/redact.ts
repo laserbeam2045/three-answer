@@ -142,6 +142,7 @@ function bomberView(
     name: nameOf(s.token),
     isYou: s.token === token,
     display: set?.questions[qIndex].answers[s.answerIndex]?.display ?? s.text,
+    aiInput: s.ai ? s.text : null,
   });
   const reviewOf = (qIndex: number) => {
     const r = state.bomberResults.find((x) => x.qIndex === qIndex);

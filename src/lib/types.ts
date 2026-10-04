@@ -62,6 +62,18 @@ export interface BomberSlot {
   token: string;
   answerIndex: number;
   text: string;
+  /** ローカルの照合では一致せず、AI（Jev）の表記ゆれ判定で正解になった */
+  ai?: boolean;
+}
+
+/**
+ * サーバーが事前に AI で判定した結果（クライアントからは受け取らない）。
+ * qIndex と text が一致するときだけ使う。
+ */
+export interface BomberAnswerHint {
+  qIndex: number;
+  text: string;
+  answerIndex: number;
 }
 
 export interface BomberMiss {
@@ -242,6 +254,8 @@ export interface BomberSlotView {
   isYou: boolean;
   /** 正解の表記（入力した文字ではなく正式な表記） */
   display: string;
+  /** AI の表記ゆれ判定で正解になったときの、実際の入力 */
+  aiInput: string | null;
 }
 
 export interface BomberRevealedAnswer {

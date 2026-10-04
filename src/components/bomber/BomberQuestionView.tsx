@@ -156,7 +156,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
                 disabled={!canAnswer || !text.trim() || sending}
                 className="btn-gold shrink-0 px-5 py-2.5 text-base"
               >
-                答える
+                {sending ? "判定中…" : "答える"}
               </button>
             </form>
           </>

@@ -150,6 +150,23 @@ describe("ファイブボンバーの進行", () => {
     expect(s.bomberRound!.slots).toHaveLength(1);
   });
 
+  it("サーバーの AI 判定結果（hint）は、同じ問題・同じ入力のときだけ使う", () => {
+    const { s, answerAt } = startedRoom(["p1"]);
+    const answer = (text: string, hint?: { qIndex: number; text: string; answerIndex: number }) =>
+      applyAction(s, "p1", { type: "bomberAnswer", text }, presenceFor([HOST, "p1"], answerAt), answerAt, getSet, allSets, getBomberSet, hint);
+
+    answer("Aomori", { qIndex: 1, text: "Aomori", answerIndex: 0 }); // 問題が違う
+    answer("Aomori", { qIndex: 0, text: "Iwate", answerIndex: 0 }); // 入力が違う
+    expect(s.bomberRound!.slots).toHaveLength(0);
+    expect(s.bomberRound!.lastMiss).toMatchObject({ reason: "wrong", seq: 2 });
+
+    answer("Aomori", { qIndex: 0, text: "Aomori", answerIndex: 0 });
+    expect(s.bomberRound!.slots[0]).toMatchObject({ answerIndex: 0, text: "Aomori", ai: true });
+    // AI で正解になった答えも既出として扱う
+    answer("あおもり");
+    expect(s.bomberRound!.lastMiss).toMatchObject({ reason: "dup" });
+  });
+
   it("自分の番でなければ答えられない", () => {
     const { s, answerAt } = startedRoom(["p1", "p2"]);
     expect(() => act(s, "p2", { type: "bomberAnswer", text: "青森" }, answerAt)).toThrow(EngineError);

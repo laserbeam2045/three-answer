@@ -94,6 +94,14 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                             <span className="text-gold-3 text-xs mr-1">{k + 1}</span>
                             <span className="font-bold text-gold-2">{s.display}</span>
                             <span className="text-muted text-xs ml-1">{s.name}</span>
+                            {s.aiInput && (
+                              <span
+                                className="text-muted text-[10px] ml-1"
+                                title="表記ゆれをAIが判定して正解にしました"
+                              >
+                                （入力「{s.aiInput}」）
+                              </span>
+                            )}
                           </li>
                         ))}
                         {h.slots.length === 0 && <li className="text-muted text-sm">正解なし</li>}

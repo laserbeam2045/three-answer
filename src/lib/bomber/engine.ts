@@ -1,4 +1,4 @@
-import type { BomberSet, PresenceMap, RoomState } from "../types";
+import type { BomberAnswerHint, BomberSet, PresenceMap, RoomState } from "../types";
 import { isActive } from "../types";
 import { EngineError } from "../errors";
 import { effectiveElapsed, isExpired, newTimer, pauseTimer, resumeTimer } from "../time";
@@ -151,7 +151,8 @@ export function bomberAnswer(
   token: string,
   text: string,
   now: number,
-  getBomberSet: GetBomberSet
+  getBomberSet: GetBomberSet,
+  hint?: BomberAnswerHint
 ): void {
   const round = state.bomberRound;
   if (state.phase !== "question" || !round || !state.timer)
@@ -160,14 +161,27 @@ export function bomberAnswer(
   if (state.timer.paused) throw new EngineError("一時停止中です");
   if (effectiveElapsed(state.timer, now) < state.timer.revealMs)
     throw new EngineError("問題文が出るまでお待ちください");
-  const input = String(text ?? "").trim().slice(0, 40);
+  const input = cleanAnswerInput(text);
   if (!input) throw new EngineError("答えを入力してください");
 
   const set = state.setId ? getBomberSet(state.setId) : undefined;
   if (!set) throw new EngineError("set not found");
   const question = set.questions[state.qIndex];
 
-  const index = matchAnswer(question, input);
+  let index = matchAnswer(question, input);
+  let ai = false;
+  if (
+    index < 0 &&
+    hint &&
+    hint.qIndex === state.qIndex &&
+    hint.text === input &&
+    Number.isInteger(hint.answerIndex) &&
+    hint.answerIndex >= 0 &&
+    hint.answerIndex < question.answers.length
+  ) {
+    index = hint.answerIndex;
+    ai = true;
+  }
   const alreadyGiven = index >= 0 && round.slots.some((s) => s.answerIndex === index);
   if (index < 0 || alreadyGiven) {
     round.missCount += 1;
@@ -180,13 +194,38 @@ export function bomberAnswer(
     return;
   }
 
-  round.slots.push({ token, answerIndex: index, text: input });
+  round.slots.push({ token, answerIndex: index, text: input, ...(ai ? { ai: true } : {}) });
   round.lastMiss = null;
   if (round.slots.length >= BOMBER_SLOTS) {
     finishRound(state, true);
   } else {
     round.turnToken = nextPlayer(state.bomberPlayers, token);
   }
+}
+
+/** 回答の入力を照合用にそろえる（エンジンと AI 判定の前処理で同じものを使う） */
+export function cleanAnswerInput(text: unknown): string {
+  return String(text ?? "").trim().slice(0, 40);
+}
+
+/**
+ * AI 判定に回すべき回答なら、その問題を返す。
+ * token が回答中の人で、ローカルの照合では一致しないときだけ対象にする。
+ */
+export function questionNeedingAi(
+  state: RoomState,
+  token: string,
+  input: string,
+  getBomberSet: GetBomberSet
+): BomberSet["questions"][number] | null {
+  const round = state.bomberRound;
+  if (state.mode !== "bomber" || state.phase !== "question" || !round || round.turnToken !== token)
+    return null;
+  if (!input) return null;
+  const set = state.setId ? getBomberSet(state.setId) : undefined;
+  const question = set?.questions[state.qIndex];
+  if (!question || matchAnswer(question, input) >= 0) return null;
+  return question;
 }
 
 export function bomberNext(

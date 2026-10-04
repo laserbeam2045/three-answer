@@ -38,6 +38,12 @@ npm run dev
 Redisの環境変数が無い場合は自動で**インメモリストア**にフォールバックするので、
 そのまま `http://localhost:3000` で動作確認できます（タブを複数開けば3人分試せます）。
 
+### ファイブボンバーの表記ゆれ判定（任意）
+
+`.env.local` に `TYPESAFE_API_KEY` を設定すると、登録した表記で一致しなかった答えを
+[Jev](https://note.com/npaka/n/n5ac6abd04d67)（typesafe.ai）が判定します（例: 「Hydrogen」→水素、「安部晋三」→安倍晋三）。
+未設定でも動作します（登録した表記・読みとの照合のみ）。Vercel では環境変数に同じ名前で設定してください。
+
 ## Vercelへのデプロイ
 
 1. このリポジトリをGitHubにpushし、Vercelでimportする。

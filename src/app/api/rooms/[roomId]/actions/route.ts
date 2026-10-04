@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { Action } from "@/lib/types";
-import { applyAction, EngineError, tick } from "@/lib/engine";
+import type { Action, BomberAnswerHint } from "@/lib/types";
+import { applyAction, EngineError, normalizeRoom, tick } from "@/lib/engine";
+import { cleanAnswerInput, questionNeedingAi } from "@/lib/bomber/engine";
+import { judgeWithJev } from "@/lib/bomber/jev";
 import { redact } from "@/lib/redact";
 import { getStore, RoomNotFoundError } from "@/lib/store";
-import { allSets, getSet } from "@/lib/sets";
+import { allSets, getBomberSet, getSet } from "@/lib/sets";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -48,15 +50,33 @@ export async function POST(
     return NextResponse.json({ error: "不正なアクションです" }, { status: 400 });
   }
 
+  // 受付時刻。AI 判定を待つ間に時間切れ扱いにならないよう、この時刻で判定する
   const now = Date.now();
   const store = getStore();
   try {
     await store.touchPresence(roomId, token, true, now);
     const presence = await store.getPresence(roomId);
+
+    // ファイブボンバーの回答がローカルの照合で一致しなければ、表記ゆれを AI（Jev）で判定しておく。
+    // 外部 API の待ち時間を CAS のリトライに含めないよう、書き込みの前に済ませる
+    let bomberHint: BomberAnswerHint | undefined;
+    if (action.type === "bomberAnswer") {
+      const current = await store.getRoom(roomId);
+      if (current) {
+        normalizeRoom(current);
+        const input = cleanAnswerInput(action.text);
+        const question = questionNeedingAi(current, token, input, getBomberSet);
+        if (question) {
+          const answerIndex = await judgeWithJev(question, input);
+          if (answerIndex >= 0) bomberHint = { qIndex: current.qIndex, text: input, answerIndex };
+        }
+      }
+    }
+
     const state = await store.mutate(roomId, (s) => {
       // アクション適用前にも遅延遷移（期限切れ等）を評価する
       tick(s, presence, now, getSet);
-      applyAction(s, token, action, presence, now, getSet, allSets);
+      applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint);
       tick(s, presence, now, getSet);
       return true;
     });

@@ -1,5 +1,6 @@
 import type {
   Action,
+  BomberAnswerHint,
   AnswerState,
   PresenceMap,
   QuestionSet,
@@ -164,7 +165,8 @@ export function applyAction(
   now: number,
   getSet: (id: string) => QuestionSet | undefined,
   allSets: () => QuestionSet[],
-  getBomberSet: GetBomberSet = defaultGetBomberSet
+  getBomberSet: GetBomberSet = defaultGetBomberSet,
+  bomberHint?: BomberAnswerHint
 ): void {
   normalizeRoom(state);
   ensureClient(state, token);
@@ -355,7 +357,7 @@ export function applyAction(
       return bomberKick(state, token, action.token);
 
     case "bomberAnswer":
-      return bomberAnswer(state, token, action.text, now, getBomberSet);
+      return bomberAnswer(state, token, action.text, now, getBomberSet, bomberHint);
 
     default: {
       const _exhaustive: never = action;
