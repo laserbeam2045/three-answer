@@ -368,8 +368,8 @@ describe("折り返し", () => {
     expect(s.timer!.totalMs - s.timer!.revealMs).toBe(8 * 5 * 1000);
     const lobby = createRoom("r3", HOST, "ホスト", 0);
     act(lobby, HOST, { type: "setMode", mode: "bomber" }, 0);
-    act(lobby, HOST, { type: "setBomberSeconds", seconds: 12 }, 0);
-    expect(lobby.settings.bomberSecondsPerAnswer).toBe(12);
+    act(lobby, HOST, { type: "setBomberSeconds", seconds: 15 }, 0);
+    expect(lobby.settings.bomberSecondsPerAnswer).toBe(15);
     expect(() => act(lobby, HOST, { type: "setBomberSeconds", seconds: 30 }, 0)).toThrow(EngineError);
   });
 

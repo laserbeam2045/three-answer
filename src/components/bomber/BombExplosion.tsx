@@ -22,7 +22,7 @@ const BURST_MID = burstPath(12, 80, 50, 0.3, 5);
 const BURST_INNER = burstPath(10, 62, 40, 0.3, 1);
 
 /**
- * 時間切れの大爆発。全画面のフラッシュ → 爆炎と「Boom!!」→ 衝撃波・火の粉・煙 → 画面の揺れ。
+ * 時間切れの大爆発。全画面のフラッシュ → 爆炎と「爆発!!」→ 衝撃波・火の粉・煙 → 画面の揺れ。
  * 約1.8秒で消える。prefers-reduced-motion では文字だけを短く出す。
  */
 export default function BombExplosion({ fireKey }: { fireKey: string | number }) {
@@ -122,18 +122,17 @@ export default function BombExplosion({ fireKey }: { fireKey: string | number })
             x="100"
             y="112"
             textAnchor="middle"
-            fontSize="46"
+            fontSize="50"
             fontWeight="900"
-            fontStyle="italic"
-            fontFamily="'Arial Black', 'Impact', 'Noto Sans JP', sans-serif"
+            fontFamily="'Noto Sans JP', sans-serif"
             fill="url(#boom-text)"
             stroke="#3b0a0a"
             strokeWidth="5"
             strokeLinejoin="round"
             paintOrder="stroke"
-            transform="rotate(-8 100 100)"
+            transform="rotate(-8 100 100) skewX(-8)"
           >
-            Boom!!
+            爆発!!
           </text>
         </g>
       </svg>

@@ -89,7 +89,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
               className="explode-pop seal seal-ng seal-boom text-4xl sm:text-6xl whitespace-nowrap"
               style={{ animationDelay: "1.3s" }}
             >
-              Boom!!
+              爆発!!
             </div>
           )}
           {stage >= 1 && (

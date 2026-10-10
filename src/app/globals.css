@@ -817,7 +817,7 @@ body {
   }
 }
 
-/* ---------- 爆発（Boom!!） ---------- */
+/* ---------- 爆発（「爆発!!」） ---------- */
 
 .boom-overlay {
   animation: boom-fade 1.9s ease-in both;
@@ -982,12 +982,11 @@ body {
   animation: screen-shake 0.7s ease-out both;
 }
 
-/* 結果画面に残る「Boom!!」の印 */
+/* 結果画面に残る「爆発!!」の印 */
 .seal-boom {
-  font-family: "Arial Black", "Impact", var(--font-sans);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-weight: 900;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color: #fde047;
   -webkit-text-stroke: 1.5px #7f1d1d;
   text-shadow: 0 0 18px rgba(249, 115, 22, 0.8), 0 3px 0 #7f1d1d;

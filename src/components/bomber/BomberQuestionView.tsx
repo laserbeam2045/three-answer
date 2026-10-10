@@ -24,7 +24,9 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   const round = state?.bomber.round ?? null;
   const canAnswer = !!round?.isYourTurn && !timer.inReveal && !round.waiting;
 
-  // 自分の番が来たら入力欄にフォーカス
+  // 自分の番が来たら入力欄にフォーカス。
+  // 入力欄は参加者には常に出しておき、一度タップしておけばフォーカスが外れないので、
+  // スマホでもキーボードが開いたまま自分の番を迎えられる（スマホはタップ以外の自動フォーカスではキーボードが開かない）
   useEffect(() => {
     if (canAnswer) inputRef.current?.focus();
   }, [canAnswer]);
@@ -126,51 +128,58 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       {/* 回答エリア */}
       <section className="ornate-2 p-3 sm:p-5 flex flex-col items-center gap-2.5">
         {round.isYourTurn ? (
-          <>
-            <p className="font-display text-gilt text-xl sm:text-2xl font-extrabold tracking-widest flex items-center gap-2">
-              <BombIcon urgent={urgent} className="w-7 h-7 sm:w-9 sm:h-9" />
-              あなたの番です
-            </p>
-            <form
-              className="w-full max-w-md flex gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (composingRef.current) return;
-                submit();
-              }}
-            >
-              <input
-                ref={inputRef}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                onCompositionStart={() => (composingRef.current = true)}
-                onCompositionEnd={() => (composingRef.current = false)}
-                disabled={!canAnswer}
-                maxLength={40}
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck={false}
-                enterKeyHint="send"
-                placeholder={timer.inReveal ? "問題文が出たら答えられます" : "答えを入力"}
-                className="field flex-1 min-w-0 px-3 py-2.5 text-lg"
-                aria-label="答え"
-              />
-              <button
-                type="submit"
-                disabled={!canAnswer || !text.trim()}
-                className="btn-gold shrink-0 px-5 py-2.5 text-base"
-              >
-                {pending > 0 && !text.trim() ? "判定中…" : "答える"}
-              </button>
-            </form>
-          </>
+          <p className="font-display text-gilt text-xl sm:text-2xl font-extrabold tracking-widest flex items-center gap-2">
+            <BombIcon urgent={urgent} className="w-7 h-7 sm:w-9 sm:h-9" />
+            あなたの番です
+          </p>
         ) : (
           <p className="text-base sm:text-lg text-ink flex items-center gap-2">
             <BombIcon urgent={urgent} className="w-6 h-6 sm:w-8 sm:h-8" />
             <span className="font-bold text-gold-2">{round.turnName}</span>
             <span className="text-muted">さんが回答中…</span>
           </p>
+        )}
+
+        {/* 参加者には入力欄を常に出す（自分の番の前に答えを用意しておける。送れるのは自分の番だけ） */}
+        {state.bomber.isPlayer && (
+          <form
+            className="w-full max-w-md flex gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (composingRef.current) return;
+              submit();
+            }}
+          >
+            <input
+              ref={inputRef}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              onCompositionStart={() => (composingRef.current = true)}
+              onCompositionEnd={() => (composingRef.current = false)}
+              maxLength={40}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              enterKeyHint="send"
+              placeholder={
+                canAnswer
+                  ? "答えを入力"
+                  : round.isYourTurn
+                    ? "問題文が出たら送れます"
+                    : "自分の番に備えて入力しておけます"
+              }
+              className={`field flex-1 min-w-0 px-3 py-2.5 text-lg ${canAnswer ? "" : "opacity-75"}`}
+              aria-label="答え"
+            />
+            <button
+              type="submit"
+              disabled={!canAnswer || !text.trim()}
+              className="btn-gold shrink-0 px-5 py-2.5 text-base"
+            >
+              {pending > 0 && !text.trim() ? "判定中…" : "答える"}
+            </button>
+          </form>
         )}
 
         {/* 直前の誤答（全員に見える） */}
