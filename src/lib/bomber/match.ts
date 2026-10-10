@@ -13,7 +13,7 @@ export const BOMBER_MAX_PLAYERS = 20;
  * 制限時間は「答え1つあたりの秒数 × その問題で答える数」で決める。
  * 文字入力は口頭より遅く、1つあたり PC で4〜9秒、スマホで6〜12秒ほどかかる見積もり。
  */
-export const BOMBER_SECONDS_PER_ANSWER_OPTIONS = [6, 8, 10, 12, 15];
+export const BOMBER_SECONDS_PER_ANSWER_OPTIONS = [6, 8, 10, 12, 15, 20];
 export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
 
 /**

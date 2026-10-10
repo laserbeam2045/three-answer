@@ -370,7 +370,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                         )
                     : undefined
                 }
-                className={`px-4 sm:px-6 py-2 text-sm font-bold transition-colors ${
+                className={`px-2.5 sm:px-6 py-2 text-sm font-bold whitespace-nowrap transition-colors ${
                   active
                     ? "plaque rounded-none shadow-none"
                     : `bg-panel-2 text-muted ${state.you.isHost ? "hover:text-ink cursor-pointer" : ""}`
