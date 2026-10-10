@@ -1,0 +1,1315 @@
+{
+  "id": "bomber5",
+  "title": "のろし",
+  "description": "腕だめしにどうぞ。手ごたえのある10問。",
+  "questions": [
+    {
+      "q": "世界の「五大洋」を答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "太平洋",
+          "accept": [
+            "たいへいよう"
+          ]
+        },
+        {
+          "display": "大西洋",
+          "accept": [
+            "たいせいよう"
+          ]
+        },
+        {
+          "display": "インド洋",
+          "accept": [
+            "いんどよう"
+          ]
+        },
+        {
+          "display": "北極海",
+          "accept": [
+            "ほっきょくかい"
+          ]
+        },
+        {
+          "display": "南極海",
+          "accept": [
+            "なんきょくかい",
+            "南氷洋",
+            "なんぴょうよう"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "面積が大きい上位10の都道府県を答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "都",
+        "と",
+        "府",
+        "ふ",
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "北海道",
+          "accept": [
+            "ほっかいどう"
+          ]
+        },
+        {
+          "display": "岩手",
+          "accept": [
+            "いわて"
+          ]
+        },
+        {
+          "display": "福島",
+          "accept": [
+            "ふくしま"
+          ]
+        },
+        {
+          "display": "長野",
+          "accept": [
+            "ながの"
+          ]
+        },
+        {
+          "display": "新潟",
+          "accept": [
+            "にいがた"
+          ]
+        },
+        {
+          "display": "秋田",
+          "accept": [
+            "あきた"
+          ]
+        },
+        {
+          "display": "岐阜",
+          "accept": [
+            "ぎふ"
+          ]
+        },
+        {
+          "display": "青森",
+          "accept": [
+            "あおもり"
+          ]
+        },
+        {
+          "display": "山形",
+          "accept": [
+            "やまがた"
+          ]
+        },
+        {
+          "display": "鹿児島",
+          "accept": [
+            "かごしま"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "スタジオジブリの長編アニメーション映画を答えてください（『風の谷のナウシカ』も含みます）。",
+      "slots": 12,
+      "answers": [
+        {
+          "display": "風の谷のナウシカ",
+          "accept": [
+            "ナウシカ"
+          ]
+        },
+        {
+          "display": "天空の城ラピュタ",
+          "accept": [
+            "ラピュタ"
+          ]
+        },
+        {
+          "display": "となりのトトロ",
+          "accept": [
+            "トトロ"
+          ]
+        },
+        {
+          "display": "火垂るの墓",
+          "accept": [
+            "ほたるのはか"
+          ]
+        },
+        {
+          "display": "魔女の宅急便",
+          "accept": [
+            "まじょのたっきゅうびん",
+            "魔女宅"
+          ]
+        },
+        {
+          "display": "おもひでぽろぽろ",
+          "accept": [
+            "思い出ぽろぽろ"
+          ]
+        },
+        {
+          "display": "紅の豚",
+          "accept": [
+            "くれないのぶた"
+          ]
+        },
+        {
+          "display": "平成狸合戦ぽんぽこ",
+          "accept": [
+            "ぽんぽこ",
+            "へいせいたぬきがっせんぽんぽこ"
+          ]
+        },
+        {
+          "display": "耳をすませば",
+          "accept": [
+            "みみをすませば"
+          ]
+        },
+        {
+          "display": "もののけ姫",
+          "accept": [
+            "もののけひめ"
+          ]
+        },
+        {
+          "display": "ホーホケキョ となりの山田くん",
+          "accept": [
+            "となりの山田くん",
+            "ホーホケキョとなりの山田くん"
+          ]
+        },
+        {
+          "display": "千と千尋の神隠し",
+          "accept": [
+            "千と千尋",
+            "せんとちひろのかみかくし"
+          ]
+        },
+        {
+          "display": "猫の恩返し",
+          "accept": [
+            "ねこのおんがえし"
+          ]
+        },
+        {
+          "display": "ハウルの動く城",
+          "accept": [
+            "ハウル"
+          ]
+        },
+        {
+          "display": "ゲド戦記",
+          "accept": [
+            "げどせんき"
+          ]
+        },
+        {
+          "display": "崖の上のポニョ",
+          "accept": [
+            "ポニョ"
+          ]
+        },
+        {
+          "display": "借りぐらしのアリエッティ",
+          "accept": [
+            "アリエッティ"
+          ]
+        },
+        {
+          "display": "コクリコ坂から",
+          "accept": [
+            "コクリコ坂"
+          ]
+        },
+        {
+          "display": "風立ちぬ",
+          "accept": [
+            "かぜたちぬ"
+          ]
+        },
+        {
+          "display": "かぐや姫の物語",
+          "accept": [
+            "かぐやひめのものがたり"
+          ]
+        },
+        {
+          "display": "思い出のマーニー",
+          "accept": [
+            "マーニー"
+          ]
+        },
+        {
+          "display": "レッドタートル ある島の物語",
+          "accept": [
+            "レッドタートル"
+          ]
+        },
+        {
+          "display": "アーヤと魔女",
+          "accept": [
+            "あーやとまじょ"
+          ]
+        },
+        {
+          "display": "君たちはどう生きるか",
+          "accept": [
+            "きみたちはどういきるか"
+          ]
+        },
+        {
+          "display": "海がきこえる",
+          "accept": [
+            "うみがきこえる"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "ヨーロッパの国の首都を答えてください（ロシア・トルコなども含みます）。",
+      "slots": 10,
+      "answers": [
+        {
+          "display": "ロンドン",
+          "accept": []
+        },
+        {
+          "display": "パリ",
+          "accept": []
+        },
+        {
+          "display": "ベルリン",
+          "accept": []
+        },
+        {
+          "display": "ローマ",
+          "accept": []
+        },
+        {
+          "display": "マドリード",
+          "accept": [
+            "マドリッド"
+          ]
+        },
+        {
+          "display": "リスボン",
+          "accept": []
+        },
+        {
+          "display": "アムステルダム",
+          "accept": []
+        },
+        {
+          "display": "ブリュッセル",
+          "accept": []
+        },
+        {
+          "display": "ルクセンブルク",
+          "accept": [
+            "ルクセンブルグ"
+          ]
+        },
+        {
+          "display": "ベルン",
+          "accept": []
+        },
+        {
+          "display": "ウィーン",
+          "accept": []
+        },
+        {
+          "display": "ダブリン",
+          "accept": []
+        },
+        {
+          "display": "レイキャビク",
+          "accept": [
+            "レイキャヴィーク",
+            "レイキャビーク"
+          ]
+        },
+        {
+          "display": "コペンハーゲン",
+          "accept": []
+        },
+        {
+          "display": "オスロ",
+          "accept": []
+        },
+        {
+          "display": "ストックホルム",
+          "accept": []
+        },
+        {
+          "display": "ヘルシンキ",
+          "accept": []
+        },
+        {
+          "display": "ワルシャワ",
+          "accept": []
+        },
+        {
+          "display": "プラハ",
+          "accept": []
+        },
+        {
+          "display": "ブラチスラバ",
+          "accept": [
+            "ブラチスラヴァ"
+          ]
+        },
+        {
+          "display": "ブダペスト",
+          "accept": []
+        },
+        {
+          "display": "ブカレスト",
+          "accept": []
+        },
+        {
+          "display": "ソフィア",
+          "accept": []
+        },
+        {
+          "display": "アテネ",
+          "accept": []
+        },
+        {
+          "display": "ザグレブ",
+          "accept": []
+        },
+        {
+          "display": "リュブリャナ",
+          "accept": []
+        },
+        {
+          "display": "ベオグラード",
+          "accept": []
+        },
+        {
+          "display": "ポドゴリツァ",
+          "accept": []
+        },
+        {
+          "display": "サラエボ",
+          "accept": [
+            "サラエヴォ"
+          ]
+        },
+        {
+          "display": "スコピエ",
+          "accept": []
+        },
+        {
+          "display": "ティラナ",
+          "accept": []
+        },
+        {
+          "display": "プリシュティナ",
+          "accept": []
+        },
+        {
+          "display": "キシナウ",
+          "accept": [
+            "キシニョフ"
+          ]
+        },
+        {
+          "display": "キーウ",
+          "accept": [
+            "キエフ"
+          ]
+        },
+        {
+          "display": "ミンスク",
+          "accept": []
+        },
+        {
+          "display": "ビリニュス",
+          "accept": [
+            "ヴィリニュス"
+          ]
+        },
+        {
+          "display": "リガ",
+          "accept": []
+        },
+        {
+          "display": "タリン",
+          "accept": []
+        },
+        {
+          "display": "モスクワ",
+          "accept": []
+        },
+        {
+          "display": "アンカラ",
+          "accept": []
+        },
+        {
+          "display": "トビリシ",
+          "accept": []
+        },
+        {
+          "display": "エレバン",
+          "accept": [
+            "エレヴァン"
+          ]
+        },
+        {
+          "display": "バクー",
+          "accept": []
+        },
+        {
+          "display": "ニコシア",
+          "accept": []
+        },
+        {
+          "display": "バレッタ",
+          "accept": [
+            "ヴァレッタ"
+          ]
+        },
+        {
+          "display": "モナコ",
+          "accept": []
+        },
+        {
+          "display": "アンドララベリャ",
+          "accept": [
+            "アンドラ・ラ・ベリャ"
+          ]
+        },
+        {
+          "display": "サンマリノ",
+          "accept": []
+        },
+        {
+          "display": "バチカン",
+          "accept": [
+            "バチカン市国"
+          ]
+        },
+        {
+          "display": "ファドゥーツ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "2020年の国勢調査で、人口が多い上位10の市を答えてください（東京23区は除きます）。",
+      "slots": 8,
+      "suffixes": [
+        "市",
+        "し"
+      ],
+      "answers": [
+        {
+          "display": "横浜",
+          "accept": [
+            "よこはま"
+          ]
+        },
+        {
+          "display": "大阪",
+          "accept": [
+            "おおさか"
+          ]
+        },
+        {
+          "display": "名古屋",
+          "accept": [
+            "なごや"
+          ]
+        },
+        {
+          "display": "札幌",
+          "accept": [
+            "さっぽろ"
+          ]
+        },
+        {
+          "display": "福岡",
+          "accept": [
+            "ふくおか"
+          ]
+        },
+        {
+          "display": "川崎",
+          "accept": [
+            "かわさき"
+          ]
+        },
+        {
+          "display": "神戸",
+          "accept": [
+            "こうべ"
+          ]
+        },
+        {
+          "display": "京都",
+          "accept": [
+            "きょうと"
+          ]
+        },
+        {
+          "display": "さいたま",
+          "accept": []
+        },
+        {
+          "display": "広島",
+          "accept": [
+            "ひろしま"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "50以下の素数を答えてください。",
+      "slots": 15,
+      "answers": [
+        {
+          "display": "2",
+          "accept": []
+        },
+        {
+          "display": "3",
+          "accept": []
+        },
+        {
+          "display": "5",
+          "accept": []
+        },
+        {
+          "display": "7",
+          "accept": []
+        },
+        {
+          "display": "11",
+          "accept": []
+        },
+        {
+          "display": "13",
+          "accept": []
+        },
+        {
+          "display": "17",
+          "accept": []
+        },
+        {
+          "display": "19",
+          "accept": []
+        },
+        {
+          "display": "23",
+          "accept": []
+        },
+        {
+          "display": "29",
+          "accept": []
+        },
+        {
+          "display": "31",
+          "accept": []
+        },
+        {
+          "display": "37",
+          "accept": []
+        },
+        {
+          "display": "41",
+          "accept": []
+        },
+        {
+          "display": "43",
+          "accept": []
+        },
+        {
+          "display": "47",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "2020年の国勢調査で、人口が少ない下位10の都道府県を答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "鳥取",
+          "accept": [
+            "とっとり"
+          ]
+        },
+        {
+          "display": "島根",
+          "accept": [
+            "しまね"
+          ]
+        },
+        {
+          "display": "高知",
+          "accept": [
+            "こうち"
+          ]
+        },
+        {
+          "display": "徳島",
+          "accept": [
+            "とくしま"
+          ]
+        },
+        {
+          "display": "福井",
+          "accept": [
+            "ふくい"
+          ]
+        },
+        {
+          "display": "山梨",
+          "accept": [
+            "やまなし"
+          ]
+        },
+        {
+          "display": "佐賀",
+          "accept": [
+            "さが"
+          ]
+        },
+        {
+          "display": "和歌山",
+          "accept": [
+            "わかやま"
+          ]
+        },
+        {
+          "display": "香川",
+          "accept": [
+            "かがわ"
+          ]
+        },
+        {
+          "display": "秋田",
+          "accept": [
+            "あきた"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "アジアの国の首都を答えてください（中東・中央アジアも含みます）。",
+      "slots": 10,
+      "answers": [
+        {
+          "display": "東京",
+          "accept": [
+            "とうきょう"
+          ]
+        },
+        {
+          "display": "北京",
+          "accept": [
+            "ぺきん"
+          ]
+        },
+        {
+          "display": "ソウル",
+          "accept": []
+        },
+        {
+          "display": "平壌",
+          "accept": [
+            "ピョンヤン"
+          ]
+        },
+        {
+          "display": "ウランバートル",
+          "accept": []
+        },
+        {
+          "display": "台北",
+          "accept": [
+            "タイペイ",
+            "たいほく"
+          ]
+        },
+        {
+          "display": "ジャカルタ",
+          "accept": [
+            "ヌサンタラ"
+          ]
+        },
+        {
+          "display": "クアラルンプール",
+          "accept": []
+        },
+        {
+          "display": "マニラ",
+          "accept": []
+        },
+        {
+          "display": "シンガポール",
+          "accept": []
+        },
+        {
+          "display": "バンコク",
+          "accept": []
+        },
+        {
+          "display": "バンダルスリブガワン",
+          "accept": []
+        },
+        {
+          "display": "ハノイ",
+          "accept": []
+        },
+        {
+          "display": "ビエンチャン",
+          "accept": []
+        },
+        {
+          "display": "ネピドー",
+          "accept": [
+            "ネーピードー"
+          ]
+        },
+        {
+          "display": "プノンペン",
+          "accept": []
+        },
+        {
+          "display": "ディリ",
+          "accept": []
+        },
+        {
+          "display": "ニューデリー",
+          "accept": [
+            "デリー"
+          ]
+        },
+        {
+          "display": "イスラマバード",
+          "accept": []
+        },
+        {
+          "display": "ダッカ",
+          "accept": []
+        },
+        {
+          "display": "スリジャヤワルダナプラコッテ",
+          "accept": [
+            "コッテ"
+          ]
+        },
+        {
+          "display": "カトマンズ",
+          "accept": []
+        },
+        {
+          "display": "ティンプー",
+          "accept": []
+        },
+        {
+          "display": "マレ",
+          "accept": []
+        },
+        {
+          "display": "カブール",
+          "accept": []
+        },
+        {
+          "display": "アスタナ",
+          "accept": [
+            "ヌルスルタン"
+          ]
+        },
+        {
+          "display": "タシケント",
+          "accept": []
+        },
+        {
+          "display": "アシガバット",
+          "accept": [
+            "アシュハバード"
+          ]
+        },
+        {
+          "display": "ビシュケク",
+          "accept": []
+        },
+        {
+          "display": "ドゥシャンベ",
+          "accept": []
+        },
+        {
+          "display": "テヘラン",
+          "accept": []
+        },
+        {
+          "display": "バグダッド",
+          "accept": [
+            "バグダード"
+          ]
+        },
+        {
+          "display": "リヤド",
+          "accept": []
+        },
+        {
+          "display": "アブダビ",
+          "accept": []
+        },
+        {
+          "display": "ドーハ",
+          "accept": []
+        },
+        {
+          "display": "クウェートシティ",
+          "accept": [
+            "クウェート"
+          ]
+        },
+        {
+          "display": "マナーマ",
+          "accept": []
+        },
+        {
+          "display": "マスカット",
+          "accept": []
+        },
+        {
+          "display": "サヌア",
+          "accept": []
+        },
+        {
+          "display": "アンマン",
+          "accept": []
+        },
+        {
+          "display": "ダマスカス",
+          "accept": []
+        },
+        {
+          "display": "ベイルート",
+          "accept": []
+        },
+        {
+          "display": "エルサレム",
+          "accept": [
+            "テルアビブ"
+          ]
+        },
+        {
+          "display": "アンカラ",
+          "accept": []
+        },
+        {
+          "display": "ニコシア",
+          "accept": []
+        },
+        {
+          "display": "トビリシ",
+          "accept": []
+        },
+        {
+          "display": "エレバン",
+          "accept": [
+            "エレヴァン"
+          ]
+        },
+        {
+          "display": "バクー",
+          "accept": []
+        },
+        {
+          "display": "モスクワ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "北海道にある「市」を答えてください。",
+      "slots": 10,
+      "suffixes": [
+        "市",
+        "し"
+      ],
+      "answers": [
+        {
+          "display": "札幌",
+          "accept": [
+            "さっぽろ"
+          ]
+        },
+        {
+          "display": "函館",
+          "accept": [
+            "はこだて"
+          ]
+        },
+        {
+          "display": "小樽",
+          "accept": [
+            "おたる"
+          ]
+        },
+        {
+          "display": "旭川",
+          "accept": [
+            "あさひかわ"
+          ]
+        },
+        {
+          "display": "室蘭",
+          "accept": [
+            "むろらん"
+          ]
+        },
+        {
+          "display": "釧路",
+          "accept": [
+            "くしろ"
+          ]
+        },
+        {
+          "display": "帯広",
+          "accept": [
+            "おびひろ"
+          ]
+        },
+        {
+          "display": "北見",
+          "accept": [
+            "きたみ"
+          ]
+        },
+        {
+          "display": "夕張",
+          "accept": [
+            "ゆうばり"
+          ]
+        },
+        {
+          "display": "岩見沢",
+          "accept": [
+            "いわみざわ"
+          ]
+        },
+        {
+          "display": "網走",
+          "accept": [
+            "あばしり"
+          ]
+        },
+        {
+          "display": "留萌",
+          "accept": [
+            "るもい"
+          ]
+        },
+        {
+          "display": "苫小牧",
+          "accept": [
+            "とまこまい"
+          ]
+        },
+        {
+          "display": "稚内",
+          "accept": [
+            "わっかない"
+          ]
+        },
+        {
+          "display": "美唄",
+          "accept": [
+            "びばい"
+          ]
+        },
+        {
+          "display": "芦別",
+          "accept": [
+            "あしべつ"
+          ]
+        },
+        {
+          "display": "江別",
+          "accept": [
+            "えべつ"
+          ]
+        },
+        {
+          "display": "赤平",
+          "accept": [
+            "あかびら"
+          ]
+        },
+        {
+          "display": "紋別",
+          "accept": [
+            "もんべつ"
+          ]
+        },
+        {
+          "display": "士別",
+          "accept": [
+            "しべつ"
+          ]
+        },
+        {
+          "display": "名寄",
+          "accept": [
+            "なよろ"
+          ]
+        },
+        {
+          "display": "三笠",
+          "accept": [
+            "みかさ"
+          ]
+        },
+        {
+          "display": "根室",
+          "accept": [
+            "ねむろ"
+          ]
+        },
+        {
+          "display": "千歳",
+          "accept": [
+            "ちとせ"
+          ]
+        },
+        {
+          "display": "滝川",
+          "accept": [
+            "たきかわ"
+          ]
+        },
+        {
+          "display": "砂川",
+          "accept": [
+            "すながわ"
+          ]
+        },
+        {
+          "display": "歌志内",
+          "accept": [
+            "うたしない"
+          ]
+        },
+        {
+          "display": "深川",
+          "accept": [
+            "ふかがわ"
+          ]
+        },
+        {
+          "display": "富良野",
+          "accept": [
+            "ふらの"
+          ]
+        },
+        {
+          "display": "登別",
+          "accept": [
+            "のぼりべつ"
+          ]
+        },
+        {
+          "display": "恵庭",
+          "accept": [
+            "えにわ"
+          ]
+        },
+        {
+          "display": "伊達",
+          "accept": [
+            "だて"
+          ]
+        },
+        {
+          "display": "北広島",
+          "accept": [
+            "きたひろしま"
+          ]
+        },
+        {
+          "display": "石狩",
+          "accept": [
+            "いしかり"
+          ]
+        },
+        {
+          "display": "北斗",
+          "accept": [
+            "ほくと"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "季節の区切りを表す「二十四節気」を答えてください。",
+      "slots": 12,
+      "answers": [
+        {
+          "display": "立春",
+          "accept": [
+            "りっしゅん"
+          ]
+        },
+        {
+          "display": "雨水",
+          "accept": [
+            "うすい"
+          ]
+        },
+        {
+          "display": "啓蟄",
+          "accept": [
+            "けいちつ"
+          ]
+        },
+        {
+          "display": "春分",
+          "accept": [
+            "しゅんぶん"
+          ]
+        },
+        {
+          "display": "清明",
+          "accept": [
+            "せいめい"
+          ]
+        },
+        {
+          "display": "穀雨",
+          "accept": [
+            "こくう"
+          ]
+        },
+        {
+          "display": "立夏",
+          "accept": [
+            "りっか"
+          ]
+        },
+        {
+          "display": "小満",
+          "accept": [
+            "しょうまん"
+          ]
+        },
+        {
+          "display": "芒種",
+          "accept": [
+            "ぼうしゅ"
+          ]
+        },
+        {
+          "display": "夏至",
+          "accept": [
+            "げし"
+          ]
+        },
+        {
+          "display": "小暑",
+          "accept": [
+            "しょうしょ"
+          ]
+        },
+        {
+          "display": "大暑",
+          "accept": [
+            "たいしょ"
+          ]
+        },
+        {
+          "display": "立秋",
+          "accept": [
+            "りっしゅう"
+          ]
+        },
+        {
+          "display": "処暑",
+          "accept": [
+            "しょしょ"
+          ]
+        },
+        {
+          "display": "白露",
+          "accept": [
+            "はくろ"
+          ]
+        },
+        {
+          "display": "秋分",
+          "accept": [
+            "しゅうぶん"
+          ]
+        },
+        {
+          "display": "寒露",
+          "accept": [
+            "かんろ"
+          ]
+        },
+        {
+          "display": "霜降",
+          "accept": [
+            "そうこう"
+          ]
+        },
+        {
+          "display": "立冬",
+          "accept": [
+            "りっとう"
+          ]
+        },
+        {
+          "display": "小雪",
+          "accept": [
+            "しょうせつ"
+          ]
+        },
+        {
+          "display": "大雪",
+          "accept": [
+            "たいせつ"
+          ]
+        },
+        {
+          "display": "冬至",
+          "accept": [
+            "とうじ"
+          ]
+        },
+        {
+          "display": "小寒",
+          "accept": [
+            "しょうかん"
+          ]
+        },
+        {
+          "display": "大寒",
+          "accept": [
+            "だいかん"
+          ]
+        }
+      ]
+    }
+  ]
+}

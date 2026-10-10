@@ -3,15 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import BombIcon from "@/components/bomber/BombIcon";
-import { BOMBER_MAX_SLOTS, BOMBER_POINTS, BOMBER_SLOTS } from "@/lib/bomber/match";
+import { BOMBER_POINTS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { BomberSlotView } from "@/lib/types";
 
 /**
  * 回答枠。埋まった枠は正解の表記、未回答の枠は答える予定の人の名前を出す。
  * 回答中の枠の上には爆弾が乗る。
- * 折り返しありの問題（6〜10枠）は2段にし、2段目を右から左へ並べる
- * （1段目の5枠目の真下が6枠目＝同じ人が続けて答える。同じ列は同じ人）。
- * 2段目の枠が5つに満たないときは、左側を空ける。
+ * 折り返しありの問題（6〜15枠）は5枠ずつの段にし、段ごとに向きを変えて並べる（ジグザグ）。
+ * 1段目の5枠目の真下が6枠目、2段目の左端の真下が11枠目＝同じ人が続けて答える。同じ列は同じ人。
+ * 最後の段が5つに満たないときは、その段の進む向きの後ろ側を空ける。
  */
 export default function BomberSlots({
   filled,
@@ -61,18 +61,24 @@ export default function BomberSlots({
     });
   }, [filled.length, live]);
 
-  const first = Array.from({ length: BOMBER_SLOTS }, (_, i) => i);
-  // 2段目の列 c には 10-c 枠目（0始まりで 9-c）。target を超える枠は空き
-  const rows = target > BOMBER_SLOTS ? [first, first.map((c) => BOMBER_MAX_SLOTS - 1 - c)] : [first];
+  // r 段目の列 c の枠（0始まり）。偶数段は左→右、奇数段は右→左。target を超える枠は空き
+  const columns = Array.from({ length: BOMBER_SLOTS }, (_, c) => c);
+  const rows = Array.from({ length: Math.ceil(target / BOMBER_SLOTS) }, (_, r) =>
+    columns.map((c) => r * BOMBER_SLOTS + (r % 2 === 0 ? c : BOMBER_SLOTS - 1 - c))
+  );
   const compact = rows.length > 1;
 
   return (
     <div className="w-full flex flex-col gap-1">
       {rows.map((row, r) => (
         <div key={r} className="w-full">
-          {r === 1 && (
-            <p className="text-right text-[10px] sm:text-xs text-gold-3 font-bold tracking-wider -mb-1 pr-1">
-              ↩ 5枠目から折り返し
+          {r > 0 && (
+            <p
+              className={`text-[10px] sm:text-xs text-gold-3 font-bold tracking-wider -mb-1 ${
+                r % 2 === 1 ? "text-right pr-1" : "text-left pl-1"
+              }`}
+            >
+              {r % 2 === 1 ? "↩" : "↪"} {r * BOMBER_SLOTS}枠目から折り返し
             </p>
           )}
           <div className="grid grid-cols-5 gap-1 sm:gap-3 w-full">

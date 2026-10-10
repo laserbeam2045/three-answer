@@ -39,7 +39,7 @@ export default function BomberRulesContent() {
       <RuleSection title="折り返し">
         <p>
           答えが{BOMBER_TURNAROUND_MIN_ANSWERS}個以上ある問題や、全部言えそうな簡単な問題は、5人目まで答えたら
-          <strong className="text-gold">5人目がもう一度答えて折り返し</strong>、5→4→3… の順に続けます（最大10個。問題によっては答えを全部出し切ります）。
+          <strong className="text-gold">5人目がもう一度答えて折り返し</strong>、5→4→3→2→1 と戻ります。さらに続くときは1人目がもう一度答えて 1→2→3… とジグザグに進みます（最大15個。問題によっては答えを全部出し切ります）。
           制限時間は「答え1つあたりの秒数 × 答える数」なので、答える数が多いほど長くなります。
         </p>
       </RuleSection>

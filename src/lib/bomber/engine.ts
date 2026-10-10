@@ -8,6 +8,7 @@ import {
   BOMBER_SECONDS_PER_ANSWER_OPTIONS,
   BOMBER_SLOTS,
   matchAnswer,
+  directionAt,
   slotsFor,
   stepInto,
 } from "./match";
@@ -110,8 +111,8 @@ function removePlayer(state: RoomState, target: string): void {
   if (!players.includes(target)) return;
   const round = state.bomberRound;
   const wasTurn = round?.turnToken === target;
-  // 折り返し後（6枠目以降）に回答中の人が抜けたら、前の人へ戻る向きで続ける
-  const backward = (round?.slots.length ?? 0) >= BOMBER_SLOTS;
+  // 回答中の人が抜けたら、今の段の向き（折り返し後なら前の人へ）で続ける
+  const backward = directionAt(round?.slots.length ?? 0) === "prev";
   const next =
     wasTurn && players.length > 1 ? (backward ? prevPlayer(players, target) : nextPlayer(players, target)) : null;
   state.bomberPlayers = players.filter((t) => t !== target);

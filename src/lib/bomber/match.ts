@@ -23,27 +23,35 @@ export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
  */
 export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
 
-/** 1問で答える数の上限（折り返して5人目→1人目まで戻る） */
-export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 2;
+/**
+ * 1問で答える数の上限。5人ごとに折り返すジグザグ（1→5、5→1、1→5）で3段まで。
+ * 12個ある和風月名を全部答えさせる、などに使う。
+ */
+export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 3;
 
 /**
- * その問題で埋める枠の数（5〜10。6以上なら折り返しあり）。
+ * その問題で埋める枠の数（5〜15。6以上なら折り返しあり）。
  * 問題データの slots があればそれ（簡単な問題は全部答えさせる）、
  * なければ答えが15個以上なら10、それ以外は5。
  */
 export function slotsFor(question: BomberQuestion): number {
   if (question.slots) return question.slots;
-  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_MAX_SLOTS : BOMBER_SLOTS;
+  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
+}
+
+/** 枠 k（0 始まり）を答える向き。5枠ごとの段で、偶数段は次の人へ、奇数段は前の人へ進む */
+export function directionAt(k: number): "next" | "prev" {
+  return Math.floor(k / BOMBER_SLOTS) % 2 === 0 ? "next" : "prev";
 }
 
 /**
  * 枠 k（0 始まり）の回答者が、1つ前の枠の回答者から見て誰か。
- * 前半は次の人へ、折り返しの枠（k = 5）は同じ人がもう一度、後半は前の人へ戻る。
+ * 段の頭（k = 5, 10）は同じ人がもう一度（折り返し）、それ以外は段の向きに1人ずつ進む。
+ * 例: 5人なら 1 2 3 4 5 | 5 4 3 2 1 | 1 2 3 4 5
  */
 export function stepInto(k: number): "next" | "same" | "prev" {
-  if (k < BOMBER_SLOTS) return "next";
-  if (k === BOMBER_SLOTS) return "same";
-  return "prev";
+  if (k > 0 && k % BOMBER_SLOTS === 0) return "same";
+  return directionAt(k);
 }
 
 /**

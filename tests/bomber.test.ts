@@ -434,6 +434,37 @@ describe("簡単な問題は全部答える（slots 指定）", () => {
   });
 });
 
+describe("ジグザグ（10個を超える問題）", () => {
+  it("12個なら 1→5、5→1 のあと1人目がもう一度答えて 1→2 と進む。途中で抜けても今の向きで続く", () => {
+    const TWELVE: BomberQuestion = {
+      q: "和風月名は？",
+      slots: 12,
+      answers: Array.from({ length: 12 }, (_, i) => ({ display: `m${i + 1}` })),
+    };
+    const b12: BomberSet = { id: "b12", title: "12", description: "テスト用", questions: [TWELVE] };
+    const get = (id: string) => (id === "b12" ? b12 : getBomberSet(id));
+    const s = createRoom("r12", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1", "p2", "p3", "p4", "p5"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presence, now, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" }, 0);
+    for (const p of ["p1", "p2", "p3", "p4", "p5"]) run(p, { type: "bomberJoin" }, 0);
+    run(HOST, { type: "selectSet", setId: "b12" }, 0);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    expect(s.bomberRound!.target).toBe(12);
+    expect(s.timer!.totalMs - s.timer!.revealMs).toBe(12 * 8 * 1000);
+    const order: string[] = [];
+    for (let k = 0; k < 12; k++) {
+      const who = s.bomberRound!.turnToken;
+      order.push(who);
+      run(who, { type: "bomberAnswer", text: `m${k + 1}` }, at);
+    }
+    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3", "p2", "p1", "p1", "p2"]);
+    expect(s.bomberResults[0]).toMatchObject({ cleared: true, target: 12 });
+  });
+});
+
 describe("誤答の一覧", () => {
   it("不正解・既出をすべて記録し、回答中も判定後も全員に見せる", () => {
     const { s, answerAt } = startedRoom(["p1", "p2"]);

@@ -1,0 +1,864 @@
+{
+  "id": "bomber4",
+  "title": "ほむら",
+  "description": "ちょっとした予想や推理も楽しめる10問。",
+  "questions": [
+    {
+      "q": "日本を8つに分けた「八地方区分」の地方を答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "地方",
+        "ちほう"
+      ],
+      "answers": [
+        {
+          "display": "北海道",
+          "accept": [
+            "ほっかいどう"
+          ]
+        },
+        {
+          "display": "東北",
+          "accept": [
+            "とうほく"
+          ]
+        },
+        {
+          "display": "関東",
+          "accept": [
+            "かんとう"
+          ]
+        },
+        {
+          "display": "中部",
+          "accept": [
+            "ちゅうぶ"
+          ]
+        },
+        {
+          "display": "近畿",
+          "accept": [
+            "きんき",
+            "関西",
+            "かんさい"
+          ]
+        },
+        {
+          "display": "中国",
+          "accept": [
+            "ちゅうごく"
+          ]
+        },
+        {
+          "display": "四国",
+          "accept": [
+            "しこく"
+          ]
+        },
+        {
+          "display": "九州",
+          "accept": [
+            "きゅうしゅう",
+            "九州・沖縄",
+            "九州沖縄"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "2020年の国勢調査で、人口が多い上位10の都道府県を答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "都",
+        "と",
+        "府",
+        "ふ",
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "東京",
+          "accept": [
+            "とうきょう"
+          ]
+        },
+        {
+          "display": "神奈川",
+          "accept": [
+            "かながわ"
+          ]
+        },
+        {
+          "display": "大阪",
+          "accept": [
+            "おおさか"
+          ]
+        },
+        {
+          "display": "愛知",
+          "accept": [
+            "あいち"
+          ]
+        },
+        {
+          "display": "埼玉",
+          "accept": [
+            "さいたま"
+          ]
+        },
+        {
+          "display": "千葉",
+          "accept": [
+            "ちば"
+          ]
+        },
+        {
+          "display": "兵庫",
+          "accept": [
+            "ひょうご"
+          ]
+        },
+        {
+          "display": "北海道",
+          "accept": [
+            "ほっかいどう"
+          ]
+        },
+        {
+          "display": "福岡",
+          "accept": [
+            "ふくおか"
+          ]
+        },
+        {
+          "display": "静岡",
+          "accept": [
+            "しずおか"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "読みがひらがな2文字の都道府県を答えてください（「〜県」は数えません）。",
+      "slots": 6,
+      "suffixes": [
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "千葉",
+          "accept": [
+            "ちば"
+          ]
+        },
+        {
+          "display": "岐阜",
+          "accept": [
+            "ぎふ"
+          ]
+        },
+        {
+          "display": "三重",
+          "accept": [
+            "みえ"
+          ]
+        },
+        {
+          "display": "滋賀",
+          "accept": [
+            "しが"
+          ]
+        },
+        {
+          "display": "奈良",
+          "accept": [
+            "なら"
+          ]
+        },
+        {
+          "display": "佐賀",
+          "accept": [
+            "さが"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "日本に多い名字の上位10位までを答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "さん"
+      ],
+      "answers": [
+        {
+          "display": "佐藤",
+          "accept": [
+            "さとう"
+          ]
+        },
+        {
+          "display": "鈴木",
+          "accept": [
+            "すずき"
+          ]
+        },
+        {
+          "display": "高橋",
+          "accept": [
+            "たかはし",
+            "髙橋"
+          ]
+        },
+        {
+          "display": "田中",
+          "accept": [
+            "たなか"
+          ]
+        },
+        {
+          "display": "伊藤",
+          "accept": [
+            "いとう"
+          ]
+        },
+        {
+          "display": "渡辺",
+          "accept": [
+            "わたなべ",
+            "渡邊",
+            "渡邉"
+          ]
+        },
+        {
+          "display": "山本",
+          "accept": [
+            "やまもと"
+          ]
+        },
+        {
+          "display": "中村",
+          "accept": [
+            "なかむら"
+          ]
+        },
+        {
+          "display": "小林",
+          "accept": [
+            "こばやし"
+          ]
+        },
+        {
+          "display": "加藤",
+          "accept": [
+            "かとう"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "ポケモンの「タイプ」を答えてください（ほのお・みず など）。",
+      "slots": 10,
+      "suffixes": [
+        "タイプ"
+      ],
+      "answers": [
+        {
+          "display": "ノーマル",
+          "accept": []
+        },
+        {
+          "display": "ほのお",
+          "accept": [
+            "炎"
+          ]
+        },
+        {
+          "display": "みず",
+          "accept": [
+            "水"
+          ]
+        },
+        {
+          "display": "でんき",
+          "accept": [
+            "電気"
+          ]
+        },
+        {
+          "display": "くさ",
+          "accept": [
+            "草"
+          ]
+        },
+        {
+          "display": "こおり",
+          "accept": [
+            "氷"
+          ]
+        },
+        {
+          "display": "かくとう",
+          "accept": [
+            "格闘"
+          ]
+        },
+        {
+          "display": "どく",
+          "accept": [
+            "毒"
+          ]
+        },
+        {
+          "display": "じめん",
+          "accept": [
+            "地面"
+          ]
+        },
+        {
+          "display": "ひこう",
+          "accept": [
+            "飛行"
+          ]
+        },
+        {
+          "display": "エスパー",
+          "accept": []
+        },
+        {
+          "display": "むし",
+          "accept": [
+            "虫"
+          ]
+        },
+        {
+          "display": "いわ",
+          "accept": [
+            "岩"
+          ]
+        },
+        {
+          "display": "ゴースト",
+          "accept": []
+        },
+        {
+          "display": "ドラゴン",
+          "accept": []
+        },
+        {
+          "display": "あく",
+          "accept": [
+            "悪"
+          ]
+        },
+        {
+          "display": "はがね",
+          "accept": [
+            "鋼"
+          ]
+        },
+        {
+          "display": "フェアリー",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "面積が大きい上位10か国を答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "ロシア",
+          "accept": [
+            "ロシア連邦"
+          ]
+        },
+        {
+          "display": "カナダ",
+          "accept": []
+        },
+        {
+          "display": "アメリカ",
+          "accept": [
+            "アメリカ合衆国",
+            "米国"
+          ]
+        },
+        {
+          "display": "中国",
+          "accept": [
+            "ちゅうごく",
+            "中華人民共和国"
+          ]
+        },
+        {
+          "display": "ブラジル",
+          "accept": []
+        },
+        {
+          "display": "オーストラリア",
+          "accept": []
+        },
+        {
+          "display": "インド",
+          "accept": []
+        },
+        {
+          "display": "アルゼンチン",
+          "accept": []
+        },
+        {
+          "display": "カザフスタン",
+          "accept": []
+        },
+        {
+          "display": "アルジェリア",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "原子番号21番から30番までの元素を答えてください（元素名でも記号でも可）。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "スカンジウム",
+          "accept": [
+            "Sc"
+          ]
+        },
+        {
+          "display": "チタン",
+          "accept": [
+            "Ti"
+          ]
+        },
+        {
+          "display": "バナジウム",
+          "accept": [
+            "V"
+          ]
+        },
+        {
+          "display": "クロム",
+          "accept": [
+            "Cr"
+          ]
+        },
+        {
+          "display": "マンガン",
+          "accept": [
+            "Mn"
+          ]
+        },
+        {
+          "display": "鉄",
+          "accept": [
+            "てつ",
+            "Fe"
+          ]
+        },
+        {
+          "display": "コバルト",
+          "accept": [
+            "Co"
+          ]
+        },
+        {
+          "display": "ニッケル",
+          "accept": [
+            "Ni"
+          ]
+        },
+        {
+          "display": "銅",
+          "accept": [
+            "どう",
+            "Cu"
+          ]
+        },
+        {
+          "display": "亜鉛",
+          "accept": [
+            "あえん",
+            "Zn"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "海に面していない8つの県を答えてください。",
+      "slots": 8,
+      "suffixes": [
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "栃木",
+          "accept": [
+            "とちぎ"
+          ]
+        },
+        {
+          "display": "群馬",
+          "accept": [
+            "ぐんま"
+          ]
+        },
+        {
+          "display": "埼玉",
+          "accept": [
+            "さいたま"
+          ]
+        },
+        {
+          "display": "山梨",
+          "accept": [
+            "やまなし"
+          ]
+        },
+        {
+          "display": "長野",
+          "accept": [
+            "ながの"
+          ]
+        },
+        {
+          "display": "岐阜",
+          "accept": [
+            "ぎふ"
+          ]
+        },
+        {
+          "display": "滋賀",
+          "accept": [
+            "しが"
+          ]
+        },
+        {
+          "display": "奈良",
+          "accept": [
+            "なら"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "アジアの国を答えてください（中東・中央アジアも含みます）。",
+      "slots": 15,
+      "answers": [
+        {
+          "display": "日本",
+          "accept": [
+            "にほん",
+            "にっぽん"
+          ]
+        },
+        {
+          "display": "中国",
+          "accept": [
+            "ちゅうごく",
+            "中華人民共和国"
+          ]
+        },
+        {
+          "display": "韓国",
+          "accept": [
+            "かんこく",
+            "大韓民国"
+          ]
+        },
+        {
+          "display": "北朝鮮",
+          "accept": [
+            "きたちょうせん",
+            "朝鮮民主主義人民共和国"
+          ]
+        },
+        {
+          "display": "モンゴル",
+          "accept": []
+        },
+        {
+          "display": "台湾",
+          "accept": [
+            "たいわん"
+          ]
+        },
+        {
+          "display": "インドネシア",
+          "accept": []
+        },
+        {
+          "display": "マレーシア",
+          "accept": []
+        },
+        {
+          "display": "フィリピン",
+          "accept": []
+        },
+        {
+          "display": "シンガポール",
+          "accept": []
+        },
+        {
+          "display": "タイ",
+          "accept": []
+        },
+        {
+          "display": "ブルネイ",
+          "accept": []
+        },
+        {
+          "display": "ベトナム",
+          "accept": [
+            "ヴェトナム"
+          ]
+        },
+        {
+          "display": "ラオス",
+          "accept": []
+        },
+        {
+          "display": "ミャンマー",
+          "accept": [
+            "ビルマ"
+          ]
+        },
+        {
+          "display": "カンボジア",
+          "accept": []
+        },
+        {
+          "display": "東ティモール",
+          "accept": [
+            "ひがしてぃもーる"
+          ]
+        },
+        {
+          "display": "インド",
+          "accept": []
+        },
+        {
+          "display": "パキスタン",
+          "accept": []
+        },
+        {
+          "display": "バングラデシュ",
+          "accept": []
+        },
+        {
+          "display": "スリランカ",
+          "accept": []
+        },
+        {
+          "display": "ネパール",
+          "accept": []
+        },
+        {
+          "display": "ブータン",
+          "accept": []
+        },
+        {
+          "display": "モルディブ",
+          "accept": []
+        },
+        {
+          "display": "アフガニスタン",
+          "accept": []
+        },
+        {
+          "display": "カザフスタン",
+          "accept": []
+        },
+        {
+          "display": "ウズベキスタン",
+          "accept": []
+        },
+        {
+          "display": "トルクメニスタン",
+          "accept": []
+        },
+        {
+          "display": "キルギス",
+          "accept": [
+            "キルギスタン"
+          ]
+        },
+        {
+          "display": "タジキスタン",
+          "accept": []
+        },
+        {
+          "display": "イラン",
+          "accept": []
+        },
+        {
+          "display": "イラク",
+          "accept": []
+        },
+        {
+          "display": "サウジアラビア",
+          "accept": []
+        },
+        {
+          "display": "アラブ首長国連邦",
+          "accept": [
+            "UAE"
+          ]
+        },
+        {
+          "display": "カタール",
+          "accept": []
+        },
+        {
+          "display": "クウェート",
+          "accept": []
+        },
+        {
+          "display": "バーレーン",
+          "accept": []
+        },
+        {
+          "display": "オマーン",
+          "accept": []
+        },
+        {
+          "display": "イエメン",
+          "accept": []
+        },
+        {
+          "display": "ヨルダン",
+          "accept": []
+        },
+        {
+          "display": "シリア",
+          "accept": []
+        },
+        {
+          "display": "レバノン",
+          "accept": []
+        },
+        {
+          "display": "イスラエル",
+          "accept": []
+        },
+        {
+          "display": "パレスチナ",
+          "accept": []
+        },
+        {
+          "display": "トルコ",
+          "accept": []
+        },
+        {
+          "display": "キプロス",
+          "accept": []
+        },
+        {
+          "display": "ジョージア",
+          "accept": [
+            "グルジア"
+          ]
+        },
+        {
+          "display": "アルメニア",
+          "accept": []
+        },
+        {
+          "display": "アゼルバイジャン",
+          "accept": []
+        },
+        {
+          "display": "ロシア",
+          "accept": [
+            "ロシア連邦"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "1月〜12月の和風月名（睦月・如月 など）を答えてください。",
+      "slots": 12,
+      "answers": [
+        {
+          "display": "睦月",
+          "accept": [
+            "むつき"
+          ]
+        },
+        {
+          "display": "如月",
+          "accept": [
+            "きさらぎ"
+          ]
+        },
+        {
+          "display": "弥生",
+          "accept": [
+            "やよい"
+          ]
+        },
+        {
+          "display": "卯月",
+          "accept": [
+            "うづき"
+          ]
+        },
+        {
+          "display": "皐月",
+          "accept": [
+            "さつき",
+            "五月"
+          ]
+        },
+        {
+          "display": "水無月",
+          "accept": [
+            "みなづき"
+          ]
+        },
+        {
+          "display": "文月",
+          "accept": [
+            "ふみづき",
+            "ふづき"
+          ]
+        },
+        {
+          "display": "葉月",
+          "accept": [
+            "はづき"
+          ]
+        },
+        {
+          "display": "長月",
+          "accept": [
+            "ながつき"
+          ]
+        },
+        {
+          "display": "神無月",
+          "accept": [
+            "かんなづき",
+            "かみなづき"
+          ]
+        },
+        {
+          "display": "霜月",
+          "accept": [
+            "しもつき"
+          ]
+        },
+        {
+          "display": "師走",
+          "accept": [
+            "しわす"
+          ]
+        }
+      ]
+    }
+  ]
+}
