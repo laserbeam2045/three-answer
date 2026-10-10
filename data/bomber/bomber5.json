@@ -1162,151 +1162,207 @@
       ]
     },
     {
-      "q": "季節の区切りを表す「二十四節気」を答えてください。",
-      "slots": 12,
+      "q": "世界の国や地域で使われている通貨の単位を答えてください（円・ドル など）。",
+      "slots": 8,
       "answers": [
         {
-          "display": "立春",
+          "display": "円",
           "accept": [
-            "りっしゅん"
+            "えん"
           ]
         },
         {
-          "display": "雨水",
+          "display": "ドル",
           "accept": [
-            "うすい"
+            "米ドル",
+            "USドル"
           ]
         },
         {
-          "display": "啓蟄",
+          "display": "ユーロ",
+          "accept": []
+        },
+        {
+          "display": "ポンド",
+          "accept": []
+        },
+        {
+          "display": "元",
           "accept": [
-            "けいちつ"
+            "げん",
+            "人民元",
+            "じんみんげん"
           ]
         },
         {
-          "display": "春分",
+          "display": "ウォン",
+          "accept": []
+        },
+        {
+          "display": "ルピー",
+          "accept": []
+        },
+        {
+          "display": "ルーブル",
+          "accept": []
+        },
+        {
+          "display": "フラン",
           "accept": [
-            "しゅんぶん"
+            "スイスフラン"
           ]
         },
         {
-          "display": "清明",
+          "display": "ペソ",
+          "accept": []
+        },
+        {
+          "display": "レアル",
+          "accept": []
+        },
+        {
+          "display": "バーツ",
+          "accept": []
+        },
+        {
+          "display": "ドン",
+          "accept": []
+        },
+        {
+          "display": "リラ",
+          "accept": []
+        },
+        {
+          "display": "リンギット",
+          "accept": []
+        },
+        {
+          "display": "ルピア",
+          "accept": []
+        },
+        {
+          "display": "ランド",
+          "accept": []
+        },
+        {
+          "display": "クローネ",
+          "accept": []
+        },
+        {
+          "display": "クローナ",
+          "accept": []
+        },
+        {
+          "display": "ズウォティ",
           "accept": [
-            "せいめい"
+            "ズロチ"
           ]
         },
         {
-          "display": "穀雨",
+          "display": "フォリント",
+          "accept": []
+        },
+        {
+          "display": "ディナール",
+          "accept": []
+        },
+        {
+          "display": "リヤル",
           "accept": [
-            "こくう"
+            "リヤール",
+            "リアル"
           ]
         },
         {
-          "display": "立夏",
+          "display": "ディルハム",
+          "accept": []
+        },
+        {
+          "display": "シェケル",
           "accept": [
-            "りっか"
+            "シェケル"
           ]
         },
         {
-          "display": "小満",
+          "display": "香港ドル",
+          "accept": []
+        },
+        {
+          "display": "台湾ドル",
           "accept": [
-            "しょうまん"
+            "ニュー台湾ドル"
           ]
         },
         {
-          "display": "芒種",
+          "display": "ソル",
+          "accept": []
+        },
+        {
+          "display": "ボリバル",
+          "accept": []
+        },
+        {
+          "display": "グアラニー",
+          "accept": []
+        },
+        {
+          "display": "コルナ",
+          "accept": []
+        },
+        {
+          "display": "レフ",
+          "accept": []
+        },
+        {
+          "display": "レウ",
           "accept": [
-            "ぼうしゅ"
+            "レイ"
           ]
         },
         {
-          "display": "夏至",
-          "accept": [
-            "げし"
-          ]
+          "display": "キープ",
+          "accept": []
         },
         {
-          "display": "小暑",
-          "accept": [
-            "しょうしょ"
-          ]
+          "display": "リエル",
+          "accept": []
         },
         {
-          "display": "大暑",
-          "accept": [
-            "たいしょ"
-          ]
+          "display": "チャット",
+          "accept": []
         },
         {
-          "display": "立秋",
-          "accept": [
-            "りっしゅう"
-          ]
+          "display": "ルフィヤ",
+          "accept": []
         },
         {
-          "display": "処暑",
-          "accept": [
-            "しょしょ"
-          ]
+          "display": "テンゲ",
+          "accept": []
         },
         {
-          "display": "白露",
-          "accept": [
-            "はくろ"
-          ]
+          "display": "ソム",
+          "accept": []
         },
         {
-          "display": "秋分",
-          "accept": [
-            "しゅうぶん"
-          ]
+          "display": "ナイラ",
+          "accept": []
         },
         {
-          "display": "寒露",
-          "accept": [
-            "かんろ"
-          ]
+          "display": "シリング",
+          "accept": []
         },
         {
-          "display": "霜降",
-          "accept": [
-            "そうこう"
-          ]
+          "display": "ケツァル",
+          "accept": []
         },
         {
-          "display": "立冬",
-          "accept": [
-            "りっとう"
-          ]
+          "display": "コロン",
+          "accept": []
         },
         {
-          "display": "小雪",
+          "display": "ガルデ",
           "accept": [
-            "しょうせつ"
-          ]
-        },
-        {
-          "display": "大雪",
-          "accept": [
-            "たいせつ"
-          ]
-        },
-        {
-          "display": "冬至",
-          "accept": [
-            "とうじ"
-          ]
-        },
-        {
-          "display": "小寒",
-          "accept": [
-            "しょうかん"
-          ]
-        },
-        {
-          "display": "大寒",
-          "accept": [
-            "だいかん"
+            "グールド"
           ]
         }
       ]

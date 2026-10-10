@@ -419,70 +419,75 @@
       ]
     },
     {
-      "q": "原子番号21番から30番までの元素を答えてください（元素名でも記号でも可）。",
+      "q": "面積が小さい上位10の都道府県を答えてください。",
       "slots": 8,
+      "suffixes": [
+        "都",
+        "と",
+        "府",
+        "ふ",
+        "県",
+        "けん"
+      ],
       "answers": [
         {
-          "display": "スカンジウム",
+          "display": "香川",
           "accept": [
-            "Sc"
+            "かがわ"
           ]
         },
         {
-          "display": "チタン",
+          "display": "大阪",
           "accept": [
-            "Ti"
+            "おおさか"
           ]
         },
         {
-          "display": "バナジウム",
+          "display": "東京",
           "accept": [
-            "V"
+            "とうきょう"
           ]
         },
         {
-          "display": "クロム",
+          "display": "沖縄",
           "accept": [
-            "Cr"
+            "おきなわ"
           ]
         },
         {
-          "display": "マンガン",
+          "display": "神奈川",
           "accept": [
-            "Mn"
+            "かながわ"
           ]
         },
         {
-          "display": "鉄",
+          "display": "佐賀",
           "accept": [
-            "てつ",
-            "Fe"
+            "さが"
           ]
         },
         {
-          "display": "コバルト",
+          "display": "鳥取",
           "accept": [
-            "Co"
+            "とっとり"
           ]
         },
         {
-          "display": "ニッケル",
+          "display": "奈良",
           "accept": [
-            "Ni"
+            "なら"
           ]
         },
         {
-          "display": "銅",
+          "display": "滋賀",
           "accept": [
-            "どう",
-            "Cu"
+            "しが"
           ]
         },
         {
-          "display": "亜鉛",
+          "display": "福井",
           "accept": [
-            "あえん",
-            "Zn"
+            "ふくい"
           ]
         }
       ]
