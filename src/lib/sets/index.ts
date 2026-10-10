@@ -7,7 +7,6 @@ import set5 from "../../../data/sets/set5.json";
 import bomber1 from "../../../data/bomber/bomber1.json";
 import bomber2 from "../../../data/bomber/bomber2.json";
 import bomber3 from "../../../data/bomber/bomber3.json";
-import bomber4 from "../../../data/bomber/bomber4.json";
 
 const SETS: QuestionSet[] = [set1, set2, set3, set4, set5].map(
   (s) => s as unknown as QuestionSet
@@ -23,7 +22,7 @@ export function getSet(id: string): QuestionSet | undefined {
 
 // ---------- ファイブボンバー ----------
 
-const BOMBER_SETS: BomberSet[] = [bomber1, bomber2, bomber3, bomber4].map(
+const BOMBER_SETS: BomberSet[] = [bomber1, bomber2, bomber3].map(
   (s) => s as unknown as BomberSet
 );
 

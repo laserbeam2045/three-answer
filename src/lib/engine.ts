@@ -71,6 +71,7 @@ export function normalizeRoom(state: RoomState): void {
   state.bomberPlayers ??= [];
   state.bomberRound ??= null;
   state.bomberResults ??= [];
+  if (state.bomberRound) state.bomberRound.target ??= 5;
   state.settings.bomberSeconds ??= 30;
 }
 

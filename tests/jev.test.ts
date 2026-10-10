@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { judgeWithJev } from "@/lib/bomber/jev";
+import { JEV_MAX_CANDIDATES, judgeWithJev, pickCandidates } from "@/lib/bomber/jev";
 import type { BomberQuestion } from "@/lib/types";
 
 const Q: BomberQuestion = {
@@ -49,5 +49,21 @@ describe("judgeWithJev", () => {
     expect(await judgeWithJev(Q, "Helium", { apiKey: "k", fetchImpl: f })).toBe(1);
     expect(await judgeWithJev(Q, "ＨＥＬＩＵＭ", { apiKey: "k", fetchImpl: f })).toBe(1);
     expect(f).toHaveBeenCalledTimes(1);
+  });
+
+  it("答えが多い問題は、表記が近い候補だけを問い合わせる", () => {
+    const many: BomberQuestion = {
+      q: "ポケモン",
+      answers: Array.from({ length: 60 }, (_, i) => ({ display: `ダミー${i}` })).concat([
+        { display: "ピカチュウ" },
+        { display: "ライチュウ" },
+      ]),
+    };
+    const picked = pickCandidates(many, "ピカチュー");
+    expect(picked).toHaveLength(JEV_MAX_CANDIDATES);
+    expect(picked[0]).toBe(60); // ピカチュウ が最も近い
+    expect(picked).toContain(61);
+    // 少ない問題は全部
+    expect(pickCandidates(Q, "x")).toEqual([0, 1, 2]);
   });
 });

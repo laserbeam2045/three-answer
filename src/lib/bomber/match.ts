@@ -8,15 +8,64 @@ export const BOMBER_MAX_PLAYERS = 8;
 export const BOMBER_SECONDS_OPTIONS = [20, 30, 45, 60];
 
 /**
+ * 答えがこの数以上ある問題は「折り返し」で10個答える（番組の「ハイパーボンバー」）。
+ * 1→2→3→4→5 と答えたあと、5枠目の人がもう一度答えて 5→4→3→2→1 と戻る。
+ * 番組は10個以上だが、10個ちょうどの問題で全部を求めると難しすぎるため、余裕のある15個以上にする。
+ */
+export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
+
+/** その問題で埋める枠の数（5 か、折り返しありの 10） */
+export function slotsFor(question: BomberQuestion): number {
+  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
+}
+
+/**
+ * 枠 k（0 始まり）の回答者が、1つ前の枠の回答者から見て誰か。
+ * 前半は次の人へ、折り返しの枠（k = 5）は同じ人がもう一度、後半は前の人へ戻る。
+ */
+export function stepInto(k: number): "next" | "same" | "prev" {
+  if (k < BOMBER_SLOTS) return "next";
+  if (k === BOMBER_SLOTS) return "same";
+  return "prev";
+}
+
+/**
+ * 旧字体・異体字 → 常用の字体。IME の変換で出やすいものを中心に、
+ * 入力と正解の両方に同じ置き換えをかけて「慶應／慶応」のような違いを吸収する。
+ */
+const ITAIJI: Record<string, string> = {
+  應: "応", 澤: "沢", 濱: "浜", 邊: "辺", 邉: "辺", 齋: "斎", 齊: "斉", 國: "国", 學: "学",
+  廣: "広", 髙: "高", 﨑: "崎", 嶋: "島", 嶌: "島", 櫻: "桜", 惠: "恵", 德: "徳", 眞: "真",
+  藏: "蔵", 龍: "竜", 臺: "台", 驛: "駅", 縣: "県", 圓: "円", 澁: "渋", 榮: "栄", 繪: "絵",
+  鐵: "鉄", 實: "実", 壽: "寿", 會: "会", 戰: "戦", 黑: "黒", 萬: "万", 與: "与", 佛: "仏",
+  鹽: "塩", 豐: "豊", 禮: "礼", 莊: "荘", 冨: "富", 兒: "児", 舊: "旧", 體: "体", 聲: "声",
+};
+const ITAIJI_RE = new RegExp(`[${Object.keys(ITAIJI).join("")}]`, "gu");
+
+/** ひらがな1文字の母音（長音記号「ー」を母音に置き換えるため） */
+const VOWEL_ROWS: [string, string][] = [
+  ["あかがさざただなはばぱまやゃらわぁゎ", "あ"],
+  ["いきぎしじちぢにひびぴみりぃ", "い"],
+  ["うくぐすずつづぬふぶぷむゆゅるぅゔ", "う"],
+  ["えけげせぜてでねへべぺめれぇ", "え"],
+  ["おこごそぞとどのほぼぽもよょろをぉ", "お"],
+];
+const VOWEL_OF = new Map<string, string>();
+for (const [chars, v] of VOWEL_ROWS) for (const c of chars) VOWEL_OF.set(c, v);
+
+/**
  * 答えの照合用に文字列を正規化する。
- * 全角/半角・大文字/小文字・カタカナ/ひらがな・空白や記号の違いを吸収する。
+ * 全角/半角・大文字/小文字・カタカナ/ひらがな・旧字体/新字体・空白や記号の違いを吸収する。
  */
 export function normalizeAnswer(input: string): string {
   let t = input.normalize("NFKC").toLowerCase();
+  t = t.replace(ITAIJI_RE, (c) => ITAIJI[c] ?? c);
   // カタカナ → ひらがな（ァ〜ヶ）
   t = t.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
   // 長音記号のつもりで打たれたハイフン類
   t = t.replace(/[-‐‑‒–—―−]/g, "ー");
+  // 長音を直前の母音に（「ピカチュー」と「ピカチュウ」、「ルーク」と「ルウク」を同じにする）
+  t = t.replace(/([ぁ-ゔ])ー+/g, (_, c: string) => c + (VOWEL_OF.get(c) ?? "ー"));
   // 空白・区切り記号・括弧類は無視する
   t = t.replace(/[\s・、。,.「」『』()［］\[\]!?〜~]/g, "");
   return t;

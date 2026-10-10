@@ -13,7 +13,7 @@ import type {
 import { ROLES, isActive } from "./types";
 import { normalizeRoom, roleOf } from "./engine";
 import { allBomberSets as defaultAllBomberSets, getBomberSet as defaultGetBomberSet } from "./sets";
-import { maxBomberPoints, roundPoints, totalBomberPoints } from "./bomber/engine";
+import { answererOfSlot, maxBomberPoints, roundPoints, totalBomberPoints } from "./bomber/engine";
 import { BOMBER_SLOTS } from "./bomber/match";
 
 function reveal(set: QuestionSet, qIndex: number): RevealedQuestion {
@@ -150,6 +150,7 @@ function bomberView(
     const slots = r?.slots ?? [];
     return {
       q: q.q,
+      target: r?.target ?? BOMBER_SLOTS,
       cleared: r?.cleared ?? false,
       heldBy: r?.heldBy ? nameOf(r.heldBy) : null,
       slots: slots.map((s) => slotView(s, qIndex)),
@@ -165,14 +166,15 @@ function bomberView(
   const round = state.bomberRound;
   let roundView: BomberView["round"] = null;
   if (state.phase === "question" && round && set && players.length > 0) {
-    // 残りの枠を誰が答えるか: 今の回答者から参加順に回す
+    // 残りの枠を誰が答えるか: 今の回答者から順に（折り返しも含めて）たどる
     const upcoming: string[] = [];
-    let i = Math.max(0, players.indexOf(round.turnToken));
-    for (let k = round.slots.length; k < BOMBER_SLOTS; k++) {
-      upcoming.push(nameOf(players[i % players.length]));
-      i++;
+    let who = round.turnToken;
+    for (let k = round.slots.length; k < round.target; k++) {
+      if (k > round.slots.length) who = answererOfSlot(players, who, k);
+      upcoming.push(nameOf(who));
     }
     roundView = {
+      target: round.target,
       slots: round.slots.map((s) => slotView(s, state.qIndex)),
       upcoming,
       turnToken: round.turnToken,

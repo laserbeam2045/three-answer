@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import BomberSlots from "@/components/bomber/BomberSlots";
+import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
 import BombExplosion from "@/components/bomber/BombExplosion";
 import ClearFireworks from "@/components/bomber/ClearFireworks";
@@ -66,6 +67,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
         <BomberSlots
           filled={judged.slots}
           upcoming={[]}
+          target={judged.target}
           exploded={!judged.cleared}
           heldBy={judged.heldBy}
         />
@@ -107,6 +109,8 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
             <BomberAnswerList answers={judged.answers} />
           </section>
         )}
+
+        {stage >= MAX_STAGE && <BomberPlayersBar room={room} />}
 
         {stage >= MAX_STAGE ? (
           <div className="pop-in mt-auto pt-2 flex flex-col items-center gap-2">

@@ -1,207 +1,1291 @@
 {
   "id": "bomber2",
   "title": "いなずま",
-  "description": "政治・鉄道・ゲーム・世界の国々・気象など、知識の幅が試される10問。",
+  "description": "干支・東北・大陸・ヨーロッパ・ポケモン・総理大臣など、幅広い10問。",
   "questions": [
     {
-      "q": "七福神に数えられる神様を答えてください。",
+      "q": "十二支に登場する動物を答えてください。",
       "answers": [
         {
-          "display": "恵比寿",
+          "display": "ねずみ",
           "accept": [
-            "えびす",
-            "恵比須",
-            "戎",
-            "蛭子"
+            "鼠",
+            "子",
+            "ね"
           ]
         },
         {
-          "display": "大黒天",
+          "display": "うし",
           "accept": [
-            "だいこくてん",
-            "大黒",
-            "だいこく"
+            "牛",
+            "丑"
           ]
         },
         {
-          "display": "毘沙門天",
+          "display": "とら",
           "accept": [
-            "びしゃもんてん",
-            "毘沙門",
-            "びしゃもん"
+            "虎",
+            "寅"
           ]
         },
         {
-          "display": "弁財天",
+          "display": "うさぎ",
           "accept": [
-            "べんざいてん",
-            "弁才天",
-            "弁天",
-            "べんてん"
+            "兎",
+            "卯",
+            "う"
           ]
         },
         {
-          "display": "福禄寿",
+          "display": "たつ",
           "accept": [
-            "ふくろくじゅ"
+            "竜",
+            "辰",
+            "りゅう"
           ]
         },
         {
-          "display": "寿老人",
+          "display": "へび",
           "accept": [
-            "じゅろうじん"
+            "蛇",
+            "巳",
+            "み"
           ]
         },
         {
-          "display": "布袋",
+          "display": "うま",
           "accept": [
-            "ほてい",
-            "布袋尊",
-            "ほていそん"
+            "馬",
+            "午"
+          ]
+        },
+        {
+          "display": "ひつじ",
+          "accept": [
+            "羊",
+            "未"
+          ]
+        },
+        {
+          "display": "さる",
+          "accept": [
+            "猿",
+            "申"
+          ]
+        },
+        {
+          "display": "とり",
+          "accept": [
+            "鳥",
+            "鶏",
+            "酉",
+            "にわとり"
+          ]
+        },
+        {
+          "display": "いぬ",
+          "accept": [
+            "犬",
+            "戌"
+          ]
+        },
+        {
+          "display": "いのしし",
+          "accept": [
+            "猪",
+            "亥",
+            "い"
           ]
         }
       ]
     },
     {
-      "q": "将棋の「八大タイトル」を答えてください。",
+      "q": "東北地方の6つの県を答えてください。",
+      "suffixes": [
+        "県",
+        "けん"
+      ],
       "answers": [
         {
-          "display": "竜王",
+          "display": "青森",
           "accept": [
-            "りゅうおう",
-            "龍王"
+            "あおもり"
           ]
         },
         {
-          "display": "名人",
+          "display": "岩手",
           "accept": [
-            "めいじん"
+            "いわて"
           ]
         },
         {
-          "display": "王位",
+          "display": "宮城",
           "accept": [
-            "おうい"
+            "みやぎ"
           ]
         },
         {
-          "display": "王座",
+          "display": "秋田",
           "accept": [
-            "おうざ"
+            "あきた"
           ]
         },
         {
-          "display": "棋王",
+          "display": "山形",
           "accept": [
-            "きおう"
+            "やまがた"
           ]
         },
         {
-          "display": "王将",
+          "display": "福島",
           "accept": [
-            "おうしょう"
-          ]
-        },
-        {
-          "display": "棋聖",
-          "accept": [
-            "きせい"
-          ]
-        },
-        {
-          "display": "叡王",
-          "accept": [
-            "えいおう"
+            "ふくしま"
           ]
         }
       ]
     },
     {
-      "q": "トランプのポーカーの「役」を答えてください。",
+      "q": "世界の6つの大陸を答えてください。",
+      "suffixes": [
+        "大陸",
+        "たいりく"
+      ],
       "answers": [
         {
-          "display": "ワンペア",
+          "display": "ユーラシア",
           "accept": []
         },
         {
-          "display": "ツーペア",
+          "display": "アフリカ",
           "accept": []
         },
         {
-          "display": "スリーカード",
+          "display": "北アメリカ",
           "accept": [
-            "スリーオブアカインド"
+            "きたあめりか",
+            "北米",
+            "ほくべい"
           ]
         },
         {
-          "display": "ストレート",
-          "accept": []
-        },
-        {
-          "display": "フラッシュ",
-          "accept": []
-        },
-        {
-          "display": "フルハウス",
-          "accept": []
-        },
-        {
-          "display": "フォーカード",
+          "display": "南アメリカ",
           "accept": [
-            "フォーオブアカインド"
+            "みなみあめりか",
+            "南米",
+            "なんべい"
           ]
         },
         {
-          "display": "ストレートフラッシュ",
+          "display": "オーストラリア",
           "accept": []
         },
         {
-          "display": "ロイヤルストレートフラッシュ",
+          "display": "南極",
           "accept": [
-            "ロイヤルフラッシュ"
+            "なんきょく"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "ヨーロッパの国を答えてください（ロシア・トルコなど、ヨーロッパとアジアにまたがる国も可）。",
+      "answers": [
+        {
+          "display": "イギリス",
+          "accept": [
+            "英国",
+            "えいこく",
+            "連合王国"
           ]
         },
         {
-          "display": "ファイブカード",
+          "display": "フランス",
+          "accept": []
+        },
+        {
+          "display": "ドイツ",
+          "accept": []
+        },
+        {
+          "display": "イタリア",
+          "accept": []
+        },
+        {
+          "display": "スペイン",
+          "accept": []
+        },
+        {
+          "display": "ポルトガル",
+          "accept": []
+        },
+        {
+          "display": "オランダ",
+          "accept": []
+        },
+        {
+          "display": "ベルギー",
+          "accept": []
+        },
+        {
+          "display": "ルクセンブルク",
+          "accept": [
+            "ルクセンブルグ"
+          ]
+        },
+        {
+          "display": "スイス",
+          "accept": []
+        },
+        {
+          "display": "オーストリア",
+          "accept": []
+        },
+        {
+          "display": "アイルランド",
+          "accept": []
+        },
+        {
+          "display": "アイスランド",
+          "accept": []
+        },
+        {
+          "display": "デンマーク",
+          "accept": []
+        },
+        {
+          "display": "ノルウェー",
+          "accept": []
+        },
+        {
+          "display": "スウェーデン",
+          "accept": []
+        },
+        {
+          "display": "フィンランド",
+          "accept": []
+        },
+        {
+          "display": "ポーランド",
+          "accept": []
+        },
+        {
+          "display": "チェコ",
+          "accept": []
+        },
+        {
+          "display": "スロバキア",
+          "accept": [
+            "スロヴァキア"
+          ]
+        },
+        {
+          "display": "ハンガリー",
+          "accept": []
+        },
+        {
+          "display": "ルーマニア",
+          "accept": []
+        },
+        {
+          "display": "ブルガリア",
+          "accept": []
+        },
+        {
+          "display": "ギリシャ",
+          "accept": [
+            "ギリシア"
+          ]
+        },
+        {
+          "display": "クロアチア",
+          "accept": []
+        },
+        {
+          "display": "スロベニア",
+          "accept": [
+            "スロヴェニア"
+          ]
+        },
+        {
+          "display": "セルビア",
+          "accept": []
+        },
+        {
+          "display": "モンテネグロ",
+          "accept": []
+        },
+        {
+          "display": "ボスニア・ヘルツェゴビナ",
+          "accept": [
+            "ボスニアヘルツェゴビナ",
+            "ボスニア"
+          ]
+        },
+        {
+          "display": "北マケドニア",
+          "accept": [
+            "マケドニア"
+          ]
+        },
+        {
+          "display": "アルバニア",
+          "accept": []
+        },
+        {
+          "display": "コソボ",
+          "accept": []
+        },
+        {
+          "display": "モルドバ",
+          "accept": [
+            "モルドヴァ"
+          ]
+        },
+        {
+          "display": "ウクライナ",
+          "accept": []
+        },
+        {
+          "display": "ベラルーシ",
+          "accept": [
+            "白ロシア"
+          ]
+        },
+        {
+          "display": "リトアニア",
+          "accept": []
+        },
+        {
+          "display": "ラトビア",
+          "accept": [
+            "ラトヴィア"
+          ]
+        },
+        {
+          "display": "エストニア",
+          "accept": []
+        },
+        {
+          "display": "ロシア",
+          "accept": [
+            "ロシア連邦"
+          ]
+        },
+        {
+          "display": "トルコ",
+          "accept": []
+        },
+        {
+          "display": "ジョージア",
+          "accept": [
+            "グルジア"
+          ]
+        },
+        {
+          "display": "アルメニア",
+          "accept": []
+        },
+        {
+          "display": "アゼルバイジャン",
+          "accept": []
+        },
+        {
+          "display": "キプロス",
+          "accept": []
+        },
+        {
+          "display": "マルタ",
+          "accept": []
+        },
+        {
+          "display": "モナコ",
+          "accept": []
+        },
+        {
+          "display": "アンドラ",
+          "accept": []
+        },
+        {
+          "display": "サンマリノ",
+          "accept": []
+        },
+        {
+          "display": "バチカン",
+          "accept": [
+            "バチカン市国"
+          ]
+        },
+        {
+          "display": "リヒテンシュタイン",
           "accept": []
         }
       ]
     },
     {
-      "q": "2000年から2024年までに夏季オリンピックが開催された都市を答えてください。",
+      "q": "名前に「山」という漢字が入る都道府県を答えてください。",
+      "suffixes": [
+        "県",
+        "けん"
+      ],
       "answers": [
         {
-          "display": "シドニー",
-          "accept": []
-        },
-        {
-          "display": "アテネ",
-          "accept": []
-        },
-        {
-          "display": "北京",
+          "display": "山形",
           "accept": [
-            "ぺきん"
+            "やまがた"
           ]
         },
         {
-          "display": "ロンドン",
+          "display": "富山",
+          "accept": [
+            "とやま"
+          ]
+        },
+        {
+          "display": "山梨",
+          "accept": [
+            "やまなし"
+          ]
+        },
+        {
+          "display": "和歌山",
+          "accept": [
+            "わかやま"
+          ]
+        },
+        {
+          "display": "岡山",
+          "accept": [
+            "おかやま"
+          ]
+        },
+        {
+          "display": "山口",
+          "accept": [
+            "やまぐち"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "ゲーム『ポケットモンスター 赤・緑』に登場する初代151匹のポケモンを答えてください。",
+      "answers": [
+        {
+          "display": "フシギダネ",
           "accept": []
         },
         {
-          "display": "リオデジャネイロ",
+          "display": "フシギソウ",
+          "accept": []
+        },
+        {
+          "display": "フシギバナ",
+          "accept": []
+        },
+        {
+          "display": "ヒトカゲ",
+          "accept": []
+        },
+        {
+          "display": "リザード",
+          "accept": []
+        },
+        {
+          "display": "リザードン",
+          "accept": []
+        },
+        {
+          "display": "ゼニガメ",
+          "accept": []
+        },
+        {
+          "display": "カメール",
+          "accept": []
+        },
+        {
+          "display": "カメックス",
+          "accept": []
+        },
+        {
+          "display": "キャタピー",
+          "accept": []
+        },
+        {
+          "display": "トランセル",
+          "accept": []
+        },
+        {
+          "display": "バタフリー",
+          "accept": []
+        },
+        {
+          "display": "ビードル",
+          "accept": []
+        },
+        {
+          "display": "コクーン",
+          "accept": []
+        },
+        {
+          "display": "スピアー",
+          "accept": []
+        },
+        {
+          "display": "ポッポ",
+          "accept": []
+        },
+        {
+          "display": "ピジョン",
+          "accept": []
+        },
+        {
+          "display": "ピジョット",
+          "accept": []
+        },
+        {
+          "display": "コラッタ",
+          "accept": []
+        },
+        {
+          "display": "ラッタ",
+          "accept": []
+        },
+        {
+          "display": "オニスズメ",
+          "accept": []
+        },
+        {
+          "display": "オニドリル",
+          "accept": []
+        },
+        {
+          "display": "アーボ",
+          "accept": []
+        },
+        {
+          "display": "アーボック",
+          "accept": []
+        },
+        {
+          "display": "ピカチュウ",
+          "accept": []
+        },
+        {
+          "display": "ライチュウ",
+          "accept": []
+        },
+        {
+          "display": "サンド",
+          "accept": []
+        },
+        {
+          "display": "サンドパン",
+          "accept": []
+        },
+        {
+          "display": "ニドラン♀",
           "accept": [
-            "リオ"
+            "ニドランメス"
           ]
         },
         {
-          "display": "東京",
+          "display": "ニドリーナ",
+          "accept": []
+        },
+        {
+          "display": "ニドクイン",
+          "accept": []
+        },
+        {
+          "display": "ニドラン♂",
           "accept": [
-            "とうきょう"
+            "ニドランオス"
           ]
         },
         {
-          "display": "パリ",
+          "display": "ニドリーノ",
+          "accept": []
+        },
+        {
+          "display": "ニドキング",
+          "accept": []
+        },
+        {
+          "display": "ピッピ",
+          "accept": []
+        },
+        {
+          "display": "ピクシー",
+          "accept": []
+        },
+        {
+          "display": "ロコン",
+          "accept": []
+        },
+        {
+          "display": "キュウコン",
+          "accept": []
+        },
+        {
+          "display": "プリン",
+          "accept": []
+        },
+        {
+          "display": "プクリン",
+          "accept": []
+        },
+        {
+          "display": "ズバット",
+          "accept": []
+        },
+        {
+          "display": "ゴルバット",
+          "accept": []
+        },
+        {
+          "display": "ナゾノクサ",
+          "accept": []
+        },
+        {
+          "display": "クサイハナ",
+          "accept": []
+        },
+        {
+          "display": "ラフレシア",
+          "accept": []
+        },
+        {
+          "display": "パラス",
+          "accept": []
+        },
+        {
+          "display": "パラセクト",
+          "accept": []
+        },
+        {
+          "display": "コンパン",
+          "accept": []
+        },
+        {
+          "display": "モルフォン",
+          "accept": []
+        },
+        {
+          "display": "ディグダ",
+          "accept": []
+        },
+        {
+          "display": "ダグトリオ",
+          "accept": []
+        },
+        {
+          "display": "ニャース",
+          "accept": []
+        },
+        {
+          "display": "ペルシアン",
+          "accept": []
+        },
+        {
+          "display": "コダック",
+          "accept": []
+        },
+        {
+          "display": "ゴルダック",
+          "accept": []
+        },
+        {
+          "display": "マンキー",
+          "accept": []
+        },
+        {
+          "display": "オコリザル",
+          "accept": []
+        },
+        {
+          "display": "ガーディ",
+          "accept": []
+        },
+        {
+          "display": "ウインディ",
+          "accept": []
+        },
+        {
+          "display": "ニョロモ",
+          "accept": []
+        },
+        {
+          "display": "ニョロゾ",
+          "accept": []
+        },
+        {
+          "display": "ニョロボン",
+          "accept": []
+        },
+        {
+          "display": "ケーシィ",
+          "accept": []
+        },
+        {
+          "display": "ユンゲラー",
+          "accept": []
+        },
+        {
+          "display": "フーディン",
+          "accept": []
+        },
+        {
+          "display": "ワンリキー",
+          "accept": []
+        },
+        {
+          "display": "ゴーリキー",
+          "accept": []
+        },
+        {
+          "display": "カイリキー",
+          "accept": []
+        },
+        {
+          "display": "マダツボミ",
+          "accept": []
+        },
+        {
+          "display": "ウツドン",
+          "accept": []
+        },
+        {
+          "display": "ウツボット",
+          "accept": []
+        },
+        {
+          "display": "メノクラゲ",
+          "accept": []
+        },
+        {
+          "display": "ドククラゲ",
+          "accept": []
+        },
+        {
+          "display": "イシツブテ",
+          "accept": []
+        },
+        {
+          "display": "ゴローン",
+          "accept": []
+        },
+        {
+          "display": "ゴローニャ",
+          "accept": []
+        },
+        {
+          "display": "ポニータ",
+          "accept": []
+        },
+        {
+          "display": "ギャロップ",
+          "accept": []
+        },
+        {
+          "display": "ヤドン",
+          "accept": []
+        },
+        {
+          "display": "ヤドラン",
+          "accept": []
+        },
+        {
+          "display": "コイル",
+          "accept": []
+        },
+        {
+          "display": "レアコイル",
+          "accept": []
+        },
+        {
+          "display": "カモネギ",
+          "accept": []
+        },
+        {
+          "display": "ドードー",
+          "accept": []
+        },
+        {
+          "display": "ドードリオ",
+          "accept": []
+        },
+        {
+          "display": "パウワウ",
+          "accept": []
+        },
+        {
+          "display": "ジュゴン",
+          "accept": []
+        },
+        {
+          "display": "ベトベター",
+          "accept": []
+        },
+        {
+          "display": "ベトベトン",
+          "accept": []
+        },
+        {
+          "display": "シェルダー",
+          "accept": []
+        },
+        {
+          "display": "パルシェン",
+          "accept": []
+        },
+        {
+          "display": "ゴース",
+          "accept": []
+        },
+        {
+          "display": "ゴースト",
+          "accept": []
+        },
+        {
+          "display": "ゲンガー",
+          "accept": []
+        },
+        {
+          "display": "イワーク",
+          "accept": []
+        },
+        {
+          "display": "スリープ",
+          "accept": []
+        },
+        {
+          "display": "スリーパー",
+          "accept": []
+        },
+        {
+          "display": "クラブ",
+          "accept": []
+        },
+        {
+          "display": "キングラー",
+          "accept": []
+        },
+        {
+          "display": "ビリリダマ",
+          "accept": []
+        },
+        {
+          "display": "マルマイン",
+          "accept": []
+        },
+        {
+          "display": "タマタマ",
+          "accept": []
+        },
+        {
+          "display": "ナッシー",
+          "accept": []
+        },
+        {
+          "display": "カラカラ",
+          "accept": []
+        },
+        {
+          "display": "ガラガラ",
+          "accept": []
+        },
+        {
+          "display": "サワムラー",
+          "accept": []
+        },
+        {
+          "display": "エビワラー",
+          "accept": []
+        },
+        {
+          "display": "ベロリンガ",
+          "accept": []
+        },
+        {
+          "display": "ドガース",
+          "accept": []
+        },
+        {
+          "display": "マタドガス",
+          "accept": []
+        },
+        {
+          "display": "サイホーン",
+          "accept": []
+        },
+        {
+          "display": "サイドン",
+          "accept": []
+        },
+        {
+          "display": "ラッキー",
+          "accept": []
+        },
+        {
+          "display": "モンジャラ",
+          "accept": []
+        },
+        {
+          "display": "ガルーラ",
+          "accept": []
+        },
+        {
+          "display": "タッツー",
+          "accept": []
+        },
+        {
+          "display": "シードラ",
+          "accept": []
+        },
+        {
+          "display": "トサキント",
+          "accept": []
+        },
+        {
+          "display": "アズマオウ",
+          "accept": []
+        },
+        {
+          "display": "ヒトデマン",
+          "accept": []
+        },
+        {
+          "display": "スターミー",
+          "accept": []
+        },
+        {
+          "display": "バリヤード",
+          "accept": []
+        },
+        {
+          "display": "ストライク",
+          "accept": []
+        },
+        {
+          "display": "ルージュラ",
+          "accept": []
+        },
+        {
+          "display": "エレブー",
+          "accept": []
+        },
+        {
+          "display": "ブーバー",
+          "accept": []
+        },
+        {
+          "display": "カイロス",
+          "accept": []
+        },
+        {
+          "display": "ケンタロス",
+          "accept": []
+        },
+        {
+          "display": "コイキング",
+          "accept": []
+        },
+        {
+          "display": "ギャラドス",
+          "accept": []
+        },
+        {
+          "display": "ラプラス",
+          "accept": []
+        },
+        {
+          "display": "メタモン",
+          "accept": []
+        },
+        {
+          "display": "イーブイ",
+          "accept": []
+        },
+        {
+          "display": "シャワーズ",
+          "accept": []
+        },
+        {
+          "display": "サンダース",
+          "accept": []
+        },
+        {
+          "display": "ブースター",
+          "accept": []
+        },
+        {
+          "display": "ポリゴン",
+          "accept": []
+        },
+        {
+          "display": "オムナイト",
+          "accept": []
+        },
+        {
+          "display": "オムスター",
+          "accept": []
+        },
+        {
+          "display": "カブト",
+          "accept": []
+        },
+        {
+          "display": "カブトプス",
+          "accept": []
+        },
+        {
+          "display": "プテラ",
+          "accept": []
+        },
+        {
+          "display": "カビゴン",
+          "accept": []
+        },
+        {
+          "display": "フリーザー",
+          "accept": []
+        },
+        {
+          "display": "サンダー",
+          "accept": []
+        },
+        {
+          "display": "ファイヤー",
+          "accept": []
+        },
+        {
+          "display": "ミニリュウ",
+          "accept": []
+        },
+        {
+          "display": "ハクリュー",
+          "accept": []
+        },
+        {
+          "display": "カイリュー",
+          "accept": []
+        },
+        {
+          "display": "ミュウツー",
+          "accept": []
+        },
+        {
+          "display": "ミュウ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "東京23区を答えてください。",
+      "suffixes": [
+        "区",
+        "く"
+      ],
+      "answers": [
+        {
+          "display": "千代田",
+          "accept": [
+            "ちよだ"
+          ]
+        },
+        {
+          "display": "中央",
+          "accept": [
+            "ちゅうおう"
+          ]
+        },
+        {
+          "display": "港",
+          "accept": [
+            "みなと"
+          ]
+        },
+        {
+          "display": "新宿",
+          "accept": [
+            "しんじゅく"
+          ]
+        },
+        {
+          "display": "文京",
+          "accept": [
+            "ぶんきょう"
+          ]
+        },
+        {
+          "display": "台東",
+          "accept": [
+            "たいとう"
+          ]
+        },
+        {
+          "display": "墨田",
+          "accept": [
+            "すみだ"
+          ]
+        },
+        {
+          "display": "江東",
+          "accept": [
+            "こうとう"
+          ]
+        },
+        {
+          "display": "品川",
+          "accept": [
+            "しながわ"
+          ]
+        },
+        {
+          "display": "目黒",
+          "accept": [
+            "めぐろ"
+          ]
+        },
+        {
+          "display": "大田",
+          "accept": [
+            "おおた"
+          ]
+        },
+        {
+          "display": "世田谷",
+          "accept": [
+            "せたがや"
+          ]
+        },
+        {
+          "display": "渋谷",
+          "accept": [
+            "しぶや"
+          ]
+        },
+        {
+          "display": "中野",
+          "accept": [
+            "なかの"
+          ]
+        },
+        {
+          "display": "杉並",
+          "accept": [
+            "すぎなみ"
+          ]
+        },
+        {
+          "display": "豊島",
+          "accept": [
+            "としま"
+          ]
+        },
+        {
+          "display": "北",
+          "accept": [
+            "きた"
+          ]
+        },
+        {
+          "display": "荒川",
+          "accept": [
+            "あらかわ"
+          ]
+        },
+        {
+          "display": "板橋",
+          "accept": [
+            "いたばし"
+          ]
+        },
+        {
+          "display": "練馬",
+          "accept": [
+            "ねりま"
+          ]
+        },
+        {
+          "display": "足立",
+          "accept": [
+            "あだち"
+          ]
+        },
+        {
+          "display": "葛飾",
+          "accept": [
+            "かつしか"
+          ]
+        },
+        {
+          "display": "江戸川",
+          "accept": [
+            "えどがわ"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "日本語の国名が「ア」で始まる国（国連加盟国）を答えてください。",
+      "answers": [
+        {
+          "display": "アイスランド",
+          "accept": []
+        },
+        {
+          "display": "アイルランド",
+          "accept": []
+        },
+        {
+          "display": "アゼルバイジャン",
+          "accept": []
+        },
+        {
+          "display": "アフガニスタン",
+          "accept": []
+        },
+        {
+          "display": "アメリカ合衆国",
+          "accept": [
+            "アメリカ",
+            "米国"
+          ]
+        },
+        {
+          "display": "アラブ首長国連邦",
+          "accept": [
+            "UAE"
+          ]
+        },
+        {
+          "display": "アルジェリア",
+          "accept": []
+        },
+        {
+          "display": "アルゼンチン",
+          "accept": []
+        },
+        {
+          "display": "アルバニア",
+          "accept": []
+        },
+        {
+          "display": "アルメニア",
+          "accept": []
+        },
+        {
+          "display": "アンゴラ",
+          "accept": []
+        },
+        {
+          "display": "アンティグア・バーブーダ",
+          "accept": [
+            "アンティグアバーブーダ"
+          ]
+        },
+        {
+          "display": "アンドラ",
           "accept": []
         }
       ]
@@ -342,378 +1426,117 @@
       ]
     },
     {
-      "q": "現在JRの新幹線で運行されている列車の愛称（「のぞみ」など）を答えてください。",
+      "q": "県名と県庁所在地の名前が違う県（北海道も含む）の、県庁所在地を答えてください。",
       "suffixes": [
-        "号",
-        "ごう"
+        "市",
+        "し"
       ],
       "answers": [
         {
-          "display": "のぞみ",
-          "accept": []
-        },
-        {
-          "display": "ひかり",
-          "accept": []
-        },
-        {
-          "display": "こだま",
-          "accept": []
-        },
-        {
-          "display": "みずほ",
-          "accept": []
-        },
-        {
-          "display": "さくら",
-          "accept": []
-        },
-        {
-          "display": "つばめ",
-          "accept": []
-        },
-        {
-          "display": "かもめ",
-          "accept": []
-        },
-        {
-          "display": "はやぶさ",
-          "accept": []
-        },
-        {
-          "display": "はやて",
-          "accept": []
-        },
-        {
-          "display": "やまびこ",
-          "accept": []
-        },
-        {
-          "display": "なすの",
-          "accept": []
-        },
-        {
-          "display": "こまち",
-          "accept": []
-        },
-        {
-          "display": "つばさ",
-          "accept": []
-        },
-        {
-          "display": "とき",
-          "accept": []
-        },
-        {
-          "display": "たにがわ",
-          "accept": []
-        },
-        {
-          "display": "かがやき",
-          "accept": []
-        },
-        {
-          "display": "はくたか",
-          "accept": []
-        },
-        {
-          "display": "つるぎ",
-          "accept": []
-        },
-        {
-          "display": "あさま",
-          "accept": []
-        }
-      ]
-    },
-    {
-      "q": "南アメリカ大陸にある12の独立国を答えてください。",
-      "answers": [
-        {
-          "display": "ブラジル",
-          "accept": []
-        },
-        {
-          "display": "アルゼンチン",
-          "accept": []
-        },
-        {
-          "display": "チリ",
-          "accept": []
-        },
-        {
-          "display": "ペルー",
-          "accept": []
-        },
-        {
-          "display": "コロンビア",
-          "accept": []
-        },
-        {
-          "display": "ベネズエラ",
-          "accept": []
-        },
-        {
-          "display": "エクアドル",
-          "accept": []
-        },
-        {
-          "display": "ボリビア",
-          "accept": []
-        },
-        {
-          "display": "パラグアイ",
-          "accept": []
-        },
-        {
-          "display": "ウルグアイ",
-          "accept": []
-        },
-        {
-          "display": "ガイアナ",
-          "accept": []
-        },
-        {
-          "display": "スリナム",
-          "accept": []
-        }
-      ]
-    },
-    {
-      "q": "気象学で雲を10種類に分ける「十種雲形」を答えてください（「うろこ雲」などの通称でも可）。",
-      "answers": [
-        {
-          "display": "巻雲",
+          "display": "札幌",
           "accept": [
-            "けんうん",
-            "すじ雲",
-            "すじぐも",
-            "筋雲"
+            "さっぽろ"
           ]
         },
         {
-          "display": "巻積雲",
+          "display": "盛岡",
           "accept": [
-            "けんせきうん",
-            "うろこ雲",
-            "うろこぐも",
-            "いわし雲",
-            "いわしぐも",
-            "さば雲",
-            "さばぐも"
+            "もりおか"
           ]
         },
         {
-          "display": "巻層雲",
+          "display": "仙台",
           "accept": [
-            "けんそううん",
-            "うす雲",
-            "うすぐも",
-            "薄雲"
+            "せんだい"
           ]
         },
         {
-          "display": "高積雲",
+          "display": "水戸",
           "accept": [
-            "こうせきうん",
-            "ひつじ雲",
-            "ひつじぐも",
-            "羊雲"
+            "みと"
           ]
         },
         {
-          "display": "高層雲",
+          "display": "宇都宮",
           "accept": [
-            "こうそううん",
-            "おぼろ雲",
-            "おぼろぐも",
-            "朧雲"
+            "うつのみや"
           ]
         },
         {
-          "display": "乱層雲",
+          "display": "前橋",
           "accept": [
-            "らんそううん",
-            "雨雲",
-            "あまぐも",
-            "雪雲",
-            "ゆきぐも"
+            "まえばし"
           ]
         },
         {
-          "display": "層積雲",
-          "accept": [
-            "そうせきうん",
-            "うね雲",
-            "うねぐも",
-            "くもり雲",
-            "くもりぐも",
-            "曇り雲"
-          ]
-        },
-        {
-          "display": "層雲",
-          "accept": [
-            "そううん",
-            "きり雲",
-            "きりぐも",
-            "霧雲"
-          ]
-        },
-        {
-          "display": "積雲",
-          "accept": [
-            "せきうん",
-            "わた雲",
-            "わたぐも",
-            "綿雲"
-          ]
-        },
-        {
-          "display": "積乱雲",
-          "accept": [
-            "せきらんうん",
-            "入道雲",
-            "にゅうどうぐも",
-            "雷雲",
-            "かみなりぐも",
-            "らいうん"
-          ]
-        }
-      ]
-    },
-    {
-      "q": "戦前に国内に設置された7つの「旧帝国大学」を答えてください（現在の大学名で）。",
-      "suffixes": [
-        "大学",
-        "だいがく",
-        "大",
-        "だい"
-      ],
-      "answers": [
-        {
-          "display": "北海道大学",
-          "accept": [
-            "北海道",
-            "ほっかいどう",
-            "北大",
-            "ほくだい"
-          ]
-        },
-        {
-          "display": "東北大学",
-          "accept": [
-            "東北",
-            "とうほく"
-          ]
-        },
-        {
-          "display": "東京大学",
-          "accept": [
-            "東京",
-            "とうきょう",
-            "東大",
-            "とうだい"
-          ]
-        },
-        {
-          "display": "名古屋大学",
-          "accept": [
-            "名古屋",
-            "なごや",
-            "名大",
-            "めいだい"
-          ]
-        },
-        {
-          "display": "京都大学",
-          "accept": [
-            "京都",
-            "きょうと",
-            "京大",
-            "きょうだい"
-          ]
-        },
-        {
-          "display": "大阪大学",
-          "accept": [
-            "大阪",
-            "おおさか",
-            "阪大",
-            "はんだい"
-          ]
-        },
-        {
-          "display": "九州大学",
-          "accept": [
-            "九州",
-            "きゅうしゅう",
-            "九大",
-            "きゅうだい"
-          ]
-        }
-      ]
-    },
-    {
-      "q": "第二次世界大戦後（1945年以降）に就任したアメリカ合衆国大統領の姓を答えてください（同じ姓は1つと数えます）。",
-      "answers": [
-        {
-          "display": "トルーマン",
+          "display": "さいたま",
           "accept": []
         },
         {
-          "display": "アイゼンハワー",
+          "display": "横浜",
           "accept": [
-            "アイゼンハウアー"
+            "よこはま"
           ]
         },
         {
-          "display": "ケネディ",
+          "display": "甲府",
           "accept": [
-            "ケネディー"
+            "こうふ"
           ]
         },
         {
-          "display": "ジョンソン",
-          "accept": []
-        },
-        {
-          "display": "ニクソン",
-          "accept": []
-        },
-        {
-          "display": "フォード",
-          "accept": []
-        },
-        {
-          "display": "カーター",
-          "accept": []
-        },
-        {
-          "display": "レーガン",
+          "display": "金沢",
           "accept": [
-            "リーガン"
+            "かなざわ"
           ]
         },
         {
-          "display": "ブッシュ",
-          "accept": []
+          "display": "名古屋",
+          "accept": [
+            "なごや"
+          ]
         },
         {
-          "display": "クリントン",
-          "accept": []
+          "display": "津",
+          "accept": [
+            "つ"
+          ]
         },
         {
-          "display": "オバマ",
-          "accept": []
+          "display": "大津",
+          "accept": [
+            "おおつ"
+          ]
         },
         {
-          "display": "トランプ",
-          "accept": []
+          "display": "神戸",
+          "accept": [
+            "こうべ"
+          ]
         },
         {
-          "display": "バイデン",
-          "accept": []
+          "display": "松江",
+          "accept": [
+            "まつえ"
+          ]
+        },
+        {
+          "display": "高松",
+          "accept": [
+            "たかまつ"
+          ]
+        },
+        {
+          "display": "松山",
+          "accept": [
+            "まつやま"
+          ]
+        },
+        {
+          "display": "那覇",
+          "accept": [
+            "なは"
+          ]
         }
       ]
     }

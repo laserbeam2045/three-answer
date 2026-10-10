@@ -1,5 +1,5 @@
 import type { BomberQuestion } from "../types";
-import { normalizeAnswer } from "./match";
+import { acceptedForms, normalizeAnswer } from "./match";
 
 /**
  * 表記ゆれの判定を Jev（typesafe.ai の判断特化モデル）に任せる。
@@ -13,6 +13,12 @@ const ENDPOINT = "https://api.typesafe.ai/v1/systemone";
 export const JEV_MIN_PROBABILITY = 0.75;
 const TIMEOUT_MS = 4000;
 
+/**
+ * 1回の問い合わせで聞く候補の上限。候補ごとに質問を作るため、答えが多い問題（ポケモン151匹など）を
+ * 全部送るとトークンを大量に使う。多いときは表記が近い順に絞る（英語などで表記が全く違う入力は拾えなくなる）。
+ */
+export const JEV_MAX_CANDIDATES = 24;
+
 const cache = new Map<string, number>();
 const CACHE_LIMIT = 2000;
 
@@ -24,15 +30,53 @@ const CACHE_LIMIT = 2000;
 const CRITERIA = {
   true:
     "同じものの別の書き方。例: すいそ／Hydrogen→水素、安部晋三→安倍晋三（読みが同じ変換違い）、" +
+    "慶応義塾大学→慶應義塾大学、渋沢栄一→澁澤榮一（新字体と旧字体の違い）、" +
     "コイズミ首相→小泉純一郎、ラピュタ→天空の城ラピュタ（よく使われる略称）、チェコ共和国→チェコ（正式名称）",
   false:
     "同じものとは言えない。例: 炭→炭素（一部分だけ）、さんそう→酸素（読みが違う打ち間違い）、" +
     "お正月→元日（意味が広い別の言葉）、体育の日→スポーツの日（旧名称）、小泉進次郎→小泉純一郎（別の人物）",
 };
 
-function buildQuestions(question: BomberQuestion, input: string): Record<string, unknown> {
+function bigrams(s: string): string[] {
+  const chars = [...s];
+  if (chars.length < 2) return chars;
+  return chars.slice(1).map((c, i) => chars[i] + c);
+}
+
+/** 文字の2-gram の重なり（Dice 係数、0〜1） */
+function similarity(a: string, b: string): number {
+  const x = bigrams(a);
+  const y = bigrams(b);
+  if (x.length === 0 || y.length === 0) return 0;
+  const rest = [...y];
+  let hit = 0;
+  for (const g of x) {
+    const j = rest.indexOf(g);
+    if (j >= 0) {
+      hit++;
+      rest.splice(j, 1);
+    }
+  }
+  return (2 * hit) / (x.length + y.length);
+}
+
+/** 問い合わせる候補の index。多すぎるときは入力と表記が近い順に上限まで */
+export function pickCandidates(question: BomberQuestion, input: string): number[] {
+  const all = question.answers.map((_, i) => i);
+  if (all.length <= JEV_MAX_CANDIDATES) return all;
+  const n = normalizeAnswer(input);
+  const score = (i: number) => Math.max(...[...acceptedForms(question, i)].map((f) => similarity(n, f)));
+  return all
+    .map((i) => ({ i, s: score(i) }))
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .slice(0, JEV_MAX_CANDIDATES)
+    .map((x) => x.i);
+}
+
+function buildQuestions(question: BomberQuestion, input: string, candidates: number[]): Record<string, unknown> {
   const questions: Record<string, unknown> = {};
-  question.answers.forEach((a, i) => {
+  candidates.forEach((i) => {
+    const a = question.answers[i];
     questions[`a${i}`] = {
       type: "noul",
       instructions: `入力「${input}」は「${a.display}」と同じものを指す、別の書き方か？`,
@@ -60,6 +104,7 @@ export async function judgeWithJev(
   const cached = cache.get(cacheKey);
   if (cached !== undefined) return cached;
 
+  const candidates = pickCandidates(question, input);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), opts.timeoutMs ?? TIMEOUT_MS);
   try {
@@ -69,7 +114,7 @@ export async function judgeWithJev(
       body: JSON.stringify({
         model: "jev-latest",
         state: [`クイズの問題: ${question.q}`, `プレイヤーの入力: 「${input}」`].join("\n"),
-        questions: buildQuestions(question, input),
+        questions: buildQuestions(question, input, candidates),
       }),
       signal: controller.signal,
     });
@@ -80,7 +125,7 @@ export async function judgeWithJev(
     const data = (await res.json()) as JevResponse;
     let index = -1;
     let best = JEV_MIN_PROBABILITY;
-    question.answers.forEach((_, i) => {
+    candidates.forEach((i) => {
       const p = data.answers?.[`a${i}`]?.noul;
       if (typeof p === "number" && p >= best) {
         best = p;

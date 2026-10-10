@@ -1,5 +1,10 @@
 import type { ReactNode } from "react";
-import { BOMBER_MAX_PLAYERS, BOMBER_POINTS, BOMBER_SLOTS } from "@/lib/bomber/match";
+import {
+  BOMBER_MAX_PLAYERS,
+  BOMBER_POINTS,
+  BOMBER_SLOTS,
+  BOMBER_TURNAROUND_MIN_ANSWERS,
+} from "@/lib/bomber/match";
 
 function RuleSection({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -18,7 +23,7 @@ export default function BomberRulesContent() {
       <RuleSection title="どんなゲーム？">
         <p>
           「答えが{BOMBER_SLOTS}つ以上ある問題」に、みんなで1人1つずつ順番に答えていくリレー形式のクイズです。
-          1〜{BOMBER_MAX_PLAYERS}人で遊べます。
+          1〜{BOMBER_MAX_PLAYERS}人で遊べます。ゲームの途中から参加したり、途中で抜けたりもできます。
         </p>
       </RuleSection>
       <RuleSection title="答え方">
@@ -31,9 +36,16 @@ export default function BomberRulesContent() {
           ひらがな・カタカナ・漢字のどれで入力しても判定されます。
         </p>
       </RuleSection>
+      <RuleSection title="折り返し">
+        <p>
+          答えが{BOMBER_TURNAROUND_MIN_ANSWERS}個以上ある問題は、5人目まで答えたら
+          <strong className="text-gold">5人目がもう一度答えて折り返し</strong>、5→4→3→2→1 の順にさらに5つ、合計10個を目指します。
+          制限時間は2倍になります。
+        </p>
+      </RuleSection>
       <RuleSection title="爆弾と得点">
         <p>
-          {BOMBER_SLOTS}つ正解すればクリア。時間内に{BOMBER_SLOTS}つ揃わないと爆弾が爆発して、その問題は終わりです。
+          {BOMBER_SLOTS}つ（折り返しありの問題は10個）正解すればクリア。時間内に揃わないと爆弾が爆発して、その問題は終わりです。
           1つ正解するごとに{BOMBER_POINTS}点。全10問の合計点を目指します。
         </p>
       </RuleSection>

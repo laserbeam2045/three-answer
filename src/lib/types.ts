@@ -86,6 +86,8 @@ export interface BomberMiss {
 }
 
 export interface BomberRoundState {
+  /** この問題で埋める枠の数（5、または折り返しありの 10） */
+  target: number;
   /** 爆弾を持っている（回答中の）プレイヤー */
   turnToken: string;
   slots: BomberSlot[];
@@ -96,6 +98,8 @@ export interface BomberRoundState {
 
 export interface BomberRoundResult {
   qIndex: number;
+  /** 埋める枠の数（折り返し導入前の記録には無く、その場合は 5） */
+  target?: number;
   cleared: boolean;
   slots: BomberSlot[];
   /** 爆発したときに爆弾を持っていた人 */
@@ -270,6 +274,8 @@ export interface BomberView {
   isPlayer: boolean;
   /** questionフェーズ中のみ */
   round: {
+    /** 埋める枠の数（5、または折り返しありの 10） */
+    target: number;
     slots: BomberSlotView[];
     /** 残りの枠を誰が答えるか（今の回答者から順に） */
     upcoming: string[];
@@ -283,6 +289,7 @@ export interface BomberView {
   /** judgingフェーズ中のみ */
   judged: {
     q: string;
+    target: number;
     cleared: boolean;
     /** 爆発したときに爆弾を持っていた人の名前 */
     heldBy: string | null;
@@ -294,6 +301,7 @@ export interface BomberView {
   history:
     | {
         q: string;
+        target: number;
         cleared: boolean;
         heldBy: string | null;
         slots: BomberSlotView[];

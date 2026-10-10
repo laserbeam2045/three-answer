@@ -8,6 +8,8 @@ import {
   BOMBER_SECONDS_OPTIONS,
   BOMBER_SLOTS,
   matchAnswer,
+  slotsFor,
+  stepInto,
 } from "./match";
 
 export type GetBomberSet = (id: string) => BomberSet | undefined;
@@ -22,13 +24,26 @@ export function totalBomberPoints(state: RoomState): number {
 }
 
 export function maxBomberPoints(set: BomberSet): number {
-  return set.questions.length * roundPoints(BOMBER_SLOTS);
+  return set.questions.reduce((sum, q) => sum + roundPoints(slotsFor(q)), 0);
 }
 
 /** players の中で token の次の人（末尾の次は先頭に戻る） */
 function nextPlayer(players: string[], token: string): string {
   const i = players.indexOf(token);
   return players[(i + 1) % players.length];
+}
+
+/** players の中で token の前の人（先頭の前は末尾） */
+function prevPlayer(players: string[], token: string): string {
+  const i = players.indexOf(token);
+  return players[(i - 1 + players.length) % players.length];
+}
+
+/** 枠 k を答える人（1つ前の枠を答えた人 from から見て。折り返しは stepInto を参照） */
+export function answererOfSlot(players: string[], from: string, k: number): string {
+  const step = stepInto(k);
+  if (step === "same") return from;
+  return step === "next" ? nextPlayer(players, from) : prevPlayer(players, from);
 }
 
 /**
@@ -43,10 +58,13 @@ export function firstAnswerer(players: string[], qIndex: number): string {
 function startRound(state: RoomState, set: BomberSet, now: number): void {
   if (state.bomberPlayers.length === 0) throw new EngineError("参加者がいません");
   const q = set.questions[state.qIndex];
+  const target = slotsFor(q);
   state.phase = "question";
-  state.timer = newTimer(q.q, state.settings.bomberSeconds, now);
+  // 折り返しありの問題は答える数が倍なので、制限時間も倍にする
+  state.timer = newTimer(q.q, (state.settings.bomberSeconds * target) / BOMBER_SLOTS, now);
   state.pausedRoles = [];
   state.bomberRound = {
+    target,
     turnToken: firstAnswerer(state.bomberPlayers, state.qIndex),
     slots: [],
     lastMiss: null,
@@ -60,6 +78,7 @@ function finishRound(state: RoomState, cleared: boolean): void {
     ...state.bomberResults.filter((r) => r.qIndex !== state.qIndex),
     {
       qIndex: state.qIndex,
+      target: round?.target ?? BOMBER_SLOTS,
       cleared,
       slots: round?.slots ?? [],
       ...(cleared || !round ? {} : { heldBy: round.turnToken }),
@@ -86,7 +105,10 @@ function removePlayer(state: RoomState, target: string): void {
   if (!players.includes(target)) return;
   const round = state.bomberRound;
   const wasTurn = round?.turnToken === target;
-  const next = wasTurn && players.length > 1 ? nextPlayer(players, target) : null;
+  // 折り返し後（6枠目以降）に回答中の人が抜けたら、前の人へ戻る向きで続ける
+  const backward = (round?.slots.length ?? 0) >= BOMBER_SLOTS;
+  const next =
+    wasTurn && players.length > 1 ? (backward ? prevPlayer(players, target) : nextPlayer(players, target)) : null;
   state.bomberPlayers = players.filter((t) => t !== target);
 
   if (state.bomberPlayers.length === 0) {
@@ -99,11 +121,31 @@ function removePlayer(state: RoomState, target: string): void {
   }
 }
 
-/** 遅延遷移: 回答者の離席で一時停止/再開、時間切れで爆発 */
+/**
+ * この時間ポーリングが途絶えた参加者は、タブを閉じた・通信が切れたとみなしてゲーム中に自動で外す。
+ * タブを裏に回しただけ（ポーリングは続く）なら外さず、回答者なら一時停止で待つ。
+ */
+export const BOMBER_GONE_MS = 15_000;
+
+function isGone(presence: PresenceMap, token: string, now: number): boolean {
+  const p = presence[token];
+  return !p || now - p.lastSeen > BOMBER_GONE_MS;
+}
+
+/**
+ * 遅延遷移: いなくなった参加者の自動離脱、回答者の離席で一時停止/再開、時間切れで爆発
+ */
 export function bomberTick(state: RoomState, presence: PresenceMap, now: number): boolean {
-  const round = state.bomberRound;
-  if (state.phase !== "question" || !state.timer || !round) return false;
   let changed = false;
+  if (state.phase === "question" || state.phase === "judging") {
+    for (const t of state.bomberPlayers.filter((t) => isGone(presence, t, now))) {
+      removePlayer(state, t);
+      changed = true;
+    }
+  }
+
+  const round = state.bomberRound;
+  if (state.phase !== "question" || !state.timer || !round) return changed;
 
   const answererActive = isActive(presence[round.turnToken], now);
   if (!answererActive && !state.timer.paused) {
@@ -196,10 +238,10 @@ export function bomberAnswer(
 
   round.slots.push({ token, answerIndex: index, text: input, ...(ai ? { ai: true } : {}) });
   round.lastMiss = null;
-  if (round.slots.length >= BOMBER_SLOTS) {
+  if (round.slots.length >= round.target) {
     finishRound(state, true);
   } else {
-    round.turnToken = nextPlayer(state.bomberPlayers, token);
+    round.turnToken = answererOfSlot(state.bomberPlayers, token, round.slots.length);
   }
 }
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import BombIcon from "@/components/bomber/BombIcon";
 import BomberSlots from "@/components/bomber/BomberSlots";
+import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
 import OrnateTitle from "@/components/OrnateTitle";
 import { useTimer } from "@/hooks/useTimer";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -114,8 +115,10 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
 
       {/* 5つの回答枠 */}
       <section>
-        <OrnateTitle className="mb-1 sm:mb-2">答えを5つつなげ！</OrnateTitle>
-        <BomberSlots filled={round.slots} upcoming={round.upcoming} urgent={urgent} />
+        <OrnateTitle className="mb-1 sm:mb-2">
+          {round.target > 5 ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}つつなげ！`}
+        </OrnateTitle>
+        <BomberSlots filled={round.slots} upcoming={round.upcoming} target={round.target} urgent={urgent} />
       </section>
 
       {/* 回答エリア */}
@@ -182,6 +185,9 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
         </div>
       </section>
 
+      {/* 参加者（途中参加・途中で抜ける） */}
+      <BomberPlayersBar room={room} />
+
       {/* 残り5秒: 画面の縁が赤く脈打つ */}
       {urgent && !round.waiting && (
         <div aria-hidden className="danger-vignette pointer-events-none fixed inset-0 z-20" />
@@ -207,6 +213,9 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
             ) : (
               <p className="text-sm text-muted">タイマーは全員の画面で停止しています。</p>
             )}
+            <p className="text-xs text-muted mt-4">
+              タブを閉じたり通信が切れたりした場合は、15秒ほどで自動的に次の人へ回ります。
+            </p>
           </div>
         </div>
       )}
