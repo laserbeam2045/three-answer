@@ -4,64 +4,56 @@
   "description": "ちょっとした予想や推理も楽しめる10問。",
   "questions": [
     {
-      "q": "日本を8つに分けた「八地方区分」の地方を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "地方",
-        "ちほう"
-      ],
+      "q": "60の約数（60を割り切れる正の整数）を答えてください。",
+      "slots": 10,
       "answers": [
         {
-          "display": "北海道",
-          "accept": [
-            "ほっかいどう"
-          ]
+          "display": "1",
+          "accept": []
         },
         {
-          "display": "東北",
-          "accept": [
-            "とうほく"
-          ]
+          "display": "2",
+          "accept": []
         },
         {
-          "display": "関東",
-          "accept": [
-            "かんとう"
-          ]
+          "display": "3",
+          "accept": []
         },
         {
-          "display": "中部",
-          "accept": [
-            "ちゅうぶ"
-          ]
+          "display": "4",
+          "accept": []
         },
         {
-          "display": "近畿",
-          "accept": [
-            "きんき",
-            "関西",
-            "かんさい"
-          ]
+          "display": "5",
+          "accept": []
         },
         {
-          "display": "中国",
-          "accept": [
-            "ちゅうごく"
-          ]
+          "display": "6",
+          "accept": []
         },
         {
-          "display": "四国",
-          "accept": [
-            "しこく"
-          ]
+          "display": "10",
+          "accept": []
         },
         {
-          "display": "九州",
-          "accept": [
-            "きゅうしゅう",
-            "九州・沖縄",
-            "九州沖縄"
-          ]
+          "display": "12",
+          "accept": []
+        },
+        {
+          "display": "15",
+          "accept": []
+        },
+        {
+          "display": "20",
+          "accept": []
+        },
+        {
+          "display": "30",
+          "accept": []
+        },
+        {
+          "display": "60",
+          "accept": []
         }
       ]
     },
@@ -140,47 +132,73 @@
       ]
     },
     {
-      "q": "読みがひらがな2文字の都道府県を答えてください（「〜県」は数えません）。",
-      "slots": 6,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "十二支に登場する動物のうち、哺乳類を答えてください。",
+      "slots": 8,
       "answers": [
         {
-          "display": "千葉",
+          "display": "ねずみ",
           "accept": [
-            "ちば"
+            "鼠",
+            "子",
+            "ね"
           ]
         },
         {
-          "display": "岐阜",
+          "display": "うし",
           "accept": [
-            "ぎふ"
+            "牛",
+            "丑"
           ]
         },
         {
-          "display": "三重",
+          "display": "とら",
           "accept": [
-            "みえ"
+            "虎",
+            "寅"
           ]
         },
         {
-          "display": "滋賀",
+          "display": "うさぎ",
           "accept": [
-            "しが"
+            "兎",
+            "卯",
+            "う"
           ]
         },
         {
-          "display": "奈良",
+          "display": "うま",
           "accept": [
-            "なら"
+            "馬",
+            "午"
           ]
         },
         {
-          "display": "佐賀",
+          "display": "ひつじ",
           "accept": [
-            "さが"
+            "羊",
+            "未"
+          ]
+        },
+        {
+          "display": "さる",
+          "accept": [
+            "猿",
+            "申"
+          ]
+        },
+        {
+          "display": "いぬ",
+          "accept": [
+            "犬",
+            "戌"
+          ]
+        },
+        {
+          "display": "いのしし",
+          "accept": [
+            "猪",
+            "亥",
+            "い"
           ]
         }
       ]
@@ -419,134 +437,70 @@
       ]
     },
     {
-      "q": "面積が小さい上位10の都道府県を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "都",
-        "と",
-        "府",
-        "ふ",
-        "県",
-        "けん"
-      ],
+      "q": "トランプで、2〜10以外のカードの呼び名を答えてください（ジョーカーも数えます）。",
+      "slots": 5,
       "answers": [
         {
-          "display": "香川",
+          "display": "エース",
           "accept": [
-            "かがわ"
+            "A"
           ]
         },
         {
-          "display": "大阪",
+          "display": "ジャック",
           "accept": [
-            "おおさか"
+            "J"
           ]
         },
         {
-          "display": "東京",
+          "display": "クイーン",
           "accept": [
-            "とうきょう"
+            "Q",
+            "クィーン"
           ]
         },
         {
-          "display": "沖縄",
+          "display": "キング",
           "accept": [
-            "おきなわ"
+            "K"
           ]
         },
         {
-          "display": "神奈川",
-          "accept": [
-            "かながわ"
-          ]
-        },
-        {
-          "display": "佐賀",
-          "accept": [
-            "さが"
-          ]
-        },
-        {
-          "display": "鳥取",
-          "accept": [
-            "とっとり"
-          ]
-        },
-        {
-          "display": "奈良",
-          "accept": [
-            "なら"
-          ]
-        },
-        {
-          "display": "滋賀",
-          "accept": [
-            "しが"
-          ]
-        },
-        {
-          "display": "福井",
-          "accept": [
-            "ふくい"
-          ]
+          "display": "ジョーカー",
+          "accept": []
         }
       ]
     },
     {
-      "q": "海に面していない8つの県を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "オーケストラで使われる弦楽器を答えてください。",
+      "slots": 5,
       "answers": [
         {
-          "display": "栃木",
+          "display": "バイオリン",
           "accept": [
-            "とちぎ"
+            "ヴァイオリン"
           ]
         },
         {
-          "display": "群馬",
+          "display": "ビオラ",
           "accept": [
-            "ぐんま"
+            "ヴィオラ"
           ]
         },
         {
-          "display": "埼玉",
+          "display": "チェロ",
+          "accept": []
+        },
+        {
+          "display": "コントラバス",
           "accept": [
-            "さいたま"
+            "ダブルベース",
+            "ウッドベース"
           ]
         },
         {
-          "display": "山梨",
-          "accept": [
-            "やまなし"
-          ]
-        },
-        {
-          "display": "長野",
-          "accept": [
-            "ながの"
-          ]
-        },
-        {
-          "display": "岐阜",
-          "accept": [
-            "ぎふ"
-          ]
-        },
-        {
-          "display": "滋賀",
-          "accept": [
-            "しが"
-          ]
-        },
-        {
-          "display": "奈良",
-          "accept": [
-            "なら"
-          ]
+          "display": "ハープ",
+          "accept": []
         }
       ]
     },

@@ -1,0 +1,722 @@
+{
+  "id": "bomber6",
+  "title": "ともしび",
+  "description": "ひとひねりした問題もまじる10問。",
+  "questions": [
+    {
+      "q": "脊椎動物を大きく5つに分けたときの分類を答えてください（〇〇類）。",
+      "slots": 5,
+      "suffixes": [
+        "類",
+        "るい"
+      ],
+      "answers": [
+        {
+          "display": "魚類",
+          "accept": [
+            "魚",
+            "さかな",
+            "ぎょ"
+          ]
+        },
+        {
+          "display": "両生類",
+          "accept": [
+            "両生",
+            "りょうせい"
+          ]
+        },
+        {
+          "display": "爬虫類",
+          "accept": [
+            "爬虫",
+            "はちゅう"
+          ]
+        },
+        {
+          "display": "鳥類",
+          "accept": [
+            "鳥",
+            "ちょう"
+          ]
+        },
+        {
+          "display": "哺乳類",
+          "accept": [
+            "哺乳",
+            "ほにゅう"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "名前に「臓」という漢字が付く、人間の体の臓器を答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "心臓",
+          "accept": [
+            "しんぞう"
+          ]
+        },
+        {
+          "display": "肝臓",
+          "accept": [
+            "かんぞう"
+          ]
+        },
+        {
+          "display": "腎臓",
+          "accept": [
+            "じんぞう"
+          ]
+        },
+        {
+          "display": "膵臓",
+          "accept": [
+            "すいぞう",
+            "すい臓"
+          ]
+        },
+        {
+          "display": "脾臓",
+          "accept": [
+            "ひぞう",
+            "ひ臓"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "1以上100以下の「平方数」（1×1、2×2 のように同じ整数を2回かけた数）を答えてください。",
+      "slots": 10,
+      "answers": [
+        {
+          "display": "1",
+          "accept": []
+        },
+        {
+          "display": "4",
+          "accept": []
+        },
+        {
+          "display": "9",
+          "accept": []
+        },
+        {
+          "display": "16",
+          "accept": []
+        },
+        {
+          "display": "25",
+          "accept": []
+        },
+        {
+          "display": "36",
+          "accept": []
+        },
+        {
+          "display": "49",
+          "accept": []
+        },
+        {
+          "display": "64",
+          "accept": []
+        },
+        {
+          "display": "81",
+          "accept": []
+        },
+        {
+          "display": "100",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "公式の「ディズニープリンセス」に選ばれているキャラクターを答えてください（エルサとアナは含まれません）。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "白雪姫",
+          "accept": [
+            "しらゆきひめ",
+            "スノーホワイト"
+          ]
+        },
+        {
+          "display": "シンデレラ",
+          "accept": []
+        },
+        {
+          "display": "オーロラ姫",
+          "accept": [
+            "オーロラ",
+            "眠れる森の美女"
+          ]
+        },
+        {
+          "display": "アリエル",
+          "accept": []
+        },
+        {
+          "display": "ベル",
+          "accept": []
+        },
+        {
+          "display": "ジャスミン",
+          "accept": []
+        },
+        {
+          "display": "ポカホンタス",
+          "accept": []
+        },
+        {
+          "display": "ムーラン",
+          "accept": []
+        },
+        {
+          "display": "ティアナ",
+          "accept": []
+        },
+        {
+          "display": "ラプンツェル",
+          "accept": []
+        },
+        {
+          "display": "メリダ",
+          "accept": []
+        },
+        {
+          "display": "モアナ",
+          "accept": []
+        },
+        {
+          "display": "ラーヤ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "読みが「ま」で終わる都道府県を答えてください（「〜県」の部分は数えません）。",
+      "slots": 8,
+      "suffixes": [
+        "県",
+        "けん"
+      ],
+      "answers": [
+        {
+          "display": "群馬",
+          "accept": [
+            "ぐんま"
+          ]
+        },
+        {
+          "display": "富山",
+          "accept": [
+            "とやま"
+          ]
+        },
+        {
+          "display": "和歌山",
+          "accept": [
+            "わかやま"
+          ]
+        },
+        {
+          "display": "岡山",
+          "accept": [
+            "おかやま"
+          ]
+        },
+        {
+          "display": "広島",
+          "accept": [
+            "ひろしま"
+          ]
+        },
+        {
+          "display": "徳島",
+          "accept": [
+            "とくしま"
+          ]
+        },
+        {
+          "display": "鹿児島",
+          "accept": [
+            "かごしま"
+          ]
+        },
+        {
+          "display": "福島",
+          "accept": [
+            "ふくしま"
+          ]
+        },
+        {
+          "display": "埼玉",
+          "accept": [
+            "さいたま"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "2を何回かかけてできる数（2、4、8 …）のうち、1000以下のものを答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "2",
+          "accept": []
+        },
+        {
+          "display": "4",
+          "accept": []
+        },
+        {
+          "display": "8",
+          "accept": []
+        },
+        {
+          "display": "16",
+          "accept": []
+        },
+        {
+          "display": "32",
+          "accept": []
+        },
+        {
+          "display": "64",
+          "accept": []
+        },
+        {
+          "display": "128",
+          "accept": []
+        },
+        {
+          "display": "256",
+          "accept": []
+        },
+        {
+          "display": "512",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "スタジオジブリの長編アニメーション映画のうち、タイトルに「の」が入っている作品を答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "風の谷のナウシカ",
+          "accept": [
+            "ナウシカ"
+          ]
+        },
+        {
+          "display": "天空の城ラピュタ",
+          "accept": [
+            "ラピュタ"
+          ]
+        },
+        {
+          "display": "となりのトトロ",
+          "accept": [
+            "トトロ"
+          ]
+        },
+        {
+          "display": "火垂るの墓",
+          "accept": [
+            "ほたるのはか"
+          ]
+        },
+        {
+          "display": "魔女の宅急便",
+          "accept": [
+            "まじょのたっきゅうびん",
+            "魔女宅"
+          ]
+        },
+        {
+          "display": "紅の豚",
+          "accept": [
+            "くれないのぶた"
+          ]
+        },
+        {
+          "display": "もののけ姫",
+          "accept": [
+            "もののけひめ"
+          ]
+        },
+        {
+          "display": "ホーホケキョ となりの山田くん",
+          "accept": [
+            "となりの山田くん",
+            "ホーホケキョとなりの山田くん"
+          ]
+        },
+        {
+          "display": "千と千尋の神隠し",
+          "accept": [
+            "千と千尋",
+            "せんとちひろのかみかくし"
+          ]
+        },
+        {
+          "display": "猫の恩返し",
+          "accept": [
+            "ねこのおんがえし"
+          ]
+        },
+        {
+          "display": "ハウルの動く城",
+          "accept": [
+            "ハウル"
+          ]
+        },
+        {
+          "display": "崖の上のポニョ",
+          "accept": [
+            "ポニョ"
+          ]
+        },
+        {
+          "display": "借りぐらしのアリエッティ",
+          "accept": [
+            "アリエッティ"
+          ]
+        },
+        {
+          "display": "かぐや姫の物語",
+          "accept": [
+            "かぐやひめのものがたり"
+          ]
+        },
+        {
+          "display": "思い出のマーニー",
+          "accept": [
+            "マーニー"
+          ]
+        },
+        {
+          "display": "レッドタートル ある島の物語",
+          "accept": [
+            "レッドタートル"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "日本語の国名が「ア」で終わるヨーロッパの国を答えてください（ギリシャ＝ギリシアも可）。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "イタリア",
+          "accept": []
+        },
+        {
+          "display": "オーストリア",
+          "accept": []
+        },
+        {
+          "display": "ロシア",
+          "accept": [
+            "ロシア連邦"
+          ]
+        },
+        {
+          "display": "ギリシャ",
+          "accept": [
+            "ギリシア"
+          ]
+        },
+        {
+          "display": "クロアチア",
+          "accept": []
+        },
+        {
+          "display": "セルビア",
+          "accept": []
+        },
+        {
+          "display": "スロバキア",
+          "accept": [
+            "スロヴァキア"
+          ]
+        },
+        {
+          "display": "スロベニア",
+          "accept": [
+            "スロヴェニア"
+          ]
+        },
+        {
+          "display": "ルーマニア",
+          "accept": []
+        },
+        {
+          "display": "ブルガリア",
+          "accept": []
+        },
+        {
+          "display": "アルバニア",
+          "accept": []
+        },
+        {
+          "display": "エストニア",
+          "accept": []
+        },
+        {
+          "display": "ラトビア",
+          "accept": [
+            "ラトヴィア"
+          ]
+        },
+        {
+          "display": "リトアニア",
+          "accept": []
+        },
+        {
+          "display": "北マケドニア",
+          "accept": [
+            "マケドニア"
+          ]
+        },
+        {
+          "display": "ジョージア",
+          "accept": [
+            "グルジア"
+          ]
+        },
+        {
+          "display": "アルメニア",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "日本で栽培されているお米（うるち米）の品種を答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "コシヒカリ",
+          "accept": []
+        },
+        {
+          "display": "ひとめぼれ",
+          "accept": []
+        },
+        {
+          "display": "ヒノヒカリ",
+          "accept": []
+        },
+        {
+          "display": "あきたこまち",
+          "accept": []
+        },
+        {
+          "display": "ななつぼし",
+          "accept": []
+        },
+        {
+          "display": "はえぬき",
+          "accept": []
+        },
+        {
+          "display": "まっしぐら",
+          "accept": []
+        },
+        {
+          "display": "キヌヒカリ",
+          "accept": []
+        },
+        {
+          "display": "きぬむすめ",
+          "accept": []
+        },
+        {
+          "display": "ゆめぴりか",
+          "accept": []
+        },
+        {
+          "display": "つや姫",
+          "accept": [
+            "つやひめ"
+          ]
+        },
+        {
+          "display": "にこまる",
+          "accept": []
+        },
+        {
+          "display": "あさひの夢",
+          "accept": [
+            "あさひのゆめ"
+          ]
+        },
+        {
+          "display": "こしいぶき",
+          "accept": []
+        },
+        {
+          "display": "夢つくし",
+          "accept": [
+            "ゆめつくし"
+          ]
+        },
+        {
+          "display": "森のくまさん",
+          "accept": [
+            "もりのくまさん"
+          ]
+        },
+        {
+          "display": "ミルキークイーン",
+          "accept": []
+        },
+        {
+          "display": "青天の霹靂",
+          "accept": [
+            "せいてんのへきれき"
+          ]
+        },
+        {
+          "display": "新之助",
+          "accept": [
+            "しんのすけ"
+          ]
+        },
+        {
+          "display": "銀河のしずく",
+          "accept": [
+            "ぎんがのしずく"
+          ]
+        },
+        {
+          "display": "だて正夢",
+          "accept": [
+            "だてまさゆめ"
+          ]
+        },
+        {
+          "display": "いちほまれ",
+          "accept": []
+        },
+        {
+          "display": "富富富",
+          "accept": [
+            "ふふふ"
+          ]
+        },
+        {
+          "display": "さがびより",
+          "accept": []
+        },
+        {
+          "display": "ササニシキ",
+          "accept": []
+        },
+        {
+          "display": "元気つくし",
+          "accept": [
+            "げんきつくし"
+          ]
+        },
+        {
+          "display": "雪若丸",
+          "accept": [
+            "ゆきわかまる"
+          ]
+        },
+        {
+          "display": "きらら397",
+          "accept": [
+            "きらら"
+          ]
+        },
+        {
+          "display": "ふっくりんこ",
+          "accept": []
+        },
+        {
+          "display": "おぼろづき",
+          "accept": []
+        },
+        {
+          "display": "ゆめしずく",
+          "accept": []
+        },
+        {
+          "display": "ハツシモ",
+          "accept": []
+        },
+        {
+          "display": "彩のかがやき",
+          "accept": [
+            "さいのかがやき"
+          ]
+        },
+        {
+          "display": "縁結び",
+          "accept": [
+            "えんむすび"
+          ]
+        },
+        {
+          "display": "金色の風",
+          "accept": [
+            "こんじきのかぜ"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "50より大きく100より小さい素数を答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "53",
+          "accept": []
+        },
+        {
+          "display": "59",
+          "accept": []
+        },
+        {
+          "display": "61",
+          "accept": []
+        },
+        {
+          "display": "67",
+          "accept": []
+        },
+        {
+          "display": "71",
+          "accept": []
+        },
+        {
+          "display": "73",
+          "accept": []
+        },
+        {
+          "display": "79",
+          "accept": []
+        },
+        {
+          "display": "83",
+          "accept": []
+        },
+        {
+          "display": "89",
+          "accept": []
+        },
+        {
+          "display": "97",
+          "accept": []
+        }
+      ]
+    }
+  ]
+}

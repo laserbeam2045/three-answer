@@ -507,70 +507,48 @@
       ]
     },
     {
-      "q": "2020年の国勢調査で、人口が多い上位10の市を答えてください（東京23区は除きます）。",
+      "q": "1以上1000以下の「立方数」（1×1×1、2×2×2 のように同じ整数を3回かけた数）を答えてください。",
       "slots": 8,
-      "suffixes": [
-        "市",
-        "し"
-      ],
       "answers": [
         {
-          "display": "横浜",
-          "accept": [
-            "よこはま"
-          ]
-        },
-        {
-          "display": "大阪",
-          "accept": [
-            "おおさか"
-          ]
-        },
-        {
-          "display": "名古屋",
-          "accept": [
-            "なごや"
-          ]
-        },
-        {
-          "display": "札幌",
-          "accept": [
-            "さっぽろ"
-          ]
-        },
-        {
-          "display": "福岡",
-          "accept": [
-            "ふくおか"
-          ]
-        },
-        {
-          "display": "川崎",
-          "accept": [
-            "かわさき"
-          ]
-        },
-        {
-          "display": "神戸",
-          "accept": [
-            "こうべ"
-          ]
-        },
-        {
-          "display": "京都",
-          "accept": [
-            "きょうと"
-          ]
-        },
-        {
-          "display": "さいたま",
+          "display": "1",
           "accept": []
         },
         {
-          "display": "広島",
-          "accept": [
-            "ひろしま"
-          ]
+          "display": "8",
+          "accept": []
+        },
+        {
+          "display": "27",
+          "accept": []
+        },
+        {
+          "display": "64",
+          "accept": []
+        },
+        {
+          "display": "125",
+          "accept": []
+        },
+        {
+          "display": "216",
+          "accept": []
+        },
+        {
+          "display": "343",
+          "accept": []
+        },
+        {
+          "display": "512",
+          "accept": []
+        },
+        {
+          "display": "729",
+          "accept": []
+        },
+        {
+          "display": "1000",
+          "accept": []
         }
       ]
     },
@@ -641,72 +619,44 @@
       ]
     },
     {
-      "q": "2020年の国勢調査で、人口が少ない下位10の都道府県を答えてください。",
+      "q": "初代ポケモン（赤・緑）の「御三家」と、その進化形を答えてください。",
       "slots": 8,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
       "answers": [
         {
-          "display": "鳥取",
-          "accept": [
-            "とっとり"
-          ]
+          "display": "フシギダネ",
+          "accept": []
         },
         {
-          "display": "島根",
-          "accept": [
-            "しまね"
-          ]
+          "display": "フシギソウ",
+          "accept": []
         },
         {
-          "display": "高知",
-          "accept": [
-            "こうち"
-          ]
+          "display": "フシギバナ",
+          "accept": []
         },
         {
-          "display": "徳島",
-          "accept": [
-            "とくしま"
-          ]
+          "display": "ヒトカゲ",
+          "accept": []
         },
         {
-          "display": "福井",
-          "accept": [
-            "ふくい"
-          ]
+          "display": "リザード",
+          "accept": []
         },
         {
-          "display": "山梨",
-          "accept": [
-            "やまなし"
-          ]
+          "display": "リザードン",
+          "accept": []
         },
         {
-          "display": "佐賀",
-          "accept": [
-            "さが"
-          ]
+          "display": "ゼニガメ",
+          "accept": []
         },
         {
-          "display": "和歌山",
-          "accept": [
-            "わかやま"
-          ]
+          "display": "カメール",
+          "accept": []
         },
         {
-          "display": "香川",
-          "accept": [
-            "かがわ"
-          ]
-        },
-        {
-          "display": "秋田",
-          "accept": [
-            "あきた"
-          ]
+          "display": "カメックス",
+          "accept": []
         }
       ]
     },
@@ -942,222 +892,42 @@
       ]
     },
     {
-      "q": "北海道にある「市」を答えてください。",
-      "slots": 10,
-      "suffixes": [
-        "市",
-        "し"
-      ],
+      "q": "ディズニープリンセスのうち、主役を務める映画の日本語タイトルに自分の名前が入っているプリンセスを答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "札幌",
+          "display": "白雪姫",
           "accept": [
-            "さっぽろ"
+            "しらゆきひめ"
           ]
         },
         {
-          "display": "函館",
-          "accept": [
-            "はこだて"
-          ]
+          "display": "シンデレラ",
+          "accept": []
         },
         {
-          "display": "小樽",
-          "accept": [
-            "おたる"
-          ]
+          "display": "ポカホンタス",
+          "accept": []
         },
         {
-          "display": "旭川",
-          "accept": [
-            "あさひかわ"
-          ]
+          "display": "ムーラン",
+          "accept": []
         },
         {
-          "display": "室蘭",
-          "accept": [
-            "むろらん"
-          ]
+          "display": "ラプンツェル",
+          "accept": []
         },
         {
-          "display": "釧路",
-          "accept": [
-            "くしろ"
-          ]
+          "display": "メリダ",
+          "accept": []
         },
         {
-          "display": "帯広",
-          "accept": [
-            "おびひろ"
-          ]
+          "display": "モアナ",
+          "accept": []
         },
         {
-          "display": "北見",
-          "accept": [
-            "きたみ"
-          ]
-        },
-        {
-          "display": "夕張",
-          "accept": [
-            "ゆうばり"
-          ]
-        },
-        {
-          "display": "岩見沢",
-          "accept": [
-            "いわみざわ"
-          ]
-        },
-        {
-          "display": "網走",
-          "accept": [
-            "あばしり"
-          ]
-        },
-        {
-          "display": "留萌",
-          "accept": [
-            "るもい"
-          ]
-        },
-        {
-          "display": "苫小牧",
-          "accept": [
-            "とまこまい"
-          ]
-        },
-        {
-          "display": "稚内",
-          "accept": [
-            "わっかない"
-          ]
-        },
-        {
-          "display": "美唄",
-          "accept": [
-            "びばい"
-          ]
-        },
-        {
-          "display": "芦別",
-          "accept": [
-            "あしべつ"
-          ]
-        },
-        {
-          "display": "江別",
-          "accept": [
-            "えべつ"
-          ]
-        },
-        {
-          "display": "赤平",
-          "accept": [
-            "あかびら"
-          ]
-        },
-        {
-          "display": "紋別",
-          "accept": [
-            "もんべつ"
-          ]
-        },
-        {
-          "display": "士別",
-          "accept": [
-            "しべつ"
-          ]
-        },
-        {
-          "display": "名寄",
-          "accept": [
-            "なよろ"
-          ]
-        },
-        {
-          "display": "三笠",
-          "accept": [
-            "みかさ"
-          ]
-        },
-        {
-          "display": "根室",
-          "accept": [
-            "ねむろ"
-          ]
-        },
-        {
-          "display": "千歳",
-          "accept": [
-            "ちとせ"
-          ]
-        },
-        {
-          "display": "滝川",
-          "accept": [
-            "たきかわ"
-          ]
-        },
-        {
-          "display": "砂川",
-          "accept": [
-            "すながわ"
-          ]
-        },
-        {
-          "display": "歌志内",
-          "accept": [
-            "うたしない"
-          ]
-        },
-        {
-          "display": "深川",
-          "accept": [
-            "ふかがわ"
-          ]
-        },
-        {
-          "display": "富良野",
-          "accept": [
-            "ふらの"
-          ]
-        },
-        {
-          "display": "登別",
-          "accept": [
-            "のぼりべつ"
-          ]
-        },
-        {
-          "display": "恵庭",
-          "accept": [
-            "えにわ"
-          ]
-        },
-        {
-          "display": "伊達",
-          "accept": [
-            "だて"
-          ]
-        },
-        {
-          "display": "北広島",
-          "accept": [
-            "きたひろしま"
-          ]
-        },
-        {
-          "display": "石狩",
-          "accept": [
-            "いしかり"
-          ]
-        },
-        {
-          "display": "北斗",
-          "accept": [
-            "ほくと"
-          ]
+          "display": "ラーヤ",
+          "accept": []
         }
       ]
     },

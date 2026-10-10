@@ -485,42 +485,36 @@
       ]
     },
     {
-      "q": "名前に「島」という漢字が入る都道府県を答えてください。",
-      "slots": 5,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "ローマ数字（Ⅰ・Ⅴ など）で使われる7種類の文字を、アルファベットで答えてください。",
+      "slots": 7,
       "answers": [
         {
-          "display": "福島",
-          "accept": [
-            "ふくしま"
-          ]
+          "display": "I",
+          "accept": []
         },
         {
-          "display": "島根",
-          "accept": [
-            "しまね"
-          ]
+          "display": "V",
+          "accept": []
         },
         {
-          "display": "広島",
-          "accept": [
-            "ひろしま"
-          ]
+          "display": "X",
+          "accept": []
         },
         {
-          "display": "徳島",
-          "accept": [
-            "とくしま"
-          ]
+          "display": "L",
+          "accept": []
         },
         {
-          "display": "鹿児島",
-          "accept": [
-            "かごしま"
-          ]
+          "display": "C",
+          "accept": []
+        },
+        {
+          "display": "D",
+          "accept": []
+        },
+        {
+          "display": "M",
+          "accept": []
         }
       ]
     },

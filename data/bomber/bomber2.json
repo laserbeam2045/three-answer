@@ -101,48 +101,58 @@
       ]
     },
     {
-      "q": "東北地方の6つの県を答えてください。",
+      "q": "『くまのプーさん』で、100エーカーの森に住む仲間たち（プー本人も含む）を答えてください。",
       "slots": 6,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
       "answers": [
         {
-          "display": "青森",
+          "display": "プー",
           "accept": [
-            "あおもり"
+            "くまのプーさん",
+            "プーさん",
+            "ウィニー・ザ・プー"
           ]
         },
         {
-          "display": "岩手",
+          "display": "ピグレット",
+          "accept": []
+        },
+        {
+          "display": "ティガー",
+          "accept": []
+        },
+        {
+          "display": "イーヨー",
+          "accept": []
+        },
+        {
+          "display": "ラビット",
+          "accept": []
+        },
+        {
+          "display": "オウル",
+          "accept": []
+        },
+        {
+          "display": "カンガ",
+          "accept": []
+        },
+        {
+          "display": "ルー",
+          "accept": []
+        },
+        {
+          "display": "クリストファー・ロビン",
           "accept": [
-            "いわて"
+            "クリストファーロビン"
           ]
         },
         {
-          "display": "宮城",
-          "accept": [
-            "みやぎ"
-          ]
+          "display": "ゴーファー",
+          "accept": []
         },
         {
-          "display": "秋田",
-          "accept": [
-            "あきた"
-          ]
-        },
-        {
-          "display": "山形",
-          "accept": [
-            "やまがた"
-          ]
-        },
-        {
-          "display": "福島",
-          "accept": [
-            "ふくしま"
-          ]
+          "display": "ランピー",
+          "accept": []
         }
       ]
     },
@@ -426,48 +436,44 @@
       ]
     },
     {
-      "q": "名前に「山」という漢字が入る都道府県を答えてください。",
-      "slots": 6,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "100以下の11の倍数を答えてください。",
+      "slots": 9,
       "answers": [
         {
-          "display": "山形",
-          "accept": [
-            "やまがた"
-          ]
+          "display": "11",
+          "accept": []
         },
         {
-          "display": "富山",
-          "accept": [
-            "とやま"
-          ]
+          "display": "22",
+          "accept": []
         },
         {
-          "display": "山梨",
-          "accept": [
-            "やまなし"
-          ]
+          "display": "33",
+          "accept": []
         },
         {
-          "display": "和歌山",
-          "accept": [
-            "わかやま"
-          ]
+          "display": "44",
+          "accept": []
         },
         {
-          "display": "岡山",
-          "accept": [
-            "おかやま"
-          ]
+          "display": "55",
+          "accept": []
         },
         {
-          "display": "山口",
-          "accept": [
-            "やまぐち"
-          ]
+          "display": "66",
+          "accept": []
+        },
+        {
+          "display": "77",
+          "accept": []
+        },
+        {
+          "display": "88",
+          "accept": []
+        },
+        {
+          "display": "99",
+          "accept": []
         }
       ]
     },
@@ -1086,149 +1092,48 @@
       ]
     },
     {
-      "q": "東京23区を答えてください。",
-      "slots": 12,
+      "q": "オリンピックのシンボル（五輪マーク）の、5つの輪の色を答えてください。",
+      "slots": 5,
       "suffixes": [
-        "区",
-        "く"
+        "色",
+        "いろ"
       ],
       "answers": [
         {
-          "display": "千代田",
+          "display": "青",
           "accept": [
-            "ちよだ"
+            "あお",
+            "ブルー"
           ]
         },
         {
-          "display": "中央",
+          "display": "黄",
           "accept": [
-            "ちゅうおう"
+            "き",
+            "黄色",
+            "きいろ",
+            "イエロー"
           ]
         },
         {
-          "display": "港",
+          "display": "黒",
           "accept": [
-            "みなと"
+            "くろ",
+            "ブラック"
           ]
         },
         {
-          "display": "新宿",
+          "display": "緑",
           "accept": [
-            "しんじゅく"
+            "みどり",
+            "グリーン"
           ]
         },
         {
-          "display": "文京",
+          "display": "赤",
           "accept": [
-            "ぶんきょう"
-          ]
-        },
-        {
-          "display": "台東",
-          "accept": [
-            "たいとう"
-          ]
-        },
-        {
-          "display": "墨田",
-          "accept": [
-            "すみだ"
-          ]
-        },
-        {
-          "display": "江東",
-          "accept": [
-            "こうとう"
-          ]
-        },
-        {
-          "display": "品川",
-          "accept": [
-            "しながわ"
-          ]
-        },
-        {
-          "display": "目黒",
-          "accept": [
-            "めぐろ"
-          ]
-        },
-        {
-          "display": "大田",
-          "accept": [
-            "おおた"
-          ]
-        },
-        {
-          "display": "世田谷",
-          "accept": [
-            "せたがや"
-          ]
-        },
-        {
-          "display": "渋谷",
-          "accept": [
-            "しぶや"
-          ]
-        },
-        {
-          "display": "中野",
-          "accept": [
-            "なかの"
-          ]
-        },
-        {
-          "display": "杉並",
-          "accept": [
-            "すぎなみ"
-          ]
-        },
-        {
-          "display": "豊島",
-          "accept": [
-            "としま"
-          ]
-        },
-        {
-          "display": "北",
-          "accept": [
-            "きた"
-          ]
-        },
-        {
-          "display": "荒川",
-          "accept": [
-            "あらかわ"
-          ]
-        },
-        {
-          "display": "板橋",
-          "accept": [
-            "いたばし"
-          ]
-        },
-        {
-          "display": "練馬",
-          "accept": [
-            "ねりま"
-          ]
-        },
-        {
-          "display": "足立",
-          "accept": [
-            "あだち"
-          ]
-        },
-        {
-          "display": "葛飾",
-          "accept": [
-            "かつしか"
-          ]
-        },
-        {
-          "display": "江戸川",
-          "accept": [
-            "えどがわ"
+            "あか",
+            "レッド"
           ]
         }
       ]
