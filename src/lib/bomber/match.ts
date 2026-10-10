@@ -4,7 +4,11 @@ import type { BomberQuestion } from "../types";
 export const BOMBER_POINTS = 10;
 /** 1問で埋める枠の数 */
 export const BOMBER_SLOTS = 5;
-export const BOMBER_MAX_PLAYERS = 8;
+/**
+ * 参加できる人数の上限。回答の順番は人数によらず回る（1問で答えるのは最大5人）。
+ * 全員が約0.5秒ごとにポーリングするため、Redis の通信量が人数に比例して増える点に注意。
+ */
+export const BOMBER_MAX_PLAYERS = 20;
 /**
  * 制限時間は「答え1つあたりの秒数 × その問題で答える数」で決める。
  * 文字入力は口頭より遅く、1つあたり PC で4〜9秒、スマホで6〜12秒ほどかかる見積もり。

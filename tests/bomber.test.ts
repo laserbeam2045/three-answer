@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { firstAnswerer } from "@/lib/bomber/engine";
-import { matchAnswer, normalizeAnswer } from "@/lib/bomber/match";
+import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer } from "@/lib/bomber/match";
 import { redact } from "@/lib/redact";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
 
@@ -295,11 +295,20 @@ describe("ファイブボンバーの進行", () => {
     expect(s.setId).toBeNull();
   });
 
-  it("参加は8人まで", () => {
+  it(`参加は${BOMBER_MAX_PLAYERS}人まで（9人以上も可）`, () => {
+    expect(BOMBER_MAX_PLAYERS).toBeGreaterThan(8);
     const s = createRoom("room1", HOST, "ホスト", 0);
     act(s, HOST, { type: "setMode", mode: "bomber" }, 0);
-    for (let i = 0; i < 8; i++) act(s, `p${i}`, { type: "bomberJoin" }, 0);
-    expect(() => act(s, "p8", { type: "bomberJoin" }, 0)).toThrow(EngineError);
+    for (let i = 0; i < BOMBER_MAX_PLAYERS; i++) act(s, `p${i}`, { type: "bomberJoin" }, 0);
+    expect(s.bomberPlayers).toHaveLength(BOMBER_MAX_PLAYERS);
+    expect(() => act(s, "extra", { type: "bomberJoin" }, 0)).toThrow(EngineError);
+  });
+
+  it("12人でも1問5人ずつ順に回り、4問目で先頭に戻る（全員に均等に回る）", () => {
+    const p = Array.from({ length: 12 }, (_, i) => `p${i}`);
+    expect([0, 1, 2, 3].map((q) => firstAnswerer(p, q))).toEqual(["p0", "p5", "p10", "p3"]);
+    const starts = new Set(Array.from({ length: 12 }, (_, q) => firstAnswerer(p, q)));
+    expect(starts.size).toBe(12);
   });
 
   it("モードを切り替えるとセット選択が外れ、スリーアンサー用の操作は使えない", () => {

@@ -25,7 +25,7 @@ export default function BomberPlayersPanel({ room }: { room: UseRoomResult }) {
               key={p.token}
               className={`slot ${p.isYou ? "slot-you" : ""} flex items-center gap-1.5 px-2 py-2 min-w-0`}
             >
-              <span className="font-display text-gold text-sm font-extrabold w-4 shrink-0 text-center">
+              <span className="font-display text-gold text-sm font-extrabold min-w-4 shrink-0 text-center tabular-nums">
                 {i + 1}
               </span>
               <span

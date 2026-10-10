@@ -7,7 +7,7 @@ import OrnateTitle from "@/components/OrnateTitle";
 import RulesContent from "@/components/RulesContent";
 import BomberPlayersPanel from "@/components/bomber/BomberPlayersPanel";
 import BomberRulesContent from "@/components/bomber/BomberRulesContent";
-import { BOMBER_SECONDS_PER_ANSWER_OPTIONS, BOMBER_SLOTS } from "@/lib/bomber/match";
+import { BOMBER_MAX_PLAYERS, BOMBER_SECONDS_PER_ANSWER_OPTIONS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { GameMode, Role } from "@/lib/types";
 
 const SEAT_STYLES: Record<Role, { color: string; text: string; btn: string }> = {
@@ -20,7 +20,7 @@ const SECONDS_OPTIONS = [30, 45, 60, 90];
 
 const MODES: { mode: GameMode; title: string; desc: string }[] = [
   { mode: "three", title: "Three Answer", desc: "3人でカードを合体させて答える協力クイズ" },
-  { mode: "bomber", title: "ファイブボンバー", desc: "1〜8人で答えを5つつなぐリレークイズ" },
+  { mode: "bomber", title: "ファイブボンバー", desc: `1〜${BOMBER_MAX_PLAYERS}人で答えを5つつなぐリレークイズ` },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
