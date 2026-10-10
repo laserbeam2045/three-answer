@@ -82,7 +82,7 @@ export function useRoom(roomId: string): UseRoomResult {
       case "setAnswerSeconds":
         return { ...s, settings: { ...s.settings, answerSeconds: action.seconds } };
       case "setBomberSeconds":
-        return { ...s, settings: { ...s.settings, bomberSeconds: action.seconds } };
+        return { ...s, settings: { ...s.settings, bomberSecondsPerAnswer: action.seconds } };
       case "setMode":
         return s.mode === action.mode ? s : { ...s, mode: action.mode, setId: null };
       default:

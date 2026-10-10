@@ -7,7 +7,7 @@ import OrnateTitle from "@/components/OrnateTitle";
 import RulesContent from "@/components/RulesContent";
 import BomberPlayersPanel from "@/components/bomber/BomberPlayersPanel";
 import BomberRulesContent from "@/components/bomber/BomberRulesContent";
-import { BOMBER_SECONDS_OPTIONS } from "@/lib/bomber/match";
+import { BOMBER_SECONDS_PER_ANSWER_OPTIONS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { GameMode, Role } from "@/lib/types";
 
 const SEAT_STYLES: Record<Role, { color: string; text: string; btn: string }> = {
@@ -106,8 +106,8 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
   const titleOf = (setId: string) =>
     [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
   const setMeta = isBomber ? state.bomber.setMeta : state.setMeta;
-  const secondsOptions = isBomber ? BOMBER_SECONDS_OPTIONS : SECONDS_OPTIONS;
-  const currentSeconds = isBomber ? state.settings.bomberSeconds : state.settings.answerSeconds;
+  const secondsOptions = isBomber ? BOMBER_SECONDS_PER_ANSWER_OPTIONS : SECONDS_OPTIONS;
+  const currentSeconds = isBomber ? state.settings.bomberSecondsPerAnswer : state.settings.answerSeconds;
 
   let youChipMarked = false;
 
@@ -349,7 +349,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
 
       {/* 6. 制限時間設定（ルーム作成者のみ操作可） */}
       <section className="ornate-2 p-3 sm:p-5">
-        <SectionTitle>{isBomber ? "制限時間（1問あたり・全員で）" : "解答時間（1問あたり）"}</SectionTitle>
+        <SectionTitle>{isBomber ? "制限時間（答え1つあたり）" : "解答時間（1問あたり）"}</SectionTitle>
         <HostOnlyNote show={!state.you.isHost} />
         <div className="flex justify-center">
         <div className="inline-flex rounded-lg border border-gold-3 overflow-hidden">
@@ -382,6 +382,12 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
           })}
         </div>
         </div>
+        {isBomber && (
+          <p className="text-xs text-muted text-center mt-2">
+            5つ答える問題は{currentSeconds * BOMBER_SLOTS}秒、折り返しで10個答える問題は
+            {currentSeconds * BOMBER_SLOTS * 2}秒になります
+          </p>
+        )}
       </section>
 
       {/* 7. 開始ボタン（ルーム作成者のみ） */}

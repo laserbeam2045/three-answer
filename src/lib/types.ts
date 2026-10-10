@@ -156,7 +156,8 @@ export interface RoomState {
   pausedRoles: Role[];
   answers: Record<Role, AnswerState>;
   results: QuestionResult[];
-  settings: { answerSeconds: number; bomberSeconds: number };
+  /** bomberSecondsPerAnswer: ファイブボンバーの答え1つあたりの秒数（制限時間 = これ × 答える数） */
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number };
   mode: GameMode;
   /** ファイブボンバーの参加者（参加順。回答はこの順に回る） */
   bomberPlayers: string[];
@@ -179,6 +180,7 @@ export type Action =
   | { type: "next" }
   | { type: "backToLobby" }
   | { type: "setMode"; mode: GameMode }
+  /** seconds: 答え1つあたりの秒数 */
   | { type: "setBomberSeconds"; seconds: number }
   | { type: "bomberJoin" }
   | { type: "bomberLeave" }
@@ -237,7 +239,7 @@ export interface RedactedState {
   allHands: Record<Role, string[]> | null; // resultsフェーズ or 観戦reveal時
   history: { result: QuestionResult; question: RevealedQuestion }[] | null; // resultsフェーズ
   score: number | null; // resultsフェーズ
-  settings: { answerSeconds: number; bomberSeconds: number };
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number };
   mode: GameMode;
   /** 現在のモードのセットの問題数 */
   questionCount: number;

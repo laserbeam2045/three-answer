@@ -346,6 +346,16 @@ describe("ファイブボンバーの redact", () => {
 // ---------- 折り返し（答えが15個以上の問題） ----------
 
 describe("折り返し", () => {
+  it("制限時間は「答え1つあたりの秒数 × 答える数」。秒数はホストが選べる", () => {
+    const { s } = startedRoom(["p1"]);
+    expect(s.timer!.totalMs - s.timer!.revealMs).toBe(8 * 5 * 1000);
+    const lobby = createRoom("r3", HOST, "ホスト", 0);
+    act(lobby, HOST, { type: "setMode", mode: "bomber" }, 0);
+    act(lobby, HOST, { type: "setBomberSeconds", seconds: 12 }, 0);
+    expect(lobby.settings.bomberSecondsPerAnswer).toBe(12);
+    expect(() => act(lobby, HOST, { type: "setBomberSeconds", seconds: 30 }, 0)).toThrow(EngineError);
+  });
+
   it("答えが15個以上なら10枠になり、5枠目の人が続けて答えてから逆順に戻る。制限時間は2倍", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
     expect(s.bomberRound!.target).toBe(10);

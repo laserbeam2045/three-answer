@@ -24,6 +24,7 @@ import {
   setBomberSeconds,
   type GetBomberSet,
 } from "./bomber/engine";
+import { BOMBER_DEFAULT_SECONDS_PER_ANSWER } from "./bomber/match";
 
 export { EngineError };
 
@@ -57,7 +58,7 @@ export function createRoom(
     pausedRoles: [],
     answers: freshAnswers(),
     results: [],
-    settings: { answerSeconds: 45, bomberSeconds: 30 },
+    settings: { answerSeconds: 45, bomberSecondsPerAnswer: BOMBER_DEFAULT_SECONDS_PER_ANSWER },
     mode: "three",
     bomberPlayers: [],
     bomberRound: null,
@@ -72,7 +73,8 @@ export function normalizeRoom(state: RoomState): void {
   state.bomberRound ??= null;
   state.bomberResults ??= [];
   if (state.bomberRound) state.bomberRound.target ??= 5;
-  state.settings.bomberSeconds ??= 30;
+  // 以前は「1問あたりの秒数」（bomberSeconds）だった。答え1つあたりに変えたので、無ければ既定値にする
+  state.settings.bomberSecondsPerAnswer ??= BOMBER_DEFAULT_SECONDS_PER_ANSWER;
 }
 
 export function roleOf(state: RoomState, token: string): Role | null {

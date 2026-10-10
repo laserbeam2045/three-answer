@@ -5,7 +5,12 @@ export const BOMBER_POINTS = 10;
 /** 1問で埋める枠の数 */
 export const BOMBER_SLOTS = 5;
 export const BOMBER_MAX_PLAYERS = 8;
-export const BOMBER_SECONDS_OPTIONS = [20, 30, 45, 60];
+/**
+ * 制限時間は「答え1つあたりの秒数 × その問題で答える数」で決める。
+ * 文字入力は口頭より遅く、1つあたり PC で4〜9秒、スマホで6〜12秒ほどかかる見積もり。
+ */
+export const BOMBER_SECONDS_PER_ANSWER_OPTIONS = [6, 8, 10, 12];
+export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
 
 /**
  * 答えがこの数以上ある問題は「折り返し」で10個答える（番組の「ハイパーボンバー」）。

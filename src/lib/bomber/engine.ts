@@ -5,7 +5,7 @@ import { effectiveElapsed, isExpired, newTimer, pauseTimer, resumeTimer } from "
 import {
   BOMBER_MAX_PLAYERS,
   BOMBER_POINTS,
-  BOMBER_SECONDS_OPTIONS,
+  BOMBER_SECONDS_PER_ANSWER_OPTIONS,
   BOMBER_SLOTS,
   matchAnswer,
   slotsFor,
@@ -60,8 +60,8 @@ function startRound(state: RoomState, set: BomberSet, now: number): void {
   const q = set.questions[state.qIndex];
   const target = slotsFor(q);
   state.phase = "question";
-  // 折り返しありの問題は答える数が倍なので、制限時間も倍にする
-  state.timer = newTimer(q.q, (state.settings.bomberSeconds * target) / BOMBER_SLOTS, now);
+  // 制限時間は「答え1つあたりの秒数 × 答える数」（折り返しありの問題は自然に倍になる）
+  state.timer = newTimer(q.q, state.settings.bomberSecondsPerAnswer * target, now);
   state.pausedRoles = [];
   state.bomberRound = {
     target,
@@ -324,6 +324,6 @@ export function setBomberSeconds(state: RoomState, token: string, seconds: numbe
   if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
   requireHost(state, token, "制限時間はルーム作成者のみ変更できます");
   const s = Math.round(seconds);
-  if (!BOMBER_SECONDS_OPTIONS.includes(s)) throw new EngineError("不正な秒数です");
-  state.settings.bomberSeconds = s;
+  if (!BOMBER_SECONDS_PER_ANSWER_OPTIONS.includes(s)) throw new EngineError("不正な秒数です");
+  state.settings.bomberSecondsPerAnswer = s;
 }
