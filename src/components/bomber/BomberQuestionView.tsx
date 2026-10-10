@@ -182,6 +182,11 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
         </div>
       </section>
 
+      {/* 残り5秒: 画面の縁が赤く脈打つ */}
+      {urgent && !round.waiting && (
+        <div aria-hidden className="danger-vignette pointer-events-none fixed inset-0 z-20" />
+      )}
+
       {/* 回答者の離席待ち */}
       {round.waiting && (
         <div className="fixed inset-0 z-40 bg-bg/85 backdrop-blur-sm flex items-center justify-center p-6">
