@@ -38,14 +38,14 @@ export default function BomberRulesContent() {
       </RuleSection>
       <RuleSection title="折り返し">
         <p>
-          答えが{BOMBER_TURNAROUND_MIN_ANSWERS}個以上ある問題は、5人目まで答えたら
-          <strong className="text-gold">5人目がもう一度答えて折り返し</strong>、5→4→3→2→1 の順にさらに5つ、合計10個を目指します。
-          制限時間は「答え1つあたりの秒数 × 答える数」なので、折り返しの問題は2倍になります。
+          答えが{BOMBER_TURNAROUND_MIN_ANSWERS}個以上ある問題や、全部言えそうな簡単な問題は、5人目まで答えたら
+          <strong className="text-gold">5人目がもう一度答えて折り返し</strong>、5→4→3… の順に続けます（最大10個。惑星なら8個すべて）。
+          制限時間は「答え1つあたりの秒数 × 答える数」なので、答える数が多いほど長くなります。
         </p>
       </RuleSection>
       <RuleSection title="爆弾と得点">
         <p>
-          {BOMBER_SLOTS}つ（折り返しありの問題は10個）正解すればクリア。時間内に揃わないと爆弾が爆発して、その問題は終わりです。
+          {BOMBER_SLOTS}つ（折り返しありの問題は画面に出る数）正解すればクリア。時間内に揃わないと爆弾が爆発して、その問題は終わりです。
           1つ正解するごとに{BOMBER_POINTS}点。全10問の合計点を目指します。
         </p>
       </RuleSection>

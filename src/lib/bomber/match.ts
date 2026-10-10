@@ -19,9 +19,17 @@ export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
  */
 export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
 
-/** その問題で埋める枠の数（5 か、折り返しありの 10） */
+/** 1問で答える数の上限（折り返して5人目→1人目まで戻る） */
+export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 2;
+
+/**
+ * その問題で埋める枠の数（5〜10。6以上なら折り返しあり）。
+ * 問題データの slots があればそれ（簡単な問題は全部答えさせる）、
+ * なければ答えが15個以上なら10、それ以外は5。
+ */
 export function slotsFor(question: BomberQuestion): number {
-  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
+  if (question.slots) return question.slots;
+  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_MAX_SLOTS : BOMBER_SLOTS;
 }
 
 /**

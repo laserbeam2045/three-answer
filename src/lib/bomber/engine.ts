@@ -14,6 +14,9 @@ import {
 
 export type GetBomberSet = (id: string) => BomberSet | undefined;
 
+/** 1問で記録する誤答の上限 */
+const MAX_MISSES = 40;
+
 /** 1問ぶんの得点 */
 export function roundPoints(slotCount: number): number {
   return slotCount * BOMBER_POINTS;
@@ -69,6 +72,7 @@ function startRound(state: RoomState, set: BomberSet, now: number): void {
     slots: [],
     lastMiss: null,
     missCount: 0,
+    misses: [],
   };
 }
 
@@ -81,6 +85,7 @@ function finishRound(state: RoomState, cleared: boolean): void {
       target: round?.target ?? BOMBER_SLOTS,
       cleared,
       slots: round?.slots ?? [],
+      misses: round?.misses ?? [],
       ...(cleared || !round ? {} : { heldBy: round.turnToken }),
     },
   ];
@@ -233,6 +238,8 @@ export function bomberAnswer(
       reason: alreadyGiven ? "dup" : "wrong",
       seq: round.missCount,
     };
+    // 誤答の一覧（全員に見せる）。連打で状態が膨らまないよう上限を設ける
+    round.misses = [...round.misses, round.lastMiss].slice(-MAX_MISSES);
     return;
   }
 

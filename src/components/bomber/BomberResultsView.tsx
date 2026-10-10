@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
+import BomberMissList from "@/components/bomber/BomberMissList";
 import Confetti from "@/components/Confetti";
 import OrnateTitle from "@/components/OrnateTitle";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -112,6 +113,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                         )}
                       </ol>
                       <BomberAnswerList answers={h.answers} />
+                      {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
                     </div>
                   )}
                 </div>

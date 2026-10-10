@@ -44,6 +44,11 @@ export interface BomberQuestion {
   suffixes?: string[];
   /** 各正解の前に付けても正解とする語（例: ["徳川", "とくがわ"]） */
   prefixes?: string[];
+  /**
+   * この問題で答える数（5〜10、正解の数以下）。6以上なら5枠目から折り返す。
+   * 省略時は、答えが15個以上なら10、それ以外は5。簡単な問題は全部答えさせる（例: 惑星なら8）。
+   */
+  slots?: number;
 }
 
 export interface BomberSet {
@@ -94,6 +99,8 @@ export interface BomberRoundState {
   lastMiss: BomberMiss | null;
   /** この問題での誤答の回数（BomberMiss.seq の採番用） */
   missCount: number;
+  /** この問題で出た誤答（不正解・既出）すべて。全員に見せる */
+  misses: BomberMiss[];
 }
 
 export interface BomberRoundResult {
@@ -104,6 +111,8 @@ export interface BomberRoundResult {
   slots: BomberSlot[];
   /** 爆発したときに爆弾を持っていた人 */
   heldBy?: string;
+  /** この問題で出た誤答（記録の追加前の結果には無い） */
+  misses?: BomberMiss[];
 }
 
 export type Phase = "lobby" | "question" | "judging" | "results";
@@ -264,6 +273,14 @@ export interface BomberSlotView {
   aiInput: string | null;
 }
 
+export interface BomberMissView {
+  name: string;
+  isYou: boolean;
+  text: string;
+  reason: "wrong" | "dup";
+  seq: number;
+}
+
 export interface BomberRevealedAnswer {
   display: string;
   /** この問題で誰かが答えていれば、その人の名前 */
@@ -285,6 +302,8 @@ export interface BomberView {
     turnName: string;
     isYourTurn: boolean;
     lastMiss: { name: string; text: string; reason: "wrong" | "dup"; seq: number } | null;
+    /** この問題で出た誤答すべて（古い順） */
+    misses: BomberMissView[];
     /** 回答者の離席で止まっている */
     waiting: boolean;
   } | null;
@@ -297,6 +316,7 @@ export interface BomberView {
     heldBy: string | null;
     slots: BomberSlotView[];
     answers: BomberRevealedAnswer[];
+    misses: BomberMissView[];
     points: number;
   } | null;
   /** resultsフェーズのみ */
@@ -308,6 +328,7 @@ export interface BomberView {
         heldBy: string | null;
         slots: BomberSlotView[];
         answers: BomberRevealedAnswer[];
+        misses: BomberMissView[];
         points: number;
       }[]
     | null;

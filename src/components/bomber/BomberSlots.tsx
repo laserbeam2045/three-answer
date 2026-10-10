@@ -3,14 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import BombIcon from "@/components/bomber/BombIcon";
-import { BOMBER_POINTS, BOMBER_SLOTS } from "@/lib/bomber/match";
+import { BOMBER_MAX_SLOTS, BOMBER_POINTS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { BomberSlotView } from "@/lib/types";
 
 /**
  * 回答枠。埋まった枠は正解の表記、未回答の枠は答える予定の人の名前を出す。
  * 回答中の枠の上には爆弾が乗る。
- * 折り返しありの問題（10枠）は2段にし、2段目を右から左へ並べる
+ * 折り返しありの問題（6〜10枠）は2段にし、2段目を右から左へ並べる
  * （1段目の5枠目の真下が6枠目＝同じ人が続けて答える。同じ列は同じ人）。
+ * 2段目の枠が5つに満たないときは、左側を空ける。
  */
 export default function BomberSlots({
   filled,
@@ -61,7 +62,8 @@ export default function BomberSlots({
   }, [filled.length, live]);
 
   const first = Array.from({ length: BOMBER_SLOTS }, (_, i) => i);
-  const rows = target > BOMBER_SLOTS ? [first, first.map((i) => target - 1 - i)] : [first];
+  // 2段目の列 c には 10-c 枠目（0始まりで 9-c）。target を超える枠は空き
+  const rows = target > BOMBER_SLOTS ? [first, first.map((c) => BOMBER_MAX_SLOTS - 1 - c)] : [first];
   const compact = rows.length > 1;
 
   return (
@@ -75,6 +77,7 @@ export default function BomberSlots({
           )}
           <div className="grid grid-cols-5 gap-1 sm:gap-3 w-full">
             {row.map((i) => {
+              if (i >= target) return <div key={i} aria-hidden />;
               const slot = filled[i];
               const isCurrent = !slot && i === filled.length;
               const pendingName = upcoming[i - filled.length];

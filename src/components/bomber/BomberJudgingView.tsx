@@ -3,6 +3,7 @@
 import { useEffect, useState, type MouseEvent } from "react";
 import BomberSlots from "@/components/bomber/BomberSlots";
 import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
+import BomberMissList from "@/components/bomber/BomberMissList";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
 import BombExplosion from "@/components/bomber/BombExplosion";
 import ClearFireworks from "@/components/bomber/ClearFireworks";
@@ -107,6 +108,12 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
               正解はこれだけありました（全{judged.answers.length}個）
             </OrnateTitle>
             <BomberAnswerList answers={judged.answers} />
+            {judged.misses.length > 0 && (
+              <>
+                <p className="text-center text-xs text-muted mt-4 mb-1.5">出た誤答（{judged.misses.length}）</p>
+                <BomberMissList misses={judged.misses} />
+              </>
+            )}
           </section>
         )}
 

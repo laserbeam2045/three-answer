@@ -32,7 +32,15 @@ const MANY: BomberQuestion = {
   answers: Array.from({ length: 15 }, (_, i) => ({ display: `n${i + 1}` })),
 };
 const bturn: BomberSet = { id: "bturn", title: "折り返し", description: "テスト用", questions: [MANY] };
-const getBomberSet = (id: string) => (id === "btest" ? bset : id === "bturn" ? bturn : undefined);
+/** 答えが8個で、全部答えさせる（slots: 8）簡単な問題 */
+const EASY: BomberQuestion = {
+  q: "惑星は？",
+  slots: 8,
+  answers: Array.from({ length: 8 }, (_, i) => ({ display: `p${i + 1}` })),
+};
+const beasy: BomberSet = { id: "beasy", title: "全部", description: "テスト用", questions: [EASY] };
+const getBomberSet = (id: string) =>
+  id === "btest" ? bset : id === "bturn" ? bturn : id === "beasy" ? beasy : undefined;
 const getSet = (_id: string): QuestionSet | undefined => undefined;
 const allSets = () => [] as QuestionSet[];
 
@@ -398,5 +406,41 @@ describe("折り返し", () => {
     expect(s.bomberRound!.turnToken).toBe("p4");
     act(s, HOST, { type: "bomberKick", token: "p4" }, answerAt);
     expect(s.bomberRound!.turnToken).toBe("p3");
+  });
+});
+
+describe("簡単な問題は全部答える（slots 指定）", () => {
+  it("slots: 8 なら 1→5→5→3 の8枠、制限時間も8つぶん", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "beasy");
+    expect(s.bomberRound!.target).toBe(8);
+    expect(s.timer!.totalMs - s.timer!.revealMs).toBe(8 * 8 * 1000);
+    const order: string[] = [];
+    for (let k = 0; k < 8; k++) {
+      const who = s.bomberRound!.turnToken;
+      order.push(who);
+      act(s, who, { type: "bomberAnswer", text: `p${k + 1}` }, answerAt);
+    }
+    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3"]);
+    expect(s.bomberResults[0]).toMatchObject({ cleared: true, target: 8 });
+  });
+});
+
+describe("誤答の一覧", () => {
+  it("不正解・既出をすべて記録し、回答中も判定後も全員に見せる", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2"]);
+    act(s, "p1", { type: "bomberAnswer", text: "新潟" }, answerAt);
+    act(s, "p1", { type: "bomberAnswer", text: "青森" }, answerAt);
+    act(s, "p2", { type: "bomberAnswer", text: "あおもり" }, answerAt);
+    const presence = presenceFor([HOST, "p1", "p2"], answerAt);
+    const other = redact(s, presence, HOST, answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
+    expect(other.bomber.round!.misses).toEqual([
+      { name: "p1", isYou: false, text: "新潟", reason: "wrong", seq: 1 },
+      { name: "p2", isYou: false, text: "あおもり", reason: "dup", seq: 2 },
+    ]);
+    const end = 1_000_000 + s.timer!.totalMs;
+    tick(s, presenceFor([HOST, "p1", "p2"], end), end, getSet);
+    const judged = redact(s, presence, "p1", end, getSet, allSets, false, getBomberSet, () => [bset]);
+    expect(judged.bomber.judged!.misses.map((m) => m.text)).toEqual(["新潟", "あおもり"]);
+    expect(judged.bomber.judged!.misses[0].isYou).toBe(true);
   });
 });

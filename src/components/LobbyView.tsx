@@ -385,7 +385,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         {isBomber && (
           <p className="text-xs text-muted text-center mt-2">
             5つ答える問題は{currentSeconds * BOMBER_SLOTS}秒、折り返しで10個答える問題は
-            {currentSeconds * BOMBER_SLOTS * 2}秒になります
+            {currentSeconds * BOMBER_SLOTS * 2}秒（答える数に比例）になります
           </p>
         )}
       </section>

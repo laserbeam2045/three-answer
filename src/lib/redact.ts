@@ -1,4 +1,5 @@
 import type {
+  BomberMiss,
   BomberSet,
   BomberSlot,
   BomberView,
@@ -144,6 +145,13 @@ function bomberView(
     display: set?.questions[qIndex].answers[s.answerIndex]?.display ?? s.text,
     aiInput: s.ai ? s.text : null,
   });
+  const missView = (m: BomberMiss) => ({
+    name: nameOf(m.token),
+    isYou: m.token === token,
+    text: m.text,
+    reason: m.reason,
+    seq: m.seq,
+  });
   const reviewOf = (qIndex: number) => {
     const r = state.bomberResults.find((x) => x.qIndex === qIndex);
     const q = set!.questions[qIndex];
@@ -158,6 +166,7 @@ function bomberView(
         const by = slots.find((s) => s.answerIndex === i);
         return { display: a.display, by: by ? nameOf(by.token) : null };
       }),
+      misses: (r?.misses ?? []).map(missView),
       points: roundPoints(slots.length),
     };
   };
@@ -188,6 +197,7 @@ function bomberView(
             seq: round.lastMiss.seq,
           }
         : null,
+      misses: round.misses.map(missView),
       waiting: state.timer?.paused ?? false,
     };
   }

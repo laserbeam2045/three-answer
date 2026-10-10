@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import BombIcon from "@/components/bomber/BombIcon";
 import BomberSlots from "@/components/bomber/BomberSlots";
 import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
+import BomberMissList from "@/components/bomber/BomberMissList";
 import OrnateTitle from "@/components/OrnateTitle";
 import { useTimer } from "@/hooks/useTimer";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -15,7 +16,8 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   const { state, send, nowServer } = room;
   const timer = useTimer(state?.timer ?? null, nowServer);
   const [text, setText] = useState("");
-  const [sending, setSending] = useState(false);
+  // 判定待ちの回答の数。判定中でも次の答えを送れるよう、送信は止めない
+  const [pending, setPending] = useState(0);
   const composingRef = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -44,11 +46,11 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
 
   const submit = () => {
     const t = text.trim();
-    if (!t || !canAnswer || sending) return;
-    setSending(true);
+    if (!t || !canAnswer) return;
+    setPending((n) => n + 1);
     setText("");
     void send({ type: "bomberAnswer", text: t }).finally(() => {
-      setSending(false);
+      setPending((n) => n - 1);
       inputRef.current?.focus();
     });
   };
@@ -156,10 +158,10 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
               />
               <button
                 type="submit"
-                disabled={!canAnswer || !text.trim() || sending}
+                disabled={!canAnswer || !text.trim()}
                 className="btn-gold shrink-0 px-5 py-2.5 text-base"
               >
-                {sending ? "判定中…" : "答える"}
+                {pending > 0 && !text.trim() ? "判定中…" : "答える"}
               </button>
             </form>
           </>
@@ -176,6 +178,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
           {miss && (
             <p key={`${miss.name}-${miss.seq}`} className="miss-shake text-sm sm:text-base text-center">
               <span className="font-black text-crimson mr-1.5">×</span>
+              {!round.isYourTurn && <span className="text-muted mr-1">{miss.name}:</span>}
               <span className="text-ink">「{miss.text}」</span>
               <span className="text-muted text-xs sm:text-sm ml-1">
                 {miss.reason === "dup" ? "はもう出ています" : "は違います"}
@@ -184,6 +187,14 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
           )}
         </div>
       </section>
+
+      {/* この問題で出た誤答（全員に見える） */}
+      {round.misses.length > 0 && (
+        <section className="w-full">
+          <p className="text-center text-xs text-muted mb-1.5">この問題の誤答（{round.misses.length}）</p>
+          <BomberMissList misses={round.misses} animateLatest />
+        </section>
+      )}
 
       {/* 参加者（途中参加・途中で抜ける） */}
       <BomberPlayersBar room={room} />
