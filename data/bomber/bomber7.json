@@ -430,244 +430,474 @@
         {
           "display": "鮪",
           "accept": [
-            "まぐろ"
+            "鮪",
+            "まぐろ",
+            "しび"
           ]
         },
         {
           "display": "鯛",
           "accept": [
+            "鯛",
             "たい"
           ]
         },
         {
           "display": "鰤",
           "accept": [
+            "鰤",
             "ぶり"
           ]
         },
         {
           "display": "鯖",
           "accept": [
+            "鯖",
             "さば"
           ]
         },
         {
-          "display": "鮭",
+          "display": "鮭（鮏）",
           "accept": [
+            "鮭",
+            "鮏",
             "さけ",
             "しゃけ"
           ]
         },
         {
-          "display": "鯵",
+          "display": "鯵（鰺）",
           "accept": [
-            "あじ",
-            "鰺"
+            "鯵",
+            "鰺",
+            "あじ"
           ]
         },
         {
-          "display": "鰯",
+          "display": "鰯（鰮）",
           "accept": [
+            "鰯",
+            "鰮",
             "いわし"
           ]
         },
         {
           "display": "鰹",
           "accept": [
+            "鰹",
             "かつお"
           ]
         },
         {
           "display": "鰻",
           "accept": [
+            "鰻",
             "うなぎ"
           ]
         },
         {
           "display": "鮎",
           "accept": [
+            "鮎",
             "あゆ"
           ]
         },
         {
           "display": "鯉",
           "accept": [
+            "鯉",
             "こい"
           ]
         },
         {
           "display": "鮫",
           "accept": [
+            "鮫",
             "さめ"
           ]
         },
         {
           "display": "鮃",
           "accept": [
+            "鮃",
             "ひらめ"
           ]
         },
         {
-          "display": "鰈",
+          "display": "鰈（鰔）",
           "accept": [
+            "鰈",
+            "鰔",
             "かれい"
           ]
         },
         {
           "display": "鱈",
           "accept": [
+            "鱈",
             "たら"
+          ]
+        },
+        {
+          "display": "鯳",
+          "accept": [
+            "鯳",
+            "すけとうだら",
+            "すけそうだら",
+            "スケトウダラ",
+            "介党鱈"
           ]
         },
         {
           "display": "鰆",
           "accept": [
+            "鰆",
             "さわら"
           ]
         },
         {
           "display": "鯰",
           "accept": [
+            "鯰",
             "なまず"
           ]
         },
         {
           "display": "鮒",
           "accept": [
+            "鮒",
             "ふな"
           ]
         },
         {
           "display": "鱒",
           "accept": [
+            "鱒",
             "ます"
           ]
         },
         {
-          "display": "鰊",
+          "display": "鰊（鯡）",
           "accept": [
+            "鰊",
+            "鯡",
             "にしん"
           ]
         },
         {
           "display": "鱚",
           "accept": [
+            "鱚",
             "きす"
           ]
         },
         {
           "display": "鱧",
           "accept": [
+            "鱧",
             "はも"
           ]
         },
         {
-          "display": "鰰",
+          "display": "鰰（鱩）",
           "accept": [
+            "鰰",
+            "鱩",
             "はたはた"
           ]
         },
         {
-          "display": "鯔",
+          "display": "鯔（鰡・鮱）",
           "accept": [
-            "ぼら",
-            "鰡"
+            "鯔",
+            "鰡",
+            "鮱",
+            "ぼら"
           ]
         },
         {
-          "display": "鰌",
+          "display": "鰌（鯲）",
           "accept": [
+            "鰌",
+            "鯲",
             "どじょう"
           ]
         },
         {
-          "display": "鯒",
+          "display": "鯒（鮲）",
           "accept": [
+            "鯒",
+            "鮲",
             "こち"
           ]
         },
         {
-          "display": "鮗",
+          "display": "鮗（鰶）",
           "accept": [
-            "このしろ"
+            "鮗",
+            "鰶",
+            "このしろ",
+            "こはだ"
           ]
         },
         {
-          "display": "鰍",
+          "display": "鰍（鮖）",
           "accept": [
+            "鰍",
+            "鮖",
             "かじか"
           ]
         },
         {
           "display": "鯱",
           "accept": [
-            "しゃち"
+            "鯱",
+            "しゃち",
+            "しゃちほこ"
           ]
         },
         {
           "display": "鯨",
           "accept": [
+            "鯨",
             "くじら"
           ]
         },
         {
           "display": "鮑",
           "accept": [
+            "鮑",
             "あわび"
           ]
         },
         {
           "display": "鱸",
           "accept": [
+            "鱸",
             "すずき"
           ]
         },
         {
           "display": "鯊",
           "accept": [
+            "鯊",
             "はぜ"
           ]
         },
         {
           "display": "鱶",
           "accept": [
+            "鱶",
             "ふか"
           ]
         },
         {
           "display": "鰐",
           "accept": [
+            "鰐",
             "わに"
           ]
         },
         {
           "display": "鮹",
           "accept": [
+            "鮹",
             "たこ"
           ]
         },
         {
-          "display": "鰕",
+          "display": "鰕（鰝）",
           "accept": [
+            "鰕",
+            "鰝",
             "えび"
           ]
         },
         {
           "display": "鯏",
           "accept": [
+            "鯏",
             "あさり"
           ]
         },
         {
-          "display": "鰒",
+          "display": "鰒（鯸・魨）",
           "accept": [
+            "鰒",
+            "鯸",
+            "魨",
             "ふぐ"
           ]
         },
         {
           "display": "鮴",
           "accept": [
+            "鮴",
             "ごり"
+          ]
+        },
+        {
+          "display": "鱏（鱝）",
+          "accept": [
+            "鱏",
+            "鱝",
+            "えい"
+          ]
+        },
+        {
+          "display": "鰩",
+          "accept": [
+            "鰩",
+            "とびうお"
+          ]
+        },
+        {
+          "display": "魳",
+          "accept": [
+            "魳",
+            "かます"
+          ]
+        },
+        {
+          "display": "鯥",
+          "accept": [
+            "鯥",
+            "むつ"
+          ]
+        },
+        {
+          "display": "鰙",
+          "accept": [
+            "鰙",
+            "わかさぎ"
+          ]
+        },
+        {
+          "display": "鯎",
+          "accept": [
+            "鯎",
+            "うぐい"
+          ]
+        },
+        {
+          "display": "鰉",
+          "accept": [
+            "鰉",
+            "ひがい"
+          ]
+        },
+        {
+          "display": "鱓",
+          "accept": [
+            "鱓",
+            "うつぼ"
+          ]
+        },
+        {
+          "display": "鮄",
+          "accept": [
+            "鮄",
+            "ほうぼう"
+          ]
+        },
+        {
+          "display": "鮸",
+          "accept": [
+            "鮸",
+            "にべ"
+          ]
+        },
+        {
+          "display": "鮬",
+          "accept": [
+            "鮬",
+            "いさざ"
+          ]
+        },
+        {
+          "display": "鱮",
+          "accept": [
+            "鱮",
+            "たなご"
+          ]
+        },
+        {
+          "display": "鰧",
+          "accept": [
+            "鰧",
+            "おこぜ"
+          ]
+        },
+        {
+          "display": "鱵",
+          "accept": [
+            "鱵",
+            "さより"
+          ]
+        },
+        {
+          "display": "鮊",
+          "accept": [
+            "鮊",
+            "しらうお"
+          ]
+        },
+        {
+          "display": "鱘",
+          "accept": [
+            "鱘",
+            "ちょうざめ"
+          ]
+        },
+        {
+          "display": "鮠（鰷）",
+          "accept": [
+            "鮠",
+            "鰷",
+            "はや"
+          ]
+        },
+        {
+          "display": "鯆",
+          "accept": [
+            "鯆",
+            "いるか"
+          ]
+        },
+        {
+          "display": "魬",
+          "accept": [
+            "魬",
+            "はまち"
+          ]
+        },
+        {
+          "display": "鯷",
+          "accept": [
+            "鯷",
+            "かたくちいわし",
+            "ひしこ"
+          ]
+        },
+        {
+          "display": "鰘",
+          "accept": [
+            "鰘",
+            "むろあじ"
+          ]
+        },
+        {
+          "display": "鯢",
+          "accept": [
+            "鯢",
+            "さんしょううお"
+          ]
+        },
+        {
+          "display": "𩸽",
+          "accept": [
+            "𩸽",
+            "ほっけ"
           ]
         }
       ]
