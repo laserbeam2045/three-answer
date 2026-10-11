@@ -24,7 +24,7 @@ export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
 export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
 
 /**
- * 1問で答える数の上限。5人ごとに折り返すジグザグ（1→5、5→1、1→5）で3段まで。
+ * 1問で答える数の上限（画面は5枠ずつの段で3段まで）。
  * 12個ある和風月名を全部答えさせる、などに使う。
  */
 export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 3;
@@ -40,26 +40,27 @@ export function slotsFor(question: BomberQuestion): number {
 }
 
 /**
- * 折り返し（ジグザグ）にするか。番組と同じく5人以下なら 1→5、5→1 と折り返す。
- * 6人以上いるときは折り返さず、答える数は同じまま全員に順番に回す（みんなに回答権が行きわたるように）。
+ * 折り返す間隔（＝参加人数）。全員に1回ずつ回ったら、最後の人がもう一度答えて逆向きに戻る。
+ * 5人なら番組と同じ 1→5、5→1。10人で10個なら折り返さず全員が1回ずつ答え、
+ * 8人で12個なら 1→8 のあと 8→5 と、端数のぶんだけ折り返す（みんなに回答権が行きわたるように）。
  */
-export function usesZigzag(playerCount: number): boolean {
-  return playerCount <= BOMBER_SLOTS;
+export function turnWidth(playerCount: number): number {
+  return Math.max(1, playerCount);
 }
 
-/** 枠 k（0 始まり）を答える向き。5枠ごとの段で、偶数段は次の人へ、奇数段は前の人へ進む */
-export function directionAt(k: number): "next" | "prev" {
-  return Math.floor(k / BOMBER_SLOTS) % 2 === 0 ? "next" : "prev";
+/** 枠 k（0 始まり）を答える向き。width 枠ごとの段で、偶数段は次の人へ、奇数段は前の人へ進む */
+export function directionAt(k: number, width: number = BOMBER_SLOTS): "next" | "prev" {
+  return Math.floor(k / width) % 2 === 0 ? "next" : "prev";
 }
 
 /**
  * 枠 k（0 始まり）の回答者が、1つ前の枠の回答者から見て誰か。
- * 段の頭（k = 5, 10）は同じ人がもう一度（折り返し）、それ以外は段の向きに1人ずつ進む。
- * 例: 5人なら 1 2 3 4 5 | 5 4 3 2 1 | 1 2 3 4 5
+ * 段の頭（k = width, 2×width…）は同じ人がもう一度（折り返し）、それ以外は段の向きに1人ずつ進む。
+ * 例: 5人なら 1 2 3 4 5 | 5 4 3 2 1 | 1 2 3 4 5、3人なら 1 2 3 | 3 2 1 | 1 2 3
  */
-export function stepInto(k: number): "next" | "same" | "prev" {
-  if (k > 0 && k % BOMBER_SLOTS === 0) return "same";
-  return directionAt(k);
+export function stepInto(k: number, width: number = BOMBER_SLOTS): "next" | "same" | "prev" {
+  if (k > 0 && k % width === 0) return "same";
+  return directionAt(k, width);
 }
 
 /**

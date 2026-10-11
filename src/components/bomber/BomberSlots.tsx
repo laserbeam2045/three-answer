@@ -17,7 +17,7 @@ export default function BomberSlots({
   filled,
   upcoming,
   target = BOMBER_SLOTS,
-  zigzag = true,
+  width = BOMBER_SLOTS,
   urgent = false,
   exploded = false,
   heldBy = null,
@@ -27,8 +27,11 @@ export default function BomberSlots({
   upcoming: string[];
   /** 枠の数（5〜15） */
   target?: number;
-  /** 折り返す（ジグザグ）か。false なら全段を左→右に並べ、折り返しの表示もしない */
-  zigzag?: boolean;
+  /**
+   * 折り返す間隔（参加人数）。5なら段ごとに向きを変えて並べ、同じ列＝同じ人にする。
+   * それ以外は全段を左→右に並べ、折り返す枠（同じ人が続けて答える枠）に「↩」を付ける。
+   */
+  width?: number;
   urgent?: boolean;
   /** 判定画面で爆発した枠を示す */
   exploded?: boolean;
@@ -64,10 +67,14 @@ export default function BomberSlots({
     });
   }, [filled.length, live]);
 
+  // 5人のときは画面の段と折り返しが一致するので、段ごとに向きを変えて並べる
+  const snake = width === BOMBER_SLOTS && target > BOMBER_SLOTS;
+  // 折り返す枠（同じ人が続けて答える枠）
+  const isTurn = (i: number) => width > 1 && i > 0 && i % width === 0 && i < target;
   // r 段目の列 c の枠（0始まり）。偶数段は左→右、奇数段は右→左。target を超える枠は空き
   const columns = Array.from({ length: BOMBER_SLOTS }, (_, c) => c);
   const rows = Array.from({ length: Math.ceil(target / BOMBER_SLOTS) }, (_, r) =>
-    columns.map((c) => r * BOMBER_SLOTS + (!zigzag || r % 2 === 0 ? c : BOMBER_SLOTS - 1 - c))
+    columns.map((c) => r * BOMBER_SLOTS + (snake && r % 2 === 1 ? BOMBER_SLOTS - 1 - c : c))
   );
   const compact = rows.length > 1;
 
@@ -75,7 +82,7 @@ export default function BomberSlots({
     <div className="w-full flex flex-col gap-1">
       {rows.map((row, r) => (
         <div key={r} className="w-full">
-          {zigzag && r > 0 && (
+          {snake && r > 0 && (
             <p
               className={`text-[10px] sm:text-xs text-gold-3 font-bold tracking-wider -mb-1 ${
                 r % 2 === 1 ? "text-right pr-1" : "text-left pl-1"
@@ -119,6 +126,11 @@ export default function BomberSlots({
                     } ${isCurrent && !exploded ? "slot-you bomber-current" : ""} ${slot?.isYou ? "slot-you" : ""}`}
                   >
                     <span className="font-display text-gold-3 text-[10px] sm:text-xs font-bold leading-none">
+                      {!snake && isTurn(i) && (
+                        <span className="mr-0.5" title="ここで折り返し（前の人がもう一度答える）">
+                          ↩
+                        </span>
+                      )}
                       {i + 1}
                     </span>
                     {slot ? (

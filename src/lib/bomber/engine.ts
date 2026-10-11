@@ -11,7 +11,7 @@ import {
   directionAt,
   slotsFor,
   stepInto,
-  usesZigzag,
+  turnWidth,
 } from "./match";
 
 export type GetBomberSet = (id: string) => BomberSet | undefined;
@@ -44,27 +44,24 @@ function prevPlayer(players: string[], token: string): string {
   return players[(i - 1 + players.length) % players.length];
 }
 
-/**
- * 枠 k を答える人（1つ前の枠を答えた人 from から見て）。
- * zigzag なら折り返し（stepInto）、そうでなければ常に次の人へ。
- */
-export function answererOfSlot(players: string[], from: string, k: number, zigzag = true): string {
-  if (!zigzag) return nextPlayer(players, from);
-  const step = stepInto(k);
+/** 枠 k を答える人（1つ前の枠を答えた人 from から見て。width 枠ごとに折り返す） */
+export function answererOfSlot(players: string[], from: string, k: number, width: number = BOMBER_SLOTS): string {
+  const step = stepInto(k, width);
   if (step === "same") return from;
   return step === "next" ? nextPlayer(players, from) : prevPlayer(players, from);
 }
 
 /**
  * 第 qIndex 問の1枠目を答える人。
- * 5人以下（折り返しあり）は1問で5人ぶん進むとみなすので、5人なら毎問同じ人から（番組と同じ）。
- * 6人以上（折り返しなし）は、それまでの問題で答える予定だった数のぶん進め、前の問題の続きの人から始める。
+ * それまでの問題で答える予定だった数のぶん順番を進め、前の問題の続きの人から始める
+ * （5人で5個ずつなら毎問同じ人から＝番組と同じ。人数が多くても全員に均等に回る）。
+ * set が無いときは1問5個とみなす。
  */
 export function firstAnswerer(players: string[], qIndex: number, set?: BomberSet): string {
-  const n = players.length;
-  if (usesZigzag(n) || !set) return players[(qIndex * BOMBER_SLOTS) % n];
-  const offset = set.questions.slice(0, qIndex).reduce((sum, q) => sum + slotsFor(q), 0);
-  return players[offset % n];
+  const offset = set
+    ? set.questions.slice(0, qIndex).reduce((sum, q) => sum + slotsFor(q), 0)
+    : qIndex * BOMBER_SLOTS;
+  return players[offset % players.length];
 }
 
 function startRound(state: RoomState, set: BomberSet, now: number): void {
@@ -77,7 +74,7 @@ function startRound(state: RoomState, set: BomberSet, now: number): void {
   state.pausedRoles = [];
   state.bomberRound = {
     target,
-    zigzag: usesZigzag(state.bomberPlayers.length),
+    width: turnWidth(state.bomberPlayers.length),
     turnToken: firstAnswerer(state.bomberPlayers, state.qIndex, set),
     slots: [],
     lastMiss: null,
@@ -93,7 +90,7 @@ function finishRound(state: RoomState, cleared: boolean): void {
     {
       qIndex: state.qIndex,
       target: round?.target ?? BOMBER_SLOTS,
-      zigzag: round?.zigzag ?? true,
+      width: round?.width ?? BOMBER_SLOTS,
       cleared,
       slots: round?.slots ?? [],
       misses: round?.misses ?? [],
@@ -122,7 +119,7 @@ function removePlayer(state: RoomState, target: string): void {
   const round = state.bomberRound;
   const wasTurn = round?.turnToken === target;
   // 回答中の人が抜けたら、今の段の向き（折り返し後なら前の人へ）で続ける
-  const backward = !!round?.zigzag && directionAt(round.slots.length) === "prev";
+  const backward = !!round && directionAt(round.slots.length, round.width) === "prev";
   const next =
     wasTurn && players.length > 1 ? (backward ? prevPlayer(players, target) : nextPlayer(players, target)) : null;
   state.bomberPlayers = players.filter((t) => t !== target);
@@ -259,7 +256,7 @@ export function bomberAnswer(
   if (round.slots.length >= round.target) {
     finishRound(state, true);
   } else {
-    round.turnToken = answererOfSlot(state.bomberPlayers, token, round.slots.length, round.zigzag);
+    round.turnToken = answererOfSlot(state.bomberPlayers, token, round.slots.length, round.width);
   }
 }
 
