@@ -58,76 +58,158 @@
       ]
     },
     {
-      "q": "2020年の国勢調査で、人口が多い上位10の都道府県を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "都",
-        "と",
-        "府",
-        "ふ",
-        "県",
-        "けん"
-      ],
+      "q": "恐竜や、恐竜と同じ時代の太古の爬虫類（翼竜・首長竜なども含む）の名前を答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "東京",
+          "display": "ティラノサウルス",
           "accept": [
-            "とうきょう"
+            "Tレックス",
+            "ティーレックス"
           ]
         },
         {
-          "display": "神奈川",
+          "display": "トリケラトプス",
+          "accept": []
+        },
+        {
+          "display": "ステゴサウルス",
+          "accept": []
+        },
+        {
+          "display": "ブラキオサウルス",
+          "accept": []
+        },
+        {
+          "display": "アパトサウルス",
           "accept": [
-            "かながわ"
+            "ブロントサウルス"
           ]
         },
         {
-          "display": "大阪",
+          "display": "ヴェロキラプトル",
           "accept": [
-            "おおさか"
+            "ベロキラプトル",
+            "ラプトル"
           ]
         },
         {
-          "display": "愛知",
+          "display": "スピノサウルス",
+          "accept": []
+        },
+        {
+          "display": "イグアノドン",
+          "accept": []
+        },
+        {
+          "display": "アンキロサウルス",
+          "accept": []
+        },
+        {
+          "display": "パキケファロサウルス",
+          "accept": []
+        },
+        {
+          "display": "パラサウロロフス",
+          "accept": []
+        },
+        {
+          "display": "ディプロドクス",
+          "accept": []
+        },
+        {
+          "display": "アロサウルス",
+          "accept": []
+        },
+        {
+          "display": "ギガノトサウルス",
+          "accept": []
+        },
+        {
+          "display": "カルノタウルス",
+          "accept": []
+        },
+        {
+          "display": "ディロフォサウルス",
+          "accept": []
+        },
+        {
+          "display": "マイアサウラ",
+          "accept": []
+        },
+        {
+          "display": "オヴィラプトル",
           "accept": [
-            "あいち"
+            "オビラプトル"
           ]
         },
         {
-          "display": "埼玉",
+          "display": "テリジノサウルス",
+          "accept": []
+        },
+        {
+          "display": "アルゼンチノサウルス",
+          "accept": []
+        },
+        {
+          "display": "マメンチサウルス",
+          "accept": []
+        },
+        {
+          "display": "フクイラプトル",
+          "accept": []
+        },
+        {
+          "display": "カムイサウルス",
+          "accept": []
+        },
+        {
+          "display": "デイノニクス",
+          "accept": []
+        },
+        {
+          "display": "コンプソグナトゥス",
+          "accept": []
+        },
+        {
+          "display": "ガリミムス",
+          "accept": []
+        },
+        {
+          "display": "プテラノドン",
+          "accept": []
+        },
+        {
+          "display": "ケツァルコアトルス",
+          "accept": []
+        },
+        {
+          "display": "フタバサウルス",
           "accept": [
-            "さいたま"
+            "フタバスズキリュウ"
           ]
         },
         {
-          "display": "千葉",
+          "display": "エラスモサウルス",
+          "accept": []
+        },
+        {
+          "display": "プレシオサウルス",
+          "accept": []
+        },
+        {
+          "display": "モササウルス",
+          "accept": []
+        },
+        {
+          "display": "ステノニコサウルス",
           "accept": [
-            "ちば"
+            "トロオドン"
           ]
         },
         {
-          "display": "兵庫",
-          "accept": [
-            "ひょうご"
-          ]
-        },
-        {
-          "display": "北海道",
-          "accept": [
-            "ほっかいどう"
-          ]
-        },
-        {
-          "display": "福岡",
-          "accept": [
-            "ふくおか"
-          ]
-        },
-        {
-          "display": "静岡",
-          "accept": [
-            "しずおか"
-          ]
+          "display": "プロトケラトプス",
+          "accept": []
         }
       ]
     },

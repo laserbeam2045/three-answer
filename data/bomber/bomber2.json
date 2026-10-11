@@ -1340,118 +1340,73 @@
       ]
     },
     {
-      "q": "県名と県庁所在地の名前が違う県（北海道も含む）の、県庁所在地を答えてください。",
-      "slots": 10,
-      "suffixes": [
-        "市",
-        "し"
-      ],
+      "q": "空を飛ぶことができない鳥を答えてください（絶滅した鳥も含みます）。",
+      "slots": 5,
       "answers": [
         {
-          "display": "札幌",
+          "display": "ダチョウ",
           "accept": [
-            "さっぽろ"
+            "駝鳥"
           ]
         },
         {
-          "display": "盛岡",
-          "accept": [
-            "もりおか"
-          ]
-        },
-        {
-          "display": "仙台",
-          "accept": [
-            "せんだい"
-          ]
-        },
-        {
-          "display": "水戸",
-          "accept": [
-            "みと"
-          ]
-        },
-        {
-          "display": "宇都宮",
-          "accept": [
-            "うつのみや"
-          ]
-        },
-        {
-          "display": "前橋",
-          "accept": [
-            "まえばし"
-          ]
-        },
-        {
-          "display": "さいたま",
+          "display": "ペンギン",
           "accept": []
         },
         {
-          "display": "横浜",
+          "display": "エミュー",
+          "accept": []
+        },
+        {
+          "display": "キーウィ",
           "accept": [
-            "よこはま"
+            "キウイ",
+            "キーウイ"
           ]
         },
         {
-          "display": "甲府",
+          "display": "ヒクイドリ",
           "accept": [
-            "こうふ"
+            "火食鳥"
           ]
         },
         {
-          "display": "金沢",
+          "display": "レア",
           "accept": [
-            "かなざわ"
+            "アメリカダチョウ"
           ]
         },
         {
-          "display": "名古屋",
+          "display": "ドードー",
+          "accept": []
+        },
+        {
+          "display": "カカポ",
           "accept": [
-            "なごや"
+            "フクロウオウム"
           ]
         },
         {
-          "display": "津",
+          "display": "ヤンバルクイナ",
+          "accept": []
+        },
+        {
+          "display": "ガラパゴスコバネウ",
           "accept": [
-            "つ"
+            "コバネウ"
           ]
         },
         {
-          "display": "大津",
-          "accept": [
-            "おおつ"
-          ]
+          "display": "モア",
+          "accept": []
         },
         {
-          "display": "神戸",
-          "accept": [
-            "こうべ"
-          ]
+          "display": "オオウミガラス",
+          "accept": []
         },
         {
-          "display": "松江",
-          "accept": [
-            "まつえ"
-          ]
-        },
-        {
-          "display": "高松",
-          "accept": [
-            "たかまつ"
-          ]
-        },
-        {
-          "display": "松山",
-          "accept": [
-            "まつやま"
-          ]
-        },
-        {
-          "display": "那覇",
-          "accept": [
-            "なは"
-          ]
+          "display": "タカヘ",
+          "accept": []
         }
       ]
     }

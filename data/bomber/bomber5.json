@@ -42,76 +42,101 @@
       ]
     },
     {
-      "q": "面積が大きい上位10の都道府県を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "都",
-        "と",
-        "府",
-        "ふ",
-        "県",
-        "けん"
-      ],
+      "q": "ネコ科の動物を答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "北海道",
+          "display": "ライオン",
+          "accept": []
+        },
+        {
+          "display": "トラ",
           "accept": [
-            "ほっかいどう"
+            "虎"
           ]
         },
         {
-          "display": "岩手",
+          "display": "ヒョウ",
           "accept": [
-            "いわて"
+            "豹"
           ]
         },
         {
-          "display": "福島",
+          "display": "チーター",
+          "accept": []
+        },
+        {
+          "display": "ジャガー",
+          "accept": []
+        },
+        {
+          "display": "ピューマ",
           "accept": [
-            "ふくしま"
+            "クーガー"
           ]
         },
         {
-          "display": "長野",
+          "display": "ユキヒョウ",
+          "accept": []
+        },
+        {
+          "display": "ウンピョウ",
+          "accept": []
+        },
+        {
+          "display": "オセロット",
+          "accept": []
+        },
+        {
+          "display": "サーバル",
           "accept": [
-            "ながの"
+            "サーバルキャット"
           ]
         },
         {
-          "display": "新潟",
+          "display": "カラカル",
+          "accept": []
+        },
+        {
+          "display": "オオヤマネコ",
           "accept": [
-            "にいがた"
+            "リンクス"
           ]
         },
         {
-          "display": "秋田",
+          "display": "ヤマネコ",
+          "accept": []
+        },
+        {
+          "display": "イリオモテヤマネコ",
+          "accept": []
+        },
+        {
+          "display": "ツシマヤマネコ",
+          "accept": []
+        },
+        {
+          "display": "ネコ",
           "accept": [
-            "あきた"
+            "猫",
+            "イエネコ"
           ]
         },
         {
-          "display": "岐阜",
-          "accept": [
-            "ぎふ"
-          ]
+          "display": "スナネコ",
+          "accept": []
         },
         {
-          "display": "青森",
-          "accept": [
-            "あおもり"
-          ]
+          "display": "マヌルネコ",
+          "accept": []
         },
         {
-          "display": "山形",
-          "accept": [
-            "やまがた"
-          ]
+          "display": "ボブキャット",
+          "accept": []
         },
         {
-          "display": "鹿児島",
-          "accept": [
-            "かごしま"
-          ]
+          "display": "ジャガランディ",
+          "accept": []
         }
       ]
     },

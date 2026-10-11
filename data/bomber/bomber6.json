@@ -228,66 +228,119 @@
       ]
     },
     {
-      "q": "読みが「ま」で終わる都道府県を答えてください（「〜県」の部分は数えません）。",
-      "slots": 8,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "パスタ（イタリアの麺類）の種類を答えてください。",
+      "slots": 5,
       "answers": [
         {
-          "display": "群馬",
+          "display": "スパゲッティ",
           "accept": [
-            "ぐんま"
+            "スパゲティ",
+            "スパゲッティー"
           ]
         },
         {
-          "display": "富山",
+          "display": "ペンネ",
+          "accept": []
+        },
+        {
+          "display": "マカロニ",
+          "accept": []
+        },
+        {
+          "display": "ラザニア",
           "accept": [
-            "とやま"
+            "ラザーニャ"
           ]
         },
         {
-          "display": "和歌山",
+          "display": "フェットチーネ",
           "accept": [
-            "わかやま"
+            "フェットゥチーネ"
           ]
         },
         {
-          "display": "岡山",
+          "display": "リングイネ",
           "accept": [
-            "おかやま"
+            "リングイーネ"
           ]
         },
         {
-          "display": "広島",
+          "display": "ファルファッレ",
           "accept": [
-            "ひろしま"
+            "ファルファーレ"
           ]
         },
         {
-          "display": "徳島",
+          "display": "ラビオリ",
+          "accept": []
+        },
+        {
+          "display": "ニョッキ",
+          "accept": []
+        },
+        {
+          "display": "カッペリーニ",
           "accept": [
-            "とくしま"
+            "カペッリーニ"
           ]
         },
         {
-          "display": "鹿児島",
+          "display": "タリアテッレ",
+          "accept": []
+        },
+        {
+          "display": "フジッリ",
           "accept": [
-            "かごしま"
+            "フッジリ"
           ]
         },
         {
-          "display": "福島",
+          "display": "コンキリエ",
+          "accept": []
+        },
+        {
+          "display": "リガトーニ",
+          "accept": []
+        },
+        {
+          "display": "オレキエッテ",
+          "accept": []
+        },
+        {
+          "display": "トルテッリーニ",
+          "accept": []
+        },
+        {
+          "display": "パッパルデッレ",
+          "accept": []
+        },
+        {
+          "display": "ブカティーニ",
+          "accept": []
+        },
+        {
+          "display": "フェデリーニ",
+          "accept": []
+        },
+        {
+          "display": "ヴェルミチェッリ",
           "accept": [
-            "ふくしま"
+            "バーミセリ"
           ]
         },
         {
-          "display": "埼玉",
+          "display": "スパゲッティーニ",
           "accept": [
-            "さいたま"
+            "スパゲッティニ"
           ]
+        },
+        {
+          "display": "カネロニ",
+          "accept": []
+        },
+        {
+          "display": "ルオーテ",
+          "accept": []
         }
       ]
     },
