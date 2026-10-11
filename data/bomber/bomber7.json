@@ -332,43 +332,93 @@
       ]
     },
     {
-      "q": "2けたの数のうち、十の位と一の位の数字を足すと10になる数を答えてください。",
-      "slots": 9,
+      "q": "名前に「ベリー」が付く果物を答えてください（ストロベリーなど）。",
+      "slots": 5,
       "answers": [
         {
-          "display": "19",
+          "display": "ストロベリー",
+          "accept": [
+            "いちご",
+            "苺"
+          ]
+        },
+        {
+          "display": "ブルーベリー",
           "accept": []
         },
         {
-          "display": "28",
+          "display": "ラズベリー",
+          "accept": [
+            "木いちご",
+            "きいちご"
+          ]
+        },
+        {
+          "display": "クランベリー",
           "accept": []
         },
         {
-          "display": "37",
+          "display": "ブラックベリー",
           "accept": []
         },
         {
-          "display": "46",
+          "display": "グーズベリー",
+          "accept": [
+            "すぐり"
+          ]
+        },
+        {
+          "display": "マルベリー",
+          "accept": [
+            "桑の実",
+            "くわのみ"
+          ]
+        },
+        {
+          "display": "ボイセンベリー",
           "accept": []
         },
         {
-          "display": "55",
+          "display": "エルダーベリー",
           "accept": []
         },
         {
-          "display": "64",
+          "display": "ハックルベリー",
           "accept": []
         },
         {
-          "display": "73",
+          "display": "ゴジベリー",
+          "accept": [
+            "クコの実",
+            "くこのみ"
+          ]
+        },
+        {
+          "display": "アサイーベリー",
+          "accept": [
+            "アサイー"
+          ]
+        },
+        {
+          "display": "ジュニパーベリー",
           "accept": []
         },
         {
-          "display": "82",
+          "display": "ローガンベリー",
           "accept": []
         },
         {
-          "display": "91",
+          "display": "ビルベリー",
+          "accept": []
+        },
+        {
+          "display": "ハスカップ",
+          "accept": [
+            "ハニーベリー"
+          ]
+        },
+        {
+          "display": "ジューンベリー",
           "accept": []
         }
       ]
