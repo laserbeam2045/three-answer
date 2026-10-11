@@ -159,6 +159,7 @@ function bomberView(
     return {
       q: q.q,
       target: r?.target ?? BOMBER_SLOTS,
+      zigzag: r?.zigzag ?? true,
       cleared: r?.cleared ?? false,
       heldBy: r?.heldBy ? nameOf(r.heldBy) : null,
       slots: slots.map((s) => slotView(s, qIndex)),
@@ -179,11 +180,12 @@ function bomberView(
     const upcoming: string[] = [];
     let who = round.turnToken;
     for (let k = round.slots.length; k < round.target; k++) {
-      if (k > round.slots.length) who = answererOfSlot(players, who, k);
+      if (k > round.slots.length) who = answererOfSlot(players, who, k, round.zigzag);
       upcoming.push(nameOf(who));
     }
     roundView = {
       target: round.target,
+      zigzag: round.zigzag,
       slots: round.slots.map((s) => slotView(s, state.qIndex)),
       upcoming,
       turnToken: round.turnToken,

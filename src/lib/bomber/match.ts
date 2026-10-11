@@ -39,6 +39,14 @@ export function slotsFor(question: BomberQuestion): number {
   return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
 }
 
+/**
+ * 折り返し（ジグザグ）にするか。番組と同じく5人以下なら 1→5、5→1 と折り返す。
+ * 6人以上いるときは折り返さず、答える数は同じまま全員に順番に回す（みんなに回答権が行きわたるように）。
+ */
+export function usesZigzag(playerCount: number): boolean {
+  return playerCount <= BOMBER_SLOTS;
+}
+
 /** 枠 k（0 始まり）を答える向き。5枠ごとの段で、偶数段は次の人へ、奇数段は前の人へ進む */
 export function directionAt(k: number): "next" | "prev" {
   return Math.floor(k / BOMBER_SLOTS) % 2 === 0 ? "next" : "prev";

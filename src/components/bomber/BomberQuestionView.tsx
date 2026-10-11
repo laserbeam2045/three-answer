@@ -120,9 +120,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       {/* 5つの回答枠 */}
       <section>
         <OrnateTitle className="mb-1 sm:mb-2">
-          {round.target > 5 ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}つつなげ！`}
+          {round.target > 5 && round.zigzag ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}個つなげ！`}
         </OrnateTitle>
-        <BomberSlots filled={round.slots} upcoming={round.upcoming} target={round.target} urgent={urgent} />
+        <BomberSlots
+          filled={round.slots}
+          upcoming={round.upcoming}
+          target={round.target}
+          zigzag={round.zigzag}
+          urgent={urgent}
+        />
       </section>
 
       {/* 回答エリア */}

@@ -262,44 +262,82 @@
       ]
     },
     {
-      "q": "2を何回かかけてできる数（2、4、8 …）のうち、1000以下のものを答えてください。",
-      "slots": 8,
+      "q": "口から入った食べ物が通っていく消化管の部分を答えてください（口も含みます）。",
+      "slots": 7,
       "answers": [
         {
-          "display": "2",
-          "accept": []
+          "display": "口",
+          "accept": [
+            "くち",
+            "口腔",
+            "こうくう"
+          ]
         },
         {
-          "display": "4",
-          "accept": []
+          "display": "食道",
+          "accept": [
+            "しょくどう"
+          ]
         },
         {
-          "display": "8",
-          "accept": []
+          "display": "胃",
+          "accept": [
+            "い"
+          ]
         },
         {
-          "display": "16",
-          "accept": []
+          "display": "十二指腸",
+          "accept": [
+            "じゅうにしちょう"
+          ]
         },
         {
-          "display": "32",
-          "accept": []
+          "display": "小腸",
+          "accept": [
+            "しょうちょう"
+          ]
         },
         {
-          "display": "64",
-          "accept": []
+          "display": "大腸",
+          "accept": [
+            "だいちょう"
+          ]
         },
         {
-          "display": "128",
-          "accept": []
+          "display": "肛門",
+          "accept": [
+            "こうもん"
+          ]
         },
         {
-          "display": "256",
-          "accept": []
+          "display": "空腸",
+          "accept": [
+            "くうちょう"
+          ]
         },
         {
-          "display": "512",
-          "accept": []
+          "display": "回腸",
+          "accept": [
+            "かいちょう"
+          ]
+        },
+        {
+          "display": "盲腸",
+          "accept": [
+            "もうちょう"
+          ]
+        },
+        {
+          "display": "結腸",
+          "accept": [
+            "けっちょう"
+          ]
+        },
+        {
+          "display": "直腸",
+          "accept": [
+            "ちょくちょう"
+          ]
         }
       ]
     },
@@ -673,47 +711,27 @@
       ]
     },
     {
-      "q": "50より大きく100より小さい素数を答えてください。",
-      "slots": 8,
+      "q": "日本語の国名が「ランド」で終わる国（国連加盟国）を答えてください。",
+      "slots": 5,
       "answers": [
         {
-          "display": "53",
+          "display": "アイルランド",
           "accept": []
         },
         {
-          "display": "59",
+          "display": "アイスランド",
           "accept": []
         },
         {
-          "display": "61",
+          "display": "フィンランド",
           "accept": []
         },
         {
-          "display": "67",
+          "display": "ポーランド",
           "accept": []
         },
         {
-          "display": "71",
-          "accept": []
-        },
-        {
-          "display": "73",
-          "accept": []
-        },
-        {
-          "display": "79",
-          "accept": []
-        },
-        {
-          "display": "83",
-          "accept": []
-        },
-        {
-          "display": "89",
-          "accept": []
-        },
-        {
-          "display": "97",
+          "display": "ニュージーランド",
           "accept": []
         }
       ]

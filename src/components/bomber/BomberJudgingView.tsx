@@ -69,6 +69,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
           filled={judged.slots}
           upcoming={[]}
           target={judged.target}
+          zigzag={judged.zigzag}
           exploded={!judged.cleared}
           heldBy={judged.heldBy}
         />

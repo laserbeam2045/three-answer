@@ -507,48 +507,51 @@
       ]
     },
     {
-      "q": "1以上1000以下の「立方数」（1×1×1、2×2×2 のように同じ整数を3回かけた数）を答えてください。",
-      "slots": 8,
+      "q": "曜日の名前の由来になっている7つの天体を答えてください（日曜日なら太陽）。",
+      "slots": 7,
       "answers": [
         {
-          "display": "1",
-          "accept": []
+          "display": "太陽",
+          "accept": [
+            "たいよう",
+            "日"
+          ]
         },
         {
-          "display": "8",
-          "accept": []
+          "display": "月",
+          "accept": [
+            "つき"
+          ]
         },
         {
-          "display": "27",
-          "accept": []
+          "display": "火星",
+          "accept": [
+            "かせい"
+          ]
         },
         {
-          "display": "64",
-          "accept": []
+          "display": "水星",
+          "accept": [
+            "すいせい"
+          ]
         },
         {
-          "display": "125",
-          "accept": []
+          "display": "木星",
+          "accept": [
+            "もくせい"
+          ]
         },
         {
-          "display": "216",
-          "accept": []
+          "display": "金星",
+          "accept": [
+            "きんせい"
+          ]
         },
         {
-          "display": "343",
-          "accept": []
-        },
-        {
-          "display": "512",
-          "accept": []
-        },
-        {
-          "display": "729",
-          "accept": []
-        },
-        {
-          "display": "1000",
-          "accept": []
+          "display": "土星",
+          "accept": [
+            "どせい"
+          ]
         }
       ]
     },

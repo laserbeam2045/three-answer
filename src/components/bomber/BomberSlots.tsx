@@ -17,6 +17,7 @@ export default function BomberSlots({
   filled,
   upcoming,
   target = BOMBER_SLOTS,
+  zigzag = true,
   urgent = false,
   exploded = false,
   heldBy = null,
@@ -24,8 +25,10 @@ export default function BomberSlots({
   filled: BomberSlotView[];
   /** 未回答の枠を答える人（先頭が今の回答者）。判定後は空でよい */
   upcoming: string[];
-  /** 枠の数（5、または折り返しありの 10） */
+  /** 枠の数（5〜15） */
   target?: number;
+  /** 折り返す（ジグザグ）か。false なら全段を左→右に並べ、折り返しの表示もしない */
+  zigzag?: boolean;
   urgent?: boolean;
   /** 判定画面で爆発した枠を示す */
   exploded?: boolean;
@@ -64,7 +67,7 @@ export default function BomberSlots({
   // r 段目の列 c の枠（0始まり）。偶数段は左→右、奇数段は右→左。target を超える枠は空き
   const columns = Array.from({ length: BOMBER_SLOTS }, (_, c) => c);
   const rows = Array.from({ length: Math.ceil(target / BOMBER_SLOTS) }, (_, r) =>
-    columns.map((c) => r * BOMBER_SLOTS + (r % 2 === 0 ? c : BOMBER_SLOTS - 1 - c))
+    columns.map((c) => r * BOMBER_SLOTS + (!zigzag || r % 2 === 0 ? c : BOMBER_SLOTS - 1 - c))
   );
   const compact = rows.length > 1;
 
@@ -72,7 +75,7 @@ export default function BomberSlots({
     <div className="w-full flex flex-col gap-1">
       {rows.map((row, r) => (
         <div key={r} className="w-full">
-          {r > 0 && (
+          {zigzag && r > 0 && (
             <p
               className={`text-[10px] sm:text-xs text-gold-3 font-bold tracking-wider -mb-1 ${
                 r % 2 === 1 ? "text-right pr-1" : "text-left pl-1"

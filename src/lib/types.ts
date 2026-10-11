@@ -91,8 +91,10 @@ export interface BomberMiss {
 }
 
 export interface BomberRoundState {
-  /** この問題で埋める枠の数（5、または折り返しありの 10） */
+  /** この問題で埋める枠の数（5〜15） */
   target: number;
+  /** 折り返す（ジグザグ）か。問題の開始時の人数で決める（5人以下なら折り返す） */
+  zigzag: boolean;
   /** 爆弾を持っている（回答中の）プレイヤー */
   turnToken: string;
   slots: BomberSlot[];
@@ -107,6 +109,8 @@ export interface BomberRoundResult {
   qIndex: number;
   /** 埋める枠の数（折り返し導入前の記録には無く、その場合は 5） */
   target?: number;
+  /** 折り返したか（無ければ折り返しあり） */
+  zigzag?: boolean;
   cleared: boolean;
   slots: BomberSlot[];
   /** 爆発したときに爆弾を持っていた人 */
@@ -293,8 +297,10 @@ export interface BomberView {
   isPlayer: boolean;
   /** questionフェーズ中のみ */
   round: {
-    /** 埋める枠の数（5、または折り返しありの 10） */
+    /** 埋める枠の数（5〜15） */
     target: number;
+    /** 折り返す（ジグザグ）か */
+    zigzag: boolean;
     slots: BomberSlotView[];
     /** 残りの枠を誰が答えるか（今の回答者から順に） */
     upcoming: string[];
@@ -311,6 +317,7 @@ export interface BomberView {
   judged: {
     q: string;
     target: number;
+    zigzag: boolean;
     cleared: boolean;
     /** 爆発したときに爆弾を持っていた人の名前 */
     heldBy: string | null;
@@ -324,6 +331,7 @@ export interface BomberView {
     | {
         q: string;
         target: number;
+        zigzag: boolean;
         cleared: boolean;
         heldBy: string | null;
         slots: BomberSlotView[];

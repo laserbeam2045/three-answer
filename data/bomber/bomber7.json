@@ -142,35 +142,57 @@
       ]
     },
     {
-      "q": "100以下の素数のうち、一の位が3のものを答えてください。",
-      "slots": 7,
+      "q": "木管楽器を答えてください。",
+      "slots": 5,
       "answers": [
         {
-          "display": "3",
+          "display": "フルート",
           "accept": []
         },
         {
-          "display": "13",
+          "display": "ピッコロ",
           "accept": []
         },
         {
-          "display": "23",
+          "display": "オーボエ",
           "accept": []
         },
         {
-          "display": "43",
+          "display": "クラリネット",
           "accept": []
         },
         {
-          "display": "53",
+          "display": "ファゴット",
+          "accept": [
+            "バスーン"
+          ]
+        },
+        {
+          "display": "サクソフォーン",
+          "accept": [
+            "サックス",
+            "サクソフォン"
+          ]
+        },
+        {
+          "display": "リコーダー",
+          "accept": [
+            "縦笛",
+            "たてぶえ"
+          ]
+        },
+        {
+          "display": "イングリッシュホルン",
+          "accept": [
+            "コーラングレ"
+          ]
+        },
+        {
+          "display": "バスクラリネット",
           "accept": []
         },
         {
-          "display": "73",
-          "accept": []
-        },
-        {
-          "display": "83",
+          "display": "コントラファゴット",
           "accept": []
         }
       ]
@@ -779,32 +801,71 @@
       ]
     },
     {
-      "q": "100以下の数のうち、3の倍数でも5の倍数でもあるものを答えてください。",
-      "slots": 6,
+      "q": "11から20までの数を英語で答えてください（英語のつづりでもカタカナでも可）。",
+      "slots": 8,
       "answers": [
         {
-          "display": "15",
-          "accept": []
+          "display": "eleven",
+          "accept": [
+            "イレブン"
+          ]
         },
         {
-          "display": "30",
-          "accept": []
+          "display": "twelve",
+          "accept": [
+            "トゥエルブ",
+            "トゥウェルブ"
+          ]
         },
         {
-          "display": "45",
-          "accept": []
+          "display": "thirteen",
+          "accept": [
+            "サーティーン"
+          ]
         },
         {
-          "display": "60",
-          "accept": []
+          "display": "fourteen",
+          "accept": [
+            "フォーティーン"
+          ]
         },
         {
-          "display": "75",
-          "accept": []
+          "display": "fifteen",
+          "accept": [
+            "フィフティーン"
+          ]
         },
         {
-          "display": "90",
-          "accept": []
+          "display": "sixteen",
+          "accept": [
+            "シックスティーン"
+          ]
+        },
+        {
+          "display": "seventeen",
+          "accept": [
+            "セブンティーン",
+            "セヴンティーン"
+          ]
+        },
+        {
+          "display": "eighteen",
+          "accept": [
+            "エイティーン"
+          ]
+        },
+        {
+          "display": "nineteen",
+          "accept": [
+            "ナインティーン"
+          ]
+        },
+        {
+          "display": "twenty",
+          "accept": [
+            "トゥエンティ",
+            "トゥエンティー"
+          ]
         }
       ]
     }
