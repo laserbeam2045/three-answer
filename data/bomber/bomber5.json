@@ -4,43 +4,48 @@
   "description": "腕だめしにどうぞ。手ごたえのある10問。",
   "questions": [
     {
-      "q": "世界の「五大洋」を答えてください。",
-      "slots": 5,
+      "q": "パネルの難読漢字（鳥）の読みを答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "太平洋",
-          "accept": [
-            "たいへいよう"
-          ]
+          "display": "にわとり",
+          "prompt": "鶏"
         },
         {
-          "display": "大西洋",
-          "accept": [
-            "たいせいよう"
-          ]
+          "display": "すずめ",
+          "prompt": "雀"
         },
         {
-          "display": "インド洋",
-          "accept": [
-            "いんどよう"
-          ]
+          "display": "つばめ",
+          "prompt": "燕"
         },
         {
-          "display": "北極海",
-          "accept": [
-            "ほっきょくかい",
-            "北氷洋",
-            "ほくひょうよう"
-          ]
+          "display": "からす",
+          "prompt": "烏"
         },
         {
-          "display": "南極海",
-          "accept": [
-            "なんきょくかい",
-            "南氷洋",
-            "なんぴょうよう",
-            "南大洋"
-          ]
+          "display": "だちょう",
+          "prompt": "駝鳥"
+        },
+        {
+          "display": "うぐいす",
+          "prompt": "鶯"
+        },
+        {
+          "display": "かもめ",
+          "prompt": "鴎"
+        },
+        {
+          "display": "ふくろう",
+          "prompt": "梟"
+        },
+        {
+          "display": "あひる",
+          "prompt": "家鴨"
+        },
+        {
+          "display": "おうむ",
+          "prompt": "鸚鵡"
         }
       ]
     },
