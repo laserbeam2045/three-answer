@@ -55,6 +55,8 @@ const ITAIJI: Record<string, string> = {
 /** 小書きの母音などを大きい字に（「ウィンディ」と「ウインディ」を同じにする）。ゃゅょっ は区別するので含めない */
 const SMALL_KANA: Record<string, string> = { ぁ: "あ", ぃ: "い", ぅ: "う", ぇ: "え", ぉ: "お", ゎ: "わ", ゕ: "か", ゖ: "け" };
 const SMALL_KANA_RE = /[ぁぃぅぇぉゎゕゖ]/g;
+/** 「ゔ＋母音」をバ行の1字に（小書きの母音は先に大きい字にしてある） */
+const VU_ROW: Record<string, string> = { あ: "ば", い: "び", え: "べ", お: "ぼ" };
 const ITAIJI_RE = new RegExp(`[${Object.keys(ITAIJI).join("")}]`, "gu");
 
 /** ひらがな1文字の母音（長音記号「ー」を母音に置き換えるため） */
@@ -78,6 +80,10 @@ export function normalizeAnswer(input: string): string {
   // カタカナ → ひらがな（ァ〜ヶ）
   t = t.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
   t = t.replace(SMALL_KANA_RE, (c) => SMALL_KANA[c] ?? c);
+  // ヴ行はバ行に（「ヴァチカン」と「バチカン」、「ソーヴィニヨン」と「ソービニヨン」を同じにする）
+  t = t.replace(/ゔ([あいえお])/g, (_, v: string) => VU_ROW[v] ?? v).replace(/ゔ/g, "ぶ");
+  // 「づ・ぢ」は「ず・じ」に（「うづき」と「うずき」）。「×」は「x」に（「3×3」と「3x3」）
+  t = t.replace(/づ/g, "ず").replace(/ぢ/g, "じ").replace(/×/g, "x");
   // 長音記号のつもりで打たれたハイフン類
   t = t.replace(/[-‐‑‒–—―−]/g, "ー");
   // 長音を直前の母音に（「ピカチュー」と「ピカチュウ」、「ルーク」と「ルウク」を同じにする）

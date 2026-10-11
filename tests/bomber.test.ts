@@ -115,6 +115,17 @@ describe("normalizeAnswer / matchAnswer", () => {
     expect(normalizeAnswer("シャーペン")).not.toBe(normalizeAnswer("シヤーペン"));
   });
 
+  it("ヴ行とバ行、づ・ぢとず・じ、×とxの違いを吸収する", () => {
+    expect(normalizeAnswer("ヴァチカン")).toBe(normalizeAnswer("バチカン"));
+    expect(normalizeAnswer("ソーヴィニヨン")).toBe(normalizeAnswer("ソービニヨン"));
+    expect(normalizeAnswer("コソヴォ")).toBe(normalizeAnswer("コソボ"));
+    expect(normalizeAnswer("ヴェルディ")).toBe(normalizeAnswer("ベルディ"));
+    expect(normalizeAnswer("ヴ")).toBe(normalizeAnswer("ブ"));
+    expect(normalizeAnswer("うづき")).toBe(normalizeAnswer("うずき"));
+    expect(normalizeAnswer("ちぢみ")).toBe(normalizeAnswer("ちじみ"));
+    expect(normalizeAnswer("3×3")).toBe(normalizeAnswer("3x3"));
+  });
+
   it("旧字体と新字体の違いを吸収する（慶應／慶応）", () => {
     const q: BomberQuestion = {
       q: "大学",
