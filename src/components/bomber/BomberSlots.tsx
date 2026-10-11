@@ -25,7 +25,7 @@ export default function BomberSlots({
   filled: BomberSlotView[];
   /** 未回答の枠を答える人（先頭が今の回答者）。判定後は空でよい */
   upcoming: string[];
-  /** 枠の数（5〜15） */
+  /** 枠の数（5〜20） */
   target?: number;
   /**
    * 折り返す間隔（参加人数）。5なら段ごとに向きを変えて並べ、同じ列＝同じ人にする。

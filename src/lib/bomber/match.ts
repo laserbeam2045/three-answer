@@ -24,13 +24,13 @@ export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
 export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
 
 /**
- * 1問で答える数の上限（画面は5枠ずつの段で3段まで）。
- * 12個ある和風月名を全部答えさせる、などに使う。
+ * 1問で答える数の上限（画面は5枠ずつの段で4段まで）。
+ * 12個ある和風月名を全部答えさせる、魚へんの漢字を20個答えさせる、などに使う。
  */
-export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 3;
+export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 4;
 
 /**
- * その問題で埋める枠の数（5〜15。6以上なら折り返しあり）。
+ * その問題で埋める枠の数（5〜20）。
  * 問題データの slots があればそれ（簡単な問題は全部答えさせる）、
  * なければ答えが15個以上なら10、それ以外は5。
  */

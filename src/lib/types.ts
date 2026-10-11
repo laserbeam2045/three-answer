@@ -45,7 +45,7 @@ export interface BomberQuestion {
   /** 各正解の前に付けても正解とする語（例: ["徳川", "とくがわ"]） */
   prefixes?: string[];
   /**
-   * この問題で答える数（5〜15、正解の数以下）。6以上なら5枠ごとに折り返す（ジグザグ）。
+   * この問題で答える数（5〜20、正解の数以下）。参加者全員に1回ずつ回るごとに折り返す。
    * 省略時は、答えが15個以上なら10、それ以外は5。簡単な問題は全部答えさせる（例: 惑星なら8）。
    */
   slots?: number;
@@ -91,7 +91,7 @@ export interface BomberMiss {
 }
 
 export interface BomberRoundState {
-  /** この問題で埋める枠の数（5〜15） */
+  /** この問題で埋める枠の数（5〜20） */
   target: number;
   /** 折り返す間隔（問題の開始時の参加人数）。この数ごとに最後の人がもう一度答えて逆向きに戻る */
   width: number;
@@ -297,7 +297,7 @@ export interface BomberView {
   isPlayer: boolean;
   /** questionフェーズ中のみ */
   round: {
-    /** 埋める枠の数（5〜15） */
+    /** 埋める枠の数（5〜20） */
     target: number;
     /** 折り返す間隔（参加人数） */
     width: number;
