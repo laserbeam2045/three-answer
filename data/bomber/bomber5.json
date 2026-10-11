@@ -920,45 +920,130 @@
       ]
     },
     {
-      "q": "ディズニー映画のプリンセス（女王も含む）のうち、主役を務める映画の日本語タイトルに自分の名前が入っているものを答えてください。",
-      "slots": 6,
+      "q": "チーズの種類（名前）を答えてください。",
+      "slots": 5,
       "answers": [
         {
-          "display": "白雪姫",
+          "display": "カマンベール",
+          "accept": []
+        },
+        {
+          "display": "モッツァレラ",
           "accept": [
-            "しらゆきひめ"
+            "モッツァレラチーズ",
+            "モッツアレラ"
           ]
         },
         {
-          "display": "シンデレラ",
+          "display": "チェダー",
+          "accept": [
+            "チェダーチーズ"
+          ]
+        },
+        {
+          "display": "ゴーダ",
+          "accept": [
+            "ゴーダチーズ"
+          ]
+        },
+        {
+          "display": "パルメザン",
+          "accept": [
+            "パルミジャーノ・レッジャーノ",
+            "パルミジャーノ",
+            "パルメザンチーズ"
+          ]
+        },
+        {
+          "display": "ゴルゴンゾーラ",
           "accept": []
         },
         {
-          "display": "ポカホンタス",
+          "display": "ブリー",
           "accept": []
         },
         {
-          "display": "ムーラン",
+          "display": "エメンタール",
           "accept": []
         },
         {
-          "display": "ラプンツェル",
+          "display": "マスカルポーネ",
           "accept": []
         },
         {
-          "display": "メリダ",
+          "display": "リコッタ",
           "accept": []
         },
         {
-          "display": "モアナ",
+          "display": "クリームチーズ",
           "accept": []
         },
         {
-          "display": "ラーヤ",
+          "display": "エダム",
+          "accept": [
+            "エダムチーズ"
+          ]
+        },
+        {
+          "display": "グリュイエール",
           "accept": []
         },
         {
-          "display": "アナ",
+          "display": "ペコリーノ",
+          "accept": [
+            "ペコリーノ・ロマーノ"
+          ]
+        },
+        {
+          "display": "ロックフォール",
+          "accept": []
+        },
+        {
+          "display": "スティルトン",
+          "accept": []
+        },
+        {
+          "display": "ブルーチーズ",
+          "accept": []
+        },
+        {
+          "display": "カッテージチーズ",
+          "accept": [
+            "カテージチーズ"
+          ]
+        },
+        {
+          "display": "ラクレット",
+          "accept": []
+        },
+        {
+          "display": "フェタ",
+          "accept": [
+            "フェタチーズ"
+          ]
+        },
+        {
+          "display": "ハルーミ",
+          "accept": [
+            "ハロウミ"
+          ]
+        },
+        {
+          "display": "コンテ",
+          "accept": []
+        },
+        {
+          "display": "ミモレット",
+          "accept": []
+        },
+        {
+          "display": "ブッラータ",
+          "accept": [
+            "ブラータ"
+          ]
+        },
+        {
+          "display": "プロセスチーズ",
           "accept": []
         }
       ]
