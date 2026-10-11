@@ -73,7 +73,8 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
   }, [panels]);
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 sm:gap-3 w-full">
+    // 出題画面と答え合わせ画面で外枠の幅が違っても配置が変わらないよう、横幅を固定して中央に置く
+    <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 sm:gap-3 w-full max-w-2xl mx-auto">
       {panels.map((p, i) => {
         const hit = hits.includes(i);
         // 結果画面で、誰も答えられなかったパネル
@@ -84,7 +85,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
             ref={(el) => {
               boxRefs.current[i] = el;
             }}
-            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-2 sm:py-3 min-h-20 sm:min-h-24 text-center ${
+            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-2 sm:py-3 min-h-24 sm:min-h-28 text-center ${
               missed ? "opacity-60" : p.display ? `border-gold gold-glow ${hit ? "panel-hit" : "flip-in"}` : ""
             } ${p.isYou ? "slot-you" : ""}`}
           >
@@ -103,8 +104,8 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               </>
             )}
             <span
-              className={`relative font-display font-extrabold leading-tight break-all ${
-                p.display ? "text-ink/70 text-base sm:text-xl" : "text-ink text-xl sm:text-3xl"
+              className={`relative font-display font-extrabold leading-tight break-all text-xl sm:text-2xl ${
+                p.display ? "text-ink/70" : "text-ink"
               }`}
             >
               {p.prompt}
