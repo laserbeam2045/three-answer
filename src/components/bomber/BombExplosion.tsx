@@ -17,6 +17,15 @@ function burstPath(spikes: number, outer: number, inner: number, jitter: number,
   return `M${pts.join("L")}Z`;
 }
 
+const BOOM_TEXT_PROPS = {
+  x: 100,
+  y: 112,
+  textAnchor: "middle",
+  fontSize: 50,
+  fontWeight: 900,
+  fontFamily: "'Noto Sans JP', sans-serif",
+} as const;
+
 const BURST_OUTER = burstPath(14, 96, 60, 0.25, 3);
 const BURST_MID = burstPath(12, 80, 50, 0.3, 5);
 const BURST_INNER = burstPath(10, 62, 40, 0.3, 1);
@@ -117,23 +126,20 @@ export default function BombExplosion({ fireKey }: { fireKey: string | number })
           <path d={BURST_MID} fill="#f97316" />
           <path d={BURST_INNER} fill="#fde047" />
         </g>
+        {/*
+          縁取りと金の文字を別々の層にして重ねる。1つの text に stroke を付けると、
+          漢字の画（パーツ）ごとに輪郭が引かれて、画が交差するところに線が見えてしまうため。
+        */}
         <g className="boom-text">
-          <text
-            x="100"
-            y="112"
-            textAnchor="middle"
-            fontSize="50"
-            fontWeight="900"
-            fontFamily="'Noto Sans JP', sans-serif"
-            fill="url(#boom-text)"
-            stroke="#3b0a0a"
-            strokeWidth="5"
-            strokeLinejoin="round"
-            paintOrder="stroke"
-            transform="rotate(-8 100 100) skewX(-8)"
-          >
-            爆発!!
-          </text>
+          {/* 回転・傾きは別の g に置く（boom-text のアニメーションの transform で上書きされないように） */}
+          <g transform="rotate(-8 100 100) skewX(-8)">
+            <text {...BOOM_TEXT_PROPS} fill="#3b0a0a" stroke="#3b0a0a" strokeWidth="7" strokeLinejoin="round">
+              爆発!!
+            </text>
+            <text {...BOOM_TEXT_PROPS} fill="url(#boom-text)">
+              爆発!!
+            </text>
+          </g>
         </g>
       </svg>
     </div>

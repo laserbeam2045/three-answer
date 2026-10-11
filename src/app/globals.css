@@ -988,8 +988,21 @@ body {
   font-weight: 900;
   letter-spacing: 0.04em;
   color: #fde047;
-  -webkit-text-stroke: 1.5px #7f1d1d;
-  text-shadow: 0 0 18px rgba(249, 115, 22, 0.8), 0 3px 0 #7f1d1d;
+  /*
+   * 縁取りは text-shadow を8方向にずらして描く。-webkit-text-stroke だと漢字の画（パーツ）ごとに
+   * 輪郭が引かれ、画が交差するところに線が出て見づらいため（影は文字全体の後ろにしか描かれない）。
+   */
+  text-shadow:
+    1.5px 0 0 #7f1d1d,
+    -1.5px 0 0 #7f1d1d,
+    0 1.5px 0 #7f1d1d,
+    0 -1.5px 0 #7f1d1d,
+    1px 1px 0 #7f1d1d,
+    -1px 1px 0 #7f1d1d,
+    1px -1px 0 #7f1d1d,
+    -1px -1px 0 #7f1d1d,
+    0 4px 0 #7f1d1d,
+    0 0 18px rgba(249, 115, 22, 0.8);
 }
 
 /* ---------- 正解のきらめき（回答中） ---------- */
