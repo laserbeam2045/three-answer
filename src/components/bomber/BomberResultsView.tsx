@@ -3,6 +3,7 @@
 import { useState } from "react";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
 import BomberMissList from "@/components/bomber/BomberMissList";
+import BomberPanels from "@/components/bomber/BomberPanels";
 import Confetti from "@/components/Confetti";
 import OrnateTitle from "@/components/OrnateTitle";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -68,6 +69,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
           <div className="ornate-2 overflow-hidden">
             {history.map((h, i) => {
               const open = openIdx === i;
+              const isPanel = h.answers.length > 0 && h.answers.every((a) => !!a.prompt);
               return (
                 <div key={i} className="border-b border-line last:border-b-0">
                   <button
@@ -87,7 +89,16 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                     <span className="shrink-0 font-bold text-gold-2 text-sm">{h.points}点</span>
                     <span className="text-muted text-xs shrink-0">{open ? "▲" : "▼"}</span>
                   </button>
-                  {open && (
+                  {open && isPanel && (
+                    // パネル問題は出題時と同じ並びのパネルで振り返る
+                    <div className="px-3 pb-4 space-y-3">
+                      <BomberPanels
+                        panels={h.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false }))}
+                      />
+                      {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
+                    </div>
+                  )}
+                  {open && !isPanel && (
                     <div className="px-3 pb-4 space-y-3">
                       <ol className="flex flex-wrap gap-1.5 text-sm">
                         {h.slots.map((s, k) => (

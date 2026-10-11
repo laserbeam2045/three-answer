@@ -295,7 +295,7 @@ export interface BomberMissView {
 export interface BomberPanelView {
   /** パネルに見せておく出題（難読漢字など） */
   prompt: string;
-  /** 正解済みなら答え（読み）、まだなら null */
+  /** 正解済みなら答え（読み）、まだなら null（結果画面では答えられなかったパネルも読みが入る） */
   display: string | null;
   /** 正解した人の名前 */
   by: string | null;

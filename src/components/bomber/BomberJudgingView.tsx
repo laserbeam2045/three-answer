@@ -5,6 +5,7 @@ import BomberSlots from "@/components/bomber/BomberSlots";
 import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
 import BomberMissList from "@/components/bomber/BomberMissList";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
+import BomberPanels from "@/components/bomber/BomberPanels";
 import BombExplosion from "@/components/bomber/BombExplosion";
 import ClearFireworks from "@/components/bomber/ClearFireworks";
 import Confetti from "@/components/Confetti";
@@ -35,6 +36,8 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
   if (!state || !judged) return null;
 
   const isLast = state.qIndex >= state.questionCount - 1;
+  // パネル問題は回答枠ではなく、出題時と同じ並びのパネルで結果を見せる
+  const isPanel = judged.answers.length > 0 && judged.answers.every((a) => !!a.prompt);
 
   const onNext = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -65,14 +68,20 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
           <p className="font-display text-sm sm:text-base text-ink/90 leading-relaxed">{judged.q}</p>
         </div>
 
-        <BomberSlots
-          filled={judged.slots}
-          upcoming={[]}
-          target={judged.target}
-          width={judged.width}
-          exploded={!judged.cleared}
-          heldBy={judged.heldBy}
-        />
+        {isPanel ? (
+          <BomberPanels
+            panels={judged.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false }))}
+          />
+        ) : (
+          <BomberSlots
+            filled={judged.slots}
+            upcoming={[]}
+            target={judged.target}
+            width={judged.width}
+            exploded={!judged.cleared}
+            heldBy={judged.heldBy}
+          />
+        )}
 
         {/* クリア or 爆発 */}
         <section className="min-h-20 sm:min-h-24 flex flex-col items-center justify-center gap-2">
@@ -103,15 +112,19 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
           )}
         </section>
 
-        {stage >= 2 && (
+        {stage >= 2 && (!isPanel || judged.misses.length > 0) && (
           <section className="rise-in ornate-2 w-full p-3 sm:p-5">
-            <OrnateTitle as="h3" className="mb-3">
-              正解はこれだけありました（全{judged.answers.length}個）
-            </OrnateTitle>
-            <BomberAnswerList answers={judged.answers} />
+            {!isPanel && (
+              <>
+                <OrnateTitle as="h3" className="mb-3">
+                  正解はこれだけありました（全{judged.answers.length}個）
+                </OrnateTitle>
+                <BomberAnswerList answers={judged.answers} />
+              </>
+            )}
             {judged.misses.length > 0 && (
               <>
-                <p className="text-center text-xs text-muted mt-4 mb-1.5">出た誤答（{judged.misses.length}）</p>
+                <p className={`text-center text-xs text-muted mb-1.5 ${isPanel ? "" : "mt-4"}`}>出た誤答（{judged.misses.length}）</p>
                 <BomberMissList misses={judged.misses} />
               </>
             )}

@@ -13,6 +13,7 @@ const HIT_MS = 1800;
  * 正解したパネルから答え（読み）と答えた人の名前が出て、金色に埋まっていく。
  * 並びはデータの順（易しい順）で、上の段から下の段へ、左から右へ。
  * 今まさに埋まったパネルは、光の筋・衝撃波・紙吹雪・「+10」で派手に開く。
+ * 結果画面では答えられなかったパネルも読みを出す（`display` があって `by` が無いパネルは灰色で表示）。
  */
 export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) {
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -75,6 +76,8 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
     <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 sm:gap-3 w-full">
       {panels.map((p, i) => {
         const hit = hits.includes(i);
+        // 結果画面で、誰も答えられなかったパネル
+        const missed = !!p.display && !p.by;
         return (
           <div
             key={`${i}-${p.display ? "open" : "closed"}`}
@@ -82,7 +85,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               boxRefs.current[i] = el;
             }}
             className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-2 sm:py-3 min-h-20 sm:min-h-24 text-center ${
-              p.display ? `border-gold gold-glow ${hit ? "panel-hit" : "flip-in"}` : ""
+              missed ? "opacity-60" : p.display ? `border-gold gold-glow ${hit ? "panel-hit" : "flip-in"}` : ""
             } ${p.isYou ? "slot-you" : ""}`}
           >
             {hit && (
@@ -109,13 +112,13 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
             {p.display ? (
               <>
                 <span
-                  className={`relative font-display text-gilt text-sm sm:text-lg font-extrabold leading-tight ${
-                    hit ? "panel-stamp" : ""
-                  }`}
+                  className={`relative font-display text-sm sm:text-lg font-extrabold leading-tight ${
+                    missed ? "text-ink/80" : "text-gilt"
+                  } ${hit ? "panel-stamp" : ""}`}
                 >
                   {p.display}
                 </span>
-                <span className="relative text-[10px] sm:text-xs text-muted truncate max-w-full">{p.by}</span>
+                <span className="relative text-[10px] sm:text-xs text-muted truncate max-w-full">{p.by ?? "だれも答えられず"}</span>
               </>
             ) : (
               <span className="text-muted text-xs sm:text-sm font-black">？</span>
