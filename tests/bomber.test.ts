@@ -108,6 +108,11 @@ describe("normalizeAnswer / matchAnswer", () => {
     expect(normalizeAnswer("ピカチュー")).toBe(normalizeAnswer("ピカチュウ"));
     expect(normalizeAnswer("ルーク")).toBe("るうく");
     expect(normalizeAnswer("ﾙｰｸ")).toBe("るうく");
+    // オ段・エ段の長音は「う」「い」と書く形にそろえる
+    expect(normalizeAnswer("ギョーザ")).toBe(normalizeAnswer("ぎょうざ"));
+    expect(normalizeAnswer("ローソク")).toBe(normalizeAnswer("ろうそく"));
+    expect(normalizeAnswer("センベー")).toBe(normalizeAnswer("せんべい"));
+    expect(normalizeAnswer("マーボードーフ")).toBe(normalizeAnswer("マーボードウフ"));
   });
 
   it("小書きの母音の違いを吸収する（ウィンディ／ウインディ）", () => {
