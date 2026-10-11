@@ -26,12 +26,12 @@ const bset: BomberSet = {
   description: "テスト用",
   questions: [PREFS, { ...PREFS, q: "2問目" }],
 };
-/** 答えが15個ある（折り返しありの）問題 */
+/** 答えが15個ある（10個答える）問題 */
 const MANY: BomberQuestion = {
   q: "1〜15の数字は？",
   answers: Array.from({ length: 15 }, (_, i) => ({ display: `n${i + 1}` })),
 };
-const bturn: BomberSet = { id: "bturn", title: "折り返し", description: "テスト用", questions: [MANY] };
+const bturn: BomberSet = { id: "bturn", title: "10個", description: "テスト用", questions: [MANY] };
 /** 答えが8個で、全部答えさせる（slots: 8）簡単な問題 */
 const EASY: BomberQuestion = {
   q: "惑星は？",
@@ -163,15 +163,15 @@ describe("ファイブボンバーの進行", () => {
     expect(s.bomberResults[0].slots).toHaveLength(5);
   });
 
-  it("正解すると爆弾が次の人へ移り、全員に回ったら最後の人がもう一度答えて折り返す", () => {
+  it("正解すると爆弾が次の人へ移り、最後の人の次は最初の人に戻る（折り返しなし）", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
     expect(s.bomberRound!.turnToken).toBe("p1");
     act(s, "p1", { type: "bomberAnswer", text: "青森" }, answerAt);
     expect(s.bomberRound!.turnToken).toBe("p2");
     act(s, "p2", { type: "bomberAnswer", text: "岩手" }, answerAt);
     act(s, "p3", { type: "bomberAnswer", text: "宮城" }, answerAt);
-    expect(s.bomberRound!.turnToken).toBe("p3");
-    act(s, "p3", { type: "bomberAnswer", text: "秋田" }, answerAt);
+    expect(s.bomberRound!.turnToken).toBe("p1");
+    act(s, "p1", { type: "bomberAnswer", text: "秋田" }, answerAt);
     expect(s.bomberRound!.turnToken).toBe("p2");
   });
 
@@ -266,23 +266,21 @@ describe("ファイブボンバーの進行", () => {
     expect(s.timer!.paused).toBe(false);
   });
 
-  it("途中参加した人は順番の最後に入り、次の問題から回答の順番に加わる", () => {
+  it("途中参加した人は順番の最後に入り、順番が回ってきたら答える", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
     act(s, "p9", { type: "bomberJoin" }, answerAt);
     expect(s.bomberPlayers).toEqual(["p1", "p2", "p3", "p9"]);
     const presence = presenceFor([HOST, "p1", "p2", "p3", "p9"], answerAt);
-    // この問題の折り返し幅は開始時の3人のまま
-    for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p3", "宮城"], ["p3", "秋田"], ["p2", "山形"]] as const) {
+    for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p3", "宮城"], ["p9", "秋田"], ["p1", "山形"]] as const) {
       expect(s.bomberRound!.turnToken).toBe(who);
       act(s, who, { type: "bomberAnswer", text }, answerAt, presence);
     }
     act(s, HOST, { type: "next" }, answerAt, presence);
-    expect(s.bomberRound!.width).toBe(4);
     // 1問目で5個進んだので、2問目は 5 % 4 = 1 番目（p2）から
     expect(s.bomberRound!.turnToken).toBe("p2");
   });
 
-  it("2人のときは折り返さず交互に答える", () => {
+  it("2人のときは交互に答える", () => {
     const { s, answerAt } = startedRoom(["p1", "p2"]);
     const presence = presenceFor([HOST, "p1", "p2"], answerAt);
     for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p1", "宮城"], ["p2", "秋田"], ["p1", "山形"]] as const) {
@@ -384,9 +382,9 @@ describe("ファイブボンバーの redact", () => {
   });
 });
 
-// ---------- 折り返し（答えが15個以上の問題） ----------
+// ---------- 答える数と順番 ----------
 
-describe("折り返し", () => {
+describe("答える数と順番", () => {
   it("制限時間は「答え1つあたりの秒数 × 答える数」。秒数はホストが選べる", () => {
     const { s } = startedRoom(["p1"]);
     expect(s.timer!.totalMs - s.timer!.revealMs).toBe(8 * 5 * 1000);
@@ -397,7 +395,7 @@ describe("折り返し", () => {
     expect(() => act(lobby, HOST, { type: "setBomberSeconds", seconds: 30 }, 0)).toThrow(EngineError);
   });
 
-  it("答えが15個以上なら10枠になり、5枠目の人が続けて答えてから逆順に戻る。制限時間は2倍", () => {
+  it("答えが15個以上なら10枠になり、5人なら 1→5 のあとまた 1→5 と順番どおりに答える。制限時間は2倍", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
     expect(s.bomberRound!.target).toBe(10);
     const plain = startedRoom(["p1"]).s; // 5枠の問題
@@ -409,13 +407,13 @@ describe("折り返し", () => {
       order.push(who);
       act(s, who, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt);
     }
-    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3", "p2", "p1"]);
+    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p1", "p2", "p3", "p4", "p5"]);
     expect(s.phase).toBe("judging");
     expect(s.bomberResults[0]).toMatchObject({ cleared: true, target: 10 });
     expect(s.bomberResults[0].slots).toHaveLength(10);
   });
 
-  it("3人なら3人ごとに折り返す（A B C | C B A | A B C | C）", () => {
+  it("3人なら A B C A B C … と回る", () => {
     const { s, answerAt } = startedRoom(["A", "B", "C"], 1_000_000, "bturn");
     const order: string[] = [];
     for (let k = 0; k < 10; k++) {
@@ -423,27 +421,17 @@ describe("折り返し", () => {
       order.push(who);
       act(s, who, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt);
     }
-    expect(order).toEqual(["A", "B", "C", "C", "B", "A", "A", "B", "C", "C"]);
+    expect(order).toEqual(["A", "B", "C", "A", "B", "C", "A", "B", "C", "A"]);
   });
 
-  it("回答予定（upcoming）も折り返しを含めて返し、満点は枠の数で数える", () => {
-    const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
-    const view = redact(s, presenceFor([HOST, "p1", "p2", "p3", "p4", "p5"], answerAt), "p1", answerAt, getSet, allSets, false, getBomberSet, () => [bturn]);
-    expect(view.bomber.round!.upcoming).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3", "p2", "p1"]);
+  it("回答予定（upcoming）も順番どおりに返し、満点は枠の数で数える", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3"], 1_000_000, "bturn");
+    const view = redact(s, presenceFor([HOST, "p1", "p2", "p3"], answerAt), "p1", answerAt, getSet, allSets, false, getBomberSet, () => [bturn]);
+    expect(view.bomber.round!.upcoming).toEqual(["p1", "p2", "p3", "p1", "p2", "p3", "p1", "p2", "p3", "p1"]);
     expect(view.bomber.maxPoints).toBe(100);
   });
 
-  it("折り返し後に回答中の人が抜けたら、戻る向き（前の人）へ渡す", () => {
-    const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
-    for (let k = 0; k < 6; k++) act(s, s.bomberRound!.turnToken, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt);
-    expect(s.bomberRound!.turnToken).toBe("p4");
-    act(s, HOST, { type: "bomberKick", token: "p4" }, answerAt);
-    expect(s.bomberRound!.turnToken).toBe("p3");
-  });
-});
-
-describe("簡単な問題は全部答える（slots 指定）", () => {
-  it("slots: 8 なら 1→5→5→3 の8枠、制限時間も8つぶん", () => {
+  it("slots: 8 なら8枠、制限時間も8つぶん", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "beasy");
     expect(s.bomberRound!.target).toBe(8);
     expect(s.timer!.totalMs - s.timer!.revealMs).toBe(8 * 8 * 1000);
@@ -453,44 +441,11 @@ describe("簡単な問題は全部答える（slots 指定）", () => {
       order.push(who);
       act(s, who, { type: "bomberAnswer", text: `p${k + 1}` }, answerAt);
     }
-    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3"]);
+    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p1", "p2", "p3"]);
     expect(s.bomberResults[0]).toMatchObject({ cleared: true, target: 8 });
   });
-});
 
-describe("ジグザグ（10個を超える問題）", () => {
-  it("12個なら 1→5、5→1 のあと1人目がもう一度答えて 1→2 と進む。途中で抜けても今の向きで続く", () => {
-    const TWELVE: BomberQuestion = {
-      q: "和風月名は？",
-      slots: 12,
-      answers: Array.from({ length: 12 }, (_, i) => ({ display: `m${i + 1}` })),
-    };
-    const b12: BomberSet = { id: "b12", title: "12", description: "テスト用", questions: [TWELVE] };
-    const get = (id: string) => (id === "b12" ? b12 : getBomberSet(id));
-    const s = createRoom("r12", HOST, "ホスト", 0);
-    const presence = presenceFor([HOST, "p1", "p2", "p3", "p4", "p5"], 0);
-    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
-      applyAction(s, token, action, presence, now, getSet, allSets, get);
-    run(HOST, { type: "setMode", mode: "bomber" }, 0);
-    for (const p of ["p1", "p2", "p3", "p4", "p5"]) run(p, { type: "bomberJoin" }, 0);
-    run(HOST, { type: "selectSet", setId: "b12" }, 0);
-    run(HOST, { type: "start" }, 0);
-    const at = s.timer!.revealMs;
-    expect(s.bomberRound!.target).toBe(12);
-    expect(s.timer!.totalMs - s.timer!.revealMs).toBe(12 * 8 * 1000);
-    const order: string[] = [];
-    for (let k = 0; k < 12; k++) {
-      const who = s.bomberRound!.turnToken;
-      order.push(who);
-      run(who, { type: "bomberAnswer", text: `m${k + 1}` }, at);
-    }
-    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p5", "p4", "p3", "p2", "p1", "p1", "p2"]);
-    expect(s.bomberResults[0]).toMatchObject({ cleared: true, target: 12 });
-  });
-});
-
-describe("人数ごとに折り返し、全員に回答権が行きわたる", () => {
-  it("8人・12個なら 1→8 番のあと 8番がもう一度答えて 8→5 番。次の問題は5番から始まる", () => {
+  it("8人・12個なら 1→8 番のあと 1→4 番。次の問題は5番から始まる", () => {
     const TWELVE = (q: string): BomberQuestion => ({
       q,
       slots: 12,
@@ -507,7 +462,6 @@ describe("人数ごとに折り返し、全員に回答権が行きわたる", (
     for (const p of players) run(p, { type: "bomberJoin" }, 0);
     run(HOST, { type: "selectSet", setId: "b8" }, 0);
     run(HOST, { type: "start" }, 0);
-    expect(s.bomberRound!.width).toBe(8);
     const at = s.timer!.revealMs;
     const order: string[] = [];
     for (let k = 0; k < 12; k++) {
@@ -515,21 +469,17 @@ describe("人数ごとに折り返し、全員に回答権が行きわたる", (
       order.push(who);
       run(who, { type: "bomberAnswer", text: `a${k + 1}` }, at);
     }
-    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p8", "p7", "p6", "p5"]);
+    expect(order).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p1", "p2", "p3", "p4"]);
     run(HOST, { type: "next" }, at);
     expect(s.bomberRound!.turnToken).toBe("p5");
   });
 
-  it("10人・10個なら折り返さず全員が1回ずつ答える", () => {
-    const players = Array.from({ length: 10 }, (_, i) => `q${i}`);
-    const { s, answerAt } = startedRoom(players, 1_000_000, "bturn");
-    const order: string[] = [];
-    for (let k = 0; k < 10; k++) {
-      const who = s.bomberRound!.turnToken;
-      order.push(who);
-      act(s, who, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt, presenceFor([HOST, ...players], answerAt));
-    }
-    expect(new Set(order).size).toBe(10);
+  it("回答中の人が抜けたら、次の人へ渡す", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
+    for (let k = 0; k < 6; k++) act(s, s.bomberRound!.turnToken, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt);
+    expect(s.bomberRound!.turnToken).toBe("p2");
+    act(s, HOST, { type: "bomberKick", token: "p2" }, answerAt);
+    expect(s.bomberRound!.turnToken).toBe("p3");
   });
 });
 

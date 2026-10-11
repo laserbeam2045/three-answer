@@ -9,15 +9,12 @@ import type { BomberSlotView } from "@/lib/types";
 /**
  * 回答枠。埋まった枠は正解の表記、未回答の枠は答える予定の人の名前を出す。
  * 回答中の枠の上には爆弾が乗る。
- * 折り返しありの問題（6〜15枠）は5枠ずつの段にし、段ごとに向きを変えて並べる（ジグザグ）。
- * 1段目の5枠目の真下が6枠目、2段目の左端の真下が11枠目＝同じ人が続けて答える。同じ列は同じ人。
- * 最後の段が5つに満たないときは、その段の進む向きの後ろ側を空ける。
+ * 6枠以上の問題は5枠ずつの段にして、どの段も左→右に並べる（回答は参加者の順番どおりで、折り返しはない）。
  */
 export default function BomberSlots({
   filled,
   upcoming,
   target = BOMBER_SLOTS,
-  width = BOMBER_SLOTS,
   urgent = false,
   exploded = false,
   heldBy = null,
@@ -27,11 +24,6 @@ export default function BomberSlots({
   upcoming: string[];
   /** 枠の数（5〜20） */
   target?: number;
-  /**
-   * 折り返す間隔（参加人数）。5なら段ごとに向きを変えて並べ、同じ列＝同じ人にする。
-   * それ以外は全段を左→右に並べ、折り返す枠（同じ人が続けて答える枠）に「↩」を付ける。
-   */
-  width?: number;
   urgent?: boolean;
   /** 判定画面で爆発した枠を示す */
   exploded?: boolean;
@@ -67,14 +59,9 @@ export default function BomberSlots({
     });
   }, [filled.length, live]);
 
-  // 5人のときは画面の段と折り返しが一致するので、段ごとに向きを変えて並べる
-  const snake = width === BOMBER_SLOTS && target > BOMBER_SLOTS;
-  // 折り返す枠（同じ人が続けて答える枠）
-  const isTurn = (i: number) => width > 1 && i > 0 && i % width === 0 && i < target;
-  // r 段目の列 c の枠（0始まり）。偶数段は左→右、奇数段は右→左。target を超える枠は空き
-  const columns = Array.from({ length: BOMBER_SLOTS }, (_, c) => c);
+  // 5枠ずつの段（target を超える枠は空き）
   const rows = Array.from({ length: Math.ceil(target / BOMBER_SLOTS) }, (_, r) =>
-    columns.map((c) => r * BOMBER_SLOTS + (snake && r % 2 === 1 ? BOMBER_SLOTS - 1 - c : c))
+    Array.from({ length: BOMBER_SLOTS }, (_, c) => r * BOMBER_SLOTS + c)
   );
   const compact = rows.length > 1;
 
@@ -82,15 +69,6 @@ export default function BomberSlots({
     <div className="w-full flex flex-col gap-1">
       {rows.map((row, r) => (
         <div key={r} className="w-full">
-          {snake && r > 0 && (
-            <p
-              className={`text-[10px] sm:text-xs text-gold-3 font-bold tracking-wider -mb-1 ${
-                r % 2 === 1 ? "text-right pr-1" : "text-left pl-1"
-              }`}
-            >
-              {r % 2 === 1 ? "↩" : "↪"} {r * BOMBER_SLOTS}枠目から折り返し
-            </p>
-          )}
           <div className="grid grid-cols-5 gap-1 sm:gap-3 w-full">
             {row.map((i) => {
               if (i >= target) return <div key={i} aria-hidden />;
@@ -126,11 +104,6 @@ export default function BomberSlots({
                     } ${isCurrent && !exploded ? "slot-you bomber-current" : ""} ${slot?.isYou ? "slot-you" : ""}`}
                   >
                     <span className="font-display text-gold-3 text-[10px] sm:text-xs font-bold leading-none">
-                      {!snake && isTurn(i) && (
-                        <span className="mr-0.5" title="ここで折り返し（前の人がもう一度答える）">
-                          ↩
-                        </span>
-                      )}
                       {i + 1}
                     </span>
                     {slot ? (

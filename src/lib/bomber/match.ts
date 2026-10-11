@@ -17,11 +17,10 @@ export const BOMBER_SECONDS_PER_ANSWER_OPTIONS = [6, 8, 10, 12, 15, 20];
 export const BOMBER_DEFAULT_SECONDS_PER_ANSWER = 8;
 
 /**
- * 答えがこの数以上ある問題は「折り返し」で10個答える（番組の「ハイパーボンバー」）。
- * 1→2→3→4→5 と答えたあと、5枠目の人がもう一度答えて 5→4→3→2→1 と戻る。
- * 番組は10個以上だが、10個ちょうどの問題で全部を求めると難しすぎるため、余裕のある15個以上にする。
+ * 答えがこの数以上ある問題は、データで slots を指定していなくても10個答える（番組の「ハイパーボンバー」）。
+ * 10個ちょうどの問題で全部を求めると難しすぎるため、余裕のある15個以上にする。
  */
-export const BOMBER_TURNAROUND_MIN_ANSWERS = 15;
+export const BOMBER_MANY_ANSWERS_MIN = 15;
 
 /**
  * 1問で答える数の上限（画面は5枠ずつの段で4段まで）。
@@ -37,34 +36,7 @@ export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 4;
 export function slotsFor(question: BomberQuestion): number {
   if (question.panels) return Math.min(question.answers.length, BOMBER_MAX_SLOTS);
   if (question.slots) return question.slots;
-  return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
-}
-
-/**
- * 折り返す間隔（＝参加人数）。全員に1回ずつ回ったら、最後の人がもう一度答えて逆向きに戻る。
- * 5人なら番組と同じ 1→5、5→1。10人で10個なら折り返さず全員が1回ずつ答え、
- * 8人で12個なら 1→8 のあと 8→5 と、端数のぶんだけ折り返す（みんなに回答権が行きわたるように）。
- * 2人だけは折り返さず交互に答える（折り返すと A→B→B→A となり不自然なため）。
- */
-export function turnWidth(playerCount: number): number {
-  // 2人は折り返さず交互に答える（A→B→A→B。ユーザー要望）
-  if (playerCount === 2) return BOMBER_MAX_SLOTS;
-  return Math.max(1, playerCount);
-}
-
-/** 枠 k（0 始まり）を答える向き。width 枠ごとの段で、偶数段は次の人へ、奇数段は前の人へ進む */
-export function directionAt(k: number, width: number = BOMBER_SLOTS): "next" | "prev" {
-  return Math.floor(k / width) % 2 === 0 ? "next" : "prev";
-}
-
-/**
- * 枠 k（0 始まり）の回答者が、1つ前の枠の回答者から見て誰か。
- * 段の頭（k = width, 2×width…）は同じ人がもう一度（折り返し）、それ以外は段の向きに1人ずつ進む。
- * 例: 5人なら 1 2 3 4 5 | 5 4 3 2 1 | 1 2 3 4 5、3人なら 1 2 3 | 3 2 1 | 1 2 3
- */
-export function stepInto(k: number, width: number = BOMBER_SLOTS): "next" | "same" | "prev" {
-  if (k > 0 && k % width === 0) return "same";
-  return directionAt(k, width);
+  return question.answers.length >= BOMBER_MANY_ANSWERS_MIN ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
 }
 
 /**

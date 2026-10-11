@@ -3,7 +3,7 @@ import {
   BOMBER_MAX_PLAYERS,
   BOMBER_POINTS,
   BOMBER_SLOTS,
-  BOMBER_TURNAROUND_MIN_ANSWERS,
+  BOMBER_MANY_ANSWERS_MIN,
 } from "@/lib/bomber/match";
 
 function RuleSection({ title, children }: { title: string; children: ReactNode }) {
@@ -36,17 +36,19 @@ export default function BomberRulesContent() {
           ひらがな・カタカナ・漢字のどれで入力しても判定されます。
         </p>
       </RuleSection>
-      <RuleSection title="折り返し">
+      <RuleSection title="答える順番と数">
         <p>
-          答えが{BOMBER_TURNAROUND_MIN_ANSWERS}個以上ある問題や、全部言えそうな簡単な問題は、5つより多く（最大20個）答えます。
-          参加者全員に1回ずつ回ったら、<strong className="text-gold">最後の人がもう一度答えて折り返し</strong>、逆の順番で戻ります
-          （5人なら 1→5、5→1。10人で10個なら折り返さずに全員が1回ずつ）。
+          参加者の<strong className="text-gold">順番どおりに1人ずつ</strong>答え、最後の人の次は最初の人に戻ります（1→2→3→1→2→3…）。
+          次の問題は、前の問題の続きの人から始まります。
+        </p>
+        <p>
+          答えが{BOMBER_MANY_ANSWERS_MIN}個以上ある問題や、全部言えそうな簡単な問題は、5つより多く（最大20個）答えます。
           制限時間は「答え1つあたりの秒数 × 答える数」なので、答える数が多いほど長くなります。
         </p>
       </RuleSection>
       <RuleSection title="爆弾と得点">
         <p>
-          {BOMBER_SLOTS}つ（折り返しありの問題は画面に出る数）正解すればクリア。時間内に揃わないと爆弾が爆発して、その問題は終わりです。
+          画面に出る数（ふつうは{BOMBER_SLOTS}つ）正解すればクリア。時間内に揃わないと爆弾が爆発して、その問題は終わりです。
           1つ正解するごとに{BOMBER_POINTS}点。全10問の合計点を目指します。
         </p>
       </RuleSection>

@@ -132,13 +132,12 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       {!round.panels && (
         <section>
           <OrnateTitle className="mb-1 sm:mb-2">
-            {round.target > round.width ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}個つなげ！`}
+            答えを{round.target}個つなげ！
           </OrnateTitle>
           <BomberSlots
             filled={round.slots}
             upcoming={round.upcoming}
             target={round.target}
-            width={round.width}
             urgent={urgent}
           />
         </section>

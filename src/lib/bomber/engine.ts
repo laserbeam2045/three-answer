@@ -8,10 +8,7 @@ import {
   BOMBER_SECONDS_PER_ANSWER_OPTIONS,
   BOMBER_SLOTS,
   matchAnswer,
-  directionAt,
   slotsFor,
-  stepInto,
-  turnWidth,
 } from "./match";
 
 export type GetBomberSet = (id: string) => BomberSet | undefined;
@@ -32,23 +29,13 @@ export function maxBomberPoints(set: BomberSet): number {
   return set.questions.reduce((sum, q) => sum + roundPoints(slotsFor(q)), 0);
 }
 
-/** players の中で token の次の人（末尾の次は先頭に戻る） */
-function nextPlayer(players: string[], token: string): string {
+/**
+ * players の中で token の次の人（末尾の次は先頭に戻る）。
+ * 回答は折り返しなしで、参加者の順番どおりに1人ずつ回る（ユーザー要望）。
+ */
+export function nextPlayer(players: string[], token: string): string {
   const i = players.indexOf(token);
   return players[(i + 1) % players.length];
-}
-
-/** players の中で token の前の人（先頭の前は末尾） */
-function prevPlayer(players: string[], token: string): string {
-  const i = players.indexOf(token);
-  return players[(i - 1 + players.length) % players.length];
-}
-
-/** 枠 k を答える人（1つ前の枠を答えた人 from から見て。width 枠ごとに折り返す） */
-export function answererOfSlot(players: string[], from: string, k: number, width: number = BOMBER_SLOTS): string {
-  const step = stepInto(k, width);
-  if (step === "same") return from;
-  return step === "next" ? nextPlayer(players, from) : prevPlayer(players, from);
 }
 
 /**
@@ -69,12 +56,11 @@ function startRound(state: RoomState, set: BomberSet, now: number): void {
   const q = set.questions[state.qIndex];
   const target = slotsFor(q);
   state.phase = "question";
-  // 制限時間は「答え1つあたりの秒数 × 答える数」（折り返しありの問題は自然に倍になる）
+  // 制限時間は「答え1つあたりの秒数 × 答える数」
   state.timer = newTimer(q.q, state.settings.bomberSecondsPerAnswer * target, now);
   state.pausedRoles = [];
   state.bomberRound = {
     target,
-    width: turnWidth(state.bomberPlayers.length),
     turnToken: firstAnswerer(state.bomberPlayers, state.qIndex, set),
     slots: [],
     lastMiss: null,
@@ -90,7 +76,6 @@ function finishRound(state: RoomState, cleared: boolean): void {
     {
       qIndex: state.qIndex,
       target: round?.target ?? BOMBER_SLOTS,
-      width: round?.width ?? BOMBER_SLOTS,
       cleared,
       slots: round?.slots ?? [],
       misses: round?.misses ?? [],
@@ -118,10 +103,8 @@ function removePlayer(state: RoomState, target: string): void {
   if (!players.includes(target)) return;
   const round = state.bomberRound;
   const wasTurn = round?.turnToken === target;
-  // 回答中の人が抜けたら、今の段の向き（折り返し後なら前の人へ）で続ける
-  const backward = !!round && directionAt(round.slots.length, round.width) === "prev";
-  const next =
-    wasTurn && players.length > 1 ? (backward ? prevPlayer(players, target) : nextPlayer(players, target)) : null;
+  // 回答中の人が抜けたら、次の人が続ける
+  const next = wasTurn && players.length > 1 ? nextPlayer(players, target) : null;
   state.bomberPlayers = players.filter((t) => t !== target);
 
   if (state.bomberPlayers.length === 0) {
@@ -256,7 +239,7 @@ export function bomberAnswer(
   if (round.slots.length >= round.target) {
     finishRound(state, true);
   } else {
-    round.turnToken = answererOfSlot(state.bomberPlayers, token, round.slots.length, round.width);
+    round.turnToken = nextPlayer(state.bomberPlayers, token);
   }
 }
 

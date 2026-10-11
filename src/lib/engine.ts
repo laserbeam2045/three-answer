@@ -74,7 +74,6 @@ export function normalizeRoom(state: RoomState): void {
   state.bomberResults ??= [];
   if (state.bomberRound) {
     state.bomberRound.target ??= 5;
-    state.bomberRound.width ??= 5;
     state.bomberRound.misses ??= [];
   }
   // 以前は「1問あたりの秒数」（bomberSeconds）だった。答え1つあたりに変えたので、無ければ既定値にする

@@ -52,7 +52,7 @@ export interface BomberQuestion {
    */
   panels?: boolean;
   /**
-   * この問題で答える数（5〜20、正解の数以下）。参加者全員に1回ずつ回るごとに折り返す。
+   * この問題で答える数（5〜20、正解の数以下）。参加者の順番どおりに1人ずつ答えていく。
    * 省略時は、答えが15個以上なら10、それ以外は5。簡単な問題は全部答えさせる（例: 惑星なら8）。
    */
   slots?: number;
@@ -100,8 +100,6 @@ export interface BomberMiss {
 export interface BomberRoundState {
   /** この問題で埋める枠の数（5〜20） */
   target: number;
-  /** 折り返す間隔（問題の開始時の参加人数）。この数ごとに最後の人がもう一度答えて逆向きに戻る */
-  width: number;
   /** 爆弾を持っている（回答中の）プレイヤー */
   turnToken: string;
   slots: BomberSlot[];
@@ -114,10 +112,8 @@ export interface BomberRoundState {
 
 export interface BomberRoundResult {
   qIndex: number;
-  /** 埋める枠の数（折り返し導入前の記録には無く、その場合は 5） */
+  /** 埋める枠の数（古い記録には無く、その場合は 5） */
   target?: number;
-  /** 折り返す間隔（無ければ 5） */
-  width?: number;
   cleared: boolean;
   slots: BomberSlot[];
   /** 爆発したときに爆弾を持っていた人 */
@@ -318,8 +314,6 @@ export interface BomberView {
   round: {
     /** 埋める枠の数（5〜20） */
     target: number;
-    /** 折り返す間隔（参加人数） */
-    width: number;
     slots: BomberSlotView[];
     /** 残りの枠を誰が答えるか（今の回答者から順に） */
     upcoming: string[];
@@ -338,7 +332,6 @@ export interface BomberView {
   judged: {
     q: string;
     target: number;
-    width: number;
     cleared: boolean;
     /** 爆発したときに爆弾を持っていた人の名前 */
     heldBy: string | null;
@@ -352,7 +345,6 @@ export interface BomberView {
     | {
         q: string;
         target: number;
-        width: number;
         cleared: boolean;
         heldBy: string | null;
         slots: BomberSlotView[];
