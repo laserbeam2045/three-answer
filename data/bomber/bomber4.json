@@ -591,36 +591,61 @@
       ]
     },
     {
-      "q": "トランプで、2〜10以外のカードの呼び名を答えてください（ジョーカーも数えます）。",
-      "slots": 5,
+      "q": "パネルの漢字で書いた国名を、カタカナの国名で答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "エース",
+          "display": "アメリカ",
+          "prompt": "亜米利加",
           "accept": [
-            "A"
+            "米国"
           ]
         },
         {
-          "display": "ジャック",
+          "display": "イギリス",
+          "prompt": "英吉利",
           "accept": [
-            "J"
+            "英国"
           ]
         },
         {
-          "display": "クイーン",
-          "accept": [
-            "Q",
-            "クィーン"
-          ]
+          "display": "フランス",
+          "prompt": "仏蘭西",
+          "accept": []
         },
         {
-          "display": "キング",
-          "accept": [
-            "K"
-          ]
+          "display": "ドイツ",
+          "prompt": "独逸",
+          "accept": []
         },
         {
-          "display": "ジョーカー",
+          "display": "イタリア",
+          "prompt": "伊太利",
+          "accept": []
+        },
+        {
+          "display": "スペイン",
+          "prompt": "西班牙",
+          "accept": []
+        },
+        {
+          "display": "ロシア",
+          "prompt": "露西亜",
+          "accept": []
+        },
+        {
+          "display": "インド",
+          "prompt": "印度",
+          "accept": []
+        },
+        {
+          "display": "カナダ",
+          "prompt": "加奈陀",
+          "accept": []
+        },
+        {
+          "display": "オランダ",
+          "prompt": "和蘭",
           "accept": []
         }
       ]

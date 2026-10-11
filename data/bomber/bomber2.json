@@ -456,43 +456,59 @@
       ]
     },
     {
-      "q": "100以下の11の倍数を答えてください。",
-      "slots": 9,
+      "q": "パネルの難読漢字（虫）の読みを答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "11",
+          "display": "こおろぎ",
+          "prompt": "蟋蟀",
           "accept": []
         },
         {
-          "display": "22",
+          "display": "かまきり",
+          "prompt": "蟷螂",
           "accept": []
         },
         {
-          "display": "33",
+          "display": "みみず",
+          "prompt": "蚯蚓",
           "accept": []
         },
         {
-          "display": "44",
+          "display": "くも",
+          "prompt": "蜘蛛",
           "accept": []
         },
         {
-          "display": "55",
+          "display": "むかで",
+          "prompt": "百足",
           "accept": []
         },
         {
-          "display": "66",
+          "display": "なめくじ",
+          "prompt": "蛞蝓",
           "accept": []
         },
         {
-          "display": "77",
+          "display": "てんとうむし",
+          "prompt": "天道虫",
           "accept": []
         },
         {
-          "display": "88",
+          "display": "ばった",
+          "prompt": "飛蝗",
           "accept": []
         },
         {
-          "display": "99",
+          "display": "あめんぼ",
+          "prompt": "水黽",
+          "accept": [
+            "あめんぼう"
+          ]
+        },
+        {
+          "display": "みのむし",
+          "prompt": "蓑虫",
           "accept": []
         }
       ]

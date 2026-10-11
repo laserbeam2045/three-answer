@@ -602,55 +602,57 @@
       ]
     },
     {
-      "q": "南アメリカ大陸にある12の独立国を答えてください。",
-      "slots": 8,
+      "q": "パネルの難読漢字（花・植物）の読みを答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "ブラジル",
+          "display": "あじさい",
+          "prompt": "紫陽花",
           "accept": []
         },
         {
-          "display": "アルゼンチン",
+          "display": "ひまわり",
+          "prompt": "向日葵",
           "accept": []
         },
         {
-          "display": "チリ",
+          "display": "たんぽぽ",
+          "prompt": "蒲公英",
           "accept": []
         },
         {
-          "display": "ペルー",
+          "display": "コスモス",
+          "prompt": "秋桜",
           "accept": []
         },
         {
-          "display": "コロンビア",
+          "display": "ばら",
+          "prompt": "薔薇",
           "accept": []
         },
         {
-          "display": "ベネズエラ",
+          "display": "ゆり",
+          "prompt": "百合",
           "accept": []
         },
         {
-          "display": "エクアドル",
+          "display": "つくし",
+          "prompt": "土筆",
           "accept": []
         },
         {
-          "display": "ボリビア",
+          "display": "つつじ",
+          "prompt": "躑躅",
           "accept": []
         },
         {
-          "display": "パラグアイ",
+          "display": "さざんか",
+          "prompt": "山茶花",
           "accept": []
         },
         {
-          "display": "ウルグアイ",
-          "accept": []
-        },
-        {
-          "display": "ガイアナ",
-          "accept": []
-        },
-        {
-          "display": "スリナム",
+          "display": "りんどう",
+          "prompt": "竜胆",
           "accept": []
         }
       ]

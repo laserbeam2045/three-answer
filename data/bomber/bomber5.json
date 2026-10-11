@@ -683,44 +683,78 @@
       ]
     },
     {
-      "q": "初代ポケモン（赤・緑）の「御三家」と、その進化形を答えてください。",
-      "slots": 8,
+      "q": "パネルの四字熟語の□に入る漢字を答えてください（四字熟語をまるごと書いても可）。",
+      "panels": true,
       "answers": [
         {
-          "display": "フシギダネ",
-          "accept": []
+          "display": "石",
+          "prompt": "一□二鳥",
+          "accept": [
+            "一石二鳥"
+          ]
         },
         {
-          "display": "フシギソウ",
-          "accept": []
+          "display": "色",
+          "prompt": "十人十□",
+          "accept": [
+            "十人十色"
+          ]
         },
         {
-          "display": "フシギバナ",
-          "accept": []
+          "display": "業",
+          "prompt": "自□自得",
+          "accept": [
+            "自業自得"
+          ]
         },
         {
-          "display": "ヒトカゲ",
-          "accept": []
+          "display": "回",
+          "prompt": "起死□生",
+          "accept": [
+            "起死回生"
+          ]
         },
         {
-          "display": "リザード",
-          "accept": []
+          "display": "新",
+          "prompt": "温故知□",
+          "accept": [
+            "温故知新"
+          ]
         },
         {
-          "display": "リザードン",
-          "accept": []
+          "display": "心",
+          "prompt": "以□伝心",
+          "accept": [
+            "以心伝心"
+          ]
         },
         {
-          "display": "ゼニガメ",
-          "accept": []
+          "display": "口",
+          "prompt": "異□同音",
+          "accept": [
+            "異口同音"
+          ]
         },
         {
-          "display": "カメール",
-          "accept": []
+          "display": "刀",
+          "prompt": "単□直入",
+          "accept": [
+            "単刀直入"
+          ]
         },
         {
-          "display": "カメックス",
-          "accept": []
+          "display": "応",
+          "prompt": "臨機□変",
+          "accept": [
+            "臨機応変"
+          ]
+        },
+        {
+          "display": "倒",
+          "prompt": "七転八□",
+          "accept": [
+            "七転八倒"
+          ]
         }
       ]
     },

@@ -1324,51 +1324,58 @@
       ]
     },
     {
-      "q": "英語の国名が「-stan（スタン）」で終わる国を答えてください。",
-      "slots": 5,
+      "q": "パネルの難読漢字（台所・日用品）の読みを答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "カザフスタン",
-          "accept": [
-            "Kazakhstan"
-          ]
+          "display": "やかん",
+          "prompt": "薬缶",
+          "accept": []
         },
         {
-          "display": "ウズベキスタン",
-          "accept": [
-            "Uzbekistan"
-          ]
+          "display": "きゅうす",
+          "prompt": "急須",
+          "accept": []
         },
         {
-          "display": "トルクメニスタン",
-          "accept": [
-            "Turkmenistan"
-          ]
+          "display": "まないた",
+          "prompt": "俎板",
+          "accept": []
         },
         {
-          "display": "タジキスタン",
-          "accept": [
-            "Tajikistan"
-          ]
+          "display": "すりばち",
+          "prompt": "擂鉢",
+          "accept": []
         },
         {
-          "display": "キルギス",
-          "accept": [
-            "キルギスタン",
-            "Kyrgyzstan"
-          ]
+          "display": "ほうき",
+          "prompt": "箒",
+          "accept": []
         },
         {
-          "display": "アフガニスタン",
-          "accept": [
-            "Afghanistan"
-          ]
+          "display": "ぞうきん",
+          "prompt": "雑巾",
+          "accept": []
         },
         {
-          "display": "パキスタン",
-          "accept": [
-            "Pakistan"
-          ]
+          "display": "うちわ",
+          "prompt": "団扇",
+          "accept": []
+        },
+        {
+          "display": "ろうそく",
+          "prompt": "蝋燭",
+          "accept": []
+        },
+        {
+          "display": "ふろしき",
+          "prompt": "風呂敷",
+          "accept": []
+        },
+        {
+          "display": "そろばん",
+          "prompt": "算盤",
+          "accept": []
         }
       ]
     },

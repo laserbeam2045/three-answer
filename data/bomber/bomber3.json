@@ -478,43 +478,74 @@
       ]
     },
     {
-      "q": "日本語の国名が「イ」で始まる国（国連加盟国）を答えてください。",
-      "slots": 6,
+      "q": "パネルの元素記号が表す元素の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "イエメン",
-          "accept": []
-        },
-        {
-          "display": "イギリス",
+          "display": "鉄",
+          "prompt": "Fe",
           "accept": [
-            "英国",
-            "えいこく"
+            "てつ"
           ]
         },
         {
-          "display": "イスラエル",
+          "display": "金",
+          "prompt": "Au",
+          "accept": [
+            "きん"
+          ]
+        },
+        {
+          "display": "銀",
+          "prompt": "Ag",
+          "accept": [
+            "ぎん"
+          ]
+        },
+        {
+          "display": "銅",
+          "prompt": "Cu",
+          "accept": [
+            "どう"
+          ]
+        },
+        {
+          "display": "ナトリウム",
+          "prompt": "Na",
           "accept": []
         },
         {
-          "display": "イタリア",
+          "display": "カルシウム",
+          "prompt": "Ca",
           "accept": []
         },
         {
-          "display": "イラク",
-          "accept": []
+          "display": "水銀",
+          "prompt": "Hg",
+          "accept": [
+            "すいぎん"
+          ]
         },
         {
-          "display": "イラン",
-          "accept": []
+          "display": "鉛",
+          "prompt": "Pb",
+          "accept": [
+            "なまり"
+          ]
         },
         {
-          "display": "インド",
-          "accept": []
+          "display": "亜鉛",
+          "prompt": "Zn",
+          "accept": [
+            "あえん"
+          ]
         },
         {
-          "display": "インドネシア",
-          "accept": []
+          "display": "スズ",
+          "prompt": "Sn",
+          "accept": [
+            "錫"
+          ]
         }
       ]
     },
