@@ -661,12 +661,20 @@
       "panels": true,
       "answers": [
         {
+          "display": "ゆり",
+          "prompt": "百合"
+        },
+        {
           "display": "ひまわり",
           "prompt": "向日葵"
         },
         {
-          "display": "ゆり",
-          "prompt": "百合"
+          "display": "ばら",
+          "prompt": "薔薇"
+        },
+        {
+          "display": "あじさい",
+          "prompt": "紫陽花"
         },
         {
           "display": "コスモス",
@@ -674,14 +682,6 @@
           "accept": [
             "あきざくら"
           ]
-        },
-        {
-          "display": "あじさい",
-          "prompt": "紫陽花"
-        },
-        {
-          "display": "ばら",
-          "prompt": "薔薇"
         },
         {
           "display": "つくし",

@@ -9,6 +9,27 @@ import type { BomberPanelView } from "@/lib/types";
 const HIT_MS = 1800;
 
 /**
+ * パネルの出題（漢字）の文字サイズ。スマホは5列で1枚の幅が狭いので、文字数が多いほど小さくする。
+ * PC は従来どおり大きめ（長いことわざだけ一段小さく）。
+ */
+function promptSize(prompt: string): string {
+  const n = [...prompt].length;
+  if (n <= 2) return "text-lg sm:text-2xl";
+  if (n === 3) return "text-base sm:text-2xl";
+  if (n === 4) return "text-sm sm:text-2xl";
+  return "text-[11px] sm:text-lg";
+}
+
+/** 答え（読み）の文字サイズ。スマホで長い読み（てんとうむし など）が2行に折れないようにする */
+function readingSize(reading: string): string {
+  const n = [...reading].length;
+  if (n <= 4) return "text-xs sm:text-lg";
+  if (n === 5) return "text-[11px] sm:text-lg";
+  if (n === 6) return "text-[10px] sm:text-lg";
+  return "text-[9px] sm:text-base";
+}
+
+/**
  * パネル問題のパネル一覧（難読漢字など）。最初から全部の出題を並べておき、
  * 正解したパネルから答え（読み）と答えた人の名前が出て、金色に埋まっていく。
  * 並びはデータの順（易しい順）で、上の段から下の段へ、左から右へ。
@@ -74,7 +95,8 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
 
   return (
     // 出題画面と答え合わせ画面で外枠の幅が違っても配置が変わらないよう、横幅を固定して中央に置く
-    <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 sm:gap-3 w-full max-w-2xl mx-auto">
+    // スマホでも5列×2段（10枚）に収める
+    <div className="grid grid-cols-5 gap-1 sm:gap-3 w-full max-w-2xl mx-auto">
       {panels.map((p, i) => {
         const hit = hits.includes(i);
         // 結果画面で、誰も答えられなかったパネル
@@ -85,7 +107,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
             ref={(el) => {
               boxRefs.current[i] = el;
             }}
-            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-1.5 sm:py-3 min-h-[4.25rem] sm:min-h-28 text-center ${
+            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-0.5 sm:px-1 py-1.5 sm:py-3 min-h-16 sm:min-h-28 text-center ${
               missed ? "opacity-60" : p.display ? `border-gold gold-glow ${hit ? "panel-hit" : "flip-in"}` : ""
             } ${p.isYou ? "slot-you" : ""}`}
           >
@@ -104,7 +126,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               </>
             )}
             <span
-              className={`relative font-display font-extrabold leading-tight break-all text-lg sm:text-2xl ${
+              className={`relative font-display font-extrabold leading-tight break-all ${promptSize(p.prompt)} ${
                 p.display ? "text-ink/70" : "text-ink"
               }`}
             >
@@ -113,13 +135,13 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
             {p.display ? (
               <>
                 <span
-                  className={`relative font-display text-sm sm:text-lg font-extrabold leading-tight ${
+                  className={`relative font-display ${readingSize(p.display)} font-extrabold leading-tight break-all ${
                     missed ? "text-ink/80" : "text-gilt"
                   } ${hit ? "panel-stamp" : ""}`}
                 >
                   {p.display}
                 </span>
-                <span className="relative text-[10px] sm:text-xs text-muted truncate max-w-full">{p.by ?? "だれも答えられず"}</span>
+                <span className="relative text-[9px] sm:text-xs text-muted truncate max-w-full">{p.by ?? "正解者なし"}</span>
               </>
             ) : (
               <span className="text-muted text-xs sm:text-sm font-black">？</span>

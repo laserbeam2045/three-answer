@@ -542,31 +542,31 @@
           ]
         },
         {
-          "display": "イギリス",
-          "prompt": "英吉利",
-          "accept": [
-            "英国"
-          ]
+          "display": "カナダ",
+          "prompt": "加奈陀"
         },
         {
           "display": "フランス",
           "prompt": "仏蘭西"
         },
         {
-          "display": "ドイツ",
-          "prompt": "独逸"
-        },
-        {
           "display": "イタリア",
           "prompt": "伊太利"
         },
         {
-          "display": "カナダ",
-          "prompt": "加奈陀"
-        },
-        {
           "display": "ロシア",
           "prompt": "露西亜"
+        },
+        {
+          "display": "ドイツ",
+          "prompt": "独逸"
+        },
+        {
+          "display": "イギリス",
+          "prompt": "英吉利",
+          "accept": [
+            "英国"
+          ]
         },
         {
           "display": "スペイン",

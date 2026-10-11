@@ -1329,16 +1329,20 @@
       "panels": true,
       "answers": [
         {
-          "display": "うちわ",
-          "prompt": "団扇"
-        },
-        {
           "display": "ぞうきん",
           "prompt": "雑巾"
         },
         {
           "display": "ふろしき",
           "prompt": "風呂敷"
+        },
+        {
+          "display": "きゅうす",
+          "prompt": "急須"
+        },
+        {
+          "display": "うちわ",
+          "prompt": "団扇"
         },
         {
           "display": "そろばん",
@@ -1349,16 +1353,12 @@
           "prompt": "蝋燭"
         },
         {
-          "display": "きゅうす",
-          "prompt": "急須"
+          "display": "やかん",
+          "prompt": "薬缶"
         },
         {
           "display": "ほうき",
           "prompt": "箒"
-        },
-        {
-          "display": "やかん",
-          "prompt": "薬缶"
         },
         {
           "display": "まないた",

@@ -502,19 +502,19 @@
           ]
         },
         {
-          "display": "銅",
-          "prompt": "Cu",
-          "accept": [
-            "どう"
-          ]
-        },
-        {
           "display": "ナトリウム",
           "prompt": "Na"
         },
         {
           "display": "カルシウム",
           "prompt": "Ca"
+        },
+        {
+          "display": "銅",
+          "prompt": "Cu",
+          "accept": [
+            "どう"
+          ]
         },
         {
           "display": "水銀",

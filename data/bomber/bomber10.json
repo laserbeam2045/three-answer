@@ -1584,16 +1584,20 @@
           ]
         },
         {
-          "display": "りす",
-          "prompt": "栗鼠"
-        },
-        {
           "display": "くらげ",
           "prompt": "海月"
         },
         {
+          "display": "りす",
+          "prompt": "栗鼠"
+        },
+        {
           "display": "もぐら",
           "prompt": "土竜"
+        },
+        {
+          "display": "ひとで",
+          "prompt": "海星"
         },
         {
           "display": "かたつむり",
@@ -1605,19 +1609,15 @@
           ]
         },
         {
-          "display": "ひとで",
-          "prompt": "海星"
-        },
-        {
-          "display": "とかげ",
-          "prompt": "蜥蜴"
-        },
-        {
           "display": "きつつき",
           "prompt": "啄木鳥",
           "accept": [
             "けら"
           ]
+        },
+        {
+          "display": "とかげ",
+          "prompt": "蜥蜴"
         },
         {
           "display": "こうもり",

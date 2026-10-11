@@ -425,29 +425,29 @@
           "prompt": "蜘蛛"
         },
         {
-          "display": "むかで",
-          "prompt": "百足"
-        },
-        {
           "display": "みのむし",
           "prompt": "蓑虫"
+        },
+        {
+          "display": "むかで",
+          "prompt": "百足"
         },
         {
           "display": "みみず",
           "prompt": "蚯蚓"
         },
         {
-          "display": "ばった",
-          "prompt": "飛蝗",
-          "accept": [
-            "いなご"
-          ]
-        },
-        {
           "display": "かまきり",
           "prompt": "蟷螂",
           "accept": [
             "とうろう"
+          ]
+        },
+        {
+          "display": "ばった",
+          "prompt": "飛蝗",
+          "accept": [
+            "いなご"
           ]
         },
         {

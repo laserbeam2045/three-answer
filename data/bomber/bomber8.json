@@ -3636,16 +3636,24 @@
           "prompt": "太刀魚"
         },
         {
-          "display": "はまぐり",
-          "prompt": "蛤"
-        },
-        {
           "display": "あさり",
           "prompt": "浅蜊"
         },
         {
+          "display": "はまぐり",
+          "prompt": "蛤"
+        },
+        {
           "display": "うに",
           "prompt": "海胆"
+        },
+        {
+          "display": "なまこ",
+          "prompt": "海鼠"
+        },
+        {
+          "display": "あんこう",
+          "prompt": "鮟鱇"
         },
         {
           "display": "さざえ",
@@ -3654,14 +3662,6 @@
         {
           "display": "わかさぎ",
           "prompt": "公魚"
-        },
-        {
-          "display": "あんこう",
-          "prompt": "鮟鱇"
-        },
-        {
-          "display": "なまこ",
-          "prompt": "海鼠"
         },
         {
           "display": "かわはぎ",
