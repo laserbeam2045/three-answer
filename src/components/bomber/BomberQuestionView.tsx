@@ -61,12 +61,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   const miss = round.lastMiss;
 
   return (
-    <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-3 sm:gap-5 p-3 sm:p-6">
-      {/* 上部: 問題番号 + 導火線ゲージ */}
+    // スマホは1画面に収まるよう、余白と高さを詰める（sm 以上は従来のサイズ）
+    <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col gap-2 sm:gap-5 px-3 py-2 sm:p-6">
+      {/* 上部: 問題番号 + 導火線ゲージ。スマホでは問題番号はヘッダーにあるので出さない */}
       <div className="flex items-center gap-3">
-        <span className="plaque shrink-0 px-3.5 py-1 text-sm sm:text-base">
-          第{state.qIndex + 1}問
-          <span className="text-xs opacity-70 font-sans font-bold">/ {state.questionCount}</span>
+        <span className="hidden sm:block shrink-0">
+          <span className="plaque px-3.5 py-1 text-base">
+            第{state.qIndex + 1}問
+            <span className="text-xs opacity-70 font-sans font-bold">/ {state.questionCount}</span>
+          </span>
         </span>
         <div className="flex-1 min-w-0 flex items-center gap-3">
           {timer.inReveal ? (
@@ -82,7 +85,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
                 <div className={`gauge-fill ${urgent ? "low" : ""}`} style={{ width: `${ratio * 100}%` }} />
               </div>
               <span
-                className={`w-12 text-right font-display text-xl font-extrabold tabular-nums ${
+                className={`w-12 text-right font-display text-lg sm:text-xl font-extrabold tabular-nums ${
                   urgent ? "text-crimson" : "text-gold-2"
                 }`}
               >
@@ -95,15 +98,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       </div>
 
       {/* 問題文 */}
-      <section className="ornate ornate-lit relative px-2 py-4 sm:px-8 sm:py-8 min-h-28 sm:min-h-40 flex items-center justify-center overflow-hidden">
+      <section className="ornate ornate-lit relative px-3 py-2.5 sm:px-8 sm:py-8 min-h-20 sm:min-h-40 flex items-center justify-center overflow-hidden">
         {timer.inLeadIn ? (
           <div className="q-ripple relative flex flex-col items-center justify-center">
-            <span className="q-badge font-display text-gilt text-4xl sm:text-6xl font-extrabold tracking-[0.25em] pl-[0.25em] select-none">
+            <span className="q-badge font-display text-gilt text-3xl sm:text-6xl font-extrabold tracking-[0.25em] pl-[0.25em] select-none">
               問題
             </span>
           </div>
         ) : (
-          <p className="font-display text-lg sm:text-2xl font-semibold leading-relaxed text-center text-ink">
+          <p className="font-display text-base sm:text-2xl font-semibold leading-snug sm:leading-relaxed text-center text-ink">
             {timer.inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
           </p>
         )}
@@ -111,7 +114,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
           <span
             key={timer.remainingSec}
             aria-live="assertive"
-            className="countdown-pop absolute right-3 bottom-1 sm:right-6 sm:bottom-2 font-display text-crimson text-5xl sm:text-7xl font-black pointer-events-none"
+            className="countdown-pop absolute right-3 bottom-0 sm:right-6 sm:bottom-2 font-display text-crimson text-4xl sm:text-7xl font-black pointer-events-none"
           >
             {timer.remainingSec}
           </span>
@@ -144,15 +147,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       )}
 
       {/* 回答エリア */}
-      <section className="ornate-2 p-3 sm:p-5 flex flex-col items-center gap-2.5">
+      <section className="ornate-2 px-3 py-2 sm:p-5 flex flex-col items-center gap-1.5 sm:gap-2.5">
         {round.isYourTurn ? (
-          <p className="font-display text-gilt text-xl sm:text-2xl font-extrabold tracking-widest flex items-center gap-2">
-            <BombIcon urgent={urgent} className="w-7 h-7 sm:w-9 sm:h-9" />
+          <p className="font-display text-gilt text-lg sm:text-2xl font-extrabold tracking-widest flex items-center gap-2">
+            <BombIcon urgent={urgent} className="w-6 h-6 sm:w-9 sm:h-9" />
             あなたの番です
           </p>
         ) : (
-          <p className="text-base sm:text-lg text-ink flex items-center gap-2">
-            <BombIcon urgent={urgent} className="w-6 h-6 sm:w-8 sm:h-8" />
+          <p className="text-sm sm:text-lg text-ink flex items-center gap-2">
+            <BombIcon urgent={urgent} className="w-5 h-5 sm:w-8 sm:h-8" />
             <span className="font-bold text-gold-2">{round.turnName}</span>
             <span className="text-muted">さんが回答中…</span>
           </p>
@@ -187,38 +190,36 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
                     ? "問題文が出たら送れます"
                     : "自分の番に備えて入力しておけます"
               }
-              className={`field flex-1 min-w-0 px-3 py-2.5 text-lg ${canAnswer ? "" : "opacity-75"}`}
+              className={`field flex-1 min-w-0 px-3 py-2 sm:py-2.5 text-base sm:text-lg ${canAnswer ? "" : "opacity-75"}`}
               aria-label="答え"
             />
             <button
               type="submit"
               disabled={!canAnswer || !text.trim()}
-              className="btn-gold shrink-0 px-5 py-2.5 text-base"
+              className="btn-gold shrink-0 px-4 sm:px-5 py-2 sm:py-2.5 text-base"
             >
               {pending > 0 && !text.trim() ? "判定中…" : "答える"}
             </button>
           </form>
         )}
 
-        {/* 直前の誤答（全員に見える） */}
-        <div className="min-h-7">
-          {miss && (
-            <p key={`${miss.name}-${miss.seq}`} className="miss-shake text-sm sm:text-base text-center">
-              <span className="font-black text-crimson mr-1.5">×</span>
-              {!round.isYourTurn && <span className="text-muted mr-1">{miss.name}:</span>}
-              <span className="text-ink">「{miss.text}」</span>
-              <span className="text-muted text-xs sm:text-sm ml-1">
-                {miss.reason === "dup" ? "はもう出ています" : "は違います"}
-              </span>
-            </p>
-          )}
-        </div>
+        {/* 直前の誤答（全員に見える）。無いときは場所を空けない */}
+        {miss && (
+          <p key={`${miss.name}-${miss.seq}`} className="miss-shake text-sm sm:text-base text-center">
+            <span className="font-black text-crimson mr-1.5">×</span>
+            {!round.isYourTurn && <span className="text-muted mr-1">{miss.name}:</span>}
+            <span className="text-ink">「{miss.text}」</span>
+            <span className="text-muted text-xs sm:text-sm ml-1">
+              {miss.reason === "dup" ? "はもう出ています" : "は違います"}
+            </span>
+          </p>
+        )}
       </section>
 
       {/* この問題で出た誤答（全員に見える） */}
       {round.misses.length > 0 && (
         <section className="w-full">
-          <p className="text-center text-xs text-muted mb-1.5">この問題の誤答（{round.misses.length}）</p>
+          <p className="text-center text-xs text-muted mb-1 sm:mb-1.5">この問題の誤答（{round.misses.length}）</p>
           <BomberMissList misses={round.misses} animateLatest />
         </section>
       )}

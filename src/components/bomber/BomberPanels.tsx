@@ -85,7 +85,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
             ref={(el) => {
               boxRefs.current[i] = el;
             }}
-            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-2 sm:py-3 min-h-24 sm:min-h-28 text-center ${
+            className={`slot relative flex flex-col items-center justify-center gap-0.5 px-1 py-1.5 sm:py-3 min-h-[4.25rem] sm:min-h-28 text-center ${
               missed ? "opacity-60" : p.display ? `border-gold gold-glow ${hit ? "panel-hit" : "flip-in"}` : ""
             } ${p.isYou ? "slot-you" : ""}`}
           >
@@ -104,7 +104,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               </>
             )}
             <span
-              className={`relative font-display font-extrabold leading-tight break-all text-xl sm:text-2xl ${
+              className={`relative font-display font-extrabold leading-tight break-all text-lg sm:text-2xl ${
                 p.display ? "text-ink/70" : "text-ink"
               }`}
             >

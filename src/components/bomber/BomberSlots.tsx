@@ -66,7 +66,7 @@ export default function BomberSlots({
   const compact = rows.length > 1;
 
   return (
-    <div className="w-full flex flex-col gap-1">
+    <div className="w-full flex flex-col gap-0.5 sm:gap-1">
       {rows.map((row, r) => (
         <div key={r} className="w-full">
           <div className="grid grid-cols-5 gap-1 sm:gap-3 w-full">
@@ -76,12 +76,19 @@ export default function BomberSlots({
               const isCurrent = !slot && i === filled.length;
               const pendingName = upcoming[i - filled.length];
               return (
-                <div key={i} className="relative flex flex-col items-center gap-1 min-w-0 pt-7 sm:pt-9">
+                // 上の余白は爆弾アイコンの置き場。スマホでは段の高さを詰めるため、爆弾を枠の右上に重ねる
+                <div key={i} className="relative flex flex-col items-center gap-0.5 sm:gap-1 min-w-0 pt-1.5 sm:pt-9">
                   {isCurrent && !exploded && upcoming.length > 0 && (
-                    <BombIcon urgent={urgent} className="absolute top-0 w-8 h-8 sm:w-11 sm:h-11" />
+                    <BombIcon
+                      urgent={urgent}
+                      className="absolute z-10 -top-1 right-0 w-6 h-6 sm:top-0 sm:right-auto sm:w-11 sm:h-11"
+                    />
                   )}
                   {isCurrent && exploded && (
-                    <span className="absolute top-0 text-2xl sm:text-3xl explode-pop" aria-hidden>
+                    <span
+                      className="absolute z-10 -top-1 right-0 text-lg sm:top-0 sm:right-auto sm:text-3xl explode-pop"
+                      aria-hidden
+                    >
                       💥
                     </span>
                   )}
@@ -89,7 +96,7 @@ export default function BomberSlots({
                     <span
                       key={`plus-${i}-${slot.display}`}
                       aria-hidden
-                      className="plus-float absolute left-1/2 top-6 sm:top-8 z-10 font-display text-gold-2 text-lg sm:text-2xl font-black pointer-events-none"
+                      className="plus-float absolute left-1/2 top-0 sm:top-8 z-10 font-display text-gold-2 text-lg sm:text-2xl font-black pointer-events-none"
                     >
                       +{BOMBER_POINTS}
                     </span>
@@ -98,7 +105,7 @@ export default function BomberSlots({
                     ref={(el) => {
                       boxRefs.current[i] = el;
                     }}
-                    className={`slot w-full ${compact ? "min-h-14 sm:min-h-20" : "min-h-16 sm:min-h-24"} flex flex-col items-center justify-center gap-0.5 px-0.5 py-1.5 text-center ${
+                    className={`slot w-full ${compact ? "min-h-10 sm:min-h-20" : "min-h-12 sm:min-h-24"} flex flex-col items-center justify-center gap-0.5 px-0.5 py-1 sm:py-1.5 text-center ${
                       // 回答中は「今埋まった枠」だけを動かす（判定画面では全枠をめくる）
                       slot ? (live ? (hitIndex === i ? "slot-hit border-gold" : "border-gold-3") : "flip-in border-gold-3") : ""
                     } ${isCurrent && !exploded ? "slot-you bomber-current" : ""} ${slot?.isYou ? "slot-you" : ""}`}

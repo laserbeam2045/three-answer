@@ -60,7 +60,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
         </>
       )}
       <div
-        className="shake-target flex-1 w-full max-w-3xl mx-auto flex flex-col items-center gap-5 px-3 sm:px-6 py-6 select-none"
+        className="shake-target flex-1 w-full max-w-3xl mx-auto flex flex-col items-center gap-3 sm:gap-5 px-3 sm:px-6 py-3 sm:py-6 select-none"
         onClick={() => setStage(MAX_STAGE)}
       >
         <div className="w-full text-center">
@@ -83,7 +83,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
         )}
 
         {/* クリア or 爆発 */}
-        <section className="min-h-20 sm:min-h-24 flex flex-col items-center justify-center gap-2">
+        <section className="min-h-16 sm:min-h-24 flex flex-col items-center justify-center gap-1 sm:gap-2">
           {judged.cleared ? (
             stage >= 1 && (
               <div className="rays">
