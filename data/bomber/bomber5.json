@@ -71,12 +71,10 @@
           ]
         },
         {
-          "display": "チーター",
-          "accept": []
+          "display": "チーター"
         },
         {
-          "display": "ジャガー",
-          "accept": []
+          "display": "ジャガー"
         },
         {
           "display": "ピューマ",
@@ -98,8 +96,7 @@
           ]
         },
         {
-          "display": "オセロット",
-          "accept": []
+          "display": "オセロット"
         },
         {
           "display": "サーバル",
@@ -108,8 +105,7 @@
           ]
         },
         {
-          "display": "カラカル",
-          "accept": []
+          "display": "カラカル"
         },
         {
           "display": "オオヤマネコ",
@@ -150,24 +146,19 @@
           ]
         },
         {
-          "display": "マヌルネコ",
-          "accept": []
+          "display": "マヌルネコ"
         },
         {
-          "display": "ボブキャット",
-          "accept": []
+          "display": "ボブキャット"
         },
         {
-          "display": "ジャガランディ",
-          "accept": []
+          "display": "ジャガランディ"
         },
         {
-          "display": "スナドリネコ",
-          "accept": []
+          "display": "スナドリネコ"
         },
         {
-          "display": "マーゲイ",
-          "accept": []
+          "display": "マーゲイ"
         }
       ]
     },
@@ -339,20 +330,16 @@
       "slots": 10,
       "answers": [
         {
-          "display": "ロンドン",
-          "accept": []
+          "display": "ロンドン"
         },
         {
-          "display": "パリ",
-          "accept": []
+          "display": "パリ"
         },
         {
-          "display": "ベルリン",
-          "accept": []
+          "display": "ベルリン"
         },
         {
-          "display": "ローマ",
-          "accept": []
+          "display": "ローマ"
         },
         {
           "display": "マドリード",
@@ -361,16 +348,13 @@
           ]
         },
         {
-          "display": "リスボン",
-          "accept": []
+          "display": "リスボン"
         },
         {
-          "display": "アムステルダム",
-          "accept": []
+          "display": "アムステルダム"
         },
         {
-          "display": "ブリュッセル",
-          "accept": []
+          "display": "ブリュッセル"
         },
         {
           "display": "ルクセンブルク",
@@ -379,16 +363,13 @@
           ]
         },
         {
-          "display": "ベルン",
-          "accept": []
+          "display": "ベルン"
         },
         {
-          "display": "ウィーン",
-          "accept": []
+          "display": "ウィーン"
         },
         {
-          "display": "ダブリン",
-          "accept": []
+          "display": "ダブリン"
         },
         {
           "display": "レイキャビク",
@@ -398,28 +379,22 @@
           ]
         },
         {
-          "display": "コペンハーゲン",
-          "accept": []
+          "display": "コペンハーゲン"
         },
         {
-          "display": "オスロ",
-          "accept": []
+          "display": "オスロ"
         },
         {
-          "display": "ストックホルム",
-          "accept": []
+          "display": "ストックホルム"
         },
         {
-          "display": "ヘルシンキ",
-          "accept": []
+          "display": "ヘルシンキ"
         },
         {
-          "display": "ワルシャワ",
-          "accept": []
+          "display": "ワルシャワ"
         },
         {
-          "display": "プラハ",
-          "accept": []
+          "display": "プラハ"
         },
         {
           "display": "ブラチスラバ",
@@ -434,32 +409,25 @@
           ]
         },
         {
-          "display": "ブカレスト",
-          "accept": []
+          "display": "ブカレスト"
         },
         {
-          "display": "ソフィア",
-          "accept": []
+          "display": "ソフィア"
         },
         {
-          "display": "アテネ",
-          "accept": []
+          "display": "アテネ"
         },
         {
-          "display": "ザグレブ",
-          "accept": []
+          "display": "ザグレブ"
         },
         {
-          "display": "リュブリャナ",
-          "accept": []
+          "display": "リュブリャナ"
         },
         {
-          "display": "ベオグラード",
-          "accept": []
+          "display": "ベオグラード"
         },
         {
-          "display": "ポドゴリツァ",
-          "accept": []
+          "display": "ポドゴリツァ"
         },
         {
           "display": "サラエボ",
@@ -468,16 +436,13 @@
           ]
         },
         {
-          "display": "スコピエ",
-          "accept": []
+          "display": "スコピエ"
         },
         {
-          "display": "ティラナ",
-          "accept": []
+          "display": "ティラナ"
         },
         {
-          "display": "プリシュティナ",
-          "accept": []
+          "display": "プリシュティナ"
         },
         {
           "display": "キシナウ",
@@ -492,8 +457,7 @@
           ]
         },
         {
-          "display": "ミンスク",
-          "accept": []
+          "display": "ミンスク"
         },
         {
           "display": "ビリニュス",
@@ -502,24 +466,19 @@
           ]
         },
         {
-          "display": "リガ",
-          "accept": []
+          "display": "リガ"
         },
         {
-          "display": "タリン",
-          "accept": []
+          "display": "タリン"
         },
         {
-          "display": "モスクワ",
-          "accept": []
+          "display": "モスクワ"
         },
         {
-          "display": "アンカラ",
-          "accept": []
+          "display": "アンカラ"
         },
         {
-          "display": "トビリシ",
-          "accept": []
+          "display": "トビリシ"
         },
         {
           "display": "エレバン",
@@ -528,12 +487,10 @@
           ]
         },
         {
-          "display": "バクー",
-          "accept": []
+          "display": "バクー"
         },
         {
-          "display": "ニコシア",
-          "accept": []
+          "display": "ニコシア"
         },
         {
           "display": "バレッタ",
@@ -542,8 +499,7 @@
           ]
         },
         {
-          "display": "モナコ",
-          "accept": []
+          "display": "モナコ"
         },
         {
           "display": "アンドララベリャ",
@@ -552,8 +508,7 @@
           ]
         },
         {
-          "display": "サンマリノ",
-          "accept": []
+          "display": "サンマリノ"
         },
         {
           "display": "バチカン",
@@ -562,8 +517,7 @@
           ]
         },
         {
-          "display": "ファドゥーツ",
-          "accept": []
+          "display": "ファドゥーツ"
         }
       ]
     },
@@ -621,64 +575,49 @@
       "slots": 15,
       "answers": [
         {
-          "display": "2",
-          "accept": []
+          "display": "2"
         },
         {
-          "display": "3",
-          "accept": []
+          "display": "3"
         },
         {
-          "display": "5",
-          "accept": []
+          "display": "5"
         },
         {
-          "display": "7",
-          "accept": []
+          "display": "7"
         },
         {
-          "display": "11",
-          "accept": []
+          "display": "11"
         },
         {
-          "display": "13",
-          "accept": []
+          "display": "13"
         },
         {
-          "display": "17",
-          "accept": []
+          "display": "17"
         },
         {
-          "display": "19",
-          "accept": []
+          "display": "19"
         },
         {
-          "display": "23",
-          "accept": []
+          "display": "23"
         },
         {
-          "display": "29",
-          "accept": []
+          "display": "29"
         },
         {
-          "display": "31",
-          "accept": []
+          "display": "31"
         },
         {
-          "display": "37",
-          "accept": []
+          "display": "37"
         },
         {
-          "display": "41",
-          "accept": []
+          "display": "41"
         },
         {
-          "display": "43",
-          "accept": []
+          "display": "43"
         },
         {
-          "display": "47",
-          "accept": []
+          "display": "47"
         }
       ]
     },
@@ -701,6 +640,13 @@
           ]
         },
         {
+          "display": "心",
+          "prompt": "以□伝心",
+          "accept": [
+            "以心伝心"
+          ]
+        },
+        {
           "display": "業",
           "prompt": "自□自得",
           "accept": [
@@ -708,24 +654,10 @@
           ]
         },
         {
-          "display": "回",
-          "prompt": "起死□生",
-          "accept": [
-            "起死回生"
-          ]
-        },
-        {
           "display": "新",
           "prompt": "温故知□",
           "accept": [
             "温故知新"
-          ]
-        },
-        {
-          "display": "心",
-          "prompt": "以□伝心",
-          "accept": [
-            "以心伝心"
           ]
         },
         {
@@ -750,10 +682,18 @@
           ]
         },
         {
-          "display": "倒",
-          "prompt": "七転八□",
+          "display": "回",
+          "prompt": "起死□生",
           "accept": [
-            "七転八倒"
+            "起死回生"
+          ]
+        },
+        {
+          "display": "晩",
+          "prompt": "大器□成",
+          "accept": [
+            "大器晩成",
+            "ばん"
           ]
         }
       ]
@@ -775,8 +715,7 @@
           ]
         },
         {
-          "display": "ソウル",
-          "accept": []
+          "display": "ソウル"
         },
         {
           "display": "平壌",
@@ -785,8 +724,7 @@
           ]
         },
         {
-          "display": "ウランバートル",
-          "accept": []
+          "display": "ウランバートル"
         },
         {
           "display": "台北",
@@ -802,32 +740,25 @@
           ]
         },
         {
-          "display": "クアラルンプール",
-          "accept": []
+          "display": "クアラルンプール"
         },
         {
-          "display": "マニラ",
-          "accept": []
+          "display": "マニラ"
         },
         {
-          "display": "シンガポール",
-          "accept": []
+          "display": "シンガポール"
         },
         {
-          "display": "バンコク",
-          "accept": []
+          "display": "バンコク"
         },
         {
-          "display": "バンダルスリブガワン",
-          "accept": []
+          "display": "バンダルスリブガワン"
         },
         {
-          "display": "ハノイ",
-          "accept": []
+          "display": "ハノイ"
         },
         {
-          "display": "ビエンチャン",
-          "accept": []
+          "display": "ビエンチャン"
         },
         {
           "display": "ネピドー",
@@ -836,12 +767,10 @@
           ]
         },
         {
-          "display": "プノンペン",
-          "accept": []
+          "display": "プノンペン"
         },
         {
-          "display": "ディリ",
-          "accept": []
+          "display": "ディリ"
         },
         {
           "display": "ニューデリー",
@@ -850,12 +779,10 @@
           ]
         },
         {
-          "display": "イスラマバード",
-          "accept": []
+          "display": "イスラマバード"
         },
         {
-          "display": "ダッカ",
-          "accept": []
+          "display": "ダッカ"
         },
         {
           "display": "スリジャヤワルダナプラコッテ",
@@ -864,20 +791,16 @@
           ]
         },
         {
-          "display": "カトマンズ",
-          "accept": []
+          "display": "カトマンズ"
         },
         {
-          "display": "ティンプー",
-          "accept": []
+          "display": "ティンプー"
         },
         {
-          "display": "マレ",
-          "accept": []
+          "display": "マレ"
         },
         {
-          "display": "カブール",
-          "accept": []
+          "display": "カブール"
         },
         {
           "display": "アスタナ",
@@ -886,8 +809,7 @@
           ]
         },
         {
-          "display": "タシケント",
-          "accept": []
+          "display": "タシケント"
         },
         {
           "display": "アシガバット",
@@ -896,16 +818,13 @@
           ]
         },
         {
-          "display": "ビシュケク",
-          "accept": []
+          "display": "ビシュケク"
         },
         {
-          "display": "ドゥシャンベ",
-          "accept": []
+          "display": "ドゥシャンベ"
         },
         {
-          "display": "テヘラン",
-          "accept": []
+          "display": "テヘラン"
         },
         {
           "display": "バグダッド",
@@ -914,16 +833,13 @@
           ]
         },
         {
-          "display": "リヤド",
-          "accept": []
+          "display": "リヤド"
         },
         {
-          "display": "アブダビ",
-          "accept": []
+          "display": "アブダビ"
         },
         {
-          "display": "ドーハ",
-          "accept": []
+          "display": "ドーハ"
         },
         {
           "display": "クウェートシティ",
@@ -933,12 +849,10 @@
           ]
         },
         {
-          "display": "マナーマ",
-          "accept": []
+          "display": "マナーマ"
         },
         {
-          "display": "マスカット",
-          "accept": []
+          "display": "マスカット"
         },
         {
           "display": "サヌア",
@@ -947,32 +861,25 @@
           ]
         },
         {
-          "display": "アンマン",
-          "accept": []
+          "display": "アンマン"
         },
         {
-          "display": "ダマスカス",
-          "accept": []
+          "display": "ダマスカス"
         },
         {
-          "display": "ベイルート",
-          "accept": []
+          "display": "ベイルート"
         },
         {
-          "display": "エルサレム",
-          "accept": []
+          "display": "エルサレム"
         },
         {
-          "display": "アンカラ",
-          "accept": []
+          "display": "アンカラ"
         },
         {
-          "display": "ニコシア",
-          "accept": []
+          "display": "ニコシア"
         },
         {
-          "display": "トビリシ",
-          "accept": []
+          "display": "トビリシ"
         },
         {
           "display": "エレバン",
@@ -981,12 +888,10 @@
           ]
         },
         {
-          "display": "バクー",
-          "accept": []
+          "display": "バクー"
         },
         {
-          "display": "モスクワ",
-          "accept": []
+          "display": "モスクワ"
         },
         {
           "display": "ラマッラ",
@@ -1001,8 +906,7 @@
       "slots": 5,
       "answers": [
         {
-          "display": "カマンベール",
-          "accept": []
+          "display": "カマンベール"
         },
         {
           "display": "モッツァレラ",
@@ -1035,28 +939,22 @@
           ]
         },
         {
-          "display": "ゴルゴンゾーラ",
-          "accept": []
+          "display": "ゴルゴンゾーラ"
         },
         {
-          "display": "ブリー",
-          "accept": []
+          "display": "ブリー"
         },
         {
-          "display": "エメンタール",
-          "accept": []
+          "display": "エメンタール"
         },
         {
-          "display": "マスカルポーネ",
-          "accept": []
+          "display": "マスカルポーネ"
         },
         {
-          "display": "リコッタ",
-          "accept": []
+          "display": "リコッタ"
         },
         {
-          "display": "クリームチーズ",
-          "accept": []
+          "display": "クリームチーズ"
         },
         {
           "display": "エダム",
@@ -1065,8 +963,7 @@
           ]
         },
         {
-          "display": "グリュイエール",
-          "accept": []
+          "display": "グリュイエール"
         },
         {
           "display": "ペコリーノ",
@@ -1075,16 +972,13 @@
           ]
         },
         {
-          "display": "ロックフォール",
-          "accept": []
+          "display": "ロックフォール"
         },
         {
-          "display": "スティルトン",
-          "accept": []
+          "display": "スティルトン"
         },
         {
-          "display": "ブルーチーズ",
-          "accept": []
+          "display": "ブルーチーズ"
         },
         {
           "display": "カッテージチーズ",
@@ -1093,8 +987,7 @@
           ]
         },
         {
-          "display": "ラクレット",
-          "accept": []
+          "display": "ラクレット"
         },
         {
           "display": "フェタ",
@@ -1109,12 +1002,10 @@
           ]
         },
         {
-          "display": "コンテ",
-          "accept": []
+          "display": "コンテ"
         },
         {
-          "display": "ミモレット",
-          "accept": []
+          "display": "ミモレット"
         },
         {
           "display": "ブッラータ",
@@ -1123,12 +1014,10 @@
           ]
         },
         {
-          "display": "プロセスチーズ",
-          "accept": []
+          "display": "プロセスチーズ"
         },
         {
-          "display": "スモークチーズ",
-          "accept": []
+          "display": "スモークチーズ"
         },
         {
           "display": "カチョカヴァッロ",
@@ -1137,8 +1026,7 @@
           ]
         },
         {
-          "display": "モントレージャック",
-          "accept": []
+          "display": "モントレージャック"
         },
         {
           "display": "シェーブル",
@@ -1175,8 +1063,7 @@
           ]
         },
         {
-          "display": "ユーロ",
-          "accept": []
+          "display": "ユーロ"
         },
         {
           "display": "ポンド",
@@ -1194,8 +1081,7 @@
           ]
         },
         {
-          "display": "ウォン",
-          "accept": []
+          "display": "ウォン"
         },
         {
           "display": "ルピー",
@@ -1204,8 +1090,7 @@
           ]
         },
         {
-          "display": "ルーブル",
-          "accept": []
+          "display": "ルーブル"
         },
         {
           "display": "フラン",
@@ -1222,16 +1107,13 @@
           ]
         },
         {
-          "display": "レアル",
-          "accept": []
+          "display": "レアル"
         },
         {
-          "display": "バーツ",
-          "accept": []
+          "display": "バーツ"
         },
         {
-          "display": "ドン",
-          "accept": []
+          "display": "ドン"
         },
         {
           "display": "リラ",
@@ -1240,24 +1122,19 @@
           ]
         },
         {
-          "display": "リンギット",
-          "accept": []
+          "display": "リンギット"
         },
         {
-          "display": "ルピア",
-          "accept": []
+          "display": "ルピア"
         },
         {
-          "display": "ランド",
-          "accept": []
+          "display": "ランド"
         },
         {
-          "display": "クローネ",
-          "accept": []
+          "display": "クローネ"
         },
         {
-          "display": "クローナ",
-          "accept": []
+          "display": "クローナ"
         },
         {
           "display": "ズウォティ",
@@ -1266,12 +1143,10 @@
           ]
         },
         {
-          "display": "フォリント",
-          "accept": []
+          "display": "フォリント"
         },
         {
-          "display": "ディナール",
-          "accept": []
+          "display": "ディナール"
         },
         {
           "display": "リヤル",
@@ -1281,8 +1156,7 @@
           ]
         },
         {
-          "display": "ディルハム",
-          "accept": []
+          "display": "ディルハム"
         },
         {
           "display": "シェケル",
@@ -1293,8 +1167,7 @@
           ]
         },
         {
-          "display": "香港ドル",
-          "accept": []
+          "display": "香港ドル"
         },
         {
           "display": "台湾ドル",
@@ -1303,20 +1176,16 @@
           ]
         },
         {
-          "display": "ソル",
-          "accept": []
+          "display": "ソル"
         },
         {
-          "display": "ボリバル",
-          "accept": []
+          "display": "ボリバル"
         },
         {
-          "display": "グアラニー",
-          "accept": []
+          "display": "グアラニー"
         },
         {
-          "display": "コルナ",
-          "accept": []
+          "display": "コルナ"
         },
         {
           "display": "レウ",
@@ -1325,44 +1194,34 @@
           ]
         },
         {
-          "display": "キープ",
-          "accept": []
+          "display": "キープ"
         },
         {
-          "display": "リエル",
-          "accept": []
+          "display": "リエル"
         },
         {
-          "display": "チャット",
-          "accept": []
+          "display": "チャット"
         },
         {
-          "display": "ルフィヤ",
-          "accept": []
+          "display": "ルフィヤ"
         },
         {
-          "display": "テンゲ",
-          "accept": []
+          "display": "テンゲ"
         },
         {
-          "display": "ソム",
-          "accept": []
+          "display": "ソム"
         },
         {
-          "display": "ナイラ",
-          "accept": []
+          "display": "ナイラ"
         },
         {
-          "display": "シリング",
-          "accept": []
+          "display": "シリング"
         },
         {
-          "display": "ケツァル",
-          "accept": []
+          "display": "ケツァル"
         },
         {
-          "display": "コロン",
-          "accept": []
+          "display": "コロン"
         },
         {
           "display": "ガルデ",
@@ -1371,24 +1230,19 @@
           ]
         },
         {
-          "display": "タカ",
-          "accept": []
+          "display": "タカ"
         },
         {
-          "display": "トゥグルグ",
-          "accept": []
+          "display": "トゥグルグ"
         },
         {
-          "display": "マナト",
-          "accept": []
+          "display": "マナト"
         },
         {
-          "display": "ラリ",
-          "accept": []
+          "display": "ラリ"
         },
         {
-          "display": "ドラム",
-          "accept": []
+          "display": "ドラム"
         },
         {
           "display": "フリヴニャ",

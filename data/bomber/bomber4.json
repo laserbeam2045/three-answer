@@ -8,52 +8,40 @@
       "slots": 10,
       "answers": [
         {
-          "display": "1",
-          "accept": []
+          "display": "1"
         },
         {
-          "display": "2",
-          "accept": []
+          "display": "2"
         },
         {
-          "display": "3",
-          "accept": []
+          "display": "3"
         },
         {
-          "display": "4",
-          "accept": []
+          "display": "4"
         },
         {
-          "display": "5",
-          "accept": []
+          "display": "5"
         },
         {
-          "display": "6",
-          "accept": []
+          "display": "6"
         },
         {
-          "display": "10",
-          "accept": []
+          "display": "10"
         },
         {
-          "display": "12",
-          "accept": []
+          "display": "12"
         },
         {
-          "display": "15",
-          "accept": []
+          "display": "15"
         },
         {
-          "display": "20",
-          "accept": []
+          "display": "20"
         },
         {
-          "display": "30",
-          "accept": []
+          "display": "30"
         },
         {
-          "display": "60",
-          "accept": []
+          "display": "60"
         }
       ]
     },
@@ -69,16 +57,13 @@
           ]
         },
         {
-          "display": "トリケラトプス",
-          "accept": []
+          "display": "トリケラトプス"
         },
         {
-          "display": "ステゴサウルス",
-          "accept": []
+          "display": "ステゴサウルス"
         },
         {
-          "display": "ブラキオサウルス",
-          "accept": []
+          "display": "ブラキオサウルス"
         },
         {
           "display": "アパトサウルス",
@@ -94,48 +79,37 @@
           ]
         },
         {
-          "display": "スピノサウルス",
-          "accept": []
+          "display": "スピノサウルス"
         },
         {
-          "display": "イグアノドン",
-          "accept": []
+          "display": "イグアノドン"
         },
         {
-          "display": "アンキロサウルス",
-          "accept": []
+          "display": "アンキロサウルス"
         },
         {
-          "display": "パキケファロサウルス",
-          "accept": []
+          "display": "パキケファロサウルス"
         },
         {
-          "display": "パラサウロロフス",
-          "accept": []
+          "display": "パラサウロロフス"
         },
         {
-          "display": "ディプロドクス",
-          "accept": []
+          "display": "ディプロドクス"
         },
         {
-          "display": "アロサウルス",
-          "accept": []
+          "display": "アロサウルス"
         },
         {
-          "display": "ギガノトサウルス",
-          "accept": []
+          "display": "ギガノトサウルス"
         },
         {
-          "display": "カルノタウルス",
-          "accept": []
+          "display": "カルノタウルス"
         },
         {
-          "display": "ディロフォサウルス",
-          "accept": []
+          "display": "ディロフォサウルス"
         },
         {
-          "display": "マイアサウラ",
-          "accept": []
+          "display": "マイアサウラ"
         },
         {
           "display": "オヴィラプトル",
@@ -144,20 +118,16 @@
           ]
         },
         {
-          "display": "テリジノサウルス",
-          "accept": []
+          "display": "テリジノサウルス"
         },
         {
-          "display": "アルゼンチノサウルス",
-          "accept": []
+          "display": "アルゼンチノサウルス"
         },
         {
-          "display": "マメンチサウルス",
-          "accept": []
+          "display": "マメンチサウルス"
         },
         {
-          "display": "フクイラプトル",
-          "accept": []
+          "display": "フクイラプトル"
         },
         {
           "display": "カムイサウルス",
@@ -167,24 +137,19 @@
           ]
         },
         {
-          "display": "デイノニクス",
-          "accept": []
+          "display": "デイノニクス"
         },
         {
-          "display": "コンプソグナトゥス",
-          "accept": []
+          "display": "コンプソグナトゥス"
         },
         {
-          "display": "ガリミムス",
-          "accept": []
+          "display": "ガリミムス"
         },
         {
-          "display": "プテラノドン",
-          "accept": []
+          "display": "プテラノドン"
         },
         {
-          "display": "ケツァルコアトルス",
-          "accept": []
+          "display": "ケツァルコアトルス"
         },
         {
           "display": "フタバサウルス",
@@ -193,16 +158,13 @@
           ]
         },
         {
-          "display": "エラスモサウルス",
-          "accept": []
+          "display": "エラスモサウルス"
         },
         {
-          "display": "プレシオサウルス",
-          "accept": []
+          "display": "プレシオサウルス"
         },
         {
-          "display": "モササウルス",
-          "accept": []
+          "display": "モササウルス"
         },
         {
           "display": "ステノニコサウルス",
@@ -211,60 +173,46 @@
           ]
         },
         {
-          "display": "プロトケラトプス",
-          "accept": []
+          "display": "プロトケラトプス"
         },
         {
-          "display": "イクチオサウルス",
-          "accept": []
+          "display": "イクチオサウルス"
         },
         {
-          "display": "メガロサウルス",
-          "accept": []
+          "display": "メガロサウルス"
         },
         {
-          "display": "プテロダクティルス",
-          "accept": []
+          "display": "プテロダクティルス"
         },
         {
-          "display": "ケラトサウルス",
-          "accept": []
+          "display": "ケラトサウルス"
         },
         {
-          "display": "スティラコサウルス",
-          "accept": []
+          "display": "スティラコサウルス"
         },
         {
-          "display": "バリオニクス",
-          "accept": []
+          "display": "バリオニクス"
         },
         {
-          "display": "エドモントサウルス",
-          "accept": []
+          "display": "エドモントサウルス"
         },
         {
-          "display": "タルボサウルス",
-          "accept": []
+          "display": "タルボサウルス"
         },
         {
-          "display": "アマルガサウルス",
-          "accept": []
+          "display": "アマルガサウルス"
         },
         {
-          "display": "ユタラプトル",
-          "accept": []
+          "display": "ユタラプトル"
         },
         {
-          "display": "ミクロラプトル",
-          "accept": []
+          "display": "ミクロラプトル"
         },
         {
-          "display": "フクイサウルス",
-          "accept": []
+          "display": "フクイサウルス"
         },
         {
-          "display": "フクイティタン",
-          "accept": []
+          "display": "フクイティタン"
         },
         {
           "display": "タンバティタニス",
@@ -274,8 +222,7 @@
           ]
         },
         {
-          "display": "ランフォリンクス",
-          "accept": []
+          "display": "ランフォリンクス"
         },
         {
           "display": "始祖鳥",
@@ -437,8 +384,7 @@
       ],
       "answers": [
         {
-          "display": "ノーマル",
-          "accept": []
+          "display": "ノーマル"
         },
         {
           "display": "ほのお",
@@ -495,8 +441,7 @@
           ]
         },
         {
-          "display": "エスパー",
-          "accept": []
+          "display": "エスパー"
         },
         {
           "display": "むし",
@@ -511,12 +456,10 @@
           ]
         },
         {
-          "display": "ゴースト",
-          "accept": []
+          "display": "ゴースト"
         },
         {
-          "display": "ドラゴン",
-          "accept": []
+          "display": "ドラゴン"
         },
         {
           "display": "あく",
@@ -531,8 +474,7 @@
           ]
         },
         {
-          "display": "フェアリー",
-          "accept": []
+          "display": "フェアリー"
         }
       ]
     },
@@ -547,8 +489,7 @@
           ]
         },
         {
-          "display": "カナダ",
-          "accept": []
+          "display": "カナダ"
         },
         {
           "display": "アメリカ",
@@ -565,28 +506,22 @@
           ]
         },
         {
-          "display": "ブラジル",
-          "accept": []
+          "display": "ブラジル"
         },
         {
-          "display": "オーストラリア",
-          "accept": []
+          "display": "オーストラリア"
         },
         {
-          "display": "インド",
-          "accept": []
+          "display": "インド"
         },
         {
-          "display": "アルゼンチン",
-          "accept": []
+          "display": "アルゼンチン"
         },
         {
-          "display": "カザフスタン",
-          "accept": []
+          "display": "カザフスタン"
         },
         {
-          "display": "アルジェリア",
-          "accept": []
+          "display": "アルジェリア"
         }
       ]
     },
@@ -595,10 +530,15 @@
       "panels": true,
       "answers": [
         {
+          "display": "インド",
+          "prompt": "印度"
+        },
+        {
           "display": "アメリカ",
           "prompt": "亜米利加",
           "accept": [
-            "米国"
+            "米国",
+            "アメリカ合衆国"
           ]
         },
         {
@@ -610,43 +550,31 @@
         },
         {
           "display": "フランス",
-          "prompt": "仏蘭西",
-          "accept": []
+          "prompt": "仏蘭西"
         },
         {
           "display": "ドイツ",
-          "prompt": "独逸",
-          "accept": []
+          "prompt": "独逸"
         },
         {
           "display": "イタリア",
-          "prompt": "伊太利",
-          "accept": []
-        },
-        {
-          "display": "スペイン",
-          "prompt": "西班牙",
-          "accept": []
-        },
-        {
-          "display": "ロシア",
-          "prompt": "露西亜",
-          "accept": []
-        },
-        {
-          "display": "インド",
-          "prompt": "印度",
-          "accept": []
+          "prompt": "伊太利"
         },
         {
           "display": "カナダ",
-          "prompt": "加奈陀",
-          "accept": []
+          "prompt": "加奈陀"
+        },
+        {
+          "display": "ロシア",
+          "prompt": "露西亜"
+        },
+        {
+          "display": "スペイン",
+          "prompt": "西班牙"
         },
         {
           "display": "オランダ",
-          "prompt": "和蘭",
-          "accept": []
+          "prompt": "和蘭"
         }
       ]
     },
@@ -667,8 +595,7 @@
           ]
         },
         {
-          "display": "チェロ",
-          "accept": []
+          "display": "チェロ"
         },
         {
           "display": "コントラバス",
@@ -678,8 +605,7 @@
           ]
         },
         {
-          "display": "ハープ",
-          "accept": []
+          "display": "ハープ"
         }
       ]
     },
@@ -716,8 +642,7 @@
           ]
         },
         {
-          "display": "モンゴル",
-          "accept": []
+          "display": "モンゴル"
         },
         {
           "display": "台湾",
@@ -726,28 +651,22 @@
           ]
         },
         {
-          "display": "インドネシア",
-          "accept": []
+          "display": "インドネシア"
         },
         {
-          "display": "マレーシア",
-          "accept": []
+          "display": "マレーシア"
         },
         {
-          "display": "フィリピン",
-          "accept": []
+          "display": "フィリピン"
         },
         {
-          "display": "シンガポール",
-          "accept": []
+          "display": "シンガポール"
         },
         {
-          "display": "タイ",
-          "accept": []
+          "display": "タイ"
         },
         {
-          "display": "ブルネイ",
-          "accept": []
+          "display": "ブルネイ"
         },
         {
           "display": "ベトナム",
@@ -756,8 +675,7 @@
           ]
         },
         {
-          "display": "ラオス",
-          "accept": []
+          "display": "ラオス"
         },
         {
           "display": "ミャンマー",
@@ -766,8 +684,7 @@
           ]
         },
         {
-          "display": "カンボジア",
-          "accept": []
+          "display": "カンボジア"
         },
         {
           "display": "東ティモール",
@@ -776,12 +693,10 @@
           ]
         },
         {
-          "display": "インド",
-          "accept": []
+          "display": "インド"
         },
         {
-          "display": "パキスタン",
-          "accept": []
+          "display": "パキスタン"
         },
         {
           "display": "バングラデシュ",
@@ -791,36 +706,28 @@
           ]
         },
         {
-          "display": "スリランカ",
-          "accept": []
+          "display": "スリランカ"
         },
         {
-          "display": "ネパール",
-          "accept": []
+          "display": "ネパール"
         },
         {
-          "display": "ブータン",
-          "accept": []
+          "display": "ブータン"
         },
         {
-          "display": "モルディブ",
-          "accept": []
+          "display": "モルディブ"
         },
         {
-          "display": "アフガニスタン",
-          "accept": []
+          "display": "アフガニスタン"
         },
         {
-          "display": "カザフスタン",
-          "accept": []
+          "display": "カザフスタン"
         },
         {
-          "display": "ウズベキスタン",
-          "accept": []
+          "display": "ウズベキスタン"
         },
         {
-          "display": "トルクメニスタン",
-          "accept": []
+          "display": "トルクメニスタン"
         },
         {
           "display": "キルギス",
@@ -829,16 +736,13 @@
           ]
         },
         {
-          "display": "タジキスタン",
-          "accept": []
+          "display": "タジキスタン"
         },
         {
-          "display": "イラン",
-          "accept": []
+          "display": "イラン"
         },
         {
-          "display": "イラク",
-          "accept": []
+          "display": "イラク"
         },
         {
           "display": "サウジアラビア",
@@ -853,44 +757,34 @@
           ]
         },
         {
-          "display": "カタール",
-          "accept": []
+          "display": "カタール"
         },
         {
-          "display": "クウェート",
-          "accept": []
+          "display": "クウェート"
         },
         {
-          "display": "バーレーン",
-          "accept": []
+          "display": "バーレーン"
         },
         {
-          "display": "オマーン",
-          "accept": []
+          "display": "オマーン"
         },
         {
-          "display": "イエメン",
-          "accept": []
+          "display": "イエメン"
         },
         {
-          "display": "ヨルダン",
-          "accept": []
+          "display": "ヨルダン"
         },
         {
-          "display": "シリア",
-          "accept": []
+          "display": "シリア"
         },
         {
-          "display": "レバノン",
-          "accept": []
+          "display": "レバノン"
         },
         {
-          "display": "イスラエル",
-          "accept": []
+          "display": "イスラエル"
         },
         {
-          "display": "パレスチナ",
-          "accept": []
+          "display": "パレスチナ"
         },
         {
           "display": "トルコ",
@@ -899,8 +793,7 @@
           ]
         },
         {
-          "display": "キプロス",
-          "accept": []
+          "display": "キプロス"
         },
         {
           "display": "ジョージア",
@@ -909,12 +802,10 @@
           ]
         },
         {
-          "display": "アルメニア",
-          "accept": []
+          "display": "アルメニア"
         },
         {
-          "display": "アゼルバイジャン",
-          "accept": []
+          "display": "アゼルバイジャン"
         },
         {
           "display": "ロシア",
@@ -923,8 +814,7 @@
           ]
         },
         {
-          "display": "エジプト",
-          "accept": []
+          "display": "エジプト"
         }
       ]
     },

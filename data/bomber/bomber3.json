@@ -305,8 +305,7 @@
           ]
         },
         {
-          "display": "ビタミン",
-          "accept": []
+          "display": "ビタミン"
         },
         {
           "display": "ミネラル",
@@ -482,13 +481,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "鉄",
-          "prompt": "Fe",
-          "accept": [
-            "てつ"
-          ]
-        },
-        {
           "display": "金",
           "prompt": "Au",
           "accept": [
@@ -503,6 +495,13 @@
           ]
         },
         {
+          "display": "鉄",
+          "prompt": "Fe",
+          "accept": [
+            "てつ"
+          ]
+        },
+        {
           "display": "銅",
           "prompt": "Cu",
           "accept": [
@@ -511,13 +510,11 @@
         },
         {
           "display": "ナトリウム",
-          "prompt": "Na",
-          "accept": []
+          "prompt": "Na"
         },
         {
           "display": "カルシウム",
-          "prompt": "Ca",
-          "accept": []
+          "prompt": "Ca"
         },
         {
           "display": "水銀",
@@ -527,17 +524,17 @@
           ]
         },
         {
-          "display": "鉛",
-          "prompt": "Pb",
-          "accept": [
-            "なまり"
-          ]
-        },
-        {
           "display": "亜鉛",
           "prompt": "Zn",
           "accept": [
             "あえん"
+          ]
+        },
+        {
+          "display": "鉛",
+          "prompt": "Pb",
+          "accept": [
+            "なまり"
           ]
         },
         {
@@ -631,16 +628,13 @@
       ],
       "answers": [
         {
-          "display": "アラバマ",
-          "accept": []
+          "display": "アラバマ"
         },
         {
-          "display": "アラスカ",
-          "accept": []
+          "display": "アラスカ"
         },
         {
-          "display": "アリゾナ",
-          "accept": []
+          "display": "アリゾナ"
         },
         {
           "display": "アーカンソー",
@@ -649,12 +643,10 @@
           ]
         },
         {
-          "display": "カリフォルニア",
-          "accept": []
+          "display": "カリフォルニア"
         },
         {
-          "display": "コロラド",
-          "accept": []
+          "display": "コロラド"
         },
         {
           "display": "コネチカット",
@@ -669,32 +661,25 @@
           ]
         },
         {
-          "display": "フロリダ",
-          "accept": []
+          "display": "フロリダ"
         },
         {
-          "display": "ジョージア",
-          "accept": []
+          "display": "ジョージア"
         },
         {
-          "display": "ハワイ",
-          "accept": []
+          "display": "ハワイ"
         },
         {
-          "display": "アイダホ",
-          "accept": []
+          "display": "アイダホ"
         },
         {
-          "display": "イリノイ",
-          "accept": []
+          "display": "イリノイ"
         },
         {
-          "display": "インディアナ",
-          "accept": []
+          "display": "インディアナ"
         },
         {
-          "display": "アイオワ",
-          "accept": []
+          "display": "アイオワ"
         },
         {
           "display": "カンザス",
@@ -703,12 +688,10 @@
           ]
         },
         {
-          "display": "ケンタッキー",
-          "accept": []
+          "display": "ケンタッキー"
         },
         {
-          "display": "ルイジアナ",
-          "accept": []
+          "display": "ルイジアナ"
         },
         {
           "display": "メイン",
@@ -717,20 +700,16 @@
           ]
         },
         {
-          "display": "メリーランド",
-          "accept": []
+          "display": "メリーランド"
         },
         {
-          "display": "マサチューセッツ",
-          "accept": []
+          "display": "マサチューセッツ"
         },
         {
-          "display": "ミシガン",
-          "accept": []
+          "display": "ミシガン"
         },
         {
-          "display": "ミネソタ",
-          "accept": []
+          "display": "ミネソタ"
         },
         {
           "display": "ミシシッピ",
@@ -745,12 +724,10 @@
           ]
         },
         {
-          "display": "モンタナ",
-          "accept": []
+          "display": "モンタナ"
         },
         {
-          "display": "ネブラスカ",
-          "accept": []
+          "display": "ネブラスカ"
         },
         {
           "display": "ネバダ",
@@ -759,40 +736,31 @@
           ]
         },
         {
-          "display": "ニューハンプシャー",
-          "accept": []
+          "display": "ニューハンプシャー"
         },
         {
-          "display": "ニュージャージー",
-          "accept": []
+          "display": "ニュージャージー"
         },
         {
-          "display": "ニューメキシコ",
-          "accept": []
+          "display": "ニューメキシコ"
         },
         {
-          "display": "ニューヨーク",
-          "accept": []
+          "display": "ニューヨーク"
         },
         {
-          "display": "ノースカロライナ",
-          "accept": []
+          "display": "ノースカロライナ"
         },
         {
-          "display": "ノースダコタ",
-          "accept": []
+          "display": "ノースダコタ"
         },
         {
-          "display": "オハイオ",
-          "accept": []
+          "display": "オハイオ"
         },
         {
-          "display": "オクラホマ",
-          "accept": []
+          "display": "オクラホマ"
         },
         {
-          "display": "オレゴン",
-          "accept": []
+          "display": "オレゴン"
         },
         {
           "display": "ペンシルベニア",
@@ -802,28 +770,22 @@
           ]
         },
         {
-          "display": "ロードアイランド",
-          "accept": []
+          "display": "ロードアイランド"
         },
         {
-          "display": "サウスカロライナ",
-          "accept": []
+          "display": "サウスカロライナ"
         },
         {
-          "display": "サウスダコタ",
-          "accept": []
+          "display": "サウスダコタ"
         },
         {
-          "display": "テネシー",
-          "accept": []
+          "display": "テネシー"
         },
         {
-          "display": "テキサス",
-          "accept": []
+          "display": "テキサス"
         },
         {
-          "display": "ユタ",
-          "accept": []
+          "display": "ユタ"
         },
         {
           "display": "バーモント",
@@ -838,8 +800,7 @@
           ]
         },
         {
-          "display": "ワシントン",
-          "accept": []
+          "display": "ワシントン"
         },
         {
           "display": "ウェストバージニア",
@@ -849,12 +810,10 @@
           ]
         },
         {
-          "display": "ウィスコンシン",
-          "accept": []
+          "display": "ウィスコンシン"
         },
         {
-          "display": "ワイオミング",
-          "accept": []
+          "display": "ワイオミング"
         }
       ]
     }

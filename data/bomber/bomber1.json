@@ -128,24 +128,19 @@
           ]
         },
         {
-          "display": "フネ",
-          "accept": []
+          "display": "フネ"
         },
         {
-          "display": "サザエ",
-          "accept": []
+          "display": "サザエ"
         },
         {
-          "display": "マスオ",
-          "accept": []
+          "display": "マスオ"
         },
         {
-          "display": "カツオ",
-          "accept": []
+          "display": "カツオ"
         },
         {
-          "display": "ワカメ",
-          "accept": []
+          "display": "ワカメ"
         },
         {
           "display": "タラオ",
@@ -498,32 +493,25 @@
       "slots": 7,
       "answers": [
         {
-          "display": "I",
-          "accept": []
+          "display": "I"
         },
         {
-          "display": "V",
-          "accept": []
+          "display": "V"
         },
         {
-          "display": "X",
-          "accept": []
+          "display": "X"
         },
         {
-          "display": "L",
-          "accept": []
+          "display": "L"
         },
         {
-          "display": "C",
-          "accept": []
+          "display": "C"
         },
         {
-          "display": "D",
-          "accept": []
+          "display": "D"
         },
         {
-          "display": "M",
-          "accept": []
+          "display": "M"
         }
       ]
     },
@@ -606,54 +594,47 @@
       "panels": true,
       "answers": [
         {
-          "display": "あじさい",
-          "prompt": "紫陽花",
-          "accept": []
-        },
-        {
           "display": "ひまわり",
-          "prompt": "向日葵",
-          "accept": []
+          "prompt": "向日葵"
         },
         {
-          "display": "たんぽぽ",
-          "prompt": "蒲公英",
-          "accept": []
+          "display": "ゆり",
+          "prompt": "百合"
         },
         {
           "display": "コスモス",
           "prompt": "秋桜",
-          "accept": []
+          "accept": [
+            "あきざくら"
+          ]
+        },
+        {
+          "display": "あじさい",
+          "prompt": "紫陽花"
         },
         {
           "display": "ばら",
-          "prompt": "薔薇",
-          "accept": []
-        },
-        {
-          "display": "ゆり",
-          "prompt": "百合",
-          "accept": []
+          "prompt": "薔薇"
         },
         {
           "display": "つくし",
-          "prompt": "土筆",
-          "accept": []
+          "prompt": "土筆"
         },
         {
-          "display": "つつじ",
-          "prompt": "躑躅",
-          "accept": []
+          "display": "たんぽぽ",
+          "prompt": "蒲公英"
         },
         {
           "display": "さざんか",
-          "prompt": "山茶花",
-          "accept": []
+          "prompt": "山茶花"
         },
         {
           "display": "りんどう",
-          "prompt": "竜胆",
-          "accept": []
+          "prompt": "竜胆"
+        },
+        {
+          "display": "つつじ",
+          "prompt": "躑躅"
         }
       ]
     },

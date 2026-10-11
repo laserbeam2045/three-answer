@@ -11,13 +11,17 @@
           "display": "お正月",
           "accept": [
             "正月",
-            "おしょうがつ"
+            "おしょうがつ",
+            "元日",
+            "元旦"
           ]
         },
         {
           "display": "節分",
           "accept": [
-            "せつぶん"
+            "せつぶん",
+            "豆まき",
+            "豆撒き"
           ]
         },
         {
@@ -25,14 +29,18 @@
           "accept": [
             "ひなまつり",
             "桃の節句",
-            "雛祭り"
+            "雛祭り",
+            "上巳の節句"
           ]
         },
         {
           "display": "端午の節句",
           "accept": [
             "たんごのせっく",
-            "こどもの日"
+            "こどもの日",
+            "子どもの日",
+            "子供の日",
+            "菖蒲の節句"
           ]
         },
         {
@@ -92,7 +100,10 @@
         },
         {
           "display": "クリスマス",
-          "accept": []
+          "accept": [
+            "クリスマスイブ",
+            "クリスマスイヴ"
+          ]
         },
         {
           "display": "バレンタインデー",
@@ -101,8 +112,7 @@
           ]
         },
         {
-          "display": "ホワイトデー",
-          "accept": []
+          "display": "ホワイトデー"
         },
         {
           "display": "冬至",
@@ -113,7 +123,8 @@
         {
           "display": "成人式",
           "accept": [
-            "せいじんしき"
+            "せいじんしき",
+            "成人の日"
           ]
         },
         {
@@ -125,13 +136,15 @@
         {
           "display": "初詣",
           "accept": [
-            "はつもうで"
+            "はつもうで",
+            "初詣で"
           ]
         },
         {
           "display": "土用の丑の日",
           "accept": [
-            "土用"
+            "土用",
+            "丑の日"
           ]
         },
         {
@@ -144,24 +157,21 @@
           "display": "人日の節句",
           "accept": [
             "七草がゆ",
-            "七草粥"
+            "七草粥",
+            "七草"
           ]
         },
         {
-          "display": "母の日",
-          "accept": []
+          "display": "母の日"
         },
         {
-          "display": "父の日",
-          "accept": []
+          "display": "父の日"
         },
         {
-          "display": "敬老の日",
-          "accept": []
+          "display": "敬老の日"
         },
         {
-          "display": "夏祭り",
-          "accept": []
+          "display": "夏祭り"
         },
         {
           "display": "盆踊り",
@@ -178,28 +188,30 @@
         {
           "display": "年越し",
           "accept": [
-            "年越しそば"
+            "年越しそば",
+            "年越し蕎麦"
           ]
         },
         {
           "display": "お歳暮",
-          "accept": []
+          "accept": [
+            "歳暮"
+          ]
         },
         {
           "display": "お中元",
-          "accept": []
+          "accept": [
+            "中元"
+          ]
         },
         {
-          "display": "運動会",
-          "accept": []
+          "display": "運動会"
         },
         {
-          "display": "入学式",
-          "accept": []
+          "display": "入学式"
         },
         {
-          "display": "卒業式",
-          "accept": []
+          "display": "卒業式"
         },
         {
           "display": "灌仏会",
@@ -209,14 +221,53 @@
           ]
         },
         {
-          "display": "小正月",
-          "accept": []
+          "display": "小正月"
         },
         {
           "display": "どんど焼き",
           "accept": [
-            "左義長"
+            "左義長",
+            "どんと焼き"
           ]
+        },
+        {
+          "display": "大掃除"
+        },
+        {
+          "display": "書き初め",
+          "accept": [
+            "書初め"
+          ]
+        },
+        {
+          "display": "除夜の鐘"
+        },
+        {
+          "display": "初日の出"
+        },
+        {
+          "display": "花火大会"
+        },
+        {
+          "display": "秋祭り"
+        },
+        {
+          "display": "酉の市"
+        },
+        {
+          "display": "春分の日"
+        },
+        {
+          "display": "秋分の日"
+        },
+        {
+          "display": "エイプリルフール"
+        },
+        {
+          "display": "文化祭"
+        },
+        {
+          "display": "終業式"
         }
       ]
     },
@@ -342,8 +393,7 @@
           ]
         },
         {
-          "display": "中華丼",
-          "accept": []
+          "display": "中華丼"
         },
         {
           "display": "ラーメン",
@@ -372,8 +422,7 @@
           ]
         },
         {
-          "display": "麻婆春雨",
-          "accept": []
+          "display": "麻婆春雨"
         },
         {
           "display": "かに玉",
@@ -389,12 +438,10 @@
           ]
         },
         {
-          "display": "中華まん",
-          "accept": []
+          "display": "中華まん"
         },
         {
-          "display": "チンゲン菜炒め",
-          "accept": []
+          "display": "チンゲン菜炒め"
         },
         {
           "display": "五目焼きそば",
@@ -434,8 +481,7 @@
           ]
         },
         {
-          "display": "棒餃子",
-          "accept": []
+          "display": "棒餃子"
         },
         {
           "display": "フカヒレスープ",
@@ -484,8 +530,7 @@
           ]
         },
         {
-          "display": "酢鶏",
-          "accept": []
+          "display": "酢鶏"
         },
         {
           "display": "鶏の唐揚げ",
@@ -502,8 +547,7 @@
           ]
         },
         {
-          "display": "マンゴープリン",
-          "accept": []
+          "display": "マンゴープリン"
         },
         {
           "display": "月餅",
@@ -512,8 +556,7 @@
           ]
         },
         {
-          "display": "春雨サラダ",
-          "accept": []
+          "display": "春雨サラダ"
         },
         {
           "display": "クラゲの和え物",
@@ -542,12 +585,10 @@
           ]
         },
         {
-          "display": "腸粉",
-          "accept": []
+          "display": "腸粉"
         },
         {
-          "display": "大根餅",
-          "accept": []
+          "display": "大根餅"
         },
         {
           "display": "エビ蒸し餃子",
@@ -575,8 +616,7 @@
           ]
         },
         {
-          "display": "牛肉麺",
-          "accept": []
+          "display": "牛肉麺"
         },
         {
           "display": "冷やし中華",
@@ -591,20 +631,16 @@
           ]
         },
         {
-          "display": "五目そば",
-          "accept": []
+          "display": "五目そば"
         },
         {
-          "display": "広東麺",
-          "accept": []
+          "display": "広東麺"
         },
         {
-          "display": "麻婆丼",
-          "accept": []
+          "display": "麻婆丼"
         },
         {
-          "display": "青菜炒め",
-          "accept": []
+          "display": "青菜炒め"
         },
         {
           "display": "空芯菜炒め",
@@ -613,8 +649,7 @@
           ]
         },
         {
-          "display": "ニラ玉",
-          "accept": []
+          "display": "ニラ玉"
         },
         {
           "display": "木須肉",
@@ -649,12 +684,10 @@
           ]
         },
         {
-          "display": "甘酢あんかけ",
-          "accept": []
+          "display": "甘酢あんかけ"
         },
         {
-          "display": "黒酢酢豚",
-          "accept": []
+          "display": "黒酢酢豚"
         },
         {
           "display": "羊肉串",
@@ -664,12 +697,10 @@
           ]
         },
         {
-          "display": "水煮魚",
-          "accept": []
+          "display": "水煮魚"
         },
         {
-          "display": "麻辣香鍋",
-          "accept": []
+          "display": "麻辣香鍋"
         },
         {
           "display": "辣子鶏",
@@ -678,12 +709,10 @@
           ]
         },
         {
-          "display": "夫妻肺片",
-          "accept": []
+          "display": "夫妻肺片"
         },
         {
-          "display": "蒸し餃子",
-          "accept": []
+          "display": "蒸し餃子"
         },
         {
           "display": "ワンタンメン",
@@ -693,12 +722,10 @@
           ]
         },
         {
-          "display": "あんまん",
-          "accept": []
+          "display": "あんまん"
         },
         {
-          "display": "花巻",
-          "accept": []
+          "display": "花巻"
         },
         {
           "display": "マントウ",
@@ -707,8 +734,7 @@
           ]
         },
         {
-          "display": "油条",
-          "accept": []
+          "display": "油条"
         },
         {
           "display": "中華ちまき",
@@ -717,16 +743,13 @@
           ]
         },
         {
-          "display": "揚げ春巻き",
-          "accept": []
+          "display": "揚げ春巻き"
         },
         {
-          "display": "ちゃんぽん",
-          "accept": []
+          "display": "ちゃんぽん"
         },
         {
-          "display": "皿うどん",
-          "accept": []
+          "display": "皿うどん"
         },
         {
           "display": "エビマヨ",
@@ -735,8 +758,7 @@
           ]
         },
         {
-          "display": "麻婆麺",
-          "accept": []
+          "display": "麻婆麺"
         },
         {
           "display": "サンラータン麺",
@@ -745,8 +767,7 @@
           ]
         },
         {
-          "display": "油そば",
-          "accept": []
+          "display": "油そば"
         },
         {
           "display": "上海蟹",
@@ -761,12 +782,10 @@
           ]
         },
         {
-          "display": "八宝粥",
-          "accept": []
+          "display": "八宝粥"
         },
         {
-          "display": "揚げワンタン",
-          "accept": []
+          "display": "揚げワンタン"
         },
         {
           "display": "白菜のクリーム煮",
@@ -775,12 +794,10 @@
           ]
         },
         {
-          "display": "天津麺",
-          "accept": []
+          "display": "天津麺"
         },
         {
-          "display": "ちまき",
-          "accept": []
+          "display": "ちまき"
         },
         {
           "display": "エッグタルト",
@@ -801,8 +818,7 @@
       "slots": 15,
       "answers": [
         {
-          "display": "チワワ",
-          "accept": []
+          "display": "チワワ"
         },
         {
           "display": "トイ・プードル",
@@ -840,8 +856,7 @@
           ]
         },
         {
-          "display": "ポメラニアン",
-          "accept": []
+          "display": "ポメラニアン"
         },
         {
           "display": "ゴールデン・レトリーバー",
@@ -871,8 +886,7 @@
           ]
         },
         {
-          "display": "ビーグル",
-          "accept": []
+          "display": "ビーグル"
         },
         {
           "display": "ブルドッグ",
@@ -888,8 +902,7 @@
           ]
         },
         {
-          "display": "パグ",
-          "accept": []
+          "display": "パグ"
         },
         {
           "display": "シー・ズー",
@@ -898,8 +911,7 @@
           ]
         },
         {
-          "display": "マルチーズ",
-          "accept": []
+          "display": "マルチーズ"
         },
         {
           "display": "ヨークシャー・テリア",
@@ -922,8 +934,7 @@
           ]
         },
         {
-          "display": "ドーベルマン",
-          "accept": []
+          "display": "ドーベルマン"
         },
         {
           "display": "グレート・デーン",
@@ -938,12 +949,10 @@
           ]
         },
         {
-          "display": "ダルメシアン",
-          "accept": []
+          "display": "ダルメシアン"
         },
         {
-          "display": "パピヨン",
-          "accept": []
+          "display": "パピヨン"
         },
         {
           "display": "ミニチュア・シュナウザー",
@@ -958,20 +967,16 @@
           ]
         },
         {
-          "display": "甲斐犬",
-          "accept": []
+          "display": "甲斐犬"
         },
         {
-          "display": "紀州犬",
-          "accept": []
+          "display": "紀州犬"
         },
         {
-          "display": "四国犬",
-          "accept": []
+          "display": "四国犬"
         },
         {
-          "display": "北海道犬",
-          "accept": []
+          "display": "北海道犬"
         },
         {
           "display": "土佐犬",
@@ -998,12 +1003,10 @@
           ]
         },
         {
-          "display": "ペキニーズ",
-          "accept": []
+          "display": "ペキニーズ"
         },
         {
-          "display": "サモエド",
-          "accept": []
+          "display": "サモエド"
         },
         {
           "display": "グレート・ピレニーズ",
@@ -1024,8 +1027,7 @@
           ]
         },
         {
-          "display": "ボクサー",
-          "accept": []
+          "display": "ボクサー"
         },
         {
           "display": "ブル・テリア",
@@ -1054,16 +1056,13 @@
           ]
         },
         {
-          "display": "グレーハウンド",
-          "accept": []
+          "display": "グレーハウンド"
         },
         {
-          "display": "ポインター",
-          "accept": []
+          "display": "ポインター"
         },
         {
-          "display": "セッター",
-          "accept": []
+          "display": "セッター"
         },
         {
           "display": "スピッツ",
@@ -1084,16 +1083,13 @@
           ]
         },
         {
-          "display": "ウィペット",
-          "accept": []
+          "display": "ウィペット"
         },
         {
-          "display": "ロットワイラー",
-          "accept": []
+          "display": "ロットワイラー"
         },
         {
-          "display": "ニューファンドランド",
-          "accept": []
+          "display": "ニューファンドランド"
         },
         {
           "display": "アメリカン・コッカー・スパニエル",
@@ -1108,8 +1104,7 @@
           ]
         },
         {
-          "display": "ボルゾイ",
-          "accept": []
+          "display": "ボルゾイ"
         },
         {
           "display": "ラサ・アプソ",
@@ -1131,8 +1126,7 @@
           ]
         },
         {
-          "display": "マスティフ",
-          "accept": []
+          "display": "マスティフ"
         },
         {
           "display": "ブル・マスティフ",
@@ -1159,16 +1153,13 @@
           ]
         },
         {
-          "display": "バセンジー",
-          "accept": []
+          "display": "バセンジー"
         },
         {
-          "display": "ブラッドハウンド",
-          "accept": []
+          "display": "ブラッドハウンド"
         },
         {
-          "display": "サルーキ",
-          "accept": []
+          "display": "サルーキ"
         },
         {
           "display": "アイリッシュ・セター",
@@ -1259,12 +1250,10 @@
           ]
         },
         {
-          "display": "アメリカン・スタッフォードシャー・テリア",
-          "accept": []
+          "display": "アメリカン・スタッフォードシャー・テリア"
         },
         {
-          "display": "スタッフォードシャー・ブル・テリア",
-          "accept": []
+          "display": "スタッフォードシャー・ブル・テリア"
         },
         {
           "display": "日本テリア",
@@ -1317,16 +1306,13 @@
           ]
         },
         {
-          "display": "グレート・スイス・マウンテン・ドッグ",
-          "accept": []
+          "display": "グレート・スイス・マウンテン・ドッグ"
         },
         {
-          "display": "レオンベルガー",
-          "accept": []
+          "display": "レオンベルガー"
         },
         {
-          "display": "ワイマラナー",
-          "accept": []
+          "display": "ワイマラナー"
         },
         {
           "display": "ジャーマン・ショートヘアード・ポインター",
@@ -1359,12 +1345,10 @@
           ]
         },
         {
-          "display": "チェサピーク・ベイ・レトリーバー",
-          "accept": []
+          "display": "チェサピーク・ベイ・レトリーバー"
         },
         {
-          "display": "カーリーコーテッド・レトリーバー",
-          "accept": []
+          "display": "カーリーコーテッド・レトリーバー"
         },
         {
           "display": "ノヴァ・スコシア・ダック・トーリング・レトリーバー",
@@ -1379,12 +1363,10 @@
           ]
         },
         {
-          "display": "キースホンド",
-          "accept": []
+          "display": "キースホンド"
         },
         {
-          "display": "ノルウェジアン・エルクハウンド",
-          "accept": []
+          "display": "ノルウェジアン・エルクハウンド"
         },
         {
           "display": "メキシカン・ヘアレス・ドッグ",
@@ -1394,8 +1376,7 @@
           ]
         },
         {
-          "display": "ペルービアン・ヘアレス・ドッグ",
-          "accept": []
+          "display": "ペルービアン・ヘアレス・ドッグ"
         },
         {
           "display": "ブリュッセル・グリフォン",
@@ -1404,12 +1385,10 @@
           ]
         },
         {
-          "display": "アーフェンピンシャー",
-          "accept": []
+          "display": "アーフェンピンシャー"
         },
         {
-          "display": "ドゴ・アルゼンティーノ",
-          "accept": []
+          "display": "ドゴ・アルゼンティーノ"
         },
         {
           "display": "ケーン・コルソ",
@@ -1418,20 +1397,16 @@
           ]
         },
         {
-          "display": "ナポリタン・マスティフ",
-          "accept": []
+          "display": "ナポリタン・マスティフ"
         },
         {
-          "display": "チェコスロバキアン・ウルフドッグ",
-          "accept": []
+          "display": "チェコスロバキアン・ウルフドッグ"
         },
         {
-          "display": "ジャーマン・スピッツ",
-          "accept": []
+          "display": "ジャーマン・スピッツ"
         },
         {
-          "display": "ユーラシア",
-          "accept": []
+          "display": "ユーラシア"
         },
         {
           "display": "アメリカン・アキタ",
@@ -1440,12 +1415,10 @@
           ]
         },
         {
-          "display": "ボロニーズ",
-          "accept": []
+          "display": "ボロニーズ"
         },
         {
-          "display": "ハバニーズ",
-          "accept": []
+          "display": "ハバニーズ"
         },
         {
           "display": "コトン・ド・テュレアール",
@@ -1454,32 +1427,25 @@
           ]
         },
         {
-          "display": "ローシェン",
-          "accept": []
+          "display": "ローシェン"
         },
         {
-          "display": "チベタン・スパニエル",
-          "accept": []
+          "display": "チベタン・スパニエル"
         },
         {
-          "display": "チベタン・テリア",
-          "accept": []
+          "display": "チベタン・テリア"
         },
         {
-          "display": "シッパーキ",
-          "accept": []
+          "display": "シッパーキ"
         },
         {
-          "display": "バセット・フォーブ・ド・ブルターニュ",
-          "accept": []
+          "display": "バセット・フォーブ・ド・ブルターニュ"
         },
         {
-          "display": "ビアデッド・コリー",
-          "accept": []
+          "display": "ビアデッド・コリー"
         },
         {
-          "display": "オッターハウンド",
-          "accept": []
+          "display": "オッターハウンド"
         },
         {
           "display": "ボルドー・マスティフ",
@@ -1488,48 +1454,37 @@
           ]
         },
         {
-          "display": "サセックス・スパニエル",
-          "accept": []
+          "display": "サセックス・スパニエル"
         },
         {
-          "display": "プチ・バセット・グリフォン・バンデーン",
-          "accept": []
+          "display": "プチ・バセット・グリフォン・バンデーン"
         },
         {
-          "display": "ウェルシュ・テリア",
-          "accept": []
+          "display": "ウェルシュ・テリア"
         },
         {
-          "display": "レークランド・テリア",
-          "accept": []
+          "display": "レークランド・テリア"
         },
         {
-          "display": "シーリハム・テリア",
-          "accept": []
+          "display": "シーリハム・テリア"
         },
         {
-          "display": "ボーダー・テリア",
-          "accept": []
+          "display": "ボーダー・テリア"
         },
         {
-          "display": "パーソン・ラッセル・テリア",
-          "accept": []
+          "display": "パーソン・ラッセル・テリア"
         },
         {
-          "display": "ラット・テリア",
-          "accept": []
+          "display": "ラット・テリア"
         },
         {
-          "display": "ダンディ・ディンモント・テリア",
-          "accept": []
+          "display": "ダンディ・ディンモント・テリア"
         },
         {
-          "display": "スカイ・テリア",
-          "accept": []
+          "display": "スカイ・テリア"
         },
         {
-          "display": "オーストラリアン・テリア",
-          "accept": []
+          "display": "オーストラリアン・テリア"
         },
         {
           "display": "シルキー・テリア",
@@ -1544,142 +1499,119 @@
       "slots": 6,
       "answers": [
         {
-          "display": "一石二鳥",
-          "accept": []
+          "display": "一石二鳥"
         },
         {
-          "display": "一朝一夕",
-          "accept": []
+          "display": "一朝一夕"
         },
         {
-          "display": "一長一短",
-          "accept": []
+          "display": "一長一短"
         },
         {
-          "display": "一喜一憂",
-          "accept": []
+          "display": "一喜一憂"
         },
         {
-          "display": "一進一退",
-          "accept": []
+          "display": "一進一退"
         },
         {
-          "display": "一期一会",
-          "accept": []
+          "display": "一期一会"
         },
         {
-          "display": "三寒四温",
-          "accept": []
+          "display": "三寒四温"
         },
         {
-          "display": "七転八倒",
-          "accept": []
+          "display": "七転八倒"
         },
         {
-          "display": "四苦八苦",
-          "accept": []
+          "display": "四苦八苦"
         },
         {
-          "display": "十人十色",
-          "accept": []
+          "display": "十人十色"
         },
         {
-          "display": "千差万別",
-          "accept": []
+          "display": "千差万別"
         },
         {
-          "display": "千載一遇",
-          "accept": []
+          "display": "千載一遇"
         },
         {
           "display": "九死一生",
           "accept": [
-            "九死に一生"
+            "九死に一生",
+            "九死に一生を得る"
           ]
         },
         {
-          "display": "二束三文",
-          "accept": []
+          "display": "二束三文"
         },
         {
           "display": "三三五五",
-          "accept": []
+          "accept": [
+            "三々五々"
+          ]
         },
         {
-          "display": "再三再四",
-          "accept": []
+          "display": "再三再四"
         },
         {
-          "display": "五臓六腑",
-          "accept": []
+          "display": "五臓六腑"
         },
         {
-          "display": "百発百中",
-          "accept": []
+          "display": "百発百中"
         },
         {
-          "display": "千変万化",
-          "accept": []
+          "display": "千変万化"
         },
         {
-          "display": "一日千秋",
-          "accept": []
+          "display": "一日千秋"
         },
         {
-          "display": "一騎当千",
-          "accept": []
+          "display": "一騎当千"
         },
         {
-          "display": "一字一句",
-          "accept": []
+          "display": "一字一句"
         },
         {
-          "display": "一言一句",
-          "accept": []
+          "display": "一言一句"
         },
         {
-          "display": "一挙一動",
-          "accept": []
+          "display": "一挙一動"
         },
         {
-          "display": "一問一答",
-          "accept": []
+          "display": "一問一答"
         },
         {
-          "display": "一宿一飯",
-          "accept": []
+          "display": "一宿一飯"
         },
         {
           "display": "一攫千金",
-          "accept": []
+          "accept": [
+            "一獲千金"
+          ]
         },
         {
-          "display": "千客万来",
-          "accept": []
+          "display": "千客万来"
         },
         {
           "display": "千篇一律",
-          "accept": []
+          "accept": [
+            "千編一律"
+          ]
         },
         {
-          "display": "万世一系",
-          "accept": []
+          "display": "万世一系"
         },
         {
-          "display": "八面六臂",
-          "accept": []
+          "display": "八面六臂"
         },
         {
-          "display": "三位一体",
-          "accept": []
+          "display": "三位一体"
         },
         {
-          "display": "二人三脚",
-          "accept": []
+          "display": "二人三脚"
         },
         {
-          "display": "一汁三菜",
-          "accept": []
+          "display": "一汁三菜"
         },
         {
           "display": "七転八起",
@@ -1688,52 +1620,106 @@
           ]
         },
         {
-          "display": "七難八苦",
-          "accept": []
+          "display": "七難八苦"
         },
         {
-          "display": "四方八方",
-          "accept": []
+          "display": "四方八方"
         },
         {
-          "display": "四六時中",
-          "accept": []
+          "display": "四六時中"
         },
         {
-          "display": "十中八九",
-          "accept": []
+          "display": "十中八九"
         },
         {
-          "display": "百戦百勝",
-          "accept": []
+          "display": "百戦百勝"
         },
         {
-          "display": "唯一無二",
-          "accept": []
+          "display": "唯一無二"
         },
         {
-          "display": "三十六計",
-          "accept": []
+          "display": "三十六計"
         },
         {
-          "display": "十年一日",
-          "accept": []
+          "display": "十年一日"
         },
         {
-          "display": "九分九厘",
-          "accept": []
+          "display": "九分九厘"
         },
         {
-          "display": "二者択一",
-          "accept": []
+          "display": "二者択一"
         },
         {
-          "display": "一人二役",
-          "accept": []
+          "display": "一人二役"
         },
         {
-          "display": "一日一善",
-          "accept": []
+          "display": "一日一善"
+        },
+        {
+          "display": "一刻千金"
+        },
+        {
+          "display": "二転三転"
+        },
+        {
+          "display": "三者三様"
+        },
+        {
+          "display": "五分五分"
+        },
+        {
+          "display": "一世一代"
+        },
+        {
+          "display": "四角四面"
+        },
+        {
+          "display": "四分五裂"
+        },
+        {
+          "display": "一汁一菜"
+        },
+        {
+          "display": "十年一昔"
+        },
+        {
+          "display": "一瀉千里"
+        },
+        {
+          "display": "一罰百戒"
+        },
+        {
+          "display": "三拝九拝"
+        },
+        {
+          "display": "三三九度"
+        },
+        {
+          "display": "一日三秋"
+        },
+        {
+          "display": "一得一失"
+        },
+        {
+          "display": "四通八達"
+        },
+        {
+          "display": "一望千里"
+        },
+        {
+          "display": "三千世界"
+        },
+        {
+          "display": "万死一生",
+          "accept": [
+            "万死に一生"
+          ]
+        },
+        {
+          "display": "千秋万歳"
+        },
+        {
+          "display": "百人一首"
         }
       ]
     },
@@ -1768,7 +1754,8 @@
         {
           "display": "通り抜けフープ",
           "accept": [
-            "とおりぬけフープ"
+            "とおりぬけフープ",
+            "通りぬけフープ"
           ]
         },
         {
@@ -1796,7 +1783,8 @@
         {
           "display": "石ころぼうし",
           "accept": [
-            "いしころぼうし"
+            "いしころぼうし",
+            "石ころ帽子"
           ]
         },
         {
@@ -1845,7 +1833,10 @@
           "display": "ムードもりあげ楽団"
         },
         {
-          "display": "地球破壊爆弾"
+          "display": "地球破壊爆弾",
+          "accept": [
+            "地球はかいばくだん"
+          ]
         },
         {
           "display": "フエルミラー"
@@ -1899,7 +1890,10 @@
           "display": "たずね人ステッキ"
         },
         {
-          "display": "天気ボックス"
+          "display": "天気ボックス",
+          "accept": [
+            "お天気ボックス"
+          ]
         },
         {
           "display": "ハツメイカー"
@@ -2116,6 +2110,15 @@
         },
         {
           "display": "グッスリまくら"
+        },
+        {
+          "display": "キャンピングカプセル"
+        },
+        {
+          "display": "バショー扇",
+          "accept": [
+            "バショウ扇"
+          ]
         }
       ]
     },
@@ -2145,7 +2148,8 @@
             "メルシ",
             "Merci",
             "メルシーボク",
-            "Merci beaucoup"
+            "Merci beaucoup",
+            "メルシーボクー"
           ]
         },
         {
@@ -2155,7 +2159,8 @@
             "ダンケシェーン",
             "Danke",
             "ダンケシェン",
-            "Danke schön"
+            "Danke schön",
+            "フィーレンダンク"
           ]
         },
         {
@@ -2165,7 +2170,8 @@
             "グラツィエ",
             "グラーツィエ",
             "Grazie",
-            "グラッツェミッレ"
+            "グラッツェミッレ",
+            "グラッチェ"
           ]
         },
         {
@@ -2182,7 +2188,8 @@
           "accept": [
             "オブリガード",
             "オブリガーダ",
-            "Obrigado"
+            "Obrigado",
+            "オブリガート"
           ]
         },
         {
@@ -2193,7 +2200,8 @@
             "謝謝",
             "シェシェ",
             "謝謝你",
-            "シエシエニー"
+            "シエシエニー",
+            "シェーシェー"
           ]
         },
         {
@@ -2221,7 +2229,8 @@
           "accept": [
             "コップンカー",
             "コップンクラップ",
-            "コップンカップ"
+            "コップンカップ",
+            "コップンカ"
           ]
         },
         {
@@ -2238,7 +2247,8 @@
           "accept": [
             "テリマカシ",
             "テレマカシ",
-            "トゥリマカシ"
+            "トゥリマカシ",
+            "テリマカシー"
           ]
         },
         {
@@ -2272,7 +2282,8 @@
           "display": "トダー（ヘブライ語）",
           "accept": [
             "トダー",
-            "トダ"
+            "トダ",
+            "トダラバ"
           ]
         },
         {
@@ -2599,7 +2610,8 @@
             "シロチョウ",
             "モンキチョウ",
             "オオムラサキ",
-            "チョウチョウ"
+            "チョウチョウ",
+            "蝶々"
           ]
         },
         {
@@ -2669,7 +2681,8 @@
             "ショウジョウバエ",
             "ニクバエ",
             "キンバエ",
-            "ウジ"
+            "ウジ",
+            "蠅"
           ]
         },
         {
@@ -2687,7 +2700,8 @@
           "accept": [
             "ナナホシテントウ",
             "ナミテントウ",
-            "てんとう虫"
+            "てんとう虫",
+            "天道虫"
           ]
         },
         {
@@ -2713,17 +2727,16 @@
           ]
         },
         {
-          "display": "コガネムシ",
-          "accept": []
+          "display": "コガネムシ"
         },
         {
-          "display": "ゲンゴロウ",
-          "accept": []
+          "display": "ゲンゴロウ"
         },
         {
           "display": "カイコ",
           "accept": [
-            "蚕"
+            "蚕",
+            "カイコガ"
           ]
         },
         {
@@ -2735,24 +2748,19 @@
           ]
         },
         {
-          "display": "トビケラ",
-          "accept": []
+          "display": "トビケラ"
         },
         {
-          "display": "クサカゲロウ",
-          "accept": []
+          "display": "クサカゲロウ"
         },
         {
-          "display": "タマムシ",
-          "accept": []
+          "display": "タマムシ"
         },
         {
-          "display": "カナブン",
-          "accept": []
+          "display": "カナブン"
         },
         {
-          "display": "ハナムグリ",
-          "accept": []
+          "display": "ハナムグリ"
         },
         {
           "display": "フンコロガシ",
@@ -2783,8 +2791,7 @@
           ]
         },
         {
-          "display": "ハンミョウ",
-          "accept": []
+          "display": "ハンミョウ"
         },
         {
           "display": "オサムシ",
@@ -2800,32 +2807,25 @@
           ]
         },
         {
-          "display": "シデムシ",
-          "accept": []
+          "display": "シデムシ"
         },
         {
-          "display": "ガムシ",
-          "accept": []
+          "display": "ガムシ"
         },
         {
-          "display": "ミズスマシ",
-          "accept": []
+          "display": "ミズスマシ"
         },
         {
-          "display": "カツオブシムシ",
-          "accept": []
+          "display": "カツオブシムシ"
         },
         {
-          "display": "ツチハンミョウ",
-          "accept": []
+          "display": "ツチハンミョウ"
         },
         {
-          "display": "ジョウカイボン",
-          "accept": []
+          "display": "ジョウカイボン"
         },
         {
-          "display": "キクイムシ",
-          "accept": []
+          "display": "キクイムシ"
         },
         {
           "display": "ウスバカゲロウ",
@@ -2840,20 +2840,16 @@
           ]
         },
         {
-          "display": "ラクダムシ",
-          "accept": []
+          "display": "ラクダムシ"
         },
         {
-          "display": "シリアゲムシ",
-          "accept": []
+          "display": "シリアゲムシ"
         },
         {
-          "display": "ガガンボ",
-          "accept": []
+          "display": "ガガンボ"
         },
         {
-          "display": "ユスリカ",
-          "accept": []
+          "display": "ユスリカ"
         },
         {
           "display": "ブユ",
@@ -2863,24 +2859,19 @@
           ]
         },
         {
-          "display": "ヌカカ",
-          "accept": []
+          "display": "ヌカカ"
         },
         {
-          "display": "チョウバエ",
-          "accept": []
+          "display": "チョウバエ"
         },
         {
-          "display": "ミバエ",
-          "accept": []
+          "display": "ミバエ"
         },
         {
-          "display": "ヒメバチ",
-          "accept": []
+          "display": "ヒメバチ"
         },
         {
-          "display": "コバチ",
-          "accept": []
+          "display": "コバチ"
         }
       ]
     },
@@ -2904,7 +2895,9 @@
         {
           "display": "長篠の戦い",
           "accept": [
-            "長篠"
+            "長篠",
+            "長篠・設楽原の戦い",
+            "長篠合戦"
           ]
         },
         {
@@ -2948,7 +2941,9 @@
         },
         {
           "display": "屋島の戦い",
-          "accept": []
+          "accept": [
+            "屋島"
+          ]
         },
         {
           "display": "白村江の戦い",
@@ -2959,7 +2954,9 @@
         },
         {
           "display": "承久の乱",
-          "accept": []
+          "accept": [
+            "承久"
+          ]
         },
         {
           "display": "元寇",
@@ -2975,12 +2972,10 @@
           ]
         },
         {
-          "display": "戊辰戦争",
-          "accept": []
+          "display": "戊辰戦争"
         },
         {
-          "display": "西南戦争",
-          "accept": []
+          "display": "西南戦争"
         },
         {
           "display": "鳥羽・伏見の戦い",
@@ -2996,16 +2991,22 @@
         },
         {
           "display": "姉川の戦い",
-          "accept": []
+          "accept": [
+            "姉川"
+          ]
         },
         {
           "display": "山崎の戦い",
-          "accept": []
+          "accept": [
+            "天王山の戦い",
+            "山崎"
+          ]
         },
         {
           "display": "賤ヶ岳の戦い",
           "accept": [
-            "賤ケ岳の戦い"
+            "賤ケ岳の戦い",
+            "賤ヶ岳"
           ]
         },
         {
@@ -3016,27 +3017,33 @@
         },
         {
           "display": "厳島の戦い",
-          "accept": []
+          "accept": [
+            "厳島"
+          ]
         },
         {
-          "display": "宇治川の戦い",
-          "accept": []
+          "display": "宇治川の戦い"
         },
         {
-          "display": "倶利伽羅峠の戦い",
-          "accept": []
+          "display": "倶利伽羅峠の戦い"
         },
         {
           "display": "壬申の乱",
-          "accept": []
+          "accept": [
+            "壬申"
+          ]
         },
         {
           "display": "平治の乱",
-          "accept": []
+          "accept": [
+            "平治"
+          ]
         },
         {
           "display": "保元の乱",
-          "accept": []
+          "accept": [
+            "保元"
+          ]
         },
         {
           "display": "乙巳の変",
@@ -3045,8 +3052,7 @@
           ]
         },
         {
-          "display": "桜田門外の変",
-          "accept": []
+          "display": "桜田門外の変"
         },
         {
           "display": "禁門の変",
@@ -3067,27 +3073,26 @@
           ]
         },
         {
-          "display": "藤原純友の乱",
-          "accept": []
+          "display": "藤原純友の乱"
         },
         {
-          "display": "前九年の役",
-          "accept": []
+          "display": "前九年の役"
         },
         {
-          "display": "後三年の役",
-          "accept": []
+          "display": "後三年の役"
         },
         {
           "display": "二・二六事件",
           "accept": [
-            "二二六事件"
+            "二二六事件",
+            "2・26事件"
           ]
         },
         {
           "display": "五・一五事件",
           "accept": [
-            "五一五事件"
+            "五一五事件",
+            "5・15事件"
           ]
         },
         {
@@ -3097,160 +3102,288 @@
           ]
         },
         {
-          "display": "石山合戦",
-          "accept": []
+          "display": "石山合戦"
         },
         {
-          "display": "耳川の戦い",
-          "accept": []
+          "display": "耳川の戦い"
         },
         {
-          "display": "沖田畷の戦い",
-          "accept": []
+          "display": "沖田畷の戦い"
         },
         {
           "display": "三方ヶ原の戦い",
           "accept": [
             "三方ケ原の戦い"
           ]
+        },
+        {
+          "display": "日清戦争"
+        },
+        {
+          "display": "日露戦争"
+        },
+        {
+          "display": "源平合戦",
+          "accept": [
+            "治承・寿永の乱"
+          ]
+        },
+        {
+          "display": "文禄・慶長の役",
+          "accept": [
+            "朝鮮出兵",
+            "文禄の役",
+            "慶長の役"
+          ]
+        },
+        {
+          "display": "太平洋戦争",
+          "accept": [
+            "大東亜戦争"
+          ]
+        },
+        {
+          "display": "日中戦争"
+        },
+        {
+          "display": "満州事変"
+        },
+        {
+          "display": "池田屋事件"
+        },
+        {
+          "display": "薩英戦争"
+        },
+        {
+          "display": "下関戦争",
+          "accept": [
+            "馬関戦争"
+          ]
+        },
+        {
+          "display": "会津戦争"
+        },
+        {
+          "display": "佐賀の乱"
+        },
+        {
+          "display": "萩の乱"
+        },
+        {
+          "display": "神風連の乱",
+          "accept": [
+            "敬神党の乱"
+          ]
+        },
+        {
+          "display": "坂下門外の変"
+        },
+        {
+          "display": "寺田屋事件"
+        },
+        {
+          "display": "慶安の変",
+          "accept": [
+            "由井正雪の乱"
+          ]
+        },
+        {
+          "display": "シャクシャインの戦い"
+        },
+        {
+          "display": "コシャマインの戦い"
+        },
+        {
+          "display": "磐井の乱"
+        },
+        {
+          "display": "長屋王の変"
+        },
+        {
+          "display": "藤原広嗣の乱"
+        },
+        {
+          "display": "恵美押勝の乱",
+          "accept": [
+            "藤原仲麻呂の乱"
+          ]
+        },
+        {
+          "display": "薬子の変",
+          "accept": [
+            "平城太上天皇の変"
+          ]
+        },
+        {
+          "display": "承和の変"
+        },
+        {
+          "display": "応天門の変"
+        },
+        {
+          "display": "安和の変"
+        },
+        {
+          "display": "富士川の戦い"
+        },
+        {
+          "display": "石橋山の戦い"
+        },
+        {
+          "display": "衣川の戦い"
+        },
+        {
+          "display": "元弘の乱"
+        },
+        {
+          "display": "正中の変"
+        },
+        {
+          "display": "湊川の戦い"
+        },
+        {
+          "display": "観応の擾乱"
+        },
+        {
+          "display": "明徳の乱"
+        },
+        {
+          "display": "応永の乱"
+        },
+        {
+          "display": "永享の乱"
+        },
+        {
+          "display": "嘉吉の乱"
+        },
+        {
+          "display": "加賀の一向一揆"
+        },
+        {
+          "display": "河越夜戦",
+          "accept": [
+            "河越城の戦い"
+          ]
+        },
+        {
+          "display": "手取川の戦い"
+        },
+        {
+          "display": "小田原征伐",
+          "accept": [
+            "小田原攻め"
+          ]
+        },
+        {
+          "display": "比叡山焼き討ち",
+          "accept": [
+            "比叡山焼き打ち"
+          ]
         }
       ]
     },
     {
-      "q": "相撲が由来になっている言葉・慣用句を答えてください（「勇み足」など）。",
+      "q": "囲碁や将棋が由来になっている言葉・慣用句を答えてください（「布石」など）。",
       "slots": 5,
       "answers": [
         {
-          "display": "勇み足",
+          "display": "布石",
           "accept": [
-            "いさみあし"
+            "布石を打つ",
+            "ふせき"
           ]
         },
         {
-          "display": "痛み分け",
+          "display": "駄目",
           "accept": [
-            "いたみわけ"
+            "ダメ"
           ]
         },
         {
-          "display": "肩透かし",
+          "display": "駄目押し",
           "accept": [
-            "肩すかし",
-            "肩透かしを食う"
+            "ダメ押し"
           ]
         },
         {
-          "display": "土俵際",
+          "display": "定石",
           "accept": [
-            "どひょうぎわ"
+            "定跡",
+            "じょうせき",
+            "定石通り"
           ]
         },
         {
-          "display": "仕切り直し",
+          "display": "一目置く",
           "accept": [
-            "しきりなおし"
+            "一目おく",
+            "いちもくおく"
           ]
         },
         {
-          "display": "金星",
+          "display": "岡目八目",
           "accept": [
-            "きんぼし"
+            "傍目八目",
+            "おかめはちもく"
           ]
         },
         {
-          "display": "序の口",
+          "display": "結局",
           "accept": [
-            "じょのくち"
+            "けっきょく"
           ]
         },
         {
-          "display": "番狂わせ",
+          "display": "局面",
           "accept": [
-            "ばんくるわせ"
+            "きょくめん"
           ]
         },
         {
-          "display": "揚げ足を取る",
+          "display": "終局",
           "accept": [
-            "揚げ足取り",
-            "あげあしをとる"
+            "しゅうきょく"
           ]
         },
         {
-          "display": "待ったなし",
+          "display": "大局",
           "accept": [
-            "待った無し",
-            "まったなし"
+            "大局観",
+            "たいきょく"
           ]
         },
         {
-          "display": "大一番",
+          "display": "捨て石",
           "accept": [
-            "おおいちばん"
+            "すていし"
           ]
         },
         {
-          "display": "脇が甘い",
+          "display": "白黒をつける",
           "accept": [
-            "わきがあまい"
+            "白黒つける",
+            "白黒はっきりさせる",
+            "しろくろをつける"
           ]
         },
         {
-          "display": "横綱相撲",
+          "display": "手抜き",
           "accept": [
-            "横綱"
+            "手を抜く",
+            "てぬき"
           ]
         },
         {
-          "display": "物言い",
+          "display": "目論見",
           "accept": [
-            "物言いがつく",
-            "ものいい"
+            "目論む",
+            "もくろみ"
           ]
         },
         {
-          "display": "胸を借りる",
+          "display": "目算",
           "accept": [
-            "むねをかりる"
-          ]
-        },
-        {
-          "display": "黒星",
-          "accept": [
-            "くろぼし"
-          ]
-        },
-        {
-          "display": "白星",
-          "accept": [
-            "しろぼし"
-          ]
-        },
-        {
-          "display": "押しの一手",
-          "accept": []
-        },
-        {
-          "display": "手が合う",
-          "accept": []
-        },
-        {
-          "display": "同じ土俵",
-          "accept": [
-            "同じ土俵に立つ",
-            "土俵に上がる"
-          ]
-        },
-        {
-          "display": "ぶちかます",
-          "accept": [
-            "ぶちかまし"
-          ]
-        },
-        {
-          "display": "がっぷり四つ",
-          "accept": [
-            "がっぷりよつ"
+            "もくさん"
           ]
         },
         {
@@ -3260,77 +3393,232 @@
           ]
         },
         {
-          "display": "千秋楽",
+          "display": "手合い",
           "accept": [
-            "せんしゅうらく"
+            "てあい"
           ]
         },
         {
-          "display": "番付",
+          "display": "死活問題",
           "accept": [
-            "ばんづけ"
+            "死活",
+            "しかつもんだい"
           ]
         },
         {
-          "display": "三役",
+          "display": "一局",
           "accept": [
-            "さんやく"
+            "いっきょく"
           ]
         },
         {
-          "display": "褌を締めてかかる",
+          "display": "碁盤の目",
           "accept": [
-            "ふんどしを締めてかかる",
-            "ふんどしを締める"
+            "ごばんのめ"
           ]
         },
         {
-          "display": "人のふんどしで相撲を取る",
+          "display": "段違い",
           "accept": [
-            "他人のふんどしで相撲を取る"
+            "だんちがい"
           ]
         },
         {
-          "display": "独り相撲",
+          "display": "王手",
           "accept": [
-            "一人相撲",
-            "ひとりずもう"
+            "王手をかける",
+            "おうて"
           ]
         },
         {
-          "display": "星取り",
+          "display": "高飛車",
           "accept": [
-            "星取表"
+            "たかびしゃ"
           ]
         },
         {
-          "display": "死に体",
+          "display": "成金",
           "accept": [
-            "しにたい"
+            "成り金",
+            "なりきん"
           ]
         },
         {
-          "display": "腰砕け",
+          "display": "詰み",
           "accept": [
-            "こしくだけ"
+            "詰む",
+            "つみ"
           ]
         },
         {
-          "display": "うっちゃる",
+          "display": "詰めが甘い",
           "accept": [
-            "うっちゃり"
+            "つめがあまい"
           ]
         },
         {
-          "display": "懐が深い",
+          "display": "手駒",
           "accept": [
-            "ふところがふかい"
+            "てごま"
           ]
         },
         {
-          "display": "初っ切り",
+          "display": "持ち駒",
           "accept": [
-            "しょっきり"
+            "もちごま"
+          ]
+        },
+        {
+          "display": "捨て駒",
+          "accept": [
+            "すてごま"
+          ]
+        },
+        {
+          "display": "将棋倒し",
+          "accept": [
+            "しょうぎだおし"
+          ]
+        },
+        {
+          "display": "歩が悪い",
+          "accept": [
+            "ぶがわるい"
+          ]
+        },
+        {
+          "display": "待ったなし",
+          "accept": [
+            "待った無し",
+            "待った",
+            "まったなし"
+          ]
+        },
+        {
+          "display": "千日手",
+          "accept": [
+            "せんにちて"
+          ]
+        },
+        {
+          "display": "必至",
+          "accept": [
+            "ひっし"
+          ]
+        },
+        {
+          "display": "成り上がり",
+          "accept": [
+            "成り上がる",
+            "なりあがり"
+          ]
+        },
+        {
+          "display": "飛車角落ち",
+          "accept": [
+            "ひしゃかくおち"
+          ]
+        },
+        {
+          "display": "駒を進める",
+          "accept": [
+            "こまをすすめる"
+          ]
+        },
+        {
+          "display": "先手",
+          "accept": [
+            "先手を打つ",
+            "先手必勝",
+            "せんて"
+          ]
+        },
+        {
+          "display": "後手",
+          "accept": [
+            "後手に回る",
+            "ごて"
+          ]
+        },
+        {
+          "display": "序盤",
+          "accept": [
+            "じょばん"
+          ]
+        },
+        {
+          "display": "中盤",
+          "accept": [
+            "ちゅうばん"
+          ]
+        },
+        {
+          "display": "終盤",
+          "accept": [
+            "しゅうばん"
+          ]
+        },
+        {
+          "display": "一手",
+          "accept": [
+            "一手先を読む",
+            "いって"
+          ]
+        },
+        {
+          "display": "手詰まり",
+          "accept": [
+            "てづまり"
+          ]
+        },
+        {
+          "display": "手筋",
+          "accept": [
+            "筋がいい",
+            "てすじ"
+          ]
+        },
+        {
+          "display": "打つ手がない",
+          "accept": [
+            "打つ手なし",
+            "手を打つ"
+          ]
+        },
+        {
+          "display": "長考",
+          "accept": [
+            "ちょうこう"
+          ]
+        },
+        {
+          "display": "投了",
+          "accept": [
+            "とうりょう"
+          ]
+        },
+        {
+          "display": "勝負手",
+          "accept": [
+            "しょうぶて"
+          ]
+        },
+        {
+          "display": "妙手",
+          "accept": [
+            "みょうしゅ"
+          ]
+        },
+        {
+          "display": "悪手",
+          "accept": [
+            "あくしゅ"
+          ]
+        },
+        {
+          "display": "次の一手",
+          "accept": [
+            "つぎのいって"
           ]
         }
       ]
@@ -3341,53 +3629,43 @@
       "answers": [
         {
           "display": "さんま",
-          "prompt": "秋刀魚",
-          "accept": []
-        },
-        {
-          "display": "わかさぎ",
-          "prompt": "公魚",
-          "accept": []
+          "prompt": "秋刀魚"
         },
         {
           "display": "たちうお",
-          "prompt": "太刀魚",
-          "accept": []
-        },
-        {
-          "display": "うに",
-          "prompt": "海胆",
-          "accept": []
-        },
-        {
-          "display": "なまこ",
-          "prompt": "海鼠",
-          "accept": []
-        },
-        {
-          "display": "さざえ",
-          "prompt": "栄螺",
-          "accept": []
+          "prompt": "太刀魚"
         },
         {
           "display": "はまぐり",
-          "prompt": "蛤",
-          "accept": []
+          "prompt": "蛤"
         },
         {
           "display": "あさり",
-          "prompt": "浅蜊",
-          "accept": []
+          "prompt": "浅蜊"
+        },
+        {
+          "display": "うに",
+          "prompt": "海胆"
+        },
+        {
+          "display": "さざえ",
+          "prompt": "栄螺"
+        },
+        {
+          "display": "わかさぎ",
+          "prompt": "公魚"
         },
         {
           "display": "あんこう",
-          "prompt": "鮟鱇",
-          "accept": []
+          "prompt": "鮟鱇"
+        },
+        {
+          "display": "なまこ",
+          "prompt": "海鼠"
         },
         {
           "display": "かわはぎ",
-          "prompt": "皮剥",
-          "accept": []
+          "prompt": "皮剥"
         }
       ]
     }

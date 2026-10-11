@@ -20,8 +20,7 @@
           ]
         },
         {
-          "display": "ボールペン",
-          "accept": []
+          "display": "ボールペン"
         },
         {
           "display": "定規",
@@ -42,13 +41,16 @@
           "display": "のり",
           "accept": [
             "糊",
-            "スティックのり"
+            "スティックのり",
+            "液体のり",
+            "テープのり"
           ]
         },
         {
           "display": "ホッチキス",
           "accept": [
-            "ステープラー"
+            "ステープラー",
+            "ホチキス"
           ]
         },
         {
@@ -66,8 +68,7 @@
           ]
         },
         {
-          "display": "コンパス",
-          "accept": []
+          "display": "コンパス"
         },
         {
           "display": "分度器",
@@ -85,7 +86,8 @@
           "display": "セロハンテープ",
           "accept": [
             "セロテープ",
-            "テープ"
+            "テープ",
+            "セロファンテープ"
           ]
         },
         {
@@ -96,14 +98,14 @@
           ]
         },
         {
-          "display": "ノート",
-          "accept": []
+          "display": "ノート"
         },
         {
           "display": "筆箱",
           "accept": [
             "ふでばこ",
-            "ペンケース"
+            "ペンケース",
+            "筆入れ"
           ]
         },
         {
@@ -111,7 +113,10 @@
           "accept": [
             "蛍光ペン",
             "マジック",
-            "油性ペン"
+            "油性ペン",
+            "マジックペン",
+            "マジックインキ",
+            "水性ペン"
           ]
         },
         {
@@ -124,7 +129,9 @@
           "display": "画鋲",
           "accept": [
             "がびょう",
-            "押しピン"
+            "押しピン",
+            "画びょう",
+            "プッシュピン"
           ]
         },
         {
@@ -158,8 +165,7 @@
           ]
         },
         {
-          "display": "クレヨン",
-          "accept": []
+          "display": "クレヨン"
         },
         {
           "display": "絵の具",
@@ -187,18 +193,17 @@
           ]
         },
         {
-          "display": "半紙",
-          "accept": []
+          "display": "半紙"
         },
         {
           "display": "クリアファイル",
           "accept": [
-            "ファイル"
+            "ファイル",
+            "クリアホルダー"
           ]
         },
         {
-          "display": "バインダー",
-          "accept": []
+          "display": "バインダー"
         },
         {
           "display": "輪ゴム",
@@ -244,20 +249,16 @@
           ]
         },
         {
-          "display": "サインペン",
-          "accept": []
+          "display": "サインペン"
         },
         {
-          "display": "筆ペン",
-          "accept": []
+          "display": "筆ペン"
         },
         {
-          "display": "ペン",
-          "accept": []
+          "display": "ペン"
         },
         {
-          "display": "ルーズリーフ",
-          "accept": []
+          "display": "ルーズリーフ"
         },
         {
           "display": "手帳",
@@ -266,8 +267,7 @@
           ]
         },
         {
-          "display": "トレーシングペーパー",
-          "accept": []
+          "display": "トレーシングペーパー"
         },
         {
           "display": "パンチ",
@@ -276,8 +276,7 @@
           ]
         },
         {
-          "display": "ダブルクリップ",
-          "accept": []
+          "display": "ダブルクリップ"
         },
         {
           "display": "文鎮",
@@ -286,8 +285,75 @@
           ]
         },
         {
-          "display": "鉛筆キャップ",
-          "accept": []
+          "display": "鉛筆キャップ"
+        },
+        {
+          "display": "クレパス"
+        },
+        {
+          "display": "マスキングテープ",
+          "accept": [
+            "マステ"
+          ]
+        },
+        {
+          "display": "シャー芯",
+          "accept": [
+            "替え芯",
+            "シャープペンシルの芯",
+            "シャーペンの芯"
+          ]
+        },
+        {
+          "display": "ガムテープ"
+        },
+        {
+          "display": "両面テープ"
+        },
+        {
+          "display": "スケッチブック",
+          "accept": [
+            "スケブ"
+          ]
+        },
+        {
+          "display": "画用紙"
+        },
+        {
+          "display": "折り紙",
+          "accept": [
+            "おりがみ"
+          ]
+        },
+        {
+          "display": "原稿用紙"
+        },
+        {
+          "display": "クーピー"
+        },
+        {
+          "display": "墨汁"
+        },
+        {
+          "display": "パレット"
+        },
+        {
+          "display": "テープカッター"
+        },
+        {
+          "display": "カッターマット"
+        },
+        {
+          "display": "チョーク"
+        },
+        {
+          "display": "単語帳"
+        },
+        {
+          "display": "クリップボード"
+        },
+        {
+          "display": "インク"
         }
       ]
     },
@@ -325,7 +391,8 @@
           "display": "栗きんとん",
           "accept": [
             "くりきんとん",
-            "きんとん"
+            "きんとん",
+            "栗の甘露煮"
           ]
         },
         {
@@ -354,7 +421,9 @@
           "display": "海老",
           "accept": [
             "えび",
-            "エビ"
+            "エビ",
+            "伊勢海老",
+            "伊勢えび"
           ]
         },
         {
@@ -420,8 +489,7 @@
           ]
         },
         {
-          "display": "ちょろぎ",
-          "accept": []
+          "display": "ちょろぎ"
         },
         {
           "display": "里芋",
@@ -473,23 +541,15 @@
           ]
         },
         {
-          "display": "ローストビーフ",
-          "accept": []
+          "display": "ローストビーフ"
         },
         {
-          "display": "いくら",
-          "accept": []
+          "display": "いくら"
         },
         {
           "display": "鮭",
           "accept": [
             "さけ"
-          ]
-        },
-        {
-          "display": "お雑煮",
-          "accept": [
-            "雑煮"
           ]
         },
         {
@@ -499,18 +559,75 @@
           ]
         },
         {
-          "display": "あわび",
-          "accept": []
-        },
-        {
-          "display": "錦糸卵",
-          "accept": []
+          "display": "あわび"
         },
         {
           "display": "昆布",
           "accept": [
             "こんぶ"
           ]
+        },
+        {
+          "display": "金柑",
+          "accept": [
+            "金柑の甘露煮",
+            "きんかん"
+          ]
+        },
+        {
+          "display": "西京焼き"
+        },
+        {
+          "display": "合鴨ロース",
+          "accept": [
+            "鴨ロース"
+          ]
+        },
+        {
+          "display": "おたふく豆",
+          "accept": [
+            "お多福豆"
+          ]
+        },
+        {
+          "display": "高野豆腐",
+          "accept": [
+            "凍り豆腐"
+          ]
+        },
+        {
+          "display": "八つ頭",
+          "accept": [
+            "八頭",
+            "やつがしら"
+          ]
+        },
+        {
+          "display": "厚焼き玉子",
+          "accept": [
+            "厚焼き卵"
+          ]
+        },
+        {
+          "display": "からすみ",
+          "accept": [
+            "唐墨"
+          ]
+        },
+        {
+          "display": "ゆり根",
+          "accept": [
+            "百合根"
+          ]
+        },
+        {
+          "display": "絹さや",
+          "accept": [
+            "さやえんどう"
+          ]
+        },
+        {
+          "display": "南蛮漬け"
         }
       ]
     },
@@ -527,7 +644,8 @@
         {
           "display": "アメリカン・ショートヘア",
           "accept": [
-            "アメショー"
+            "アメショー",
+            "アメショ"
           ]
         },
         {
@@ -550,7 +668,11 @@
           "display": "ラグドール"
         },
         {
-          "display": "ブリティッシュ・ショートヘア"
+          "display": "ブリティッシュ・ショートヘア",
+          "accept": [
+            "ブリショー",
+            "ブリショ"
+          ]
         },
         {
           "display": "ノルウェージャン・フォレスト・キャット",
@@ -629,7 +751,10 @@
           "display": "コーニッシュレックス"
         },
         {
-          "display": "オリエンタル"
+          "display": "オリエンタル",
+          "accept": [
+            "オリエンタルショートヘア"
+          ]
         },
         {
           "display": "ボンベイ"
@@ -651,12 +776,6 @@
         },
         {
           "display": "ピクシーボブ"
-        },
-        {
-          "display": "三毛猫",
-          "accept": [
-            "みけねこ"
-          ]
         },
         {
           "display": "日本猫",
@@ -817,7 +936,9 @@
           "display": "猫をかぶる",
           "accept": [
             "猫を被る",
-            "ねこをかぶる"
+            "ねこをかぶる",
+            "猫かぶり",
+            "猫被り"
           ]
         },
         {
@@ -906,7 +1027,8 @@
         {
           "display": "猫の首に鈴をつける",
           "accept": [
-            "猫の首に鈴"
+            "猫の首に鈴",
+            "猫の首に鈴を付ける"
           ]
         },
         {
@@ -926,16 +1048,42 @@
           "accept": [
             "ねこまたぎ"
           ]
+        },
+        {
+          "display": "鳴く猫は鼠を捕らぬ"
+        },
+        {
+          "display": "猫は三年の恩を三日で忘れる"
+        },
+        {
+          "display": "犬は人につき猫は家につく",
+          "accept": [
+            "犬は人に付き猫は家に付く"
+          ]
+        },
+        {
+          "display": "好奇心は猫を殺す"
+        },
+        {
+          "display": "猫を殺せば七代祟る"
+        },
+        {
+          "display": "皿嘗めた猫が科を負う"
+        },
+        {
+          "display": "猫が肥えれば鰹節が痩せる"
+        },
+        {
+          "display": "犬に念仏猫に経"
         }
       ]
     },
     {
-      "q": "動物（生き物）が出てくる日本の童謡・唱歌のタイトルを答えてください。",
+      "q": "動物（生き物）が出てくる童謡・唱歌のタイトルを答えてください。",
       "slots": 6,
       "answers": [
         {
-          "display": "ぞうさん",
-          "accept": []
+          "display": "ぞうさん"
         },
         {
           "display": "いぬのおまわりさん",
@@ -975,8 +1123,7 @@
           ]
         },
         {
-          "display": "あめふりくまのこ",
-          "accept": []
+          "display": "あめふりくまのこ"
         },
         {
           "display": "うさぎとかめ",
@@ -993,8 +1140,7 @@
           ]
         },
         {
-          "display": "ぶんぶんぶん",
-          "accept": []
+          "display": "ぶんぶんぶん"
         },
         {
           "display": "すずめの学校",
@@ -1015,8 +1161,7 @@
           ]
         },
         {
-          "display": "こぶたぬきつねこ",
-          "accept": []
+          "display": "こぶたぬきつねこ"
         },
         {
           "display": "ねこふんじゃった",
@@ -1025,20 +1170,16 @@
           ]
         },
         {
-          "display": "やぎさんゆうびん",
-          "accept": []
+          "display": "やぎさんゆうびん"
         },
         {
-          "display": "アイアイ",
-          "accept": []
+          "display": "アイアイ"
         },
         {
-          "display": "パンダうさぎコアラ",
-          "accept": []
+          "display": "パンダうさぎコアラ"
         },
         {
-          "display": "うさぎ",
-          "accept": []
+          "display": "うさぎ"
         },
         {
           "display": "ちょうちょう",
@@ -1048,8 +1189,7 @@
           ]
         },
         {
-          "display": "とんぼのめがね",
-          "accept": []
+          "display": "とんぼのめがね"
         },
         {
           "display": "小鳥の歌",
@@ -1058,20 +1198,16 @@
           ]
         },
         {
-          "display": "こいのぼり",
-          "accept": []
+          "display": "こいのぼり"
         },
         {
-          "display": "おつかいありさん",
-          "accept": []
+          "display": "おつかいありさん"
         },
         {
-          "display": "かわいい魚屋さん",
-          "accept": []
+          "display": "かわいい魚屋さん"
         },
         {
-          "display": "あひるの行列",
-          "accept": []
+          "display": "あひるの行列"
         },
         {
           "display": "山の音楽家",
@@ -1080,8 +1216,7 @@
           ]
         },
         {
-          "display": "どんぐりころころ",
-          "accept": []
+          "display": "どんぐりころころ"
         },
         {
           "display": "こぎつね",
@@ -1090,20 +1225,92 @@
           ]
         },
         {
-          "display": "げんこつやまのたぬきさん",
-          "accept": []
+          "display": "げんこつやまのたぬきさん"
         },
         {
-          "display": "ドナドナ",
-          "accept": []
+          "display": "ドナドナ"
         },
         {
-          "display": "ありさんのおはなし",
-          "accept": []
+          "display": "ありさんのおはなし"
         },
         {
-          "display": "せみ",
-          "accept": []
+          "display": "せみ"
+        },
+        {
+          "display": "かもめの水兵さん"
+        },
+        {
+          "display": "からすの赤ちゃん"
+        },
+        {
+          "display": "鳩ぽっぽ",
+          "accept": [
+            "はとぽっぽ"
+          ]
+        },
+        {
+          "display": "虫のこえ",
+          "accept": [
+            "虫の声"
+          ]
+        },
+        {
+          "display": "うさぎのダンス"
+        },
+        {
+          "display": "証城寺の狸囃子",
+          "accept": [
+            "しょうじょう寺のたぬきばやし",
+            "しょうじょうじのたぬきばやし"
+          ]
+        },
+        {
+          "display": "おさるのかごや"
+        },
+        {
+          "display": "金魚の昼寝"
+        },
+        {
+          "display": "赤い鳥小鳥"
+        },
+        {
+          "display": "ほたるこい",
+          "accept": [
+            "ほたる来い"
+          ]
+        },
+        {
+          "display": "かわいいかくれんぼ"
+        },
+        {
+          "display": "こがねむし",
+          "accept": [
+            "黄金虫"
+          ]
+        },
+        {
+          "display": "めえめえ児山羊",
+          "accept": [
+            "めえめえこやぎ"
+          ]
+        },
+        {
+          "display": "とんび"
+        },
+        {
+          "display": "どじょっこふなっこ"
+        },
+        {
+          "display": "雪"
+        },
+        {
+          "display": "ふるさと",
+          "accept": [
+            "故郷"
+          ]
+        },
+        {
+          "display": "春の小川"
         }
       ]
     },
@@ -1120,7 +1327,8 @@
         {
           "display": "七並べ",
           "accept": [
-            "しちならべ"
+            "しちならべ",
+            "七ならべ"
           ]
         },
         {
@@ -1138,23 +1346,26 @@
         },
         {
           "display": "ポーカー",
-          "accept": []
+          "accept": [
+            "テキサスホールデム",
+            "ホールデム"
+          ]
         },
         {
           "display": "ブラックジャック",
-          "accept": []
+          "accept": [
+            "21",
+            "二十一"
+          ]
         },
         {
-          "display": "スピード",
-          "accept": []
+          "display": "スピード"
         },
         {
-          "display": "ダウト",
-          "accept": []
+          "display": "ダウト"
         },
         {
-          "display": "ページワン",
-          "accept": []
+          "display": "ページワン"
         },
         {
           "display": "ジジ抜き",
@@ -1163,8 +1374,7 @@
           ]
         },
         {
-          "display": "セブンブリッジ",
-          "accept": []
+          "display": "セブンブリッジ"
         },
         {
           "display": "ソリティア",
@@ -1186,23 +1396,21 @@
         },
         {
           "display": "ブリッジ",
-          "accept": []
+          "accept": [
+            "コントラクトブリッジ"
+          ]
         },
         {
-          "display": "ナポレオン",
-          "accept": []
+          "display": "ナポレオン"
         },
         {
-          "display": "インディアンポーカー",
-          "accept": []
+          "display": "インディアンポーカー"
         },
         {
-          "display": "バカラ",
-          "accept": []
+          "display": "バカラ"
         },
         {
-          "display": "ハーツ",
-          "accept": []
+          "display": "ハーツ"
         },
         {
           "display": "51",
@@ -1211,8 +1419,7 @@
           ]
         },
         {
-          "display": "ラミー",
-          "accept": []
+          "display": "ラミー"
         },
         {
           "display": "スパイダーソリティア",
@@ -1221,16 +1428,35 @@
           ]
         },
         {
-          "display": "フリーセル",
-          "accept": []
+          "display": "フリーセル"
         },
         {
-          "display": "うすのろ",
-          "accept": []
+          "display": "うすのろ"
         },
         {
-          "display": "ミリオネア",
-          "accept": []
+          "display": "ミリオネア"
+        },
+        {
+          "display": "ドボン"
+        },
+        {
+          "display": "ハイアンドロー",
+          "accept": [
+            "ハイ&ロー",
+            "ハイアンドロウ"
+          ]
+        },
+        {
+          "display": "ジンラミー"
+        },
+        {
+          "display": "ピラミッド"
+        },
+        {
+          "display": "ゴルフ"
+        },
+        {
+          "display": "ツーテンジャック"
         }
       ]
     },
@@ -1239,49 +1465,19 @@
       "panels": true,
       "answers": [
         {
+          "display": "すいか",
+          "prompt": "西瓜"
+        },
+        {
           "display": "かぼちゃ",
           "prompt": "南瓜",
-          "accept": []
+          "accept": [
+            "なんきん"
+          ]
         },
         {
           "display": "きゅうり",
-          "prompt": "胡瓜",
-          "accept": []
-        },
-        {
-          "display": "すいか",
-          "prompt": "西瓜",
-          "accept": []
-        },
-        {
-          "display": "とうもろこし",
-          "prompt": "玉蜀黍",
-          "accept": []
-        },
-        {
-          "display": "ごぼう",
-          "prompt": "牛蒡",
-          "accept": []
-        },
-        {
-          "display": "こんにゃく",
-          "prompt": "蒟蒻",
-          "accept": []
-        },
-        {
-          "display": "わかめ",
-          "prompt": "若布",
-          "accept": []
-        },
-        {
-          "display": "ところてん",
-          "prompt": "心太",
-          "accept": []
-        },
-        {
-          "display": "しょうが",
-          "prompt": "生姜",
-          "accept": []
+          "prompt": "胡瓜"
         },
         {
           "display": "なす",
@@ -1289,6 +1485,33 @@
           "accept": [
             "なすび"
           ]
+        },
+        {
+          "display": "しょうが",
+          "prompt": "生姜"
+        },
+        {
+          "display": "とうもろこし",
+          "prompt": "玉蜀黍",
+          "accept": [
+            "とうきび"
+          ]
+        },
+        {
+          "display": "わかめ",
+          "prompt": "若布"
+        },
+        {
+          "display": "ごぼう",
+          "prompt": "牛蒡"
+        },
+        {
+          "display": "こんにゃく",
+          "prompt": "蒟蒻"
+        },
+        {
+          "display": "ところてん",
+          "prompt": "心太"
         }
       ]
     },
@@ -1309,14 +1532,16 @@
             "豊臣",
             "秀吉",
             "羽柴秀吉",
-            "木下藤吉郎"
+            "木下藤吉郎",
+            "羽柴"
           ]
         },
         {
           "display": "徳川家康",
           "accept": [
             "家康",
-            "松平元康"
+            "松平元康",
+            "徳川"
           ]
         },
         {
@@ -1489,7 +1714,8 @@
         {
           "display": "山中鹿之介",
           "accept": [
-            "山中鹿介"
+            "山中鹿介",
+            "山中"
           ]
         },
         {
@@ -1574,16 +1800,15 @@
         {
           "display": "片倉小十郎",
           "accept": [
-            "片倉景綱"
+            "片倉景綱",
+            "片倉"
           ]
         },
         {
-          "display": "山本勘助",
-          "accept": []
+          "display": "山本勘助"
         },
         {
-          "display": "今川氏真",
-          "accept": []
+          "display": "今川氏真"
         },
         {
           "display": "最上義光",
@@ -1605,19 +1830,156 @@
         },
         {
           "display": "服部半蔵",
-          "accept": []
+          "accept": [
+            "服部"
+          ]
         },
         {
-          "display": "可児才蔵",
-          "accept": []
+          "display": "可児才蔵"
         },
         {
-          "display": "前田慶次",
-          "accept": []
+          "display": "前田慶次"
         },
         {
-          "display": "結城秀康",
-          "accept": []
+          "display": "結城秀康"
+        },
+        {
+          "display": "武田勝頼"
+        },
+        {
+          "display": "毛利輝元"
+        },
+        {
+          "display": "黒田長政"
+        },
+        {
+          "display": "上杉景勝"
+        },
+        {
+          "display": "豊臣秀頼"
+        },
+        {
+          "display": "徳川秀忠"
+        },
+        {
+          "display": "北条氏政"
+        },
+        {
+          "display": "真田信之",
+          "accept": [
+            "真田信幸"
+          ]
+        },
+        {
+          "display": "織田信忠"
+        },
+        {
+          "display": "酒井忠次",
+          "accept": [
+            "酒井"
+          ]
+        },
+        {
+          "display": "榊原康政",
+          "accept": [
+            "榊原"
+          ]
+        },
+        {
+          "display": "大内義隆"
+        },
+        {
+          "display": "山内一豊",
+          "accept": [
+            "山内"
+          ]
+        },
+        {
+          "display": "島左近",
+          "accept": [
+            "島清興"
+          ]
+        },
+        {
+          "display": "陶晴賢",
+          "accept": [
+            "陶"
+          ]
+        },
+        {
+          "display": "尼子経久"
+        },
+        {
+          "display": "尼子晴久"
+        },
+        {
+          "display": "吉川元春"
+        },
+        {
+          "display": "高山右近",
+          "accept": [
+            "高山"
+          ]
+        },
+        {
+          "display": "荒木村重",
+          "accept": [
+            "荒木"
+          ]
+        },
+        {
+          "display": "筒井順慶",
+          "accept": [
+            "筒井"
+          ]
+        },
+        {
+          "display": "佐々成政",
+          "accept": [
+            "佐々"
+          ]
+        },
+        {
+          "display": "蜂須賀小六",
+          "accept": [
+            "蜂須賀正勝",
+            "蜂須賀"
+          ]
+        },
+        {
+          "display": "鍋島直茂",
+          "accept": [
+            "鍋島"
+          ]
+        },
+        {
+          "display": "斎藤義龍"
+        },
+        {
+          "display": "太田道灌",
+          "accept": [
+            "太田"
+          ]
+        },
+        {
+          "display": "里見義堯",
+          "accept": [
+            "里見"
+          ]
+        },
+        {
+          "display": "雑賀孫一",
+          "accept": [
+            "雑賀孫市",
+            "鈴木孫一",
+            "雑賀"
+          ]
+        },
+        {
+          "display": "井伊直虎"
+        },
+        {
+          "display": "足利義輝"
         }
       ]
     },
@@ -1731,12 +2093,6 @@
           ]
         },
         {
-          "display": "看板",
-          "accept": [
-            "かんばん"
-          ]
-        },
-        {
           "display": "千両役者",
           "accept": [
             "せんりょうやくしゃ"
@@ -1773,21 +2129,13 @@
           ]
         },
         {
-          "display": "楽屋",
-          "accept": [
-            "がくや",
-            "楽屋落ち"
-          ]
-        },
-        {
           "display": "口上",
           "accept": [
             "こうじょう"
           ]
         },
         {
-          "display": "せり上がり",
-          "accept": []
+          "display": "せり上がり"
         },
         {
           "display": "愁嘆場",
@@ -1800,6 +2148,72 @@
           "accept": [
             "あんてん"
           ]
+        },
+        {
+          "display": "黒子",
+          "accept": [
+            "黒衣",
+            "くろこ",
+            "くろご"
+          ]
+        },
+        {
+          "display": "けれん",
+          "accept": [
+            "外連味",
+            "けれん味"
+          ]
+        },
+        {
+          "display": "捨て台詞",
+          "accept": [
+            "捨てぜりふ"
+          ]
+        },
+        {
+          "display": "大根役者"
+        },
+        {
+          "display": "立ち回り",
+          "accept": [
+            "大立ち回り"
+          ]
+        },
+        {
+          "display": "めりはり",
+          "accept": [
+            "減り張り"
+          ]
+        },
+        {
+          "display": "とちる"
+        },
+        {
+          "display": "茶番"
+        },
+        {
+          "display": "かぶりつき"
+        },
+        {
+          "display": "濡れ場"
+        },
+        {
+          "display": "奈落"
+        },
+        {
+          "display": "一枚看板"
+        },
+        {
+          "display": "当たり役"
+        },
+        {
+          "display": "どろん"
+        },
+        {
+          "display": "幕開き"
+        },
+        {
+          "display": "思い入れ"
         }
       ]
     },
@@ -1814,8 +2228,7 @@
           ]
         },
         {
-          "display": "メロンパン",
-          "accept": []
+          "display": "メロンパン"
         },
         {
           "display": "あんパン",
@@ -1824,12 +2237,10 @@
           ]
         },
         {
-          "display": "カレーパン",
-          "accept": []
+          "display": "カレーパン"
         },
         {
-          "display": "クロワッサン",
-          "accept": []
+          "display": "クロワッサン"
         },
         {
           "display": "フランスパン",
@@ -1838,16 +2249,13 @@
           ]
         },
         {
-          "display": "ベーグル",
-          "accept": []
+          "display": "ベーグル"
         },
         {
-          "display": "クリームパン",
-          "accept": []
+          "display": "クリームパン"
         },
         {
-          "display": "ジャムパン",
-          "accept": []
+          "display": "ジャムパン"
         },
         {
           "display": "チョココロネ",
@@ -1868,36 +2276,38 @@
           ]
         },
         {
-          "display": "コッペパン",
-          "accept": []
+          "display": "コッペパン"
         },
         {
           "display": "焼きそばパン",
-          "accept": []
+          "accept": [
+            "焼そばパン"
+          ]
         },
         {
-          "display": "ナン",
-          "accept": []
+          "display": "ナン"
         },
         {
-          "display": "デニッシュ",
-          "accept": []
+          "display": "デニッシュ"
         },
         {
-          "display": "ブリオッシュ",
-          "accept": []
+          "display": "ブリオッシュ"
         },
         {
-          "display": "フォカッチャ",
-          "accept": []
+          "display": "フォカッチャ"
         },
         {
           "display": "チャバタ",
-          "accept": []
+          "accept": [
+            "チャパタ",
+            "チャバッタ"
+          ]
         },
         {
           "display": "プレッツェル",
-          "accept": []
+          "accept": [
+            "ブレッツェル"
+          ]
         },
         {
           "display": "イングリッシュマフィン",
@@ -1918,32 +2328,25 @@
           ]
         },
         {
-          "display": "カンパーニュ",
-          "accept": []
+          "display": "カンパーニュ"
         },
         {
-          "display": "バタール",
-          "accept": []
+          "display": "バタール"
         },
         {
-          "display": "クロックムッシュ",
-          "accept": []
+          "display": "クロックムッシュ"
         },
         {
-          "display": "ホットドッグ",
-          "accept": []
+          "display": "ホットドッグ"
         },
         {
-          "display": "サンドイッチ",
-          "accept": []
+          "display": "サンドイッチ"
         },
         {
-          "display": "チーズパン",
-          "accept": []
+          "display": "チーズパン"
         },
         {
-          "display": "ちくわパン",
-          "accept": []
+          "display": "ちくわパン"
         },
         {
           "display": "塩パン",
@@ -1958,56 +2361,43 @@
           ]
         },
         {
-          "display": "フレンチトースト",
-          "accept": []
+          "display": "フレンチトースト"
         },
         {
-          "display": "ドーナツ",
-          "accept": []
+          "display": "ドーナツ"
         },
         {
-          "display": "シナモンロール",
-          "accept": []
+          "display": "シナモンロール"
         },
         {
-          "display": "カスクート",
-          "accept": []
+          "display": "カスクート"
         },
         {
-          "display": "パニーニ",
-          "accept": []
+          "display": "パニーニ"
         },
         {
-          "display": "ブール",
-          "accept": []
+          "display": "ブール"
         },
         {
-          "display": "トースト",
-          "accept": []
+          "display": "トースト"
         },
         {
-          "display": "全粒粉パン",
-          "accept": []
+          "display": "全粒粉パン"
         },
         {
-          "display": "米粉パン",
-          "accept": []
+          "display": "米粉パン"
         },
         {
-          "display": "黒糖パン",
-          "accept": []
+          "display": "黒糖パン"
         },
         {
-          "display": "ミルクパン",
-          "accept": []
+          "display": "ミルクパン"
         },
         {
-          "display": "ハンバーガー",
-          "accept": []
+          "display": "ハンバーガー"
         },
         {
-          "display": "ピロシキ",
-          "accept": []
+          "display": "ピロシキ"
         },
         {
           "display": "ベーコンエピ",
@@ -2017,11 +2407,72 @@
         },
         {
           "display": "シュトーレン",
-          "accept": []
+          "accept": [
+            "シュトレン"
+          ]
         },
         {
-          "display": "パネトーネ",
-          "accept": []
+          "display": "パネトーネ"
+        },
+        {
+          "display": "レーズンパン",
+          "accept": [
+            "ぶどうパン"
+          ]
+        },
+        {
+          "display": "コロッケパン"
+        },
+        {
+          "display": "ピザパン"
+        },
+        {
+          "display": "ウインナーパン"
+        },
+        {
+          "display": "乾パン",
+          "accept": [
+            "カンパン"
+          ]
+        },
+        {
+          "display": "くるみパン"
+        },
+        {
+          "display": "うぐいすパン"
+        },
+        {
+          "display": "イギリスパン",
+          "accept": [
+            "山型パン"
+          ]
+        },
+        {
+          "display": "チョコパン"
+        },
+        {
+          "display": "パン・オ・ショコラ"
+        },
+        {
+          "display": "クイニーアマン"
+        },
+        {
+          "display": "マリトッツォ"
+        },
+        {
+          "display": "ちぎりパン"
+        },
+        {
+          "display": "スコーン"
+        },
+        {
+          "display": "ラスク"
+        },
+        {
+          "display": "ホットサンド"
+        },
+        {
+          "display": "チャパティ"
         }
       ]
     }

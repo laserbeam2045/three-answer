@@ -92,8 +92,7 @@
           ]
         },
         {
-          "display": "アーロと少年",
-          "accept": []
+          "display": "アーロと少年"
         },
         {
           "display": "リメンバー・ミー",
@@ -151,20 +150,16 @@
       "slots": 5,
       "answers": [
         {
-          "display": "フルート",
-          "accept": []
+          "display": "フルート"
         },
         {
-          "display": "ピッコロ",
-          "accept": []
+          "display": "ピッコロ"
         },
         {
-          "display": "オーボエ",
-          "accept": []
+          "display": "オーボエ"
         },
         {
-          "display": "クラリネット",
-          "accept": []
+          "display": "クラリネット"
         },
         {
           "display": "ファゴット",
@@ -199,12 +194,10 @@
           ]
         },
         {
-          "display": "バスクラリネット",
-          "accept": []
+          "display": "バスクラリネット"
         },
         {
-          "display": "コントラファゴット",
-          "accept": []
+          "display": "コントラファゴット"
         },
         {
           "display": "尺八",
@@ -219,16 +212,13 @@
           ]
         },
         {
-          "display": "バグパイプ",
-          "accept": []
+          "display": "バグパイプ"
         },
         {
-          "display": "パンフルート",
-          "accept": []
+          "display": "パンフルート"
         },
         {
-          "display": "ケーナ",
-          "accept": []
+          "display": "ケーナ"
         }
       ]
     },
@@ -250,12 +240,10 @@
           ]
         },
         {
-          "display": "アクアマリン",
-          "accept": []
+          "display": "アクアマリン"
         },
         {
-          "display": "ブラッドストーン",
-          "accept": []
+          "display": "ブラッドストーン"
         },
         {
           "display": "ダイヤモンド",
@@ -264,8 +252,7 @@
           ]
         },
         {
-          "display": "エメラルド",
-          "accept": []
+          "display": "エメラルド"
         },
         {
           "display": "ヒスイ",
@@ -293,12 +280,10 @@
           ]
         },
         {
-          "display": "ルビー",
-          "accept": []
+          "display": "ルビー"
         },
         {
-          "display": "ペリドット",
-          "accept": []
+          "display": "ペリドット"
         },
         {
           "display": "サードオニキス",
@@ -307,8 +292,7 @@
           ]
         },
         {
-          "display": "スピネル",
-          "accept": []
+          "display": "スピネル"
         },
         {
           "display": "サファイア",
@@ -317,20 +301,16 @@
           ]
         },
         {
-          "display": "オパール",
-          "accept": []
+          "display": "オパール"
         },
         {
-          "display": "トルマリン",
-          "accept": []
+          "display": "トルマリン"
         },
         {
-          "display": "トパーズ",
-          "accept": []
+          "display": "トパーズ"
         },
         {
-          "display": "シトリン",
-          "accept": []
+          "display": "シトリン"
         },
         {
           "display": "ターコイズ",
@@ -339,16 +319,13 @@
           ]
         },
         {
-          "display": "タンザナイト",
-          "accept": []
+          "display": "タンザナイト"
         },
         {
-          "display": "ラピスラズリ",
-          "accept": []
+          "display": "ラピスラズリ"
         },
         {
-          "display": "ジルコン",
-          "accept": []
+          "display": "ジルコン"
         },
         {
           "display": "サンゴ",
@@ -358,8 +335,7 @@
           ]
         },
         {
-          "display": "ブルートパーズ",
-          "accept": []
+          "display": "ブルートパーズ"
         },
         {
           "display": "クリソベリル",
@@ -369,20 +345,16 @@
           ]
         },
         {
-          "display": "モルガナイト",
-          "accept": []
+          "display": "モルガナイト"
         },
         {
-          "display": "アイオライト",
-          "accept": []
+          "display": "アイオライト"
         },
         {
-          "display": "スフェーン",
-          "accept": []
+          "display": "スフェーン"
         },
         {
-          "display": "クンツァイト",
-          "accept": []
+          "display": "クンツァイト"
         }
       ]
     },
@@ -398,8 +370,7 @@
           ]
         },
         {
-          "display": "ブルーベリー",
-          "accept": []
+          "display": "ブルーベリー"
         },
         {
           "display": "ラズベリー",
@@ -409,12 +380,10 @@
           ]
         },
         {
-          "display": "クランベリー",
-          "accept": []
+          "display": "クランベリー"
         },
         {
-          "display": "ブラックベリー",
-          "accept": []
+          "display": "ブラックベリー"
         },
         {
           "display": "グーズベリー",
@@ -431,16 +400,13 @@
           ]
         },
         {
-          "display": "ボイセンベリー",
-          "accept": []
+          "display": "ボイセンベリー"
         },
         {
-          "display": "エルダーベリー",
-          "accept": []
+          "display": "エルダーベリー"
         },
         {
-          "display": "ハックルベリー",
-          "accept": []
+          "display": "ハックルベリー"
         },
         {
           "display": "ゴジベリー",
@@ -456,16 +422,13 @@
           ]
         },
         {
-          "display": "ジュニパーベリー",
-          "accept": []
+          "display": "ジュニパーベリー"
         },
         {
-          "display": "ローガンベリー",
-          "accept": []
+          "display": "ローガンベリー"
         },
         {
-          "display": "ビルベリー",
-          "accept": []
+          "display": "ビルベリー"
         },
         {
           "display": "ハスカップ",
@@ -474,8 +437,7 @@
           ]
         },
         {
-          "display": "ジューンベリー",
-          "accept": []
+          "display": "ジューンベリー"
         },
         {
           "display": "チョークベリー",
@@ -490,20 +452,16 @@
           ]
         },
         {
-          "display": "マキベリー",
-          "accept": []
+          "display": "マキベリー"
         },
         {
-          "display": "ミラクルベリー",
-          "accept": []
+          "display": "ミラクルベリー"
         },
         {
-          "display": "リンゴンベリー",
-          "accept": []
+          "display": "リンゴンベリー"
         },
         {
-          "display": "クラウドベリー",
-          "accept": []
+          "display": "クラウドベリー"
         }
       ]
     },
@@ -1027,12 +985,10 @@
       "slots": 6,
       "answers": [
         {
-          "display": "マリオ",
-          "accept": []
+          "display": "マリオ"
         },
         {
-          "display": "ルイージ",
-          "accept": []
+          "display": "ルイージ"
         },
         {
           "display": "ピーチ",
@@ -1041,24 +997,19 @@
           ]
         },
         {
-          "display": "クッパ",
-          "accept": []
+          "display": "クッパ"
         },
         {
-          "display": "キノピオ",
-          "accept": []
+          "display": "キノピオ"
         },
         {
-          "display": "ヨッシー",
-          "accept": []
+          "display": "ヨッシー"
         },
         {
-          "display": "ワリオ",
-          "accept": []
+          "display": "ワリオ"
         },
         {
-          "display": "ワルイージ",
-          "accept": []
+          "display": "ワルイージ"
         },
         {
           "display": "デイジー",
@@ -1067,8 +1018,7 @@
           ]
         },
         {
-          "display": "ロゼッタ",
-          "accept": []
+          "display": "ロゼッタ"
         },
         {
           "display": "ドンキーコング",
@@ -1078,31 +1028,27 @@
         },
         {
           "display": "ディディーコング",
-          "accept": []
+          "accept": [
+            "ディディー"
+          ]
         },
         {
-          "display": "ノコノコ",
-          "accept": []
+          "display": "ノコノコ"
         },
         {
-          "display": "クリボー",
-          "accept": []
+          "display": "クリボー"
         },
         {
-          "display": "ジュゲム",
-          "accept": []
+          "display": "ジュゲム"
         },
         {
-          "display": "テレサ",
-          "accept": []
+          "display": "テレサ"
         },
         {
-          "display": "キングテレサ",
-          "accept": []
+          "display": "キングテレサ"
         },
         {
-          "display": "ヘイホー",
-          "accept": []
+          "display": "ヘイホー"
         },
         {
           "display": "パックンフラワー",
@@ -1124,52 +1070,40 @@
           ]
         },
         {
-          "display": "カメック",
-          "accept": []
+          "display": "カメック"
         },
         {
-          "display": "キノピコ",
-          "accept": []
+          "display": "キノピコ"
         },
         {
-          "display": "ハナチャン",
-          "accept": []
+          "display": "ハナチャン"
         },
         {
-          "display": "ドッスン",
-          "accept": []
+          "display": "ドッスン"
         },
         {
-          "display": "ワンワン",
-          "accept": []
+          "display": "ワンワン"
         },
         {
-          "display": "ゲッソー",
-          "accept": []
+          "display": "ゲッソー"
         },
         {
-          "display": "プクプク",
-          "accept": []
+          "display": "プクプク"
         },
         {
-          "display": "カロン",
-          "accept": []
+          "display": "カロン"
         },
         {
-          "display": "トゲゾー",
-          "accept": []
+          "display": "トゲゾー"
         },
         {
-          "display": "チョロプー",
-          "accept": []
+          "display": "チョロプー"
         },
         {
-          "display": "キャサリン",
-          "accept": []
+          "display": "キャサリン"
         },
         {
-          "display": "ポリーン",
-          "accept": []
+          "display": "ポリーン"
         },
         {
           "display": "ベビィマリオ",
@@ -1184,40 +1118,77 @@
           ]
         },
         {
-          "display": "ファイアブロス",
-          "accept": []
+          "display": "ファイアブロス"
         },
         {
-          "display": "ブーメランブロス",
-          "accept": []
+          "display": "ブーメランブロス"
         },
         {
-          "display": "メット",
-          "accept": []
+          "display": "メット"
         },
         {
-          "display": "サンボ",
-          "accept": []
+          "display": "サンボ"
         },
         {
-          "display": "ガボン",
-          "accept": []
+          "display": "ガボン"
         },
         {
-          "display": "キラー",
-          "accept": []
+          "display": "キラー"
         },
         {
           "display": "コクッパ",
-          "accept": []
+          "accept": [
+            "クッパ7人衆",
+            "クッパ七人衆"
+          ]
         },
         {
-          "display": "チコ",
-          "accept": []
+          "display": "チコ"
         },
         {
-          "display": "カゲの女王",
-          "accept": []
+          "display": "カゲの女王"
+        },
+        {
+          "display": "パタパタ"
+        },
+        {
+          "display": "キノピオ隊長"
+        },
+        {
+          "display": "ベビィルイージ"
+        },
+        {
+          "display": "キノじい"
+        },
+        {
+          "display": "ドンキーコングJr.",
+          "accept": [
+            "ドンキーコングジュニア"
+          ]
+        },
+        {
+          "display": "ラリー"
+        },
+        {
+          "display": "モートン"
+        },
+        {
+          "display": "ウェンディ"
+        },
+        {
+          "display": "イギー"
+        },
+        {
+          "display": "ロイ"
+        },
+        {
+          "display": "レミー"
+        },
+        {
+          "display": "ルドウィッグ",
+          "accept": [
+            "ルードヴィッヒ"
+          ]
         }
       ]
     },
@@ -1328,54 +1299,44 @@
       "panels": true,
       "answers": [
         {
-          "display": "やかん",
-          "prompt": "薬缶",
-          "accept": []
-        },
-        {
-          "display": "きゅうす",
-          "prompt": "急須",
-          "accept": []
-        },
-        {
-          "display": "まないた",
-          "prompt": "俎板",
-          "accept": []
-        },
-        {
-          "display": "すりばち",
-          "prompt": "擂鉢",
-          "accept": []
-        },
-        {
-          "display": "ほうき",
-          "prompt": "箒",
-          "accept": []
+          "display": "うちわ",
+          "prompt": "団扇"
         },
         {
           "display": "ぞうきん",
-          "prompt": "雑巾",
-          "accept": []
-        },
-        {
-          "display": "うちわ",
-          "prompt": "団扇",
-          "accept": []
-        },
-        {
-          "display": "ろうそく",
-          "prompt": "蝋燭",
-          "accept": []
+          "prompt": "雑巾"
         },
         {
           "display": "ふろしき",
-          "prompt": "風呂敷",
-          "accept": []
+          "prompt": "風呂敷"
         },
         {
           "display": "そろばん",
-          "prompt": "算盤",
-          "accept": []
+          "prompt": "算盤"
+        },
+        {
+          "display": "ろうそく",
+          "prompt": "蝋燭"
+        },
+        {
+          "display": "きゅうす",
+          "prompt": "急須"
+        },
+        {
+          "display": "ほうき",
+          "prompt": "箒"
+        },
+        {
+          "display": "やかん",
+          "prompt": "薬缶"
+        },
+        {
+          "display": "まないた",
+          "prompt": "俎板"
+        },
+        {
+          "display": "すりばち",
+          "prompt": "擂鉢"
         }
       ]
     },
@@ -1403,7 +1364,9 @@
           "accept": [
             "サケ",
             "鮭",
-            "しゃけ"
+            "しゃけ",
+            "炙りサーモン",
+            "オニオンサーモン"
           ]
         },
         {
@@ -1414,13 +1377,13 @@
           ]
         },
         {
-          "display": "カンパチ",
-          "accept": []
+          "display": "カンパチ"
         },
         {
           "display": "タイ",
           "accept": [
-            "鯛"
+            "鯛",
+            "真鯛"
           ]
         },
         {
@@ -1462,8 +1425,7 @@
           ]
         },
         {
-          "display": "コハダ",
-          "accept": []
+          "display": "コハダ"
         },
         {
           "display": "アナゴ",
@@ -1483,7 +1445,9 @@
             "海老",
             "甘エビ",
             "甘えび",
-            "ボタンエビ"
+            "ボタンエビ",
+            "えび天",
+            "車海老"
           ]
         },
         {
@@ -1541,8 +1505,7 @@
           ]
         },
         {
-          "display": "イクラ",
-          "accept": []
+          "display": "イクラ"
         },
         {
           "display": "数の子",
@@ -1571,12 +1534,13 @@
           ]
         },
         {
-          "display": "シャコ",
-          "accept": []
+          "display": "シャコ"
         },
         {
           "display": "しらす",
-          "accept": []
+          "accept": [
+            "生しらす"
+          ]
         },
         {
           "display": "かっぱ巻き",
@@ -1588,7 +1552,9 @@
         {
           "display": "かんぴょう巻き",
           "accept": [
-            "かんぴょう"
+            "かんぴょう",
+            "干瓢巻き",
+            "干瓢"
           ]
         },
         {
@@ -1617,12 +1583,10 @@
           ]
         },
         {
-          "display": "コーン",
-          "accept": []
+          "display": "コーン"
         },
         {
-          "display": "ハンバーグ",
-          "accept": []
+          "display": "ハンバーグ"
         },
         {
           "display": "たくあん",
@@ -1634,6 +1598,112 @@
           "display": "梅しそ",
           "accept": [
             "梅"
+          ]
+        },
+        {
+          "display": "カニカマ"
+        },
+        {
+          "display": "とり貝",
+          "accept": [
+            "鳥貝",
+            "トリガイ"
+          ]
+        },
+        {
+          "display": "ゲソ"
+        },
+        {
+          "display": "シマアジ",
+          "accept": [
+            "縞鯵"
+          ]
+        },
+        {
+          "display": "ローストビーフ"
+        },
+        {
+          "display": "サラダ軍艦",
+          "accept": [
+            "サラダ",
+            "ツナサラダ"
+          ]
+        },
+        {
+          "display": "中落ち",
+          "accept": [
+            "中おち"
+          ]
+        },
+        {
+          "display": "あん肝",
+          "accept": [
+            "あんきも"
+          ]
+        },
+        {
+          "display": "白子",
+          "accept": [
+            "しらこ"
+          ]
+        },
+        {
+          "display": "ノドグロ",
+          "accept": [
+            "アカムツ"
+          ]
+        },
+        {
+          "display": "金目鯛",
+          "accept": [
+            "キンメダイ",
+            "金目"
+          ]
+        },
+        {
+          "display": "スズキ",
+          "accept": [
+            "鱸"
+          ]
+        },
+        {
+          "display": "カレイ",
+          "accept": [
+            "鰈"
+          ]
+        },
+        {
+          "display": "ヒラマサ",
+          "accept": [
+            "平政"
+          ]
+        },
+        {
+          "display": "サヨリ",
+          "accept": [
+            "細魚"
+          ]
+        },
+        {
+          "display": "ほたるいか",
+          "accept": [
+            "蛍烏賊"
+          ]
+        },
+        {
+          "display": "明太子",
+          "accept": [
+            "たらこ",
+            "めんたいこ"
+          ]
+        },
+        {
+          "display": "カリフォルニアロール"
+        },
+        {
+          "display": "アボカド",
+          "accept": [
+            "えびアボカド"
           ]
         }
       ]
@@ -1656,8 +1726,7 @@
           ]
         },
         {
-          "display": "クロミ",
-          "accept": []
+          "display": "クロミ"
         },
         {
           "display": "シナモロール",
@@ -1668,7 +1737,8 @@
         {
           "display": "ポムポムプリン",
           "accept": [
-            "プリン"
+            "プリン",
+            "ポムポム"
           ]
         },
         {
@@ -1678,8 +1748,7 @@
           ]
         },
         {
-          "display": "ポチャッコ",
-          "accept": []
+          "display": "ポチャッコ"
         },
         {
           "display": "リトルツインスターズ",
@@ -1696,20 +1765,16 @@
           ]
         },
         {
-          "display": "ぐでたま",
-          "accept": []
+          "display": "ぐでたま"
         },
         {
-          "display": "タキシードサム",
-          "accept": []
+          "display": "タキシードサム"
         },
         {
-          "display": "ハンギョドン",
-          "accept": []
+          "display": "ハンギョドン"
         },
         {
-          "display": "こぎみゅん",
-          "accept": []
+          "display": "こぎみゅん"
         },
         {
           "display": "マイスウィートピアノ",
@@ -1718,8 +1783,7 @@
           ]
         },
         {
-          "display": "ウィッシュミーメル",
-          "accept": []
+          "display": "ウィッシュミーメル"
         },
         {
           "display": "パティ&ジミー",
@@ -1734,16 +1798,13 @@
           ]
         },
         {
-          "display": "ゴロピカドン",
-          "accept": []
+          "display": "ゴロピカドン"
         },
         {
-          "display": "マロンクリーム",
-          "accept": []
+          "display": "マロンクリーム"
         },
         {
-          "display": "ザシキブタ",
-          "accept": []
+          "display": "ザシキブタ"
         },
         {
           "display": "あひるのペックル",
@@ -1752,8 +1813,7 @@
           ]
         },
         {
-          "display": "コロコロクリリン",
-          "accept": []
+          "display": "コロコロクリリン"
         },
         {
           "display": "アグレッシブ烈子",
@@ -1762,8 +1822,7 @@
           ]
         },
         {
-          "display": "ハミングミント",
-          "accept": []
+          "display": "ハミングミント"
         },
         {
           "display": "KIRIMIちゃん.",
@@ -1779,8 +1838,31 @@
           ]
         },
         {
-          "display": "チャーミーキティ",
-          "accept": []
+          "display": "チャーミーキティ"
+        },
+        {
+          "display": "ぼんぼんりぼん"
+        },
+        {
+          "display": "ウサハナ"
+        },
+        {
+          "display": "シュガーバニーズ"
+        },
+        {
+          "display": "おさるのもんきち"
+        },
+        {
+          "display": "はなまるおばけ"
+        },
+        {
+          "display": "ルロロマニック"
+        },
+        {
+          "display": "まるもふびより"
+        },
+        {
+          "display": "ニャニィニュニェニョン"
         }
       ]
     }

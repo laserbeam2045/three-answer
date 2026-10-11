@@ -170,8 +170,7 @@
           ]
         },
         {
-          "display": "シンデレラ",
-          "accept": []
+          "display": "シンデレラ"
         },
         {
           "display": "オーロラ姫",
@@ -181,48 +180,37 @@
           ]
         },
         {
-          "display": "アリエル",
-          "accept": []
+          "display": "アリエル"
         },
         {
-          "display": "ベル",
-          "accept": []
+          "display": "ベル"
         },
         {
-          "display": "ジャスミン",
-          "accept": []
+          "display": "ジャスミン"
         },
         {
-          "display": "ポカホンタス",
-          "accept": []
+          "display": "ポカホンタス"
         },
         {
-          "display": "ムーラン",
-          "accept": []
+          "display": "ムーラン"
         },
         {
-          "display": "ティアナ",
-          "accept": []
+          "display": "ティアナ"
         },
         {
-          "display": "ラプンツェル",
-          "accept": []
+          "display": "ラプンツェル"
         },
         {
-          "display": "メリダ",
-          "accept": []
+          "display": "メリダ"
         },
         {
-          "display": "モアナ",
-          "accept": []
+          "display": "モアナ"
         },
         {
-          "display": "ラーヤ",
-          "accept": []
+          "display": "ラーヤ"
         },
         {
-          "display": "エルサ",
-          "accept": []
+          "display": "エルサ"
         },
         {
           "display": "アナ",
@@ -237,8 +225,7 @@
           ]
         },
         {
-          "display": "キーダ",
-          "accept": []
+          "display": "キーダ"
         }
       ]
     },
@@ -255,12 +242,10 @@
           ]
         },
         {
-          "display": "ペンネ",
-          "accept": []
+          "display": "ペンネ"
         },
         {
-          "display": "マカロニ",
-          "accept": []
+          "display": "マカロニ"
         },
         {
           "display": "ラザニア",
@@ -288,12 +273,10 @@
           ]
         },
         {
-          "display": "ラビオリ",
-          "accept": []
+          "display": "ラビオリ"
         },
         {
-          "display": "ニョッキ",
-          "accept": []
+          "display": "ニョッキ"
         },
         {
           "display": "カッペリーニ",
@@ -314,32 +297,25 @@
           ]
         },
         {
-          "display": "コンキリエ",
-          "accept": []
+          "display": "コンキリエ"
         },
         {
-          "display": "リガトーニ",
-          "accept": []
+          "display": "リガトーニ"
         },
         {
-          "display": "オレキエッテ",
-          "accept": []
+          "display": "オレキエッテ"
         },
         {
-          "display": "トルテッリーニ",
-          "accept": []
+          "display": "トルテッリーニ"
         },
         {
-          "display": "パッパルデッレ",
-          "accept": []
+          "display": "パッパルデッレ"
         },
         {
-          "display": "ブカティーニ",
-          "accept": []
+          "display": "ブカティーニ"
         },
         {
-          "display": "フェデリーニ",
-          "accept": []
+          "display": "フェデリーニ"
         },
         {
           "display": "ヴェルミチェッリ",
@@ -354,24 +330,19 @@
           ]
         },
         {
-          "display": "カネロニ",
-          "accept": []
+          "display": "カネロニ"
         },
         {
-          "display": "ルオーテ",
-          "accept": []
+          "display": "ルオーテ"
         },
         {
-          "display": "パッケリ",
-          "accept": []
+          "display": "パッケリ"
         },
         {
-          "display": "オルゾ",
-          "accept": []
+          "display": "オルゾ"
         },
         {
-          "display": "タリオリーニ",
-          "accept": []
+          "display": "タリオリーニ"
         }
       ]
     },
@@ -575,12 +546,10 @@
       "slots": 8,
       "answers": [
         {
-          "display": "イタリア",
-          "accept": []
+          "display": "イタリア"
         },
         {
-          "display": "オーストリア",
-          "accept": []
+          "display": "オーストリア"
         },
         {
           "display": "ロシア",
@@ -595,12 +564,10 @@
           ]
         },
         {
-          "display": "クロアチア",
-          "accept": []
+          "display": "クロアチア"
         },
         {
-          "display": "セルビア",
-          "accept": []
+          "display": "セルビア"
         },
         {
           "display": "スロバキア",
@@ -615,20 +582,16 @@
           ]
         },
         {
-          "display": "ルーマニア",
-          "accept": []
+          "display": "ルーマニア"
         },
         {
-          "display": "ブルガリア",
-          "accept": []
+          "display": "ブルガリア"
         },
         {
-          "display": "アルバニア",
-          "accept": []
+          "display": "アルバニア"
         },
         {
-          "display": "エストニア",
-          "accept": []
+          "display": "エストニア"
         },
         {
           "display": "ラトビア",
@@ -637,8 +600,7 @@
           ]
         },
         {
-          "display": "リトアニア",
-          "accept": []
+          "display": "リトアニア"
         },
         {
           "display": "北マケドニア",
@@ -653,8 +615,7 @@
           ]
         },
         {
-          "display": "アルメニア",
-          "accept": []
+          "display": "アルメニア"
         }
       ]
     },
@@ -663,8 +624,7 @@
       "slots": 5,
       "answers": [
         {
-          "display": "コシヒカリ",
-          "accept": []
+          "display": "コシヒカリ"
         },
         {
           "display": "ひとめぼれ",
@@ -673,8 +633,7 @@
           ]
         },
         {
-          "display": "ヒノヒカリ",
-          "accept": []
+          "display": "ヒノヒカリ"
         },
         {
           "display": "あきたこまち",
@@ -695,20 +654,16 @@
           ]
         },
         {
-          "display": "まっしぐら",
-          "accept": []
+          "display": "まっしぐら"
         },
         {
-          "display": "キヌヒカリ",
-          "accept": []
+          "display": "キヌヒカリ"
         },
         {
-          "display": "きぬむすめ",
-          "accept": []
+          "display": "きぬむすめ"
         },
         {
-          "display": "ゆめぴりか",
-          "accept": []
+          "display": "ゆめぴりか"
         },
         {
           "display": "つや姫",
@@ -717,8 +672,7 @@
           ]
         },
         {
-          "display": "にこまる",
-          "accept": []
+          "display": "にこまる"
         },
         {
           "display": "あさひの夢",
@@ -727,8 +681,7 @@
           ]
         },
         {
-          "display": "こしいぶき",
-          "accept": []
+          "display": "こしいぶき"
         },
         {
           "display": "夢つくし",
@@ -743,8 +696,7 @@
           ]
         },
         {
-          "display": "ミルキークイーン",
-          "accept": []
+          "display": "ミルキークイーン"
         },
         {
           "display": "青天の霹靂",
@@ -771,8 +723,7 @@
           ]
         },
         {
-          "display": "いちほまれ",
-          "accept": []
+          "display": "いちほまれ"
         },
         {
           "display": "富富富",
@@ -781,12 +732,10 @@
           ]
         },
         {
-          "display": "さがびより",
-          "accept": []
+          "display": "さがびより"
         },
         {
-          "display": "ササニシキ",
-          "accept": []
+          "display": "ササニシキ"
         },
         {
           "display": "元気つくし",
@@ -807,20 +756,16 @@
           ]
         },
         {
-          "display": "ふっくりんこ",
-          "accept": []
+          "display": "ふっくりんこ"
         },
         {
-          "display": "おぼろづき",
-          "accept": []
+          "display": "おぼろづき"
         },
         {
-          "display": "ゆめしずく",
-          "accept": []
+          "display": "ゆめしずく"
         },
         {
-          "display": "ハツシモ",
-          "accept": []
+          "display": "ハツシモ"
         },
         {
           "display": "彩のかがやき",
@@ -841,8 +786,7 @@
           ]
         },
         {
-          "display": "サキホコレ",
-          "accept": []
+          "display": "サキホコレ"
         },
         {
           "display": "日本晴",
@@ -857,12 +801,10 @@
           ]
         },
         {
-          "display": "ゆうだい21",
-          "accept": []
+          "display": "ゆうだい21"
         },
         {
-          "display": "にじのきらめき",
-          "accept": []
+          "display": "にじのきらめき"
         }
       ]
     },
@@ -883,7 +825,8 @@
           "prompt": "犬も歩けば□に当たる",
           "accept": [
             "ぼう",
-            "犬も歩けば棒に当たる"
+            "犬も歩けば棒に当たる",
+            "犬も歩けば棒にあたる"
           ]
         },
         {
@@ -892,7 +835,8 @@
           "accept": [
             "さん",
             "3",
-            "石の上にも三年"
+            "石の上にも三年",
+            "石の上にも3年"
           ]
         },
         {
@@ -940,7 +884,9 @@
           "prompt": "塵も積もれば□となる",
           "accept": [
             "やま",
-            "塵も積もれば山となる"
+            "塵も積もれば山となる",
+            "ちりも積もれば山となる",
+            "塵もつもれば山となる"
           ]
         },
         {

@@ -1037,6 +1037,131 @@ body {
   animation: slot-hit 0.7s ease-out both, flip-in 0.5s ease-out both;
 }
 
+/* ---------- パネル問題: 正解したパネルが開く演出 ---------- */
+
+/* パネル本体: 白く光りながら回転して大きく弾み、元の大きさに戻る */
+@keyframes panel-pop {
+  0% {
+    transform: perspective(600px) rotateY(90deg) scale(0.6);
+    opacity: 0;
+  }
+  35% {
+    transform: perspective(600px) rotateY(0) scale(1.28);
+    opacity: 1;
+  }
+  55% {
+    transform: scale(0.94);
+  }
+  75% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.panel-hit {
+  z-index: 10;
+  animation:
+    panel-pop 0.8s cubic-bezier(0.2, 0.9, 0.3, 1) both,
+    gold-glow 1.6s ease-in-out infinite;
+  border-color: #fde68a;
+}
+
+/* パネル全体を覆う白→金の閃光 */
+@keyframes panel-flash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.panel-flash {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, #ffffff 0%, #fde68a 45%, rgba(226, 192, 91, 0.4) 100%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: panel-flash 0.6s ease-out 0.1s both;
+}
+
+/* パネルの外へ広がる衝撃波（2重） */
+@keyframes panel-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    border-width: 5px;
+  }
+  100% {
+    transform: scale(1.9, 2.3);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+.panel-ring {
+  position: absolute;
+  inset: 0;
+  border: 5px solid #fde68a;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: panel-ring 0.9s cubic-bezier(0.15, 0.7, 0.3, 1) 0.15s both;
+}
+.panel-ring-2 {
+  border-color: #fbbf24;
+  animation-delay: 0.35s;
+}
+
+/* 背後で回りながら消える光の筋 */
+@keyframes panel-rays {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.4);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(120deg) scale(1.15);
+    opacity: 0;
+  }
+}
+.panel-rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 260%;
+  aspect-ratio: 1;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-conic-gradient(from 0deg, rgba(253, 230, 138, 0.55) 0deg 8deg, transparent 8deg 22deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 62%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 62%);
+  animation: panel-rays 1.5s ease-out both;
+}
+
+/* 読み（答え）がハンコのように押される */
+@keyframes panel-stamp {
+  0% {
+    transform: scale(2.6);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  60% {
+    transform: scale(0.9);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.panel-stamp {
+  display: inline-block;
+  animation: panel-stamp 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) 0.3s both;
+  text-shadow: 0 0 12px rgba(253, 230, 138, 0.9);
+}
+
 /* 残り5秒: 画面の縁が赤く脈打つ */
 @keyframes danger-pulse {
   0%,
@@ -1062,8 +1187,15 @@ body {
   .screen-shake .shake-target,
   .plus-float,
   .slot-hit,
+  .panel-hit,
+  .panel-stamp,
   .danger-vignette {
     animation: none;
+  }
+  .panel-flash,
+  .panel-ring,
+  .panel-rays {
+    display: none;
   }
   .boom-ring,
   .boom-smoke,

@@ -26,8 +26,7 @@
           ]
         },
         {
-          "display": "ピオーネ",
-          "accept": []
+          "display": "ピオーネ"
         },
         {
           "display": "マスカット",
@@ -37,8 +36,7 @@
           ]
         },
         {
-          "display": "ナガノパープル",
-          "accept": []
+          "display": "ナガノパープル"
         },
         {
           "display": "甲州",
@@ -60,23 +58,21 @@
           ]
         },
         {
-          "display": "ロザリオビアンコ",
-          "accept": []
+          "display": "ロザリオビアンコ"
         },
         {
-          "display": "クイーンニーナ",
-          "accept": []
+          "display": "クイーンニーナ"
         },
         {
           "display": "マスカット・ベーリーA",
           "accept": [
             "ベーリーA",
-            "マスカットベーリーA"
+            "マスカットベーリーA",
+            "ベリーA"
           ]
         },
         {
-          "display": "安芸クイーン",
-          "accept": []
+          "display": "安芸クイーン"
         },
         {
           "display": "瀬戸ジャイアンツ",
@@ -85,19 +81,21 @@
           ]
         },
         {
-          "display": "シャルドネ",
-          "accept": []
+          "display": "シャルドネ"
         },
         {
           "display": "カベルネ・ソーヴィニヨン",
           "accept": [
             "カベルネソーヴィニヨン",
-            "カベルネ"
+            "カベルネ",
+            "カベルネソービニヨン"
           ]
         },
         {
           "display": "メルロー",
-          "accept": []
+          "accept": [
+            "メルロ"
+          ]
         },
         {
           "display": "ピノ・ノワール",
@@ -108,56 +106,46 @@
         {
           "display": "ソーヴィニヨン・ブラン",
           "accept": [
-            "ソーヴィニヨンブラン"
+            "ソーヴィニヨンブラン",
+            "ソービニヨンブラン",
+            "ソーヴィニョンブラン"
           ]
         },
         {
-          "display": "リースリング",
-          "accept": []
+          "display": "リースリング"
         },
         {
-          "display": "ナイアガラ",
-          "accept": []
+          "display": "ナイアガラ"
         },
         {
-          "display": "コンコード",
-          "accept": []
+          "display": "コンコード"
         },
         {
-          "display": "高尾",
-          "accept": []
+          "display": "高尾"
         },
         {
-          "display": "ゴルビー",
-          "accept": []
+          "display": "ゴルビー"
         },
         {
-          "display": "クイーンルージュ",
-          "accept": []
+          "display": "クイーンルージュ"
         },
         {
-          "display": "翠峰",
-          "accept": []
+          "display": "翠峰"
         },
         {
-          "display": "紅伊豆",
-          "accept": []
+          "display": "紅伊豆"
         },
         {
-          "display": "ハニービーナス",
-          "accept": []
+          "display": "ハニービーナス"
         },
         {
-          "display": "サニールージュ",
-          "accept": []
+          "display": "サニールージュ"
         },
         {
-          "display": "甲斐路",
-          "accept": []
+          "display": "甲斐路"
         },
         {
-          "display": "ルビーロマン",
-          "accept": []
+          "display": "ルビーロマン"
         },
         {
           "display": "シラー",
@@ -166,16 +154,83 @@
           ]
         },
         {
-          "display": "グルナッシュ",
-          "accept": []
+          "display": "グルナッシュ"
         },
         {
-          "display": "ネオマスカット",
-          "accept": []
+          "display": "ネオマスカット"
         },
         {
-          "display": "スチューベン",
-          "accept": []
+          "display": "スチューベン"
+        },
+        {
+          "display": "マニキュアフィンガー"
+        },
+        {
+          "display": "トンプソンシードレス"
+        },
+        {
+          "display": "レッドグローブ"
+        },
+        {
+          "display": "クリムゾンシードレス"
+        },
+        {
+          "display": "ブラックビート"
+        },
+        {
+          "display": "竜宝"
+        },
+        {
+          "display": "ポートランド"
+        },
+        {
+          "display": "ブラッククイーン"
+        },
+        {
+          "display": "山ぶどう",
+          "accept": [
+            "山葡萄",
+            "ヤマブドウ"
+          ]
+        },
+        {
+          "display": "カベルネ・フラン"
+        },
+        {
+          "display": "ガメイ",
+          "accept": [
+            "ガメ"
+          ]
+        },
+        {
+          "display": "サンジョヴェーゼ",
+          "accept": [
+            "サンジョベーゼ"
+          ]
+        },
+        {
+          "display": "テンプラニーリョ"
+        },
+        {
+          "display": "ネッビオーロ",
+          "accept": [
+            "ネビオーロ"
+          ]
+        },
+        {
+          "display": "ジンファンデル"
+        },
+        {
+          "display": "マルベック"
+        },
+        {
+          "display": "セミヨン"
+        },
+        {
+          "display": "ゲヴュルツトラミネール",
+          "accept": [
+            "ゲビュルツトラミネール"
+          ]
         }
       ]
     },
@@ -192,7 +247,8 @@
         {
           "display": "犬猿の仲",
           "accept": [
-            "けんえんのなか"
+            "けんえんのなか",
+            "犬猿"
           ]
         },
         {
@@ -210,7 +266,8 @@
         {
           "display": "夫婦喧嘩は犬も食わない",
           "accept": [
-            "夫婦げんかは犬も食わない"
+            "夫婦げんかは犬も食わない",
+            "夫婦喧嘩は犬も食わぬ"
           ]
         },
         {
@@ -220,8 +277,7 @@
           ]
         },
         {
-          "display": "犬に論語",
-          "accept": []
+          "display": "犬に論語"
         },
         {
           "display": "犬は三日飼えば三日の恩を忘れぬ",
@@ -231,8 +287,7 @@
           ]
         },
         {
-          "display": "煩悩の犬は追えども去らず",
-          "accept": []
+          "display": "煩悩の犬は追えども去らず"
         },
         {
           "display": "犬死に",
@@ -241,8 +296,7 @@
           ]
         },
         {
-          "display": "犬の糞で敵を討つ",
-          "accept": []
+          "display": "犬の糞で敵を討つ"
         },
         {
           "display": "尻尾を振る犬",
@@ -269,8 +323,7 @@
           ]
         },
         {
-          "display": "犬も朋輩鷹も朋輩",
-          "accept": []
+          "display": "犬も朋輩鷹も朋輩"
         },
         {
           "display": "犬兎の争い",
@@ -279,24 +332,55 @@
           ]
         },
         {
-          "display": "犬の川端歩き",
-          "accept": []
+          "display": "犬の川端歩き"
         },
         {
-          "display": "犬に念仏猫に経",
-          "accept": []
+          "display": "犬に念仏猫に経"
         },
         {
-          "display": "一犬虚に吠ゆれば万犬実を伝う",
-          "accept": []
+          "display": "一犬虚に吠ゆれば万犬実を伝う"
         },
         {
-          "display": "犬骨折って鷹の餌食",
-          "accept": []
+          "display": "犬骨折って鷹の餌食"
         },
         {
-          "display": "犬の手も人の手にしたい",
-          "accept": []
+          "display": "犬の手も人の手にしたい"
+        },
+        {
+          "display": "犬が西向きゃ尾は東",
+          "accept": [
+            "犬が西向けば尾は東"
+          ]
+        },
+        {
+          "display": "犬は人につき猫は家につく",
+          "accept": [
+            "犬は人に付き猫は家に付く"
+          ]
+        },
+        {
+          "display": "犬になるなら大家の犬になれ"
+        },
+        {
+          "display": "犬一代に狸一匹"
+        },
+        {
+          "display": "狡兎死して走狗烹らる",
+          "accept": [
+            "狡兎死して走狗煮らる"
+          ]
+        },
+        {
+          "display": "犬は吠えるがキャラバンは進む"
+        },
+        {
+          "display": "犬畜生"
+        },
+        {
+          "display": "犬かき",
+          "accept": [
+            "犬掻き"
+          ]
         }
       ]
     },
@@ -305,24 +389,22 @@
       "slots": 5,
       "answers": [
         {
-          "display": "目が高い",
-          "accept": []
+          "display": "目が高い"
         },
         {
           "display": "目がない",
-          "accept": []
+          "accept": [
+            "目が無い"
+          ]
         },
         {
-          "display": "目に余る",
-          "accept": []
+          "display": "目に余る"
         },
         {
-          "display": "目を丸くする",
-          "accept": []
+          "display": "目を丸くする"
         },
         {
-          "display": "目を盗む",
-          "accept": []
+          "display": "目を盗む"
         },
         {
           "display": "目から鱗が落ちる",
@@ -332,88 +414,87 @@
           ]
         },
         {
-          "display": "目と鼻の先",
-          "accept": []
+          "display": "目と鼻の先"
         },
         {
-          "display": "目が回る",
-          "accept": []
+          "display": "目が回る"
         },
         {
-          "display": "目を光らせる",
-          "accept": []
+          "display": "目を光らせる"
         },
         {
           "display": "目に入れても痛くない",
-          "accept": []
+          "accept": [
+            "目の中に入れても痛くない"
+          ]
         },
         {
           "display": "目をつぶる",
           "accept": [
-            "目をつむる"
+            "目をつむる",
+            "目を瞑る"
           ]
         },
         {
-          "display": "目を細める",
-          "accept": []
+          "display": "目を細める"
         },
         {
-          "display": "目くじらを立てる",
-          "accept": []
+          "display": "目くじらを立てる"
         },
         {
           "display": "目の上のたんこぶ",
           "accept": [
-            "目の上の瘤"
+            "目の上の瘤",
+            "目の上のこぶ"
           ]
         },
         {
-          "display": "目の色を変える",
-          "accept": []
+          "display": "目の色を変える"
         },
         {
           "display": "目が利く",
-          "accept": []
+          "accept": [
+            "目がきく"
+          ]
         },
         {
           "display": "目に物見せる",
-          "accept": []
+          "accept": [
+            "目にもの見せる"
+          ]
         },
         {
           "display": "目を引く",
-          "accept": []
+          "accept": [
+            "目を惹く"
+          ]
         },
         {
-          "display": "目を疑う",
-          "accept": []
+          "display": "目を疑う"
         },
         {
-          "display": "目が点になる",
-          "accept": []
+          "display": "目が点になる"
         },
         {
-          "display": "目を覚ます",
-          "accept": []
+          "display": "目を覚ます"
         },
         {
-          "display": "目を通す",
-          "accept": []
+          "display": "目を通す"
         },
         {
-          "display": "目を配る",
-          "accept": []
+          "display": "目を配る"
         },
         {
-          "display": "目に浮かぶ",
-          "accept": []
+          "display": "目に浮かぶ"
         },
         {
           "display": "目に留まる",
-          "accept": []
+          "accept": [
+            "目に止まる"
+          ]
         },
         {
-          "display": "目が肥える",
-          "accept": []
+          "display": "目が肥える"
         },
         {
           "display": "目を掛ける",
@@ -423,11 +504,12 @@
         },
         {
           "display": "目鼻がつく",
-          "accept": []
+          "accept": [
+            "目鼻が付く"
+          ]
         },
         {
-          "display": "目白押し",
-          "accept": []
+          "display": "目白押し"
         },
         {
           "display": "目の敵",
@@ -436,8 +518,7 @@
           ]
         },
         {
-          "display": "目もくれない",
-          "accept": []
+          "display": "目もくれない"
         },
         {
           "display": "目を奪われる",
@@ -452,36 +533,34 @@
           ]
         },
         {
-          "display": "目が覚める",
-          "accept": []
+          "display": "目が覚める"
         },
         {
-          "display": "目が離せない",
-          "accept": []
+          "display": "目が離せない"
         },
         {
-          "display": "目を背ける",
-          "accept": []
+          "display": "目を背ける"
         },
         {
-          "display": "目を伏せる",
-          "accept": []
+          "display": "目を伏せる"
         },
         {
           "display": "目を皿のようにする",
-          "accept": []
+          "accept": [
+            "目を皿にする"
+          ]
         },
         {
           "display": "目が据わる",
-          "accept": []
+          "accept": [
+            "目がすわる"
+          ]
         },
         {
-          "display": "目に見える",
-          "accept": []
+          "display": "目に見える"
         },
         {
-          "display": "目を向ける",
-          "accept": []
+          "display": "目を向ける"
         },
         {
           "display": "目を付ける",
@@ -491,19 +570,18 @@
         },
         {
           "display": "目を剥く",
-          "accept": []
+          "accept": [
+            "目をむく"
+          ]
         },
         {
-          "display": "目が泳ぐ",
-          "accept": []
+          "display": "目が泳ぐ"
         },
         {
-          "display": "目が届く",
-          "accept": []
+          "display": "目が届く"
         },
         {
-          "display": "目は口ほどに物を言う",
-          "accept": []
+          "display": "目は口ほどに物を言う"
         },
         {
           "display": "目には目を歯には歯を",
@@ -512,46 +590,177 @@
           ]
         },
         {
-          "display": "目の毒",
-          "accept": []
+          "display": "目の毒"
         },
         {
-          "display": "目の保養",
-          "accept": []
+          "display": "目の保養"
         },
         {
-          "display": "目を落とす",
-          "accept": []
+          "display": "目を落とす"
         },
         {
-          "display": "目を輝かせる",
-          "accept": []
+          "display": "目を輝かせる"
         },
         {
-          "display": "目を瞠る",
+          "display": "目が曇る"
+        },
+        {
+          "display": "目を見張る",
           "accept": [
+            "目を瞠る",
             "目をみはる"
           ]
         },
         {
-          "display": "目が曇る",
-          "accept": []
+          "display": "目をくらます"
         },
         {
-          "display": "目を見張る",
-          "accept": []
+          "display": "目を楽しませる"
         },
         {
-          "display": "目をくらます",
-          "accept": []
+          "display": "目に障る"
         },
         {
-          "display": "目を楽しませる",
-          "accept": []
+          "display": "鬼の目にも涙"
         },
         {
-          "display": "目に障る",
-          "accept": []
+          "display": "二階から目薬"
+        },
+        {
+          "display": "鵜の目鷹の目",
+          "accept": [
+            "うの目たかの目"
+          ]
+        },
+        {
+          "display": "長い目で見る"
+        },
+        {
+          "display": "大目に見る"
+        },
+        {
+          "display": "白い目で見る"
+        },
+        {
+          "display": "目の当たりにする",
+          "accept": [
+            "目の当たり"
+          ]
+        },
+        {
+          "display": "目も当てられない"
+        },
+        {
+          "display": "目の黒いうち",
+          "accept": [
+            "目の黒いうちは"
+          ]
+        },
+        {
+          "display": "目を白黒させる"
+        },
+        {
+          "display": "目がくらむ",
+          "accept": [
+            "目が眩む"
+          ]
+        },
+        {
+          "display": "目を凝らす"
+        },
+        {
+          "display": "目をそらす"
+        },
+        {
+          "display": "目に付く",
+          "accept": [
+            "目につく"
+          ]
+        },
+        {
+          "display": "目にする"
+        },
+        {
+          "display": "目から火が出る"
+        },
+        {
+          "display": "目くそ鼻くそを笑う",
+          "accept": [
+            "目糞鼻糞を笑う"
+          ]
+        },
+        {
+          "display": "目を回す"
+        },
+        {
+          "display": "生き馬の目を抜く"
+        },
+        {
+          "display": "弱り目に祟り目"
+        },
+        {
+          "display": "色目を使う"
+        },
+        {
+          "display": "日の目を見る"
+        },
+        {
+          "display": "痛い目に遭う",
+          "accept": [
+            "痛い目にあう",
+            "痛い目を見る"
+          ]
+        },
+        {
+          "display": "目が冴える"
+        },
+        {
+          "display": "目を三角にする"
+        },
+        {
+          "display": "目に角を立てる"
+        },
+        {
+          "display": "目の前が真っ暗になる"
+        },
+        {
+          "display": "目を覆う"
+        },
+        {
+          "display": "目にも留まらぬ",
+          "accept": [
+            "目にも止まらぬ"
+          ]
+        },
+        {
+          "display": "目から鼻へ抜ける"
+        },
+        {
+          "display": "目を肥やす"
+        },
+        {
+          "display": "目に染みる"
+        },
+        {
+          "display": "目を留める"
+        },
+        {
+          "display": "目に触れる"
+        },
+        {
+          "display": "目を合わせる"
+        },
+        {
+          "display": "目が早い"
+        },
+        {
+          "display": "目を見開く"
+        },
+        {
+          "display": "負い目"
+        },
+        {
+          "display": "引け目"
         }
       ]
     },
@@ -563,7 +772,8 @@
           "display": "ゴッホ",
           "accept": [
             "フィンセント・ファン・ゴッホ",
-            "ファン・ゴッホ"
+            "ファン・ゴッホ",
+            "ヴァン・ゴッホ"
           ]
         },
         {
@@ -588,28 +798,28 @@
           ]
         },
         {
-          "display": "ミケランジェロ",
-          "accept": []
+          "display": "ミケランジェロ"
         },
         {
           "display": "ラファエロ",
-          "accept": []
+          "accept": [
+            "ラファエル"
+          ]
         },
         {
-          "display": "ルノワール",
-          "accept": []
+          "display": "ルノワール"
         },
         {
-          "display": "セザンヌ",
-          "accept": []
+          "display": "セザンヌ"
         },
         {
           "display": "ゴーギャン",
-          "accept": []
+          "accept": [
+            "ゴーガン"
+          ]
         },
         {
-          "display": "ムンク",
-          "accept": []
+          "display": "ムンク"
         },
         {
           "display": "ダリ",
@@ -618,32 +828,25 @@
           ]
         },
         {
-          "display": "フェルメール",
-          "accept": []
+          "display": "フェルメール"
         },
         {
-          "display": "レンブラント",
-          "accept": []
+          "display": "レンブラント"
         },
         {
-          "display": "マネ",
-          "accept": []
+          "display": "マネ"
         },
         {
-          "display": "ドガ",
-          "accept": []
+          "display": "ドガ"
         },
         {
-          "display": "クリムト",
-          "accept": []
+          "display": "クリムト"
         },
         {
-          "display": "ミレー",
-          "accept": []
+          "display": "ミレー"
         },
         {
-          "display": "ルーベンス",
-          "accept": []
+          "display": "ルーベンス"
         },
         {
           "display": "ボッティチェリ",
@@ -652,76 +855,70 @@
           ]
         },
         {
-          "display": "マティス",
-          "accept": []
+          "display": "マティス"
         },
         {
-          "display": "シャガール",
-          "accept": []
+          "display": "シャガール"
         },
         {
           "display": "ウォーホル",
           "accept": [
-            "アンディ・ウォーホル"
+            "アンディ・ウォーホル",
+            "ウォーホール"
           ]
         },
         {
-          "display": "ゴヤ",
-          "accept": []
+          "display": "ゴヤ"
         },
         {
-          "display": "ベラスケス",
-          "accept": []
+          "display": "ベラスケス"
         },
         {
-          "display": "ターナー",
-          "accept": []
+          "display": "ターナー"
         },
         {
           "display": "モディリアーニ",
-          "accept": []
+          "accept": [
+            "モジリアニ",
+            "モディリアニ"
+          ]
         },
         {
           "display": "ロートレック",
           "accept": [
-            "トゥールーズ＝ロートレック"
+            "トゥールーズ＝ロートレック",
+            "トゥールーズロートレック"
           ]
         },
         {
-          "display": "カンディンスキー",
-          "accept": []
+          "display": "カンディンスキー"
         },
         {
-          "display": "ミロ",
-          "accept": []
+          "display": "ミロ"
         },
         {
-          "display": "スーラ",
-          "accept": []
+          "display": "スーラ"
         },
         {
-          "display": "ブリューゲル",
-          "accept": []
+          "display": "ブリューゲル"
         },
         {
-          "display": "デューラー",
-          "accept": []
+          "display": "デューラー"
         },
         {
-          "display": "クールベ",
-          "accept": []
+          "display": "クールベ"
         },
         {
-          "display": "ドラクロワ",
-          "accept": []
+          "display": "ドラクロワ"
         },
         {
-          "display": "アングル",
-          "accept": []
+          "display": "アングル"
         },
         {
           "display": "ミュシャ",
-          "accept": []
+          "accept": [
+            "ムハ"
+          ]
         },
         {
           "display": "ルソー",
@@ -730,16 +927,13 @@
           ]
         },
         {
-          "display": "マグリット",
-          "accept": []
+          "display": "マグリット"
         },
         {
-          "display": "ポロック",
-          "accept": []
+          "display": "ポロック"
         },
         {
-          "display": "ウォーターハウス",
-          "accept": []
+          "display": "ウォーターハウス"
         },
         {
           "display": "ヤン・ファン・エイク",
@@ -754,16 +948,13 @@
           ]
         },
         {
-          "display": "ティツィアーノ",
-          "accept": []
+          "display": "ティツィアーノ"
         },
         {
-          "display": "ピサロ",
-          "accept": []
+          "display": "ピサロ"
         },
         {
-          "display": "シスレー",
-          "accept": []
+          "display": "シスレー"
         },
         {
           "display": "エル・グレコ",
@@ -772,12 +963,10 @@
           ]
         },
         {
-          "display": "ブラック",
-          "accept": []
+          "display": "ブラック"
         },
         {
-          "display": "バスキア",
-          "accept": []
+          "display": "バスキア"
         },
         {
           "display": "ホッパー",
@@ -788,24 +977,132 @@
         {
           "display": "ヒエロニムス・ボス",
           "accept": [
-            "ボス"
+            "ボス",
+            "ボッシュ"
           ]
         },
         {
-          "display": "コロー",
-          "accept": []
+          "display": "コロー"
         },
         {
-          "display": "ホルバイン",
-          "accept": []
+          "display": "ホルバイン"
         },
         {
-          "display": "モンドリアン",
-          "accept": []
+          "display": "モンドリアン"
         },
         {
-          "display": "ワイエス",
-          "accept": []
+          "display": "ワイエス"
+        },
+        {
+          "display": "ユトリロ"
+        },
+        {
+          "display": "ローランサン"
+        },
+        {
+          "display": "クレー",
+          "accept": [
+            "パウル・クレー"
+          ]
+        },
+        {
+          "display": "シーレ",
+          "accept": [
+            "エゴン・シーレ"
+          ]
+        },
+        {
+          "display": "エッシャー"
+        },
+        {
+          "display": "キース・ヘリング",
+          "accept": [
+            "ヘリング"
+          ]
+        },
+        {
+          "display": "リキテンスタイン"
+        },
+        {
+          "display": "ロスコ"
+        },
+        {
+          "display": "デュシャン"
+        },
+        {
+          "display": "ダヴィッド",
+          "accept": [
+            "ダビッド"
+          ]
+        },
+        {
+          "display": "ジョット"
+        },
+        {
+          "display": "ルドン"
+        },
+        {
+          "display": "モロー"
+        },
+        {
+          "display": "ボナール"
+        },
+        {
+          "display": "コンスタブル"
+        },
+        {
+          "display": "フリードリヒ"
+        },
+        {
+          "display": "ホックニー"
+        },
+        {
+          "display": "ヴァン・ダイク",
+          "accept": [
+            "ファン・ダイク"
+          ]
+        },
+        {
+          "display": "ムリーリョ",
+          "accept": [
+            "ムリリョ"
+          ]
+        },
+        {
+          "display": "ブーシェ"
+        },
+        {
+          "display": "フラゴナール"
+        },
+        {
+          "display": "ヴァトー",
+          "accept": [
+            "ワトー"
+          ]
+        },
+        {
+          "display": "ジェリコー"
+        },
+        {
+          "display": "ミレイ"
+        },
+        {
+          "display": "ロセッティ"
+        },
+        {
+          "display": "ドーミエ"
+        },
+        {
+          "display": "シニャック"
+        },
+        {
+          "display": "カイユボット"
+        },
+        {
+          "display": "モリゾ"
+        },
+        {
+          "display": "バンクシー"
         }
       ]
     },
@@ -816,7 +1113,8 @@
         {
           "display": "三味線",
           "accept": [
-            "しゃみせん"
+            "しゃみせん",
+            "津軽三味線"
           ]
         },
         {
@@ -824,7 +1122,8 @@
           "accept": [
             "箏",
             "こと",
-            "そう"
+            "そう",
+            "お琴"
           ]
         },
         {
@@ -883,7 +1182,8 @@
         {
           "display": "三線",
           "accept": [
-            "さんしん"
+            "さんしん",
+            "蛇皮線"
           ]
         },
         {
@@ -925,7 +1225,8 @@
         {
           "display": "法螺貝",
           "accept": [
-            "ほらがい"
+            "ほらがい",
+            "ほら貝"
           ]
         },
         {
@@ -941,12 +1242,10 @@
           ]
         },
         {
-          "display": "ささら",
-          "accept": []
+          "display": "ささら"
         },
         {
-          "display": "一絃琴",
-          "accept": []
+          "display": "一絃琴"
         },
         {
           "display": "鞨鼓",
@@ -959,6 +1258,48 @@
           "accept": [
             "びんざさら"
           ]
+        },
+        {
+          "display": "大正琴"
+        },
+        {
+          "display": "鳴子"
+        },
+        {
+          "display": "でんでん太鼓"
+        },
+        {
+          "display": "和琴"
+        },
+        {
+          "display": "神楽笛"
+        },
+        {
+          "display": "鉦鼓"
+        },
+        {
+          "display": "銅拍子",
+          "accept": [
+            "チャッパ"
+          ]
+        },
+        {
+          "display": "団扇太鼓"
+        },
+        {
+          "display": "四つ竹"
+        },
+        {
+          "display": "こきりこ"
+        },
+        {
+          "display": "ムックリ"
+        },
+        {
+          "display": "トンコリ"
+        },
+        {
+          "display": "パーランクー"
         }
       ]
     },
@@ -1020,20 +1361,24 @@
         {
           "display": "にわか雨",
           "accept": [
-            "俄雨"
+            "俄雨",
+            "俄か雨"
           ]
         },
         {
           "display": "天気雨",
           "accept": [
             "狐の嫁入り",
-            "てんきあめ"
+            "てんきあめ",
+            "狐雨",
+            "日照り雨"
           ]
         },
         {
           "display": "秋雨",
           "accept": [
-            "あきさめ"
+            "あきさめ",
+            "秋霖"
           ]
         },
         {
@@ -1063,7 +1408,8 @@
         {
           "display": "小糠雨",
           "accept": [
-            "こぬかあめ"
+            "こぬかあめ",
+            "ぬか雨"
           ]
         },
         {
@@ -1135,22 +1481,75 @@
         {
           "display": "土砂降り",
           "accept": [
-            "どしゃぶり"
+            "どしゃぶり",
+            "どしゃ降り"
           ]
         },
         {
-          "display": "恵みの雨",
-          "accept": []
+          "display": "恵みの雨"
         },
         {
-          "display": "春時雨",
-          "accept": []
+          "display": "春時雨"
         },
         {
           "display": "冷雨",
           "accept": [
             "れいう"
           ]
+        },
+        {
+          "display": "地雨"
+        },
+        {
+          "display": "細雨"
+        },
+        {
+          "display": "白雨"
+        },
+        {
+          "display": "緑雨"
+        },
+        {
+          "display": "霖雨"
+        },
+        {
+          "display": "甘雨"
+        },
+        {
+          "display": "喜雨"
+        },
+        {
+          "display": "穀雨"
+        },
+        {
+          "display": "催花雨"
+        },
+        {
+          "display": "虎が雨"
+        },
+        {
+          "display": "片時雨"
+        },
+        {
+          "display": "送り梅雨"
+        },
+        {
+          "display": "戻り梅雨"
+        },
+        {
+          "display": "天泣"
+        },
+        {
+          "display": "篠突く雨",
+          "accept": [
+            "しのつく雨"
+          ]
+        },
+        {
+          "display": "スコール"
+        },
+        {
+          "display": "夜雨"
         }
       ]
     },
@@ -1160,55 +1559,54 @@
       "answers": [
         {
           "display": "いるか",
-          "prompt": "海豚",
-          "accept": []
+          "prompt": "海豚"
         },
         {
           "display": "ふぐ",
           "prompt": "河豚",
-          "accept": []
-        },
-        {
-          "display": "くらげ",
-          "prompt": "海月",
-          "accept": []
+          "accept": [
+            "ふく"
+          ]
         },
         {
           "display": "りす",
-          "prompt": "栗鼠",
-          "accept": []
+          "prompt": "栗鼠"
+        },
+        {
+          "display": "くらげ",
+          "prompt": "海月"
+        },
+        {
+          "display": "もぐら",
+          "prompt": "土竜"
         },
         {
           "display": "かたつむり",
           "prompt": "蝸牛",
           "accept": [
-            "でんでんむし"
+            "でんでんむし",
+            "まいまい",
+            "かぎゅう"
           ]
         },
         {
-          "display": "もぐら",
-          "prompt": "土竜",
-          "accept": []
+          "display": "ひとで",
+          "prompt": "海星"
         },
         {
-          "display": "こうもり",
-          "prompt": "蝙蝠",
-          "accept": []
+          "display": "とかげ",
+          "prompt": "蜥蜴"
         },
         {
           "display": "きつつき",
           "prompt": "啄木鳥",
-          "accept": []
+          "accept": [
+            "けら"
+          ]
         },
         {
-          "display": "ひとで",
-          "prompt": "海星",
-          "accept": []
-        },
-        {
-          "display": "とかげ",
-          "prompt": "蜥蜴",
-          "accept": []
+          "display": "こうもり",
+          "prompt": "蝙蝠"
         }
       ]
     },
@@ -1285,7 +1683,8 @@
           "display": "今川焼き",
           "accept": [
             "大判焼き",
-            "回転焼き"
+            "回転焼き",
+            "今川焼"
           ]
         },
         {
@@ -1315,8 +1714,7 @@
           ]
         },
         {
-          "display": "カステラ",
-          "accept": []
+          "display": "カステラ"
         },
         {
           "display": "ういろう",
@@ -1380,12 +1778,10 @@
           ]
         },
         {
-          "display": "おこし",
-          "accept": []
+          "display": "おこし"
         },
         {
-          "display": "あられ",
-          "accept": []
+          "display": "あられ"
         },
         {
           "display": "求肥",
@@ -1419,20 +1815,16 @@
           ]
         },
         {
-          "display": "水まんじゅう",
-          "accept": []
+          "display": "水まんじゅう"
         },
         {
-          "display": "葛まんじゅう",
-          "accept": []
+          "display": "葛まんじゅう"
         },
         {
-          "display": "栗まんじゅう",
-          "accept": []
+          "display": "栗まんじゅう"
         },
         {
-          "display": "もみじ饅頭",
-          "accept": []
+          "display": "もみじ饅頭"
         },
         {
           "display": "鹿の子",
@@ -1447,12 +1839,10 @@
           ]
         },
         {
-          "display": "瓦せんべい",
-          "accept": []
+          "display": "瓦せんべい"
         },
         {
-          "display": "雷おこし",
-          "accept": []
+          "display": "雷おこし"
         },
         {
           "display": "べっこう飴",
@@ -1465,6 +1855,108 @@
           "accept": [
             "ひがし"
           ]
+        },
+        {
+          "display": "豆大福"
+        },
+        {
+          "display": "みつ豆",
+          "accept": [
+            "蜜豆"
+          ]
+        },
+        {
+          "display": "白玉",
+          "accept": [
+            "白玉団子"
+          ]
+        },
+        {
+          "display": "おかき"
+        },
+        {
+          "display": "信玄餅"
+        },
+        {
+          "display": "芋羊羹"
+        },
+        {
+          "display": "栗羊羹"
+        },
+        {
+          "display": "栗きんとん"
+        },
+        {
+          "display": "道明寺"
+        },
+        {
+          "display": "うぐいす餅"
+        },
+        {
+          "display": "あんころ餅"
+        },
+        {
+          "display": "赤福"
+        },
+        {
+          "display": "ずんだ餅",
+          "accept": [
+            "ずんだもち"
+          ]
+        },
+        {
+          "display": "笹団子"
+        },
+        {
+          "display": "かるかん"
+        },
+        {
+          "display": "ちんすこう"
+        },
+        {
+          "display": "ゆべし"
+        },
+        {
+          "display": "羽二重餅"
+        },
+        {
+          "display": "花びら餅"
+        },
+        {
+          "display": "水無月"
+        },
+        {
+          "display": "酒饅頭"
+        },
+        {
+          "display": "温泉饅頭"
+        },
+        {
+          "display": "三笠"
+        },
+        {
+          "display": "きび団子",
+          "accept": [
+            "吉備団子"
+          ]
+        },
+        {
+          "display": "草団子"
+        },
+        {
+          "display": "花見団子"
+        },
+        {
+          "display": "麩菓子"
+        },
+        {
+          "display": "そばぼうろ"
+        },
+        {
+          "display": "千歳飴"
+        },
+        {
+          "display": "芋けんぴ"
         }
       ]
     },
@@ -1492,11 +1984,12 @@
         },
         {
           "display": "東大寺",
-          "accept": []
+          "accept": [
+            "奈良の大仏"
+          ]
         },
         {
-          "display": "法隆寺",
-          "accept": []
+          "display": "法隆寺"
         },
         {
           "display": "浅草寺",
@@ -1507,34 +2000,35 @@
         {
           "display": "延暦寺",
           "accept": [
-            "比叡山"
+            "比叡山",
+            "比叡山延暦寺"
           ]
         },
         {
-          "display": "興福寺",
-          "accept": []
+          "display": "興福寺"
         },
         {
-          "display": "薬師寺",
-          "accept": []
+          "display": "薬師寺"
         },
         {
-          "display": "唐招提寺",
-          "accept": []
+          "display": "唐招提寺"
         },
         {
           "display": "平等院",
           "accept": [
-            "平等院鳳凰堂"
+            "平等院鳳凰堂",
+            "鳳凰堂"
           ]
         },
         {
           "display": "中尊寺",
-          "accept": []
+          "accept": [
+            "金色堂",
+            "中尊寺金色堂"
+          ]
         },
         {
-          "display": "善光寺",
-          "accept": []
+          "display": "善光寺"
         },
         {
           "display": "成田山新勝寺",
@@ -1550,8 +2044,7 @@
           ]
         },
         {
-          "display": "知恩院",
-          "accept": []
+          "display": "知恩院"
         },
         {
           "display": "三十三間堂",
@@ -1566,27 +2059,24 @@
           ]
         },
         {
-          "display": "南禅寺",
-          "accept": []
+          "display": "南禅寺"
         },
         {
           "display": "金剛峯寺",
           "accept": [
             "金剛峰寺",
-            "高野山"
+            "高野山",
+            "高野山金剛峯寺"
           ]
         },
         {
-          "display": "永平寺",
-          "accept": []
+          "display": "永平寺"
         },
         {
-          "display": "建長寺",
-          "accept": []
+          "display": "建長寺"
         },
         {
-          "display": "円覚寺",
-          "accept": []
+          "display": "円覚寺"
         },
         {
           "display": "高徳院",
@@ -1595,8 +2085,7 @@
           ]
         },
         {
-          "display": "長谷寺",
-          "accept": []
+          "display": "長谷寺"
         },
         {
           "display": "天龍寺",
@@ -1605,80 +2094,61 @@
           ]
         },
         {
-          "display": "西本願寺",
-          "accept": []
+          "display": "西本願寺"
         },
         {
-          "display": "東本願寺",
-          "accept": []
+          "display": "東本願寺"
         },
         {
-          "display": "仁和寺",
-          "accept": []
+          "display": "仁和寺"
         },
         {
-          "display": "醍醐寺",
-          "accept": []
+          "display": "醍醐寺"
         },
         {
-          "display": "大覚寺",
-          "accept": []
+          "display": "大覚寺"
         },
         {
-          "display": "妙心寺",
-          "accept": []
+          "display": "妙心寺"
         },
         {
-          "display": "相国寺",
-          "accept": []
+          "display": "相国寺"
         },
         {
-          "display": "大徳寺",
-          "accept": []
+          "display": "大徳寺"
         },
         {
-          "display": "建仁寺",
-          "accept": []
+          "display": "建仁寺"
         },
         {
-          "display": "東福寺",
-          "accept": []
+          "display": "東福寺"
         },
         {
-          "display": "高台寺",
-          "accept": []
+          "display": "高台寺"
         },
         {
-          "display": "三千院",
-          "accept": []
+          "display": "三千院"
         },
         {
-          "display": "寂光院",
-          "accept": []
+          "display": "寂光院"
         },
         {
-          "display": "鞍馬寺",
-          "accept": []
+          "display": "鞍馬寺"
         },
         {
-          "display": "石山寺",
-          "accept": []
+          "display": "石山寺"
         },
         {
-          "display": "室生寺",
-          "accept": []
+          "display": "室生寺"
         },
         {
-          "display": "飛鳥寺",
-          "accept": []
+          "display": "飛鳥寺"
         },
         {
-          "display": "四天王寺",
-          "accept": []
+          "display": "四天王寺"
         },
         {
-          "display": "瑞巌寺",
-          "accept": []
+          "display": "瑞巌寺"
         },
         {
           "display": "立石寺",
@@ -1687,24 +2157,19 @@
           ]
         },
         {
-          "display": "輪王寺",
-          "accept": []
+          "display": "輪王寺"
         },
         {
-          "display": "増上寺",
-          "accept": []
+          "display": "増上寺"
         },
         {
-          "display": "寛永寺",
-          "accept": []
+          "display": "寛永寺"
         },
         {
-          "display": "護国寺",
-          "accept": []
+          "display": "護国寺"
         },
         {
-          "display": "築地本願寺",
-          "accept": []
+          "display": "築地本願寺"
         },
         {
           "display": "柴又帝釈天",
@@ -1726,8 +2191,97 @@
           ]
         },
         {
-          "display": "瑞龍寺",
-          "accept": []
+          "display": "瑞龍寺"
+        },
+        {
+          "display": "西芳寺",
+          "accept": [
+            "苔寺"
+          ]
+        },
+        {
+          "display": "明月院"
+        },
+        {
+          "display": "毛越寺"
+        },
+        {
+          "display": "泉岳寺"
+        },
+        {
+          "display": "恐山"
+        },
+        {
+          "display": "深大寺"
+        },
+        {
+          "display": "豪徳寺"
+        },
+        {
+          "display": "西新井大師"
+        },
+        {
+          "display": "池上本門寺"
+        },
+        {
+          "display": "久遠寺"
+        },
+        {
+          "display": "総持寺"
+        },
+        {
+          "display": "三井寺",
+          "accept": [
+            "園城寺"
+          ]
+        },
+        {
+          "display": "高山寺"
+        },
+        {
+          "display": "永観堂"
+        },
+        {
+          "display": "萬福寺"
+        },
+        {
+          "display": "善通寺"
+        },
+        {
+          "display": "大須観音"
+        },
+        {
+          "display": "道成寺"
+        },
+        {
+          "display": "六波羅蜜寺"
+        },
+        {
+          "display": "壬生寺"
+        },
+        {
+          "display": "神護寺"
+        },
+        {
+          "display": "新薬師寺"
+        },
+        {
+          "display": "元興寺"
+        },
+        {
+          "display": "中宮寺"
+        },
+        {
+          "display": "金峯山寺"
+        },
+        {
+          "display": "青岸渡寺"
+        },
+        {
+          "display": "瑠璃光寺"
+        },
+        {
+          "display": "那谷寺"
         }
       ]
     },
@@ -1768,14 +2322,17 @@
         {
           "display": "舌切り雀",
           "accept": [
-            "したきりすずめ"
+            "したきりすずめ",
+            "舌切りすずめ"
           ]
         },
         {
           "display": "花咲かじいさん",
           "accept": [
             "花咲爺",
-            "はなさかじいさん"
+            "はなさかじいさん",
+            "花咲か爺さん",
+            "花咲か爺"
           ]
         },
         {
@@ -1794,20 +2351,23 @@
         {
           "display": "鶴の恩返し",
           "accept": [
-            "つるのおんがえし"
+            "つるのおんがえし",
+            "鶴女房"
           ]
         },
         {
           "display": "笠地蔵",
           "accept": [
-            "かさじぞう"
+            "かさじぞう",
+            "かさこじぞう"
           ]
         },
         {
           "display": "おむすびころりん",
           "accept": [
             "おむすびころりん",
-            "ねずみの浄土"
+            "ねずみの浄土",
+            "おにぎりころりん"
           ]
         },
         {
@@ -1819,7 +2379,10 @@
         {
           "display": "こぶとりじいさん",
           "accept": [
-            "こぶ取り爺さん"
+            "こぶ取り爺さん",
+            "こぶとり爺さん",
+            "瘤取り爺さん",
+            "こぶとり"
           ]
         },
         {
@@ -1829,8 +2392,7 @@
           ]
         },
         {
-          "display": "ねずみの嫁入り",
-          "accept": []
+          "display": "ねずみの嫁入り"
         },
         {
           "display": "三枚のお札",
@@ -1846,39 +2408,41 @@
         },
         {
           "display": "わらしべ長者",
-          "accept": []
+          "accept": [
+            "藁しべ長者"
+          ]
         },
         {
-          "display": "三年寝太郎",
-          "accept": []
+          "display": "三年寝太郎"
         },
         {
-          "display": "力太郎",
-          "accept": []
+          "display": "力太郎"
         },
         {
-          "display": "ものぐさ太郎",
-          "accept": []
+          "display": "ものぐさ太郎"
         },
         {
-          "display": "瓜子姫",
-          "accept": []
+          "display": "瓜子姫"
         },
         {
           "display": "鉢かづき",
-          "accept": []
+          "accept": [
+            "鉢かつぎ",
+            "鉢かつぎ姫",
+            "鉢かづき姫"
+          ]
         },
         {
-          "display": "天狗の隠れ蓑",
-          "accept": []
+          "display": "天狗の隠れ蓑"
         },
         {
           "display": "耳なし芳一",
-          "accept": []
+          "accept": [
+            "耳無し芳一"
+          ]
         },
         {
-          "display": "酒呑童子",
-          "accept": []
+          "display": "酒呑童子"
         },
         {
           "display": "八岐大蛇",
@@ -1894,23 +2458,88 @@
         },
         {
           "display": "ききみみずきん",
-          "accept": []
+          "accept": [
+            "聞き耳頭巾"
+          ]
         },
         {
           "display": "姥捨て山",
-          "accept": []
+          "accept": [
+            "姥捨山"
+          ]
         },
         {
-          "display": "見るなの座敷",
-          "accept": []
+          "display": "見るなの座敷"
         },
         {
-          "display": "たにし長者",
-          "accept": []
+          "display": "たにし長者"
         },
         {
-          "display": "雀の恩返し",
-          "accept": []
+          "display": "雀の恩返し"
+        },
+        {
+          "display": "かもとりごんべえ",
+          "accept": [
+            "鴨とり権兵衛"
+          ]
+        },
+        {
+          "display": "ねずみのすもう",
+          "accept": [
+            "ねずみの相撲"
+          ]
+        },
+        {
+          "display": "大工と鬼六"
+        },
+        {
+          "display": "食わず女房"
+        },
+        {
+          "display": "天人女房",
+          "accept": [
+            "天女の羽衣",
+            "羽衣伝説"
+          ]
+        },
+        {
+          "display": "猿の生き肝",
+          "accept": [
+            "くらげ骨なし"
+          ]
+        },
+        {
+          "display": "牛方と山んば"
+        },
+        {
+          "display": "絵姿女房"
+        },
+        {
+          "display": "炭焼長者"
+        },
+        {
+          "display": "猿地蔵"
+        },
+        {
+          "display": "地蔵浄土"
+        },
+        {
+          "display": "俵藤太"
+        },
+        {
+          "display": "一休さん"
+        },
+        {
+          "display": "吉四六さん"
+        },
+        {
+          "display": "彦一とんち話",
+          "accept": [
+            "彦一"
+          ]
+        },
+        {
+          "display": "たつのこたろう"
         }
       ]
     }
