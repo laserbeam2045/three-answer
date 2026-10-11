@@ -13,7 +13,14 @@ export default function BomberAnswerList({ answers }: { answers: BomberRevealedA
               : "border-line bg-panel-2 text-ink/80"
           }`}
         >
-          {a.display}
+          {a.prompt ? (
+            <>
+              <span className="font-display">{a.prompt}</span>
+              <span className="text-xs font-normal">（{a.display}）</span>
+            </>
+          ) : (
+            a.display
+          )}
           {a.by && <span className="text-[10px] font-normal text-muted">{a.by}</span>}
         </li>
       ))}

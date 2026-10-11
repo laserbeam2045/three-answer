@@ -5,6 +5,7 @@ import BombIcon from "@/components/bomber/BombIcon";
 import BomberSlots from "@/components/bomber/BomberSlots";
 import BomberPlayersBar from "@/components/bomber/BomberPlayersBar";
 import BomberMissList from "@/components/bomber/BomberMissList";
+import BomberPanels from "@/components/bomber/BomberPanels";
 import OrnateTitle from "@/components/OrnateTitle";
 import { useTimer } from "@/hooks/useTimer";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -117,19 +118,31 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
         )}
       </section>
 
-      {/* 5つの回答枠 */}
-      <section>
-        <OrnateTitle className="mb-1 sm:mb-2">
-          {round.target > round.width ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}個つなげ！`}
-        </OrnateTitle>
-        <BomberSlots
-          filled={round.slots}
-          upcoming={round.upcoming}
-          target={round.target}
-          width={round.width}
-          urgent={urgent}
-        />
-      </section>
+      {/* パネル問題: 出題のパネルを並べ、正解したものから埋まっていく */}
+      {round.panels && !timer.inLeadIn && (
+        <section>
+          <OrnateTitle className="mb-1 sm:mb-2">
+            パネルを全部うめろ！（あと{round.panels.filter((p) => !p.display).length}枚）
+          </OrnateTitle>
+          <BomberPanels panels={round.panels} />
+        </section>
+      )}
+
+      {/* 回答枠（誰がどの順に答えるか）。パネル問題はパネルが埋まっていくので出さない */}
+      {!round.panels && (
+        <section>
+          <OrnateTitle className="mb-1 sm:mb-2">
+            {round.target > round.width ? `折り返しで${round.target}個つなげ！` : `答えを${round.target}個つなげ！`}
+          </OrnateTitle>
+          <BomberSlots
+            filled={round.slots}
+            upcoming={round.upcoming}
+            target={round.target}
+            width={round.width}
+            urgent={urgent}
+          />
+        </section>
+      )}
 
       {/* 回答エリア */}
       <section className="ornate-2 p-3 sm:p-5 flex flex-col items-center gap-2.5">

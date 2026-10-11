@@ -1,0 +1,1935 @@
+{
+  "id": "bomber9",
+  "title": "ほたる",
+  "description": "身の回りのもの・言葉・歴史・食べ物など、ジャンルをまぜた10問。",
+  "questions": [
+    {
+      "q": "文房具を答えてください。",
+      "slots": 10,
+      "answers": [
+        {
+          "display": "鉛筆",
+          "accept": [
+            "えんぴつ"
+          ]
+        },
+        {
+          "display": "消しゴム",
+          "accept": [
+            "けしごむ"
+          ]
+        },
+        {
+          "display": "ボールペン",
+          "accept": []
+        },
+        {
+          "display": "定規",
+          "accept": [
+            "じょうぎ",
+            "ものさし",
+            "物差し"
+          ]
+        },
+        {
+          "display": "はさみ",
+          "accept": [
+            "ハサミ",
+            "鋏"
+          ]
+        },
+        {
+          "display": "のり",
+          "accept": [
+            "糊",
+            "スティックのり"
+          ]
+        },
+        {
+          "display": "ホッチキス",
+          "accept": [
+            "ステープラー"
+          ]
+        },
+        {
+          "display": "シャープペンシル",
+          "accept": [
+            "シャーペン",
+            "シャープペン"
+          ]
+        },
+        {
+          "display": "修正テープ",
+          "accept": [
+            "修正液",
+            "修正ペン"
+          ]
+        },
+        {
+          "display": "コンパス",
+          "accept": []
+        },
+        {
+          "display": "分度器",
+          "accept": [
+            "ぶんどき"
+          ]
+        },
+        {
+          "display": "クリップ",
+          "accept": [
+            "ゼムクリップ"
+          ]
+        },
+        {
+          "display": "セロハンテープ",
+          "accept": [
+            "セロテープ",
+            "テープ"
+          ]
+        },
+        {
+          "display": "付箋",
+          "accept": [
+            "ふせん",
+            "ポストイット"
+          ]
+        },
+        {
+          "display": "ノート",
+          "accept": []
+        },
+        {
+          "display": "筆箱",
+          "accept": [
+            "ふでばこ",
+            "ペンケース"
+          ]
+        },
+        {
+          "display": "マーカー",
+          "accept": [
+            "蛍光ペン",
+            "マジック",
+            "油性ペン"
+          ]
+        },
+        {
+          "display": "カッター",
+          "accept": [
+            "カッターナイフ"
+          ]
+        },
+        {
+          "display": "画鋲",
+          "accept": [
+            "がびょう",
+            "押しピン"
+          ]
+        },
+        {
+          "display": "下敷き",
+          "accept": [
+            "したじき"
+          ]
+        },
+        {
+          "display": "鉛筆削り",
+          "accept": [
+            "えんぴつけずり"
+          ]
+        },
+        {
+          "display": "三角定規",
+          "accept": [
+            "三角定規"
+          ]
+        },
+        {
+          "display": "万年筆",
+          "accept": [
+            "まんねんひつ"
+          ]
+        },
+        {
+          "display": "色鉛筆",
+          "accept": [
+            "いろえんぴつ"
+          ]
+        },
+        {
+          "display": "クレヨン",
+          "accept": []
+        },
+        {
+          "display": "絵の具",
+          "accept": [
+            "えのぐ"
+          ]
+        },
+        {
+          "display": "筆",
+          "accept": [
+            "ふで",
+            "毛筆"
+          ]
+        },
+        {
+          "display": "墨",
+          "accept": [
+            "すみ"
+          ]
+        },
+        {
+          "display": "硯",
+          "accept": [
+            "すずり"
+          ]
+        },
+        {
+          "display": "半紙",
+          "accept": []
+        },
+        {
+          "display": "クリアファイル",
+          "accept": [
+            "ファイル"
+          ]
+        },
+        {
+          "display": "バインダー",
+          "accept": []
+        },
+        {
+          "display": "輪ゴム",
+          "accept": [
+            "わごむ"
+          ]
+        },
+        {
+          "display": "朱肉",
+          "accept": [
+            "しゅにく"
+          ]
+        },
+        {
+          "display": "印鑑",
+          "accept": [
+            "はんこ",
+            "判子"
+          ]
+        },
+        {
+          "display": "電卓",
+          "accept": [
+            "でんたく"
+          ]
+        },
+        {
+          "display": "メモ帳",
+          "accept": [
+            "メモ"
+          ]
+        },
+        {
+          "display": "便箋",
+          "accept": [
+            "びんせん"
+          ]
+        },
+        {
+          "display": "封筒",
+          "accept": [
+            "ふうとう"
+          ]
+        },
+        {
+          "display": "サインペン",
+          "accept": []
+        },
+        {
+          "display": "筆ペン",
+          "accept": []
+        },
+        {
+          "display": "ペン",
+          "accept": []
+        },
+        {
+          "display": "ルーズリーフ",
+          "accept": []
+        },
+        {
+          "display": "手帳",
+          "accept": [
+            "てちょう"
+          ]
+        },
+        {
+          "display": "トレーシングペーパー",
+          "accept": []
+        },
+        {
+          "display": "パンチ",
+          "accept": [
+            "穴あけパンチ"
+          ]
+        },
+        {
+          "display": "ダブルクリップ",
+          "accept": []
+        },
+        {
+          "display": "文鎮",
+          "accept": [
+            "ぶんちん"
+          ]
+        },
+        {
+          "display": "鉛筆キャップ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "おせち料理に入っている料理・食材を答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "黒豆",
+          "accept": [
+            "くろまめ"
+          ]
+        },
+        {
+          "display": "数の子",
+          "accept": [
+            "かずのこ"
+          ]
+        },
+        {
+          "display": "田作り",
+          "accept": [
+            "たづくり",
+            "ごまめ"
+          ]
+        },
+        {
+          "display": "伊達巻",
+          "accept": [
+            "だてまき",
+            "伊達巻き"
+          ]
+        },
+        {
+          "display": "栗きんとん",
+          "accept": [
+            "くりきんとん",
+            "きんとん"
+          ]
+        },
+        {
+          "display": "昆布巻き",
+          "accept": [
+            "こぶまき",
+            "昆布巻"
+          ]
+        },
+        {
+          "display": "かまぼこ",
+          "accept": [
+            "蒲鉾",
+            "紅白かまぼこ"
+          ]
+        },
+        {
+          "display": "煮しめ",
+          "accept": [
+            "にしめ",
+            "お煮しめ",
+            "筑前煮"
+          ]
+        },
+        {
+          "display": "海老",
+          "accept": [
+            "えび",
+            "エビ"
+          ]
+        },
+        {
+          "display": "紅白なます",
+          "accept": [
+            "なます",
+            "紅白膾"
+          ]
+        },
+        {
+          "display": "たたきごぼう",
+          "accept": [
+            "たたき牛蒡",
+            "叩きごぼう"
+          ]
+        },
+        {
+          "display": "錦玉子",
+          "accept": [
+            "にしきたまご",
+            "錦卵"
+          ]
+        },
+        {
+          "display": "鯛",
+          "accept": [
+            "たい",
+            "タイ",
+            "尾頭付き"
+          ]
+        },
+        {
+          "display": "ぶり",
+          "accept": [
+            "鰤",
+            "ブリ",
+            "ぶりの照り焼き"
+          ]
+        },
+        {
+          "display": "八幡巻き",
+          "accept": [
+            "やわたまき"
+          ]
+        },
+        {
+          "display": "酢れんこん",
+          "accept": [
+            "れんこん",
+            "蓮根"
+          ]
+        },
+        {
+          "display": "菊花かぶ",
+          "accept": [
+            "きっかかぶ"
+          ]
+        },
+        {
+          "display": "くわい",
+          "accept": [
+            "慈姑"
+          ]
+        },
+        {
+          "display": "ちょろぎ",
+          "accept": []
+        },
+        {
+          "display": "里芋",
+          "accept": [
+            "さといも"
+          ]
+        },
+        {
+          "display": "たけのこ",
+          "accept": [
+            "筍"
+          ]
+        },
+        {
+          "display": "しいたけ",
+          "accept": [
+            "椎茸"
+          ]
+        },
+        {
+          "display": "こんにゃく",
+          "accept": [
+            "手綱こんにゃく"
+          ]
+        },
+        {
+          "display": "にんじん",
+          "accept": [
+            "人参",
+            "ねじり梅"
+          ]
+        },
+        {
+          "display": "ごぼう",
+          "accept": [
+            "牛蒡"
+          ]
+        },
+        {
+          "display": "鶏肉",
+          "accept": [
+            "鶏"
+          ]
+        },
+        {
+          "display": "松風焼き",
+          "accept": [
+            "まつかぜやき"
+          ]
+        },
+        {
+          "display": "ローストビーフ",
+          "accept": []
+        },
+        {
+          "display": "いくら",
+          "accept": []
+        },
+        {
+          "display": "鮭",
+          "accept": [
+            "さけ"
+          ]
+        },
+        {
+          "display": "お雑煮",
+          "accept": [
+            "雑煮"
+          ]
+        },
+        {
+          "display": "酢だこ",
+          "accept": [
+            "たこ"
+          ]
+        },
+        {
+          "display": "あわび",
+          "accept": []
+        },
+        {
+          "display": "錦糸卵",
+          "accept": []
+        },
+        {
+          "display": "昆布",
+          "accept": [
+            "こんぶ"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "猫の品種（猫種）を答えてください。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "スコティッシュ・フォールド",
+          "accept": [
+            "スコティッシュフォールド",
+            "スコティッシュ"
+          ]
+        },
+        {
+          "display": "アメリカン・ショートヘア",
+          "accept": [
+            "アメリカンショートヘア",
+            "アメショー"
+          ]
+        },
+        {
+          "display": "マンチカン",
+          "accept": []
+        },
+        {
+          "display": "ロシアンブルー",
+          "accept": []
+        },
+        {
+          "display": "メインクーン",
+          "accept": []
+        },
+        {
+          "display": "ペルシャ",
+          "accept": [
+            "ペルシャ猫",
+            "ペルシア"
+          ]
+        },
+        {
+          "display": "ラグドール",
+          "accept": []
+        },
+        {
+          "display": "ブリティッシュ・ショートヘア",
+          "accept": [
+            "ブリティッシュショートヘア"
+          ]
+        },
+        {
+          "display": "ノルウェージャン・フォレスト・キャット",
+          "accept": [
+            "ノルウェージャンフォレストキャット",
+            "ノルウェージャン"
+          ]
+        },
+        {
+          "display": "ベンガル",
+          "accept": []
+        },
+        {
+          "display": "シャム",
+          "accept": [
+            "サイアミーズ",
+            "シャム猫"
+          ]
+        },
+        {
+          "display": "アビシニアン",
+          "accept": []
+        },
+        {
+          "display": "スフィンクス",
+          "accept": []
+        },
+        {
+          "display": "エキゾチック・ショートヘア",
+          "accept": [
+            "エキゾチックショートヘア",
+            "エキゾチック"
+          ]
+        },
+        {
+          "display": "ソマリ",
+          "accept": []
+        },
+        {
+          "display": "ヒマラヤン",
+          "accept": []
+        },
+        {
+          "display": "ラガマフィン",
+          "accept": []
+        },
+        {
+          "display": "ミヌエット",
+          "accept": []
+        },
+        {
+          "display": "サイベリアン",
+          "accept": []
+        },
+        {
+          "display": "トンキニーズ",
+          "accept": []
+        },
+        {
+          "display": "バーマン",
+          "accept": []
+        },
+        {
+          "display": "ターキッシュアンゴラ",
+          "accept": [
+            "アンゴラ"
+          ]
+        },
+        {
+          "display": "ジャパニーズボブテイル",
+          "accept": [
+            "ボブテイル"
+          ]
+        },
+        {
+          "display": "シンガプーラ",
+          "accept": []
+        },
+        {
+          "display": "セルカークレックス",
+          "accept": []
+        },
+        {
+          "display": "デボンレックス",
+          "accept": []
+        },
+        {
+          "display": "コーニッシュレックス",
+          "accept": []
+        },
+        {
+          "display": "オリエンタル",
+          "accept": []
+        },
+        {
+          "display": "ボンベイ",
+          "accept": []
+        },
+        {
+          "display": "エジプシャンマウ",
+          "accept": []
+        },
+        {
+          "display": "ラパーマ",
+          "accept": []
+        },
+        {
+          "display": "ヨーロピアンショートヘア",
+          "accept": []
+        },
+        {
+          "display": "バーミーズ",
+          "accept": []
+        },
+        {
+          "display": "ハバナブラウン",
+          "accept": []
+        },
+        {
+          "display": "ピクシーボブ",
+          "accept": []
+        },
+        {
+          "display": "三毛猫",
+          "accept": [
+            "みけねこ"
+          ]
+        },
+        {
+          "display": "日本猫",
+          "accept": [
+            "雑種"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "「猫」が入っていることわざ・慣用句を答えてください。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "猫に小判",
+          "accept": [
+            "ねこにこばん"
+          ]
+        },
+        {
+          "display": "猫の手も借りたい",
+          "accept": [
+            "ねこのてもかりたい"
+          ]
+        },
+        {
+          "display": "猫の額",
+          "accept": [
+            "猫の額ほど",
+            "ねこのひたい"
+          ]
+        },
+        {
+          "display": "猫をかぶる",
+          "accept": [
+            "猫を被る",
+            "ねこをかぶる"
+          ]
+        },
+        {
+          "display": "猫舌",
+          "accept": [
+            "ねこじた"
+          ]
+        },
+        {
+          "display": "猫背",
+          "accept": [
+            "ねこぜ"
+          ]
+        },
+        {
+          "display": "猫なで声",
+          "accept": [
+            "猫撫で声",
+            "ねこなでごえ"
+          ]
+        },
+        {
+          "display": "借りてきた猫",
+          "accept": [
+            "借りて来た猫",
+            "借りてきた猫のよう"
+          ]
+        },
+        {
+          "display": "窮鼠猫を噛む",
+          "accept": [
+            "窮鼠猫をかむ",
+            "きゅうそねこをかむ"
+          ]
+        },
+        {
+          "display": "猫に鰹節",
+          "accept": [
+            "猫にかつおぶし"
+          ]
+        },
+        {
+          "display": "猫の目",
+          "accept": [
+            "猫の目のように変わる"
+          ]
+        },
+        {
+          "display": "猫も杓子も",
+          "accept": [
+            "ねこもしゃくしも"
+          ]
+        },
+        {
+          "display": "猫ばば",
+          "accept": [
+            "ねこばば",
+            "猫糞"
+          ]
+        },
+        {
+          "display": "猫に木天蓼",
+          "accept": [
+            "猫にまたたび"
+          ]
+        },
+        {
+          "display": "猫の子一匹いない",
+          "accept": [
+            "猫の子1匹いない"
+          ]
+        },
+        {
+          "display": "猫可愛がり",
+          "accept": [
+            "ねこかわいがり"
+          ]
+        },
+        {
+          "display": "猫まんま",
+          "accept": [
+            "ねこまんま",
+            "猫飯"
+          ]
+        },
+        {
+          "display": "猫の首に鈴をつける",
+          "accept": [
+            "猫の首に鈴"
+          ]
+        },
+        {
+          "display": "猫の手",
+          "accept": [
+            "猫の手を借りる"
+          ]
+        },
+        {
+          "display": "猫が顔を洗うと雨",
+          "accept": [
+            "猫が顔を洗うと雨が降る"
+          ]
+        },
+        {
+          "display": "猫跨ぎ",
+          "accept": [
+            "ねこまたぎ"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "動物（生き物）が出てくる日本の童謡・唱歌のタイトルを答えてください。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "ぞうさん",
+          "accept": []
+        },
+        {
+          "display": "いぬのおまわりさん",
+          "accept": [
+            "犬のおまわりさん"
+          ]
+        },
+        {
+          "display": "かえるの合唱",
+          "accept": [
+            "かえるのうた",
+            "かえるの歌"
+          ]
+        },
+        {
+          "display": "めだかの学校",
+          "accept": [
+            "めだかのがっこう"
+          ]
+        },
+        {
+          "display": "森のくまさん",
+          "accept": [
+            "もりのくまさん"
+          ]
+        },
+        {
+          "display": "七つの子",
+          "accept": [
+            "ななつのこ"
+          ]
+        },
+        {
+          "display": "赤とんぼ",
+          "accept": [
+            "あかとんぼ"
+          ]
+        },
+        {
+          "display": "あめふりくまのこ",
+          "accept": []
+        },
+        {
+          "display": "うさぎとかめ",
+          "accept": [
+            "うさぎと亀",
+            "もしもしかめよ"
+          ]
+        },
+        {
+          "display": "鳩",
+          "accept": [
+            "はと",
+            "ぽっぽっぽ"
+          ]
+        },
+        {
+          "display": "ぶんぶんぶん",
+          "accept": []
+        },
+        {
+          "display": "すずめの学校",
+          "accept": [
+            "雀の学校"
+          ]
+        },
+        {
+          "display": "かたつむり",
+          "accept": [
+            "でんでんむし"
+          ]
+        },
+        {
+          "display": "おうまのおやこ",
+          "accept": [
+            "おうま"
+          ]
+        },
+        {
+          "display": "こぶたぬきつねこ",
+          "accept": []
+        },
+        {
+          "display": "ねこふんじゃった",
+          "accept": [
+            "猫ふんじゃった"
+          ]
+        },
+        {
+          "display": "やぎさんゆうびん",
+          "accept": []
+        },
+        {
+          "display": "アイアイ",
+          "accept": []
+        },
+        {
+          "display": "パンダうさぎコアラ",
+          "accept": []
+        },
+        {
+          "display": "うさぎ",
+          "accept": []
+        },
+        {
+          "display": "ちょうちょう",
+          "accept": [
+            "ちょうちょ",
+            "蝶々"
+          ]
+        },
+        {
+          "display": "とんぼのめがね",
+          "accept": []
+        },
+        {
+          "display": "小鳥の歌",
+          "accept": [
+            "ことりのうた"
+          ]
+        },
+        {
+          "display": "こいのぼり",
+          "accept": []
+        },
+        {
+          "display": "おつかいありさん",
+          "accept": []
+        },
+        {
+          "display": "かわいい魚屋さん",
+          "accept": []
+        },
+        {
+          "display": "あひるの行列",
+          "accept": []
+        },
+        {
+          "display": "山の音楽家",
+          "accept": [
+            "やまのおんがくか"
+          ]
+        },
+        {
+          "display": "どんぐりころころ",
+          "accept": []
+        },
+        {
+          "display": "こぎつね",
+          "accept": [
+            "こぎつねこんこん"
+          ]
+        },
+        {
+          "display": "げんこつやまのたぬきさん",
+          "accept": []
+        },
+        {
+          "display": "ドナドナ",
+          "accept": []
+        },
+        {
+          "display": "ありさんのおはなし",
+          "accept": []
+        },
+        {
+          "display": "せみ",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "トランプを使ったゲームの名前を答えてください。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "ババ抜き",
+          "accept": [
+            "ばばぬき"
+          ]
+        },
+        {
+          "display": "七並べ",
+          "accept": [
+            "しちならべ"
+          ]
+        },
+        {
+          "display": "神経衰弱",
+          "accept": [
+            "しんけいすいじゃく"
+          ]
+        },
+        {
+          "display": "大富豪",
+          "accept": [
+            "大貧民",
+            "だいふごう"
+          ]
+        },
+        {
+          "display": "ポーカー",
+          "accept": []
+        },
+        {
+          "display": "ブラックジャック",
+          "accept": []
+        },
+        {
+          "display": "スピード",
+          "accept": []
+        },
+        {
+          "display": "ダウト",
+          "accept": []
+        },
+        {
+          "display": "ページワン",
+          "accept": []
+        },
+        {
+          "display": "ジジ抜き",
+          "accept": [
+            "じじぬき"
+          ]
+        },
+        {
+          "display": "セブンブリッジ",
+          "accept": []
+        },
+        {
+          "display": "ソリティア",
+          "accept": [
+            "クロンダイク"
+          ]
+        },
+        {
+          "display": "戦争",
+          "accept": [
+            "せんそう"
+          ]
+        },
+        {
+          "display": "ぶたのしっぽ",
+          "accept": [
+            "豚のしっぽ"
+          ]
+        },
+        {
+          "display": "ブリッジ",
+          "accept": []
+        },
+        {
+          "display": "ナポレオン",
+          "accept": []
+        },
+        {
+          "display": "インディアンポーカー",
+          "accept": []
+        },
+        {
+          "display": "バカラ",
+          "accept": []
+        },
+        {
+          "display": "ハーツ",
+          "accept": []
+        },
+        {
+          "display": "51",
+          "accept": [
+            "ファイブワン"
+          ]
+        },
+        {
+          "display": "ラミー",
+          "accept": []
+        },
+        {
+          "display": "スパイダーソリティア",
+          "accept": [
+            "スパイダー"
+          ]
+        },
+        {
+          "display": "フリーセル",
+          "accept": []
+        },
+        {
+          "display": "うすのろ",
+          "accept": []
+        },
+        {
+          "display": "ミリオネア",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "パネルの難読漢字（野菜・食べ物）の読みを答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "かぼちゃ",
+          "prompt": "南瓜",
+          "accept": []
+        },
+        {
+          "display": "きゅうり",
+          "prompt": "胡瓜",
+          "accept": []
+        },
+        {
+          "display": "すいか",
+          "prompt": "西瓜",
+          "accept": []
+        },
+        {
+          "display": "とうもろこし",
+          "prompt": "玉蜀黍",
+          "accept": []
+        },
+        {
+          "display": "ごぼう",
+          "prompt": "牛蒡",
+          "accept": []
+        },
+        {
+          "display": "こんにゃく",
+          "prompt": "蒟蒻",
+          "accept": []
+        },
+        {
+          "display": "わかめ",
+          "prompt": "若布",
+          "accept": []
+        },
+        {
+          "display": "ところてん",
+          "prompt": "心太",
+          "accept": []
+        },
+        {
+          "display": "しょうが",
+          "prompt": "生姜",
+          "accept": []
+        },
+        {
+          "display": "なす",
+          "prompt": "茄子",
+          "accept": [
+            "なすび"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "戦国時代の武将（大名など）を答えてください（姓だけでも可）。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "織田信長",
+          "accept": [
+            "織田",
+            "信長"
+          ]
+        },
+        {
+          "display": "豊臣秀吉",
+          "accept": [
+            "豊臣",
+            "秀吉",
+            "羽柴秀吉",
+            "木下藤吉郎"
+          ]
+        },
+        {
+          "display": "徳川家康",
+          "accept": [
+            "家康",
+            "松平元康"
+          ]
+        },
+        {
+          "display": "武田信玄",
+          "accept": [
+            "武田",
+            "信玄"
+          ]
+        },
+        {
+          "display": "上杉謙信",
+          "accept": [
+            "上杉",
+            "謙信"
+          ]
+        },
+        {
+          "display": "伊達政宗",
+          "accept": [
+            "伊達",
+            "政宗"
+          ]
+        },
+        {
+          "display": "毛利元就",
+          "accept": [
+            "毛利",
+            "元就"
+          ]
+        },
+        {
+          "display": "今川義元",
+          "accept": [
+            "今川",
+            "義元"
+          ]
+        },
+        {
+          "display": "北条氏康",
+          "accept": [
+            "北条",
+            "氏康",
+            "北条早雲"
+          ]
+        },
+        {
+          "display": "島津義久",
+          "accept": [
+            "島津",
+            "島津義弘"
+          ]
+        },
+        {
+          "display": "長宗我部元親",
+          "accept": [
+            "長宗我部",
+            "元親"
+          ]
+        },
+        {
+          "display": "真田幸村",
+          "accept": [
+            "真田",
+            "幸村",
+            "真田信繁",
+            "真田昌幸"
+          ]
+        },
+        {
+          "display": "浅井長政",
+          "accept": [
+            "浅井",
+            "長政"
+          ]
+        },
+        {
+          "display": "朝倉義景",
+          "accept": [
+            "朝倉"
+          ]
+        },
+        {
+          "display": "斎藤道三",
+          "accept": [
+            "斎藤",
+            "道三"
+          ]
+        },
+        {
+          "display": "明智光秀",
+          "accept": [
+            "明智",
+            "光秀"
+          ]
+        },
+        {
+          "display": "黒田官兵衛",
+          "accept": [
+            "黒田",
+            "官兵衛",
+            "黒田孝高"
+          ]
+        },
+        {
+          "display": "石田三成",
+          "accept": [
+            "石田",
+            "三成"
+          ]
+        },
+        {
+          "display": "加藤清正",
+          "accept": [
+            "加藤",
+            "清正"
+          ]
+        },
+        {
+          "display": "前田利家",
+          "accept": [
+            "前田",
+            "利家"
+          ]
+        },
+        {
+          "display": "柴田勝家",
+          "accept": [
+            "柴田",
+            "勝家"
+          ]
+        },
+        {
+          "display": "竹中半兵衛",
+          "accept": [
+            "竹中",
+            "半兵衛"
+          ]
+        },
+        {
+          "display": "直江兼続",
+          "accept": [
+            "直江",
+            "兼続"
+          ]
+        },
+        {
+          "display": "本多忠勝",
+          "accept": [
+            "本多"
+          ]
+        },
+        {
+          "display": "井伊直政",
+          "accept": [
+            "井伊"
+          ]
+        },
+        {
+          "display": "大友宗麟",
+          "accept": [
+            "大友"
+          ]
+        },
+        {
+          "display": "龍造寺隆信",
+          "accept": [
+            "龍造寺"
+          ]
+        },
+        {
+          "display": "山中鹿之介",
+          "accept": [
+            "山中鹿介"
+          ]
+        },
+        {
+          "display": "松永久秀",
+          "accept": [
+            "松永"
+          ]
+        },
+        {
+          "display": "三好長慶",
+          "accept": [
+            "三好"
+          ]
+        },
+        {
+          "display": "福島正則",
+          "accept": [
+            "福島"
+          ]
+        },
+        {
+          "display": "細川忠興",
+          "accept": [
+            "細川"
+          ]
+        },
+        {
+          "display": "小早川隆景",
+          "accept": [
+            "小早川",
+            "小早川秀秋"
+          ]
+        },
+        {
+          "display": "宇喜多秀家",
+          "accept": [
+            "宇喜多"
+          ]
+        },
+        {
+          "display": "立花宗茂",
+          "accept": [
+            "立花"
+          ]
+        },
+        {
+          "display": "大谷吉継",
+          "accept": [
+            "大谷"
+          ]
+        },
+        {
+          "display": "蒲生氏郷",
+          "accept": [
+            "蒲生"
+          ]
+        },
+        {
+          "display": "丹羽長秀",
+          "accept": [
+            "丹羽"
+          ]
+        },
+        {
+          "display": "滝川一益",
+          "accept": [
+            "滝川"
+          ]
+        },
+        {
+          "display": "森蘭丸",
+          "accept": [
+            "森"
+          ]
+        },
+        {
+          "display": "藤堂高虎",
+          "accept": [
+            "藤堂"
+          ]
+        },
+        {
+          "display": "片倉小十郎",
+          "accept": [
+            "片倉景綱"
+          ]
+        },
+        {
+          "display": "山本勘助",
+          "accept": []
+        },
+        {
+          "display": "今川氏真",
+          "accept": []
+        },
+        {
+          "display": "最上義光",
+          "accept": [
+            "最上"
+          ]
+        },
+        {
+          "display": "佐竹義重",
+          "accept": [
+            "佐竹"
+          ]
+        },
+        {
+          "display": "足利義昭",
+          "accept": [
+            "足利"
+          ]
+        },
+        {
+          "display": "服部半蔵",
+          "accept": []
+        },
+        {
+          "display": "可児才蔵",
+          "accept": []
+        },
+        {
+          "display": "前田慶次",
+          "accept": []
+        },
+        {
+          "display": "結城秀康",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "歌舞伎が由来になっている言葉を答えてください（「十八番」など）。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "十八番",
+          "accept": [
+            "おはこ",
+            "じゅうはちばん"
+          ]
+        },
+        {
+          "display": "黒幕",
+          "accept": [
+            "くろまく"
+          ]
+        },
+        {
+          "display": "幕の内",
+          "accept": [
+            "幕の内弁当",
+            "まくのうち"
+          ]
+        },
+        {
+          "display": "花道",
+          "accept": [
+            "はなみち"
+          ]
+        },
+        {
+          "display": "見得を切る",
+          "accept": [
+            "見栄を切る",
+            "みえをきる"
+          ]
+        },
+        {
+          "display": "二枚目",
+          "accept": [
+            "にまいめ"
+          ]
+        },
+        {
+          "display": "三枚目",
+          "accept": [
+            "さんまいめ"
+          ]
+        },
+        {
+          "display": "大詰め",
+          "accept": [
+            "おおづめ"
+          ]
+        },
+        {
+          "display": "修羅場",
+          "accept": [
+            "しゅらば"
+          ]
+        },
+        {
+          "display": "板につく",
+          "accept": [
+            "いたにつく"
+          ]
+        },
+        {
+          "display": "差し金",
+          "accept": [
+            "さしがね"
+          ]
+        },
+        {
+          "display": "正念場",
+          "accept": [
+            "しょうねんば"
+          ]
+        },
+        {
+          "display": "だんまり",
+          "accept": [
+            "だんまりを決め込む"
+          ]
+        },
+        {
+          "display": "裏方",
+          "accept": [
+            "うらかた"
+          ]
+        },
+        {
+          "display": "幕切れ",
+          "accept": [
+            "まくぎれ"
+          ]
+        },
+        {
+          "display": "幕間",
+          "accept": [
+            "まくあい"
+          ]
+        },
+        {
+          "display": "どんでん返し",
+          "accept": [
+            "どんでんがえし"
+          ]
+        },
+        {
+          "display": "看板",
+          "accept": [
+            "かんばん"
+          ]
+        },
+        {
+          "display": "千両役者",
+          "accept": [
+            "せんりょうやくしゃ"
+          ]
+        },
+        {
+          "display": "大向こう",
+          "accept": [
+            "大向こうをうならせる"
+          ]
+        },
+        {
+          "display": "一幕",
+          "accept": [
+            "ひとまく"
+          ]
+        },
+        {
+          "display": "お家芸",
+          "accept": [
+            "おいえげい"
+          ]
+        },
+        {
+          "display": "見せ場",
+          "accept": [
+            "みせば"
+          ]
+        },
+        {
+          "display": "立役者",
+          "accept": [
+            "たてやくしゃ"
+          ]
+        },
+        {
+          "display": "楽屋",
+          "accept": [
+            "がくや",
+            "楽屋落ち"
+          ]
+        },
+        {
+          "display": "口上",
+          "accept": [
+            "こうじょう"
+          ]
+        },
+        {
+          "display": "せり上がり",
+          "accept": []
+        },
+        {
+          "display": "愁嘆場",
+          "accept": [
+            "しゅうたんば"
+          ]
+        },
+        {
+          "display": "暗転",
+          "accept": [
+            "あんてん"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パンの種類を答えてください（メロンパン・クロワッサン など）。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "食パン",
+          "accept": [
+            "しょくぱん"
+          ]
+        },
+        {
+          "display": "メロンパン",
+          "accept": []
+        },
+        {
+          "display": "あんパン",
+          "accept": [
+            "あんぱん"
+          ]
+        },
+        {
+          "display": "カレーパン",
+          "accept": []
+        },
+        {
+          "display": "クロワッサン",
+          "accept": []
+        },
+        {
+          "display": "フランスパン",
+          "accept": [
+            "バゲット"
+          ]
+        },
+        {
+          "display": "ベーグル",
+          "accept": []
+        },
+        {
+          "display": "クリームパン",
+          "accept": []
+        },
+        {
+          "display": "ジャムパン",
+          "accept": []
+        },
+        {
+          "display": "チョココロネ",
+          "accept": [
+            "コロネ"
+          ]
+        },
+        {
+          "display": "蒸しパン",
+          "accept": [
+            "むしパン"
+          ]
+        },
+        {
+          "display": "ロールパン",
+          "accept": [
+            "バターロール"
+          ]
+        },
+        {
+          "display": "コッペパン",
+          "accept": []
+        },
+        {
+          "display": "焼きそばパン",
+          "accept": []
+        },
+        {
+          "display": "ナン",
+          "accept": []
+        },
+        {
+          "display": "デニッシュ",
+          "accept": []
+        },
+        {
+          "display": "ブリオッシュ",
+          "accept": []
+        },
+        {
+          "display": "フォカッチャ",
+          "accept": []
+        },
+        {
+          "display": "チャバタ",
+          "accept": []
+        },
+        {
+          "display": "プレッツェル",
+          "accept": []
+        },
+        {
+          "display": "イングリッシュマフィン",
+          "accept": [
+            "マフィン"
+          ]
+        },
+        {
+          "display": "ライ麦パン",
+          "accept": [
+            "ライブレッド"
+          ]
+        },
+        {
+          "display": "ピタ",
+          "accept": [
+            "ピタパン"
+          ]
+        },
+        {
+          "display": "カンパーニュ",
+          "accept": []
+        },
+        {
+          "display": "バタール",
+          "accept": []
+        },
+        {
+          "display": "クロックムッシュ",
+          "accept": []
+        },
+        {
+          "display": "ホットドッグ",
+          "accept": []
+        },
+        {
+          "display": "サンドイッチ",
+          "accept": []
+        },
+        {
+          "display": "チーズパン",
+          "accept": []
+        },
+        {
+          "display": "ちくわパン",
+          "accept": []
+        },
+        {
+          "display": "塩パン",
+          "accept": [
+            "塩バターパン"
+          ]
+        },
+        {
+          "display": "揚げパン",
+          "accept": [
+            "あげパン"
+          ]
+        },
+        {
+          "display": "フレンチトースト",
+          "accept": []
+        },
+        {
+          "display": "ドーナツ",
+          "accept": []
+        },
+        {
+          "display": "シナモンロール",
+          "accept": []
+        },
+        {
+          "display": "カスクート",
+          "accept": []
+        },
+        {
+          "display": "パニーニ",
+          "accept": []
+        },
+        {
+          "display": "ブール",
+          "accept": []
+        },
+        {
+          "display": "トースト",
+          "accept": []
+        },
+        {
+          "display": "全粒粉パン",
+          "accept": []
+        },
+        {
+          "display": "米粉パン",
+          "accept": []
+        },
+        {
+          "display": "黒糖パン",
+          "accept": []
+        },
+        {
+          "display": "ミルクパン",
+          "accept": []
+        },
+        {
+          "display": "ハンバーガー",
+          "accept": []
+        },
+        {
+          "display": "ピロシキ",
+          "accept": []
+        },
+        {
+          "display": "ベーコンエピ",
+          "accept": [
+            "エピ"
+          ]
+        },
+        {
+          "display": "シュトーレン",
+          "accept": []
+        },
+        {
+          "display": "パネトーネ",
+          "accept": []
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,7 @@ export const BOMBER_MAX_SLOTS = BOMBER_SLOTS * 4;
  * なければ答えが15個以上なら10、それ以外は5。
  */
 export function slotsFor(question: BomberQuestion): number {
+  if (question.panels) return Math.min(question.answers.length, BOMBER_MAX_SLOTS);
   if (question.slots) return question.slots;
   return question.answers.length >= BOMBER_TURNAROUND_MIN_ANSWERS ? BOMBER_SLOTS * 2 : BOMBER_SLOTS;
 }
@@ -73,7 +74,12 @@ const ITAIJI: Record<string, string> = {
   藏: "蔵", 龍: "竜", 臺: "台", 驛: "駅", 縣: "県", 圓: "円", 澁: "渋", 榮: "栄", 繪: "絵",
   鐵: "鉄", 實: "実", 壽: "寿", 會: "会", 戰: "戦", 黑: "黒", 萬: "万", 與: "与", 佛: "仏",
   鹽: "塩", 豐: "豊", 禮: "礼", 莊: "荘", 冨: "富", 兒: "児", 舊: "旧", 體: "体", 聲: "声",
+  煕: "熙",
 };
+
+/** 小書きの母音などを大きい字に（「ウィンディ」と「ウインディ」を同じにする）。ゃゅょっ は区別するので含めない */
+const SMALL_KANA: Record<string, string> = { ぁ: "あ", ぃ: "い", ぅ: "う", ぇ: "え", ぉ: "お", ゎ: "わ", ゕ: "か", ゖ: "け" };
+const SMALL_KANA_RE = /[ぁぃぅぇぉゎゕゖ]/g;
 const ITAIJI_RE = new RegExp(`[${Object.keys(ITAIJI).join("")}]`, "gu");
 
 /** ひらがな1文字の母音（長音記号「ー」を母音に置き換えるため） */
@@ -96,6 +102,7 @@ export function normalizeAnswer(input: string): string {
   t = t.replace(ITAIJI_RE, (c) => ITAIJI[c] ?? c);
   // カタカナ → ひらがな（ァ〜ヶ）
   t = t.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+  t = t.replace(SMALL_KANA_RE, (c) => SMALL_KANA[c] ?? c);
   // 長音記号のつもりで打たれたハイフン類
   t = t.replace(/[-‐‑‒–—―−]/g, "ー");
   // 長音を直前の母音に（「ピカチュー」と「ピカチュウ」、「ルーク」と「ルウク」を同じにする）

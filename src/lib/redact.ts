@@ -165,7 +165,7 @@ function bomberView(
       slots: slots.map((s) => slotView(s, qIndex)),
       answers: q.answers.map((a, i) => {
         const by = slots.find((s) => s.answerIndex === i);
-        return { display: a.display, by: by ? nameOf(by.token) : null };
+        return { ...(a.prompt ? { prompt: a.prompt } : {}), display: a.display, by: by ? nameOf(by.token) : null };
       }),
       misses: (r?.misses ?? []).map(missView),
       points: roundPoints(slots.length),
@@ -200,6 +200,17 @@ function bomberView(
           }
         : null,
       misses: round.misses.map(missView),
+      panels: set.questions[state.qIndex].panels
+        ? set.questions[state.qIndex].answers.map((a, i) => {
+            const filled = round.slots.find((s) => s.answerIndex === i);
+            return {
+              prompt: a.prompt ?? "",
+              display: filled ? a.display : null,
+              by: filled ? nameOf(filled.token) : null,
+              isYou: filled?.token === token,
+            };
+          })
+        : null,
       waiting: state.timer?.paused ?? false,
     };
   }

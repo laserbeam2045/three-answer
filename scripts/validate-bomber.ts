@@ -19,6 +19,18 @@ for (const set of allBomberSets()) {
     const where = `${set.id} Q${qi + 1}`;
     if (q.answers.length < BOMBER_SLOTS)
       errors.push(`${where}: 正解が ${q.answers.length} 個しかありません（${BOMBER_SLOTS}個以上必要）`);
+    if (q.panels) {
+      if (q.answers.length > BOMBER_MAX_SLOTS)
+        errors.push(`${where}: パネルは${BOMBER_MAX_SLOTS}枚までです（${q.answers.length}枚）`);
+      const prompts = q.answers.map((a) => a.prompt);
+      if (prompts.some((x) => !x)) errors.push(`${where}: パネル問題の答えに prompt がありません`);
+      if (new Set(prompts).size !== prompts.length) errors.push(`${where}: パネルの出題が重複しています`);
+      for (const a of q.answers) {
+        // パネルに見えている出題そのものを打っただけで正解にならないように
+        if (a.prompt && acceptedForms(q, q.answers.indexOf(a)).has(normalizeAnswer(a.prompt)))
+          errors.push(`${where}: パネル「${a.prompt}」をそのまま打つと正解になってしまいます`);
+      }
+    }
     if (q.slots !== undefined && (q.slots < BOMBER_SLOTS || q.slots > BOMBER_MAX_SLOTS || q.slots > q.answers.length))
       errors.push(`${where}: slots=${q.slots} は ${BOMBER_SLOTS}〜${BOMBER_MAX_SLOTS} かつ正解の数（${q.answers.length}）以下にしてください`);
 

@@ -1,0 +1,1918 @@
+{
+  "id": "bomber10",
+  "title": "ひのこ",
+  "description": "言葉・芸術・季節・食べ物など、ジャンルをまぜた10問。",
+  "questions": [
+    {
+      "q": "ぶどうの品種を答えてください。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "巨峰",
+          "accept": [
+            "きょほう"
+          ]
+        },
+        {
+          "display": "デラウェア",
+          "accept": [
+            "デラ"
+          ]
+        },
+        {
+          "display": "シャインマスカット",
+          "accept": [
+            "シャイン"
+          ]
+        },
+        {
+          "display": "ピオーネ",
+          "accept": []
+        },
+        {
+          "display": "マスカット",
+          "accept": [
+            "マスカット・オブ・アレキサンドリア",
+            "アレキサンドリア"
+          ]
+        },
+        {
+          "display": "ナガノパープル",
+          "accept": []
+        },
+        {
+          "display": "甲州",
+          "accept": [
+            "こうしゅう"
+          ]
+        },
+        {
+          "display": "キャンベル",
+          "accept": [
+            "キャンベル・アーリー",
+            "キャンベルアーリー"
+          ]
+        },
+        {
+          "display": "藤稔",
+          "accept": [
+            "ふじみのり"
+          ]
+        },
+        {
+          "display": "ロザリオビアンコ",
+          "accept": []
+        },
+        {
+          "display": "クイーンニーナ",
+          "accept": []
+        },
+        {
+          "display": "マスカット・ベーリーA",
+          "accept": [
+            "ベーリーA",
+            "マスカットベーリーA"
+          ]
+        },
+        {
+          "display": "安芸クイーン",
+          "accept": []
+        },
+        {
+          "display": "瀬戸ジャイアンツ",
+          "accept": [
+            "桃太郎ぶどう"
+          ]
+        },
+        {
+          "display": "シャルドネ",
+          "accept": []
+        },
+        {
+          "display": "カベルネ・ソーヴィニヨン",
+          "accept": [
+            "カベルネソーヴィニヨン",
+            "カベルネ"
+          ]
+        },
+        {
+          "display": "メルロー",
+          "accept": []
+        },
+        {
+          "display": "ピノ・ノワール",
+          "accept": [
+            "ピノノワール"
+          ]
+        },
+        {
+          "display": "ソーヴィニヨン・ブラン",
+          "accept": [
+            "ソーヴィニヨンブラン"
+          ]
+        },
+        {
+          "display": "リースリング",
+          "accept": []
+        },
+        {
+          "display": "ナイアガラ",
+          "accept": []
+        },
+        {
+          "display": "コンコード",
+          "accept": []
+        },
+        {
+          "display": "高尾",
+          "accept": []
+        },
+        {
+          "display": "ゴルビー",
+          "accept": []
+        },
+        {
+          "display": "クイーンルージュ",
+          "accept": []
+        },
+        {
+          "display": "翠峰",
+          "accept": []
+        },
+        {
+          "display": "紅伊豆",
+          "accept": []
+        },
+        {
+          "display": "ハニービーナス",
+          "accept": []
+        },
+        {
+          "display": "サニールージュ",
+          "accept": []
+        },
+        {
+          "display": "甲斐路",
+          "accept": []
+        },
+        {
+          "display": "ルビーロマン",
+          "accept": []
+        },
+        {
+          "display": "シラー",
+          "accept": [
+            "シラーズ"
+          ]
+        },
+        {
+          "display": "グルナッシュ",
+          "accept": []
+        },
+        {
+          "display": "ネオマスカット",
+          "accept": []
+        },
+        {
+          "display": "スチューベン",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "「犬」が入っていることわざ・慣用句を答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "犬も歩けば棒に当たる",
+          "accept": [
+            "犬も歩けば棒にあたる"
+          ]
+        },
+        {
+          "display": "犬猿の仲",
+          "accept": [
+            "けんえんのなか"
+          ]
+        },
+        {
+          "display": "負け犬の遠吠え",
+          "accept": [
+            "負け犬"
+          ]
+        },
+        {
+          "display": "飼い犬に手を噛まれる",
+          "accept": [
+            "飼い犬に手をかまれる"
+          ]
+        },
+        {
+          "display": "夫婦喧嘩は犬も食わない",
+          "accept": [
+            "夫婦げんかは犬も食わない"
+          ]
+        },
+        {
+          "display": "犬の遠吠え",
+          "accept": [
+            "遠吠え"
+          ]
+        },
+        {
+          "display": "犬に論語",
+          "accept": []
+        },
+        {
+          "display": "犬は三日飼えば三日の恩を忘れぬ",
+          "accept": [
+            "犬は三日飼えば恩を忘れない",
+            "犬は三日飼えば三年恩を忘れぬ"
+          ]
+        },
+        {
+          "display": "煩悩の犬は追えども去らず",
+          "accept": []
+        },
+        {
+          "display": "犬死に",
+          "accept": [
+            "犬死"
+          ]
+        },
+        {
+          "display": "犬の糞で敵を討つ",
+          "accept": []
+        },
+        {
+          "display": "尻尾を振る犬",
+          "accept": [
+            "犬が尻尾を振る"
+          ]
+        },
+        {
+          "display": "犬馬の労",
+          "accept": [
+            "けんばのろう"
+          ]
+        },
+        {
+          "display": "犬と猿",
+          "accept": [
+            "犬と猿の仲"
+          ]
+        },
+        {
+          "display": "吠える犬は噛みつかぬ",
+          "accept": [
+            "弱い犬ほどよく吠える"
+          ]
+        },
+        {
+          "display": "犬も朋輩鷹も朋輩",
+          "accept": []
+        },
+        {
+          "display": "犬兎の争い",
+          "accept": [
+            "けんとのあらそい"
+          ]
+        },
+        {
+          "display": "犬の川端歩き",
+          "accept": []
+        },
+        {
+          "display": "犬に念仏猫に経",
+          "accept": []
+        },
+        {
+          "display": "一犬虚に吠ゆれば万犬実を伝う",
+          "accept": []
+        },
+        {
+          "display": "犬骨折って鷹の餌食",
+          "accept": []
+        },
+        {
+          "display": "犬の手も人の手にしたい",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "「目」を使った慣用句を答えてください（「目が高い」など）。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "目が高い",
+          "accept": []
+        },
+        {
+          "display": "目がない",
+          "accept": []
+        },
+        {
+          "display": "目に余る",
+          "accept": []
+        },
+        {
+          "display": "目を丸くする",
+          "accept": []
+        },
+        {
+          "display": "目を盗む",
+          "accept": []
+        },
+        {
+          "display": "目から鱗が落ちる",
+          "accept": [
+            "目から鱗",
+            "目からうろこ"
+          ]
+        },
+        {
+          "display": "目と鼻の先",
+          "accept": []
+        },
+        {
+          "display": "目が回る",
+          "accept": []
+        },
+        {
+          "display": "目を光らせる",
+          "accept": []
+        },
+        {
+          "display": "目に入れても痛くない",
+          "accept": []
+        },
+        {
+          "display": "目をつぶる",
+          "accept": [
+            "目をつむる"
+          ]
+        },
+        {
+          "display": "目を細める",
+          "accept": []
+        },
+        {
+          "display": "目くじらを立てる",
+          "accept": []
+        },
+        {
+          "display": "目の上のたんこぶ",
+          "accept": [
+            "目の上の瘤"
+          ]
+        },
+        {
+          "display": "目の色を変える",
+          "accept": []
+        },
+        {
+          "display": "目が利く",
+          "accept": []
+        },
+        {
+          "display": "目に物見せる",
+          "accept": []
+        },
+        {
+          "display": "目を引く",
+          "accept": []
+        },
+        {
+          "display": "目を疑う",
+          "accept": []
+        },
+        {
+          "display": "目が点になる",
+          "accept": []
+        },
+        {
+          "display": "目を覚ます",
+          "accept": []
+        },
+        {
+          "display": "目を通す",
+          "accept": []
+        },
+        {
+          "display": "目を配る",
+          "accept": []
+        },
+        {
+          "display": "目に浮かぶ",
+          "accept": []
+        },
+        {
+          "display": "目に留まる",
+          "accept": []
+        },
+        {
+          "display": "目が肥える",
+          "accept": []
+        },
+        {
+          "display": "目を掛ける",
+          "accept": [
+            "目をかける"
+          ]
+        },
+        {
+          "display": "目鼻がつく",
+          "accept": []
+        },
+        {
+          "display": "目白押し",
+          "accept": []
+        },
+        {
+          "display": "目の敵",
+          "accept": [
+            "目の敵にする"
+          ]
+        },
+        {
+          "display": "目もくれない",
+          "accept": []
+        },
+        {
+          "display": "目を奪われる",
+          "accept": [
+            "目を奪う"
+          ]
+        },
+        {
+          "display": "目に焼き付ける",
+          "accept": [
+            "目に焼きつく"
+          ]
+        },
+        {
+          "display": "目が覚める",
+          "accept": []
+        },
+        {
+          "display": "目が離せない",
+          "accept": []
+        },
+        {
+          "display": "目を背ける",
+          "accept": []
+        },
+        {
+          "display": "目を伏せる",
+          "accept": []
+        },
+        {
+          "display": "目を皿のようにする",
+          "accept": []
+        },
+        {
+          "display": "目が据わる",
+          "accept": []
+        },
+        {
+          "display": "目に見える",
+          "accept": []
+        },
+        {
+          "display": "目を向ける",
+          "accept": []
+        },
+        {
+          "display": "目を付ける",
+          "accept": [
+            "目をつける"
+          ]
+        },
+        {
+          "display": "目を剥く",
+          "accept": []
+        },
+        {
+          "display": "目が泳ぐ",
+          "accept": []
+        },
+        {
+          "display": "目が届く",
+          "accept": []
+        },
+        {
+          "display": "目は口ほどに物を言う",
+          "accept": []
+        },
+        {
+          "display": "目には目を歯には歯を",
+          "accept": [
+            "目には目を"
+          ]
+        },
+        {
+          "display": "目の毒",
+          "accept": []
+        },
+        {
+          "display": "目の保養",
+          "accept": []
+        },
+        {
+          "display": "目を落とす",
+          "accept": []
+        },
+        {
+          "display": "目を輝かせる",
+          "accept": []
+        },
+        {
+          "display": "目を瞠る",
+          "accept": [
+            "目をみはる"
+          ]
+        },
+        {
+          "display": "目が曇る",
+          "accept": []
+        },
+        {
+          "display": "目を見張る",
+          "accept": []
+        },
+        {
+          "display": "目をくらます",
+          "accept": []
+        },
+        {
+          "display": "目を楽しませる",
+          "accept": []
+        },
+        {
+          "display": "目に障る",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "西洋の有名な画家を答えてください（姓だけでも可）。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "ゴッホ",
+          "accept": [
+            "フィンセント・ファン・ゴッホ",
+            "ファン・ゴッホ"
+          ]
+        },
+        {
+          "display": "ピカソ",
+          "accept": [
+            "パブロ・ピカソ"
+          ]
+        },
+        {
+          "display": "モネ",
+          "accept": [
+            "クロード・モネ"
+          ]
+        },
+        {
+          "display": "レオナルド・ダ・ヴィンチ",
+          "accept": [
+            "ダ・ヴィンチ",
+            "ダビンチ",
+            "ダヴィンチ",
+            "レオナルド"
+          ]
+        },
+        {
+          "display": "ミケランジェロ",
+          "accept": []
+        },
+        {
+          "display": "ラファエロ",
+          "accept": []
+        },
+        {
+          "display": "ルノワール",
+          "accept": []
+        },
+        {
+          "display": "セザンヌ",
+          "accept": []
+        },
+        {
+          "display": "ゴーギャン",
+          "accept": []
+        },
+        {
+          "display": "ムンク",
+          "accept": []
+        },
+        {
+          "display": "ダリ",
+          "accept": [
+            "サルバドール・ダリ"
+          ]
+        },
+        {
+          "display": "フェルメール",
+          "accept": []
+        },
+        {
+          "display": "レンブラント",
+          "accept": []
+        },
+        {
+          "display": "マネ",
+          "accept": []
+        },
+        {
+          "display": "ドガ",
+          "accept": []
+        },
+        {
+          "display": "クリムト",
+          "accept": []
+        },
+        {
+          "display": "ミレー",
+          "accept": []
+        },
+        {
+          "display": "ルーベンス",
+          "accept": []
+        },
+        {
+          "display": "ボッティチェリ",
+          "accept": [
+            "ボッティチェッリ"
+          ]
+        },
+        {
+          "display": "マティス",
+          "accept": []
+        },
+        {
+          "display": "シャガール",
+          "accept": []
+        },
+        {
+          "display": "ウォーホル",
+          "accept": [
+            "アンディ・ウォーホル"
+          ]
+        },
+        {
+          "display": "ゴヤ",
+          "accept": []
+        },
+        {
+          "display": "ベラスケス",
+          "accept": []
+        },
+        {
+          "display": "ターナー",
+          "accept": []
+        },
+        {
+          "display": "モディリアーニ",
+          "accept": []
+        },
+        {
+          "display": "ロートレック",
+          "accept": [
+            "トゥールーズ＝ロートレック"
+          ]
+        },
+        {
+          "display": "カンディンスキー",
+          "accept": []
+        },
+        {
+          "display": "ミロ",
+          "accept": []
+        },
+        {
+          "display": "スーラ",
+          "accept": []
+        },
+        {
+          "display": "ブリューゲル",
+          "accept": []
+        },
+        {
+          "display": "デューラー",
+          "accept": []
+        },
+        {
+          "display": "クールベ",
+          "accept": []
+        },
+        {
+          "display": "ドラクロワ",
+          "accept": []
+        },
+        {
+          "display": "アングル",
+          "accept": []
+        },
+        {
+          "display": "ミュシャ",
+          "accept": []
+        },
+        {
+          "display": "ルソー",
+          "accept": [
+            "アンリ・ルソー"
+          ]
+        },
+        {
+          "display": "マグリット",
+          "accept": []
+        },
+        {
+          "display": "ポロック",
+          "accept": []
+        },
+        {
+          "display": "ウォーターハウス",
+          "accept": []
+        },
+        {
+          "display": "ヤン・ファン・エイク",
+          "accept": [
+            "ファン・エイク"
+          ]
+        },
+        {
+          "display": "カラヴァッジョ",
+          "accept": [
+            "カラバッジョ"
+          ]
+        },
+        {
+          "display": "ティツィアーノ",
+          "accept": []
+        },
+        {
+          "display": "ピサロ",
+          "accept": []
+        },
+        {
+          "display": "シスレー",
+          "accept": []
+        },
+        {
+          "display": "エル・グレコ",
+          "accept": [
+            "グレコ"
+          ]
+        },
+        {
+          "display": "ブラック",
+          "accept": []
+        },
+        {
+          "display": "バスキア",
+          "accept": []
+        },
+        {
+          "display": "ホッパー",
+          "accept": [
+            "エドワード・ホッパー"
+          ]
+        },
+        {
+          "display": "ヒエロニムス・ボス",
+          "accept": [
+            "ボス"
+          ]
+        },
+        {
+          "display": "コロー",
+          "accept": []
+        },
+        {
+          "display": "ホルバイン",
+          "accept": []
+        },
+        {
+          "display": "モンドリアン",
+          "accept": []
+        },
+        {
+          "display": "ワイエス",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "日本の伝統的な楽器（和楽器）を答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "三味線",
+          "accept": [
+            "しゃみせん"
+          ]
+        },
+        {
+          "display": "琴",
+          "accept": [
+            "箏",
+            "こと",
+            "そう"
+          ]
+        },
+        {
+          "display": "尺八",
+          "accept": [
+            "しゃくはち"
+          ]
+        },
+        {
+          "display": "和太鼓",
+          "accept": [
+            "太鼓",
+            "たいこ"
+          ]
+        },
+        {
+          "display": "篠笛",
+          "accept": [
+            "しのぶえ",
+            "笛",
+            "横笛"
+          ]
+        },
+        {
+          "display": "龍笛",
+          "accept": [
+            "りゅうてき"
+          ]
+        },
+        {
+          "display": "鼓",
+          "accept": [
+            "つづみ",
+            "小鼓",
+            "大鼓"
+          ]
+        },
+        {
+          "display": "琵琶",
+          "accept": [
+            "びわ"
+          ]
+        },
+        {
+          "display": "笙",
+          "accept": [
+            "しょう"
+          ]
+        },
+        {
+          "display": "篳篥",
+          "accept": [
+            "ひちりき"
+          ]
+        },
+        {
+          "display": "三線",
+          "accept": [
+            "さんしん"
+          ]
+        },
+        {
+          "display": "拍子木",
+          "accept": [
+            "ひょうしぎ"
+          ]
+        },
+        {
+          "display": "鉦",
+          "accept": [
+            "かね"
+          ]
+        },
+        {
+          "display": "能管",
+          "accept": [
+            "のうかん"
+          ]
+        },
+        {
+          "display": "胡弓",
+          "accept": [
+            "こきゅう"
+          ]
+        },
+        {
+          "display": "木魚",
+          "accept": [
+            "もくぎょ"
+          ]
+        },
+        {
+          "display": "鈴",
+          "accept": [
+            "すず"
+          ]
+        },
+        {
+          "display": "法螺貝",
+          "accept": [
+            "ほらがい"
+          ]
+        },
+        {
+          "display": "当たり鉦",
+          "accept": [
+            "チャンチキ"
+          ]
+        },
+        {
+          "display": "締太鼓",
+          "accept": [
+            "しめだいこ"
+          ]
+        },
+        {
+          "display": "ささら",
+          "accept": []
+        },
+        {
+          "display": "一絃琴",
+          "accept": []
+        },
+        {
+          "display": "鞨鼓",
+          "accept": [
+            "かっこ"
+          ]
+        },
+        {
+          "display": "編木",
+          "accept": [
+            "びんざさら"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "雨の呼び名（「〇雨」「〇〇雨」など）を答えてください（梅雨・夕立 など）。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "梅雨",
+          "accept": [
+            "つゆ",
+            "ばいう"
+          ]
+        },
+        {
+          "display": "夕立",
+          "accept": [
+            "ゆうだち"
+          ]
+        },
+        {
+          "display": "時雨",
+          "accept": [
+            "しぐれ"
+          ]
+        },
+        {
+          "display": "春雨",
+          "accept": [
+            "はるさめ"
+          ]
+        },
+        {
+          "display": "五月雨",
+          "accept": [
+            "さみだれ"
+          ]
+        },
+        {
+          "display": "小雨",
+          "accept": [
+            "こさめ"
+          ]
+        },
+        {
+          "display": "霧雨",
+          "accept": [
+            "きりさめ"
+          ]
+        },
+        {
+          "display": "豪雨",
+          "accept": [
+            "ごうう",
+            "集中豪雨",
+            "ゲリラ豪雨"
+          ]
+        },
+        {
+          "display": "にわか雨",
+          "accept": [
+            "俄雨"
+          ]
+        },
+        {
+          "display": "天気雨",
+          "accept": [
+            "狐の嫁入り",
+            "てんきあめ"
+          ]
+        },
+        {
+          "display": "秋雨",
+          "accept": [
+            "あきさめ"
+          ]
+        },
+        {
+          "display": "氷雨",
+          "accept": [
+            "ひさめ"
+          ]
+        },
+        {
+          "display": "大雨",
+          "accept": [
+            "おおあめ"
+          ]
+        },
+        {
+          "display": "長雨",
+          "accept": [
+            "ながあめ"
+          ]
+        },
+        {
+          "display": "通り雨",
+          "accept": [
+            "とおりあめ"
+          ]
+        },
+        {
+          "display": "小糠雨",
+          "accept": [
+            "こぬかあめ"
+          ]
+        },
+        {
+          "display": "驟雨",
+          "accept": [
+            "しゅうう"
+          ]
+        },
+        {
+          "display": "慈雨",
+          "accept": [
+            "じう"
+          ]
+        },
+        {
+          "display": "涙雨",
+          "accept": [
+            "なみだあめ"
+          ]
+        },
+        {
+          "display": "翠雨",
+          "accept": [
+            "すいう"
+          ]
+        },
+        {
+          "display": "菜種梅雨",
+          "accept": [
+            "なたねづゆ"
+          ]
+        },
+        {
+          "display": "走り梅雨",
+          "accept": [
+            "はしりづゆ"
+          ]
+        },
+        {
+          "display": "空梅雨",
+          "accept": [
+            "からつゆ"
+          ]
+        },
+        {
+          "display": "雷雨",
+          "accept": [
+            "らいう"
+          ]
+        },
+        {
+          "display": "酸性雨",
+          "accept": [
+            "さんせいう"
+          ]
+        },
+        {
+          "display": "暴風雨",
+          "accept": [
+            "ぼうふうう"
+          ]
+        },
+        {
+          "display": "村雨",
+          "accept": [
+            "むらさめ"
+          ]
+        },
+        {
+          "display": "土砂降り",
+          "accept": [
+            "どしゃぶり"
+          ]
+        },
+        {
+          "display": "恵みの雨",
+          "accept": []
+        },
+        {
+          "display": "春時雨",
+          "accept": []
+        },
+        {
+          "display": "冷雨",
+          "accept": [
+            "れいう"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの難読漢字（生き物）の読みを答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "いるか",
+          "prompt": "海豚",
+          "accept": []
+        },
+        {
+          "display": "ふぐ",
+          "prompt": "河豚",
+          "accept": []
+        },
+        {
+          "display": "くらげ",
+          "prompt": "海月",
+          "accept": []
+        },
+        {
+          "display": "りす",
+          "prompt": "栗鼠",
+          "accept": []
+        },
+        {
+          "display": "かたつむり",
+          "prompt": "蝸牛",
+          "accept": [
+            "でんでんむし"
+          ]
+        },
+        {
+          "display": "もぐら",
+          "prompt": "土竜",
+          "accept": []
+        },
+        {
+          "display": "こうもり",
+          "prompt": "蝙蝠",
+          "accept": []
+        },
+        {
+          "display": "きつつき",
+          "prompt": "啄木鳥",
+          "accept": []
+        },
+        {
+          "display": "ひとで",
+          "prompt": "海星",
+          "accept": []
+        },
+        {
+          "display": "とかげ",
+          "prompt": "蜥蜴",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "和菓子の名前を答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "大福",
+          "accept": [
+            "だいふく",
+            "いちご大福"
+          ]
+        },
+        {
+          "display": "団子",
+          "accept": [
+            "だんご",
+            "みたらし団子",
+            "三色団子"
+          ]
+        },
+        {
+          "display": "羊羹",
+          "accept": [
+            "ようかん",
+            "水羊羹"
+          ]
+        },
+        {
+          "display": "どら焼き",
+          "accept": [
+            "どらやき"
+          ]
+        },
+        {
+          "display": "最中",
+          "accept": [
+            "もなか"
+          ]
+        },
+        {
+          "display": "おはぎ",
+          "accept": [
+            "ぼたもち",
+            "牡丹餅"
+          ]
+        },
+        {
+          "display": "柏餅",
+          "accept": [
+            "かしわもち"
+          ]
+        },
+        {
+          "display": "桜餅",
+          "accept": [
+            "さくらもち"
+          ]
+        },
+        {
+          "display": "わらび餅",
+          "accept": [
+            "わらびもち"
+          ]
+        },
+        {
+          "display": "たい焼き",
+          "accept": [
+            "たいやき"
+          ]
+        },
+        {
+          "display": "今川焼き",
+          "accept": [
+            "大判焼き",
+            "回転焼き"
+          ]
+        },
+        {
+          "display": "饅頭",
+          "accept": [
+            "まんじゅう",
+            "おまんじゅう"
+          ]
+        },
+        {
+          "display": "煎餅",
+          "accept": [
+            "せんべい",
+            "おせんべい"
+          ]
+        },
+        {
+          "display": "かりんとう",
+          "accept": [
+            "花林糖"
+          ]
+        },
+        {
+          "display": "金平糖",
+          "accept": [
+            "こんぺいとう"
+          ]
+        },
+        {
+          "display": "カステラ",
+          "accept": []
+        },
+        {
+          "display": "ういろう",
+          "accept": [
+            "外郎"
+          ]
+        },
+        {
+          "display": "葛餅",
+          "accept": [
+            "くずもち"
+          ]
+        },
+        {
+          "display": "練り切り",
+          "accept": [
+            "ねりきり"
+          ]
+        },
+        {
+          "display": "あんみつ",
+          "accept": [
+            "餡蜜"
+          ]
+        },
+        {
+          "display": "八ツ橋",
+          "accept": [
+            "八つ橋",
+            "生八つ橋"
+          ]
+        },
+        {
+          "display": "きんつば",
+          "accept": [
+            "金鍔"
+          ]
+        },
+        {
+          "display": "落雁",
+          "accept": [
+            "らくがん"
+          ]
+        },
+        {
+          "display": "甘納豆",
+          "accept": [
+            "あまなっとう"
+          ]
+        },
+        {
+          "display": "ちまき",
+          "accept": [
+            "粽"
+          ]
+        },
+        {
+          "display": "くず切り",
+          "accept": [
+            "葛切り"
+          ]
+        },
+        {
+          "display": "おこし",
+          "accept": []
+        },
+        {
+          "display": "あられ",
+          "accept": []
+        },
+        {
+          "display": "求肥",
+          "accept": [
+            "ぎゅうひ"
+          ]
+        },
+        {
+          "display": "きなこ餅",
+          "accept": [
+            "安倍川餅"
+          ]
+        },
+        {
+          "display": "五平餅",
+          "accept": [
+            "ごへいもち"
+          ]
+        },
+        {
+          "display": "草餅",
+          "accept": [
+            "よもぎ餅"
+          ]
+        },
+        {
+          "display": "ぜんざい",
+          "accept": [
+            "おしるこ",
+            "お汁粉"
+          ]
+        },
+        {
+          "display": "水まんじゅう",
+          "accept": []
+        },
+        {
+          "display": "葛まんじゅう",
+          "accept": []
+        },
+        {
+          "display": "栗まんじゅう",
+          "accept": []
+        },
+        {
+          "display": "もみじ饅頭",
+          "accept": []
+        },
+        {
+          "display": "鹿の子",
+          "accept": [
+            "かのこ"
+          ]
+        },
+        {
+          "display": "人形焼",
+          "accept": [
+            "人形焼き"
+          ]
+        },
+        {
+          "display": "瓦せんべい",
+          "accept": []
+        },
+        {
+          "display": "雷おこし",
+          "accept": []
+        },
+        {
+          "display": "べっこう飴",
+          "accept": [
+            "飴"
+          ]
+        },
+        {
+          "display": "干菓子",
+          "accept": [
+            "ひがし"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "日本の有名なお寺の名前を答えてください（金閣寺・清水寺 など）。",
+      "slots": 6,
+      "answers": [
+        {
+          "display": "金閣寺",
+          "accept": [
+            "鹿苑寺"
+          ]
+        },
+        {
+          "display": "銀閣寺",
+          "accept": [
+            "慈照寺"
+          ]
+        },
+        {
+          "display": "清水寺",
+          "accept": [
+            "きよみずでら"
+          ]
+        },
+        {
+          "display": "東大寺",
+          "accept": []
+        },
+        {
+          "display": "法隆寺",
+          "accept": []
+        },
+        {
+          "display": "浅草寺",
+          "accept": [
+            "浅草観音"
+          ]
+        },
+        {
+          "display": "延暦寺",
+          "accept": [
+            "比叡山"
+          ]
+        },
+        {
+          "display": "興福寺",
+          "accept": []
+        },
+        {
+          "display": "薬師寺",
+          "accept": []
+        },
+        {
+          "display": "唐招提寺",
+          "accept": []
+        },
+        {
+          "display": "平等院",
+          "accept": [
+            "平等院鳳凰堂"
+          ]
+        },
+        {
+          "display": "中尊寺",
+          "accept": []
+        },
+        {
+          "display": "善光寺",
+          "accept": []
+        },
+        {
+          "display": "成田山新勝寺",
+          "accept": [
+            "新勝寺",
+            "成田山"
+          ]
+        },
+        {
+          "display": "東寺",
+          "accept": [
+            "教王護国寺"
+          ]
+        },
+        {
+          "display": "知恩院",
+          "accept": []
+        },
+        {
+          "display": "三十三間堂",
+          "accept": [
+            "蓮華王院"
+          ]
+        },
+        {
+          "display": "龍安寺",
+          "accept": [
+            "竜安寺"
+          ]
+        },
+        {
+          "display": "南禅寺",
+          "accept": []
+        },
+        {
+          "display": "金剛峯寺",
+          "accept": [
+            "金剛峰寺",
+            "高野山"
+          ]
+        },
+        {
+          "display": "永平寺",
+          "accept": []
+        },
+        {
+          "display": "建長寺",
+          "accept": []
+        },
+        {
+          "display": "円覚寺",
+          "accept": []
+        },
+        {
+          "display": "高徳院",
+          "accept": [
+            "鎌倉大仏"
+          ]
+        },
+        {
+          "display": "長谷寺",
+          "accept": []
+        },
+        {
+          "display": "天龍寺",
+          "accept": [
+            "天竜寺"
+          ]
+        },
+        {
+          "display": "西本願寺",
+          "accept": []
+        },
+        {
+          "display": "東本願寺",
+          "accept": []
+        },
+        {
+          "display": "仁和寺",
+          "accept": []
+        },
+        {
+          "display": "醍醐寺",
+          "accept": []
+        },
+        {
+          "display": "大覚寺",
+          "accept": []
+        },
+        {
+          "display": "妙心寺",
+          "accept": []
+        },
+        {
+          "display": "相国寺",
+          "accept": []
+        },
+        {
+          "display": "大徳寺",
+          "accept": []
+        },
+        {
+          "display": "建仁寺",
+          "accept": []
+        },
+        {
+          "display": "東福寺",
+          "accept": []
+        },
+        {
+          "display": "高台寺",
+          "accept": []
+        },
+        {
+          "display": "三千院",
+          "accept": []
+        },
+        {
+          "display": "寂光院",
+          "accept": []
+        },
+        {
+          "display": "鞍馬寺",
+          "accept": []
+        },
+        {
+          "display": "石山寺",
+          "accept": []
+        },
+        {
+          "display": "室生寺",
+          "accept": []
+        },
+        {
+          "display": "飛鳥寺",
+          "accept": []
+        },
+        {
+          "display": "四天王寺",
+          "accept": []
+        },
+        {
+          "display": "瑞巌寺",
+          "accept": []
+        },
+        {
+          "display": "立石寺",
+          "accept": [
+            "山寺"
+          ]
+        },
+        {
+          "display": "輪王寺",
+          "accept": []
+        },
+        {
+          "display": "増上寺",
+          "accept": []
+        },
+        {
+          "display": "寛永寺",
+          "accept": []
+        },
+        {
+          "display": "護国寺",
+          "accept": []
+        },
+        {
+          "display": "築地本願寺",
+          "accept": []
+        },
+        {
+          "display": "柴又帝釈天",
+          "accept": [
+            "題経寺",
+            "帝釈天"
+          ]
+        },
+        {
+          "display": "川崎大師",
+          "accept": [
+            "平間寺"
+          ]
+        },
+        {
+          "display": "高尾山薬王院",
+          "accept": [
+            "薬王院"
+          ]
+        },
+        {
+          "display": "瑞龍寺",
+          "accept": []
+        }
+      ]
+    },
+    {
+      "q": "日本の昔話・おとぎ話のタイトルを答えてください。",
+      "slots": 8,
+      "answers": [
+        {
+          "display": "桃太郎",
+          "accept": [
+            "ももたろう"
+          ]
+        },
+        {
+          "display": "浦島太郎",
+          "accept": [
+            "うらしまたろう"
+          ]
+        },
+        {
+          "display": "金太郎",
+          "accept": [
+            "きんたろう"
+          ]
+        },
+        {
+          "display": "かぐや姫",
+          "accept": [
+            "竹取物語"
+          ]
+        },
+        {
+          "display": "一寸法師",
+          "accept": [
+            "いっすんぼうし"
+          ]
+        },
+        {
+          "display": "舌切り雀",
+          "accept": [
+            "したきりすずめ"
+          ]
+        },
+        {
+          "display": "花咲かじいさん",
+          "accept": [
+            "花咲爺",
+            "はなさかじいさん"
+          ]
+        },
+        {
+          "display": "かちかち山",
+          "accept": [
+            "カチカチ山"
+          ]
+        },
+        {
+          "display": "さるかに合戦",
+          "accept": [
+            "猿蟹合戦",
+            "さるかにがっせん"
+          ]
+        },
+        {
+          "display": "鶴の恩返し",
+          "accept": [
+            "つるのおんがえし"
+          ]
+        },
+        {
+          "display": "笠地蔵",
+          "accept": [
+            "かさじぞう"
+          ]
+        },
+        {
+          "display": "おむすびころりん",
+          "accept": [
+            "おむすびころりん",
+            "ねずみの浄土"
+          ]
+        },
+        {
+          "display": "分福茶釜",
+          "accept": [
+            "ぶんぶく茶釜"
+          ]
+        },
+        {
+          "display": "こぶとりじいさん",
+          "accept": [
+            "こぶ取り爺さん"
+          ]
+        },
+        {
+          "display": "因幡の白うさぎ",
+          "accept": [
+            "因幡の白兎"
+          ]
+        },
+        {
+          "display": "ねずみの嫁入り",
+          "accept": []
+        },
+        {
+          "display": "三枚のお札",
+          "accept": [
+            "三枚のおふだ"
+          ]
+        },
+        {
+          "display": "雪女",
+          "accept": [
+            "ゆきおんな"
+          ]
+        },
+        {
+          "display": "わらしべ長者",
+          "accept": []
+        },
+        {
+          "display": "三年寝太郎",
+          "accept": []
+        },
+        {
+          "display": "力太郎",
+          "accept": []
+        },
+        {
+          "display": "ものぐさ太郎",
+          "accept": []
+        },
+        {
+          "display": "瓜子姫",
+          "accept": []
+        },
+        {
+          "display": "鉢かづき",
+          "accept": []
+        },
+        {
+          "display": "天狗の隠れ蓑",
+          "accept": []
+        },
+        {
+          "display": "耳なし芳一",
+          "accept": []
+        },
+        {
+          "display": "酒呑童子",
+          "accept": []
+        },
+        {
+          "display": "八岐大蛇",
+          "accept": [
+            "ヤマタノオロチ"
+          ]
+        },
+        {
+          "display": "安寿と厨子王",
+          "accept": [
+            "山椒大夫"
+          ]
+        },
+        {
+          "display": "ききみみずきん",
+          "accept": []
+        },
+        {
+          "display": "姥捨て山",
+          "accept": []
+        },
+        {
+          "display": "見るなの座敷",
+          "accept": []
+        },
+        {
+          "display": "たにし長者",
+          "accept": []
+        },
+        {
+          "display": "雀の恩返し",
+          "accept": []
+        }
+      ]
+    }
+  ]
+}

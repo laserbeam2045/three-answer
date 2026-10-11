@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { firstAnswerer } from "@/lib/bomber/engine";
-import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer } from "@/lib/bomber/match";
+import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
 import { redact } from "@/lib/redact";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
 
@@ -108,6 +108,11 @@ describe("normalizeAnswer / matchAnswer", () => {
     expect(normalizeAnswer("ピカチュー")).toBe(normalizeAnswer("ピカチュウ"));
     expect(normalizeAnswer("ルーク")).toBe("るうく");
     expect(normalizeAnswer("ﾙｰｸ")).toBe("るうく");
+  });
+
+  it("小書きの母音の違いを吸収する（ウィンディ／ウインディ）", () => {
+    expect(normalizeAnswer("ウィンディ")).toBe(normalizeAnswer("ウインディ"));
+    expect(normalizeAnswer("シャーペン")).not.toBe(normalizeAnswer("シヤーペン"));
   });
 
   it("旧字体と新字体の違いを吸収する（慶應／慶応）", () => {
@@ -536,5 +541,52 @@ describe("誤答の一覧", () => {
     const judged = redact(s, presence, "p1", end, getSet, allSets, false, getBomberSet, () => [bset]);
     expect(judged.bomber.judged!.misses.map((m) => m.text)).toEqual(["新潟", "あおもり"]);
     expect(judged.bomber.judged!.misses[0].isYou).toBe(true);
+  });
+});
+
+describe("パネル問題（難読漢字など）", () => {
+  const PANEL_Q: BomberQuestion = {
+    q: "難読漢字の読みは？",
+    panels: true,
+    answers: [
+      { display: "いるか", prompt: "海豚" },
+      { display: "ふぐ", prompt: "河豚" },
+      { display: "くらげ", prompt: "海月" },
+      { display: "りす", prompt: "栗鼠" },
+      { display: "もぐら", prompt: "土竜" },
+      { display: "とかげ", prompt: "蜥蜴" },
+    ],
+  };
+  const bpanel: BomberSet = { id: "bpanel", title: "パネル", description: "テスト用", questions: [PANEL_Q] };
+
+  it("パネルの枚数が答える数になり、見えている漢字をそのまま打っても正解にならない", () => {
+    expect(slotsFor(PANEL_Q)).toBe(6);
+    expect(matchAnswer(PANEL_Q, "イルカ")).toBe(0);
+    expect(matchAnswer(PANEL_Q, "海豚")).toBe(-1);
+  });
+
+  it("正解したパネルだけが埋まって全員に見える", () => {
+    const get = (id: string) => (id === "bpanel" ? bpanel : getBomberSet(id));
+    const s = createRoom("rp", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presence, now, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" }, 0);
+    run("p1", { type: "setName", name: "p1" }, 0);
+    run("p1", { type: "bomberJoin" }, 0);
+    run(HOST, { type: "selectSet", setId: "bpanel" }, 0);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    expect(s.bomberRound!.target).toBe(6);
+    run("p1", { type: "bomberAnswer", text: "くらげ" }, at);
+    const view = redact(s, presence, HOST, at, getSet, allSets, false, get, () => [bpanel]);
+    expect(view.bomber.round!.panels).toEqual([
+      { prompt: "海豚", display: null, by: null, isYou: false },
+      { prompt: "河豚", display: null, by: null, isYou: false },
+      { prompt: "海月", display: "くらげ", by: "p1", isYou: false },
+      { prompt: "栗鼠", display: null, by: null, isYou: false },
+      { prompt: "土竜", display: null, by: null, isYou: false },
+      { prompt: "蜥蜴", display: null, by: null, isYou: false },
+    ]);
   });
 });

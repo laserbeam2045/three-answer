@@ -36,7 +36,8 @@
             "ファインディングニモ",
             "ニモ",
             "ファインディング・ドリー",
-            "ファインディングドリー"
+            "ファインディングドリー",
+            "ドリー"
           ]
         },
         {
@@ -44,7 +45,8 @@
           "accept": [
             "ミスターインクレディブル",
             "インクレディブル・ファミリー",
-            "インクレディブルファミリー"
+            "インクレディブルファミリー",
+            "インクレディブル"
           ]
         },
         {
@@ -52,13 +54,15 @@
           "accept": [
             "カーズ2",
             "カーズ/クロスロード",
-            "カーズクロスロード"
+            "カーズクロスロード",
+            "カーズ3"
           ]
         },
         {
           "display": "レミーのおいしいレストラン",
           "accept": [
-            "レミー"
+            "レミー",
+            "ラタトゥイユ"
           ]
         },
         {
@@ -100,7 +104,8 @@
         {
           "display": "2分の1の魔法",
           "accept": [
-            "にぶんのいちのまほう"
+            "にぶんのいちのまほう",
+            "二分の一の魔法"
           ]
         },
         {
@@ -171,7 +176,13 @@
           "display": "サクソフォーン",
           "accept": [
             "サックス",
-            "サクソフォン"
+            "サクソフォン",
+            "サキソフォン",
+            "サキソホン",
+            "アルトサックス",
+            "テナーサックス",
+            "ソプラノサックス",
+            "バリトンサックス"
           ]
         },
         {
@@ -194,6 +205,30 @@
         {
           "display": "コントラファゴット",
           "accept": []
+        },
+        {
+          "display": "尺八",
+          "accept": [
+            "しゃくはち"
+          ]
+        },
+        {
+          "display": "篠笛",
+          "accept": [
+            "しのぶえ"
+          ]
+        },
+        {
+          "display": "バグパイプ",
+          "accept": []
+        },
+        {
+          "display": "パンフルート",
+          "accept": []
+        },
+        {
+          "display": "ケーナ",
+          "accept": []
         }
       ]
     },
@@ -210,7 +245,8 @@
         {
           "display": "アメジスト",
           "accept": [
-            "紫水晶"
+            "紫水晶",
+            "アメシスト"
           ]
         },
         {
@@ -252,7 +288,9 @@
         },
         {
           "display": "アレキサンドライト",
-          "accept": []
+          "accept": [
+            "アレクサンドライト"
+          ]
         },
         {
           "display": "ルビー",
@@ -264,7 +302,9 @@
         },
         {
           "display": "サードオニキス",
-          "accept": []
+          "accept": [
+            "サードオニックス"
+          ]
         },
         {
           "display": "スピネル",
@@ -272,7 +312,9 @@
         },
         {
           "display": "サファイア",
-          "accept": []
+          "accept": [
+            "サファイヤ"
+          ]
         },
         {
           "display": "オパール",
@@ -321,13 +363,26 @@
         },
         {
           "display": "クリソベリル",
+          "accept": [
+            "キャッツアイ",
+            "クリソベリル・キャッツアイ"
+          ]
+        },
+        {
+          "display": "モルガナイト",
           "accept": []
         },
         {
-          "display": "ロードクロサイト",
-          "accept": [
-            "インカローズ"
-          ]
+          "display": "アイオライト",
+          "accept": []
+        },
+        {
+          "display": "スフェーン",
+          "accept": []
+        },
+        {
+          "display": "クンツァイト",
+          "accept": []
         }
       ]
     },
@@ -364,7 +419,8 @@
         {
           "display": "グーズベリー",
           "accept": [
-            "すぐり"
+            "すぐり",
+            "グースベリー"
           ]
         },
         {
@@ -419,6 +475,34 @@
         },
         {
           "display": "ジューンベリー",
+          "accept": []
+        },
+        {
+          "display": "チョークベリー",
+          "accept": [
+            "アロニア"
+          ]
+        },
+        {
+          "display": "インカベリー",
+          "accept": [
+            "ゴールデンベリー"
+          ]
+        },
+        {
+          "display": "マキベリー",
+          "accept": []
+        },
+        {
+          "display": "ミラクルベリー",
+          "accept": []
+        },
+        {
+          "display": "リンゴンベリー",
+          "accept": []
+        },
+        {
+          "display": "クラウドベリー",
           "accept": []
         }
       ]
@@ -726,14 +810,16 @@
             "鰒",
             "鯸",
             "魨",
-            "ふぐ"
+            "ふぐ",
+            "ふく"
           ]
         },
         {
           "display": "鮴",
           "accept": [
             "鮴",
-            "ごり"
+            "ごり",
+            "めばる"
           ]
         },
         {
@@ -797,7 +883,8 @@
           "display": "鮄",
           "accept": [
             "鮄",
-            "ほうぼう"
+            "ほうぼう",
+            "魴"
           ]
         },
         {
@@ -854,7 +941,8 @@
           "accept": [
             "鮠",
             "鰷",
-            "はや"
+            "はや",
+            "はえ"
           ]
         },
         {
@@ -899,88 +987,237 @@
             "𩸽",
             "ほっけ"
           ]
+        },
+        {
+          "display": "鱂",
+          "accept": [
+            "めだか"
+          ]
+        },
+        {
+          "display": "鮇",
+          "accept": [
+            "いわな"
+          ]
+        },
+        {
+          "display": "鮋",
+          "accept": [
+            "かさご"
+          ]
+        },
+        {
+          "display": "鱪（鱰）",
+          "accept": [
+            "鱪",
+            "鱰",
+            "しいら"
+          ]
+        },
+        {
+          "display": "鯧",
+          "accept": [
+            "まながつお"
+          ]
         }
       ]
     },
     {
-      "q": "日本の長い川トップ10（本流の長さ）を答えてください。",
-      "slots": 5,
-      "suffixes": [
-        "川",
-        "がわ",
-        "かわ"
-      ],
+      "q": "ゲーム「スーパーマリオ」シリーズに登場するキャラクターを答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "信濃川",
+          "display": "マリオ",
+          "accept": []
+        },
+        {
+          "display": "ルイージ",
+          "accept": []
+        },
+        {
+          "display": "ピーチ",
           "accept": [
-            "信濃",
-            "しなの"
+            "ピーチ姫"
           ]
         },
         {
-          "display": "利根川",
+          "display": "クッパ",
+          "accept": []
+        },
+        {
+          "display": "キノピオ",
+          "accept": []
+        },
+        {
+          "display": "ヨッシー",
+          "accept": []
+        },
+        {
+          "display": "ワリオ",
+          "accept": []
+        },
+        {
+          "display": "ワルイージ",
+          "accept": []
+        },
+        {
+          "display": "デイジー",
           "accept": [
-            "利根",
-            "とね"
+            "デイジー姫"
           ]
         },
         {
-          "display": "石狩川",
+          "display": "ロゼッタ",
+          "accept": []
+        },
+        {
+          "display": "ドンキーコング",
           "accept": [
-            "石狩",
-            "いしかり"
+            "ドンキー"
           ]
         },
         {
-          "display": "天塩川",
+          "display": "ディディーコング",
+          "accept": []
+        },
+        {
+          "display": "ノコノコ",
+          "accept": []
+        },
+        {
+          "display": "クリボー",
+          "accept": []
+        },
+        {
+          "display": "ジュゲム",
+          "accept": []
+        },
+        {
+          "display": "テレサ",
+          "accept": []
+        },
+        {
+          "display": "キングテレサ",
+          "accept": []
+        },
+        {
+          "display": "ヘイホー",
+          "accept": []
+        },
+        {
+          "display": "パックンフラワー",
           "accept": [
-            "天塩",
-            "てしお"
+            "パックン"
           ]
         },
         {
-          "display": "北上川",
+          "display": "ボム兵",
           "accept": [
-            "北上",
-            "きたかみ"
+            "ボムへい"
           ]
         },
         {
-          "display": "阿武隈川",
+          "display": "クッパJr.",
           "accept": [
-            "阿武隈",
-            "あぶくま"
+            "クッパジュニア",
+            "クッパJr"
           ]
         },
         {
-          "display": "木曽川",
+          "display": "カメック",
+          "accept": []
+        },
+        {
+          "display": "キノピコ",
+          "accept": []
+        },
+        {
+          "display": "ハナチャン",
+          "accept": []
+        },
+        {
+          "display": "ドッスン",
+          "accept": []
+        },
+        {
+          "display": "ワンワン",
+          "accept": []
+        },
+        {
+          "display": "ゲッソー",
+          "accept": []
+        },
+        {
+          "display": "プクプク",
+          "accept": []
+        },
+        {
+          "display": "カロン",
+          "accept": []
+        },
+        {
+          "display": "トゲゾー",
+          "accept": []
+        },
+        {
+          "display": "チョロプー",
+          "accept": []
+        },
+        {
+          "display": "キャサリン",
+          "accept": []
+        },
+        {
+          "display": "ポリーン",
+          "accept": []
+        },
+        {
+          "display": "ベビィマリオ",
           "accept": [
-            "木曽",
-            "きそ"
+            "ベビーマリオ"
           ]
         },
         {
-          "display": "最上川",
+          "display": "ハンマーブロス",
           "accept": [
-            "最上",
-            "もがみ"
+            "ハンマーブロス"
           ]
         },
         {
-          "display": "天竜川",
-          "accept": [
-            "天竜",
-            "てんりゅう",
-            "天龍川"
-          ]
+          "display": "ファイアブロス",
+          "accept": []
         },
         {
-          "display": "阿賀野川",
-          "accept": [
-            "阿賀野",
-            "あがの"
-          ]
+          "display": "ブーメランブロス",
+          "accept": []
+        },
+        {
+          "display": "メット",
+          "accept": []
+        },
+        {
+          "display": "サンボ",
+          "accept": []
+        },
+        {
+          "display": "ガボン",
+          "accept": []
+        },
+        {
+          "display": "キラー",
+          "accept": []
+        },
+        {
+          "display": "コクッパ",
+          "accept": []
+        },
+        {
+          "display": "チコ",
+          "accept": []
+        },
+        {
+          "display": "カゲの女王",
+          "accept": []
         }
       ]
     },
@@ -1003,7 +1240,8 @@
           "display": "建国記念の日",
           "accept": [
             "建国記念",
-            "けんこくきねん"
+            "けんこくきねん",
+            "建国記念日"
           ]
         },
         {
@@ -1091,146 +1329,451 @@
       "answers": [
         {
           "display": "カザフスタン",
-          "accept": []
+          "accept": [
+            "Kazakhstan"
+          ]
         },
         {
           "display": "ウズベキスタン",
-          "accept": []
+          "accept": [
+            "Uzbekistan"
+          ]
         },
         {
           "display": "トルクメニスタン",
-          "accept": []
+          "accept": [
+            "Turkmenistan"
+          ]
         },
         {
           "display": "タジキスタン",
-          "accept": []
+          "accept": [
+            "Tajikistan"
+          ]
         },
         {
           "display": "キルギス",
           "accept": [
-            "キルギスタン"
+            "キルギスタン",
+            "Kyrgyzstan"
           ]
         },
         {
           "display": "アフガニスタン",
-          "accept": []
+          "accept": [
+            "Afghanistan"
+          ]
         },
         {
           "display": "パキスタン",
-          "accept": []
-        }
-      ]
-    },
-    {
-      "q": "ヨーロッパの国の首都のうち、名前が「ン」で終わるものを答えてください。",
-      "slots": 5,
-      "answers": [
-        {
-          "display": "ロンドン",
-          "accept": []
-        },
-        {
-          "display": "ベルリン",
-          "accept": []
-        },
-        {
-          "display": "ベルン",
-          "accept": []
-        },
-        {
-          "display": "ウィーン",
-          "accept": []
-        },
-        {
-          "display": "ダブリン",
-          "accept": []
-        },
-        {
-          "display": "リスボン",
-          "accept": []
-        },
-        {
-          "display": "タリン",
-          "accept": []
-        },
-        {
-          "display": "コペンハーゲン",
-          "accept": []
-        },
-        {
-          "display": "エレバン",
           "accept": [
-            "エレヴァン"
+            "Pakistan"
           ]
         }
       ]
     },
     {
-      "q": "11から20までの数を英語で答えてください（英語のつづりでもカタカナでも可）。",
+      "q": "お寿司のネタ（具）を答えてください。",
       "slots": 8,
       "answers": [
         {
-          "display": "eleven",
+          "display": "マグロ",
           "accept": [
-            "イレブン"
+            "鮪",
+            "赤身"
           ]
         },
         {
-          "display": "twelve",
+          "display": "トロ",
           "accept": [
-            "トゥエルブ",
-            "トゥウェルブ"
+            "大トロ",
+            "中トロ",
+            "ネギトロ"
           ]
         },
         {
-          "display": "thirteen",
+          "display": "サーモン",
           "accept": [
-            "サーティーン"
+            "サケ",
+            "鮭",
+            "しゃけ"
           ]
         },
         {
-          "display": "fourteen",
+          "display": "ハマチ",
           "accept": [
-            "フォーティーン"
+            "ブリ",
+            "鰤"
           ]
         },
         {
-          "display": "fifteen",
+          "display": "カンパチ",
+          "accept": []
+        },
+        {
+          "display": "タイ",
           "accept": [
-            "フィフティーン"
+            "鯛"
           ]
         },
         {
-          "display": "sixteen",
+          "display": "ヒラメ",
           "accept": [
-            "シックスティーン"
+            "鮃",
+            "えんがわ"
           ]
         },
         {
-          "display": "seventeen",
+          "display": "アジ",
           "accept": [
-            "セブンティーン",
-            "セヴンティーン"
+            "鯵"
           ]
         },
         {
-          "display": "eighteen",
+          "display": "サバ",
           "accept": [
-            "エイティーン"
+            "鯖",
+            "しめさば"
           ]
         },
         {
-          "display": "nineteen",
+          "display": "イワシ",
           "accept": [
-            "ナインティーン"
+            "鰯"
           ]
         },
         {
-          "display": "twenty",
+          "display": "サンマ",
           "accept": [
-            "トゥエンティ",
-            "トゥエンティー"
+            "秋刀魚"
           ]
+        },
+        {
+          "display": "カツオ",
+          "accept": [
+            "鰹"
+          ]
+        },
+        {
+          "display": "コハダ",
+          "accept": []
+        },
+        {
+          "display": "アナゴ",
+          "accept": [
+            "穴子"
+          ]
+        },
+        {
+          "display": "ウナギ",
+          "accept": [
+            "鰻"
+          ]
+        },
+        {
+          "display": "エビ",
+          "accept": [
+            "海老",
+            "甘エビ",
+            "甘えび",
+            "ボタンエビ"
+          ]
+        },
+        {
+          "display": "イカ",
+          "accept": [
+            "烏賊"
+          ]
+        },
+        {
+          "display": "タコ",
+          "accept": [
+            "蛸"
+          ]
+        },
+        {
+          "display": "ホタテ",
+          "accept": [
+            "帆立"
+          ]
+        },
+        {
+          "display": "赤貝",
+          "accept": [
+            "あかがい"
+          ]
+        },
+        {
+          "display": "ツブ貝",
+          "accept": [
+            "つぶがい"
+          ]
+        },
+        {
+          "display": "ホッキ貝",
+          "accept": [
+            "ほっきがい"
+          ]
+        },
+        {
+          "display": "ミル貝",
+          "accept": [
+            "みるがい"
+          ]
+        },
+        {
+          "display": "アワビ",
+          "accept": [
+            "鮑"
+          ]
+        },
+        {
+          "display": "ウニ",
+          "accept": [
+            "雲丹"
+          ]
+        },
+        {
+          "display": "イクラ",
+          "accept": []
+        },
+        {
+          "display": "数の子",
+          "accept": [
+            "かずのこ"
+          ]
+        },
+        {
+          "display": "とびこ",
+          "accept": [
+            "とびっこ"
+          ]
+        },
+        {
+          "display": "玉子",
+          "accept": [
+            "卵",
+            "たまご",
+            "玉子焼き"
+          ]
+        },
+        {
+          "display": "カニ",
+          "accept": [
+            "蟹"
+          ]
+        },
+        {
+          "display": "シャコ",
+          "accept": []
+        },
+        {
+          "display": "しらす",
+          "accept": []
+        },
+        {
+          "display": "かっぱ巻き",
+          "accept": [
+            "かっぱ",
+            "きゅうり"
+          ]
+        },
+        {
+          "display": "かんぴょう巻き",
+          "accept": [
+            "かんぴょう"
+          ]
+        },
+        {
+          "display": "納豆",
+          "accept": [
+            "納豆巻き"
+          ]
+        },
+        {
+          "display": "鉄火巻き",
+          "accept": [
+            "鉄火"
+          ]
+        },
+        {
+          "display": "いなり",
+          "accept": [
+            "稲荷",
+            "いなり寿司"
+          ]
+        },
+        {
+          "display": "ツナ",
+          "accept": [
+            "ツナマヨ"
+          ]
+        },
+        {
+          "display": "コーン",
+          "accept": []
+        },
+        {
+          "display": "ハンバーグ",
+          "accept": []
+        },
+        {
+          "display": "たくあん",
+          "accept": [
+            "沢庵"
+          ]
+        },
+        {
+          "display": "梅しそ",
+          "accept": [
+            "梅"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "サンリオのキャラクターを答えてください。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "ハローキティ",
+          "accept": [
+            "キティ",
+            "キティちゃん"
+          ]
+        },
+        {
+          "display": "マイメロディ",
+          "accept": [
+            "マイメロ"
+          ]
+        },
+        {
+          "display": "クロミ",
+          "accept": []
+        },
+        {
+          "display": "シナモロール",
+          "accept": [
+            "シナモン"
+          ]
+        },
+        {
+          "display": "ポムポムプリン",
+          "accept": [
+            "プリン"
+          ]
+        },
+        {
+          "display": "けろけろけろっぴ",
+          "accept": [
+            "けろっぴ"
+          ]
+        },
+        {
+          "display": "ポチャッコ",
+          "accept": []
+        },
+        {
+          "display": "リトルツインスターズ",
+          "accept": [
+            "キキララ",
+            "キキ",
+            "ララ"
+          ]
+        },
+        {
+          "display": "バッドばつ丸",
+          "accept": [
+            "ばつ丸"
+          ]
+        },
+        {
+          "display": "ぐでたま",
+          "accept": []
+        },
+        {
+          "display": "タキシードサム",
+          "accept": []
+        },
+        {
+          "display": "ハンギョドン",
+          "accept": []
+        },
+        {
+          "display": "こぎみゅん",
+          "accept": []
+        },
+        {
+          "display": "マイスウィートピアノ",
+          "accept": [
+            "ピアノ"
+          ]
+        },
+        {
+          "display": "ウィッシュミーメル",
+          "accept": []
+        },
+        {
+          "display": "パティ&ジミー",
+          "accept": [
+            "パティアンドジミー"
+          ]
+        },
+        {
+          "display": "みんなのたあ坊",
+          "accept": [
+            "たあ坊"
+          ]
+        },
+        {
+          "display": "ゴロピカドン",
+          "accept": []
+        },
+        {
+          "display": "マロンクリーム",
+          "accept": []
+        },
+        {
+          "display": "ザシキブタ",
+          "accept": []
+        },
+        {
+          "display": "あひるのペックル",
+          "accept": [
+            "ペックル"
+          ]
+        },
+        {
+          "display": "コロコロクリリン",
+          "accept": []
+        },
+        {
+          "display": "アグレッシブ烈子",
+          "accept": [
+            "烈子"
+          ]
+        },
+        {
+          "display": "ハミングミント",
+          "accept": []
+        },
+        {
+          "display": "KIRIMIちゃん.",
+          "accept": [
+            "キリミちゃん",
+            "KIRIMIちゃん"
+          ]
+        },
+        {
+          "display": "ダニエル",
+          "accept": [
+            "ディアダニエル"
+          ]
+        },
+        {
+          "display": "チャーミーキティ",
+          "accept": []
         }
       ]
     }

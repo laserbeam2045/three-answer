@@ -33,6 +33,8 @@ export interface QuestionSet {
 export interface BomberAnswer {
   /** 表示用の表記 */
   display: string;
+  /** パネル問題で、パネルに見せておく出題（難読漢字など）。答えるのは display（読み）の方 */
+  prompt?: string;
   /** 表記以外に正解とする書き方（読み・別表記・略称など）。かなは自動でひらがな/カタカナ両対応 */
   accept?: string[];
 }
@@ -44,6 +46,11 @@ export interface BomberQuestion {
   suffixes?: string[];
   /** 各正解の前に付けても正解とする語（例: ["徳川", "とくがわ"]） */
   prefixes?: string[];
+  /**
+   * パネル問題。答えごとの prompt（難読漢字など）をパネルに並べて見せ、正解したパネルから埋まっていく。
+   * 答える数はパネルの枚数（answers の数）になる。
+   */
+  panels?: boolean;
   /**
    * この問題で答える数（5〜20、正解の数以下）。参加者全員に1回ずつ回るごとに折り返す。
    * 省略時は、答えが15個以上なら10、それ以外は5。簡単な問題は全部答えさせる（例: 惑星なら8）。
@@ -285,7 +292,19 @@ export interface BomberMissView {
   seq: number;
 }
 
+export interface BomberPanelView {
+  /** パネルに見せておく出題（難読漢字など） */
+  prompt: string;
+  /** 正解済みなら答え（読み）、まだなら null */
+  display: string | null;
+  /** 正解した人の名前 */
+  by: string | null;
+  isYou: boolean;
+}
+
 export interface BomberRevealedAnswer {
+  /** パネル問題の出題（難読漢字など） */
+  prompt?: string;
   display: string;
   /** この問題で誰かが答えていれば、その人の名前 */
   by: string | null;
@@ -310,6 +329,8 @@ export interface BomberView {
     lastMiss: { name: string; text: string; reason: "wrong" | "dup"; seq: number } | null;
     /** この問題で出た誤答すべて（古い順） */
     misses: BomberMissView[];
+    /** パネル問題なら、パネルの一覧（出題と、埋まっていれば答え） */
+    panels: BomberPanelView[] | null;
     /** 回答者の離席で止まっている */
     waiting: boolean;
   } | null;
