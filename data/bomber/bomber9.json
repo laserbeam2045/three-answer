@@ -521,28 +521,23 @@
         {
           "display": "スコティッシュ・フォールド",
           "accept": [
-            "スコティッシュフォールド",
             "スコティッシュ"
           ]
         },
         {
           "display": "アメリカン・ショートヘア",
           "accept": [
-            "アメリカンショートヘア",
             "アメショー"
           ]
         },
         {
-          "display": "マンチカン",
-          "accept": []
+          "display": "マンチカン"
         },
         {
-          "display": "ロシアンブルー",
-          "accept": []
+          "display": "ロシアンブルー"
         },
         {
-          "display": "メインクーン",
-          "accept": []
+          "display": "メインクーン"
         },
         {
           "display": "ペルシャ",
@@ -552,25 +547,19 @@
           ]
         },
         {
-          "display": "ラグドール",
-          "accept": []
+          "display": "ラグドール"
         },
         {
-          "display": "ブリティッシュ・ショートヘア",
-          "accept": [
-            "ブリティッシュショートヘア"
-          ]
+          "display": "ブリティッシュ・ショートヘア"
         },
         {
           "display": "ノルウェージャン・フォレスト・キャット",
           "accept": [
-            "ノルウェージャンフォレストキャット",
             "ノルウェージャン"
           ]
         },
         {
-          "display": "ベンガル",
-          "accept": []
+          "display": "ベンガル"
         },
         {
           "display": "シャム",
@@ -580,47 +569,40 @@
           ]
         },
         {
-          "display": "アビシニアン",
-          "accept": []
+          "display": "アビシニアン"
         },
         {
-          "display": "スフィンクス",
-          "accept": []
+          "display": "スフィンクス"
         },
         {
           "display": "エキゾチック・ショートヘア",
           "accept": [
-            "エキゾチックショートヘア",
             "エキゾチック"
           ]
         },
         {
-          "display": "ソマリ",
-          "accept": []
+          "display": "ソマリ"
         },
         {
-          "display": "ヒマラヤン",
-          "accept": []
+          "display": "ヒマラヤン"
         },
         {
-          "display": "ラガマフィン",
-          "accept": []
+          "display": "ラガマフィン"
         },
         {
           "display": "ミヌエット",
-          "accept": []
+          "accept": [
+            "ナポレオン"
+          ]
         },
         {
-          "display": "サイベリアン",
-          "accept": []
+          "display": "サイベリアン"
         },
         {
-          "display": "トンキニーズ",
-          "accept": []
+          "display": "トンキニーズ"
         },
         {
-          "display": "バーマン",
-          "accept": []
+          "display": "バーマン"
         },
         {
           "display": "ターキッシュアンゴラ",
@@ -635,52 +617,40 @@
           ]
         },
         {
-          "display": "シンガプーラ",
-          "accept": []
+          "display": "シンガプーラ"
         },
         {
-          "display": "セルカークレックス",
-          "accept": []
+          "display": "セルカークレックス"
         },
         {
-          "display": "デボンレックス",
-          "accept": []
+          "display": "デボンレックス"
         },
         {
-          "display": "コーニッシュレックス",
-          "accept": []
+          "display": "コーニッシュレックス"
         },
         {
-          "display": "オリエンタル",
-          "accept": []
+          "display": "オリエンタル"
         },
         {
-          "display": "ボンベイ",
-          "accept": []
+          "display": "ボンベイ"
         },
         {
-          "display": "エジプシャンマウ",
-          "accept": []
+          "display": "エジプシャンマウ"
         },
         {
-          "display": "ラパーマ",
-          "accept": []
+          "display": "ラパーマ"
         },
         {
-          "display": "ヨーロピアンショートヘア",
-          "accept": []
+          "display": "ヨーロピアンショートヘア"
         },
         {
-          "display": "バーミーズ",
-          "accept": []
+          "display": "バーミーズ"
         },
         {
-          "display": "ハバナブラウン",
-          "accept": []
+          "display": "ハバナブラウン"
         },
         {
-          "display": "ピクシーボブ",
-          "accept": []
+          "display": "ピクシーボブ"
         },
         {
           "display": "三毛猫",
@@ -692,6 +662,130 @@
           "display": "日本猫",
           "accept": [
             "雑種"
+          ]
+        },
+        {
+          "display": "アメリカン・カール"
+        },
+        {
+          "display": "ブリティッシュ・ロングヘア"
+        },
+        {
+          "display": "スコティッシュ・ストレート"
+        },
+        {
+          "display": "ハイランド・フォールド",
+          "accept": [
+            "スコティッシュ・フォールド・ロングヘア"
+          ]
+        },
+        {
+          "display": "ターキッシュ・バン"
+        },
+        {
+          "display": "バリニーズ"
+        },
+        {
+          "display": "ジャバニーズ",
+          "accept": [
+            "ジャワニーズ"
+          ]
+        },
+        {
+          "display": "コラット"
+        },
+        {
+          "display": "ネベロング"
+        },
+        {
+          "display": "シャルトリュー"
+        },
+        {
+          "display": "オシキャット"
+        },
+        {
+          "display": "スノーシュー"
+        },
+        {
+          "display": "マンクス"
+        },
+        {
+          "display": "キムリック"
+        },
+        {
+          "display": "アメリカン・ボブテイル"
+        },
+        {
+          "display": "アメリカン・ワイヤーヘア"
+        },
+        {
+          "display": "ソコケ"
+        },
+        {
+          "display": "サバンナ"
+        },
+        {
+          "display": "トイガー"
+        },
+        {
+          "display": "チャウシー"
+        },
+        {
+          "display": "ピーターボールド"
+        },
+        {
+          "display": "ドンスコイ"
+        },
+        {
+          "display": "ライコイ"
+        },
+        {
+          "display": "チンチラ",
+          "accept": [
+            "チンチラシルバー",
+            "ペルシャチンチラ"
+          ]
+        },
+        {
+          "display": "カラーポイント・ショートヘア"
+        },
+        {
+          "display": "クリリアン・ボブテイル"
+        },
+        {
+          "display": "メコン・ボブテイル"
+        },
+        {
+          "display": "ヨーロピアン・バーミーズ"
+        },
+        {
+          "display": "シャンティリー",
+          "accept": [
+            "ティファニー"
+          ]
+        },
+        {
+          "display": "ネヴァ・マスカレード"
+        },
+        {
+          "display": "ジャーマン・レックス"
+        },
+        {
+          "display": "セイシェルワ"
+        },
+        {
+          "display": "オリエンタル・ロングヘア"
+        },
+        {
+          "display": "バーミラ"
+        },
+        {
+          "display": "アラビアン・マウ"
+        },
+        {
+          "display": "タイ",
+          "accept": [
+            "タイ猫"
           ]
         }
       ]
