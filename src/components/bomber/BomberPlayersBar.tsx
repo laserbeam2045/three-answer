@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import BombIcon from "@/components/bomber/BombIcon";
 import type { UseRoomResult } from "@/hooks/useRoom";
 import { BOMBER_MAX_PLAYERS } from "@/lib/bomber/match";
@@ -10,21 +9,10 @@ import { BOMBER_MAX_PLAYERS } from "@/lib/bomber/match";
  */
 export default function BomberPlayersBar({ room }: { room: UseRoomResult }) {
   const { state, send } = room;
-  const [confirmLeave, setConfirmLeave] = useState(false);
   if (!state) return null;
 
   const { players, isPlayer, round } = state.bomber;
   const full = players.length >= BOMBER_MAX_PLAYERS;
-
-  const leave = () => {
-    if (!confirmLeave) {
-      setConfirmLeave(true);
-      setTimeout(() => setConfirmLeave(false), 3000);
-      return;
-    }
-    setConfirmLeave(false);
-    void send({ type: "bomberLeave" });
-  };
 
   return (
     <section className="w-full flex flex-col sm:flex-row sm:items-center gap-2" onClick={(e) => e.stopPropagation()}>
@@ -52,8 +40,8 @@ export default function BomberPlayersBar({ room }: { room: UseRoomResult }) {
       </ol>
       <div className="shrink-0 flex justify-end">
         {isPlayer ? (
-          <button type="button" onClick={leave} className={`btn-ghost text-xs px-3 py-1 ${confirmLeave ? "on" : ""}`}>
-            {confirmLeave ? "もう一度押すと抜けます" : "ゲームから抜ける"}
+          <button type="button" onClick={() => void send({ type: "bomberLeave" })} className="btn-ghost text-xs px-3 py-1">
+            ゲームから抜ける
           </button>
         ) : (
           <button
