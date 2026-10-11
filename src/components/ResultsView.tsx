@@ -8,6 +8,7 @@ import CardTile from "@/components/CardTile";
 import SeatBadge from "@/components/SeatBadge";
 import Confetti from "@/components/Confetti";
 import OrnateTitle from "@/components/OrnateTitle";
+import Collapse from "@/components/Collapse";
 
 const ROLE_BG: Record<Role, string> = {
   A: "bg-player-a",
@@ -155,7 +156,7 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                       )}
                     </span>
                     <span
-                      className={`text-muted text-[10px] shrink-0 transition-transform ${
+                      className={`text-muted text-[10px] shrink-0 transition-transform duration-300 ease-out ${
                         open ? "rotate-180" : ""
                       }`}
                     >
@@ -163,7 +164,7 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                     </span>
                   </button>
 
-                  {open && (
+                  <Collapse open={open}>
                     <div className="px-4 pb-5 pt-2 space-y-4 bg-panel-2/50">
                       <p className="text-sm leading-relaxed">{h.question.q}</p>
 
@@ -231,7 +232,7 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                         </p>
                       </div>
                     </div>
-                  )}
+                  </Collapse>
                 </div>
               );
             })}

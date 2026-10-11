@@ -4,6 +4,7 @@ import { useState } from "react";
 import BomberAnswerList from "@/components/bomber/BomberAnswerList";
 import BomberMissList from "@/components/bomber/BomberMissList";
 import BomberPanels from "@/components/bomber/BomberPanels";
+import Collapse from "@/components/Collapse";
 import Confetti from "@/components/Confetti";
 import OrnateTitle from "@/components/OrnateTitle";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -87,46 +88,51 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                     </span>
                     <span className="text-sm truncate min-w-0 flex-1">{h.q}</span>
                     <span className="shrink-0 font-bold text-gold-2 text-sm">{h.points}点</span>
-                    <span className="text-muted text-xs shrink-0">{open ? "▲" : "▼"}</span>
+                    <span
+                      className={`text-muted text-xs shrink-0 transition-transform duration-300 ease-out ${open ? "rotate-180" : ""}`}
+                    >
+                      ▼
+                    </span>
                   </button>
-                  {open && isPanel && (
-                    // パネル問題は出題時と同じ並びのパネルで振り返る
-                    <div className="px-3 pb-4 space-y-3">
-                      <BomberPanels
-                        panels={h.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false }))}
-                      />
-                      {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
-                    </div>
-                  )}
-                  {open && !isPanel && (
-                    <div className="px-3 pb-4 space-y-3">
-                      <ol className="flex flex-wrap gap-1.5 text-sm">
-                        {h.slots.map((s, k) => (
-                          <li key={k} className="slot px-2 py-1">
-                            <span className="text-gold-3 text-xs mr-1">{k + 1}</span>
-                            <span className="font-bold text-gold-2">{s.display}</span>
-                            <span className="text-muted text-xs ml-1">{s.name}</span>
-                            {s.aiInput && (
-                              <span
-                                className="text-muted text-[10px] ml-1"
-                                title="表記ゆれをAIが判定して正解にしました"
-                              >
-                                （入力「{s.aiInput}」）
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                        {h.slots.length === 0 && <li className="text-muted text-sm">正解なし</li>}
-                        {h.heldBy && (
-                          <li className="px-2 py-1 text-crimson text-xs self-center">
-                            💥 {h.heldBy}さんで爆発
-                          </li>
-                        )}
-                      </ol>
-                      <BomberAnswerList answers={h.answers} />
-                      {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
-                    </div>
-                  )}
+                  <Collapse open={open}>
+                    {isPanel ? (
+                      // パネル問題は出題時と同じ並びのパネルで振り返る
+                      <div className="px-3 pb-4 space-y-3">
+                        <BomberPanels
+                          panels={h.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false }))}
+                        />
+                        {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
+                      </div>
+                    ) : (
+                      <div className="px-3 pb-4 space-y-3">
+                        <ol className="flex flex-wrap gap-1.5 text-sm">
+                          {h.slots.map((s, k) => (
+                            <li key={k} className="slot px-2 py-1">
+                              <span className="text-gold-3 text-xs mr-1">{k + 1}</span>
+                              <span className="font-bold text-gold-2">{s.display}</span>
+                              <span className="text-muted text-xs ml-1">{s.name}</span>
+                              {s.aiInput && (
+                                <span
+                                  className="text-muted text-[10px] ml-1"
+                                  title="表記ゆれをAIが判定して正解にしました"
+                                >
+                                  （入力「{s.aiInput}」）
+                                </span>
+                              )}
+                            </li>
+                          ))}
+                          {h.slots.length === 0 && <li className="text-muted text-sm">正解なし</li>}
+                          {h.heldBy && (
+                            <li className="px-2 py-1 text-crimson text-xs self-center">
+                              💥 {h.heldBy}さんで爆発
+                            </li>
+                          )}
+                        </ol>
+                        <BomberAnswerList answers={h.answers} />
+                        {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
+                      </div>
+                    )}
+                  </Collapse>
                 </div>
               );
             })}
