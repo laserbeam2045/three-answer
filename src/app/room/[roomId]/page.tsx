@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import { useRoom } from "@/hooks/useRoom";
+import { useScrollTopOnChange } from "@/hooks/useScrollTopOnChange";
 import LobbyView from "@/components/LobbyView";
 import QuestionView from "@/components/QuestionView";
 import JudgingView from "@/components/JudgingView";
@@ -16,6 +17,8 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
   const { roomId } = use(params);
   const room = useRoom(roomId);
   const { state, fatalError, actionError } = room;
+  // 問題の表示時や問題終了時（判定・結果画面への切り替え）は、ページ最上部へ戻す
+  useScrollTopOnChange(state ? `${state.phase}:${state.qIndex}` : null);
 
   if (fatalError) {
     return (
