@@ -225,8 +225,8 @@ describe("ファイブボンバーの進行", () => {
     const changed = tick(s, presenceFor([HOST, "p1", "p2"], end), end, getSet);
     expect(changed).toBe(true);
     expect(s.phase).toBe("judging");
-    // 2人なので p1 → p2 → p2（折り返し）の番で爆発
-    expect(s.bomberResults[0]).toMatchObject({ cleared: false, heldBy: "p2" });
+    // 2人は交互なので p1 → p2 → p1 の番で爆発
+    expect(s.bomberResults[0]).toMatchObject({ cleared: false, heldBy: "p1" });
     expect(s.bomberResults[0].slots).toHaveLength(2);
   });
 
@@ -267,19 +267,28 @@ describe("ファイブボンバーの進行", () => {
   });
 
   it("途中参加した人は順番の最後に入り、次の問題から回答の順番に加わる", () => {
-    const { s, answerAt } = startedRoom(["p1", "p2"]);
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
     act(s, "p9", { type: "bomberJoin" }, answerAt);
-    expect(s.bomberPlayers).toEqual(["p1", "p2", "p9"]);
-    const presence = presenceFor([HOST, "p1", "p2", "p9"], answerAt);
-    // この問題の折り返し幅は開始時の2人のまま
-    for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p2", "宮城"], ["p1", "秋田"], ["p1", "山形"]] as const) {
+    expect(s.bomberPlayers).toEqual(["p1", "p2", "p3", "p9"]);
+    const presence = presenceFor([HOST, "p1", "p2", "p3", "p9"], answerAt);
+    // この問題の折り返し幅は開始時の3人のまま
+    for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p3", "宮城"], ["p3", "秋田"], ["p2", "山形"]] as const) {
       expect(s.bomberRound!.turnToken).toBe(who);
       act(s, who, { type: "bomberAnswer", text }, answerAt, presence);
     }
     act(s, HOST, { type: "next" }, answerAt, presence);
-    expect(s.bomberRound!.width).toBe(3);
-    // 1問目で5個進んだので、2問目は 5 % 3 = 2 番目（p9）から
-    expect(s.bomberRound!.turnToken).toBe("p9");
+    expect(s.bomberRound!.width).toBe(4);
+    // 1問目で5個進んだので、2問目は 5 % 4 = 1 番目（p2）から
+    expect(s.bomberRound!.turnToken).toBe("p2");
+  });
+
+  it("2人のときは折り返さず交互に答える", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2"]);
+    const presence = presenceFor([HOST, "p1", "p2"], answerAt);
+    for (const [who, text] of [["p1", "青森"], ["p2", "岩手"], ["p1", "宮城"], ["p2", "秋田"], ["p1", "山形"]] as const) {
+      expect(s.bomberRound!.turnToken).toBe(who);
+      act(s, who, { type: "bomberAnswer", text }, answerAt, presence);
+    }
   });
 
   it("回答中の人が抜けたら爆弾は次の人へ。全員抜けたらロビーへ", () => {
@@ -362,7 +371,7 @@ describe("ファイブボンバーの redact", () => {
     act(s, "p1", { type: "bomberAnswer", text: "青森" }, answerAt);
     const presence = presenceFor([HOST, "p1", "p2"], answerAt);
     const during = redact(s, presence, "p2", answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
-    expect(during.bomber.round).toMatchObject({ isYourTurn: true, upcoming: ["p2", "p2", "p1", "p1"] });
+    expect(during.bomber.round).toMatchObject({ isYourTurn: true, upcoming: ["p2", "p1", "p2", "p1"] });
     expect(during.bomber.judged).toBeNull();
     expect(JSON.stringify(during)).not.toContain("福島");
 

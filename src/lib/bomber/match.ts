@@ -44,8 +44,11 @@ export function slotsFor(question: BomberQuestion): number {
  * 折り返す間隔（＝参加人数）。全員に1回ずつ回ったら、最後の人がもう一度答えて逆向きに戻る。
  * 5人なら番組と同じ 1→5、5→1。10人で10個なら折り返さず全員が1回ずつ答え、
  * 8人で12個なら 1→8 のあと 8→5 と、端数のぶんだけ折り返す（みんなに回答権が行きわたるように）。
+ * 2人だけは折り返さず交互に答える（折り返すと A→B→B→A となり不自然なため）。
  */
 export function turnWidth(playerCount: number): number {
+  // 2人は折り返さず交互に答える（A→B→A→B。ユーザー要望）
+  if (playerCount === 2) return BOMBER_MAX_SLOTS;
   return Math.max(1, playerCount);
 }
 
