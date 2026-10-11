@@ -85,7 +85,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
                 <div className={`gauge-fill ${urgent ? "low" : ""}`} style={{ width: `${ratio * 100}%` }} />
               </div>
               <span
-                className={`w-12 text-right font-display text-lg sm:text-xl font-extrabold tabular-nums ${
+                className={`w-16 shrink-0 whitespace-nowrap text-right font-display text-lg sm:text-xl font-extrabold tabular-nums ${
                   urgent ? "text-crimson" : "text-gold-2"
                 }`}
               >
