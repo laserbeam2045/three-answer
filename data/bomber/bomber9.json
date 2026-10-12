@@ -207,273 +207,953 @@
         {
           "display": "スコティッシュ・フォールド",
           "accept": [
-            "スコティッシュ"
+            "スコティッシュ",
+            "ハイランド・フォールド",
+            "スコティッシュ・フォールド・ロングヘア",
+            "スコティッシュホールド",
+            "スコ",
+            "Scottish Fold",
+            "Highland Fold"
           ]
         },
         {
           "display": "アメリカン・ショートヘア",
           "accept": [
             "アメショー",
-            "アメショ"
+            "アメショ",
+            "アメリカンショートヘアー",
+            "American Shorthair"
           ]
         },
         {
-          "display": "マンチカン"
+          "display": "マンチカン",
+          "accept": [
+            "マンチ",
+            "Munchkin"
+          ]
         },
         {
-          "display": "ロシアンブルー"
+          "display": "ロシアンブルー",
+          "accept": [
+            "ロシアン",
+            "Russian Blue"
+          ]
         },
         {
-          "display": "メインクーン"
+          "display": "メインクーン",
+          "accept": [
+            "メイクーン",
+            "メインクーンキャット",
+            "Maine Coon"
+          ]
         },
         {
           "display": "ペルシャ",
           "accept": [
             "ペルシャ猫",
-            "ペルシア"
+            "ペルシア",
+            "チンチラ",
+            "チンチラシルバー",
+            "ペルシャチンチラ",
+            "ペルシア猫",
+            "パージャン",
+            "チンチラペルシャ",
+            "トラディショナルペルシャ",
+            "Persian",
+            "Chinchilla"
           ]
         },
         {
-          "display": "ラグドール"
+          "display": "ラグドール",
+          "accept": [
+            "ラグドル",
+            "Ragdoll"
+          ]
         },
         {
           "display": "ブリティッシュ・ショートヘア",
           "accept": [
             "ブリショー",
-            "ブリショ"
+            "ブリショ",
+            "ブリティッシュショートヘアー",
+            "ブリティッシュ",
+            "British Shorthair"
           ]
         },
         {
           "display": "ノルウェージャン・フォレスト・キャット",
           "accept": [
-            "ノルウェージャン"
+            "ノルウェージャン",
+            "ノルウェージャンフォレスト",
+            "ノルジャン",
+            "ノルウェーの森の猫",
+            "スコーガット",
+            "ウェジー",
+            "Norwegian Forest Cat",
+            "Wegie"
           ]
         },
         {
-          "display": "ベンガル"
+          "display": "ベンガル",
+          "accept": [
+            "ベンガル猫",
+            "ベンガルキャット",
+            "Bengal"
+          ]
         },
         {
           "display": "シャム",
           "accept": [
             "サイアミーズ",
-            "シャム猫"
+            "シャム猫",
+            "Siamese"
           ]
         },
         {
-          "display": "アビシニアン"
+          "display": "アビシニアン",
+          "accept": [
+            "アビ",
+            "アビシニアンキャット",
+            "Abyssinian"
+          ]
         },
         {
-          "display": "スフィンクス"
+          "display": "スフィンクス",
+          "accept": [
+            "カナディアンヘアレス",
+            "Sphynx"
+          ]
         },
         {
           "display": "エキゾチック・ショートヘア",
           "accept": [
-            "エキゾチック"
+            "エキゾチック",
+            "エキゾチックショートヘアー",
+            "エキゾ",
+            "Exotic Shorthair",
+            "Exotic"
           ]
         },
         {
-          "display": "ソマリ"
+          "display": "ソマリ",
+          "accept": [
+            "ソマリー",
+            "ロングヘアードアビシニアン",
+            "Somali"
+          ]
         },
         {
-          "display": "ヒマラヤン"
+          "display": "ヒマラヤン",
+          "accept": [
+            "ヒマラヤン猫",
+            "カラーポイントロングヘア",
+            "カラーポイントペルシャ",
+            "Himalayan",
+            "Colourpoint Longhair"
+          ]
         },
         {
-          "display": "ラガマフィン"
+          "display": "ラガマフィン",
+          "accept": [
+            "Ragamuffin"
+          ]
         },
         {
           "display": "ミヌエット",
           "accept": [
-            "ナポレオン"
+            "ナポレオン",
+            "Minuet",
+            "Napoleon"
           ]
         },
         {
-          "display": "サイベリアン"
+          "display": "サイベリアン",
+          "accept": [
+            "サイベリアンフォレストキャット",
+            "シベリア猫",
+            "Siberian"
+          ]
         },
         {
-          "display": "トンキニーズ"
+          "display": "トンキニーズ",
+          "accept": [
+            "Tonkinese"
+          ]
         },
         {
-          "display": "バーマン"
+          "display": "バーマン",
+          "accept": [
+            "ビルマの聖猫",
+            "セイクリッドバーマン",
+            "Birman",
+            "Sacred Birman"
+          ]
         },
         {
           "display": "ターキッシュアンゴラ",
           "accept": [
-            "アンゴラ"
+            "アンゴラ",
+            "トルコアンゴラ",
+            "Turkish Angora"
           ]
         },
         {
           "display": "ジャパニーズボブテイル",
           "accept": [
-            "ボブテイル"
+            "ボブテイル",
+            "ジャパボブ",
+            "Japanese Bobtail"
           ]
         },
         {
-          "display": "シンガプーラ"
+          "display": "シンガプーラ",
+          "accept": [
+            "シンガプラ",
+            "Singapura"
+          ]
         },
         {
-          "display": "セルカークレックス"
+          "display": "セルカークレックス",
+          "accept": [
+            "セルカーク",
+            "Selkirk Rex"
+          ]
         },
         {
-          "display": "デボンレックス"
+          "display": "デボンレックス",
+          "accept": [
+            "デボン",
+            "Devon Rex"
+          ]
         },
         {
-          "display": "コーニッシュレックス"
+          "display": "コーニッシュレックス",
+          "accept": [
+            "コーニッシュ",
+            "Cornish Rex"
+          ]
         },
         {
           "display": "オリエンタル",
           "accept": [
-            "オリエンタルショートヘア"
+            "オリエンタルショートヘア",
+            "Oriental Shorthair",
+            "Oriental"
           ]
         },
         {
-          "display": "ボンベイ"
+          "display": "ボンベイ",
+          "accept": [
+            "Bombay"
+          ]
         },
         {
-          "display": "エジプシャンマウ"
+          "display": "エジプシャンマウ",
+          "accept": [
+            "エジプシャン",
+            "Egyptian Mau"
+          ]
         },
         {
-          "display": "ラパーマ"
+          "display": "ラパーマ",
+          "accept": [
+            "ラパーム",
+            "LaPerm"
+          ]
         },
         {
-          "display": "ヨーロピアンショートヘア"
+          "display": "ヨーロピアンショートヘア",
+          "accept": [
+            "ヨーロピアン",
+            "ケルティックショートヘア",
+            "European Shorthair",
+            "Celtic Shorthair"
+          ]
         },
         {
-          "display": "バーミーズ"
+          "display": "バーミーズ",
+          "accept": [
+            "アメリカンバーミーズ",
+            "Burmese",
+            "American Burmese"
+          ]
         },
         {
-          "display": "ハバナブラウン"
+          "display": "ハバナブラウン",
+          "accept": [
+            "ハバナ",
+            "Havana Brown",
+            "Havana"
+          ]
         },
         {
-          "display": "ピクシーボブ"
+          "display": "ピクシーボブ",
+          "accept": [
+            "Pixie-bob",
+            "Pixiebob"
+          ]
         },
         {
           "display": "日本猫",
           "accept": [
-            "雑種"
+            "雑種",
+            "和猫",
+            "ニホンネコ",
+            "Japanese cat"
           ]
         },
         {
-          "display": "アメリカン・カール"
-        },
-        {
-          "display": "ブリティッシュ・ロングヘア"
-        },
-        {
-          "display": "スコティッシュ・ストレート"
-        },
-        {
-          "display": "ハイランド・フォールド",
+          "display": "アメリカン・カール",
           "accept": [
-            "スコティッシュ・フォールド・ロングヘア"
+            "American Curl"
           ]
         },
         {
-          "display": "ターキッシュ・バン"
+          "display": "ブリティッシュ・ロングヘア",
+          "accept": [
+            "ブリティッシュロングヘアー",
+            "ブリロン",
+            "British Longhair"
+          ]
         },
         {
-          "display": "バリニーズ"
+          "display": "スコティッシュ・ストレート",
+          "accept": [
+            "ハイランドストレート",
+            "Scottish Straight"
+          ]
+        },
+        {
+          "display": "ターキッシュ・バン",
+          "accept": [
+            "Turkish Van"
+          ]
+        },
+        {
+          "display": "バリニーズ",
+          "accept": [
+            "Balinese"
+          ]
         },
         {
           "display": "ジャバニーズ",
           "accept": [
-            "ジャワニーズ"
+            "ジャワニーズ",
+            "Javanese"
           ]
         },
         {
-          "display": "コラット"
-        },
-        {
-          "display": "ネベロング"
-        },
-        {
-          "display": "シャルトリュー"
-        },
-        {
-          "display": "オシキャット"
-        },
-        {
-          "display": "スノーシュー"
-        },
-        {
-          "display": "マンクス"
-        },
-        {
-          "display": "キムリック"
-        },
-        {
-          "display": "アメリカン・ボブテイル"
-        },
-        {
-          "display": "アメリカン・ワイヤーヘア"
-        },
-        {
-          "display": "ソコケ"
-        },
-        {
-          "display": "サバンナ"
-        },
-        {
-          "display": "トイガー"
-        },
-        {
-          "display": "チャウシー"
-        },
-        {
-          "display": "ピーターボールド"
-        },
-        {
-          "display": "ドンスコイ"
-        },
-        {
-          "display": "ライコイ"
-        },
-        {
-          "display": "チンチラ",
+          "display": "コラット",
           "accept": [
-            "チンチラシルバー",
-            "ペルシャチンチラ"
+            "シーサワット",
+            "タイライラック",
+            "Korat",
+            "Si-Sawat",
+            "Thai Lilac"
           ]
         },
         {
-          "display": "カラーポイント・ショートヘア"
+          "display": "ネベロング",
+          "accept": [
+            "ネーベルング",
+            "Nebelung"
+          ]
         },
         {
-          "display": "クリリアン・ボブテイル"
+          "display": "シャルトリュー",
+          "accept": [
+            "シャルトリュ",
+            "シャルトルー",
+            "Chartreux"
+          ]
         },
         {
-          "display": "メコン・ボブテイル"
+          "display": "オシキャット",
+          "accept": [
+            "Ocicat"
+          ]
         },
         {
-          "display": "ヨーロピアン・バーミーズ"
+          "display": "スノーシュー",
+          "accept": [
+            "スノーシュ",
+            "Snowshoe"
+          ]
+        },
+        {
+          "display": "マンクス",
+          "accept": [
+            "マンクスキャット",
+            "Manx"
+          ]
+        },
+        {
+          "display": "キムリック",
+          "accept": [
+            "マンクスロングヘア",
+            "ロングヘアードマンクス",
+            "Cymric"
+          ]
+        },
+        {
+          "display": "アメリカン・ボブテイル",
+          "accept": [
+            "American Bobtail"
+          ]
+        },
+        {
+          "display": "アメリカン・ワイヤーヘア",
+          "accept": [
+            "アメリカンワイヤーヘアー",
+            "American Wirehair"
+          ]
+        },
+        {
+          "display": "ソコケ",
+          "accept": [
+            "ソコケフォレストキャット",
+            "Sokoke"
+          ]
+        },
+        {
+          "display": "サバンナ",
+          "accept": [
+            "サバンナキャット",
+            "Savannah"
+          ]
+        },
+        {
+          "display": "トイガー",
+          "accept": [
+            "Toyger"
+          ]
+        },
+        {
+          "display": "チャウシー",
+          "accept": [
+            "Chausie"
+          ]
+        },
+        {
+          "display": "ピーターボールド",
+          "accept": [
+            "ピーターバルド",
+            "Peterbald"
+          ]
+        },
+        {
+          "display": "ドンスコイ",
+          "accept": [
+            "ドンスフィンクス",
+            "ドンヘアレス",
+            "Donskoy",
+            "Don Sphynx"
+          ]
+        },
+        {
+          "display": "ライコイ",
+          "accept": [
+            "リュコイ",
+            "ウルフキャット",
+            "Lykoi"
+          ]
+        },
+        {
+          "display": "カラーポイント・ショートヘア",
+          "accept": [
+            "カラーポイントショートヘアー",
+            "Colorpoint Shorthair"
+          ]
+        },
+        {
+          "display": "クリリアン・ボブテイル",
+          "accept": [
+            "クリルアイランドボブテイル",
+            "クリルボブテイル",
+            "Kurilian Bobtail",
+            "Kuril Islands Bobtail",
+            "Kurilean Bobtail"
+          ]
+        },
+        {
+          "display": "メコン・ボブテイル",
+          "accept": [
+            "Mekong Bobtail"
+          ]
+        },
+        {
+          "display": "ヨーロピアン・バーミーズ",
+          "accept": [
+            "European Burmese"
+          ]
         },
         {
           "display": "シャンティリー",
           "accept": [
-            "ティファニー"
+            "ティファニー",
+            "シャンティリーティファニー",
+            "Chantilly",
+            "Chantilly-Tiffany",
+            "Tiffany"
           ]
         },
         {
-          "display": "ネヴァ・マスカレード"
+          "display": "ネヴァ・マスカレード",
+          "accept": [
+            "Neva Masquerade"
+          ]
         },
         {
-          "display": "ジャーマン・レックス"
+          "display": "ジャーマン・レックス",
+          "accept": [
+            "German Rex"
+          ]
         },
         {
-          "display": "セイシェルワ"
+          "display": "セイシェルワ",
+          "accept": [
+            "セイシェロワ",
+            "Seychellois"
+          ]
         },
         {
-          "display": "オリエンタル・ロングヘア"
+          "display": "オリエンタル・ロングヘア",
+          "accept": [
+            "マンダリン",
+            "Oriental Longhair",
+            "Mandarin"
+          ]
         },
         {
-          "display": "バーミラ"
+          "display": "バーミラ",
+          "accept": [
+            "Burmilla"
+          ]
         },
         {
-          "display": "アラビアン・マウ"
+          "display": "アラビアン・マウ",
+          "accept": [
+            "Arabian Mau"
+          ]
         },
         {
           "display": "タイ",
           "accept": [
-            "タイ猫"
+            "タイ猫",
+            "タイキャット",
+            "ウィチアンマート",
+            "オールドスタイルシャム",
+            "Thai",
+            "Wichienmaat"
+          ]
+        },
+        {
+          "display": "アメリカンリングテイル",
+          "accept": [
+            "American Ringtail"
+          ]
+        },
+        {
+          "display": "アメリカンリンクス",
+          "accept": [
+            "American Lynx"
+          ]
+        },
+        {
+          "display": "アメリカンポリダクティル",
+          "accept": [
+            "ポリダクティル",
+            "ポリダクティルキャット",
+            "American Polydactyl",
+            "Polydactyl"
+          ]
+        },
+        {
+          "display": "アジアン",
+          "accept": [
+            "アジアンショートヘア",
+            "Asian"
+          ]
+        },
+        {
+          "display": "アジアンセミロングヘア",
+          "accept": [
+            "アジアンロングヘア",
+            "Asian Semi-longhair",
+            "Tiffanie"
+          ]
+        },
+        {
+          "display": "エーゲキャット",
+          "accept": [
+            "エーゲ",
+            "エーゲ猫",
+            "Aegean",
+            "Aegean cat"
+          ]
+        },
+        {
+          "display": "アフロディーテジャイアント",
+          "accept": [
+            "アフロディーテ",
+            "キプロス猫",
+            "サイプラスキャット",
+            "Aphrodite's Giant",
+            "Aphrodite",
+            "Cyprus cat"
+          ]
+        },
+        {
+          "display": "オーストラリアンミスト",
+          "accept": [
+            "スポッテッドミスト",
+            "Australian Mist"
+          ]
+        },
+        {
+          "display": "バンビーノ",
+          "accept": [
+            "Bambino"
+          ]
+        },
+        {
+          "display": "ブラジリアンショートヘア",
+          "accept": [
+            "Brazilian Shorthair"
+          ]
+        },
+        {
+          "display": "カリフォルニアスパングルド",
+          "accept": [
+            "カリフォルニアスパングルドキャット",
+            "California Spangled"
+          ]
+        },
+        {
+          "display": "チートー",
+          "accept": [
+            "Cheetoh"
+          ]
+        },
+        {
+          "display": "ドラゴンリー",
+          "accept": [
+            "狸花猫",
+            "リーファ",
+            "チャイニーズリーファ",
+            "チャイニーズリーホワ",
+            "Dragon Li",
+            "Chinese Li Hua"
+          ]
+        },
+        {
+          "display": "ドウェルフ",
+          "accept": [
+            "Dwelf"
+          ]
+        },
+        {
+          "display": "エキゾチックロングヘア",
+          "accept": [
+            "Exotic Longhair"
+          ]
+        },
+        {
+          "display": "フォルデックス",
+          "accept": [
+            "フォールデックス",
+            "Foldex"
+          ]
+        },
+        {
+          "display": "ハイランダー",
+          "accept": [
+            "ハイランダーキャット",
+            "ハイランドリンクス",
+            "Highlander",
+            "Highland Lynx"
+          ]
+        },
+        {
+          "display": "簡州猫",
+          "accept": [
+            "かんしゅうびょう",
+            "神猫",
+            "四耳猫",
+            "四川簡州猫",
+            "Jianzhou cat"
+          ]
+        },
+        {
+          "display": "カナーニ",
+          "accept": [
+            "Kanaani"
+          ]
+        },
+        {
+          "display": "カレリアンボブテイル",
+          "accept": [
+            "Karelian Bobtail"
+          ]
+        },
+        {
+          "display": "カオマニー",
+          "accept": [
+            "カオマニ",
+            "ダイヤモンドアイ",
+            "Khao Manee"
+          ]
+        },
+        {
+          "display": "キンカロー",
+          "accept": [
+            "マンチカール",
+            "Kinkalow"
+          ]
+        },
+        {
+          "display": "コリアンボブテイル",
+          "accept": [
+            "Korean Bobtail"
+          ]
+        },
+        {
+          "display": "コンジャ",
+          "accept": [
+            "コーンジャ",
+            "Korn Ja",
+            "Konja"
+          ]
+        },
+        {
+          "display": "ラムキン",
+          "accept": [
+            "ナヌスレックス",
+            "Lambkin",
+            "Nanus Rex"
+          ]
+        },
+        {
+          "display": "ミンスキン",
+          "accept": [
+            "Minskin"
+          ]
+        },
+        {
+          "display": "オホースアズーレス",
+          "accept": [
+            "オホスアズレス",
+            "オホサスレス",
+            "Ojos Azules"
+          ]
+        },
+        {
+          "display": "オリエンタルバイカラー",
+          "accept": [
+            "Oriental Bicolour",
+            "Oriental Bicolor"
+          ]
+        },
+        {
+          "display": "チェルビム",
+          "accept": [
+            "ケルビム",
+            "Cherubim"
+          ]
+        },
+        {
+          "display": "ラース",
+          "accept": [
+            "ラース猫",
+            "Raas"
+          ]
+        },
+        {
+          "display": "ロシアンホワイト",
+          "accept": [
+            "ロシアンブラック",
+            "ロシアンタビー",
+            "Russian White",
+            "Russian Black",
+            "Russian Tabby"
+          ]
+        },
+        {
+          "display": "サムサワット",
+          "accept": [
+            "Sam Sawet"
+          ]
+        },
+        {
+          "display": "セレンゲティ",
+          "accept": [
+            "セレンゲティキャット",
+            "Serengeti"
+          ]
+        },
+        {
+          "display": "スパラック",
+          "accept": [
+            "Suphalak"
+          ]
+        },
+        {
+          "display": "トイボブ",
+          "accept": [
+            "Toybob"
+          ]
+        },
+        {
+          "display": "ヴァン猫",
+          "accept": [
+            "ヴァンキャット",
+            "Van cat",
+            "Van kedisi"
+          ]
+        },
+        {
+          "display": "ウクライニアンレフコイ",
+          "accept": [
+            "ウクラニアンレフコイ",
+            "レフコイ",
+            "Ukrainian Levkoy"
+          ]
+        },
+        {
+          "display": "ヨークチョコレート",
+          "accept": [
+            "York Chocolate"
+          ]
+        },
+        {
+          "display": "アルパインリンクス",
+          "accept": [
+            "Alpine Lynx"
+          ]
+        },
+        {
+          "display": "ブランブル",
+          "accept": [
+            "Bramble"
+          ]
+        },
+        {
+          "display": "クラシキャット",
+          "accept": [
+            "ジャンガラ",
+            "Classicat",
+            "Jungala"
+          ]
+        },
+        {
+          "display": "デザートリンクス",
+          "accept": [
+            "Desert Lynx"
+          ]
+        },
+        {
+          "display": "エルフ",
+          "accept": [
+            "エルフキャット",
+            "Elf"
+          ]
+        },
+        {
+          "display": "ジェネッタ",
+          "accept": [
+            "Genetta"
+          ]
+        },
+        {
+          "display": "ジャングルカール",
+          "accept": [
+            "Jungle Curl"
+          ]
+        },
+        {
+          "display": "クチンマレーシア",
+          "accept": [
+            "Kucing Malaysia"
+          ]
+        },
+        {
+          "display": "マンダレイ",
+          "accept": [
+            "Mandalay"
+          ]
+        },
+        {
+          "display": "モハーベスポッテッド",
+          "accept": [
+            "Mojave Spotted"
+          ]
+        },
+        {
+          "display": "オワイヒーボブ",
+          "accept": [
+            "マウンテンボブ",
+            "Owyhee Bob",
+            "Mountain Bob"
+          ]
+        },
+        {
+          "display": "パンセレット",
+          "accept": [
+            "Pantherette"
+          ]
+        },
+        {
+          "display": "サファリ",
+          "accept": [
+            "Safari"
+          ]
+        },
+        {
+          "display": "スクーカム",
+          "accept": [
+            "Skookum"
+          ]
+        },
+        {
+          "display": "タスマンマンクス",
+          "accept": [
+            "Tasman Manx"
+          ]
+        },
+        {
+          "display": "ウラルレックス",
+          "accept": [
+            "Ural Rex"
+          ]
+        },
+        {
+          "display": "ウスリー",
+          "accept": [
+            "Ussuri"
+          ]
+        },
+        {
+          "display": "テネシーレックス",
+          "accept": [
+            "Tennessee Rex"
+          ]
+        },
+        {
+          "display": "オレゴンレックス",
+          "accept": [
+            "Oregon Rex"
+          ]
+        },
+        {
+          "display": "ボヘミアンレックス",
+          "accept": [
+            "Bohemian Rex"
+          ]
+        },
+        {
+          "display": "ウクンナ",
+          "accept": [
+            "Ukunna"
           ]
         }
       ]
