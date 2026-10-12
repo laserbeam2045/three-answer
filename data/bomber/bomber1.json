@@ -519,13 +519,6 @@
           ]
         },
         {
-          "display": "head",
-          "prompt": "頭",
-          "accept": [
-            "ヘッド"
-          ]
-        },
-        {
           "display": "mouth",
           "prompt": "口",
           "accept": [
@@ -533,31 +526,10 @@
           ]
         },
         {
-          "display": "ear",
-          "prompt": "耳",
-          "accept": [
-            "イヤー",
-            "イア",
-            "ears"
-          ]
-        },
-        {
           "display": "nose",
           "prompt": "鼻",
           "accept": [
             "ノーズ"
-          ]
-        },
-        {
-          "display": "foot",
-          "prompt": "足",
-          "accept": [
-            "フット",
-            "feet",
-            "leg",
-            "レッグ",
-            "legs",
-            "フィート"
           ]
         },
         {
@@ -579,6 +551,28 @@
           "prompt": "膝",
           "accept": [
             "ニー"
+          ]
+        },
+        {
+          "display": "elbow",
+          "prompt": "肘",
+          "accept": [
+            "エルボー",
+            "エルボウ"
+          ]
+        },
+        {
+          "display": "wrist",
+          "prompt": "手首",
+          "accept": [
+            "リスト"
+          ]
+        },
+        {
+          "display": "heel",
+          "prompt": "踵",
+          "accept": [
+            "ヒール"
           ]
         }
       ]

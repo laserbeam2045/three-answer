@@ -320,14 +320,6 @@
           ]
         },
         {
-          "display": "信濃川",
-          "prompt": "いちばん長い川",
-          "accept": [
-            "しなのがわ",
-            "千曲川"
-          ]
-        },
-        {
           "display": "琵琶湖",
           "prompt": "いちばん大きい湖",
           "accept": [
@@ -339,6 +331,14 @@
           "prompt": "いちばん高いタワー",
           "accept": [
             "スカイツリー"
+          ]
+        },
+        {
+          "display": "信濃川",
+          "prompt": "いちばん長い川",
+          "accept": [
+            "しなのがわ",
+            "千曲川"
           ]
         },
         {
@@ -571,16 +571,16 @@
           ]
         },
         {
-          "display": "ヘリウム",
-          "prompt": "He"
-        },
-        {
-          "display": "ナトリウム",
-          "prompt": "Na"
-        },
-        {
           "display": "カルシウム",
           "prompt": "Ca"
+        },
+        {
+          "display": "カリウム",
+          "prompt": "K"
+        },
+        {
+          "display": "マグネシウム",
+          "prompt": "Mg"
         }
       ]
     },

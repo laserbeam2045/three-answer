@@ -172,19 +172,16 @@
           "prompt": "話"
         },
         {
-          "display": "てへん",
-          "prompt": "持"
+          "display": "くさかんむり",
+          "prompt": "花"
         },
         {
           "display": "うかんむり",
           "prompt": "家"
         },
         {
-          "display": "ひへん",
-          "prompt": "時",
-          "accept": [
-            "にちへん"
-          ]
+          "display": "てへん",
+          "prompt": "持"
         },
         {
           "display": "しんにょう",
@@ -194,16 +191,19 @@
           ]
         },
         {
-          "display": "くさかんむり",
-          "prompt": "花"
+          "display": "やまいだれ",
+          "prompt": "病"
         },
         {
           "display": "こころ",
           "prompt": "思"
         },
         {
-          "display": "やまいだれ",
-          "prompt": "病"
+          "display": "えんにょう",
+          "prompt": "建",
+          "accept": [
+            "いんにょう"
+          ]
         }
       ]
     },
@@ -399,20 +399,24 @@
           "prompt": "デジカメ"
         },
         {
-          "display": "ファミリーレストラン",
-          "prompt": "ファミレス"
-        },
-        {
-          "display": "アニメーション",
-          "prompt": "アニメ"
-        },
-        {
-          "display": "プロフェッショナル",
-          "prompt": "プロ"
+          "display": "コストパフォーマンス",
+          "prompt": "コスパ"
         },
         {
           "display": "スターティングメンバー",
           "prompt": "スタメン"
+        },
+        {
+          "display": "ロケーションハンティング",
+          "prompt": "ロケハン"
+        },
+        {
+          "display": "ラジオカセットレコーダー",
+          "prompt": "ラジカセ",
+          "accept": [
+            "ラジオカセット",
+            "ラジオカセットプレーヤー"
+          ]
         }
       ]
     },
@@ -456,12 +460,12 @@
           "prompt": "鰹"
         },
         {
-          "display": "たら",
-          "prompt": "鱈"
+          "display": "さわら",
+          "prompt": "鰆"
         },
         {
-          "display": "ぶり",
-          "prompt": "鰤"
+          "display": "きす",
+          "prompt": "鱚"
         }
       ]
     },
@@ -478,6 +482,13 @@
           ]
         },
         {
+          "display": "セガ",
+          "prompt": "ソニック",
+          "accept": [
+            "SEGA"
+          ]
+        },
+        {
           "display": "スクウェア・エニックス",
           "prompt": "ドラゴンクエスト",
           "accept": [
@@ -489,26 +500,19 @@
           ]
         },
         {
+          "display": "カプコン",
+          "prompt": "モンスターハンター",
+          "accept": [
+            "CAPCOM"
+          ]
+        },
+        {
           "display": "バンダイナムコ",
           "prompt": "パックマン",
           "accept": [
             "ナムコ",
             "バンナム",
             "バンダイナムコエンターテインメント"
-          ]
-        },
-        {
-          "display": "セガ",
-          "prompt": "ソニック",
-          "accept": [
-            "SEGA"
-          ]
-        },
-        {
-          "display": "カプコン",
-          "prompt": "モンスターハンター",
-          "accept": [
-            "CAPCOM"
           ]
         }
       ]
@@ -737,14 +741,6 @@
           ]
         },
         {
-          "display": "イヌ",
-          "prompt": "シナモロール",
-          "accept": [
-            "犬",
-            "子犬"
-          ]
-        },
-        {
           "display": "カエル",
           "prompt": "けろけろけろっぴ",
           "accept": [
@@ -754,6 +750,14 @@
         {
           "display": "ペンギン",
           "prompt": "タキシードサム"
+        },
+        {
+          "display": "イヌ",
+          "prompt": "シナモロール",
+          "accept": [
+            "犬",
+            "子犬"
+          ]
         }
       ]
     }

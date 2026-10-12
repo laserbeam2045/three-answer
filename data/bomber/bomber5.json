@@ -16,20 +16,12 @@
           "prompt": "雀"
         },
         {
-          "display": "はと",
-          "prompt": "鳩"
-        },
-        {
           "display": "つばめ",
           "prompt": "燕"
         },
         {
           "display": "からす",
           "prompt": "烏"
-        },
-        {
-          "display": "つる",
-          "prompt": "鶴"
         },
         {
           "display": "だちょう",
@@ -46,6 +38,17 @@
         {
           "display": "ふくろう",
           "prompt": "梟"
+        },
+        {
+          "display": "とび",
+          "prompt": "鳶",
+          "accept": [
+            "とんび"
+          ]
+        },
+        {
+          "display": "さぎ",
+          "prompt": "鷺"
         }
       ]
     },
@@ -968,16 +971,16 @@
           ]
         },
         {
+          "display": "ユーロ",
+          "prompt": "フランス"
+        },
+        {
           "display": "ポンド",
           "prompt": "イギリス",
           "accept": [
             "英ポンド",
             "イギリスポンド"
           ]
-        },
-        {
-          "display": "ユーロ",
-          "prompt": "フランス"
         },
         {
           "display": "ウォン",
@@ -1003,18 +1006,18 @@
           ]
         },
         {
-          "display": "バーツ",
-          "prompt": "タイ",
-          "accept": [
-            "タイバーツ"
-          ]
-        },
-        {
           "display": "ルーブル",
           "prompt": "ロシア",
           "accept": [
             "ルーブリ",
             "ロシアルーブル"
+          ]
+        },
+        {
+          "display": "バーツ",
+          "prompt": "タイ",
+          "accept": [
+            "タイバーツ"
           ]
         },
         {

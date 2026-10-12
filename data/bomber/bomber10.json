@@ -8,6 +8,14 @@
       "panels": true,
       "answers": [
         {
+          "display": "答",
+          "prompt": "合",
+          "accept": [
+            "こたえ",
+            "とう"
+          ]
+        },
+        {
           "display": "箸",
           "prompt": "者",
           "accept": [
@@ -19,13 +27,6 @@
           "prompt": "世",
           "accept": [
             "ささ"
-          ]
-        },
-        {
-          "display": "筒",
-          "prompt": "同",
-          "accept": [
-            "つつ"
           ]
         },
         {
@@ -53,17 +54,17 @@
           "prompt": "今日"
         },
         {
-          "display": "みょうにち",
-          "prompt": "明日",
-          "accept": [
-            "あす"
-          ]
-        },
-        {
           "display": "ついたち",
           "prompt": "一日",
           "accept": [
             "いっぴ"
+          ]
+        },
+        {
+          "display": "みょうにち",
+          "prompt": "明日",
+          "accept": [
+            "あす"
           ]
         },
         {
@@ -85,10 +86,6 @@
           ]
         },
         {
-          "display": "こうば",
-          "prompt": "工場"
-        },
-        {
           "display": "しきし",
           "prompt": "色紙",
           "accept": [
@@ -96,18 +93,19 @@
           ]
         },
         {
-          "display": "かざぐるま",
-          "prompt": "風車",
+          "display": "こうば",
+          "prompt": "工場"
+        },
+        {
+          "display": "さなか",
+          "prompt": "最中",
           "accept": [
-            "ふうしゃ"
+            "もなか"
           ]
         },
         {
-          "display": "なまもの",
-          "prompt": "生物",
-          "accept": [
-            "せいぶつ"
-          ]
+          "display": "まつご",
+          "prompt": "末期"
         }
       ]
     },
@@ -233,10 +231,10 @@
           ]
         },
         {
-          "display": "モネ",
-          "prompt": "睡蓮",
+          "display": "フェルメール",
+          "prompt": "真珠の耳飾りの少女",
           "accept": [
-            "クロード・モネ"
+            "ヨハネス・フェルメール"
           ]
         }
       ]
@@ -456,16 +454,16 @@
       "panels": true,
       "answers": [
         {
+          "display": "フランス",
+          "prompt": "エッフェル塔"
+        },
+        {
           "display": "アメリカ",
           "prompt": "自由の女神",
           "accept": [
             "米国",
             "アメリカ合衆国"
           ]
-        },
-        {
-          "display": "フランス",
-          "prompt": "エッフェル塔"
         },
         {
           "display": "エジプト",
@@ -479,16 +477,16 @@
           "prompt": "万里の長城"
         },
         {
-          "display": "イタリア",
-          "prompt": "コロッセオ"
-        },
-        {
           "display": "イギリス",
           "prompt": "ビッグ・ベン",
           "accept": [
             "英国",
             "イングランド"
           ]
+        },
+        {
+          "display": "イタリア",
+          "prompt": "コロッセオ"
         },
         {
           "display": "インド",
@@ -499,12 +497,12 @@
           "prompt": "サグラダ・ファミリア"
         },
         {
-          "display": "オーストラリア",
-          "prompt": "シドニー・オペラハウス"
+          "display": "ペルー",
+          "prompt": "マチュピチュ"
         },
         {
-          "display": "カンボジア",
-          "prompt": "アンコール・ワット"
+          "display": "チリ",
+          "prompt": "モアイ像"
         }
       ]
     },

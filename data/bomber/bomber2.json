@@ -174,15 +174,6 @@
           ]
         },
         {
-          "display": "sea",
-          "prompt": "海",
-          "accept": [
-            "シー",
-            "ocean",
-            "オーシャン"
-          ]
-        },
-        {
           "display": "fireworks",
           "prompt": "花火",
           "accept": [
@@ -206,6 +197,16 @@
           "prompt": "麦わら帽子",
           "accept": [
             "ストローハット"
+          ]
+        },
+        {
+          "display": "sunscreen",
+          "prompt": "日焼け止め",
+          "accept": [
+            "サンスクリーン",
+            "sunblock",
+            "サンブロック",
+            "sun screen"
           ]
         }
       ]
@@ -1189,20 +1190,20 @@
       "panels": true,
       "answers": [
         {
+          "display": "鳥類",
+          "prompt": "ペンギン",
+          "accept": [
+            "ちょうるい",
+            "鳥"
+          ]
+        },
+        {
           "display": "哺乳類",
           "prompt": "クジラ",
           "accept": [
             "ほにゅうるい",
             "哺乳",
             "ほ乳類"
-          ]
-        },
-        {
-          "display": "鳥類",
-          "prompt": "ペンギン",
-          "accept": [
-            "ちょうるい",
-            "鳥"
           ]
         },
         {
