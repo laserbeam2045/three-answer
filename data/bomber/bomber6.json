@@ -8,10 +8,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "いなずま",
-          "prompt": "稲妻"
-        },
-        {
           "display": "ふぶき",
           "prompt": "吹雪"
         },
@@ -24,8 +20,16 @@
           "prompt": "竜巻"
         },
         {
-          "display": "しぐれ",
-          "prompt": "時雨"
+          "display": "いなずま",
+          "prompt": "稲妻"
+        },
+        {
+          "display": "きり",
+          "prompt": "霧"
+        },
+        {
+          "display": "しも",
+          "prompt": "霜"
         },
         {
           "display": "さみだれ",
@@ -35,20 +39,12 @@
           ]
         },
         {
+          "display": "しぐれ",
+          "prompt": "時雨"
+        },
+        {
           "display": "かげろう",
           "prompt": "陽炎"
-        },
-        {
-          "display": "こち",
-          "prompt": "東風",
-          "accept": [
-            "とうふう",
-            "ひがしかぜ"
-          ]
-        },
-        {
-          "display": "みぞれ",
-          "prompt": "霙"
         },
         {
           "display": "ひょう",

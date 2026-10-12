@@ -745,6 +745,10 @@
           "prompt": "紫陽花"
         },
         {
+          "display": "ぼたん",
+          "prompt": "牡丹"
+        },
+        {
           "display": "コスモス",
           "prompt": "秋桜",
           "accept": [
@@ -760,16 +764,15 @@
           "prompt": "蒲公英"
         },
         {
+          "display": "あやめ",
+          "prompt": "菖蒲",
+          "accept": [
+            "しょうぶ"
+          ]
+        },
+        {
           "display": "さざんか",
           "prompt": "山茶花"
-        },
-        {
-          "display": "りんどう",
-          "prompt": "竜胆"
-        },
-        {
-          "display": "つつじ",
-          "prompt": "躑躅"
         }
       ]
     },

@@ -85,8 +85,8 @@
           ]
         },
         {
-          "display": "たいじん",
-          "prompt": "大人"
+          "display": "こうば",
+          "prompt": "工場"
         },
         {
           "display": "しきし",
@@ -358,12 +358,20 @@
           ]
         },
         {
+          "display": "たぬき",
+          "prompt": "狸"
+        },
+        {
           "display": "くらげ",
           "prompt": "海月"
         },
         {
           "display": "りす",
           "prompt": "栗鼠"
+        },
+        {
+          "display": "らくだ",
+          "prompt": "駱駝"
         },
         {
           "display": "もぐら",
@@ -388,14 +396,6 @@
           "accept": [
             "けら"
           ]
-        },
-        {
-          "display": "とかげ",
-          "prompt": "蜥蜴"
-        },
-        {
-          "display": "こうもり",
-          "prompt": "蝙蝠"
         }
       ]
     },
@@ -404,12 +404,20 @@
       "panels": true,
       "answers": [
         {
+          "display": "だんご",
+          "prompt": "団子"
+        },
+        {
           "display": "まんじゅう",
           "prompt": "饅頭"
         },
         {
           "display": "せんべい",
           "prompt": "煎餅"
+        },
+        {
+          "display": "かしわもち",
+          "prompt": "柏餅"
         },
         {
           "display": "もなか",
@@ -440,14 +448,6 @@
           "accept": [
             "ういろ"
           ]
-        },
-        {
-          "display": "らくがん",
-          "prompt": "落雁"
-        },
-        {
-          "display": "ぎゅうひ",
-          "prompt": "求肥"
         }
       ]
     },

@@ -436,8 +436,19 @@
           "prompt": "蜘蛛"
         },
         {
+          "display": "せみ",
+          "prompt": "蝉"
+        },
+        {
           "display": "みのむし",
           "prompt": "蓑虫"
+        },
+        {
+          "display": "とんぼ",
+          "prompt": "蜻蛉",
+          "accept": [
+            "かげろう"
+          ]
         },
         {
           "display": "むかで",
@@ -464,20 +475,6 @@
         {
           "display": "こおろぎ",
           "prompt": "蟋蟀"
-        },
-        {
-          "display": "なめくじ",
-          "prompt": "蛞蝓",
-          "accept": [
-            "なめくじら"
-          ]
-        },
-        {
-          "display": "あめんぼ",
-          "prompt": "水黽",
-          "accept": [
-            "あめんぼう"
-          ]
         }
       ]
     },

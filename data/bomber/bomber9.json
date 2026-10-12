@@ -636,6 +636,10 @@
           "prompt": "生姜"
         },
         {
+          "display": "ごま",
+          "prompt": "胡麻"
+        },
+        {
           "display": "ごぼう",
           "prompt": "牛蒡"
         },
@@ -648,15 +652,8 @@
           "prompt": "蒟蒻"
         },
         {
-          "display": "ところてん",
-          "prompt": "心太"
-        },
-        {
-          "display": "とうもろこし",
-          "prompt": "玉蜀黍",
-          "accept": [
-            "とうきび"
-          ]
+          "display": "にんにく",
+          "prompt": "大蒜"
         }
       ]
     },

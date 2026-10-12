@@ -621,12 +621,23 @@
       "panels": true,
       "answers": [
         {
+          "display": "ちゃわん",
+          "prompt": "茶碗"
+        },
+        {
           "display": "ぞうきん",
           "prompt": "雑巾"
         },
         {
           "display": "ふろしき",
           "prompt": "風呂敷"
+        },
+        {
+          "display": "ゆのみ",
+          "prompt": "湯呑",
+          "accept": [
+            "湯のみ"
+          ]
         },
         {
           "display": "きゅうす",
@@ -651,14 +662,6 @@
         {
           "display": "ほうき",
           "prompt": "箒"
-        },
-        {
-          "display": "まないた",
-          "prompt": "俎板"
-        },
-        {
-          "display": "すりばち",
-          "prompt": "擂鉢"
         }
       ]
     },

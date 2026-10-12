@@ -1543,12 +1543,20 @@
       "panels": true,
       "answers": [
         {
+          "display": "えび",
+          "prompt": "海老"
+        },
+        {
           "display": "さんま",
           "prompt": "秋刀魚"
         },
         {
           "display": "たちうお",
           "prompt": "太刀魚"
+        },
+        {
+          "display": "かき",
+          "prompt": "牡蠣"
         },
         {
           "display": "あさり",
@@ -1573,14 +1581,6 @@
         {
           "display": "さざえ",
           "prompt": "栄螺"
-        },
-        {
-          "display": "わかさぎ",
-          "prompt": "公魚"
-        },
-        {
-          "display": "かわはぎ",
-          "prompt": "皮剥"
         }
       ]
     }

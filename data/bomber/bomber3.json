@@ -308,58 +308,58 @@
       ]
     },
     {
-      "q": "パネルのキャラクターの大好物を答えてください。",
+      "q": "パネルの「日本一」を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "どら焼き",
-          "prompt": "ドラえもん",
+          "display": "富士山",
+          "prompt": "いちばん高い山",
           "accept": [
-            "どらやき",
-            "ドラ焼き",
-            "銅鑼焼き"
+            "富士",
+            "ふじさん"
           ]
         },
         {
-          "display": "はちみつ",
-          "prompt": "くまのプーさん",
+          "display": "信濃川",
+          "prompt": "いちばん長い川",
           "accept": [
-            "蜂蜜",
-            "ハチミツ",
-            "ハニー",
-            "はちみつ（ハニー）"
+            "しなのがわ",
+            "千曲川"
           ]
         },
         {
-          "display": "ほうれん草",
-          "prompt": "ポパイ",
+          "display": "琵琶湖",
+          "prompt": "いちばん大きい湖",
           "accept": [
-            "ほうれんそう",
-            "ホウレンソウ",
-            "法蓮草",
-            "スピナッチ"
+            "びわこ"
           ]
         },
         {
-          "display": "肉",
-          "prompt": "モンキー・D・ルフィ",
+          "display": "東京スカイツリー",
+          "prompt": "いちばん高いタワー",
           "accept": [
-            "にく",
-            "お肉",
-            "骨付き肉",
-            "マンガ肉"
+            "スカイツリー"
           ]
         },
         {
-          "display": "メロンパン",
-          "prompt": "ドラミちゃん",
-          "accept": []
+          "display": "本州",
+          "prompt": "いちばん大きい島",
+          "accept": [
+            "ほんしゅう"
+          ]
+        },
+        {
+          "display": "田沢湖",
+          "prompt": "いちばん深い湖",
+          "accept": [
+            "たざわこ"
+          ]
         }
       ]
     },
     {
       "q": "将棋で、対局の最初に盤に並べる駒の種類を答えてください（成った駒は除きます）。",
-      "slots": 8,
+      "slots": 6,
       "answers": [
         {
           "display": "王将・玉将",
@@ -522,6 +522,34 @@
       "panels": true,
       "answers": [
         {
+          "display": "水素",
+          "prompt": "H",
+          "accept": [
+            "すいそ"
+          ]
+        },
+        {
+          "display": "酸素",
+          "prompt": "O",
+          "accept": [
+            "さんそ"
+          ]
+        },
+        {
+          "display": "炭素",
+          "prompt": "C",
+          "accept": [
+            "たんそ"
+          ]
+        },
+        {
+          "display": "鉄",
+          "prompt": "Fe",
+          "accept": [
+            "てつ"
+          ]
+        },
+        {
           "display": "金",
           "prompt": "Au",
           "accept": [
@@ -536,11 +564,15 @@
           ]
         },
         {
-          "display": "鉄",
-          "prompt": "Fe",
+          "display": "窒素",
+          "prompt": "N",
           "accept": [
-            "てつ"
+            "ちっそ"
           ]
+        },
+        {
+          "display": "ヘリウム",
+          "prompt": "He"
         },
         {
           "display": "ナトリウム",
@@ -549,41 +581,6 @@
         {
           "display": "カルシウム",
           "prompt": "Ca"
-        },
-        {
-          "display": "銅",
-          "prompt": "Cu",
-          "accept": [
-            "どう"
-          ]
-        },
-        {
-          "display": "水銀",
-          "prompt": "Hg",
-          "accept": [
-            "すいぎん"
-          ]
-        },
-        {
-          "display": "亜鉛",
-          "prompt": "Zn",
-          "accept": [
-            "あえん"
-          ]
-        },
-        {
-          "display": "鉛",
-          "prompt": "Pb",
-          "accept": [
-            "なまり"
-          ]
-        },
-        {
-          "display": "スズ",
-          "prompt": "Sn",
-          "accept": [
-            "錫"
-          ]
         }
       ]
     },
@@ -649,7 +646,7 @@
     },
     {
       "q": "アメリカ合衆国の50州を答えてください。",
-      "slots": 10,
+      "slots": 8,
       "suffixes": [
         "州",
         "しゅう"
