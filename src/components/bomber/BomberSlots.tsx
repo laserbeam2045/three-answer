@@ -22,7 +22,7 @@ export default function BomberSlots({
   filled: BomberSlotView[];
   /** 未回答の枠を答える人（先頭が今の回答者）。判定後は空でよい */
   upcoming: string[];
-  /** 枠の数（5〜20） */
+  /** 枠の数（5〜25） */
   target?: number;
   urgent?: boolean;
   /** 判定画面で爆発した枠を示す */

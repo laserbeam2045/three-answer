@@ -52,7 +52,12 @@ export interface BomberQuestion {
    */
   panels?: boolean;
   /**
-   * この問題で答える数（5〜20、正解の数以下）。参加者の順番どおりに1人ずつ答えていく。
+   * 登録した表記どおりの答えだけを正解にする（AI による表記ゆれの判定を使わない）。
+   * 「月の英語名を英語のつづりで」のように、カタカナなどを正解にしたくない問題に使う。
+   */
+  strict?: boolean;
+  /**
+   * この問題で答える数（5〜25、正解の数以下）。参加者の順番どおりに1人ずつ答えていく。
    * 省略時は、答えが15個以上なら10、それ以外は5。簡単な問題は全部答えさせる（例: 惑星なら8）。
    */
   slots?: number;
@@ -98,7 +103,7 @@ export interface BomberMiss {
 }
 
 export interface BomberRoundState {
-  /** この問題で埋める枠の数（5〜20） */
+  /** この問題で埋める枠の数（5〜25） */
   target: number;
   /** 爆弾を持っている（回答中の）プレイヤー */
   turnToken: string;
@@ -318,7 +323,7 @@ export interface BomberView {
   isPlayer: boolean;
   /** questionフェーズ中のみ */
   round: {
-    /** 埋める枠の数（5〜20） */
+    /** 埋める枠の数（5〜25） */
     target: number;
     slots: BomberSlotView[];
     /** 残りの枠を誰が答えるか（今の回答者から順に） */

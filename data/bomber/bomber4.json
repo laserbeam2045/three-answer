@@ -4,44 +4,63 @@
   "description": "ちょっとした予想や推理も楽しめる10問。",
   "questions": [
     {
-      "q": "60の約数（60を割り切れる正の整数）を答えてください。",
-      "slots": 10,
+      "q": "パネルのアルファベットの略語の、日本語での正式な名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "1"
+          "display": "未確認飛行物体",
+          "prompt": "UFO",
+          "accept": [
+            "みかくにんひこうぶったい"
+          ]
         },
         {
-          "display": "2"
+          "display": "日本放送協会",
+          "prompt": "NHK"
         },
         {
-          "display": "3"
+          "display": "日本旅客鉄道",
+          "prompt": "JR"
         },
         {
-          "display": "4"
+          "display": "世界保健機関",
+          "prompt": "WHO"
         },
         {
-          "display": "5"
+          "display": "国際オリンピック委員会",
+          "prompt": "IOC"
         },
         {
-          "display": "6"
+          "display": "アメリカ航空宇宙局",
+          "prompt": "NASA",
+          "accept": [
+            "米航空宇宙局",
+            "航空宇宙局"
+          ]
         },
         {
-          "display": "10"
+          "display": "デオキシリボ核酸",
+          "prompt": "DNA"
         },
         {
-          "display": "12"
+          "display": "国連児童基金",
+          "prompt": "UNICEF",
+          "accept": [
+            "国際連合児童基金",
+            "ユニセフ"
+          ]
         },
         {
-          "display": "15"
+          "display": "宇宙航空研究開発機構",
+          "prompt": "JAXA"
         },
         {
-          "display": "20"
-        },
-        {
-          "display": "30"
-        },
-        {
-          "display": "60"
+          "display": "国連教育科学文化機関",
+          "prompt": "UNESCO",
+          "accept": [
+            "国際連合教育科学文化機関",
+            "ユネスコ"
+          ]
         }
       ]
     },
@@ -57,10 +76,29 @@
           ]
         },
         {
+          "display": "ライト兄弟",
+          "prompt": "飛行機",
+          "accept": [
+            "ライト",
+            "ライトきょうだい"
+          ]
+        },
+        {
           "display": "アインシュタイン",
           "prompt": "相対性理論",
           "accept": [
             "アルベルト・アインシュタイン"
+          ]
+        },
+        {
+          "display": "コペルニクス",
+          "prompt": "地動説"
+        },
+        {
+          "display": "ダーウィン",
+          "prompt": "進化論",
+          "accept": [
+            "チャールズ・ダーウィン"
           ]
         },
         {
@@ -85,6 +123,20 @@
           "accept": [
             "アレクサンダー・フレミング"
           ]
+        },
+        {
+          "display": "ワット",
+          "prompt": "蒸気機関",
+          "accept": [
+            "ジェームズ・ワット"
+          ]
+        },
+        {
+          "display": "グーテンベルク",
+          "prompt": "活版印刷",
+          "accept": [
+            "グーテンベルグ"
+          ]
         }
       ]
     },
@@ -107,6 +159,13 @@
           ]
         },
         {
+          "display": "桃",
+          "prompt": "兆",
+          "accept": [
+            "もも"
+          ]
+        },
+        {
           "display": "椿",
           "prompt": "春",
           "accept": [
@@ -122,17 +181,46 @@
           ]
         },
         {
+          "display": "柊",
+          "prompt": "冬",
+          "accept": [
+            "ひいらぎ"
+          ]
+        },
+        {
           "display": "桐",
           "prompt": "同",
           "accept": [
             "きり"
+          ]
+        },
+        {
+          "display": "楠",
+          "prompt": "南",
+          "accept": [
+            "くすのき",
+            "くす"
+          ]
+        },
+        {
+          "display": "榎",
+          "prompt": "夏",
+          "accept": [
+            "えのき"
+          ]
+        },
+        {
+          "display": "榊",
+          "prompt": "神",
+          "accept": [
+            "さかき"
           ]
         }
       ]
     },
     {
       "q": "日本に多い名字の上位10位までを答えてください。",
-      "slots": 6,
+      "slots": 8,
       "suffixes": [
         "さん"
       ],
@@ -204,7 +292,7 @@
     },
     {
       "q": "ポケモンの「タイプ」を答えてください（ほのお・みず など）。",
-      "slots": 10,
+      "slots": 15,
       "suffixes": [
         "タイプ"
       ],
@@ -306,7 +394,7 @@
     },
     {
       "q": "面積が大きい上位10か国を答えてください。",
-      "slots": 6,
+      "slots": 8,
       "answers": [
         {
           "display": "ロシア",
@@ -359,18 +447,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "インド",
-          "prompt": "印度"
-        },
-        {
-          "display": "アメリカ",
-          "prompt": "亜米利加",
-          "accept": [
-            "米国",
-            "アメリカ合衆国"
-          ]
-        },
-        {
           "display": "カナダ",
           "prompt": "加奈陀"
         },
@@ -398,12 +474,43 @@
           ]
         },
         {
+          "display": "エジプト",
+          "prompt": "埃及"
+        },
+        {
           "display": "スペイン",
           "prompt": "西班牙"
         },
         {
           "display": "オランダ",
           "prompt": "和蘭"
+        },
+        {
+          "display": "メキシコ",
+          "prompt": "墨西哥"
+        },
+        {
+          "display": "トルコ",
+          "prompt": "土耳古"
+        },
+        {
+          "display": "ポルトガル",
+          "prompt": "葡萄牙"
+        },
+        {
+          "display": "スイス",
+          "prompt": "瑞西"
+        },
+        {
+          "display": "ギリシャ",
+          "prompt": "希臘",
+          "accept": [
+            "ギリシア"
+          ]
+        },
+        {
+          "display": "ブラジル",
+          "prompt": "伯剌西爾"
         }
       ]
     },
@@ -458,7 +565,7 @@
     },
     {
       "q": "アジアの国を答えてください（中東・中央アジアも含みます）。",
-      "slots": 15,
+      "slots": 25,
       "answers": [
         {
           "display": "日本",

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import {
   BOMBER_MAX_PLAYERS,
+  BOMBER_MAX_SLOTS,
   BOMBER_POINTS,
   BOMBER_SLOTS,
   BOMBER_MANY_ANSWERS_MIN,
@@ -43,7 +44,7 @@ export default function BomberRulesContent() {
           次の問題は、前の問題の続きの人から始まります。
         </p>
         <p>
-          答えが{BOMBER_MANY_ANSWERS_MIN}個以上ある問題や、全部言えそうな簡単な問題は、5つより多く（最大20個）答えます。
+          答えが{BOMBER_MANY_ANSWERS_MIN}個以上ある問題や、全部言えそうな簡単な問題は、5つより多く（最大{BOMBER_MAX_SLOTS}個）答えます。
           制限時間は「答え1つあたりの秒数 × 答える数」なので、答える数が多いほど長くなります。
         </p>
       </RuleSection>

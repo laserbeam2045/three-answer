@@ -99,158 +99,93 @@
       ]
     },
     {
-      "q": "九州・沖縄地方の8つの県を答えてください。",
-      "slots": 8,
-      "suffixes": [
-        "県",
-        "けん"
-      ],
+      "q": "ゴルフで、1ホールのスコアの呼び名を答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "福岡",
+          "display": "パー"
+        },
+        {
+          "display": "バーディー",
           "accept": [
-            "ふくおか"
+            "バーディ"
           ]
         },
         {
-          "display": "佐賀",
+          "display": "ボギー"
+        },
+        {
+          "display": "イーグル"
+        },
+        {
+          "display": "ダブルボギー",
           "accept": [
-            "さが"
+            "ダボ"
           ]
         },
         {
-          "display": "長崎",
+          "display": "ホールインワン",
           "accept": [
-            "ながさき"
+            "エース"
           ]
         },
         {
-          "display": "熊本",
+          "display": "アルバトロス",
           "accept": [
-            "くまもと"
+            "ダブルイーグル"
           ]
         },
         {
-          "display": "大分",
+          "display": "トリプルボギー",
           "accept": [
-            "おおいた"
+            "トリボギ"
           ]
         },
         {
-          "display": "宮崎",
-          "accept": [
-            "みやざき"
-          ]
-        },
-        {
-          "display": "鹿児島",
-          "accept": [
-            "かごしま"
-          ]
-        },
-        {
-          "display": "沖縄",
-          "accept": [
-            "おきなわ"
-          ]
+          "display": "コンドル"
         }
       ]
     },
     {
-      "q": "1月から12月までの月の英語名を答えてください（英語のつづりでもカタカナでも可）。",
+      "q": "1月から12月までの月の英語名を、英語のつづりで答えてください。",
       "slots": 12,
+      "strict": true,
       "answers": [
         {
-          "display": "January",
-          "accept": [
-            "ジャニュアリー",
-            "ジャニュアリ",
-            "Jan"
-          ]
+          "display": "January"
         },
         {
-          "display": "February",
-          "accept": [
-            "フェブラリー",
-            "フェブラリ",
-            "フェブルアリー",
-            "Feb"
-          ]
+          "display": "February"
         },
         {
-          "display": "March",
-          "accept": [
-            "マーチ",
-            "Mar"
-          ]
+          "display": "March"
         },
         {
-          "display": "April",
-          "accept": [
-            "エイプリル",
-            "エープリル",
-            "Apr"
-          ]
+          "display": "April"
         },
         {
-          "display": "May",
-          "accept": [
-            "メイ",
-            "メー"
-          ]
+          "display": "May"
         },
         {
-          "display": "June",
-          "accept": [
-            "ジューン",
-            "Jun"
-          ]
+          "display": "June"
         },
         {
-          "display": "July",
-          "accept": [
-            "ジュライ",
-            "Jul"
-          ]
+          "display": "July"
         },
         {
-          "display": "August",
-          "accept": [
-            "オーガスト",
-            "Aug"
-          ]
+          "display": "August"
         },
         {
-          "display": "September",
-          "accept": [
-            "セプテンバー",
-            "Sep",
-            "Sept"
-          ]
+          "display": "September"
         },
         {
-          "display": "October",
-          "accept": [
-            "オクトーバー",
-            "Oct"
-          ]
+          "display": "October"
         },
         {
-          "display": "November",
-          "accept": [
-            "ノベンバー",
-            "ノーベンバー",
-            "ノヴェンバー",
-            "Nov"
-          ]
+          "display": "November"
         },
         {
-          "display": "December",
-          "accept": [
-            "ディセンバー",
-            "Dec",
-            "デセンバー"
-          ]
+          "display": "December"
         }
       ]
     },
@@ -258,18 +193,6 @@
       "q": "パネルの難読漢字（料理・食べ物）の読みを答えてください。",
       "panels": true,
       "answers": [
-        {
-          "display": "そば",
-          "prompt": "蕎麦"
-        },
-        {
-          "display": "ぎょうざ",
-          "prompt": "餃子"
-        },
-        {
-          "display": "のり",
-          "prompt": "海苔"
-        },
         {
           "display": "ようかん",
           "prompt": "羊羹"
@@ -294,6 +217,10 @@
           "prompt": "山葵"
         },
         {
+          "display": "かまぼこ",
+          "prompt": "蒲鉾"
+        },
+        {
           "display": "しゅうまい",
           "prompt": "焼売",
           "accept": [
@@ -304,6 +231,17 @@
         {
           "display": "わんたん",
           "prompt": "雲呑"
+        },
+        {
+          "display": "がんもどき",
+          "prompt": "雁擬",
+          "accept": [
+            "がんも"
+          ]
+        },
+        {
+          "display": "おみおつけ",
+          "prompt": "御御御付"
         }
       ]
     },
@@ -359,7 +297,7 @@
     },
     {
       "q": "将棋で、対局の最初に盤に並べる駒の種類を答えてください（成った駒は除きます）。",
-      "slots": 6,
+      "slots": 8,
       "answers": [
         {
           "display": "王将・玉将",
@@ -433,7 +371,7 @@
     },
     {
       "q": "1984年以降に発行が始まった日本銀行券（お札）に肖像が描かれている人物を答えてください（姓だけでも可）。",
-      "slots": 6,
+      "slots": 8,
       "answers": [
         {
           "display": "福沢諭吉",
@@ -522,27 +460,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "鉄",
-          "prompt": "Fe",
-          "accept": [
-            "てつ"
-          ]
-        },
-        {
-          "display": "金",
-          "prompt": "Au",
-          "accept": [
-            "きん"
-          ]
-        },
-        {
-          "display": "銀",
-          "prompt": "Ag",
-          "accept": [
-            "ぎん"
-          ]
-        },
-        {
           "display": "窒素",
           "prompt": "N",
           "accept": [
@@ -577,6 +494,27 @@
           "prompt": "Zn",
           "accept": [
             "あえん"
+          ]
+        },
+        {
+          "display": "水銀",
+          "prompt": "Hg",
+          "accept": [
+            "すいぎん"
+          ]
+        },
+        {
+          "display": "鉛",
+          "prompt": "Pb",
+          "accept": [
+            "なまり"
+          ]
+        },
+        {
+          "display": "スズ",
+          "prompt": "Sn",
+          "accept": [
+            "錫"
           ]
         }
       ]
@@ -643,7 +581,7 @@
     },
     {
       "q": "アメリカ合衆国の50州を答えてください。",
-      "slots": 8,
+      "slots": 20,
       "suffixes": [
         "州",
         "しゅう"

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
-import { firstAnswerer } from "@/lib/bomber/engine";
+import { firstAnswerer, questionNeedingAi } from "@/lib/bomber/engine";
 import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
 import { BOMBER_REVEAL_LIMIT, redact } from "@/lib/redact";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
@@ -329,6 +329,23 @@ describe("ファイブボンバーの進行", () => {
     const view = redact(s, presenceFor([HOST, "p1", "p2"], answerAt), "p1", answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
     expect(view.bomber.players.find((p) => p.token === "p2")?.resting).toBe(true);
     expect(view.bomber.round!.upcoming.every((n) => n === "p1")).toBe(true);
+  });
+
+  it("strict の問題は、照合で一致しない答えを AI 判定に回さない", () => {
+    const STRICT_Q: BomberQuestion = { q: "月の英語名は？", strict: true, answers: Array.from({ length: 5 }, (_, i) => ({ display: `m${i}` })) };
+    const bstrict: BomberSet = { id: "bstrict", title: "厳密", description: "テスト用", questions: [STRICT_Q] };
+    const get = (id: string) => (id === "bstrict" ? bstrict : getBomberSet(id));
+    const s = createRoom("rs", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2]) => applyAction(s, token, action, presence, 0, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" });
+    run("p1", { type: "bomberJoin" });
+    run(HOST, { type: "selectSet", setId: "bstrict" });
+    run(HOST, { type: "start" });
+    expect(questionNeedingAi(s, "p1", "ジャニュアリー", get)).toBeNull();
+    // strict でない問題なら AI 判定に回る
+    const { s: normal } = startedRoom(["p1"]);
+    expect(questionNeedingAi(normal, "p1", "あおもりー", getBomberSet)).not.toBeNull();
   });
 
   it("2人のときは交互に答える", () => {

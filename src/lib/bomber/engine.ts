@@ -272,7 +272,7 @@ export function questionNeedingAi(
   if (!input) return null;
   const set = state.setId ? getBomberSet(state.setId) : undefined;
   const question = set?.questions[state.qIndex];
-  if (!question || matchAnswer(question, input) >= 0) return null;
+  if (!question || question.strict || matchAnswer(question, input) >= 0) return null;
   return question;
 }
 
