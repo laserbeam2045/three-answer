@@ -187,7 +187,7 @@ function bomberView(
     const upcoming: string[] = [];
     let who = round.turnToken;
     for (let k = round.slots.length; k < round.target; k++) {
-      if (k > round.slots.length) who = nextPlayer(players, who);
+      if (k > round.slots.length) who = nextPlayer(players, who, round.resting);
       upcoming.push(nameOf(who));
     }
     roundView = {
@@ -233,6 +233,7 @@ function bomberView(
       name: nameOf(t),
       active: isActive(presence[t], now),
       isYou: t === token,
+      resting: state.phase === "question" && !!round?.resting.includes(t),
     })),
     isPlayer: players.includes(token),
     round: roundView,

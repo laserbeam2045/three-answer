@@ -296,6 +296,41 @@ describe("ファイブボンバーの進行", () => {
     expect(s.bomberRound!.turnToken).toBe("p2");
   });
 
+  it("お休み（パス）した人はその問題の順番を飛ばされ、次の問題から自動で戻る", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
+    act(s, "p2", { type: "bomberRest", rest: true }, answerAt);
+    expect(s.bomberRound!.resting).toEqual(["p2"]);
+    for (const [who, text] of [["p1", "青森"], ["p3", "岩手"], ["p1", "宮城"], ["p3", "秋田"], ["p1", "山形"]] as const) {
+      expect(s.bomberRound!.turnToken).toBe(who);
+      act(s, who, { type: "bomberAnswer", text }, answerAt);
+    }
+    act(s, HOST, { type: "next" }, answerAt);
+    // 次の問題ではお休みが解除され、全員の順番に戻る（5個進んだので 5 % 3 = 2 番目の p3 から）
+    expect(s.bomberRound!.resting).toEqual([]);
+    expect(s.bomberRound!.turnToken).toBe("p3");
+    act(s, "p3", { type: "bomberAnswer", text: "青森" }, answerAt + s.timer!.revealMs);
+    expect(s.bomberRound!.turnToken).toBe("p1");
+  });
+
+  it("回答中の人がお休みにしたら爆弾は次の人へ。お休みはやめられ、全員がお休みにはできない", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2"]);
+    act(s, "p1", { type: "bomberRest", rest: true }, answerAt);
+    expect(s.bomberRound!.turnToken).toBe("p2");
+    // お休みでないのが p2 だけなので、p2 はお休みにできない
+    expect(() => act(s, "p2", { type: "bomberRest", rest: true }, answerAt)).toThrow(EngineError);
+    act(s, "p2", { type: "bomberAnswer", text: "青森" }, answerAt);
+    // p1 がお休み中なので、また p2 の番
+    expect(s.bomberRound!.turnToken).toBe("p2");
+    act(s, "p1", { type: "bomberRest", rest: false }, answerAt);
+    act(s, "p2", { type: "bomberAnswer", text: "岩手" }, answerAt);
+    expect(s.bomberRound!.turnToken).toBe("p1");
+    // 画面にはお休み中かどうかが出る
+    act(s, "p2", { type: "bomberRest", rest: true }, answerAt);
+    const view = redact(s, presenceFor([HOST, "p1", "p2"], answerAt), "p1", answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
+    expect(view.bomber.players.find((p) => p.token === "p2")?.resting).toBe(true);
+    expect(view.bomber.round!.upcoming.every((n) => n === "p1")).toBe(true);
+  });
+
   it("2人のときは交互に答える", () => {
     const { s, answerAt } = startedRoom(["p1", "p2"]);
     const presence = presenceFor([HOST, "p1", "p2"], answerAt);

@@ -59,6 +59,8 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   };
 
   const miss = round.lastMiss;
+  // この問題をお休み（パス）しているか
+  const resting = !!state.bomber.players.find((p) => p.isYou)?.resting;
 
   return (
     // スマホは1画面に収まるよう、余白と高さを詰める（sm 以上は従来のサイズ）
@@ -161,8 +163,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
           </p>
         )}
 
+        {/* この問題をお休み（パス）中の人には、入力欄の代わりに案内を出す */}
+        {resting && (
+          <p className="text-sm text-muted text-center">
+            この問題はお休み中です。次の問題から順番に戻ります。
+          </p>
+        )}
+
         {/* 参加者には入力欄を常に出す（自分の番の前に答えを用意しておける。送れるのは自分の番だけ） */}
-        {state.bomber.isPlayer && (
+        {state.bomber.isPlayer && !resting && (
           <form
             className="w-full max-w-md flex gap-2"
             onSubmit={(e) => {

@@ -27,6 +27,7 @@ const VALID_TYPES = new Set([
   "setBomberSeconds",
   "bomberJoin",
   "bomberLeave",
+  "bomberRest",
   "bomberKick",
   "bomberAnswer",
 ]);

@@ -32,9 +32,14 @@ export function maxBomberPoints(set: BomberSet): number {
 /**
  * players の中で token の次の人（末尾の次は先頭に戻る）。
  * 回答は折り返しなしで、参加者の順番どおりに1人ずつ回る（ユーザー要望）。
+ * skip（この問題をお休みしている人）は飛ばす。全員が skip なら単純に次の人。
  */
-export function nextPlayer(players: string[], token: string): string {
+export function nextPlayer(players: string[], token: string, skip: readonly string[] = []): string {
   const i = players.indexOf(token);
+  for (let k = 1; k <= players.length; k++) {
+    const p = players[(i + k) % players.length];
+    if (!skip.includes(p)) return p;
+  }
   return players[(i + 1) % players.length];
 }
 
@@ -66,6 +71,8 @@ function startRound(state: RoomState, set: BomberSet, now: number): void {
     lastMiss: null,
     missCount: 0,
     misses: [],
+    // お休みは問題ごと。新しい問題では全員が順番に戻る
+    resting: [],
   };
 }
 
@@ -103,9 +110,10 @@ function removePlayer(state: RoomState, target: string): void {
   if (!players.includes(target)) return;
   const round = state.bomberRound;
   const wasTurn = round?.turnToken === target;
-  // 回答中の人が抜けたら、次の人が続ける
-  const next = wasTurn && players.length > 1 ? nextPlayer(players, target) : null;
+  // 回答中の人が抜けたら、次の人（お休み中の人は飛ばす）が続ける
+  const next = wasTurn && players.length > 1 ? nextPlayer(players, target, round?.resting ?? []) : null;
   state.bomberPlayers = players.filter((t) => t !== target);
+  if (round) round.resting = round.resting.filter((t) => t !== target);
 
   if (state.bomberPlayers.length === 0) {
     if (state.phase === "question" || state.phase === "judging") resetToLobby(state);
@@ -239,7 +247,7 @@ export function bomberAnswer(
   if (round.slots.length >= round.target) {
     finishRound(state, true);
   } else {
-    round.turnToken = nextPlayer(state.bomberPlayers, token);
+    round.turnToken = nextPlayer(state.bomberPlayers, token, round.resting);
   }
 }
 
@@ -307,6 +315,28 @@ export function bomberJoin(state: RoomState, token: string): void {
   if (state.bomberPlayers.length >= BOMBER_MAX_PLAYERS)
     throw new EngineError(`参加できるのは${BOMBER_MAX_PLAYERS}人までです`);
   state.bomberPlayers.push(token);
+}
+
+/**
+ * この問題だけお休みする（パス）／お休みをやめる。お休み中は順番を飛ばし、次の問題では自動で戻る。
+ * 回答中の人がお休みにしたら、爆弾は次の人へ。お休みでない人が自分だけなら、お休みにはできない。
+ */
+export function bomberRest(state: RoomState, token: string, rest: boolean): void {
+  const round = state.bomberRound;
+  if (state.phase !== "question" || !round) throw new EngineError("問題の回答中のみ操作できます");
+  if (!state.bomberPlayers.includes(token)) throw new EngineError("参加者のみ操作できます");
+  if (!rest) {
+    round.resting = round.resting.filter((t) => t !== token);
+    return;
+  }
+  if (round.resting.includes(token)) return;
+  const playing = state.bomberPlayers.filter((t) => !round.resting.includes(t));
+  if (playing.length <= 1) throw new EngineError("全員がお休みにはできません");
+  round.resting = [...round.resting, token];
+  if (round.turnToken === token) {
+    round.turnToken = nextPlayer(state.bomberPlayers, token, round.resting);
+    round.lastMiss = null;
+  }
 }
 
 export function bomberLeave(state: RoomState, token: string): void {

@@ -108,6 +108,8 @@ export interface BomberRoundState {
   missCount: number;
   /** この問題で出た誤答（不正解・既出）すべて。全員に見せる */
   misses: BomberMiss[];
+  /** この問題だけお休み（パス）している参加者。順番を飛ばし、次の問題では自動で戻る */
+  resting: string[];
 }
 
 export interface BomberRoundResult {
@@ -200,6 +202,8 @@ export type Action =
   | { type: "setBomberSeconds"; seconds: number }
   | { type: "bomberJoin" }
   | { type: "bomberLeave" }
+  /** この問題だけお休みする（rest: true）／お休みをやめる（rest: false） */
+  | { type: "bomberRest"; rest: boolean }
   | { type: "bomberKick"; token: string }
   | { type: "bomberAnswer"; text: string };
 
@@ -269,6 +273,8 @@ export interface BomberPlayerView {
   name: string;
   active: boolean;
   isYou: boolean;
+  /** この問題だけお休みしている */
+  resting: boolean;
 }
 
 export interface BomberSlotView {

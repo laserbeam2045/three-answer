@@ -29,8 +29,9 @@ export default function BomberRulesContent() {
       <RuleSection title="答え方">
         <p>
           爆弾を持っている人が回答者です。答えを入力して送信し、正解すると爆弾が次の人に移ります。
-          <strong className="text-gold">パスはできません。</strong>
+          自分の番で答えを飛ばす<strong className="text-gold">パスはできません。</strong>
           不正解や、すでに出た答えのときは、正解するまで同じ人が答え直します。
+          ただし、問題の途中で「この問題はお休み」を押すと、その問題だけ順番を飛ばしてもらえます（次の問題から自動で戻ります）。
         </p>
         <p className="text-muted text-xs">
           ひらがな・カタカナ・漢字のどれで入力しても判定されます。

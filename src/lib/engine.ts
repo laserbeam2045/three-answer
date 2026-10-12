@@ -18,6 +18,7 @@ import {
   bomberJoin,
   bomberKick,
   bomberLeave,
+  bomberRest,
   bomberNext,
   bomberStart,
   bomberTick,
@@ -75,6 +76,7 @@ export function normalizeRoom(state: RoomState): void {
   if (state.bomberRound) {
     state.bomberRound.target ??= 5;
     state.bomberRound.misses ??= [];
+    state.bomberRound.resting ??= [];
   }
   // 以前は「1問あたりの秒数」（bomberSeconds）だった。答え1つあたりに変えたので、無ければ既定値にする
   state.settings.bomberSecondsPerAnswer ??= BOMBER_DEFAULT_SECONDS_PER_ANSWER;
@@ -185,6 +187,7 @@ export function applyAction(
     !bomber &&
     (action.type === "bomberJoin" ||
       action.type === "bomberLeave" ||
+      action.type === "bomberRest" ||
       action.type === "bomberKick" ||
       action.type === "bomberAnswer" ||
       action.type === "setBomberSeconds")
@@ -358,6 +361,8 @@ export function applyAction(
 
     case "bomberLeave":
       return bomberLeave(state, token);
+    case "bomberRest":
+      return bomberRest(state, token, action.rest === true);
 
     case "bomberKick":
       return bomberKick(state, token, action.token);
