@@ -425,47 +425,44 @@
       "panels": true,
       "answers": [
         {
-          "display": "さけ",
-          "prompt": "鮭",
-          "accept": [
-            "しゃけ"
-          ]
-        },
-        {
-          "display": "たい",
-          "prompt": "鯛"
-        },
-        {
-          "display": "くじら",
-          "prompt": "鯨"
-        },
-        {
-          "display": "まぐろ",
-          "prompt": "鮪"
-        },
-        {
-          "display": "うなぎ",
-          "prompt": "鰻"
+          "display": "いわし",
+          "prompt": "鰯"
         },
         {
           "display": "さば",
           "prompt": "鯖"
         },
         {
-          "display": "いわし",
-          "prompt": "鰯"
-        },
-        {
           "display": "かつお",
           "prompt": "鰹"
+        },
+        {
+          "display": "たら",
+          "prompt": "鱈"
+        },
+        {
+          "display": "ぶり",
+          "prompt": "鰤"
+        },
+        {
+          "display": "あじ",
+          "prompt": "鯵"
+        },
+        {
+          "display": "かれい",
+          "prompt": "鰈"
         },
         {
           "display": "さわら",
           "prompt": "鰆"
         },
         {
-          "display": "きす",
-          "prompt": "鱚"
+          "display": "はも",
+          "prompt": "鱧"
+        },
+        {
+          "display": "はたはた",
+          "prompt": "鰰"
         }
       ]
     },

@@ -295,34 +295,12 @@
       "panels": true,
       "answers": [
         {
-          "display": "アンラッキー",
-          "prompt": "ラッキー"
+          "display": "アウトプット",
+          "prompt": "インプット"
         },
         {
-          "display": "マイナス",
-          "prompt": "プラス"
-        },
-        {
-          "display": "アウトドア",
-          "prompt": "インドア"
-        },
-        {
-          "display": "ログアウト",
-          "prompt": "ログイン",
-          "accept": [
-            "ログオフ"
-          ]
-        },
-        {
-          "display": "ネガティブ",
-          "prompt": "ポジティブ"
-        },
-        {
-          "display": "デジタル",
-          "prompt": "アナログ",
-          "accept": [
-            "ディジタル"
-          ]
+          "display": "ノンフィクション",
+          "prompt": "フィクション"
         },
         {
           "display": "デフレ",
@@ -340,11 +318,30 @@
           "prompt": "プロローグ"
         },
         {
-          "display": "プロ",
-          "prompt": "アマチュア",
+          "display": "マイノリティ",
+          "prompt": "マジョリティ"
+        },
+        {
+          "display": "マキシマム",
+          "prompt": "ミニマム",
           "accept": [
-            "プロフェッショナル"
+            "マクシマム"
           ]
+        },
+        {
+          "display": "パッシブ",
+          "prompt": "アクティブ"
+        },
+        {
+          "display": "アシンメトリー",
+          "prompt": "シンメトリー",
+          "accept": [
+            "アシメトリー"
+          ]
+        },
+        {
+          "display": "ペシミスト",
+          "prompt": "オプティミスト"
         }
       ]
     },
