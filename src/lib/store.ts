@@ -6,13 +6,25 @@ const ROOM_TTL_MS = 24 * 60 * 60 * 1000;
 export interface Store {
   getRoom(roomId: string): Promise<RoomState | null>;
   createRoom(state: RoomState): Promise<boolean>;
-  /** CASリトライ付き読み取り-変更-書き込み。fnはstateを直接変更する。fnがfalseを返したら書き込まない。 */
+  /**
+   * CASリトライ付き読み取り-変更-書き込み。fnはstateを直接変更する。fnがfalseを返したら書き込まない。
+   * initial を渡すと、1回目はそれを使う（直前に touchAndLoad で読んだ状態を使い回し、読み込みを1回減らす）。
+   */
   mutate(
     roomId: string,
-    fn: (state: RoomState) => boolean | void | Promise<boolean | void>
+    fn: (state: RoomState) => boolean | void | Promise<boolean | void>,
+    initial?: RoomState
   ): Promise<RoomState>;
-  touchPresence(roomId: string, token: string, visible: boolean, now: number): Promise<void>;
-  getPresence(roomId: string): Promise<PresenceMap>;
+  /**
+   * 自分の在席（最終通信時刻・表示中か）を記録し、ルームの状態と全員の在席をまとめて読む。
+   * ポーリングのたびに呼ぶので、Redis では1回の命令（Lua スクリプト）で済ませる（月間リクエスト数の節約）。
+   */
+  touchAndLoad(
+    roomId: string,
+    token: string,
+    visible: boolean,
+    now: number
+  ): Promise<{ state: RoomState | null; presence: PresenceMap }>;
 }
 
 export class RoomNotFoundError extends Error {
@@ -35,7 +47,29 @@ redis.call('SET', KEYS[1], ARGV[2], 'PX', tonumber(ARGV[3]))
 return 1
 `;
 
-class RedisStore implements Store {
+/**
+ * 在席の記録・有効期限の延長・在席の読み込み・ルームの読み込みを1回で行う。
+ * KEYS[1]=ルーム, KEYS[2]=在席。ARGV[1]=token, ARGV[2]="時刻|表示中", ARGV[3]=有効期限(ms)
+ */
+const TOUCH_LOAD_SCRIPT = `
+redis.call('HSET', KEYS[2], ARGV[1], ARGV[2])
+redis.call('PEXPIRE', KEYS[2], tonumber(ARGV[3]))
+local presence = redis.call('HGETALL', KEYS[2])
+local room = redis.call('GET', KEYS[1])
+return {room or '', presence}
+`;
+
+/** 在席の値「時刻|表示中」を読む */
+function parsePresence(entries: Iterable<[string, unknown]>): PresenceMap {
+  const map: PresenceMap = {};
+  for (const [token, v] of entries) {
+    const [ts, vis] = String(v).split("|");
+    map[token] = { lastSeen: Number(ts) || 0, visible: vis === "1" };
+  }
+  return map;
+}
+
+export class RedisStore implements Store {
   constructor(private redis: Redis) {}
 
   private key(roomId: string) {
@@ -60,10 +94,11 @@ class RedisStore implements Store {
 
   async mutate(
     roomId: string,
-    fn: (state: RoomState) => boolean | void | Promise<boolean | void>
+    fn: (state: RoomState) => boolean | void | Promise<boolean | void>,
+    initial?: RoomState
   ): Promise<RoomState> {
     for (let attempt = 0; attempt < 6; attempt++) {
-      const state = await this.getRoom(roomId);
+      const state = attempt === 0 && initial ? initial : await this.getRoom(roomId);
       if (!state) throw new RoomNotFoundError();
       const prevV = state.v;
       const write = await fn(state);
@@ -79,22 +114,22 @@ class RedisStore implements Store {
     throw new Error("CAS retry exceeded");
   }
 
-  async touchPresence(roomId: string, token: string, visible: boolean, now: number): Promise<void> {
-    const key = this.presenceKey(roomId);
-    await this.redis.hset(key, { [token]: `${now}|${visible ? 1 : 0}` });
-    await this.redis.pexpire(key, ROOM_TTL_MS);
-  }
-
-  async getPresence(roomId: string): Promise<PresenceMap> {
-    const raw = await this.redis.hgetall<Record<string, string>>(this.presenceKey(roomId));
-    const map: PresenceMap = {};
-    if (raw) {
-      for (const [token, v] of Object.entries(raw)) {
-        const [ts, vis] = String(v).split("|");
-        map[token] = { lastSeen: Number(ts) || 0, visible: vis === "1" };
-      }
-    }
-    return map;
+  async touchAndLoad(
+    roomId: string,
+    token: string,
+    visible: boolean,
+    now: number
+  ): Promise<{ state: RoomState | null; presence: PresenceMap }> {
+    const [room, flat] = (await this.redis.eval(
+      TOUCH_LOAD_SCRIPT,
+      [this.key(roomId), this.presenceKey(roomId)],
+      [token, `${now}|${visible ? 1 : 0}`, String(ROOM_TTL_MS)]
+    )) as [unknown, unknown[]];
+    // クライアントが JSON を自動で読み込む場合と、文字列のまま返す場合の両方に対応する
+    const state = !room ? null : typeof room === "string" ? (JSON.parse(room) as RoomState) : (room as RoomState);
+    const pairs: [string, unknown][] = [];
+    for (let i = 0; i + 1 < (flat ?? []).length; i += 2) pairs.push([String(flat[i]), flat[i + 1]]);
+    return { state, presence: parsePresence(pairs) };
   }
 }
 
@@ -139,6 +174,7 @@ class MemoryStore implements Store {
     roomId: string,
     fn: (state: RoomState) => boolean | void | Promise<boolean | void>
   ): Promise<RoomState> {
+    // メモリ実装はロックの中で読み直すので、initial は使わない
     return this.withLock(roomId, async () => {
       const state = await this.getRoom(roomId);
       if (!state) throw new RoomNotFoundError();
@@ -150,14 +186,16 @@ class MemoryStore implements Store {
     });
   }
 
-  async touchPresence(roomId: string, token: string, visible: boolean, now: number): Promise<void> {
+  async touchAndLoad(
+    roomId: string,
+    token: string,
+    visible: boolean,
+    now: number
+  ): Promise<{ state: RoomState | null; presence: PresenceMap }> {
     const map = this.db.presence.get(roomId) ?? {};
     map[token] = { lastSeen: now, visible };
     this.db.presence.set(roomId, map);
-  }
-
-  async getPresence(roomId: string): Promise<PresenceMap> {
-    return this.db.presence.get(roomId) ?? {};
+    return { state: await this.getRoom(roomId), presence: { ...map } };
   }
 }
 

@@ -38,6 +38,8 @@ export interface UseRoomResult {
   state: RedactedState | null;
   fatalError: string | null;
   actionError: string | null;
+  /** サーバーに接続できないときの理由（利用上限など）。つながったら null に戻る */
+  connectionError: string | null;
   send: (action: Action) => Promise<boolean>;
   /** サーバー時刻に補正した現在時刻 */
   nowServer: () => number;
@@ -49,6 +51,7 @@ export function useRoom(roomId: string): UseRoomResult {
   const [state, setState] = useState<RedactedState | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [connectionError, setConnectionError] = useState<string | null>(null);
   const [spectatorReveal, setSpectatorReveal] = useState(false);
 
   const tokenRef = useRef<string>("");
@@ -120,8 +123,16 @@ export function useRoom(roomId: string): UseRoomResult {
         setFatalError("ルームが見つかりません。URLを確認してください。");
         return;
       }
-      if (!res.ok) return; // 一時的なエラーは無視して次のポーリングへ
+      if (!res.ok) {
+        // サーバー側の保存先に接続できない（利用上限など）ときは理由を出す。ほかの一時的なエラーは次のポーリングへ
+        if (res.status === 503) {
+          const data = (await res.json().catch(() => null)) as { error?: string } | null;
+          setConnectionError(data?.error ?? "サーバーとの通信に失敗しました。");
+        }
+        return;
+      }
       const data = (await res.json()) as { state: RedactedState; serverNow: number };
+      setConnectionError(null);
       acceptState(data.state, data.serverNow);
     } catch {
       // ネットワーク断は無視（次のポーリングで回復）
@@ -133,13 +144,24 @@ export function useRoom(roomId: string): UseRoomResult {
   useEffect(() => {
     tokenRef.current = getLocalToken();
     void poll();
-    // 通常は約1秒間隔。ファイブボンバーの回答中は爆弾が素早く回るので約0.5秒間隔
+    // ポーリングの間隔。保存先（Redis）の月間リクエスト数を節約するため、すぐには変わらない画面ほど空ける。
+    // - ファイブボンバーの回答中: 爆弾が素早く回るので約0.5秒
+    // - ロビー・結果画面: 約1.5秒
+    // - それ以外: 約1秒
+    // - タブを裏に回しているとき: 5秒（15秒通信が無いと自動で外れる判定に間に合う間隔）
     let lastPollAt = 0;
     const interval = setInterval(() => {
       const s = stateRef.current;
-      const fast = s?.mode === "bomber" && s.phase === "question";
+      const hidden = document.visibilityState !== "visible";
+      const gap = hidden
+        ? 5000
+        : s?.mode === "bomber" && s.phase === "question"
+          ? 450
+          : s?.phase === "lobby" || s?.phase === "results"
+            ? 1500
+            : 950;
       const now = Date.now();
-      if (now - lastPollAt < (fast ? 450 : 950)) return;
+      if (now - lastPollAt < gap) return;
       lastPollAt = now;
       void poll();
     }, 250);
@@ -201,5 +223,5 @@ export function useRoom(roomId: string): UseRoomResult {
 
   const nowServer = useCallback(() => Date.now() + offsetRef.current, []);
 
-  return { state, fatalError, actionError, send, nowServer, spectatorReveal, setSpectatorReveal };
+  return { state, fatalError, actionError, connectionError, send, nowServer, spectatorReveal, setSpectatorReveal };
 }

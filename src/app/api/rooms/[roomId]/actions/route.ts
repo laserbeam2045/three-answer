@@ -5,6 +5,7 @@ import { cleanAnswerInput, questionNeedingAi } from "@/lib/bomber/engine";
 import { judgeWithJev } from "@/lib/bomber/jev";
 import { redact } from "@/lib/redact";
 import { getStore, RoomNotFoundError } from "@/lib/store";
+import { storeErrorResponse } from "../../storeError";
 import { allSets, getBomberSet, getSet } from "@/lib/sets";
 
 export const runtime = "nodejs";
@@ -54,32 +55,35 @@ export async function POST(
   const now = Date.now();
   const store = getStore();
   try {
-    await store.touchPresence(roomId, token, true, now);
-    const presence = await store.getPresence(roomId);
+    // 在席の記録と状態の読み込みを1回で行う（Redis の月間リクエスト数を節約する）
+    const { state: current, presence } = await store.touchAndLoad(roomId, token, true, now);
+    if (!current) throw new RoomNotFoundError();
 
     // ファイブボンバーの回答がローカルの照合で一致しなければ、表記ゆれを AI（Jev）で判定しておく。
     // 外部 API の待ち時間を CAS のリトライに含めないよう、書き込みの前に済ませる
     let bomberHint: BomberAnswerHint | undefined;
     if (action.type === "bomberAnswer") {
-      const current = await store.getRoom(roomId);
-      if (current) {
-        normalizeRoom(current);
-        const input = cleanAnswerInput(action.text);
-        const question = questionNeedingAi(current, token, input, getBomberSet);
-        if (question) {
-          const answerIndex = await judgeWithJev(question, input);
-          if (answerIndex >= 0) bomberHint = { qIndex: current.qIndex, text: input, answerIndex };
-        }
+      normalizeRoom(current);
+      const input = cleanAnswerInput(action.text);
+      const question = questionNeedingAi(current, token, input, getBomberSet);
+      if (question) {
+        const answerIndex = await judgeWithJev(question, input);
+        if (answerIndex >= 0) bomberHint = { qIndex: current.qIndex, text: input, answerIndex };
       }
     }
 
-    const state = await store.mutate(roomId, (s) => {
-      // アクション適用前にも遅延遷移（期限切れ等）を評価する
-      tick(s, presence, now, getSet);
-      applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint);
-      tick(s, presence, now, getSet);
-      return true;
-    });
+    // AI 判定を待った場合は、その間にほかの人の操作が入っているかもしれないので読み直す
+    const state = await store.mutate(
+      roomId,
+      (s) => {
+        // アクション適用前にも遅延遷移（期限切れ等）を評価する
+        tick(s, presence, now, getSet);
+        applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint);
+        tick(s, presence, now, getSet);
+        return true;
+      },
+      bomberHint ? undefined : current
+    );
     const redacted = redact(state, presence, token, now, getSet, allSets, false);
     return NextResponse.json({ state: redacted, serverNow: now });
   } catch (e) {
@@ -89,6 +93,6 @@ export async function POST(
     if (e instanceof EngineError) {
       return NextResponse.json({ error: e.message }, { status: 409 });
     }
-    throw e;
+    return storeErrorResponse(e);
   }
 }

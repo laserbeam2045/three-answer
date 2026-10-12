@@ -3,6 +3,7 @@ import { customAlphabet } from "nanoid";
 import { ensureClient, tick } from "@/lib/engine";
 import { redact } from "@/lib/redact";
 import { getStore, RoomNotFoundError } from "@/lib/store";
+import { storeErrorResponse } from "../storeError";
 import { allSets, getSet } from "@/lib/sets";
 
 export const runtime = "nodejs";
@@ -28,14 +29,19 @@ export async function GET(
 
   const store = getStore();
   try {
-    await store.touchPresence(roomId, token, visible, now);
-    const presence = await store.getPresence(roomId);
+    // 在席の記録と状態の読み込みを1回で行う（Redis の月間リクエスト数を節約する）
+    const { state: loaded, presence } = await store.touchAndLoad(roomId, token, visible, now);
+    if (!loaded) throw new RoomNotFoundError();
 
-    const state = await store.mutate(roomId, (s) => {
-      const addedClient = ensureClient(s, token, name);
-      const ticked = tick(s, presence, now, getSet);
-      return addedClient || ticked; // 変化がなければ書き込まない
-    });
+    const state = await store.mutate(
+      roomId,
+      (s) => {
+        const addedClient = ensureClient(s, token, name);
+        const ticked = tick(s, presence, now, getSet);
+        return addedClient || ticked; // 変化がなければ書き込まない
+      },
+      loaded
+    );
 
     const redacted = redact(state, presence, token, now, getSet, allSets, spectatorReveal);
     return NextResponse.json({ state: redacted, serverNow: now });
@@ -43,6 +49,6 @@ export async function GET(
     if (e instanceof RoomNotFoundError) {
       return NextResponse.json({ error: "ルームが見つかりません" }, { status: 404 });
     }
-    throw e;
+    return storeErrorResponse(e);
   }
 }

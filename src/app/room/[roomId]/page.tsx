@@ -16,7 +16,7 @@ import BomberResultsView from "@/components/bomber/BomberResultsView";
 export default function RoomPage({ params }: { params: Promise<{ roomId: string }> }) {
   const { roomId } = use(params);
   const room = useRoom(roomId);
-  const { state, fatalError, actionError } = room;
+  const { state, fatalError, actionError, connectionError } = room;
   // 問題の表示時や問題終了時（判定・結果画面への切り替え）は、ページ最上部へ戻す
   useScrollTopOnChange(state ? `${state.phase}:${state.qIndex}` : null);
 
@@ -33,8 +33,12 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
 
   if (!state) {
     return (
-      <main className="min-h-dvh flex items-center justify-center">
-        <p className="text-muted animate-pulse text-lg">ルームに接続中…</p>
+      <main className="min-h-dvh flex flex-col items-center justify-center gap-3 p-6 text-center">
+        {connectionError ? (
+          <p className="text-lg font-bold">{connectionError}</p>
+        ) : (
+          <p className="text-muted animate-pulse text-lg">ルームに接続中…</p>
+        )}
       </main>
     );
   }
@@ -60,6 +64,11 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
       </div>
       {state.mode !== "bomber" && state.phase === "question" && state.pausedRoles.length > 0 && (
         <PauseOverlay room={room} />
+      )}
+      {connectionError && (
+        <div className="fixed top-14 left-1/2 -translate-x-1/2 w-[min(92vw,32rem)] bg-player-a/90 text-white text-sm px-4 py-2 rounded-lg shadow-lg z-50 text-center">
+          {connectionError}
+        </div>
       )}
       {actionError && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-player-a/90 text-white px-4 py-2 rounded-lg shadow-lg z-50">

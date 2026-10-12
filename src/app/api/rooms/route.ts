@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { customAlphabet } from "nanoid";
 import { createRoom } from "@/lib/engine";
 import { getStore } from "@/lib/store";
+import { storeErrorResponse } from "./storeError";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,7 +26,12 @@ export async function POST(req: NextRequest) {
   const roomId = roomIdGen();
   if (!token) token = tokenGen();
   const state = createRoom(roomId, token, name || "プレイヤー", Date.now());
-  const ok = await store.createRoom(state);
+  let ok: boolean;
+  try {
+    ok = await store.createRoom(state);
+  } catch (e) {
+    return storeErrorResponse(e);
+  }
   if (!ok) {
     return NextResponse.json({ error: "ルーム作成に失敗しました" }, { status: 500 });
   }
