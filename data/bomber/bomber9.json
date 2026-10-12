@@ -712,18 +712,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "柔道",
-          "prompt": "一本",
-          "accept": [
-            "剣道",
-            "空手"
-          ]
-        },
-        {
-          "display": "ゴルフ",
-          "prompt": "ホールインワン"
-        },
-        {
           "display": "サッカー",
           "prompt": "ハットトリック",
           "accept": [
@@ -740,11 +728,23 @@
           ]
         },
         {
+          "display": "アメリカンフットボール",
+          "prompt": "タッチダウン",
+          "accept": [
+            "アメフト",
+            "アメフット"
+          ]
+        },
+        {
           "display": "ボウリング",
           "prompt": "スペア",
           "accept": [
             "ボーリング"
           ]
+        },
+        {
+          "display": "カーリング",
+          "prompt": "ハウス"
         }
       ]
     },

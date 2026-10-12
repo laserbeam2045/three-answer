@@ -160,14 +160,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "さんずい",
-          "prompt": "海"
-        },
-        {
-          "display": "にんべん",
-          "prompt": "休"
-        },
-        {
           "display": "ごんべん",
           "prompt": "話"
         },
@@ -204,6 +196,14 @@
           "accept": [
             "いんにょう"
           ]
+        },
+        {
+          "display": "こざとへん",
+          "prompt": "院"
+        },
+        {
+          "display": "おおがい",
+          "prompt": "頭"
         }
       ]
     },

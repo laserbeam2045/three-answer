@@ -167,13 +167,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "summer",
-          "prompt": "夏",
-          "accept": [
-            "サマー"
-          ]
-        },
-        {
           "display": "fireworks",
           "prompt": "花火",
           "accept": [
@@ -197,6 +190,17 @@
           "prompt": "麦わら帽子",
           "accept": [
             "ストローハット"
+          ]
+        },
+        {
+          "display": "shaved ice",
+          "prompt": "かき氷",
+          "accept": [
+            "シェイブアイス",
+            "シェーブドアイス",
+            "shave ice",
+            "snow cone",
+            "スノーコーン"
           ]
         },
         {

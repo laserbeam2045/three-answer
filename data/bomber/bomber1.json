@@ -503,36 +503,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "eye",
-          "prompt": "目",
-          "accept": [
-            "アイ",
-            "eyes"
-          ]
-        },
-        {
-          "display": "hand",
-          "prompt": "手",
-          "accept": [
-            "ハンド",
-            "hands"
-          ]
-        },
-        {
-          "display": "mouth",
-          "prompt": "口",
-          "accept": [
-            "マウス"
-          ]
-        },
-        {
-          "display": "nose",
-          "prompt": "鼻",
-          "accept": [
-            "ノーズ"
-          ]
-        },
-        {
           "display": "neck",
           "prompt": "首",
           "accept": [
@@ -554,11 +524,27 @@
           ]
         },
         {
+          "display": "cheek",
+          "prompt": "頬",
+          "accept": [
+            "チーク",
+            "cheeks"
+          ]
+        },
+        {
           "display": "elbow",
           "prompt": "肘",
           "accept": [
             "エルボー",
             "エルボウ"
+          ]
+        },
+        {
+          "display": "forehead",
+          "prompt": "額",
+          "accept": [
+            "フォアヘッド",
+            "フォーヘッド"
           ]
         },
         {
@@ -569,10 +555,25 @@
           ]
         },
         {
+          "display": "ankle",
+          "prompt": "足首",
+          "accept": [
+            "アンクル"
+          ]
+        },
+        {
           "display": "heel",
           "prompt": "踵",
           "accept": [
             "ヒール"
+          ]
+        },
+        {
+          "display": "thigh",
+          "prompt": "太もも",
+          "accept": [
+            "サイ",
+            "thighs"
           ]
         }
       ]
@@ -723,10 +724,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "ゆり",
-          "prompt": "百合"
-        },
-        {
           "display": "ひまわり",
           "prompt": "向日葵"
         },
@@ -767,6 +764,10 @@
         {
           "display": "さざんか",
           "prompt": "山茶花"
+        },
+        {
+          "display": "りんどう",
+          "prompt": "竜胆"
         }
       ]
     },

@@ -327,18 +327,18 @@
           ]
         },
         {
-          "display": "東京スカイツリー",
-          "prompt": "いちばん高いタワー",
-          "accept": [
-            "スカイツリー"
-          ]
-        },
-        {
           "display": "信濃川",
           "prompt": "いちばん長い川",
           "accept": [
             "しなのがわ",
             "千曲川"
+          ]
+        },
+        {
+          "display": "関東平野",
+          "prompt": "いちばん大きい平野",
+          "accept": [
+            "かんとうへいや"
           ]
         },
         {
@@ -522,27 +522,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "水素",
-          "prompt": "H",
-          "accept": [
-            "すいそ"
-          ]
-        },
-        {
-          "display": "酸素",
-          "prompt": "O",
-          "accept": [
-            "さんそ"
-          ]
-        },
-        {
-          "display": "炭素",
-          "prompt": "C",
-          "accept": [
-            "たんそ"
-          ]
-        },
-        {
           "display": "鉄",
           "prompt": "Fe",
           "accept": [
@@ -571,6 +550,10 @@
           ]
         },
         {
+          "display": "ナトリウム",
+          "prompt": "Na"
+        },
+        {
           "display": "カルシウム",
           "prompt": "Ca"
         },
@@ -581,6 +564,20 @@
         {
           "display": "マグネシウム",
           "prompt": "Mg"
+        },
+        {
+          "display": "銅",
+          "prompt": "Cu",
+          "accept": [
+            "どう"
+          ]
+        },
+        {
+          "display": "亜鉛",
+          "prompt": "Zn",
+          "accept": [
+            "あえん"
+          ]
         }
       ]
     },
