@@ -1174,6 +1174,67 @@ body {
   text-shadow: 0 0 12px rgba(253, 230, 138, 0.9);
 }
 
+/* ---------- 自分の番の合図（目障りにならない程度に） ---------- */
+
+/* 番が来た瞬間に、画面のふちが一度だけ金色にふわっと光る */
+@keyframes turn-edge {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.turn-edge {
+  background: radial-gradient(ellipse at center, transparent 62%, rgba(226, 192, 91, 0.32) 100%);
+  animation: turn-edge 1.1s ease-out both;
+}
+
+/* 自分の番のあいだ、回答エリアの枠がゆっくり金色に明滅する */
+@keyframes your-turn-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(226, 192, 91, 0.25), 0 0 8px rgba(226, 192, 91, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(226, 192, 91, 0.6), 0 0 18px rgba(226, 192, 91, 0.3);
+  }
+}
+.your-turn {
+  animation: your-turn-glow 1.8s ease-in-out infinite;
+}
+
+/* 「あなたの番です」が一度だけ小さく弾む */
+@keyframes turn-bump {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.4;
+  }
+  60% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.turn-bump {
+  animation: turn-bump 0.45s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .your-turn,
+  .turn-bump {
+    animation: none;
+  }
+  .turn-edge {
+    display: none;
+  }
+}
+
 /* 残り5秒: 画面の縁が赤く脈打つ */
 @keyframes danger-pulse {
   0%,

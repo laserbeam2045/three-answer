@@ -28,8 +28,15 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   // 自分の番が来たら入力欄にフォーカス。
   // 入力欄は参加者には常に出しておき、一度タップしておけばフォーカスが外れないので、
   // スマホでもキーボードが開いたまま自分の番を迎えられる（スマホはタップ以外の自動フォーカスではキーボードが開かない）
+  // 自分の番が来た合図（目障りにならない程度）: 画面のふちが一度だけ金色に光り、「あなたの番です」が小さく弾む。
+  // スマホでは短く1回振動する。key を変えてアニメーションをやり直すための番号
+  const [turnPulse, setTurnPulse] = useState(0);
   useEffect(() => {
-    if (canAnswer) inputRef.current?.focus();
+    if (!canAnswer) return;
+    inputRef.current?.focus();
+    setTurnPulse((n) => n + 1);
+    const calm = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (!calm) navigator.vibrate?.(60);
   }, [canAnswer]);
 
   // 問題が変わったら入力をクリア
@@ -149,9 +156,16 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       )}
 
       {/* 回答エリア */}
-      <section className="ornate-2 px-3 py-2 sm:p-5 flex flex-col items-center gap-1.5 sm:gap-2.5">
+      <section
+        className={`ornate-2 px-3 py-2 sm:p-5 flex flex-col items-center gap-1.5 sm:gap-2.5 ${
+          round.isYourTurn && !round.waiting ? "your-turn" : ""
+        }`}
+      >
         {round.isYourTurn ? (
-          <p className="font-display text-gilt text-lg sm:text-2xl font-extrabold tracking-widest flex items-center gap-2">
+          <p
+            key={turnPulse}
+            className="turn-bump font-display text-gilt text-lg sm:text-2xl font-extrabold tracking-widest flex items-center gap-2"
+          >
             <BombIcon urgent={urgent} className="w-6 h-6 sm:w-9 sm:h-9" />
             あなたの番です
           </p>
@@ -235,6 +249,11 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
 
       {/* 参加者（途中参加・途中で抜ける） */}
       <BomberPlayersBar room={room} />
+
+      {/* 自分の番が来た瞬間に、画面のふちが一度だけ金色に光る */}
+      {turnPulse > 0 && round.isYourTurn && (
+        <div key={turnPulse} aria-hidden className="turn-edge pointer-events-none fixed inset-0 z-20" />
+      )}
 
       {/* 残り5秒: 画面の縁が赤く脈打つ */}
       {urgent && !round.waiting && (
