@@ -918,13 +918,6 @@
           ]
         },
         {
-          "display": "悲観",
-          "prompt": "楽観",
-          "accept": [
-            "ひかん"
-          ]
-        },
-        {
           "display": "供給",
           "prompt": "需要",
           "accept": [
