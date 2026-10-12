@@ -890,24 +890,10 @@
           ]
         },
         {
-          "display": "反対",
-          "prompt": "賛成",
-          "accept": [
-            "はんたい"
-          ]
-        },
-        {
           "display": "失敗",
           "prompt": "成功",
           "accept": [
             "しっぱい"
-          ]
-        },
-        {
-          "display": "地獄",
-          "prompt": "天国",
-          "accept": [
-            "じごく"
           ]
         },
         {
@@ -918,41 +904,52 @@
           ]
         },
         {
-          "display": "短所",
-          "prompt": "長所",
+          "display": "縮小",
+          "prompt": "拡大",
           "accept": [
-            "たんしょ",
-            "欠点"
+            "しゅくしょう"
           ]
         },
         {
-          "display": "危険",
-          "prompt": "安全",
+          "display": "義務",
+          "prompt": "権利",
           "accept": [
-            "きけん"
+            "ぎむ"
           ]
         },
         {
-          "display": "敗北",
-          "prompt": "勝利",
+          "display": "悲観",
+          "prompt": "楽観",
           "accept": [
-            "はいぼく",
-            "敗戦"
+            "ひかん"
           ]
         },
         {
-          "display": "下品",
-          "prompt": "上品",
+          "display": "供給",
+          "prompt": "需要",
           "accept": [
-            "げひん"
+            "きょうきゅう"
           ]
         },
         {
-          "display": "苦手",
-          "prompt": "得意",
+          "display": "抽象",
+          "prompt": "具体",
           "accept": [
-            "にがて",
-            "不得意"
+            "ちゅうしょう"
+          ]
+        },
+        {
+          "display": "必然",
+          "prompt": "偶然",
+          "accept": [
+            "ひつぜん"
+          ]
+        },
+        {
+          "display": "過失",
+          "prompt": "故意",
+          "accept": [
+            "かしつ"
           ]
         }
       ]
