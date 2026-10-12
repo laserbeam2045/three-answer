@@ -336,7 +336,10 @@ export interface BomberView {
     /** 爆発したときに爆弾を持っていた人の名前 */
     heldBy: string | null;
     slots: BomberSlotView[];
+    /** 正解の一覧（答えが多い問題は、誰かが答えたものと主なものだけ） */
     answers: BomberRevealedAnswer[];
+    /** 正解の総数（answers より多いことがある） */
+    totalAnswers: number;
     misses: BomberMissView[];
     points: number;
   } | null;
@@ -349,6 +352,7 @@ export interface BomberView {
         heldBy: string | null;
         slots: BomberSlotView[];
         answers: BomberRevealedAnswer[];
+        totalAnswers: number;
         misses: BomberMissView[];
         points: number;
       }[]

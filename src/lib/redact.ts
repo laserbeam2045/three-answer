@@ -17,6 +17,12 @@ import { allBomberSets as defaultAllBomberSets, getBomberSet as defaultGetBomber
 import { maxBomberPoints, nextPlayer, roundPoints, totalBomberPoints } from "./bomber/engine";
 import { BOMBER_SLOTS } from "./bomber/match";
 
+/**
+ * 判定・結果画面で見せる正解の数の上限。ひみつ道具（3,000個以上）のように答えが多い問題で
+ * 全部を送ると画面も通信も重くなるので、誰かが答えた正解と、データの先頭（有名なもの）だけを返す。
+ */
+export const BOMBER_REVEAL_LIMIT = 150;
+
 function reveal(set: QuestionSet, qIndex: number): RevealedQuestion {
   const q = set.questions[qIndex];
   return {
@@ -162,10 +168,12 @@ function bomberView(
       cleared: r?.cleared ?? false,
       heldBy: r?.heldBy ? nameOf(r.heldBy) : null,
       slots: slots.map((s) => slotView(s, qIndex)),
-      answers: q.answers.map((a, i) => {
+      answers: q.answers.flatMap((a, i) => {
         const by = slots.find((s) => s.answerIndex === i);
-        return { ...(a.prompt ? { prompt: a.prompt } : {}), display: a.display, by: by ? nameOf(by.token) : null };
+        if (!by && i >= BOMBER_REVEAL_LIMIT) return [];
+        return [{ ...(a.prompt ? { prompt: a.prompt } : {}), display: a.display, by: by ? nameOf(by.token) : null }];
       }),
+      totalAnswers: q.answers.length,
       misses: (r?.misses ?? []).map(missView),
       points: roundPoints(slots.length),
     };

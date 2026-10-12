@@ -116,9 +116,9 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
             {!isPanel && (
               <>
                 <OrnateTitle as="h3" className="mb-3">
-                  正解はこれだけありました（全{judged.answers.length}個）
+                  正解はこれだけありました（全{judged.totalAnswers.toLocaleString()}個）
                 </OrnateTitle>
-                <BomberAnswerList answers={judged.answers} />
+                <BomberAnswerList answers={judged.answers} total={judged.totalAnswers} />
               </>
             )}
             {judged.misses.length > 0 && (

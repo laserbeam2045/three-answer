@@ -128,7 +128,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                             </li>
                           )}
                         </ol>
-                        <BomberAnswerList answers={h.answers} />
+                        <BomberAnswerList answers={h.answers} total={h.totalAnswers} />
                         {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
                       </div>
                     )}

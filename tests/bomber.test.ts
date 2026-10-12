@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { firstAnswerer } from "@/lib/bomber/engine";
 import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
-import { redact } from "@/lib/redact";
+import { BOMBER_REVEAL_LIMIT, redact } from "@/lib/redact";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
 
 // ---------- フィクスチャ ----------
@@ -394,7 +394,37 @@ describe("ファイブボンバーの redact", () => {
     const after = redact(s, presence, "p2", end, getSet, allSets, false, getBomberSet, () => [bset]);
     expect(after.bomber.judged!.answers).toHaveLength(6);
     expect(after.bomber.judged!.answers[0]).toEqual({ display: "青森", by: "p1" });
+    expect(after.bomber.judged!.totalAnswers).toBe(6);
     expect(after.bomber.judged!.points).toBe(10);
+  });
+
+  it("答えが多い問題は、誰かが答えた正解と先頭の主なものだけを返す", () => {
+    const MANY_Q: BomberQuestion = {
+      q: "道具は？",
+      answers: Array.from({ length: BOMBER_REVEAL_LIMIT + 50 }, (_, i) => ({ display: `g${i}` })),
+    };
+    const big: BomberSet = { id: "bbig", title: "多い", description: "テスト用", questions: [MANY_Q] };
+    const get = (id: string) => (id === "bbig" ? big : getBomberSet(id));
+    const s = createRoom("rbig", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presence, now, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" }, 0);
+    run("p1", { type: "bomberJoin" }, 0);
+    run(HOST, { type: "selectSet", setId: "bbig" }, 0);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    // 先頭の上限より後ろの正解を答える
+    run("p1", { type: "bomberAnswer", text: `g${BOMBER_REVEAL_LIMIT + 10}` }, at);
+    // 時間切れで判定へ（最終通信が古いと参加者が外れるので、時間切れの時刻で通信があったことにする）
+    const end = s.timer!.totalMs + 1;
+    const endPresence = presenceFor([HOST, "p1"], end);
+    tick(s, endPresence, end, getSet);
+    const view = redact(s, endPresence, "p1", end, getSet, allSets, false, get, () => [big]);
+    const judged = view.bomber.judged!;
+    expect(judged.totalAnswers).toBe(BOMBER_REVEAL_LIMIT + 50);
+    expect(judged.answers).toHaveLength(BOMBER_REVEAL_LIMIT + 1);
+    expect(judged.answers.find((a) => a.by)?.display).toBe(`g${BOMBER_REVEAL_LIMIT + 10}`);
   });
 });
 
