@@ -939,6 +939,14 @@
           ]
         },
         {
+          "display": "総合",
+          "prompt": "分析",
+          "accept": [
+            "そうごう",
+            "統合"
+          ]
+        },
+        {
           "display": "必然",
           "prompt": "偶然",
           "accept": [
