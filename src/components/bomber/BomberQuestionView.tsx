@@ -28,16 +28,48 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   // 自分の番が来たら入力欄にフォーカス。
   // 入力欄は参加者には常に出しておき、一度タップしておけばフォーカスが外れないので、
   // スマホでもキーボードが開いたまま自分の番を迎えられる（スマホはタップ以外の自動フォーカスではキーボードが開かない）
-  // 自分の番が来た合図（目障りにならない程度）: 画面のふちが一度だけ金色に光り、「あなたの番です」が小さく弾む。
-  // スマホでは短く1回振動する。key を変えてアニメーションをやり直すための番号
-  const [turnPulse, setTurnPulse] = useState(0);
   useEffect(() => {
-    if (!canAnswer) return;
-    inputRef.current?.focus();
+    if (canAnswer) inputRef.current?.focus();
+  }, [canAnswer]);
+
+  // 自分の番が来た合図（目障りにならない程度）: 画面のふちが約1.4秒金色に光り、「あなたの番です」が小さく弾む。
+  // スマホでは短く1回振動する。ほかの人がお休み（パス）して自分が続けて答えるときも、1回ごとに合図を出す。
+  // 1人だけで答えている（ほかの全員がお休み・1人プレイ）ときは、毎回出ると目障りなので、最初の1回だけ。
+  const players = state?.bomber.players ?? [];
+  const othersPlaying = players.some((p) => !p.isYou && !p.resting);
+  const turnKey = canAnswer && round ? `${state?.qIndex}:${round.slots.length}` : null;
+  const prevTurnKey = useRef<string | null>(null);
+  const [turnPulse, setTurnPulse] = useState(0);
+  const [edgeOn, setEdgeOn] = useState(false);
+  useEffect(() => {
+    const prev = prevTurnKey.current;
+    prevTurnKey.current = turnKey;
+    if (!turnKey || turnKey === prev) return;
+    // 続けて自分の番（直前も自分の番だった）なら、ほかに答える人がいるときだけ合図を出す
+    if (prev && !othersPlaying) return;
     setTurnPulse((n) => n + 1);
+    setEdgeOn(true);
+    const t = window.setTimeout(() => setEdgeOn(false), 1400);
     const calm = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (!calm) navigator.vibrate?.(60);
-  }, [canAnswer]);
+    return () => window.clearTimeout(t);
+  }, [turnKey, othersPlaying]);
+
+  // ほかの人がこの問題をお休み（パス）したら、画面の上に小さく知らせる
+  const restingNames = players.filter((p) => p.resting && !p.isYou).map((p) => p.name);
+  const restingKey = restingNames.join("/");
+  const prevResting = useRef<string[]>([]);
+  const [restNotice, setRestNotice] = useState<{ text: string; key: number } | null>(null);
+  useEffect(() => {
+    const before = prevResting.current;
+    prevResting.current = restingNames;
+    const added = restingNames.filter((n) => !before.includes(n));
+    if (added.length === 0) return;
+    setRestNotice({ text: `${added.join("さん・")}さんがこの問題をお休みしました`, key: Date.now() });
+    const t = window.setTimeout(() => setRestNotice(null), 3000);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restingKey]);
 
   // 問題が変わったら入力をクリア
   const qIndex = state?.qIndex ?? 0;
@@ -164,10 +196,11 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
         {round.isYourTurn ? (
           <p
             key={turnPulse}
-            className="turn-bump font-display text-gilt text-lg sm:text-2xl font-extrabold tracking-widest flex items-center gap-2"
+            className="turn-bump your-turn-label font-display text-lg sm:text-2xl font-extrabold tracking-widest flex items-center gap-2"
           >
             <BombIcon urgent={urgent} className="w-6 h-6 sm:w-9 sm:h-9" />
-            あなたの番です
+            {/* 金色の文字は背景を文字の形に切り抜いて出すので、帯の背景とは別の要素にする */}
+            <span className="text-gilt">あなたの番です</span>
           </p>
         ) : (
           <p className="text-sm sm:text-lg text-ink flex items-center gap-2">
@@ -251,8 +284,19 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
       <BomberPlayersBar room={room} />
 
       {/* 自分の番が来た瞬間に、画面のふちが一度だけ金色に光る */}
-      {turnPulse > 0 && round.isYourTurn && (
+      {edgeOn && round.isYourTurn && (
         <div key={turnPulse} aria-hidden className="turn-edge pointer-events-none fixed inset-0 z-20" />
+      )}
+
+      {/* ほかの人のお休み（パス）の知らせ */}
+      {restNotice && (
+        <div
+          key={restNotice.key}
+          role="status"
+          className="rise-in fixed top-14 left-1/2 -translate-x-1/2 z-30 w-[min(92vw,26rem)] rounded-lg border border-line bg-panel/95 px-3 py-1.5 text-center text-xs sm:text-sm text-ink/90 shadow-lg pointer-events-none"
+        >
+          {restNotice.text}
+        </div>
       )}
 
       {/* 残り5秒: 画面の縁が赤く脈打つ */}
