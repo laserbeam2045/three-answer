@@ -647,3 +647,53 @@ describe("パネル問題（難読漢字など）", () => {
     ]);
   });
 });
+
+describe("写真パネル", () => {
+  const img = (n: number) => ({
+    src: `/bomber-img/00000000000${n}.jpg`,
+    author: `作者${n}`,
+    license: "CC BY-SA 4.0",
+    sourceUrl: `https://commons.wikimedia.org/wiki/File:Shiba_inu_${n}.jpg`,
+  });
+  const PHOTO_Q: BomberQuestion = {
+    q: "写真の犬の犬種は？",
+    panels: true,
+    answers: ["柴犬", "チワワ", "パグ", "プードル", "ダルメシアン"].map((display, i) => ({
+      display,
+      prompt: "ABCDE"[i],
+      image: img(i),
+    })),
+  };
+  const bphoto: BomberSet = { id: "bphoto", title: "写真", description: "テスト用", questions: [PHOTO_Q] };
+
+  it("出題中は写真と作者・ライセンスだけを送り、答えが分かる元ページは答え合わせで送る", () => {
+    const get = (id: string) => (id === "bphoto" ? bphoto : getBomberSet(id));
+    const s = createRoom("rph", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presence, now, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" }, 0);
+    run("p1", { type: "setName", name: "p1" }, 0);
+    run("p1", { type: "bomberJoin" }, 0);
+    run(HOST, { type: "selectSet", setId: "bphoto" }, 0);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    run("p1", { type: "bomberAnswer", text: "柴犬" }, at);
+    expect(matchAnswer(PHOTO_Q, "A")).toBe(-1);
+
+    const during = redact(s, presence, HOST, at, getSet, allSets, false, get, () => [bphoto]);
+    expect(during.bomber.round!.panels![1]).toEqual({
+      prompt: "B",
+      display: null,
+      by: null,
+      isYou: false,
+      image: { src: img(1).src, author: "作者1", license: "CC BY-SA 4.0" },
+    });
+    expect(JSON.stringify(during)).not.toContain("commons.wikimedia.org");
+
+    const end = s.timer!.totalMs + 1;
+    tick(s, presenceFor([HOST, "p1"], end), end, getSet);
+    const after = redact(s, presence, HOST, end, getSet, allSets, false, get, () => [bphoto]);
+    expect(after.bomber.judged!.answers[0]).toEqual({ prompt: "A", image: img(0), display: "柴犬", by: "p1" });
+  });
+});

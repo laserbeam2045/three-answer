@@ -99,7 +99,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                       // パネル問題は出題時と同じ並びのパネルで振り返る
                       <div className="px-3 pb-4 space-y-3">
                         <BomberPanels
-                          panels={h.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false }))}
+                          panels={h.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false, image: a.image }))}
                         />
                         {h.misses.length > 0 && <BomberMissList misses={h.misses} />}
                       </div>

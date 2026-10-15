@@ -171,7 +171,14 @@ function bomberView(
       answers: q.answers.flatMap((a, i) => {
         const by = slots.find((s) => s.answerIndex === i);
         if (!by && i >= BOMBER_REVEAL_LIMIT) return [];
-        return [{ ...(a.prompt ? { prompt: a.prompt } : {}), display: a.display, by: by ? nameOf(by.token) : null }];
+        return [
+          {
+            ...(a.prompt ? { prompt: a.prompt } : {}),
+            ...(a.image ? { image: a.image } : {}),
+            display: a.display,
+            by: by ? nameOf(by.token) : null,
+          },
+        ];
       }),
       totalAnswers: q.answers.length,
       misses: (r?.misses ?? []).map(missView),
@@ -209,11 +216,19 @@ function bomberView(
       panels: set.questions[state.qIndex].panels
         ? set.questions[state.qIndex].answers.map((a, i) => {
             const filled = round.slots.find((s) => s.answerIndex === i);
+            // 写真の元ページ（ファイル名に答えが入っていることが多い）は、出題中は伏せる
+            const image = a.image && {
+              src: a.image.src,
+              author: a.image.author,
+              license: a.image.license,
+              ...(a.image.licenseUrl ? { licenseUrl: a.image.licenseUrl } : {}),
+            };
             return {
               prompt: a.prompt ?? "",
               display: filled ? a.display : null,
               by: filled ? nameOf(filled.token) : null,
               isYou: filled?.token === token,
+              ...(image ? { image } : {}),
             };
           })
         : null,

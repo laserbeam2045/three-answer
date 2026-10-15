@@ -172,6 +172,16 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
         </section>
       )}
 
+      {/* 写真パネルは、問題文を読んでいる間に画像を先に読み込んでおく */}
+      {round.panels && timer.inLeadIn && (
+        <div hidden aria-hidden>
+          {round.panels.map((p, i) =>
+            // eslint-disable-next-line @next/next/no-img-element
+            p.image ? <img key={i} src={p.image.src} alt="" /> : null
+          )}
+        </div>
+      )}
+
       {/* 回答枠（誰がどの順に答えるか）。パネル問題はパネルが埋まっていくので出さない */}
       {!round.panels && (
         <section>

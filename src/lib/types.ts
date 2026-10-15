@@ -37,7 +37,28 @@ export interface BomberAnswer {
   prompt?: string;
   /** 表記以外に正解とする書き方（読み・別表記・略称など）。かなは自動でひらがな/カタカナ両対応 */
   accept?: string[];
+  /** 写真パネル。パネルに prompt（A・B…）の代わりに写真を見せる */
+  image?: BomberImage;
 }
+
+/**
+ * 写真パネルの画像（Wikimedia Commons から取ってきて public/bomber-img/ に置いたもの）。
+ * ファイル名は答えが分からない文字列にする。
+ */
+export interface BomberImage {
+  /** 例: "/bomber-img/1a2b3c4d5e6f.jpg" */
+  src: string;
+  /** 撮影者・作者 */
+  author: string;
+  /** 例: "CC BY-SA 4.0" */
+  license: string;
+  licenseUrl?: string;
+  /** Commons の画像のページ。ファイル名に答えが入っていることが多いので、答え合わせのあとにだけ見せる */
+  sourceUrl: string;
+}
+
+/** 出題中に見せる画像の情報（元のページへのリンクは伏せる） */
+export type BomberImageView = Omit<BomberImage, "sourceUrl"> & { sourceUrl?: string };
 
 export interface BomberQuestion {
   q: string;
@@ -307,11 +328,15 @@ export interface BomberPanelView {
   /** 正解した人の名前 */
   by: string | null;
   isYou: boolean;
+  /** 写真パネルなら、その画像 */
+  image?: BomberImageView;
 }
 
 export interface BomberRevealedAnswer {
   /** パネル問題の出題（難読漢字など） */
   prompt?: string;
+  /** 写真パネルの画像 */
+  image?: BomberImage;
   display: string;
   /** この問題で誰かが答えていれば、その人の名前 */
   by: string | null;

@@ -2,6 +2,8 @@
 //  - 各問の正解が5つ以上あるか
 //  - 同じ問題の中で、2つの正解が同じ書き方を受け付けていないか（どちらの正解か決められない）
 //  - 表記の重複や、正規化すると空になる書き方がないか
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { allBomberSets } from "../src/lib/sets";
 import { BOMBER_MAX_SLOTS, BOMBER_SLOTS, acceptedForms, normalizeAnswer } from "../src/lib/bomber/match";
 
@@ -33,6 +35,26 @@ for (const set of allBomberSets()) {
     }
     if (q.slots !== undefined && (q.slots < BOMBER_SLOTS || q.slots > BOMBER_MAX_SLOTS || q.slots > q.answers.length))
       errors.push(`${where}: slots=${q.slots} は ${BOMBER_SLOTS}〜${BOMBER_MAX_SLOTS} かつ正解の数（${q.answers.length}）以下にしてください`);
+
+    // 写真パネル: 画像があること、ファイル名から答えが分からないこと、出典（作者・ライセンス・元ページ）があること
+    const withImage = q.answers.filter((a) => a.image).length;
+    if (withImage > 0) {
+      if (!q.panels) errors.push(`${where}: 写真はパネル問題でしか使えません`);
+      if (withImage !== q.answers.length) errors.push(`${where}: 写真パネルの問題は、すべてのパネルに写真が必要です`);
+      for (const a of q.answers) {
+        const img = a.image;
+        if (!img) continue;
+        if (!/^\/bomber-img\/[0-9a-f]{12}\.(jpg|png|webp)$/.test(img.src))
+          errors.push(`${where}: 「${a.display}」の画像のパスは /bomber-img/<12桁の16進>.jpg の形にしてください（${img.src}）`);
+        else if (!existsSync(join(process.cwd(), "public", img.src)))
+          errors.push(`${where}: 「${a.display}」の画像ファイルがありません（public${img.src}）`);
+        if (!img.author || !img.license) errors.push(`${where}: 「${a.display}」の画像に作者・ライセンスがありません`);
+        if (!/^(cc0|public domain|pd\b|pd-|cc by(-sa)? \d)/i.test(img.license))
+          errors.push(`${where}: 「${a.display}」の画像のライセンス「${img.license}」は使えません`);
+        if (!img.sourceUrl?.startsWith("https://commons.wikimedia.org/"))
+          errors.push(`${where}: 「${a.display}」の画像の元ページ（Commons）がありません`);
+      }
+    }
 
     const owner = new Map<string, number>();
     const displays = new Set<string>();
