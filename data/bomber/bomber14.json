@@ -134,6 +134,29 @@
           "accept": [
             "むじな"
           ]
+        },
+        {
+          "display": "狗",
+          "prompt": "句",
+          "accept": [
+            "いぬ",
+            "く"
+          ]
+        },
+        {
+          "display": "獏",
+          "prompt": "莫",
+          "accept": [
+            "ばく"
+          ]
+        },
+        {
+          "display": "狒",
+          "prompt": "弗",
+          "accept": [
+            "ひ",
+            "ひひ"
+          ]
         }
       ]
     },
@@ -299,50 +322,147 @@
       ]
     },
     {
-      "q": "パネルの意味を表す、ビジネスでよく使うカタカナ語を答えてください。",
+      "q": "写真の昆虫の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "デッドライン",
-          "prompt": "締め切り"
-        },
-        {
-          "display": "バジェット",
-          "prompt": "予算"
-        },
-        {
-          "display": "プライオリティ",
-          "prompt": "優先順位",
+          "display": "カブトムシ",
+          "prompt": "A",
           "accept": [
-            "プライオリティー"
-          ]
+            "かぶと虫",
+            "甲虫"
+          ],
+          "image": {
+            "src": "/bomber-img/6fdadf67756b.jpg",
+            "author": "Kinokoekuwagata",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%82%AB%E3%83%96%E3%83%88%E3%83%A0%E3%82%B7_%E3%82%AA%E3%82%B9.JPG"
+          }
         },
         {
-          "display": "アジェンダ",
-          "prompt": "議題・議事日程"
-        },
-        {
-          "display": "ペンディング",
-          "prompt": "保留"
-        },
-        {
-          "display": "フェーズ",
-          "prompt": "段階"
-        },
-        {
-          "display": "コンセンサス",
-          "prompt": "合意"
-        },
-        {
-          "display": "コンプライアンス",
-          "prompt": "法令遵守"
-        },
-        {
-          "display": "ローンチ",
-          "prompt": "（新製品などの）発売・開始",
+          "display": "テントウムシ",
+          "prompt": "B",
           "accept": [
-            "ロンチ"
-          ]
+            "ナナホシテントウ",
+            "てんとう虫"
+          ],
+          "image": {
+            "src": "/bomber-img/80fc467a4b70.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coccinella_septempunctata_detail.jpg"
+          }
+        },
+        {
+          "display": "カマキリ",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/d1ce0d672114.jpg",
+            "author": "Luc Viatour",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhombodera_basalis_1_Luc_Viatour.jpg"
+          }
+        },
+        {
+          "display": "クワガタ",
+          "prompt": "D",
+          "accept": [
+            "クワガタムシ",
+            "ノコギリクワガタ"
+          ],
+          "image": {
+            "src": "/bomber-img/b874e06c3deb.jpg",
+            "author": "keusju",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nokogirikuwagata.JPG"
+          }
+        },
+        {
+          "display": "セミ",
+          "prompt": "E",
+          "accept": [
+            "アブラゼミ",
+            "蝉"
+          ],
+          "image": {
+            "src": "/bomber-img/9c831f8e5a52.jpg",
+            "author": "KENPEI",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Graptopsaltria_nigrofuscata1.jpg"
+          }
+        },
+        {
+          "display": "モンシロチョウ",
+          "prompt": "F",
+          "accept": [
+            "紋白蝶"
+          ],
+          "image": {
+            "src": "/bomber-img/821197063785.jpg",
+            "author": "Yerpo",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pieris_rapae_Dol.jpg"
+          }
+        },
+        {
+          "display": "バッタ",
+          "prompt": "G",
+          "accept": [
+            "ショウリョウバッタ"
+          ],
+          "image": {
+            "src": "/bomber-img/992ba11790d3.jpg",
+            "author": "KENPEI",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acrida_cinerea1.jpg"
+          }
+        },
+        {
+          "display": "ホタル",
+          "prompt": "H",
+          "accept": [
+            "ゲンジボタル",
+            "蛍"
+          ],
+          "image": {
+            "src": "/bomber-img/2b6594f60d36.jpg",
+            "author": "Alpsdake",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luciola_cruciata.jpg"
+          }
+        },
+        {
+          "display": "タマムシ",
+          "prompt": "I",
+          "accept": [
+            "玉虫"
+          ],
+          "image": {
+            "src": "/bomber-img/2d72c0b002b0.jpg",
+            "author": "‘Uncle Carl’ (カールおじさん)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:W_tamamusi2081.jpg"
+          }
+        },
+        {
+          "display": "オオムラサキ",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/1f85d2eff963.jpg",
+            "author": "Alpsdake",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasakia_charonda_(male).jpg"
+          }
         }
       ]
     },
@@ -594,6 +714,10 @@
           "accept": [
             "おもんばかる"
           ]
+        },
+        {
+          "display": "みなぎる",
+          "prompt": "漲る"
         }
       ]
     },
@@ -718,6 +842,15 @@
             "あいそ",
             "あいそう",
             "愛想が尽きる"
+          ]
+        },
+        {
+          "display": "あぐら",
+          "prompt": "□□□をかく（安心して何もしない）",
+          "accept": [
+            "胡座",
+            "胡坐",
+            "胡座をかく"
           ]
         },
         {

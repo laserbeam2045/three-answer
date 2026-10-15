@@ -465,80 +465,138 @@
       ]
     },
     {
-      "q": "ヨーロッパにある国のうち、日本語の国名が「ア」で終わる国を答えてください（ギリシャ＝ギリシアも可）。",
-      "slots": 8,
+      "q": "写真の、世界の有名な像の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "イタリア"
-        },
-        {
-          "display": "オーストリア"
-        },
-        {
-          "display": "ロシア",
+          "display": "自由の女神",
+          "prompt": "A",
           "accept": [
-            "ロシア連邦"
-          ]
+            "自由の女神像"
+          ],
+          "image": {
+            "src": "/bomber-img/8752184f35a4.jpg",
+            "author": "William Warby",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty,_NY.jpg"
+          }
         },
         {
-          "display": "ギリシャ",
+          "display": "モアイ",
+          "prompt": "B",
           "accept": [
-            "ギリシア"
-          ]
+            "モアイ像"
+          ],
+          "image": {
+            "src": "/bomber-img/384589f3e3b6.jpg",
+            "author": "Aurbina",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moai_Rano_raraku.jpg"
+          }
         },
         {
-          "display": "クロアチア"
+          "display": "スフィンクス",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/7aae77c5bea7.jpg",
+            "author": "Taken by the uploader, w:es:Usuario:Barcex",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_Sphinx_of_Giza_-_20080716a.jpg"
+          }
         },
         {
-          "display": "セルビア"
+          "display": "マーライオン",
+          "prompt": "D",
+          "image": {
+            "src": "/bomber-img/c1f47c709184.jpg",
+            "author": "Unwicked",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Skyline_2019-10.jpg"
+          }
         },
         {
-          "display": "スロバキア",
+          "display": "ダビデ像",
+          "prompt": "E",
           "accept": [
-            "スロヴァキア"
-          ]
+            "ダビデ"
+          ],
+          "image": {
+            "src": "/bomber-img/e0f41afa56aa.jpg",
+            "author": "Livioandronico2013",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michelangelo%27s_David_2015.jpg"
+          }
         },
         {
-          "display": "スロベニア",
+          "display": "考える人",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/133e7968b345.jpg",
+            "author": "Romainbehar",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris_1er_-_Mus%C3%A9e_du_Louvre_-_Exposition_Michel-Ange_Rodin_-_Corps_vivants_-_Le_Penseur_(Auguste_Rodin)_01.jpg"
+          }
+        },
+        {
+          "display": "小便小僧",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/98ba8c416a83.jpg",
+            "author": "Bruxelles_Manneken_Pis.jpg: Myrabella derivative work: Myrabella (talk)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bruxelles_Manneken_Pis_cropped.jpg"
+          }
+        },
+        {
+          "display": "キリスト像",
+          "prompt": "H",
           "accept": [
-            "スロヴェニア"
-          ]
+            "コルコバードのキリスト像",
+            "救い主キリスト像",
+            "リオのキリスト像"
+          ],
+          "image": {
+            "src": "/bomber-img/d3e1eac1f4a3.jpg",
+            "author": "Nico Kaiser",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristo_Redentor_-_Rio_de_Janeiro,_Brasil.jpg"
+          }
         },
         {
-          "display": "ルーマニア"
-        },
-        {
-          "display": "ブルガリア"
-        },
-        {
-          "display": "アルバニア"
-        },
-        {
-          "display": "エストニア"
-        },
-        {
-          "display": "ラトビア",
+          "display": "兵馬俑",
+          "prompt": "I",
           "accept": [
-            "ラトヴィア"
-          ]
+            "へいばよう"
+          ],
+          "image": {
+            "src": "/bomber-img/155788349282.jpg",
+            "author": "user:Robin Chen",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xian_museum.jpg"
+          }
         },
         {
-          "display": "リトアニア"
-        },
-        {
-          "display": "北マケドニア",
+          "display": "人魚姫の像",
+          "prompt": "J",
           "accept": [
-            "マケドニア"
-          ]
-        },
-        {
-          "display": "ジョージア",
-          "accept": [
-            "グルジア"
-          ]
-        },
-        {
-          "display": "アルメニア"
+            "人魚姫",
+            "人魚像",
+            "人魚姫像"
+          ],
+          "image": {
+            "src": "/bomber-img/750c698da184.jpg",
+            "author": "Eva Rinaldi",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Little_Mermaid_Statue_bodypainting_(9542018601).jpg"
+          }
         }
       ]
     },

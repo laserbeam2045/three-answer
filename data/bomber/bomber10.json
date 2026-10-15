@@ -418,59 +418,138 @@
       ]
     },
     {
-      "q": "パネルの建物がある国を答えてください。",
+      "q": "写真の、世界の米料理の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "フランス",
-          "prompt": "エッフェル塔"
-        },
-        {
-          "display": "アメリカ",
-          "prompt": "自由の女神",
+          "display": "チャーハン",
+          "prompt": "A",
           "accept": [
-            "米国",
-            "アメリカ合衆国"
-          ]
+            "炒飯",
+            "焼き飯",
+            "焼飯"
+          ],
+          "image": {
+            "src": "/bomber-img/3432111982b2.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ramen_and_Chahan_002.jpg"
+          }
         },
         {
-          "display": "エジプト",
-          "prompt": "ピラミッド",
+          "display": "ロコモコ",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/08256db00a00.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loco_moco_001.jpg"
+          }
+        },
+        {
+          "display": "ビビンバ",
+          "prompt": "C",
           "accept": [
-            "メキシコ"
-          ]
+            "ビビンパ",
+            "ビビンバップ",
+            "石焼ビビンバ"
+          ],
+          "image": {
+            "src": "/bomber-img/96400c490821.jpg",
+            "author": "abex (a flickr user)",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean.food-Bibimbap-02.jpg"
+          }
         },
         {
-          "display": "中国",
-          "prompt": "万里の長城"
-        },
-        {
-          "display": "イギリス",
-          "prompt": "ビッグ・ベン",
+          "display": "パエリア",
+          "prompt": "D",
           "accept": [
-            "英国",
-            "イングランド"
-          ]
+            "パエリヤ",
+            "パエージャ"
+          ],
+          "image": {
+            "src": "/bomber-img/fa78fe46960a.jpg",
+            "author": "Jan Harenburg",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:01_Paella_Valenciana_original.jpg"
+          }
         },
         {
-          "display": "イタリア",
-          "prompt": "コロッセオ"
+          "display": "タコライス",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/47220c5cfa03.jpg",
+            "author": "Nesnad",
+            "license": "CC BY 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taco_rice_-_Tokyo_area_-_November_9_2016_-_002.jpg"
+          }
         },
         {
-          "display": "インド",
-          "prompt": "タージ・マハル"
+          "display": "リゾット",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/d085137cf6b6.jpg",
+            "author": "Rainer Zenz",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steinpilzrisotto.jpg"
+          }
         },
         {
-          "display": "スペイン",
-          "prompt": "サグラダ・ファミリア"
+          "display": "ガパオライス",
+          "prompt": "G",
+          "accept": [
+            "ガパオ"
+          ],
+          "image": {
+            "src": "/bomber-img/8f708fc8a569.jpg",
+            "author": "Iudexvivorum",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basil_fried_crispy_pork_with_rice_-_Chiang_Mai_-_2017-07-11_(002).jpg"
+          }
         },
         {
-          "display": "ペルー",
-          "prompt": "マチュピチュ"
+          "display": "ナシゴレン",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/525dd7727690.jpg",
+            "author": "Vyacheslav Argenberg",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gili_Meno_Island,_Nasi_goreng,_Fried_rice_with_juice,_Indonesia.jpg"
+          }
         },
         {
-          "display": "チリ",
-          "prompt": "モアイ像"
+          "display": "ジャンバラヤ",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/e6e5b039616b.jpg",
+            "author": "Jessica Rossi",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chicken_and_andouille_sausage_jambalaya.jpg"
+          }
+        },
+        {
+          "display": "ビリヤニ",
+          "prompt": "J",
+          "accept": [
+            "ビリヤーニ"
+          ],
+          "image": {
+            "src": "/bomber-img/41055adfb840.jpg",
+            "author": "Karan Verma",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:India_food.jpg"
+          }
         }
       ]
     },

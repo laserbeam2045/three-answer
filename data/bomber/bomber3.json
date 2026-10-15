@@ -99,205 +99,133 @@
       ]
     },
     {
-      "q": "アフリカの国を答えてください。",
-      "slots": 10,
+      "q": "写真の洋菓子の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "エジプト"
+          "display": "マカロン",
+          "prompt": "A",
+          "image": {
+            "src": "/bomber-img/49b4d3eb63ba.jpg",
+            "author": "Myrabella",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macaron_1.jpg"
+          }
         },
         {
-          "display": "南アフリカ",
+          "display": "ティラミス",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/eb49e9e2fa55.jpg",
+            "author": "Markus Mitterauer from Austria aka addicted",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiramisu_Fanes.jpg"
+          }
+        },
+        {
+          "display": "バームクーヘン",
+          "prompt": "C",
           "accept": [
-            "南アフリカ共和国",
-            "南ア"
-          ]
+            "バウムクーヘン"
+          ],
+          "image": {
+            "src": "/bomber-img/8b38da2c4607.jpg",
+            "author": "katorisi",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baumkuchen,dresden,Deutschland.JPG"
+          }
         },
         {
-          "display": "ケニア"
-        },
-        {
-          "display": "ナイジェリア"
-        },
-        {
-          "display": "モロッコ"
-        },
-        {
-          "display": "エチオピア"
-        },
-        {
-          "display": "ガーナ"
-        },
-        {
-          "display": "アルジェリア"
-        },
-        {
-          "display": "リビア"
-        },
-        {
-          "display": "チュニジア"
-        },
-        {
-          "display": "スーダン"
-        },
-        {
-          "display": "南スーダン"
-        },
-        {
-          "display": "ソマリア"
-        },
-        {
-          "display": "タンザニア"
-        },
-        {
-          "display": "ウガンダ"
-        },
-        {
-          "display": "ルワンダ"
-        },
-        {
-          "display": "マダガスカル"
-        },
-        {
-          "display": "カメルーン"
-        },
-        {
-          "display": "セネガル"
-        },
-        {
-          "display": "コートジボワール",
+          "display": "チュロス",
+          "prompt": "D",
           "accept": [
-            "象牙海岸"
-          ]
+            "チュロ"
+          ],
+          "image": {
+            "src": "/bomber-img/fdf201f3d2a2.jpg",
+            "author": "User:Dominik",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_with_churros.jpg"
+          }
         },
         {
-          "display": "コンゴ民主共和国",
+          "display": "ミルフィーユ",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/6c29de0ac5f3.jpg",
+            "author": "Miya",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mille-feuille_01.jpg"
+          }
+        },
+        {
+          "display": "シフォンケーキ",
+          "prompt": "F",
           "accept": [
-            "ザイール",
-            "旧ザイール"
-          ]
+            "シフォン"
+          ],
+          "image": {
+            "src": "/bomber-img/8ba0bb3cebc3.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiffon_cake_01.jpg"
+          }
         },
         {
-          "display": "コンゴ共和国",
+          "display": "ブッシュ・ド・ノエル",
+          "prompt": "G",
           "accept": [
-            "コンゴ"
-          ]
+            "ブッシュドノエル"
+          ],
+          "image": {
+            "src": "/bomber-img/c896bd885b44.jpg",
+            "author": "Mitantig",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buche_de_Noel_(Yule_Log).jpg"
+          }
         },
         {
-          "display": "アンゴラ"
+          "display": "カヌレ",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/88b3eee3585e.jpg",
+            "author": "DimiTalen",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canel%C3%A9s_on_a_stone_plate,_2015.jpg"
+          }
         },
         {
-          "display": "ザンビア"
+          "display": "フィナンシェ",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/25252b600545.jpg",
+            "author": "Kikaineko",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_rectangular_financiers.jpg"
+          }
         },
         {
-          "display": "ジンバブエ",
+          "display": "ザッハトルテ",
+          "prompt": "J",
           "accept": [
-            "ジンバブウェ"
-          ]
-        },
-        {
-          "display": "モザンビーク"
-        },
-        {
-          "display": "ボツワナ"
-        },
-        {
-          "display": "ナミビア"
-        },
-        {
-          "display": "マリ"
-        },
-        {
-          "display": "ニジェール"
-        },
-        {
-          "display": "チャド"
-        },
-        {
-          "display": "中央アフリカ",
-          "accept": [
-            "中央アフリカ共和国"
-          ]
-        },
-        {
-          "display": "ガボン"
-        },
-        {
-          "display": "赤道ギニア"
-        },
-        {
-          "display": "ギニア"
-        },
-        {
-          "display": "ギニアビサウ"
-        },
-        {
-          "display": "シエラレオネ"
-        },
-        {
-          "display": "リベリア"
-        },
-        {
-          "display": "トーゴ"
-        },
-        {
-          "display": "ベナン"
-        },
-        {
-          "display": "ブルキナファソ"
-        },
-        {
-          "display": "モーリタニア"
-        },
-        {
-          "display": "ガンビア"
-        },
-        {
-          "display": "カーボベルデ",
-          "accept": [
-            "カボベルデ"
-          ]
-        },
-        {
-          "display": "サントメ・プリンシペ",
-          "accept": [
-            "サントメプリンシペ"
-          ]
-        },
-        {
-          "display": "エリトリア"
-        },
-        {
-          "display": "ジブチ"
-        },
-        {
-          "display": "ブルンジ"
-        },
-        {
-          "display": "マラウイ",
-          "accept": [
-            "マラウィ"
-          ]
-        },
-        {
-          "display": "レソト"
-        },
-        {
-          "display": "エスワティニ",
-          "accept": [
-            "スワジランド"
-          ]
-        },
-        {
-          "display": "モーリシャス"
-        },
-        {
-          "display": "セーシェル",
-          "accept": [
-            "セイシェル"
-          ]
-        },
-        {
-          "display": "コモロ"
+            "ザッハートルテ"
+          ],
+          "image": {
+            "src": "/bomber-img/ba449639ed99.jpg",
+            "author": "Max263",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sachertorte_cake_at_Caf%C3%A9_Sperl,_Vienna_(2026).jpg"
+          }
         }
       ]
     },
@@ -420,6 +348,13 @@
           ]
         },
         {
+          "display": "東京都",
+          "prompt": "いちばん人口が多い都道府県",
+          "accept": [
+            "東京"
+          ]
+        },
+        {
           "display": "信濃川",
           "prompt": "いちばん長い川",
           "accept": [
@@ -442,10 +377,32 @@
           ]
         },
         {
+          "display": "青函トンネル",
+          "prompt": "いちばん長い鉄道トンネル",
+          "accept": [
+            "青函"
+          ]
+        },
+        {
+          "display": "利根川",
+          "prompt": "いちばん流域面積が広い川",
+          "accept": [
+            "とねがわ"
+          ]
+        },
+        {
           "display": "田沢湖",
           "prompt": "いちばん深い湖",
           "accept": [
             "たざわこ"
+          ]
+        },
+        {
+          "display": "高山市",
+          "prompt": "いちばん面積が広い市町村",
+          "accept": [
+            "高山",
+            "たかやまし"
           ]
         }
       ]

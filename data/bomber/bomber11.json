@@ -1,7 +1,7 @@
 {
   "id": "bomber11",
   "title": "拾壱 ほのお",
-  "description": "金へんの漢字・長寿のお祝い・キャッチコピーなど、本家の過去問から10問。",
+  "description": "金へんの漢字・マリオのキャラクター・長寿のお祝いなど、本家の過去問から10問。",
   "questions": [
     {
       "q": "パネルの漢字に「金へん」を付けてできる漢字を答えてください（漢字でも読みでも可）。",
@@ -84,192 +84,798 @@
       ]
     },
     {
-      "q": "JR山手線の駅を答えてください。",
+      "q": "ゲーム『スーパーマリオ』シリーズに登場するキャラクターを答えてください（敵キャラも可）。",
       "slots": 10,
-      "suffixes": [
-        "駅"
-      ],
       "answers": [
         {
-          "display": "東京",
+          "display": "マリオ",
           "accept": [
-            "とうきょう"
+            "ジャンプマン"
           ]
         },
         {
-          "display": "有楽町",
+          "display": "ルイージ"
+        },
+        {
+          "display": "ピーチ",
           "accept": [
-            "ゆうらくちょう"
+            "ピーチ姫"
           ]
         },
         {
-          "display": "新橋",
+          "display": "デイジー",
           "accept": [
-            "しんばし"
+            "デイジー姫"
           ]
         },
         {
-          "display": "浜松町",
+          "display": "ロゼッタ"
+        },
+        {
+          "display": "ヨッシー"
+        },
+        {
+          "display": "キャサリン",
           "accept": [
-            "はままつちょう"
+            "キャシー"
           ]
         },
         {
-          "display": "田町",
+          "display": "キノピオ"
+        },
+        {
+          "display": "キノピコ"
+        },
+        {
+          "display": "キノじい",
           "accept": [
-            "たまち"
+            "キノジイ"
           ]
         },
         {
-          "display": "高輪ゲートウェイ",
+          "display": "キノピオ隊長"
+        },
+        {
+          "display": "ポリーン",
           "accept": [
-            "たかなわげーとうぇい"
+            "ポリーン市長",
+            "レディ"
           ]
         },
         {
-          "display": "品川",
+          "display": "ワリオ"
+        },
+        {
+          "display": "ワルイージ"
+        },
+        {
+          "display": "ドンキーコング",
           "accept": [
-            "しながわ"
+            "ドンキー",
+            "DK"
           ]
         },
         {
-          "display": "大崎",
+          "display": "ディディーコング",
           "accept": [
-            "おおさき"
+            "ディディー"
           ]
         },
         {
-          "display": "五反田",
+          "display": "ディクシーコング",
           "accept": [
-            "ごたんだ"
+            "ディクシー"
           ]
         },
         {
-          "display": "目黒",
+          "display": "クランキーコング",
           "accept": [
-            "めぐろ"
+            "クランキー"
           ]
         },
         {
-          "display": "恵比寿",
+          "display": "ファンキーコング",
           "accept": [
-            "えびす"
+            "ファンキー"
           ]
         },
         {
-          "display": "渋谷",
+          "display": "タイニーコング",
           "accept": [
-            "しぶや"
+            "タイニー"
           ]
         },
         {
-          "display": "原宿",
+          "display": "ドンキーコングJr.",
           "accept": [
-            "はらじゅく"
+            "ドンキーコングジュニア",
+            "ドンキーコングJr",
+            "ドンキーJr."
           ]
         },
         {
-          "display": "代々木",
+          "display": "キングクルール",
           "accept": [
-            "よよぎ",
-            "代代木"
+            "クルール"
           ]
         },
         {
-          "display": "新宿",
+          "display": "クリッター"
+        },
+        {
+          "display": "ベビィマリオ",
           "accept": [
-            "しんじゅく"
+            "ベビーマリオ"
           ]
         },
         {
-          "display": "新大久保",
+          "display": "ベビィルイージ",
           "accept": [
-            "しんおおくぼ"
+            "ベビールイージ"
           ]
         },
         {
-          "display": "高田馬場",
+          "display": "ベビィピーチ",
           "accept": [
-            "たかだのばば"
+            "ベビーピーチ"
           ]
         },
         {
-          "display": "目白",
+          "display": "ベビィデイジー",
           "accept": [
-            "めじろ"
+            "ベビーデイジー"
           ]
         },
         {
-          "display": "池袋",
+          "display": "ベビィロゼッタ",
           "accept": [
-            "いけぶくろ"
+            "ベビーロゼッタ"
           ]
         },
         {
-          "display": "大塚",
+          "display": "ベビィクッパ",
           "accept": [
-            "おおつか"
+            "ベビークッパ"
           ]
         },
         {
-          "display": "巣鴨",
+          "display": "チビヨッシー"
+        },
+        {
+          "display": "メタルマリオ"
+        },
+        {
+          "display": "ピンクゴールドピーチ"
+        },
+        {
+          "display": "ドクターマリオ",
           "accept": [
-            "すがも"
+            "Dr.マリオ"
           ]
         },
         {
-          "display": "駒込",
+          "display": "ミスターL"
+        },
+        {
+          "display": "ニセマリオ"
+        },
+        {
+          "display": "トッテン"
+        },
+        {
+          "display": "チコ"
+        },
+        {
+          "display": "ハラペコチコ"
+        },
+        {
+          "display": "キャッピー"
+        },
+        {
+          "display": "ティアラ"
+        },
+        {
+          "display": "ポンプ"
+        },
+        {
+          "display": "ミップ"
+        },
+        {
+          "display": "オヤ・マー博士",
           "accept": [
-            "こまごめ"
+            "オヤマー博士",
+            "オヤ・マー",
+            "オヤマー"
           ]
         },
         {
-          "display": "田端",
+          "display": "ポルタ"
+        },
+        {
+          "display": "スパイク",
           "accept": [
-            "たばた"
+            "ブラッキー"
           ]
         },
         {
-          "display": "西日暮里",
+          "display": "ルマリー"
+        },
+        {
+          "display": "おしゃべりフラワー"
+        },
+        {
+          "display": "フロリアン王子",
           "accept": [
-            "にしにっぽり"
+            "フローリアン王子",
+            "フロリアン"
           ]
         },
         {
-          "display": "日暮里",
+          "display": "ようせい姫"
+        },
+        {
+          "display": "モンテ族",
           "accept": [
-            "にっぽり"
+            "モンテ"
           ]
         },
         {
-          "display": "鶯谷",
+          "display": "マーレ族",
           "accept": [
-            "うぐいすだに"
+            "マーレ"
           ]
         },
         {
-          "display": "上野",
+          "display": "ミレニアムスター"
+        },
+        {
+          "display": "カッサー"
+        },
+        {
+          "display": "ステラ"
+        },
+        {
+          "display": "ポチ"
+        },
+        {
+          "display": "クッパ",
           "accept": [
-            "うえの"
+            "大魔王クッパ",
+            "クッパ大王",
+            "魔王クッパ"
           ]
         },
         {
-          "display": "御徒町",
+          "display": "クッパJr.",
           "accept": [
-            "おかちまち"
+            "クッパジュニア",
+            "クッパJr"
           ]
         },
         {
-          "display": "秋葉原",
+          "display": "クッパ7人衆",
           "accept": [
-            "あきはばら"
+            "コクッパ",
+            "コクッパ7人衆",
+            "コクッパ7兄弟",
+            "クッパ七人衆"
           ]
         },
         {
-          "display": "神田",
+          "display": "ラリー"
+        },
+        {
+          "display": "モートン"
+        },
+        {
+          "display": "ウェンディ"
+        },
+        {
+          "display": "イギー"
+        },
+        {
+          "display": "ロイ"
+        },
+        {
+          "display": "レミー"
+        },
+        {
+          "display": "ルドウィッグ"
+        },
+        {
+          "display": "カメック"
+        },
+        {
+          "display": "カメックババ"
+        },
+        {
+          "display": "ほねクッパ",
           "accept": [
-            "かんだ"
+            "骨クッパ",
+            "ホネクッパ"
           ]
+        },
+        {
+          "display": "メカクッパ"
+        },
+        {
+          "display": "ネコクッパ"
+        },
+        {
+          "display": "ミニクッパ"
+        },
+        {
+          "display": "ブンブン"
+        },
+        {
+          "display": "ポムプム"
+        },
+        {
+          "display": "ボムキング"
+        },
+        {
+          "display": "キングテレサ"
+        },
+        {
+          "display": "クリキング"
+        },
+        {
+          "display": "ボスパックン"
+        },
+        {
+          "display": "ボスゲッソー"
+        },
+        {
+          "display": "ブルーダルズ"
+        },
+        {
+          "display": "マムー"
+        },
+        {
+          "display": "タタンガ"
+        },
+        {
+          "display": "ジーノ"
+        },
+        {
+          "display": "マロ"
+        },
+        {
+          "display": "カジオー"
+        },
+        {
+          "display": "ブッキー"
+        },
+        {
+          "display": "マルガリータ"
+        },
+        {
+          "display": "クロコ"
+        },
+        {
+          "display": "ヤリドヴィッヒ"
+        },
+        {
+          "display": "カリバー"
+        },
+        {
+          "display": "ジョナサン・ジョーンズ",
+          "accept": [
+            "ジョナサンジョーンズ"
+          ]
+        },
+        {
+          "display": "クリオ"
+        },
+        {
+          "display": "カメキ"
+        },
+        {
+          "display": "ピンキー"
+        },
+        {
+          "display": "パレッタ"
+        },
+        {
+          "display": "レサレサ"
+        },
+        {
+          "display": "アカリン"
+        },
+        {
+          "display": "おプク"
+        },
+        {
+          "display": "ポコピー"
+        },
+        {
+          "display": "クリスチーヌ"
+        },
+        {
+          "display": "ノコタロウ"
+        },
+        {
+          "display": "クラウダ"
+        },
+        {
+          "display": "ビビアン"
+        },
+        {
+          "display": "バレル"
+        },
+        {
+          "display": "チュチュリーナ"
+        },
+        {
+          "display": "カゲの女王"
+        },
+        {
+          "display": "ティッピー"
+        },
+        {
+          "display": "ノワール伯爵"
+        },
+        {
+          "display": "ディメーン"
+        },
+        {
+          "display": "マネーラ"
+        },
+        {
+          "display": "ドドンタス"
+        },
+        {
+          "display": "ナスタシア"
+        },
+        {
+          "display": "ペンキー"
+        },
+        {
+          "display": "オリビア"
+        },
+        {
+          "display": "オリー王"
+        },
+        {
+          "display": "ゲラコビッツ"
+        },
+        {
+          "display": "ゲラゲモーナ"
+        },
+        {
+          "display": "スターロー"
+        },
+        {
+          "display": "アシュリー"
+        },
+        {
+          "display": "モナ"
+        },
+        {
+          "display": "ジミー"
+        },
+        {
+          "display": "ナインボルト"
+        },
+        {
+          "display": "ドクタークライゴア",
+          "accept": [
+            "クライゴア"
+          ]
+        },
+        {
+          "display": "オービュロン"
+        },
+        {
+          "display": "ドリブル＆スピッツ",
+          "accept": [
+            "ドリブル&スピッツ",
+            "ドリブルアンドスピッツ"
+          ]
+        },
+        {
+          "display": "ヤングクリケット"
+        },
+        {
+          "display": "キャット＆アナ",
+          "accept": [
+            "キャット&アナ",
+            "キャットアンドアナ"
+          ]
+        },
+        {
+          "display": "ペニー"
+        },
+        {
+          "display": "キャプテン・シロップ",
+          "accept": [
+            "キャプテンシロップ",
+            "シロップ"
+          ]
+        },
+        {
+          "display": "クリボー"
+        },
+        {
+          "display": "パタクリボー"
+        },
+        {
+          "display": "トゲクリボー"
+        },
+        {
+          "display": "クツクリボー"
+        },
+        {
+          "display": "マメクリボー"
+        },
+        {
+          "display": "クリボン"
+        },
+        {
+          "display": "ノコノコ"
+        },
+        {
+          "display": "パタパタ"
+        },
+        {
+          "display": "カロン"
+        },
+        {
+          "display": "ハンマーブロス"
+        },
+        {
+          "display": "ブーメランブロス"
+        },
+        {
+          "display": "ファイアブロス"
+        },
+        {
+          "display": "アイスブロス"
+        },
+        {
+          "display": "ヒマンブロス"
+        },
+        {
+          "display": "ジュゲム"
+        },
+        {
+          "display": "トゲゾー"
+        },
+        {
+          "display": "パイポ"
+        },
+        {
+          "display": "メット"
+        },
+        {
+          "display": "トゲメット"
+        },
+        {
+          "display": "テレサ"
+        },
+        {
+          "display": "アトミックテレサ"
+        },
+        {
+          "display": "テレン"
+        },
+        {
+          "display": "パックンフラワー",
+          "accept": [
+            "パックン"
+          ]
+        },
+        {
+          "display": "ファイアパックン",
+          "accept": [
+            "ファイヤーパックン"
+          ]
+        },
+        {
+          "display": "ブラックパックン"
+        },
+        {
+          "display": "プチパックン"
+        },
+        {
+          "display": "ディノパックン"
+        },
+        {
+          "display": "ボムへい",
+          "accept": [
+            "ボム兵",
+            "ボムヘイ"
+          ]
+        },
+        {
+          "display": "ハナチャン"
+        },
+        {
+          "display": "ポイハナ"
+        },
+        {
+          "display": "ヘイホー"
+        },
+        {
+          "display": "プロペラヘイホー"
+        },
+        {
+          "display": "プクプク"
+        },
+        {
+          "display": "フグマンネン"
+        },
+        {
+          "display": "フィッシュボーン"
+        },
+        {
+          "display": "ゲッソー"
+        },
+        {
+          "display": "バブル"
+        },
+        {
+          "display": "ワンワン"
+        },
+        {
+          "display": "キャンキャン"
+        },
+        {
+          "display": "ムーチョ"
+        },
+        {
+          "display": "サンボ"
+        },
+        {
+          "display": "ガボン"
+        },
+        {
+          "display": "チョロプー"
+        },
+        {
+          "display": "ドッスン"
+        },
+        {
+          "display": "バッタン"
+        },
+        {
+          "display": "キラー"
+        },
+        {
+          "display": "マグナムキラー"
+        },
+        {
+          "display": "プー"
+        },
+        {
+          "display": "バサバサ"
+        },
+        {
+          "display": "ウニラ"
+        },
+        {
+          "display": "アメフトくん",
+          "accept": [
+            "アメフトクン"
+          ]
+        },
+        {
+          "display": "チョロボン"
+        },
+        {
+          "display": "ネッチー"
+        },
+        {
+          "display": "ドッシー"
+        },
+        {
+          "display": "ウンババ"
+        },
+        {
+          "display": "ボロドー"
+        },
+        {
+          "display": "ブル"
+        },
+        {
+          "display": "ガマネー"
+        },
+        {
+          "display": "リフトン"
+        },
+        {
+          "display": "ツッコンドル"
+        },
+        {
+          "display": "ハッチン"
+        },
+        {
+          "display": "パタテンテン"
+        },
+        {
+          "display": "ペンギン"
+        },
+        {
+          "display": "ウシ"
+        },
+        {
+          "display": "キングバッタン"
+        },
+        {
+          "display": "アリへい",
+          "accept": [
+            "アリヘイ"
+          ]
+        },
+        {
+          "display": "のびのびパックン"
+        },
+        {
+          "display": "ドンケツ"
+        },
+        {
+          "display": "ウーガンフィッシュ"
+        },
+        {
+          "display": "ピョンチュウ"
+        },
+        {
+          "display": "クッパクラウン"
+        },
+        {
+          "display": "あおキノピオ",
+          "accept": [
+            "青キノピオ"
+          ]
+        },
+        {
+          "display": "きいろキノピオ",
+          "accept": [
+            "黄色キノピオ",
+            "キイロキノピオ"
+          ]
+        },
+        {
+          "display": "ハニークイーン"
+        },
+        {
+          "display": "ヤマムラ"
+        },
+        {
+          "display": "コウノトリ"
+        },
+        {
+          "display": "しょうぐんヘイホー",
+          "accept": [
+            "将軍ヘイホー"
+          ]
+        },
+        {
+          "display": "ゴンババ"
+        },
+        {
+          "display": "ケンゾール"
+        },
+        {
+          "display": "ブーマー"
+        },
+        {
+          "display": "ユミンパ"
+        },
+        {
+          "display": "クリスタラー"
+        },
+        {
+          "display": "カエル仙人"
+        },
+        {
+          "display": "キノコ大臣"
+        },
+        {
+          "display": "マメック王子"
+        },
+        {
+          "display": "マメラ女王"
         }
       ]
     },
@@ -278,19 +884,27 @@
       "panels": true,
       "answers": [
         {
-          "display": "水",
-          "prompt": "寝耳に□",
+          "display": "金棒",
+          "prompt": "鬼に□□",
           "accept": [
-            "みず",
-            "寝耳に水"
+            "かなぼう",
+            "鬼に金棒"
           ]
         },
         {
-          "display": "花",
-          "prompt": "両手に□",
+          "display": "水",
+          "prompt": "焼け石に□",
           "accept": [
-            "はな",
-            "両手に花"
+            "みず",
+            "焼け石に水"
+          ]
+        },
+        {
+          "display": "念仏",
+          "prompt": "馬の耳に□□",
+          "accept": [
+            "ねんぶつ",
+            "馬の耳に念仏"
           ]
         },
         {
@@ -298,6 +912,7 @@
           "prompt": "渡りに□",
           "accept": [
             "ふね",
+            "舟",
             "渡りに船"
           ]
         },
@@ -310,43 +925,45 @@
           ]
         },
         {
-          "display": "だっこ",
-          "prompt": "おんぶに□□□",
+          "display": "説法",
+          "prompt": "釈迦に□□",
           "accept": [
-            "抱っこ",
-            "おんぶにだっこ"
+            "せっぽう",
+            "釈迦に説法"
           ]
         },
         {
-          "display": "無勢",
-          "prompt": "多勢に□□",
+          "display": "風",
+          "prompt": "柳に□",
           "accept": [
-            "ぶぜい",
-            "多勢に無勢"
+            "かぜ",
+            "柳に風"
           ]
         },
         {
-          "display": "瑕",
-          "prompt": "玉に□",
+          "display": "釣り鐘",
+          "prompt": "提灯に□□□",
           "accept": [
-            "きず",
-            "傷",
-            "玉に瑕"
+            "釣鐘",
+            "つりがね",
+            "提灯に釣り鐘"
           ]
         },
         {
-          "display": "買い",
-          "prompt": "売り言葉に□□言葉",
+          "display": "綴じ",
+          "prompt": "破れ鍋に□□蓋",
           "accept": [
-            "かい",
-            "売り言葉に買い言葉"
+            "とじ",
+            "破れ鍋に綴じ蓋"
           ]
         },
         {
-          "display": "腕押し",
-          "prompt": "暖簾に□□",
+          "display": "追い銭",
+          "prompt": "盗人に□□□",
           "accept": [
-            "暖簾に腕押し"
+            "追銭",
+            "おいせん",
+            "盗人に追い銭"
           ]
         }
       ]
@@ -431,181 +1048,185 @@
       ]
     },
     {
-      "q": "パネルのものを、別の呼び方で答えてください。",
+      "q": "パネルの体の部分を表す漢字の読みを答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "にがうり",
-          "prompt": "ゴーヤ",
+          "display": "ほお",
+          "prompt": "頬",
           "accept": [
-            "苦瓜",
-            "ツルレイシ"
+            "ほほ"
           ]
         },
         {
-          "display": "今川焼き",
-          "prompt": "大判焼き",
-          "accept": [
-            "今川焼",
-            "回転焼き"
-          ]
+          "display": "ひじ",
+          "prompt": "肘"
         },
         {
-          "display": "お造り",
-          "prompt": "刺身",
-          "accept": [
-            "おつくり",
-            "造り"
-          ]
+          "display": "あご",
+          "prompt": "顎"
         },
         {
-          "display": "コリアンダー",
-          "prompt": "パクチー",
-          "accept": [
-            "シャンツァイ",
-            "香菜"
-          ]
+          "display": "へそ",
+          "prompt": "臍"
         },
         {
-          "display": "おみおつけ",
-          "prompt": "味噌汁",
-          "accept": [
-            "御御御付け",
-            "御味御付け"
-          ]
+          "display": "みけん",
+          "prompt": "眉間"
         },
         {
-          "display": "卯の花",
-          "prompt": "おから",
-          "accept": [
-            "うのはな"
-          ]
+          "display": "まつげ",
+          "prompt": "睫毛"
         },
         {
-          "display": "アカムツ",
-          "prompt": "のどぐろ",
-          "accept": [
-            "赤鯥"
-          ]
+          "display": "かかと",
+          "prompt": "踵"
         },
         {
-          "display": "鹿苑寺",
-          "prompt": "金閣寺",
-          "accept": [
-            "ろくおんじ"
-          ]
+          "display": "うなじ",
+          "prompt": "項"
         },
         {
-          "display": "ウルル",
-          "prompt": "エアーズロック"
+          "display": "ふくらはぎ",
+          "prompt": "脹脛"
+        },
+        {
+          "display": "みぞおち",
+          "prompt": "鳩尾"
         }
       ]
     },
     {
-      "q": "12星座のうち、名前に濁音（が・ざ・だ・ば行の音）が入る星座を答えてください（「座」の「ざ」は数えません）。",
-      "slots": 5,
+      "q": "パネルの3つの言葉のどれにも付けられる、共通のカタカナ語を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "おひつじ座",
-          "accept": [
-            "おひつじ",
-            "牡羊座",
-            "牡羊"
-          ]
+          "display": "マン",
+          "prompt": "スーパー・サラリー・スパイダー"
         },
         {
-          "display": "ふたご座",
-          "accept": [
-            "ふたご",
-            "双子座",
-            "双子"
-          ]
+          "display": "ルーム",
+          "prompt": "ベッド・バス・ショー"
         },
         {
-          "display": "てんびん座",
-          "accept": [
-            "てんびん",
-            "天秤座",
-            "天秤"
-          ]
+          "display": "コーン",
+          "prompt": "ポップ・ユニ・スイート"
         },
         {
-          "display": "みずがめ座",
-          "accept": [
-            "みずがめ",
-            "水瓶座",
-            "水瓶"
-          ]
+          "display": "ライン",
+          "prompt": "オン・ガイド・デッド"
         },
         {
-          "display": "やぎ座",
-          "accept": [
-            "やぎ",
-            "山羊座",
-            "山羊"
-          ]
+          "display": "パン",
+          "prompt": "フライ・ピーター・ジャ"
+        },
+        {
+          "display": "ライト",
+          "prompt": "スポット・ハイ・ペン"
+        },
+        {
+          "display": "ソース",
+          "prompt": "タルタル・ホワイト・オイスター"
+        },
+        {
+          "display": "トップ",
+          "prompt": "ラップ・デスク・タンク"
+        },
+        {
+          "display": "チェア",
+          "prompt": "デッキ・アーム・ロッキング"
+        },
+        {
+          "display": "ストーン",
+          "prompt": "キー・マイル・ローリング"
         }
       ]
     },
     {
-      "q": "パネルのキャッチコピーを使っている会社を答えてください。",
+      "q": "パネルのおせち料理の名前の□に入る言葉を答えてください（料理名をまるごと書いても可）。",
       "panels": true,
       "answers": [
         {
-          "display": "ロッテ",
-          "prompt": "お口の恋人"
-        },
-        {
-          "display": "ニトリ",
-          "prompt": "お、ねだん以上。"
-        },
-        {
-          "display": "インテル",
-          "prompt": "インテル入ってる"
-        },
-        {
-          "display": "イナバ物置",
-          "prompt": "100人乗っても大丈夫",
+          "display": "豆",
+          "prompt": "黒□（まめに暮らせるように）",
           "accept": [
-            "稲葉製作所",
-            "イナバ"
+            "まめ",
+            "黒豆"
           ]
         },
         {
-          "display": "JR東海",
-          "prompt": "そうだ 京都、行こう。",
+          "display": "数",
+          "prompt": "□の子（子孫繁栄）",
           "accept": [
-            "ジェイアール東海"
+            "かず",
+            "数の子"
           ]
         },
         {
-          "display": "セコム",
-          "prompt": "セコムしてますか"
-        },
-        {
-          "display": "味の素",
-          "prompt": "あしたのもと",
+          "display": "きんとん",
+          "prompt": "栗□□□□",
           "accept": [
-            "あじのもと"
+            "金団",
+            "栗きんとん"
           ]
         },
         {
-          "display": "タワーレコード",
-          "prompt": "NO MUSIC, NO LIFE.",
+          "display": "伊達",
+          "prompt": "□□巻き（卵の料理）",
           "accept": [
-            "タワレコ"
+            "だて",
+            "伊達巻き",
+            "伊達巻"
           ]
         },
         {
-          "display": "日立製作所",
-          "prompt": "Inspire the Next",
+          "display": "昆布",
+          "prompt": "□□巻き（よろこぶ）",
           "accept": [
-            "日立"
+            "こぶ",
+            "こんぶ",
+            "昆布巻き"
           ]
         },
         {
-          "display": "サントリー",
-          "prompt": "水と生きる"
+          "display": "なます",
+          "prompt": "紅白□□□（大根とにんじん）",
+          "accept": [
+            "膾",
+            "紅白なます"
+          ]
+        },
+        {
+          "display": "筑前",
+          "prompt": "□□煮（鶏肉と根菜の煮物）",
+          "accept": [
+            "ちくぜん",
+            "筑前煮"
+          ]
+        },
+        {
+          "display": "ごぼう",
+          "prompt": "たたき□□□",
+          "accept": [
+            "牛蒡",
+            "たたきごぼう"
+          ]
+        },
+        {
+          "display": "作り",
+          "prompt": "田□□（ごまめ）",
+          "accept": [
+            "づくり",
+            "田作り"
+          ]
+        },
+        {
+          "display": "こんにゃく",
+          "prompt": "手綱□□□□□",
+          "accept": [
+            "蒟蒻",
+            "手綱こんにゃく"
+          ]
         }
       ]
     },
@@ -632,6 +1253,14 @@
           "prompt": "□真□銘",
           "accept": [
             "正真正銘"
+          ]
+        },
+        {
+          "display": "半",
+          "prompt": "□信□疑",
+          "accept": [
+            "はん",
+            "半信半疑"
           ]
         },
         {
@@ -679,64 +1308,152 @@
       ]
     },
     {
-      "q": "パネルのお店の略称の、正式な名前を答えてください。",
+      "q": "写真の、身の回りにある道具の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "マクドナルド",
-          "prompt": "マック"
+          "display": "トング",
+          "prompt": "A",
+          "image": {
+            "src": "/bomber-img/8834146de44e.jpg",
+            "author": "Think Fast at English Wikipedia",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tongs2.JPG"
+          }
         },
         {
-          "display": "ファミリーマート",
-          "prompt": "ファミマ"
-        },
-        {
-          "display": "スターバックス",
-          "prompt": "スタバ",
+          "display": "洗濯ばさみ",
+          "prompt": "B",
           "accept": [
-            "スターバックスコーヒー"
-          ]
+            "洗濯バサミ",
+            "せんたくばさみ"
+          ],
+          "image": {
+            "src": "/bomber-img/a3c17f2dc461.jpg",
+            "author": "Loadmaster (David R. Tribble) This image was made by Loadmaster (David R. Tribble). Email the author: David R. Tribble A",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clothespin-2459e.jpg"
+          }
         },
         {
-          "display": "ミスタードーナツ",
-          "prompt": "ミスド"
-        },
-        {
-          "display": "ケンタッキーフライドチキン",
-          "prompt": "ケンタ",
+          "display": "ピーラー",
+          "prompt": "C",
           "accept": [
-            "ケンタッキー",
-            "KFC"
-          ]
+            "皮むき器",
+            "皮むき"
+          ],
+          "image": {
+            "src": "/bomber-img/25668ba82d8c.jpg",
+            "author": "Pengo",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peeler_01_Pengo.jpg"
+          }
         },
         {
-          "display": "ドン・キホーテ",
-          "prompt": "ドンキ",
+          "display": "イーゼル",
+          "prompt": "D",
           "accept": [
-            "ドンキホーテ"
-          ]
+            "画架"
+          ],
+          "image": {
+            "src": "/bomber-img/b9756f059ca3.jpg",
+            "author": "W.carter",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foldable_table_easel_in_Tuntorp_1.jpg"
+          }
         },
         {
-          "display": "マツモトキヨシ",
-          "prompt": "マツキヨ"
-        },
-        {
-          "display": "サイゼリヤ",
-          "prompt": "サイゼ",
+          "display": "ちょうつがい",
+          "prompt": "E",
           "accept": [
-            "サイゼリア"
-          ]
+            "蝶番",
+            "ヒンジ"
+          ],
+          "image": {
+            "src": "/bomber-img/6de18a56950d.jpg",
+            "author": "Arend041",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scharnier_lossepen001.jpg"
+          }
         },
         {
-          "display": "ロイヤルホスト",
-          "prompt": "ロイホ"
-        },
-        {
-          "display": "コメダ珈琲店",
-          "prompt": "コメダ",
+          "display": "じょうご",
+          "prompt": "F",
           "accept": [
-            "コメダ珈琲"
-          ]
+            "漏斗",
+            "ろうと",
+            "ファンネル"
+          ],
+          "image": {
+            "src": "/bomber-img/044559f892c3.jpg",
+            "author": "Donovan Govan",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitchen_Funnel.jpg"
+          }
+        },
+        {
+          "display": "サインポール",
+          "prompt": "G",
+          "accept": [
+            "バーバーポール"
+          ],
+          "image": {
+            "src": "/bomber-img/faa11de44e5c.jpg",
+            "author": "John Margolies",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barber_pole,_Canton,_Illinois_LCCN2017706848.tif"
+          }
+        },
+        {
+          "display": "ディッシャー",
+          "prompt": "H",
+          "accept": [
+            "アイスクリームディッシャー",
+            "アイスディッシャー",
+            "スクープ"
+          ],
+          "image": {
+            "src": "/bomber-img/d6a48a290118.jpg",
+            "author": "Gleam",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Icecream_shop.jpg"
+          }
+        },
+        {
+          "display": "タッセル",
+          "prompt": "I",
+          "accept": [
+            "房",
+            "ふさ"
+          ],
+          "image": {
+            "src": "/bomber-img/150db6c13fd8.jpg",
+            "author": "Kritzolina",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tassel_on_a_wand_hanging_from_Bangladesh.jpg"
+          }
+        },
+        {
+          "display": "バッグ・クロージャー",
+          "prompt": "J",
+          "accept": [
+            "バッグクロージャー"
+          ],
+          "image": {
+            "src": "/bomber-img/9da4655f555b.jpg",
+            "author": "User:Danielgamage",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_bread_clip_on_cloth-_2013-07-03_21-35.JPG"
+          }
         }
       ]
     },

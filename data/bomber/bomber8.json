@@ -16444,42 +16444,156 @@
       ]
     },
     {
-      "q": "パネルの生き物の、子ども（幼虫・幼生）の呼び名を答えてください。",
+      "q": "写真の工具の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "ひよこ",
-          "prompt": "ニワトリ",
+          "display": "ハンマー",
+          "prompt": "A",
           "accept": [
-            "ヒヨコ",
-            "雛",
-            "ひな"
-          ]
+            "金づち",
+            "金槌",
+            "かなづち",
+            "とんかち",
+            "玄能",
+            "げんのう"
+          ],
+          "image": {
+            "src": "/bomber-img/a00f6521be37.jpg",
+            "author": "Evan-Amos",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claw-hammer.jpg"
+          }
         },
         {
-          "display": "オタマジャクシ",
-          "prompt": "カエル",
+          "display": "ドライバー",
+          "prompt": "B",
           "accept": [
-            "お玉杓子"
-          ]
+            "ねじ回し",
+            "スクリュードライバー"
+          ],
+          "image": {
+            "src": "/bomber-img/24e3a52e0e2b.jpg",
+            "author": "Gengiskanhg",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:ScrewDrivers.JPG"
+          }
         },
         {
-          "display": "ヤゴ",
-          "prompt": "トンボ"
+          "display": "メジャー",
+          "prompt": "C",
+          "accept": [
+            "巻尺",
+            "巻き尺",
+            "まきじゃく"
+          ],
+          "image": {
+            "src": "/bomber-img/a7c0efd640b5.jpg",
+            "author": "Luigi Chiesa",
+            "license": "CC BY 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotella_metrica.jpg"
+          }
         },
         {
-          "display": "ボウフラ",
-          "prompt": "カ",
+          "display": "ペンチ",
+          "prompt": "D",
           "accept": [
-            "孑孑"
-          ]
+            "プライヤー"
+          ],
+          "image": {
+            "src": "/bomber-img/c55813f85670.jpg",
+            "author": "Jiří Sedláček",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:IKEA_combination_pliers.jpg"
+          }
         },
         {
-          "display": "アリジゴク",
-          "prompt": "ウスバカゲロウ",
+          "display": "のこぎり",
+          "prompt": "E",
           "accept": [
-            "蟻地獄"
-          ]
+            "鋸",
+            "のこ"
+          ],
+          "image": {
+            "src": "/bomber-img/2e63d56bb3da.jpg",
+            "author": "663highland",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miki_City_Hardware_Museum04s3872.jpg"
+          }
+        },
+        {
+          "display": "スパナ",
+          "prompt": "F",
+          "accept": [
+            "スパナー"
+          ],
+          "image": {
+            "src": "/bomber-img/9b6adabc5aab.jpg",
+            "author": "GMairet",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cl%C3%A9_plate.jpg"
+          }
+        },
+        {
+          "display": "紙やすり",
+          "prompt": "G",
+          "accept": [
+            "サンドペーパー",
+            "やすり",
+            "紙ヤスリ"
+          ],
+          "image": {
+            "src": "/bomber-img/590dc0f4c6c7.jpg",
+            "author": "Peter Myers",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandpaper.jpg"
+          }
+        },
+        {
+          "display": "かんな",
+          "prompt": "H",
+          "accept": [
+            "鉋"
+          ],
+          "image": {
+            "src": "/bomber-img/a1ff92773620.jpg",
+            "author": "663highland",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:160312_Takenaka_Carpentry_Tools_Museum_Kobe_Japan21bs.jpg"
+          }
+        },
+        {
+          "display": "のみ",
+          "prompt": "I",
+          "accept": [
+            "鑿"
+          ],
+          "image": {
+            "src": "/bomber-img/dc02f89f2f14.jpg",
+            "author": "663highland",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miki_City_Hardware_Museum06n3872.jpg"
+          }
+        },
+        {
+          "display": "きり",
+          "prompt": "J",
+          "accept": [
+            "錐"
+          ],
+          "image": {
+            "src": "/bomber-img/5755bd8dc86d.jpg",
+            "author": "Saintswithin",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gimlet_-_tool.jpg"
+          }
         }
       ]
     },

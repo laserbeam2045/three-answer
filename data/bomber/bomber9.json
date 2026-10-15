@@ -1417,43 +1417,150 @@
       ]
     },
     {
-      "q": "パネルの言葉が使われる競技を答えてください。",
+      "q": "写真の、冬が旬の魚の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "サッカー",
-          "prompt": "ハットトリック",
+          "display": "ブリ",
+          "prompt": "A",
           "accept": [
-            "クリケット",
-            "ホッケー"
-          ]
+            "鰤",
+            "ハマチ"
+          ],
+          "image": {
+            "src": "/bomber-img/41d47020674c.jpg",
+            "author": "E-190's",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seriola_quinqueradiata_(200810).jpg"
+          }
         },
         {
-          "display": "テニス",
-          "prompt": "ラブ",
+          "display": "タラ",
+          "prompt": "B",
           "accept": [
-            "硬式テニス",
-            "ソフトテニス"
-          ]
+            "鱈",
+            "マダラ",
+            "真鱈"
+          ],
+          "image": {
+            "src": "/bomber-img/4a86a4f5c91d.jpg",
+            "author": "Totti",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gadus_macrocephalus_Kamo_4.jpg"
+          }
         },
         {
-          "display": "アメリカンフットボール",
-          "prompt": "タッチダウン",
+          "display": "フグ",
+          "prompt": "C",
           "accept": [
-            "アメフト",
-            "アメフット"
-          ]
+            "トラフグ",
+            "河豚",
+            "ふく"
+          ],
+          "image": {
+            "src": "/bomber-img/0c9468e71c32.jpg",
+            "author": "Totti",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takifugu_rubripes_Kaikyokan1.jpg"
+          }
         },
         {
-          "display": "ボウリング",
-          "prompt": "スペア",
+          "display": "アンコウ",
+          "prompt": "D",
           "accept": [
-            "ボーリング"
-          ]
+            "鮟鱇"
+          ],
+          "image": {
+            "src": "/bomber-img/65fc3e5f16d6.jpg",
+            "author": "Hamid Badar Osmany",
+            "license": "CC BY 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lophiomus_setigerus_1367083400_182.178.80.166.jpg"
+          }
         },
         {
-          "display": "カーリング",
-          "prompt": "ハウス"
+          "display": "ワカサギ",
+          "prompt": "E",
+          "accept": [
+            "公魚"
+          ],
+          "image": {
+            "src": "/bomber-img/f0611b2ef789.jpg",
+            "author": "René Reyes",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakasagi_Adult_(70mm).tif"
+          }
+        },
+        {
+          "display": "キンメダイ",
+          "prompt": "F",
+          "accept": [
+            "金目鯛",
+            "キンメ"
+          ],
+          "image": {
+            "src": "/bomber-img/f37736309801.jpg",
+            "author": "NOAA's Fisheries Collection , SEFSC Pascagoula Laboratory; Collection of Brandi Noble, NOAA/NMFS/SEFSC",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Splendid_alfonsino_(_Beryx_splendens_).jpg"
+          }
+        },
+        {
+          "display": "カワハギ",
+          "prompt": "G",
+          "accept": [
+            "皮剥"
+          ],
+          "image": {
+            "src": "/bomber-img/a096c3d350cd.jpg",
+            "author": "E-190",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawahagi.jpg"
+          }
+        },
+        {
+          "display": "ウツボ",
+          "prompt": "H",
+          "accept": [
+            "鱓"
+          ],
+          "image": {
+            "src": "/bomber-img/4eec097c60c6.jpg",
+            "author": "タウナギ",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnothorax_kidako_Minamichita.jpg"
+          }
+        },
+        {
+          "display": "ハタハタ",
+          "prompt": "I",
+          "accept": [
+            "鰰",
+            "鱩"
+          ],
+          "image": {
+            "src": "/bomber-img/ca60c69e995d.jpg",
+            "author": "Totti",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arctoscopus_japonicus_Umigatari.png"
+          }
+        },
+        {
+          "display": "クエ",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/2c22f518ff5e.jpg",
+            "author": "Totti",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epinephelus_bruneus_tokai.jpg"
+          }
         }
       ]
     },

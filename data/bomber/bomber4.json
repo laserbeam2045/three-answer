@@ -393,52 +393,134 @@
       ]
     },
     {
-      "q": "面積が大きい上位10か国を答えてください。",
-      "slots": 8,
+      "q": "写真の春に咲く花の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "ロシア",
+          "display": "タンポポ",
+          "prompt": "A",
           "accept": [
-            "ロシア連邦"
-          ]
+            "蒲公英"
+          ],
+          "image": {
+            "src": "/bomber-img/01c0e9e7fb62.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:L%C3%B6wenzahn_uhf.JPG"
+          }
         },
         {
-          "display": "カナダ"
-        },
-        {
-          "display": "アメリカ",
+          "display": "桜",
+          "prompt": "B",
           "accept": [
-            "アメリカ合衆国",
-            "米国"
-          ]
+            "さくら",
+            "サクラ",
+            "ソメイヨシノ"
+          ],
+          "image": {
+            "src": "/bomber-img/35719894476c.jpg",
+            "author": "松岡明芳",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2020-04-07_Prunus_%C3%97_yedoensis_Tambasasayama,Hyogo(%E4%B8%B9%E6%B3%A2%E7%AF%A0%E5%B1%B1%E5%B8%82%E7%AF%A0%E5%B1%B1%E5%B7%9D%E3%81%AE%E3%82%BD%E3%83%A1%E3%82%A4%E3%83%A8%E3%82%B7%E3%83%8E)DSCF2986%E2%98%86%E5%BD%A1.jpg"
+          }
         },
         {
-          "display": "中国",
+          "display": "チューリップ",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/a0493c79e229.jpg",
+            "author": "Arashiyama",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Fuji_and_Tulips_4.jpg"
+          }
+        },
+        {
+          "display": "菜の花",
+          "prompt": "D",
           "accept": [
-            "ちゅうごく",
-            "中華人民共和国"
-          ]
+            "なのはな",
+            "アブラナ",
+            "油菜"
+          ],
+          "image": {
+            "src": "/bomber-img/481982535805.jpg",
+            "author": "Miya",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_ja02.jpg"
+          }
         },
         {
-          "display": "ブラジル"
+          "display": "カーネーション",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/99f55406c0f0.jpg",
+            "author": "草花写真館",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:W_carnation4051.jpg"
+          }
         },
         {
-          "display": "オーストラリア",
+          "display": "スミレ",
+          "prompt": "F",
           "accept": [
-            "豪州"
-          ]
+            "菫"
+          ],
+          "image": {
+            "src": "/bomber-img/34bea19ad671.jpg",
+            "author": "柑橘類 (talk)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viola_mandshurica_1-1.jpg"
+          }
         },
         {
-          "display": "インド"
+          "display": "ヒヤシンス",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/12c9b4278652.jpg",
+            "author": "Nesnad",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyacinthus_orientalis_-_Kanagawa_-_2026_March_18.jpeg"
+          }
         },
         {
-          "display": "アルゼンチン"
+          "display": "ガーベラ",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/6d64f317e3c3.jpg",
+            "author": "‘Uncle Carl’ (カールおじさん)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:W_gabera4051.jpg"
+          }
         },
         {
-          "display": "カザフスタン"
+          "display": "スイートピー",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/9cc16a0b5fe8.jpg",
+            "author": "KENPEI",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lathyrus_odoratus4.jpg"
+          }
         },
         {
-          "display": "アルジェリア"
+          "display": "マーガレット",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/495ce7a2b5a4.jpg",
+            "author": "Houss 2020",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22Argyranthemum_frutescens%22.jpg"
+          }
         }
       ]
     },

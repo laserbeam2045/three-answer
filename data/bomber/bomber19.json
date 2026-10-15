@@ -552,6 +552,13 @@
           "accept": [
             "メロン"
           ]
+        },
+        {
+          "display": "からすうり",
+          "prompt": "王瓜",
+          "accept": [
+            "烏瓜"
+          ]
         }
       ]
     },
@@ -565,6 +572,14 @@
           "accept": [
             "かぜ",
             "明日は明日の風が吹く"
+          ]
+        },
+        {
+          "display": "尻",
+          "prompt": "頭隠して□隠さず",
+          "accept": [
+            "しり",
+            "頭隠して尻隠さず"
           ]
         },
         {
@@ -676,6 +691,14 @@
           ]
         },
         {
+          "display": "じゃがいも",
+          "prompt": "メークイン",
+          "accept": [
+            "ジャガイモ",
+            "馬鈴薯"
+          ]
+        },
+        {
           "display": "梨",
           "prompt": "幸水",
           "accept": [
@@ -706,53 +729,143 @@
       ]
     },
     {
-      "q": "パネルの略語が表すものを、日本語で答えてください。",
+      "q": "写真のチーズの名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "最優秀選手",
-          "prompt": "MVP"
-        },
-        {
-          "display": "人工知能",
-          "prompt": "AI"
-        },
-        {
-          "display": "仮想現実",
-          "prompt": "VR",
+          "display": "モッツァレラ",
+          "prompt": "A",
           "accept": [
-            "バーチャルリアリティ"
-          ]
+            "モッツァレラチーズ",
+            "モッツアレラ",
+            "モッツァレッラ"
+          ],
+          "image": {
+            "src": "/bomber-img/d49a65fc08f7.jpg",
+            "author": "Popo le Chien",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mozzarella_di_bufala3.jpg"
+          }
         },
         {
-          "display": "紫外線",
-          "prompt": "UV"
-        },
-        {
-          "display": "国内総生産",
-          "prompt": "GDP"
-        },
-        {
-          "display": "ペナルティーキック",
-          "prompt": "PK（サッカー）",
+          "display": "カマンベール",
+          "prompt": "B",
           "accept": [
-            "ペナルティキック"
-          ]
+            "カマンベールチーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/36abe2a99b1a.jpg",
+            "author": "Roy Zuo",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:(20251230)_Camembert_cheese_01.jpg"
+          }
         },
         {
-          "display": "日曜大工",
-          "prompt": "DIY",
+          "display": "エメンタール",
+          "prompt": "C",
           "accept": [
-            "ドゥ・イット・ユアセルフ"
-          ]
+            "エメンタールチーズ",
+            "エメンタラー"
+          ],
+          "image": {
+            "src": "/bomber-img/cd24cef254e1.jpg",
+            "author": "Coyau",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emmental_(fromage)_01.jpg"
+          }
         },
         {
-          "display": "北大西洋条約機構",
-          "prompt": "NATO"
+          "display": "チェダー",
+          "prompt": "D",
+          "accept": [
+            "チェダーチーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/56fc457a4572.jpg",
+            "author": "J.P.Lon",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Somerset-Cheddar.jpg"
+          }
         },
         {
-          "display": "少額投資非課税制度",
-          "prompt": "NISA"
+          "display": "カッテージチーズ",
+          "prompt": "E",
+          "accept": [
+            "カッテージ"
+          ],
+          "image": {
+            "src": "/bomber-img/08622924e649.jpg",
+            "author": "FASTILY (TALK)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cottagecheese200px.jpg"
+          }
+        },
+        {
+          "display": "パルミジャーノ・レッジャーノ",
+          "prompt": "F",
+          "accept": [
+            "パルミジャーノ",
+            "パルメザン",
+            "パルメザンチーズ",
+            "パルミジャーノレッジャーノ"
+          ],
+          "image": {
+            "src": "/bomber-img/149bfce9f872.jpg",
+            "author": "Benoît Prieur",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parmesan_cheese_knife_on_block_of_cheese.jpg"
+          }
+        },
+        {
+          "display": "ゴルゴンゾーラ",
+          "prompt": "G",
+          "accept": [
+            "ブルーチーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/04fb61948030.jpg",
+            "author": "Jon Sullivan",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorgonzola_and_a_pear.jpg"
+          }
+        },
+        {
+          "display": "マスカルポーネ",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/37af8af829a8.jpg",
+            "author": "Ramagliolo9 at Italian Wikipedia",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mascarpone_2.jpg"
+          }
+        },
+        {
+          "display": "ミモレット",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/d931fdbf43af.jpg",
+            "author": "Jastrow at French Wikipedia",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimolette_vieille_etuvee.jpg"
+          }
+        },
+        {
+          "display": "ラクレット",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/0b954f2e0db4.jpg",
+            "author": "Ka23 13",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raclette_20040817_140816.jpg"
+          }
         }
       ]
     },
@@ -849,6 +962,15 @@
           ]
         },
         {
+          "display": "句",
+          "prompt": "俳句",
+          "accept": [
+            "く",
+            "1句",
+            "一句"
+          ]
+        },
+        {
           "display": "面",
           "prompt": "テニスコート",
           "accept": [
@@ -901,6 +1023,15 @@
             "1滴",
             "一滴"
           ]
+        },
+        {
+          "display": "羽",
+          "prompt": "うさぎ（昔の数え方）",
+          "accept": [
+            "わ",
+            "1羽",
+            "一羽"
+          ]
         }
       ]
     },
@@ -923,6 +1054,10 @@
         {
           "display": "ずんだもち",
           "prompt": "豆打餅【宮城】"
+        },
+        {
+          "display": "ふなずし",
+          "prompt": "鮒寿司【滋賀】"
         },
         {
           "display": "ほうとう",
@@ -1018,6 +1153,14 @@
             "ふうび",
             "一世を風靡する"
           ]
+        },
+        {
+          "display": "計",
+          "prompt": "一□を案じる",
+          "accept": [
+            "けい",
+            "一計を案じる"
+          ]
         }
       ]
     },
@@ -1025,6 +1168,14 @@
       "q": "パネルの四字熟語の□□に入る言葉を答えてください（四字熟語をまるごと書いても可）。",
       "panels": true,
       "answers": [
+        {
+          "display": "左往",
+          "prompt": "右往□□",
+          "accept": [
+            "さおう",
+            "右往左往"
+          ]
+        },
         {
           "display": "整頓",
           "prompt": "整理□□",
@@ -1081,6 +1232,14 @@
           "prompt": "有耶□□",
           "accept": [
             "有耶無耶"
+          ]
+        },
+        {
+          "display": "小異",
+          "prompt": "大同□□",
+          "accept": [
+            "しょうい",
+            "大同小異"
           ]
         }
       ]

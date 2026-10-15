@@ -639,6 +639,14 @@
             "6",
             "六十の手習い"
           ]
+        },
+        {
+          "display": "七",
+          "prompt": "親の□光り",
+          "accept": [
+            "7",
+            "親の七光り"
+          ]
         }
       ]
     },
@@ -745,41 +753,141 @@
       ]
     },
     {
-      "q": "パネルのサンリオのキャラクターは、何の動物か答えてください。",
+      "q": "写真の猫の品種を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "ネコ",
-          "prompt": "ハローキティ",
+          "display": "アメリカン・ショートヘア",
+          "prompt": "A",
           "accept": [
-            "猫"
-          ]
+            "アメリカンショートヘア",
+            "アメショ",
+            "アメショー"
+          ],
+          "image": {
+            "src": "/bomber-img/9aae5a814081.jpg",
+            "author": "Chango",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Americanshorthair.JPG"
+          }
         },
         {
-          "display": "ウサギ",
-          "prompt": "マイメロディ",
+          "display": "スコティッシュ・フォールド",
+          "prompt": "B",
           "accept": [
-            "兎"
-          ]
+            "スコティッシュフォールド",
+            "スコティッシュ"
+          ],
+          "image": {
+            "src": "/bomber-img/ae45e042e5f1.jpg",
+            "author": "Mihai Matei",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adult_Scottish_Fold.jpg"
+          }
         },
         {
-          "display": "カエル",
-          "prompt": "けろけろけろっぴ",
+          "display": "シャム",
+          "prompt": "C",
           "accept": [
-            "蛙"
-          ]
+            "シャム猫",
+            "サイアミーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/cbf2e3679421.jpg",
+            "author": "Meekahoo",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_cat_Vaillante.JPG"
+          }
         },
         {
-          "display": "ペンギン",
-          "prompt": "タキシードサム"
+          "display": "ペルシャ",
+          "prompt": "D",
+          "accept": [
+            "ペルシャ猫",
+            "ペルシア",
+            "ペルシャネコ"
+          ],
+          "image": {
+            "src": "/bomber-img/8ce6e022a3b0.jpg",
+            "author": "Cindy See",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Persian.jpg"
+          }
         },
         {
-          "display": "イヌ",
-          "prompt": "シナモロール",
+          "display": "スフィンクス",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/55d876350dc7.jpg",
+            "author": "Dmitry Makeev",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Sphynx._img_025.jpg"
+          }
+        },
+        {
+          "display": "ロシアンブルー",
+          "prompt": "F",
           "accept": [
-            "犬",
-            "子犬"
-          ]
+            "ロシアン・ブルー"
+          ],
+          "image": {
+            "src": "/bomber-img/ae67ad08cc04.jpg",
+            "author": "Tkeiger at en.wikipedia",
+            "license": "CC BY 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Russian_blue.jpg"
+          }
+        },
+        {
+          "display": "アビシニアン",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/04f712dcc5c7.jpg",
+            "author": "Karin Langner-Bahmann",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustav_chocolate.jpg"
+          }
+        },
+        {
+          "display": "ラグドール",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/b9526846ea16.jpg",
+            "author": "CX23882-19",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ragdoll_Blue_Colourpoint.jpg"
+          }
+        },
+        {
+          "display": "メインクーン",
+          "prompt": "I",
+          "accept": [
+            "メイン・クーン"
+          ],
+          "image": {
+            "src": "/bomber-img/edd802e17433.jpg",
+            "author": "T. Bjornstad",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maine_Coon_male_NO_Sigdalskauen_Balder.jpg"
+          }
+        },
+        {
+          "display": "ベンガル",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/392caf026a12.jpg",
+            "author": "Nickolas Titkov from Moscow, Russian Federation",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:BEN_Bengalian_kitten_(4492540155).jpg"
+          }
         }
       ]
     }

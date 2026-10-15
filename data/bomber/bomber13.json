@@ -4,148 +4,105 @@
   "description": "糸へんの漢字・電話番号・故事成語など、本家の過去問から10問。",
   "questions": [
     {
-      "q": "東京23区を答えてください。",
-      "slots": 10,
-      "suffixes": [
-        "区"
-      ],
+      "q": "冬季オリンピックの競技・種目を答えてください（「スキージャンプ」「カーリング」など）。",
+      "slots": 8,
       "answers": [
         {
-          "display": "千代田",
+          "display": "スキージャンプ",
           "accept": [
-            "ちよだ"
+            "ジャンプ",
+            "ラージヒル",
+            "ノーマルヒル"
           ]
         },
         {
-          "display": "中央",
+          "display": "アルペンスキー",
           "accept": [
-            "ちゅうおう"
+            "アルペン",
+            "滑降",
+            "回転",
+            "大回転",
+            "スーパー大回転"
           ]
         },
         {
-          "display": "港",
+          "display": "クロスカントリースキー",
           "accept": [
-            "みなと"
+            "クロスカントリー",
+            "距離スキー"
           ]
         },
         {
-          "display": "新宿",
+          "display": "ノルディック複合",
           "accept": [
-            "しんじゅく"
+            "複合",
+            "コンバインド"
           ]
         },
         {
-          "display": "文京",
+          "display": "モーグル"
+        },
+        {
+          "display": "エアリアル"
+        },
+        {
+          "display": "スキークロス"
+        },
+        {
+          "display": "スノーボード",
           "accept": [
-            "ぶんきょう"
+            "スノボ",
+            "ハーフパイプ",
+            "スノーボードクロス",
+            "パラレル大回転",
+            "ビッグエア",
+            "スロープスタイル"
           ]
         },
         {
-          "display": "台東",
+          "display": "バイアスロン"
+        },
+        {
+          "display": "スピードスケート",
           "accept": [
-            "たいとう"
+            "パシュート",
+            "チームパシュート",
+            "マススタート"
           ]
         },
         {
-          "display": "墨田",
+          "display": "フィギュアスケート",
           "accept": [
-            "すみだ"
+            "フィギュア",
+            "アイスダンス"
           ]
         },
         {
-          "display": "江東",
+          "display": "ショートトラック",
           "accept": [
-            "こうとう"
+            "ショートトラックスピードスケート"
           ]
         },
         {
-          "display": "品川",
-          "accept": [
-            "しながわ"
-          ]
+          "display": "アイスホッケー"
         },
         {
-          "display": "目黒",
-          "accept": [
-            "めぐろ"
-          ]
+          "display": "カーリング"
         },
         {
-          "display": "大田",
-          "accept": [
-            "おおた"
-          ]
+          "display": "ボブスレー"
         },
         {
-          "display": "世田谷",
-          "accept": [
-            "せたがや"
-          ]
+          "display": "リュージュ"
         },
         {
-          "display": "渋谷",
-          "accept": [
-            "しぶや"
-          ]
+          "display": "スケルトン"
         },
         {
-          "display": "中野",
+          "display": "山岳スキー",
           "accept": [
-            "なかの"
-          ]
-        },
-        {
-          "display": "杉並",
-          "accept": [
-            "すぎなみ"
-          ]
-        },
-        {
-          "display": "豊島",
-          "accept": [
-            "としま"
-          ]
-        },
-        {
-          "display": "北",
-          "accept": [
-            "きた"
-          ]
-        },
-        {
-          "display": "荒川",
-          "accept": [
-            "あらかわ"
-          ]
-        },
-        {
-          "display": "板橋",
-          "accept": [
-            "いたばし"
-          ]
-        },
-        {
-          "display": "練馬",
-          "accept": [
-            "ねりま"
-          ]
-        },
-        {
-          "display": "足立",
-          "accept": [
-            "あだち"
-          ]
-        },
-        {
-          "display": "葛飾",
-          "accept": [
-            "かつしか"
-          ]
-        },
-        {
-          "display": "江戸川",
-          "accept": [
-            "えどがわ"
+            "スキーモ",
+            "スキーマウンテニアリング"
           ]
         }
       ]
@@ -245,6 +202,14 @@
           ]
         },
         {
+          "display": "餅",
+          "prompt": "絵に描いた□",
+          "accept": [
+            "もち",
+            "絵に描いた餅"
+          ]
+        },
+        {
           "display": "牡丹餅",
           "prompt": "棚から□□□",
           "accept": [
@@ -268,6 +233,14 @@
           "accept": [
             "かき",
             "桃栗三年柿八年"
+          ]
+        },
+        {
+          "display": "鯛",
+          "prompt": "海老で□を釣る",
+          "accept": [
+            "たい",
+            "海老で鯛を釣る"
           ]
         },
         {
@@ -356,6 +329,10 @@
         {
           "display": "とんぶり",
           "prompt": "畑のキャビア"
+        },
+        {
+          "display": "チェリモヤ",
+          "prompt": "森のアイスクリーム"
         }
       ]
     },
@@ -661,54 +638,153 @@
       ]
     },
     {
-      "q": "パネルの「日」で始まる略称の、正式な名前を答えてください。",
+      "q": "写真の、冬が旬の野菜の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "日本銀行",
-          "prompt": "日銀"
-        },
-        {
-          "display": "日本大学",
-          "prompt": "日大"
-        },
-        {
-          "display": "日本経済新聞",
-          "prompt": "日経",
+          "display": "大根",
+          "prompt": "A",
           "accept": [
-            "日本経済新聞社"
-          ]
+            "だいこん",
+            "ダイコン"
+          ],
+          "image": {
+            "src": "/bomber-img/abad05dd33db.jpg",
+            "author": "Chris 73",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg"
+          }
         },
         {
-          "display": "日本航空",
-          "prompt": "日航",
+          "display": "白菜",
+          "prompt": "B",
           "accept": [
-            "JAL"
-          ]
+            "はくさい",
+            "ハクサイ"
+          ],
+          "image": {
+            "src": "/bomber-img/e9a70d84c789.jpg",
+            "author": "Forest & Kim Starr",
+            "license": "CC BY 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr_070730-7855_Brassica_rapa.jpg"
+          }
         },
         {
-          "display": "日本舞踊",
-          "prompt": "日舞"
+          "display": "ブロッコリー",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/e77b4eec9307.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Broccoli2.jpg"
+          }
         },
         {
-          "display": "日本通運",
-          "prompt": "日通"
+          "display": "れんこん",
+          "prompt": "D",
+          "accept": [
+            "蓮根",
+            "レンコン"
+          ],
+          "image": {
+            "src": "/bomber-img/48666703863c.jpg",
+            "author": "FotoosRobin",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lotus_root.jpg"
+          }
         },
         {
-          "display": "日本医師会",
-          "prompt": "日医"
+          "display": "ねぎ",
+          "prompt": "E",
+          "accept": [
+            "ネギ",
+            "葱",
+            "長ねぎ",
+            "長ネギ",
+            "白ねぎ"
+          ],
+          "image": {
+            "src": "/bomber-img/b71df430f07f.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scallion_Negi.jpg"
+          }
         },
         {
-          "display": "日本弁護士連合会",
-          "prompt": "日弁連"
+          "display": "カリフラワー",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/e37294c98b55.jpg",
+            "author": "Kumar83",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Growing_Cauliflower.jpg"
+          }
         },
         {
-          "display": "日本商工会議所",
-          "prompt": "日商"
+          "display": "ごぼう",
+          "prompt": "G",
+          "accept": [
+            "ゴボウ",
+            "牛蒡"
+          ],
+          "image": {
+            "src": "/bomber-img/56404af8b313.jpg",
+            "author": "Uo3rt",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uda-kingobou.jpg"
+          }
         },
         {
-          "display": "日本美術展覧会",
-          "prompt": "日展"
+          "display": "かぶ",
+          "prompt": "H",
+          "accept": [
+            "カブ",
+            "蕪",
+            "かぶら"
+          ],
+          "image": {
+            "src": "/bomber-img/c1c7b247fede.jpg",
+            "author": "ja:User:Kitsuki.c",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabu_Japan.jpg"
+          }
+        },
+        {
+          "display": "里芋",
+          "prompt": "I",
+          "accept": [
+            "さといも",
+            "サトイモ"
+          ],
+          "image": {
+            "src": "/bomber-img/1a4e5ac9058d.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taro_corms_2.jpg"
+          }
+        },
+        {
+          "display": "ふきのとう",
+          "prompt": "J",
+          "accept": [
+            "フキノトウ",
+            "蕗の薹"
+          ],
+          "image": {
+            "src": "/bomber-img/98f9017e6618.jpg",
+            "author": "Dominicus Johannes Bergsma",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japans_hoefblad_(Petasites_japonicus)._22-03-2021._(d.j.b).jpg"
+          }
         }
       ]
     },
@@ -793,6 +869,15 @@
             "諾諾",
             "だくだく",
             "唯々諾々"
+          ]
+        },
+        {
+          "display": "囂々",
+          "prompt": "非難□□",
+          "accept": [
+            "囂囂",
+            "ごうごう",
+            "非難囂々"
           ]
         }
       ]

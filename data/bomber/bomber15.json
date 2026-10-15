@@ -1,7 +1,7 @@
 {
   "id": "bomber15",
   "title": "拾伍 しらぬい",
-  "description": "雨かんむりの漢字・方言・刀の言葉など、本家の過去問から10問。",
+  "description": "雨かんむりの漢字・世界のスープ（写真）・刀の言葉など、本家の過去問から10問。",
   "questions": [
     {
       "q": "新幹線の列車の愛称を答えてください（「のぞみ」など。2026年現在のもの）。",
@@ -195,6 +195,14 @@
           ]
         },
         {
+          "display": "鯉",
+          "prompt": "□の滝登り",
+          "accept": [
+            "こい",
+            "鯉の滝登り"
+          ]
+        },
+        {
           "display": "鼈",
           "prompt": "月と□□□",
           "accept": [
@@ -301,90 +309,147 @@
         {
           "display": "キャッサバ",
           "prompt": "タピオカ"
+        },
+        {
+          "display": "わらび",
+          "prompt": "わらび餅（本来の原料）",
+          "accept": [
+            "蕨",
+            "わらび粉",
+            "ワラビ"
+          ]
         }
       ]
     },
     {
-      "q": "パネルの方言の意味を、標準語で答えてください。",
+      "q": "写真の、世界のスープ料理の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "ありがとう",
-          "prompt": "おおきに（関西）"
+          "display": "コーンスープ",
+          "prompt": "A",
+          "accept": [
+            "コーンポタージュ",
+            "ポタージュ"
+          ],
+          "image": {
+            "src": "/bomber-img/770a13564038.jpg",
+            "author": "KKPCW（kyu3）",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saizeriya%27s_Corn_potage.jpg"
+          }
         },
         {
-          "display": "なんとかなる",
-          "prompt": "なんくるないさ（沖縄）",
-          "accept": [
-            "なんとかなるさ"
-          ]
+          "display": "ミネストローネ",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/d53e1804554e.jpg",
+            "author": "Katrin Morenz from Aachen, Deutschland",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minestrone_soup.jpg"
+          }
         },
         {
-          "display": "いらっしゃい",
-          "prompt": "めんそーれ（沖縄）",
-          "accept": [
-            "いらっしゃいませ",
-            "ようこそ"
-          ]
+          "display": "ボルシチ",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/c639eae34a2c.jpg",
+            "author": "liz west from Boxborough, MA",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borscht_served.jpg"
+          }
         },
         {
-          "display": "とても",
-          "prompt": "なまら（北海道）",
+          "display": "クラムチャウダー",
+          "prompt": "D",
           "accept": [
-            "すごく",
-            "非常に"
-          ]
+            "チャウダー"
+          ],
+          "image": {
+            "src": "/bomber-img/34d14608e255.jpg",
+            "author": "Prayitno / Thank you for (12 millions +) view from Los Angeles, USA",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sourdough_Bread_Bowl_%2B_Clam_Chowder_Soup_(5838235665).jpg"
+          }
         },
         {
-          "display": "捨てる",
-          "prompt": "ほかす（関西）",
-          "accept": [
-            "すてる"
-          ]
+          "display": "ポトフ",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/1c712ef18a3e.jpg",
+            "author": "Benoît Prieur",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Restaurant_Volga_(Lyon)_-_pot_au_feu_arm%C3%A9nien.jpg"
+          }
         },
         {
-          "display": "凍る",
-          "prompt": "しばれる（北海道・東北）",
-          "accept": [
-            "こおる",
-            "凍える",
-            "冷え込む",
-            "寒い"
-          ]
+          "display": "トムヤムクン",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/fdf8062cc6f3.jpg",
+            "author": "Takeaway",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tom_yam_kung_maenam.jpg"
+          }
         },
         {
-          "display": "けれども",
-          "prompt": "ばってん（九州）",
+          "display": "サムゲタン",
+          "prompt": "G",
           "accept": [
-            "けれど",
-            "だけど",
-            "でも",
-            "しかし"
-          ]
+            "参鶏湯"
+          ],
+          "image": {
+            "src": "/bomber-img/7c59a0d88ae4.jpg",
+            "author": "wizdata",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samgye-tang_2.jpg"
+          }
         },
         {
-          "display": "上品",
-          "prompt": "はんなり（京都）",
+          "display": "ガスパチョ",
+          "prompt": "H",
           "accept": [
-            "じょうひん",
-            "上品で華やか"
-          ]
+            "ガスパッチョ"
+          ],
+          "image": {
+            "src": "/bomber-img/2104d4a1f743.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomato_gazpacho.jpg"
+          }
         },
         {
-          "display": "新鮮",
-          "prompt": "きときと（富山）",
+          "display": "ビシソワーズ",
+          "prompt": "I",
           "accept": [
-            "しんせん",
-            "新鮮な"
-          ]
+            "ヴィシソワーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/e93176288859.jpg",
+            "author": "BocaDorada",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vichyssoise.jpg"
+          }
         },
         {
-          "display": "しっくりこない",
-          "prompt": "いずい（宮城など）",
-          "accept": [
-            "違和感がある",
-            "落ち着かない"
-          ]
+          "display": "ブイヤベース",
+          "prompt": "J",
+          "image": {
+            "src": "/bomber-img/b33e5e74504f.jpg",
+            "author": "Sergey A. Demidov",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:20250903_Bouillabaisse_in_Khimki_(90108).jpg"
+          }
         }
       ]
     },
@@ -569,6 +634,15 @@
             "鎬を削る",
             "しのぎを削る"
           ]
+        },
+        {
+          "display": "目抜き",
+          "prompt": "□□通り（町でいちばんの大通り）",
+          "accept": [
+            "目貫",
+            "めぬき",
+            "目抜き通り"
+          ]
         }
       ]
     },
@@ -632,6 +706,13 @@
           "accept": [
             "えんらい"
           ]
+        },
+        {
+          "display": "偏見",
+          "prompt": "高慢と□□",
+          "accept": [
+            "へんけん"
+          ]
         }
       ]
     },
@@ -662,6 +743,15 @@
             "とく",
             "得",
             "早起きは三文の徳"
+          ]
+        },
+        {
+          "display": "揃",
+          "prompt": "三拍子□□う",
+          "accept": [
+            "そろ",
+            "三拍子揃う",
+            "三拍子そろう"
           ]
         },
         {
@@ -727,6 +817,14 @@
           ]
         },
         {
+          "display": "上",
+          "prompt": "□には□がある",
+          "accept": [
+            "うえ",
+            "上には上がある"
+          ]
+        },
+        {
           "display": "蛙",
           "prompt": "□の子は□",
           "accept": [
@@ -757,6 +855,14 @@
           "accept": [
             "どく",
             "毒を以て毒を制す"
+          ]
+        },
+        {
+          "display": "血",
+          "prompt": "□で□を洗う",
+          "accept": [
+            "ち",
+            "血で血を洗う"
           ]
         },
         {

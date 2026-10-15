@@ -478,44 +478,150 @@
       ]
     },
     {
-      "q": "南アメリカ大陸にある国を答えてください。",
-      "slots": 8,
+      "q": "写真の犬の犬種を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "ブラジル"
+          "display": "柴犬",
+          "prompt": "A",
+          "accept": [
+            "しばいぬ",
+            "しばけん",
+            "柴"
+          ],
+          "image": {
+            "src": "/bomber-img/dbd283dff023.jpg",
+            "author": "Roberto Vasarri",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiba_inu_taiki.jpg"
+          }
         },
         {
-          "display": "アルゼンチン"
+          "display": "チワワ",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/7cf79da671ce.jpg",
+            "author": "Tatiana Borisova",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chihuahuasmoothcoat.jpg"
+          }
         },
         {
-          "display": "チリ"
+          "display": "プードル",
+          "prompt": "C",
+          "accept": [
+            "トイ・プードル",
+            "トイプードル",
+            "スタンダード・プードル",
+            "スタンダードプードル"
+          ],
+          "image": {
+            "src": "/bomber-img/4578bd85a4de.jpg",
+            "author": "Sagaciousphil",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poodle,_cropped.JPG"
+          }
         },
         {
-          "display": "ペルー"
+          "display": "ダックスフンド",
+          "prompt": "D",
+          "accept": [
+            "ダックスフント",
+            "ミニチュア・ダックスフンド",
+            "ミニチュアダックスフンド",
+            "ダックス"
+          ],
+          "image": {
+            "src": "/bomber-img/9b99b426d5cc.jpg",
+            "author": "Ellen Levy Finch (Elf)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:MiniDachshund1_wb.jpg"
+          }
         },
         {
-          "display": "コロンビア"
+          "display": "パグ",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/2926f784037f.jpg",
+            "author": "Abuk SABUK",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fawn_pug_2.5year-old.JPG"
+          }
         },
         {
-          "display": "ベネズエラ"
+          "display": "ゴールデン・レトリーバー",
+          "prompt": "F",
+          "accept": [
+            "ゴールデンレトリーバー",
+            "ゴールデンレトリバー",
+            "ゴールデン・レトリバー",
+            "ゴールデン"
+          ],
+          "image": {
+            "src": "/bomber-img/b9fec32fc5ee.jpg",
+            "author": "Dirk Vorderstraße",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Retriever_Carlos_(10581910556).jpg"
+          }
         },
         {
-          "display": "エクアドル"
+          "display": "ダルメシアン",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/55227c9a7436.jpg",
+            "author": "Heinz Höfling",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dalmatiner_3.jpg"
+          }
         },
         {
-          "display": "ボリビア"
+          "display": "シベリアン・ハスキー",
+          "prompt": "H",
+          "accept": [
+            "シベリアンハスキー",
+            "ハスキー"
+          ],
+          "image": {
+            "src": "/bomber-img/320f178706ab.jpg",
+            "author": "Utopialand",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siberian-husky.jpg"
+          }
         },
         {
-          "display": "パラグアイ"
+          "display": "ボーダー・コリー",
+          "prompt": "I",
+          "accept": [
+            "ボーダーコリー"
+          ],
+          "image": {
+            "src": "/bomber-img/d874359cd33b.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Border_Collie_600.jpg"
+          }
         },
         {
-          "display": "ウルグアイ"
-        },
-        {
-          "display": "ガイアナ"
-        },
-        {
-          "display": "スリナム"
+          "display": "バセット・ハウンド",
+          "prompt": "J",
+          "accept": [
+            "バセットハウンド"
+          ],
+          "image": {
+            "src": "/bomber-img/ccfee528e1f5.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basset_Hound_600.jpg"
+          }
         }
       ]
     },

@@ -349,44 +349,143 @@
       ]
     },
     {
-      "q": "パネルの言葉を、アルファベット3文字の略語で答えてください。",
+      "q": "写真の、理科の実験器具の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "CEO",
-          "prompt": "最高経営責任者"
+          "display": "試験管",
+          "prompt": "A",
+          "accept": [
+            "しけんかん"
+          ],
+          "image": {
+            "src": "/bomber-img/2e38d6cdd533.jpg",
+            "author": "Jeffrey M. Vinocur",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Test_tubes.jpg"
+          }
         },
         {
-          "display": "GPS",
-          "prompt": "全地球測位システム"
+          "display": "ビーカー",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/fa807e3f559b.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beakers.jpg"
+          }
         },
         {
-          "display": "FBI",
-          "prompt": "連邦捜査局（アメリカ）"
+          "display": "顕微鏡",
+          "prompt": "C",
+          "accept": [
+            "けんびきょう"
+          ],
+          "image": {
+            "src": "/bomber-img/636eb7e46117.jpg",
+            "author": "Ann 2000",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ukrainian_microscope_(cropped).jpg"
+          }
         },
         {
-          "display": "NGO",
-          "prompt": "非政府組織"
+          "display": "アルコールランプ",
+          "prompt": "D",
+          "image": {
+            "src": "/bomber-img/624b43ad09b0.jpg",
+            "author": "Trisawan",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alcohol_burner1.jpg"
+          }
         },
         {
-          "display": "LCC",
-          "prompt": "格安航空会社"
+          "display": "三角フラスコ",
+          "prompt": "E",
+          "accept": [
+            "フラスコ"
+          ],
+          "image": {
+            "src": "/bomber-img/bb86f45889f4.jpg",
+            "author": "Lucasbosch",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duran_erlenmeyer_flask_narrow_neck_50ml.jpg"
+          }
         },
         {
-          "display": "JAF",
-          "prompt": "日本自動車連盟"
+          "display": "メスシリンダー",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/765aa2b16404.jpg",
+            "author": "Lilly_M",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glass_graduated_cylinder-250ml_1.jpg"
+          }
         },
         {
-          "display": "EEZ",
-          "prompt": "排他的経済水域"
+          "display": "ガスバーナー",
+          "prompt": "G",
+          "accept": [
+            "バーナー",
+            "ブンゼンバーナー"
+          ],
+          "image": {
+            "src": "/bomber-img/b2df1f8bf796.jpg",
+            "author": "Amfeli",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mechero_Bunsen.jpg"
+          }
         },
         {
-          "display": "ODA",
-          "prompt": "政府開発援助"
+          "display": "乳鉢",
+          "prompt": "H",
+          "accept": [
+            "にゅうばち",
+            "すり鉢"
+          ],
+          "image": {
+            "src": "/bomber-img/eda9d96fd986.jpg",
+            "author": "Dvortygirl",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_peppercorns_with_mortar_and_pestle.jpg"
+          }
         },
         {
-          "display": "IMF",
-          "prompt": "国際通貨基金"
+          "display": "上皿てんびん",
+          "prompt": "I",
+          "accept": [
+            "上皿天秤",
+            "てんびん",
+            "天秤"
+          ],
+          "image": {
+            "src": "/bomber-img/4b9a02c41d5f.jpg",
+            "author": "AntonyB",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balance_de_type_Beranger_1kg.jpg"
+          }
+        },
+        {
+          "display": "蒸発皿",
+          "prompt": "J",
+          "accept": [
+            "じょうはつざら"
+          ],
+          "image": {
+            "src": "/bomber-img/8e8f3d9b19a9.jpg",
+            "author": "Simon A. Eugster",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdampfschalen_verschiedene_Groessen.jpg"
+          }
         }
       ]
     },
@@ -608,6 +707,13 @@
           "accept": [
             "ポキ"
           ]
+        },
+        {
+          "display": "ミン",
+          "prompt": "サイ□□（ハワイの麺料理）",
+          "accept": [
+            "サイミン"
+          ]
         }
       ]
     },
@@ -645,6 +751,14 @@
           "accept": [
             "おに",
             "鬼の目にも涙"
+          ]
+        },
+        {
+          "display": "皿",
+          "prompt": "目を□にする（よく見て探す）",
+          "accept": [
+            "さら",
+            "目を皿にする"
           ]
         },
         {
@@ -711,6 +825,14 @@
           "prompt": "中□中背",
           "accept": [
             "中肉中背"
+          ]
+        },
+        {
+          "display": "首",
+          "prompt": "□尾一貫",
+          "accept": [
+            "しゅ",
+            "首尾一貫"
           ]
         },
         {

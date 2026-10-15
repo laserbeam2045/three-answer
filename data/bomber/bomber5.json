@@ -94,15 +94,6 @@
             "南米",
             "南米大陸"
           ]
-        },
-        {
-          "display": "北アメリカ大陸",
-          "prompt": "ハクトウワシ",
-          "accept": [
-            "北アメリカ",
-            "北米",
-            "北米大陸"
-          ]
         }
       ]
     },
@@ -503,6 +494,13 @@
           "prompt": "世界三大珍味：キャビア・フォアグラ・□"
         },
         {
+          "display": "小野小町",
+          "prompt": "世界三大美女：クレオパトラ・楊貴妃・□",
+          "accept": [
+            "おののこまち"
+          ]
+        },
+        {
           "display": "宮島",
           "prompt": "日本三景：松島・天橋立・□",
           "accept": [
@@ -520,6 +518,20 @@
           ]
         },
         {
+          "display": "トルコ料理",
+          "prompt": "世界三大料理：フランス料理・中華料理・□",
+          "accept": [
+            "トルコ"
+          ]
+        },
+        {
+          "display": "長崎",
+          "prompt": "日本三大夜景：函館・神戸・□",
+          "accept": [
+            "ながさき"
+          ]
+        },
+        {
           "display": "偕楽園",
           "prompt": "日本三名園：兼六園・後楽園・□",
           "accept": [
@@ -533,6 +545,14 @@
             "ビクトリアの滝",
             "ヴィクトリア",
             "ビクトリア"
+          ]
+        },
+        {
+          "display": "袋田の滝",
+          "prompt": "日本三名瀑：華厳の滝・那智の滝・□",
+          "accept": [
+            "袋田",
+            "ふくろだのたき"
           ]
         }
       ]
@@ -670,219 +690,145 @@
       ]
     },
     {
-      "q": "アジアの国の首都を答えてください（中東・中央アジアも含みます）。",
-      "slots": 10,
+      "q": "写真のパスタ料理の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "東京",
+          "display": "ナポリタン",
+          "prompt": "A",
+          "image": {
+            "src": "/bomber-img/78452dffa5ab.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_Naporitan_002.jpg"
+          }
+        },
+        {
+          "display": "ボロネーゼ",
+          "prompt": "B",
           "accept": [
-            "とうきょう"
-          ]
+            "ミートソース",
+            "ミートソーススパゲッティ",
+            "スパゲッティ・ボロネーゼ"
+          ],
+          "image": {
+            "src": "/bomber-img/c7c70259f8ce.jpg",
+            "author": "Chingon",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_Bolognese.jpg"
+          }
         },
         {
-          "display": "北京",
+          "display": "カルボナーラ",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/f2b5a4d0c6a9.jpg",
+            "author": "Javier Somoza",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg"
+          }
+        },
+        {
+          "display": "たらこスパゲッティ",
+          "prompt": "D",
           "accept": [
-            "ぺきん"
-          ]
+            "たらこパスタ",
+            "たらこスパ"
+          ],
+          "image": {
+            "src": "/bomber-img/ca0c50856d9f.jpg",
+            "author": "Ocdp",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tarako_spaghetti.jpg"
+          }
         },
         {
-          "display": "ソウル"
-        },
-        {
-          "display": "平壌",
+          "display": "ラザニア",
+          "prompt": "E",
           "accept": [
-            "ピョンヤン"
-          ]
+            "ラザーニャ"
+          ],
+          "image": {
+            "src": "/bomber-img/9a807a13791e.jpg",
+            "author": "Jon Sullivan (PDphoto.org)",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lasagna.jpg"
+          }
         },
         {
-          "display": "ウランバートル"
-        },
-        {
-          "display": "台北",
+          "display": "ペペロンチーノ",
+          "prompt": "F",
           "accept": [
-            "タイペイ",
-            "たいほく"
-          ]
+            "アーリオ・オーリオ・ペペロンチーノ",
+            "アーリオオーリオ"
+          ],
+          "image": {
+            "src": "/bomber-img/a3573e8e1b90.jpg",
+            "author": "Bairuilong",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_aglio_e_olio_KB.jpg"
+          }
         },
         {
-          "display": "ジャカルタ",
+          "display": "ボンゴレ",
+          "prompt": "G",
           "accept": [
-            "ヌサンタラ"
-          ]
+            "ボンゴレ・ビアンコ",
+            "ボンゴレビアンコ",
+            "ボンゴレビアンカ"
+          ],
+          "image": {
+            "src": "/bomber-img/fa71fef90665.jpg",
+            "author": "Paolo Piscolla",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trenette_con_le_vongole_(cropped).jpg"
+          }
         },
         {
-          "display": "クアラルンプール"
-        },
-        {
-          "display": "マニラ"
-        },
-        {
-          "display": "シンガポール"
-        },
-        {
-          "display": "バンコク"
-        },
-        {
-          "display": "バンダルスリブガワン"
-        },
-        {
-          "display": "ハノイ"
-        },
-        {
-          "display": "ビエンチャン"
-        },
-        {
-          "display": "ネピドー",
+          "display": "ジェノベーゼ",
+          "prompt": "H",
           "accept": [
-            "ネーピードー"
-          ]
+            "ジェノヴェーゼ",
+            "バジルソース",
+            "ペスト・ジェノベーゼ"
+          ],
+          "image": {
+            "src": "/bomber-img/144f641310c0.jpg",
+            "author": "Marco Del Torchio 95",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pasta_al_pesto_fatto_in_casa.jpg"
+          }
         },
         {
-          "display": "プノンペン"
+          "display": "ペスカトーレ",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/127bf6b3e44c.jpg",
+            "author": "Chensiyuan",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linguine_seafood.JPG"
+          }
         },
         {
-          "display": "ディリ"
-        },
-        {
-          "display": "ニューデリー",
+          "display": "アラビアータ",
+          "prompt": "J",
           "accept": [
-            "デリー"
-          ]
-        },
-        {
-          "display": "イスラマバード"
-        },
-        {
-          "display": "ダッカ"
-        },
-        {
-          "display": "スリジャヤワルダナプラコッテ",
-          "accept": [
-            "コッテ",
-            "スリジャヤワルダナプラ"
-          ]
-        },
-        {
-          "display": "カトマンズ",
-          "accept": [
-            "カトマンドゥ"
-          ]
-        },
-        {
-          "display": "ティンプー"
-        },
-        {
-          "display": "マレ"
-        },
-        {
-          "display": "カブール"
-        },
-        {
-          "display": "アスタナ",
-          "accept": [
-            "ヌルスルタン"
-          ]
-        },
-        {
-          "display": "タシケント"
-        },
-        {
-          "display": "アシガバット",
-          "accept": [
-            "アシュハバード",
-            "アシガバード"
-          ]
-        },
-        {
-          "display": "ビシュケク"
-        },
-        {
-          "display": "ドゥシャンベ"
-        },
-        {
-          "display": "テヘラン"
-        },
-        {
-          "display": "バグダッド",
-          "accept": [
-            "バグダード"
-          ]
-        },
-        {
-          "display": "リヤド"
-        },
-        {
-          "display": "アブダビ"
-        },
-        {
-          "display": "ドーハ"
-        },
-        {
-          "display": "クウェートシティ",
-          "accept": [
-            "クウェート",
-            "クウェート市"
-          ]
-        },
-        {
-          "display": "マナーマ",
-          "accept": [
-            "マナマ"
-          ]
-        },
-        {
-          "display": "マスカット"
-        },
-        {
-          "display": "サヌア",
-          "accept": [
-            "サナア"
-          ]
-        },
-        {
-          "display": "アンマン"
-        },
-        {
-          "display": "ダマスカス"
-        },
-        {
-          "display": "ベイルート"
-        },
-        {
-          "display": "エルサレム"
-        },
-        {
-          "display": "アンカラ"
-        },
-        {
-          "display": "ニコシア"
-        },
-        {
-          "display": "トビリシ"
-        },
-        {
-          "display": "エレバン",
-          "accept": [
-            "エレヴァン"
-          ]
-        },
-        {
-          "display": "バクー"
-        },
-        {
-          "display": "モスクワ"
-        },
-        {
-          "display": "ラマッラ",
-          "accept": [
-            "ラマラ"
-          ]
-        },
-        {
-          "display": "カイロ"
-        },
-        {
-          "display": "テルアビブ"
+            "アラビアータ"
+          ],
+          "image": {
+            "src": "/bomber-img/754d37721164.jpg",
+            "author": "Giovanni JL from Singapore",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_all%27_arrabbiata.jpg"
+          }
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "id": "bomber12",
   "title": "拾弐 たいまつ",
-  "description": "さんずいの漢字・語呂合わせ・流行語大賞など、本家の過去問から10問。",
+  "description": "さんずいの漢字・パン（写真）・流行語大賞など、本家の過去問から10問。",
   "questions": [
     {
       "q": "ポケモンのゲームで最初にもらえる「御三家」のポケモン（進化前）を答えてください（『スカーレット・バイオレット』まで）。",
@@ -258,49 +258,126 @@
       ]
     },
     {
-      "q": "パネルの言葉を、語呂合わせで数字に変えて答えてください（例: なくよ→794）。",
+      "q": "写真のパンの名前を答えてください。",
       "panels": true,
-      "strict": true,
       "answers": [
         {
-          "display": "4649",
-          "prompt": "よろしく"
+          "display": "メロンパン",
+          "prompt": "A",
+          "image": {
+            "src": "/bomber-img/7ee7699cf6ce.jpg",
+            "author": "Sakurai Midori",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melonpan.jpg"
+          }
         },
         {
-          "display": "2525",
-          "prompt": "にこにこ"
+          "display": "クロワッサン",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/83ed30513053.jpg",
+            "author": "JidGom",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Croissant.jpg"
+          }
         },
         {
-          "display": "8929",
-          "prompt": "焼肉"
+          "display": "カレーパン",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/a02badf96eb3.jpg",
+            "author": "Laitr Keiows",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Deep_fried_curry_bread.jpg"
+          }
         },
         {
-          "display": "5963",
-          "prompt": "ご苦労さん"
+          "display": "バゲット",
+          "prompt": "D",
+          "accept": [
+            "フランスパン"
+          ],
+          "image": {
+            "src": "/bomber-img/f57438105e7d.jpg",
+            "author": "jules / stonesoup",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baguettes_-_stonesoup.jpg"
+          }
         },
         {
-          "display": "3150",
-          "prompt": "最高"
+          "display": "ベーグル",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/8b31033df622.jpg",
+            "author": "http://hin.nhlbi.nih.gov/portion/portion.cgi?action=question&number=1, specifically http://hin.nhlbi.nih.gov/portion/ima",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagel.jpg"
+          }
         },
         {
-          "display": "1031",
-          "prompt": "天才"
+          "display": "ナン",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/b0d4fd192b2d.jpg",
+            "author": "OpenCage",
+            "license": "CC BY-SA 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naan_shiva.jpg"
+          }
         },
         {
-          "display": "8765",
-          "prompt": "花婿"
+          "display": "プレッツェル",
+          "prompt": "G",
+          "accept": [
+            "ブレッツェル"
+          ],
+          "image": {
+            "src": "/bomber-img/7d4720ff46d3.jpg",
+            "author": "Sundar1",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:BrezelnSalz02_(cropped).JPG"
+          }
         },
         {
-          "display": "1010",
-          "prompt": "銭湯"
+          "display": "スコーン",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/bcc7e7680cae.jpg",
+            "author": "Takeaway",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scones_cream_jam.jpg"
+          }
         },
         {
-          "display": "5572",
-          "prompt": "ココナッツ"
+          "display": "フォカッチャ",
+          "prompt": "I",
+          "image": {
+            "src": "/bomber-img/474508b25d03.jpg",
+            "author": "Dvortygirl",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Focaccia.png"
+          }
         },
         {
-          "display": "6256",
-          "prompt": "ムツゴロウ"
+          "display": "シュトーレン",
+          "prompt": "J",
+          "accept": [
+            "シュトレン"
+          ],
+          "image": {
+            "src": "/bomber-img/1400ba75bf0e.jpg",
+            "author": "knusperj",
+            "license": "CC BY-SA 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosinen-Christstollen_angeschnitten.jpg"
+          }
         }
       ]
     },
@@ -359,6 +436,13 @@
         {
           "display": "アーティスティックスイミング",
           "prompt": "シンクロナイズドスイミング"
+        },
+        {
+          "display": "大学入学共通テスト",
+          "prompt": "共通一次試験",
+          "accept": [
+            "共通テスト"
+          ]
         }
       ]
     },
@@ -438,6 +522,14 @@
           "prompt": "本音と□□",
           "accept": [
             "たてまえ"
+          ]
+        },
+        {
+          "display": "敷居",
+          "prompt": "□□が高い（行きにくい）",
+          "accept": [
+            "しきい",
+            "敷居が高い"
           ]
         },
         {
@@ -536,6 +628,10 @@
         {
           "display": "にこぼれる",
           "prompt": "煮零れる"
+        },
+        {
+          "display": "もつれる",
+          "prompt": "縺れる"
         }
       ]
     },
@@ -636,6 +732,14 @@
           ]
         },
         {
+          "display": "貸",
+          "prompt": "手を□す（手伝う）",
+          "accept": [
+            "か",
+            "手を貸す"
+          ]
+        },
+        {
           "display": "足",
           "prompt": "手も□も出ない",
           "accept": [
@@ -690,6 +794,14 @@
           "accept": [
             "ほどこし",
             "手の施しようがない"
+          ]
+        },
+        {
+          "display": "綱",
+          "prompt": "手□を引き締める",
+          "accept": [
+            "づな",
+            "手綱を引き締める"
           ]
         }
       ]

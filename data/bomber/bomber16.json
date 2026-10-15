@@ -304,6 +304,14 @@
           ]
         },
         {
+          "display": "大海",
+          "prompt": "井の中の蛙□□を知らず",
+          "accept": [
+            "たいかい",
+            "井の中の蛙大海を知らず"
+          ]
+        },
+        {
           "display": "跡",
           "prompt": "飛ぶ鳥□を濁さず",
           "accept": [
@@ -350,6 +358,14 @@
           "accept": [
             "あぶはち",
             "虻蜂取らず"
+          ]
+        },
+        {
+          "display": "虎子",
+          "prompt": "虎穴に入らずんば□□を得ず",
+          "accept": [
+            "こじ",
+            "虎穴に入らずんば虎子を得ず"
           ]
         }
       ]
@@ -431,48 +447,142 @@
       ]
     },
     {
-      "q": "パネルの略した言葉の、もとの言葉を答えてください。",
+      "q": "写真の、夏に咲く花の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "スクリーンショット",
-          "prompt": "スクショ"
+          "display": "ひまわり",
+          "prompt": "A",
+          "accept": [
+            "ヒマワリ",
+            "向日葵"
+          ],
+          "image": {
+            "src": "/bomber-img/93869d732645.jpg",
+            "author": "Jakub Hałun",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:20180729_1018_s%C5%82onecznik_4501_DxO.jpg"
+          }
         },
         {
-          "display": "サブスクリプション",
-          "prompt": "サブスク"
+          "display": "あさがお",
+          "prompt": "B",
+          "accept": [
+            "アサガオ",
+            "朝顔"
+          ],
+          "image": {
+            "src": "/bomber-img/7636618188df.jpg",
+            "author": "KENPEI",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ipomoea_nil_Akatsukinoumi1.jpg"
+          }
         },
         {
-          "display": "リアルタイム",
-          "prompt": "リアタイ"
+          "display": "あじさい",
+          "prompt": "C",
+          "accept": [
+            "アジサイ",
+            "紫陽花"
+          ],
+          "image": {
+            "src": "/bomber-img/3eeb6a280a14.jpg",
+            "author": "Yamaguchi Yoshiaki from Japan",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrangea_of_Shimoda_%E4%B8%8B%E7%94%B0%E3%81%AE%E3%81%82%E3%81%98%E3%81%95%E3%81%84_(2630826953).jpg"
+          }
         },
         {
-          "display": "アップデート",
-          "prompt": "アプデ"
+          "display": "ハイビスカス",
+          "prompt": "D",
+          "image": {
+            "src": "/bomber-img/0c9b6dd74e61.jpg",
+            "author": "Lestat (Jan Mehlich)",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hibiskus_rosa-sinensis_-_Kwiat.JPG"
+          }
         },
         {
-          "display": "エゴサーチ",
-          "prompt": "エゴサ"
+          "display": "ラベンダー",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/91cc9bc98c2e.jpg",
+            "author": "xlibber",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lavender_Field_(7433821140).jpg"
+          }
         },
         {
-          "display": "タイムパフォーマンス",
-          "prompt": "タイパ"
+          "display": "ハス",
+          "prompt": "F",
+          "accept": [
+            "蓮",
+            "はす"
+          ],
+          "image": {
+            "src": "/bomber-img/da11c04eb035.jpg",
+            "author": "ゲンチャイターラークラーン",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:GyodaAncientlotus.jpg"
+          }
         },
         {
-          "display": "リスケジュール",
-          "prompt": "リスケ"
+          "display": "マリーゴールド",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/bd1ddeecb195.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:French_marigold.jpg"
+          }
         },
         {
-          "display": "パーティーピープル",
-          "prompt": "パリピ"
+          "display": "サルビア",
+          "prompt": "H",
+          "image": {
+            "src": "/bomber-img/f1b218e9eba8.jpg",
+            "author": "Famartin",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-10-21_15_29_06_Scarlet_sage_flowers_along_Montague_Avenue_in_the_Mountainview_section_of_Ewing_Township,_Mercer_County,_New_Jersey.jpg"
+          }
         },
         {
-          "display": "ログインボーナス",
-          "prompt": "ログボ"
+          "display": "ききょう",
+          "prompt": "I",
+          "accept": [
+            "キキョウ",
+            "桔梗"
+          ],
+          "image": {
+            "src": "/bomber-img/abfbeb27ab51.jpg",
+            "author": "663highland",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:130803_Tonomine_highland_Kamikawa_Hyogo_pref_Japan10bs5.jpg"
+          }
         },
         {
-          "display": "プチプライス",
-          "prompt": "プチプラ"
+          "display": "のうぜんかずら",
+          "prompt": "J",
+          "accept": [
+            "ノウゼンカズラ",
+            "凌霄花"
+          ],
+          "image": {
+            "src": "/bomber-img/25b969f6c87f.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:CampsisGrandiflora.jpg"
+          }
         }
       ]
     },
@@ -579,6 +689,10 @@
           "prompt": "本居宣長"
         },
         {
+          "display": "そがのいるか",
+          "prompt": "蘇我入鹿"
+        },
+        {
           "display": "たぬまおきつぐ",
           "prompt": "田沼意次"
         },
@@ -614,6 +728,10 @@
         {
           "display": "スモッグ",
           "prompt": "スモーク＋フォッグ"
+        },
+        {
+          "display": "スポーク",
+          "prompt": "スプーン＋フォーク"
         },
         {
           "display": "モーテル",
@@ -723,6 +841,22 @@
       "q": "パネルの慣用句の□に入る体の部分を答えてください（慣用句をまるごと書いても可）。",
       "panels": true,
       "answers": [
+        {
+          "display": "足",
+          "prompt": "□を洗う（悪い仲間から抜ける）",
+          "accept": [
+            "あし",
+            "足を洗う"
+          ]
+        },
+        {
+          "display": "口",
+          "prompt": "□を割る（白状する）",
+          "accept": [
+            "くち",
+            "口を割る"
+          ]
+        },
         {
           "display": "歯",
           "prompt": "□が浮く",

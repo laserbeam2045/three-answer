@@ -983,61 +983,139 @@
       ]
     },
     {
-      "q": "日本語の国名が「ア」で始まる国（国連加盟国）を答えてください。",
-      "slots": 8,
+      "q": "写真の夏野菜の名前を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "アイスランド"
+          "display": "トマト",
+          "prompt": "A",
+          "image": {
+            "src": "/bomber-img/8ae51411ec94.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomatoes-on-the-bush.jpg"
+          }
         },
         {
-          "display": "アイルランド"
-        },
-        {
-          "display": "アゼルバイジャン"
-        },
-        {
-          "display": "アフガニスタン",
+          "display": "とうもろこし",
+          "prompt": "B",
           "accept": [
-            "アフガン"
-          ]
+            "コーン",
+            "とうきび",
+            "玉蜀黍"
+          ],
+          "image": {
+            "src": "/bomber-img/fc635aa3d22e.jpg",
+            "author": "wstoakLL",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:VegCorn.jpg"
+          }
         },
         {
-          "display": "アメリカ合衆国",
+          "display": "なす",
+          "prompt": "C",
           "accept": [
-            "アメリカ",
-            "米国"
-          ]
+            "茄子",
+            "なすび"
+          ],
+          "image": {
+            "src": "/bomber-img/740c03cbc0aa.jpg",
+            "author": "Horst Frank",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aubergine.jpg"
+          }
         },
         {
-          "display": "アラブ首長国連邦",
+          "display": "ピーマン",
+          "prompt": "D",
+          "image": {
+            "src": "/bomber-img/56575728d30a.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:GreenPeppers.jpg"
+          }
+        },
+        {
+          "display": "オクラ",
+          "prompt": "E",
+          "image": {
+            "src": "/bomber-img/673cd2d0576a.jpg",
+            "author": "Bill Tarpenning",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucket_of_raw_okra_pods.jpg"
+          }
+        },
+        {
+          "display": "ゴーヤ",
+          "prompt": "F",
           "accept": [
-            "UAE"
-          ]
+            "ゴーヤー",
+            "にがうり",
+            "苦瓜",
+            "ツルレイシ"
+          ],
+          "image": {
+            "src": "/bomber-img/c019073c266a.jpg",
+            "author": "AtifBhinder",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitter_Melon_conjoint_twin_fruit.png"
+          }
         },
         {
-          "display": "アルジェリア"
+          "display": "ズッキーニ",
+          "prompt": "G",
+          "image": {
+            "src": "/bomber-img/2d112c482024.jpg",
+            "author": "Donovan Govan",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Courgette.jpg"
+          }
         },
         {
-          "display": "アルゼンチン"
-        },
-        {
-          "display": "アルバニア"
-        },
-        {
-          "display": "アルメニア"
-        },
-        {
-          "display": "アンゴラ"
-        },
-        {
-          "display": "アンティグア・バーブーダ",
+          "display": "みょうが",
+          "prompt": "H",
           "accept": [
-            "アンティグアバーブーダ",
-            "アンティグア"
-          ]
+            "茗荷"
+          ],
+          "image": {
+            "src": "/bomber-img/091bd86d89f8.jpg",
+            "author": "sakura_chihaya+ from OSAKA, Japan",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zingiber_mioga_(1411661607).jpg"
+          }
         },
         {
-          "display": "アンドラ"
+          "display": "とうがん",
+          "prompt": "I",
+          "accept": [
+            "冬瓜"
+          ],
+          "image": {
+            "src": "/bomber-img/7baf5f9399e3.jpg",
+            "author": "GTSPACE",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_winter_melon.jpg"
+          }
+        },
+        {
+          "display": "アーティチョーク",
+          "prompt": "J",
+          "accept": [
+            "チョウセンアザミ"
+          ],
+          "image": {
+            "src": "/bomber-img/9e89435521ce.jpg",
+            "author": "Toby Hudson",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Artichoke_stack.JPG"
+          }
         }
       ]
     },

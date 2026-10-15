@@ -4,47 +4,342 @@
   "description": "にんべんの漢字・昔の会社名・囲碁と将棋の言葉など、本家の過去問から10問。",
   "questions": [
     {
-      "q": "12星座のうち、ひらがなで書くと2文字の星座を答えてください（「座」は数えません）。",
-      "slots": 5,
+      "q": "『映画ドラえもん』の長編映画のタイトルを答えてください（「のび太の」「のび太と」は省略できます）。",
+      "slots": 8,
       "answers": [
         {
-          "display": "かに座",
+          "display": "のび太の恐竜",
           "accept": [
-            "かに",
-            "蟹座",
-            "蟹"
+            "恐竜",
+            "きょうりゅう",
+            "恐竜2006",
+            "恐竜 2006",
+            "のび太の恐竜2006",
+            "のび太の恐竜 2006"
           ]
         },
         {
-          "display": "しし座",
+          "display": "のび太の宇宙開拓史",
           "accept": [
-            "しし",
-            "獅子座",
-            "獅子"
+            "宇宙開拓史",
+            "うちゅうかいたくし",
+            "新・のび太の宇宙開拓史",
+            "新のび太の宇宙開拓史",
+            "新・宇宙開拓史",
+            "新宇宙開拓史"
           ]
         },
         {
-          "display": "いて座",
+          "display": "のび太の大魔境",
           "accept": [
-            "いて",
-            "射手座",
-            "射手"
+            "大魔境",
+            "だいまきょう",
+            "新・のび太の大魔境",
+            "新のび太の大魔境",
+            "新・大魔境",
+            "新大魔境",
+            "新・のび太の大魔境 〜ペコと5人の探検隊〜",
+            "大魔境 ペコと5人の探検隊"
           ]
         },
         {
-          "display": "やぎ座",
+          "display": "のび太の海底鬼岩城",
           "accept": [
-            "やぎ",
-            "山羊座",
-            "山羊"
+            "海底鬼岩城",
+            "かいていきがんじょう",
+            "海底奇岩城",
+            "新・のび太の海底鬼岩城",
+            "新のび太の海底鬼岩城",
+            "新・海底鬼岩城",
+            "新海底鬼岩城"
           ]
         },
         {
-          "display": "うお座",
+          "display": "のび太の魔界大冒険",
           "accept": [
-            "うお",
-            "魚座",
-            "魚"
+            "魔界大冒険",
+            "まかいだいぼうけん",
+            "新魔界大冒険",
+            "しんまかいだいぼうけん",
+            "のび太の新魔界大冒険",
+            "新魔界大冒険 〜7人の魔法使い〜",
+            "新魔界大冒険 7人の魔法使い",
+            "のび太の新魔界大冒険 〜7人の魔法使い〜"
+          ]
+        },
+        {
+          "display": "のび太の宇宙小戦争",
+          "accept": [
+            "宇宙小戦争",
+            "うちゅうしょうせんそう",
+            "リトル・スター・ウォーズ",
+            "リトルスターウォーズ",
+            "宇宙小戦争（リトル・スター・ウォーズ）",
+            "宇宙小戦争2021",
+            "宇宙小戦争 2021",
+            "のび太の宇宙小戦争2021",
+            "のび太の宇宙小戦争 2021",
+            "リトルスターウォーズ2021",
+            "リトルスターウォーズ 2021"
+          ]
+        },
+        {
+          "display": "のび太と鉄人兵団",
+          "accept": [
+            "鉄人兵団",
+            "てつじんへいだん",
+            "新・のび太と鉄人兵団",
+            "新のび太と鉄人兵団",
+            "新・鉄人兵団",
+            "新鉄人兵団",
+            "新・のび太と鉄人兵団 〜はばたけ 天使たち〜",
+            "鉄人兵団 はばたけ天使たち"
+          ]
+        },
+        {
+          "display": "のび太と竜の騎士",
+          "accept": [
+            "竜の騎士",
+            "りゅうのきし",
+            "龍の騎士"
+          ]
+        },
+        {
+          "display": "のび太のパラレル西遊記",
+          "accept": [
+            "パラレル西遊記",
+            "ぱられるさいゆうき"
+          ]
+        },
+        {
+          "display": "のび太の日本誕生",
+          "accept": [
+            "日本誕生",
+            "にっぽんたんじょう",
+            "にほんたんじょう",
+            "新・のび太の日本誕生",
+            "新のび太の日本誕生",
+            "新・日本誕生",
+            "新日本誕生"
+          ]
+        },
+        {
+          "display": "のび太とアニマル惑星",
+          "accept": [
+            "アニマル惑星",
+            "アニマルプラネット",
+            "あにまるぷらねっと",
+            "あにまるわくせい"
+          ]
+        },
+        {
+          "display": "のび太のドラビアンナイト",
+          "accept": [
+            "ドラビアンナイト",
+            "どらびあんないと"
+          ]
+        },
+        {
+          "display": "のび太と雲の王国",
+          "accept": [
+            "雲の王国",
+            "くものおうこく"
+          ]
+        },
+        {
+          "display": "のび太とブリキの迷宮",
+          "accept": [
+            "ブリキの迷宮",
+            "ブリキのラビリンス",
+            "ぶりきのらびりんす",
+            "ぶりきのめいきゅう"
+          ]
+        },
+        {
+          "display": "のび太と夢幻三剣士",
+          "accept": [
+            "夢幻三剣士",
+            "むげんさんけんし"
+          ]
+        },
+        {
+          "display": "のび太の創世日記",
+          "accept": [
+            "創世日記",
+            "そうせいにっき",
+            "創成日記"
+          ]
+        },
+        {
+          "display": "のび太と銀河超特急",
+          "accept": [
+            "銀河超特急",
+            "銀河エクスプレス",
+            "ぎんがえくすぷれす",
+            "ぎんがちょうとっきゅう"
+          ]
+        },
+        {
+          "display": "のび太のねじ巻き都市冒険記",
+          "accept": [
+            "ねじ巻き都市冒険記",
+            "ねじまき都市冒険記",
+            "ねじ巻きシティー冒険記",
+            "ねじまきシティー冒険記",
+            "ねじまきしてぃーぼうけんき",
+            "ねじまきとしぼうけんき"
+          ]
+        },
+        {
+          "display": "のび太の南海大冒険",
+          "accept": [
+            "南海大冒険",
+            "なんかいだいぼうけん"
+          ]
+        },
+        {
+          "display": "のび太の宇宙漂流記",
+          "accept": [
+            "宇宙漂流記",
+            "うちゅうひょうりゅうき"
+          ]
+        },
+        {
+          "display": "のび太の太陽王伝説",
+          "accept": [
+            "太陽王伝説",
+            "たいようおうでんせつ"
+          ]
+        },
+        {
+          "display": "のび太と翼の勇者たち",
+          "accept": [
+            "翼の勇者たち",
+            "つばさのゆうしゃたち",
+            "翼の勇者"
+          ]
+        },
+        {
+          "display": "のび太とロボット王国",
+          "accept": [
+            "ロボット王国",
+            "ロボットキングダム",
+            "ろぼっときんぐだむ",
+            "ろぼっとおうこく"
+          ]
+        },
+        {
+          "display": "のび太とふしぎ風使い",
+          "accept": [
+            "ふしぎ風使い",
+            "不思議風使い",
+            "ふしぎかぜつかい"
+          ]
+        },
+        {
+          "display": "のび太のワンニャン時空伝",
+          "accept": [
+            "ワンニャン時空伝",
+            "わんにゃんじくうでん"
+          ]
+        },
+        {
+          "display": "のび太と緑の巨人伝",
+          "accept": [
+            "緑の巨人伝",
+            "みどりのきょじんでん"
+          ]
+        },
+        {
+          "display": "のび太の人魚大海戦",
+          "accept": [
+            "人魚大海戦",
+            "にんぎょだいかいせん"
+          ]
+        },
+        {
+          "display": "のび太と奇跡の島",
+          "accept": [
+            "奇跡の島",
+            "きせきのしま",
+            "奇跡の島 〜アニマル アドベンチャー〜",
+            "奇跡の島 アニマルアドベンチャー",
+            "のび太と奇跡の島 〜アニマル アドベンチャー〜"
+          ]
+        },
+        {
+          "display": "のび太のひみつ道具博物館",
+          "accept": [
+            "ひみつ道具博物館",
+            "ひみつ道具ミュージアム",
+            "秘密道具博物館",
+            "秘密道具ミュージアム",
+            "ひみつどうぐミュージアム",
+            "ひみつどうぐみゅーじあむ",
+            "ひみつどうぐはくぶつかん"
+          ]
+        },
+        {
+          "display": "のび太の宇宙英雄記",
+          "accept": [
+            "宇宙英雄記",
+            "スペースヒーローズ",
+            "すぺーすひーろーず",
+            "うちゅうえいゆうき"
+          ]
+        },
+        {
+          "display": "のび太の南極カチコチ大冒険",
+          "accept": [
+            "南極カチコチ大冒険",
+            "なんきょくかちこちだいぼうけん",
+            "南極かちこち大冒険"
+          ]
+        },
+        {
+          "display": "のび太の宝島",
+          "accept": [
+            "宝島",
+            "たからじま"
+          ]
+        },
+        {
+          "display": "のび太の月面探査記",
+          "accept": [
+            "月面探査記",
+            "げつめんたんさき"
+          ]
+        },
+        {
+          "display": "のび太の新恐竜",
+          "accept": [
+            "新恐竜",
+            "しんきょうりゅう"
+          ]
+        },
+        {
+          "display": "のび太と空の理想郷",
+          "accept": [
+            "空の理想郷",
+            "空のユートピア",
+            "そらのゆーとぴあ",
+            "そらのりそうきょう"
+          ]
+        },
+        {
+          "display": "のび太の地球交響楽",
+          "accept": [
+            "地球交響楽",
+            "地球シンフォニー",
+            "ちきゅうしんふぉにー",
+            "ちきゅうこうきょうがく"
+          ]
+        },
+        {
+          "display": "のび太の絵世界物語",
+          "accept": [
+            "絵世界物語",
+            "えせかいものがたり"
           ]
         }
       ]
@@ -153,6 +448,14 @@
             "あめ",
             "アメ",
             "飴と鞭"
+          ]
+        },
+        {
+          "display": "茶",
+          "prompt": "お□を濁す",
+          "accept": [
+            "ちゃ",
+            "お茶を濁す"
           ]
         },
         {
@@ -285,6 +588,13 @@
       "panels": true,
       "answers": [
         {
+          "display": "ワード",
+          "prompt": "パス□□□",
+          "accept": [
+            "パスワード"
+          ]
+        },
+        {
           "display": "ロード",
           "prompt": "ダウン□□□",
           "accept": [
@@ -296,6 +606,13 @@
           "prompt": "タイム□□□",
           "accept": [
             "タイムライン"
+          ]
+        },
+        {
+          "display": "ワー",
+          "prompt": "フォロ□□",
+          "accept": [
+            "フォロワー"
           ]
         },
         {
@@ -393,6 +710,14 @@
             "だめ",
             "駄目押し",
             "ダメ押し"
+          ]
+        },
+        {
+          "display": "詰め",
+          "prompt": "□□が甘い（最後の仕上げが不十分）",
+          "accept": [
+            "つめ",
+            "詰めが甘い"
           ]
         },
         {
@@ -500,78 +825,151 @@
       ]
     },
     {
-      "q": "パネルのIT用語の略語で、「」の文字が表す英語をカタカナで答えてください。",
+      "q": "写真の和楽器の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "パーソナル",
-          "prompt": "PC の「P」",
+          "display": "和太鼓",
+          "prompt": "A",
           "accept": [
-            "personal"
-          ]
+            "太鼓",
+            "たいこ"
+          ],
+          "image": {
+            "src": "/bomber-img/d6587afd9b00.jpg",
+            "author": "Elijah van der Giessen from Edmonton, Canada",
+            "license": "CC BY 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taiko_drum.jpg"
+          }
         },
         {
-          "display": "ソーシャル",
-          "prompt": "SNS の最初の「S」",
+          "display": "琴",
+          "prompt": "B",
           "accept": [
-            "social"
-          ]
+            "箏",
+            "こと"
+          ],
+          "image": {
+            "src": "/bomber-img/ad8f54368bc4.jpg",
+            "author": "Suisui",
+            "license": "CC BY-SA 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koto_(sou)-overview.jpeg"
+          }
         },
         {
-          "display": "インテリジェンス",
-          "prompt": "AI の「I」",
+          "display": "三味線",
+          "prompt": "C",
           "accept": [
-            "intelligence"
-          ]
+            "しゃみせん"
+          ],
+          "image": {
+            "src": "/bomber-img/2b798b0a1bf5.jpg",
+            "author": "ZacharyOakes",
+            "license": "CC BY-SA 2.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshimana_playing_shamisen_02.jpg"
+          }
         },
         {
-          "display": "グローバル",
-          "prompt": "GPS の「G」",
+          "display": "でんでん太鼓",
+          "prompt": "D",
           "accept": [
-            "global"
-          ]
+            "でんでんだいこ"
+          ],
+          "image": {
+            "src": "/bomber-img/bf196732a1dd.jpg",
+            "author": "Ebiebi2",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dendendaiko.jpg"
+          }
         },
         {
-          "display": "ワールド",
-          "prompt": "WWW の「W」",
+          "display": "尺八",
+          "prompt": "E",
           "accept": [
-            "world"
-          ]
+            "しゃくはち"
+          ],
+          "image": {
+            "src": "/bomber-img/3890c4793331.jpg",
+            "author": "Lombroso",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shakuhachi.jpg"
+          }
         },
         {
-          "display": "ユニバーサル",
-          "prompt": "USB の「U」",
+          "display": "木魚",
+          "prompt": "F",
           "accept": [
-            "universal"
-          ]
+            "もくぎょ"
+          ],
+          "image": {
+            "src": "/bomber-img/87cbfded1d1f.jpg",
+            "author": "KENPEI at Japanese Wikipedia",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mokugyo_and_hand_2005.jpg"
+          }
         },
         {
-          "display": "ローカル",
-          "prompt": "LAN の「L」",
+          "display": "三線",
+          "prompt": "G",
           "accept": [
-            "local"
-          ]
+            "さんしん",
+            "蛇皮線",
+            "じゃびせん"
+          ],
+          "image": {
+            "src": "/bomber-img/b9881dc0c7ba.jpg",
+            "author": "TimDuncan",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanshin.jpg"
+          }
         },
         {
-          "display": "ショート",
-          "prompt": "SMS の最初の「S」",
+          "display": "鼓",
+          "prompt": "H",
           "accept": [
-            "short"
-          ]
+            "つづみ",
+            "小鼓"
+          ],
+          "image": {
+            "src": "/bomber-img/a40bbf0f3617.jpg",
+            "author": "katorisi",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_small_hand_drum,kotsudumi,katori-city,japan.JPG"
+          }
         },
         {
-          "display": "ジェネレーション",
-          "prompt": "5G の「G」",
+          "display": "篠笛",
+          "prompt": "I",
           "accept": [
-            "generation"
-          ]
+            "しのぶえ",
+            "横笛"
+          ],
+          "image": {
+            "src": "/bomber-img/db7696725199.jpg",
+            "author": "Iwatake~commonswiki",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinobue_3types.jpg"
+          }
         },
         {
-          "display": "ドライブ",
-          "prompt": "SSD の「D」",
+          "display": "琵琶",
+          "prompt": "J",
           "accept": [
-            "drive"
-          ]
+            "びわ"
+          ],
+          "image": {
+            "src": "/bomber-img/2bde4f2b08eb.jpg",
+            "author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Dat",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipa_MET_DP216711.jpg"
+          }
         }
       ]
     },
@@ -590,6 +988,10 @@
         {
           "display": "そうぞうしい",
           "prompt": "騒騒しい"
+        },
+        {
+          "display": "しらじらしい",
+          "prompt": "白白しい"
         },
         {
           "display": "とげとげしい",
@@ -654,6 +1056,14 @@
           "prompt": "一□咲かせる",
           "accept": [
             "一花咲かせる"
+          ]
+        },
+        {
+          "display": "石",
+          "prompt": "一□を投じる",
+          "accept": [
+            "せき",
+            "一石を投じる"
           ]
         },
         {
