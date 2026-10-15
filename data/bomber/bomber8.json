@@ -4,87 +4,74 @@
   "description": "言葉・食べ物・生き物・歴史など、いろいろなジャンルがまざった10問。",
   "questions": [
     {
-      "q": "パネルの行事は何月の行事か答えてください。",
+      "q": "パネルのアニメのキャラクターの名字を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "1月",
-          "prompt": "元日",
+          "display": "野比",
+          "prompt": "のび太",
           "accept": [
-            "一月",
-            "いちがつ"
+            "のび"
           ]
         },
         {
-          "display": "12月",
-          "prompt": "クリスマス",
+          "display": "野原",
+          "prompt": "しんのすけ",
           "accept": [
-            "十二月",
-            "じゅうにがつ"
+            "のはら"
           ]
         },
         {
-          "display": "5月",
-          "prompt": "こどもの日",
+          "display": "さくら",
+          "prompt": "まる子"
+        },
+        {
+          "display": "磯野",
+          "prompt": "カツオ",
           "accept": [
-            "五月",
-            "ごがつ"
+            "いその"
           ]
         },
         {
-          "display": "3月",
-          "prompt": "ひな祭り",
+          "display": "江戸川",
+          "prompt": "コナン",
           "accept": [
-            "三月",
-            "さんがつ"
+            "えどがわ"
           ]
         },
         {
-          "display": "7月",
-          "prompt": "七夕",
+          "display": "剛田",
+          "prompt": "ジャイアン",
           "accept": [
-            "七月",
-            "しちがつ"
+            "ごうだ"
           ]
         },
         {
-          "display": "10月",
-          "prompt": "ハロウィン",
+          "display": "骨川",
+          "prompt": "スネ夫",
           "accept": [
-            "十月",
-            "じゅうがつ"
+            "ほねかわ"
           ]
         },
         {
-          "display": "2月",
-          "prompt": "節分",
+          "display": "フグ田",
+          "prompt": "マスオ",
           "accept": [
-            "二月",
-            "にがつ"
+            "ふぐた"
           ]
         },
         {
-          "display": "6月",
-          "prompt": "父の日",
+          "display": "源",
+          "prompt": "しずかちゃん",
           "accept": [
-            "六月",
-            "ろくがつ"
+            "みなもと"
           ]
         },
         {
-          "display": "9月",
-          "prompt": "敬老の日",
+          "display": "両津",
+          "prompt": "両さん",
           "accept": [
-            "九月",
-            "くがつ"
-          ]
-        },
-        {
-          "display": "4月",
-          "prompt": "昭和の日",
-          "accept": [
-            "四月",
-            "しがつ"
+            "りょうつ"
           ]
         }
       ]
@@ -16430,10 +16417,6 @@
           ]
         },
         {
-          "display": "マハロ",
-          "prompt": "ハワイ語"
-        },
-        {
           "display": "グラッツェ",
           "prompt": "イタリア語",
           "accept": [
@@ -16461,6 +16444,13 @@
           ]
         },
         {
+          "display": "スパシーバ",
+          "prompt": "ロシア語",
+          "accept": [
+            "スパシバ"
+          ]
+        },
+        {
           "display": "コップンカー",
           "prompt": "タイ語",
           "accept": [
@@ -16472,11 +16462,8 @@
           ]
         },
         {
-          "display": "スパシーバ",
-          "prompt": "ロシア語",
-          "accept": [
-            "スパシバ"
-          ]
+          "display": "マハロ",
+          "prompt": "ハワイ語"
         }
       ]
     },
@@ -16521,47 +16508,83 @@
       ]
     },
     {
-      "q": "パネルの出来事があった時代を答えてください（「〇〇時代」の〇〇）。",
+      "q": "パネルの小説を書いた作家を答えてください（姓だけでも可）。",
       "panels": true,
       "answers": [
         {
-          "display": "平安",
-          "prompt": "源氏物語が書かれた",
+          "display": "夏目漱石",
+          "prompt": "坊っちゃん",
           "accept": [
-            "平安時代",
-            "へいあん"
+            "夏目",
+            "漱石"
           ]
         },
         {
-          "display": "江戸",
-          "prompt": "島原の乱",
+          "display": "太宰治",
+          "prompt": "走れメロス",
           "accept": [
-            "江戸時代",
-            "えど"
+            "太宰"
           ]
         },
         {
-          "display": "飛鳥",
-          "prompt": "大化の改新",
+          "display": "宮沢賢治",
+          "prompt": "銀河鉄道の夜",
           "accept": [
-            "飛鳥時代",
-            "あすか"
+            "宮沢",
+            "宮澤賢治"
           ]
         },
         {
-          "display": "鎌倉",
-          "prompt": "元寇",
+          "display": "芥川龍之介",
+          "prompt": "羅生門",
           "accept": [
-            "鎌倉時代",
-            "かまくら"
+            "芥川"
           ]
         },
         {
-          "display": "室町",
-          "prompt": "応仁の乱",
+          "display": "川端康成",
+          "prompt": "雪国",
           "accept": [
-            "室町時代",
-            "むろまち"
+            "川端"
+          ]
+        },
+        {
+          "display": "森鴎外",
+          "prompt": "舞姫",
+          "accept": [
+            "森鷗外",
+            "鴎外",
+            "鷗外",
+            "森"
+          ]
+        },
+        {
+          "display": "三島由紀夫",
+          "prompt": "金閣寺",
+          "accept": [
+            "三島"
+          ]
+        },
+        {
+          "display": "樋口一葉",
+          "prompt": "たけくらべ",
+          "accept": [
+            "樋口",
+            "一葉"
+          ]
+        },
+        {
+          "display": "小林多喜二",
+          "prompt": "蟹工船",
+          "accept": [
+            "小林"
+          ]
+        },
+        {
+          "display": "中島敦",
+          "prompt": "山月記",
+          "accept": [
+            "中島"
           ]
         }
       ]
@@ -16571,8 +16594,16 @@
       "panels": true,
       "answers": [
         {
+          "display": "学生割引",
+          "prompt": "学割"
+        },
+        {
           "display": "国際連合",
           "prompt": "国連"
+        },
+        {
+          "display": "入学試験",
+          "prompt": "入試"
         },
         {
           "display": "取扱説明書",
@@ -16597,11 +16628,23 @@
           ]
         },
         {
-          "display": "日本経済団体連合会",
-          "prompt": "経団連",
+          "display": "生活協同組合",
+          "prompt": "生協",
           "accept": [
-            "経済団体連合会"
+            "消費生活協同組合"
           ]
+        },
+        {
+          "display": "民間放送",
+          "prompt": "民放"
+        },
+        {
+          "display": "高等専門学校",
+          "prompt": "高専"
+        },
+        {
+          "display": "労働組合",
+          "prompt": "労組"
         }
       ]
     },
@@ -16610,20 +16653,8 @@
       "panels": true,
       "answers": [
         {
-          "display": "えび",
-          "prompt": "海老"
-        },
-        {
-          "display": "さんま",
-          "prompt": "秋刀魚"
-        },
-        {
           "display": "たちうお",
           "prompt": "太刀魚"
-        },
-        {
-          "display": "かき",
-          "prompt": "牡蠣"
         },
         {
           "display": "あさり",
@@ -16648,6 +16679,18 @@
         {
           "display": "さざえ",
           "prompt": "栄螺"
+        },
+        {
+          "display": "ししゃも",
+          "prompt": "柳葉魚"
+        },
+        {
+          "display": "わかさぎ",
+          "prompt": "公魚"
+        },
+        {
+          "display": "ほや",
+          "prompt": "海鞘"
         }
       ]
     }
