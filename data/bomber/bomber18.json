@@ -1,0 +1,690 @@
+{
+  "id": "bomber18",
+  "title": "拾捌 いなびかり",
+  "description": "にんべんの漢字・昔の会社名・囲碁と将棋の言葉など、本家の過去問から10問。",
+  "questions": [
+    {
+      "q": "12星座のうち、ひらがなで書くと2文字の星座を答えてください（「座」は数えません）。",
+      "slots": 5,
+      "answers": [
+        {
+          "display": "かに座",
+          "accept": [
+            "かに",
+            "蟹座",
+            "蟹"
+          ]
+        },
+        {
+          "display": "しし座",
+          "accept": [
+            "しし",
+            "獅子座",
+            "獅子"
+          ]
+        },
+        {
+          "display": "いて座",
+          "accept": [
+            "いて",
+            "射手座",
+            "射手"
+          ]
+        },
+        {
+          "display": "やぎ座",
+          "accept": [
+            "やぎ",
+            "山羊座",
+            "山羊"
+          ]
+        },
+        {
+          "display": "うお座",
+          "accept": [
+            "うお",
+            "魚座",
+            "魚"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの漢字に「にんべん」を付けてできる漢字を答えてください（漢字でも読みでも可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "休",
+          "prompt": "木",
+          "accept": [
+            "やすむ",
+            "きゅう"
+          ]
+        },
+        {
+          "display": "住",
+          "prompt": "主",
+          "accept": [
+            "すむ",
+            "じゅう"
+          ]
+        },
+        {
+          "display": "体",
+          "prompt": "本",
+          "accept": [
+            "からだ",
+            "たい"
+          ]
+        },
+        {
+          "display": "使",
+          "prompt": "吏",
+          "accept": [
+            "つかう",
+            "し"
+          ]
+        },
+        {
+          "display": "信",
+          "prompt": "言",
+          "accept": [
+            "しん"
+          ]
+        },
+        {
+          "display": "優",
+          "prompt": "憂",
+          "accept": [
+            "やさしい",
+            "ゆう"
+          ]
+        },
+        {
+          "display": "侍",
+          "prompt": "寺",
+          "accept": [
+            "さむらい",
+            "じ"
+          ]
+        },
+        {
+          "display": "僧",
+          "prompt": "曽",
+          "accept": [
+            "そう"
+          ]
+        },
+        {
+          "display": "億",
+          "prompt": "意",
+          "accept": [
+            "おく"
+          ]
+        },
+        {
+          "display": "俵",
+          "prompt": "表",
+          "accept": [
+            "たわら",
+            "ひょう"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの慣用句・ことわざの□に入る食べ物を答えてください（まるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "胡麻",
+          "prompt": "□□をする（へつらう）",
+          "accept": [
+            "ごま",
+            "ゴマ",
+            "胡麻をする",
+            "ごまをする"
+          ]
+        },
+        {
+          "display": "飴",
+          "prompt": "□と鞭",
+          "accept": [
+            "あめ",
+            "アメ",
+            "飴と鞭"
+          ]
+        },
+        {
+          "display": "餅",
+          "prompt": "□は□屋",
+          "accept": [
+            "もち",
+            "餅は餅屋"
+          ]
+        },
+        {
+          "display": "味噌",
+          "prompt": "手前□□",
+          "accept": [
+            "みそ",
+            "手前味噌"
+          ]
+        },
+        {
+          "display": "鯖",
+          "prompt": "□□を読む（数をごまかす）",
+          "accept": [
+            "さば",
+            "サバ",
+            "鯖を読む",
+            "さばを読む"
+          ]
+        },
+        {
+          "display": "葱",
+          "prompt": "鴨が□を背負って来る",
+          "accept": [
+            "ねぎ",
+            "ネギ",
+            "鴨が葱を背負って来る"
+          ]
+        },
+        {
+          "display": "栗",
+          "prompt": "火中の□を拾う",
+          "accept": [
+            "くり",
+            "火中の栗を拾う"
+          ]
+        },
+        {
+          "display": "粟",
+          "prompt": "濡れ手で□",
+          "accept": [
+            "あわ",
+            "濡れ手で粟"
+          ]
+        },
+        {
+          "display": "梨",
+          "prompt": "□の礫",
+          "accept": [
+            "なし",
+            "梨の礫"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの昔の会社名の、今の会社名（呼び名）を答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "JR",
+          "prompt": "日本国有鉄道",
+          "accept": [
+            "JRグループ"
+          ]
+        },
+        {
+          "display": "NTT",
+          "prompt": "日本電信電話公社",
+          "accept": [
+            "日本電信電話"
+          ]
+        },
+        {
+          "display": "JT",
+          "prompt": "日本専売公社",
+          "accept": [
+            "日本たばこ産業"
+          ]
+        },
+        {
+          "display": "東芝",
+          "prompt": "東京芝浦電気"
+        },
+        {
+          "display": "パナソニック",
+          "prompt": "松下電器産業"
+        },
+        {
+          "display": "ソニー",
+          "prompt": "東京通信工業",
+          "accept": [
+            "SONY"
+          ]
+        },
+        {
+          "display": "シャープ",
+          "prompt": "早川電機工業",
+          "accept": [
+            "SHARP"
+          ]
+        },
+        {
+          "display": "マツダ",
+          "prompt": "東洋工業",
+          "accept": [
+            "MAZDA"
+          ]
+        },
+        {
+          "display": "サントリー",
+          "prompt": "寿屋"
+        },
+        {
+          "display": "キッコーマン",
+          "prompt": "野田醤油"
+        }
+      ]
+    },
+    {
+      "q": "パネルのネット用語の□に入る言葉を答えてください（言葉をまるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "ロード",
+          "prompt": "ダウン□□□",
+          "accept": [
+            "ダウンロード"
+          ]
+        },
+        {
+          "display": "ライン",
+          "prompt": "タイム□□□",
+          "accept": [
+            "タイムライン"
+          ]
+        },
+        {
+          "display": "タグ",
+          "prompt": "ハッシュ□□",
+          "accept": [
+            "ハッシュタグ"
+          ]
+        },
+        {
+          "display": "ニュース",
+          "prompt": "フェイク□□□□",
+          "accept": [
+            "フェイクニュース"
+          ]
+        },
+        {
+          "display": "ストーリ",
+          "prompt": "□□□□ーズ（インスタの24時間で消える投稿）",
+          "accept": [
+            "ストーリーズ"
+          ]
+        },
+        {
+          "display": "ウォール",
+          "prompt": "ファイアー□□□",
+          "accept": [
+            "ファイアーウォール",
+            "ファイアウォール"
+          ]
+        },
+        {
+          "display": "ラウ",
+          "prompt": "ク□□ド（ネット上の保存場所）",
+          "accept": [
+            "クラウド"
+          ]
+        },
+        {
+          "display": "メイ",
+          "prompt": "ド□□ン（ネット上の住所）",
+          "accept": [
+            "ドメイン"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの、囲碁・将棋がもとになった言葉の□に入る言葉を答えてください（まるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "王手",
+          "prompt": "□□をかける（あと一歩まで追い詰める）",
+          "accept": [
+            "おうて",
+            "王手をかける"
+          ]
+        },
+        {
+          "display": "成金",
+          "prompt": "□□（急にお金持ちになった人）",
+          "accept": [
+            "なりきん"
+          ]
+        },
+        {
+          "display": "先手",
+          "prompt": "□□を打つ（先に行動する）",
+          "accept": [
+            "せんて",
+            "先手を打つ"
+          ]
+        },
+        {
+          "display": "飛車",
+          "prompt": "高□□（偉そうな態度）",
+          "accept": [
+            "びしゃ",
+            "高飛車"
+          ]
+        },
+        {
+          "display": "布石",
+          "prompt": "□□を打つ（将来のための準備）",
+          "accept": [
+            "ふせき",
+            "布石を打つ"
+          ]
+        },
+        {
+          "display": "駄目",
+          "prompt": "□□押し（念を入れて確実にする）",
+          "accept": [
+            "だめ",
+            "駄目押し",
+            "ダメ押し"
+          ]
+        },
+        {
+          "display": "定石",
+          "prompt": "□□（決まったやり方）",
+          "accept": [
+            "じょうせき",
+            "定跡"
+          ]
+        },
+        {
+          "display": "駒",
+          "prompt": "捨て□（目的のための犠牲）",
+          "accept": [
+            "ごま",
+            "こま",
+            "捨て駒"
+          ]
+        },
+        {
+          "display": "八目",
+          "prompt": "岡目□□（はたから見る方がよく分かる）",
+          "accept": [
+            "はちもく",
+            "岡目八目",
+            "傍目八目"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの言葉と反対の意味の言葉（漢字2文字）を答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "敗北",
+          "prompt": "勝利",
+          "accept": [
+            "はいぼく"
+          ]
+        },
+        {
+          "display": "反対",
+          "prompt": "賛成",
+          "accept": [
+            "はんたい"
+          ]
+        },
+        {
+          "display": "解散",
+          "prompt": "集合",
+          "accept": [
+            "かいさん"
+          ]
+        },
+        {
+          "display": "到着",
+          "prompt": "出発",
+          "accept": [
+            "とうちゃく"
+          ]
+        },
+        {
+          "display": "支出",
+          "prompt": "収入",
+          "accept": [
+            "ししゅつ"
+          ]
+        },
+        {
+          "display": "起床",
+          "prompt": "就寝",
+          "accept": [
+            "きしょう"
+          ]
+        },
+        {
+          "display": "満潮",
+          "prompt": "干潮",
+          "accept": [
+            "まんちょう"
+          ]
+        },
+        {
+          "display": "玄人",
+          "prompt": "素人",
+          "accept": [
+            "くろうと"
+          ]
+        },
+        {
+          "display": "拒否",
+          "prompt": "承諾",
+          "accept": [
+            "拒絶"
+          ]
+        },
+        {
+          "display": "還元",
+          "prompt": "酸化",
+          "accept": [
+            "かんげん"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルのIT用語の略語で、「」の文字が表す英語をカタカナで答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "パーソナル",
+          "prompt": "PC の「P」",
+          "accept": [
+            "personal"
+          ]
+        },
+        {
+          "display": "ソーシャル",
+          "prompt": "SNS の最初の「S」",
+          "accept": [
+            "social"
+          ]
+        },
+        {
+          "display": "インテリジェンス",
+          "prompt": "AI の「I」",
+          "accept": [
+            "intelligence"
+          ]
+        },
+        {
+          "display": "グローバル",
+          "prompt": "GPS の「G」",
+          "accept": [
+            "global"
+          ]
+        },
+        {
+          "display": "ワールド",
+          "prompt": "WWW の「W」",
+          "accept": [
+            "world"
+          ]
+        },
+        {
+          "display": "ユニバーサル",
+          "prompt": "USB の「U」",
+          "accept": [
+            "universal"
+          ]
+        },
+        {
+          "display": "ローカル",
+          "prompt": "LAN の「L」",
+          "accept": [
+            "local"
+          ]
+        },
+        {
+          "display": "ショート",
+          "prompt": "SMS の最初の「S」",
+          "accept": [
+            "short"
+          ]
+        },
+        {
+          "display": "ジェネレーション",
+          "prompt": "5G の「G」",
+          "accept": [
+            "generation"
+          ]
+        },
+        {
+          "display": "ドライブ",
+          "prompt": "SSD の「D」",
+          "accept": [
+            "drive"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの「〜しい」で終わる言葉の読みを答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "りりしい",
+          "prompt": "凛凛しい"
+        },
+        {
+          "display": "みずみずしい",
+          "prompt": "瑞瑞しい"
+        },
+        {
+          "display": "そうぞうしい",
+          "prompt": "騒騒しい"
+        },
+        {
+          "display": "とげとげしい",
+          "prompt": "刺刺しい"
+        },
+        {
+          "display": "ういういしい",
+          "prompt": "初初しい"
+        },
+        {
+          "display": "ぎょうぎょうしい",
+          "prompt": "仰仰しい"
+        },
+        {
+          "display": "こうごうしい",
+          "prompt": "神神しい"
+        },
+        {
+          "display": "たけだけしい",
+          "prompt": "猛猛しい"
+        },
+        {
+          "display": "けばけばしい",
+          "prompt": "毳毳しい"
+        }
+      ]
+    },
+    {
+      "q": "パネルの「一」で始まる慣用句の□に入る漢字を答えてください（慣用句をまるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "目",
+          "prompt": "一□置く",
+          "accept": [
+            "一目置く"
+          ]
+        },
+        {
+          "display": "肌",
+          "prompt": "一□脱ぐ",
+          "accept": [
+            "一肌脱ぐ"
+          ]
+        },
+        {
+          "display": "役",
+          "prompt": "一□買う",
+          "accept": [
+            "一役買う"
+          ]
+        },
+        {
+          "display": "旗",
+          "prompt": "一□揚げる",
+          "accept": [
+            "一旗揚げる"
+          ]
+        },
+        {
+          "display": "花",
+          "prompt": "一□咲かせる",
+          "accept": [
+            "一花咲かせる"
+          ]
+        },
+        {
+          "display": "山",
+          "prompt": "一□当てる",
+          "accept": [
+            "一山当てる"
+          ]
+        },
+        {
+          "display": "枚",
+          "prompt": "一□噛む",
+          "accept": [
+            "一枚噛む"
+          ]
+        },
+        {
+          "display": "席",
+          "prompt": "一□設ける",
+          "accept": [
+            "一席設ける"
+          ]
+        },
+        {
+          "display": "泡",
+          "prompt": "一□吹かせる",
+          "accept": [
+            "一泡吹かせる"
+          ]
+        }
+      ]
+    }
+  ]
+}

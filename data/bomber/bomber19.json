@@ -1,0 +1,1089 @@
+{
+  "id": "bomber19",
+  "title": "拾玖 かげろう",
+  "description": "「瓜」の付く植物・88星座・宇宙の言葉など、本家の過去問から10問。",
+  "questions": [
+    {
+      "q": "全天の88星座を答えてください（「座」は省略可）。",
+      "slots": 15,
+      "suffixes": [
+        "座"
+      ],
+      "answers": [
+        {
+          "display": "アンドロメダ"
+        },
+        {
+          "display": "いっかくじゅう",
+          "accept": [
+            "一角獣"
+          ]
+        },
+        {
+          "display": "いて",
+          "accept": [
+            "射手"
+          ]
+        },
+        {
+          "display": "いるか",
+          "accept": [
+            "海豚"
+          ]
+        },
+        {
+          "display": "インディアン"
+        },
+        {
+          "display": "うお",
+          "accept": [
+            "魚"
+          ]
+        },
+        {
+          "display": "うさぎ",
+          "accept": [
+            "兎"
+          ]
+        },
+        {
+          "display": "うしかい",
+          "accept": [
+            "牛飼い"
+          ]
+        },
+        {
+          "display": "うみへび",
+          "accept": [
+            "海蛇"
+          ]
+        },
+        {
+          "display": "エリダヌス"
+        },
+        {
+          "display": "おうし",
+          "accept": [
+            "牡牛"
+          ]
+        },
+        {
+          "display": "おおいぬ",
+          "accept": [
+            "大犬"
+          ]
+        },
+        {
+          "display": "おおかみ",
+          "accept": [
+            "狼"
+          ]
+        },
+        {
+          "display": "おおぐま",
+          "accept": [
+            "大熊"
+          ]
+        },
+        {
+          "display": "おとめ",
+          "accept": [
+            "乙女"
+          ]
+        },
+        {
+          "display": "おひつじ",
+          "accept": [
+            "牡羊"
+          ]
+        },
+        {
+          "display": "オリオン"
+        },
+        {
+          "display": "がか",
+          "accept": [
+            "画架"
+          ]
+        },
+        {
+          "display": "カシオペヤ",
+          "accept": [
+            "カシオペア"
+          ]
+        },
+        {
+          "display": "かじき",
+          "accept": [
+            "旗魚"
+          ]
+        },
+        {
+          "display": "かに",
+          "accept": [
+            "蟹"
+          ]
+        },
+        {
+          "display": "かみのけ",
+          "accept": [
+            "髪の毛"
+          ]
+        },
+        {
+          "display": "カメレオン"
+        },
+        {
+          "display": "からす",
+          "accept": [
+            "烏"
+          ]
+        },
+        {
+          "display": "かんむり",
+          "accept": [
+            "冠"
+          ]
+        },
+        {
+          "display": "きょしちょう",
+          "accept": [
+            "巨嘴鳥"
+          ]
+        },
+        {
+          "display": "ぎょしゃ",
+          "accept": [
+            "馭者",
+            "御者"
+          ]
+        },
+        {
+          "display": "きりん",
+          "accept": [
+            "麒麟"
+          ]
+        },
+        {
+          "display": "くじゃく",
+          "accept": [
+            "孔雀"
+          ]
+        },
+        {
+          "display": "くじら",
+          "accept": [
+            "鯨"
+          ]
+        },
+        {
+          "display": "ケフェウス"
+        },
+        {
+          "display": "ケンタウルス"
+        },
+        {
+          "display": "けんびきょう",
+          "accept": [
+            "顕微鏡"
+          ]
+        },
+        {
+          "display": "こいぬ",
+          "accept": [
+            "小犬"
+          ]
+        },
+        {
+          "display": "こうま",
+          "accept": [
+            "小馬"
+          ]
+        },
+        {
+          "display": "こぎつね",
+          "accept": [
+            "小狐"
+          ]
+        },
+        {
+          "display": "こぐま",
+          "accept": [
+            "小熊"
+          ]
+        },
+        {
+          "display": "こじし",
+          "accept": [
+            "小獅子"
+          ]
+        },
+        {
+          "display": "コップ"
+        },
+        {
+          "display": "こと",
+          "accept": [
+            "琴"
+          ]
+        },
+        {
+          "display": "コンパス"
+        },
+        {
+          "display": "さいだん",
+          "accept": [
+            "祭壇"
+          ]
+        },
+        {
+          "display": "さそり",
+          "accept": [
+            "蠍"
+          ]
+        },
+        {
+          "display": "さんかく",
+          "accept": [
+            "三角"
+          ]
+        },
+        {
+          "display": "しし",
+          "accept": [
+            "獅子"
+          ]
+        },
+        {
+          "display": "じょうぎ",
+          "accept": [
+            "定規"
+          ]
+        },
+        {
+          "display": "たて",
+          "accept": [
+            "盾"
+          ]
+        },
+        {
+          "display": "ちょうこくぐ",
+          "accept": [
+            "彫刻具"
+          ]
+        },
+        {
+          "display": "ちょうこくしつ",
+          "accept": [
+            "彫刻室"
+          ]
+        },
+        {
+          "display": "つる",
+          "accept": [
+            "鶴"
+          ]
+        },
+        {
+          "display": "テーブルさん",
+          "accept": [
+            "テーブル山"
+          ]
+        },
+        {
+          "display": "てんびん",
+          "accept": [
+            "天秤"
+          ]
+        },
+        {
+          "display": "とかげ",
+          "accept": [
+            "蜥蜴"
+          ]
+        },
+        {
+          "display": "とけい",
+          "accept": [
+            "時計"
+          ]
+        },
+        {
+          "display": "とびうお",
+          "accept": [
+            "飛魚"
+          ]
+        },
+        {
+          "display": "とも",
+          "accept": [
+            "艫"
+          ]
+        },
+        {
+          "display": "はえ",
+          "accept": [
+            "蠅"
+          ]
+        },
+        {
+          "display": "はくちょう",
+          "accept": [
+            "白鳥"
+          ]
+        },
+        {
+          "display": "はちぶんぎ",
+          "accept": [
+            "八分儀"
+          ]
+        },
+        {
+          "display": "はと",
+          "accept": [
+            "鳩"
+          ]
+        },
+        {
+          "display": "ふうちょう",
+          "accept": [
+            "風鳥"
+          ]
+        },
+        {
+          "display": "ふたご",
+          "accept": [
+            "双子"
+          ]
+        },
+        {
+          "display": "ペガスス",
+          "accept": [
+            "ペガサス"
+          ]
+        },
+        {
+          "display": "へび",
+          "accept": [
+            "蛇"
+          ]
+        },
+        {
+          "display": "へびつかい",
+          "accept": [
+            "蛇遣い"
+          ]
+        },
+        {
+          "display": "ヘルクレス",
+          "accept": [
+            "ヘラクレス"
+          ]
+        },
+        {
+          "display": "ペルセウス"
+        },
+        {
+          "display": "ほ",
+          "accept": [
+            "帆"
+          ]
+        },
+        {
+          "display": "ぼうえんきょう",
+          "accept": [
+            "望遠鏡"
+          ]
+        },
+        {
+          "display": "ほうおう",
+          "accept": [
+            "鳳凰"
+          ]
+        },
+        {
+          "display": "ポンプ"
+        },
+        {
+          "display": "みずがめ",
+          "accept": [
+            "水瓶"
+          ]
+        },
+        {
+          "display": "みずへび",
+          "accept": [
+            "水蛇"
+          ]
+        },
+        {
+          "display": "みなみじゅうじ",
+          "accept": [
+            "南十字"
+          ]
+        },
+        {
+          "display": "みなみのうお",
+          "accept": [
+            "南の魚"
+          ]
+        },
+        {
+          "display": "みなみのかんむり",
+          "accept": [
+            "南の冠"
+          ]
+        },
+        {
+          "display": "みなみのさんかく",
+          "accept": [
+            "南の三角"
+          ]
+        },
+        {
+          "display": "や",
+          "accept": [
+            "矢"
+          ]
+        },
+        {
+          "display": "やぎ",
+          "accept": [
+            "山羊"
+          ]
+        },
+        {
+          "display": "やまねこ",
+          "accept": [
+            "山猫"
+          ]
+        },
+        {
+          "display": "らしんばん",
+          "accept": [
+            "羅針盤"
+          ]
+        },
+        {
+          "display": "りゅう",
+          "accept": [
+            "竜",
+            "龍"
+          ]
+        },
+        {
+          "display": "りゅうこつ",
+          "accept": [
+            "竜骨"
+          ]
+        },
+        {
+          "display": "りょうけん",
+          "accept": [
+            "猟犬"
+          ]
+        },
+        {
+          "display": "レチクル"
+        },
+        {
+          "display": "ろ",
+          "accept": [
+            "炉"
+          ]
+        },
+        {
+          "display": "ろくぶんぎ",
+          "accept": [
+            "六分儀"
+          ]
+        },
+        {
+          "display": "わし",
+          "accept": [
+            "鷲"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの「瓜」が付く植物の名前の読みを答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "きゅうり",
+          "prompt": "胡瓜"
+        },
+        {
+          "display": "すいか",
+          "prompt": "西瓜"
+        },
+        {
+          "display": "かぼちゃ",
+          "prompt": "南瓜"
+        },
+        {
+          "display": "にがうり",
+          "prompt": "苦瓜",
+          "accept": [
+            "ゴーヤ",
+            "ゴーヤー"
+          ]
+        },
+        {
+          "display": "とうがん",
+          "prompt": "冬瓜"
+        },
+        {
+          "display": "へちま",
+          "prompt": "糸瓜"
+        },
+        {
+          "display": "しろうり",
+          "prompt": "白瓜"
+        },
+        {
+          "display": "ぼけ",
+          "prompt": "木瓜"
+        },
+        {
+          "display": "まくわうり",
+          "prompt": "甜瓜",
+          "accept": [
+            "メロン"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの「あ」で始まることわざの□に入る言葉を答えてください（ことわざをまるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "風",
+          "prompt": "明日は明日の□が吹く",
+          "accept": [
+            "かぜ",
+            "明日は明日の風が吹く"
+          ]
+        },
+        {
+          "display": "地",
+          "prompt": "雨降って□固まる",
+          "accept": [
+            "じ",
+            "雨降って地固まる"
+          ]
+        },
+        {
+          "display": "静けさ",
+          "prompt": "嵐の前の□□□",
+          "accept": [
+            "嵐の前の静けさ"
+          ]
+        },
+        {
+          "display": "山",
+          "prompt": "後は野となれ□となれ",
+          "accept": [
+            "やま",
+            "後は野となれ山となれ"
+          ]
+        },
+        {
+          "display": "取る",
+          "prompt": "揚げ足を□□",
+          "accept": [
+            "揚げ足を取る"
+          ]
+        },
+        {
+          "display": "虻蜂",
+          "prompt": "□□取らず",
+          "accept": [
+            "あぶはち",
+            "虻蜂取らず"
+          ]
+        },
+        {
+          "display": "身",
+          "prompt": "悪銭□につかず",
+          "accept": [
+            "み",
+            "悪銭身につかず"
+          ]
+        },
+        {
+          "display": "八卦",
+          "prompt": "当たるも□□当たらぬも□□",
+          "accept": [
+            "はっけ",
+            "当たるも八卦当たらぬも八卦"
+          ]
+        },
+        {
+          "display": "呼吸",
+          "prompt": "阿吽の□□",
+          "accept": [
+            "阿吽の呼吸"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの名前は、何という作物の品種か答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "いちご",
+          "prompt": "とちおとめ",
+          "accept": [
+            "苺",
+            "イチゴ"
+          ]
+        },
+        {
+          "display": "米",
+          "prompt": "コシヒカリ",
+          "accept": [
+            "こめ",
+            "お米",
+            "稲"
+          ]
+        },
+        {
+          "display": "ぶどう",
+          "prompt": "デラウェア",
+          "accept": [
+            "葡萄",
+            "ブドウ"
+          ]
+        },
+        {
+          "display": "りんご",
+          "prompt": "王林",
+          "accept": [
+            "林檎",
+            "リンゴ"
+          ]
+        },
+        {
+          "display": "さくらんぼ",
+          "prompt": "佐藤錦",
+          "accept": [
+            "桜桃",
+            "サクランボ"
+          ]
+        },
+        {
+          "display": "梨",
+          "prompt": "幸水",
+          "accept": [
+            "なし",
+            "ナシ"
+          ]
+        },
+        {
+          "display": "トマト",
+          "prompt": "桃太郎"
+        },
+        {
+          "display": "さつまいも",
+          "prompt": "ベニアズマ",
+          "accept": [
+            "サツマイモ",
+            "薩摩芋"
+          ]
+        },
+        {
+          "display": "桃",
+          "prompt": "白鳳",
+          "accept": [
+            "もも",
+            "モモ"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの略語が表すものを、日本語で答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "最優秀選手",
+          "prompt": "MVP"
+        },
+        {
+          "display": "人工知能",
+          "prompt": "AI"
+        },
+        {
+          "display": "仮想現実",
+          "prompt": "VR",
+          "accept": [
+            "バーチャルリアリティ"
+          ]
+        },
+        {
+          "display": "紫外線",
+          "prompt": "UV"
+        },
+        {
+          "display": "国内総生産",
+          "prompt": "GDP"
+        },
+        {
+          "display": "ペナルティーキック",
+          "prompt": "PK（サッカー）",
+          "accept": [
+            "ペナルティキック"
+          ]
+        },
+        {
+          "display": "日曜大工",
+          "prompt": "DIY",
+          "accept": [
+            "ドゥ・イット・ユアセルフ"
+          ]
+        },
+        {
+          "display": "北大西洋条約機構",
+          "prompt": "NATO"
+        },
+        {
+          "display": "少額投資非課税制度",
+          "prompt": "NISA"
+        }
+      ]
+    },
+    {
+      "q": "パネルの宇宙に関する言葉の□に入る言葉を答えてください（まるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "ビッグバン",
+          "prompt": "宇宙の始まりの大爆発「□□□□□」"
+        },
+        {
+          "display": "自",
+          "prompt": "地球が1日に1回まわる「□転」",
+          "accept": [
+            "じ",
+            "自転"
+          ]
+        },
+        {
+          "display": "冥王",
+          "prompt": "2006年に惑星から外された「□□星」",
+          "accept": [
+            "めいおう",
+            "冥王星"
+          ]
+        },
+        {
+          "display": "ひまわり",
+          "prompt": "日本の気象衛星「□□□□」",
+          "accept": [
+            "向日葵"
+          ]
+        },
+        {
+          "display": "種子",
+          "prompt": "JAXAのロケット発射場がある「□□島」",
+          "accept": [
+            "たねが",
+            "種子島"
+          ]
+        },
+        {
+          "display": "ガガーリン",
+          "prompt": "人類初の宇宙飛行士 ユーリイ・□□□□□"
+        },
+        {
+          "display": "クレーター",
+          "prompt": "月の表面の丸いくぼみ「□□□□□」"
+        },
+        {
+          "display": "star",
+          "prompt": "流れ星を英語で「shooting □□□□」",
+          "accept": [
+            "スター"
+          ]
+        },
+        {
+          "display": "ペルセウス",
+          "prompt": "8月の「□□□□□座流星群」",
+          "accept": [
+            "ペルセウス座"
+          ]
+        },
+        {
+          "display": "おおすみ",
+          "prompt": "日本初の人工衛星「□□□□」",
+          "accept": [
+            "大隅"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルのものを数えるときの単位（助数詞）を答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "頭",
+          "prompt": "象",
+          "accept": [
+            "とう",
+            "1頭",
+            "一頭"
+          ]
+        },
+        {
+          "display": "枚",
+          "prompt": "ざるそば",
+          "accept": [
+            "まい",
+            "1枚",
+            "一枚"
+          ]
+        },
+        {
+          "display": "面",
+          "prompt": "テニスコート",
+          "accept": [
+            "めん",
+            "1面",
+            "一面"
+          ]
+        },
+        {
+          "display": "足",
+          "prompt": "スリッパ（左右で1組）",
+          "accept": [
+            "そく",
+            "1足",
+            "一足"
+          ]
+        },
+        {
+          "display": "斤",
+          "prompt": "食パン（切る前のかたまり）",
+          "accept": [
+            "きん",
+            "1斤",
+            "一斤"
+          ]
+        },
+        {
+          "display": "首",
+          "prompt": "短歌",
+          "accept": [
+            "しゅ",
+            "1首",
+            "一首"
+          ]
+        },
+        {
+          "display": "腹",
+          "prompt": "たらこ（ひと組）",
+          "accept": [
+            "はら",
+            "1腹",
+            "ひと腹"
+          ]
+        },
+        {
+          "display": "滴",
+          "prompt": "雫",
+          "accept": [
+            "てき",
+            "1滴",
+            "一滴"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの郷土料理の名前の読みを答えてください。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "いかめし",
+          "prompt": "烏賊飯【北海道】"
+        },
+        {
+          "display": "じんぎすかん",
+          "prompt": "成吉思汗【北海道】"
+        },
+        {
+          "display": "あんこうなべ",
+          "prompt": "鮟鱇鍋【茨城】"
+        },
+        {
+          "display": "ずんだもち",
+          "prompt": "豆打餅【宮城】"
+        },
+        {
+          "display": "ほうとう",
+          "prompt": "餺飥【山梨】"
+        },
+        {
+          "display": "じぶに",
+          "prompt": "治部煮【石川】"
+        },
+        {
+          "display": "さんがやき",
+          "prompt": "山河焼き【千葉】"
+        },
+        {
+          "display": "しょっつるなべ",
+          "prompt": "塩汁鍋【秋田】"
+        },
+        {
+          "display": "とうふよう",
+          "prompt": "豆腐餻【沖縄】"
+        }
+      ]
+    },
+    {
+      "q": "パネルの「一」で始まる慣用句の□に入る言葉を答えてください（慣用句をまるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "争う",
+          "prompt": "一刻を□□",
+          "accept": [
+            "一刻を争う"
+          ]
+        },
+        {
+          "display": "秀",
+          "prompt": "一芸に□□でる",
+          "accept": [
+            "ひい",
+            "一芸に秀でる"
+          ]
+        },
+        {
+          "display": "担う",
+          "prompt": "一翼を□□",
+          "accept": [
+            "一翼を担う"
+          ]
+        },
+        {
+          "display": "終わ",
+          "prompt": "一巻の□□り",
+          "accept": [
+            "終",
+            "一巻の終わり"
+          ]
+        },
+        {
+          "display": "交",
+          "prompt": "一戦を□□える",
+          "accept": [
+            "まじ",
+            "一戦を交える"
+          ]
+        },
+        {
+          "display": "たど",
+          "prompt": "一途を□□る",
+          "accept": [
+            "辿",
+            "一途をたどる"
+          ]
+        },
+        {
+          "display": "報",
+          "prompt": "一矢を□□いる",
+          "accept": [
+            "むく",
+            "一矢を報いる"
+          ]
+        },
+        {
+          "display": "会す",
+          "prompt": "一堂に□□る",
+          "accept": [
+            "一堂に会する"
+          ]
+        },
+        {
+          "display": "風靡",
+          "prompt": "一世を□□する",
+          "accept": [
+            "ふうび",
+            "一世を風靡する"
+          ]
+        }
+      ]
+    },
+    {
+      "q": "パネルの四字熟語の□□に入る言葉を答えてください（四字熟語をまるごと書いても可）。",
+      "panels": true,
+      "answers": [
+        {
+          "display": "整頓",
+          "prompt": "整理□□",
+          "accept": [
+            "整理整頓"
+          ]
+        },
+        {
+          "display": "適所",
+          "prompt": "適材□□",
+          "accept": [
+            "適材適所"
+          ]
+        },
+        {
+          "display": "相愛",
+          "prompt": "相思□□",
+          "accept": [
+            "相思相愛"
+          ]
+        },
+        {
+          "display": "再四",
+          "prompt": "再三□□",
+          "accept": [
+            "再三再四"
+          ]
+        },
+        {
+          "display": "私欲",
+          "prompt": "私利□□",
+          "accept": [
+            "私利私欲"
+          ]
+        },
+        {
+          "display": "合切",
+          "prompt": "一切□□",
+          "accept": [
+            "合財",
+            "一切合切",
+            "一切合財"
+          ]
+        },
+        {
+          "display": "苦茶",
+          "prompt": "滅茶□□",
+          "accept": [
+            "滅茶苦茶"
+          ]
+        },
+        {
+          "display": "無耶",
+          "prompt": "有耶□□",
+          "accept": [
+            "有耶無耶"
+          ]
+        }
+      ]
+    }
+  ]
+}
