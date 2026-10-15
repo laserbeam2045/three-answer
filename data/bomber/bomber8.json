@@ -4,75 +4,51 @@
   "description": "言葉・食べ物・生き物・歴史など、いろいろなジャンルがまざった10問。",
   "questions": [
     {
-      "q": "パネルのアニメのキャラクターの名字を答えてください。",
+      "q": "パネルの果物の名前の読みを答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "野比",
-          "prompt": "のび太",
+          "display": "いちご",
+          "prompt": "苺"
+        },
+        {
+          "display": "りんご",
+          "prompt": "林檎"
+        },
+        {
+          "display": "ぶどう",
+          "prompt": "葡萄"
+        },
+        {
+          "display": "みかん",
+          "prompt": "蜜柑"
+        },
+        {
+          "display": "れもん",
+          "prompt": "檸檬"
+        },
+        {
+          "display": "ゆず",
+          "prompt": "柚子"
+        },
+        {
+          "display": "びわ",
+          "prompt": "枇杷"
+        },
+        {
+          "display": "くるみ",
+          "prompt": "胡桃"
+        },
+        {
+          "display": "ざくろ",
+          "prompt": "柘榴",
           "accept": [
-            "のび"
+            "石榴"
           ]
         },
         {
-          "display": "野原",
-          "prompt": "しんのすけ",
-          "accept": [
-            "のはら"
-          ]
-        },
-        {
-          "display": "さくら",
-          "prompt": "まる子"
-        },
-        {
-          "display": "磯野",
-          "prompt": "カツオ",
-          "accept": [
-            "いその"
-          ]
-        },
-        {
-          "display": "江戸川",
-          "prompt": "コナン",
-          "accept": [
-            "えどがわ"
-          ]
-        },
-        {
-          "display": "剛田",
-          "prompt": "ジャイアン",
-          "accept": [
-            "ごうだ"
-          ]
-        },
-        {
-          "display": "骨川",
-          "prompt": "スネ夫",
-          "accept": [
-            "ほねかわ"
-          ]
-        },
-        {
-          "display": "フグ田",
-          "prompt": "マスオ",
-          "accept": [
-            "ふぐた"
-          ]
-        },
-        {
-          "display": "源",
-          "prompt": "しずかちゃん",
-          "accept": [
-            "みなもと"
-          ]
-        },
-        {
-          "display": "両津",
-          "prompt": "両さん",
-          "accept": [
-            "りょうつ"
-          ]
+          "display": "いちじく",
+          "prompt": "無花果"
         }
       ]
     },
@@ -16508,83 +16484,65 @@
       ]
     },
     {
-      "q": "パネルの小説を書いた作家を答えてください（姓だけでも可）。",
+      "q": "パネルの言葉と似た意味の言葉（漢字2文字）を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "夏目漱石",
-          "prompt": "坊っちゃん",
+          "display": "将来",
+          "prompt": "未来"
+        },
+        {
+          "display": "値段",
+          "prompt": "価格"
+        },
+        {
+          "display": "用意",
+          "prompt": "準備",
           "accept": [
-            "夏目",
-            "漱石"
+            "支度"
           ]
         },
         {
-          "display": "太宰治",
-          "prompt": "走れメロス",
+          "display": "自然",
+          "prompt": "天然"
+        },
+        {
+          "display": "風景",
+          "prompt": "景色",
           "accept": [
-            "太宰"
+            "景観",
+            "光景"
           ]
         },
         {
-          "display": "宮沢賢治",
-          "prompt": "銀河鉄道の夜",
+          "display": "短所",
+          "prompt": "欠点",
           "accept": [
-            "宮沢",
-            "宮澤賢治"
+            "弱点",
+            "難点"
           ]
         },
         {
-          "display": "芥川龍之介",
-          "prompt": "羅生門",
+          "display": "手段",
+          "prompt": "方法",
           "accept": [
-            "芥川"
+            "方策",
+            "手法"
           ]
         },
         {
-          "display": "川端康成",
-          "prompt": "雪国",
-          "accept": [
-            "川端"
-          ]
+          "display": "留守",
+          "prompt": "不在"
         },
         {
-          "display": "森鴎外",
-          "prompt": "舞姫",
-          "accept": [
-            "森鷗外",
-            "鴎外",
-            "鷗外",
-            "森"
-          ]
+          "display": "著名",
+          "prompt": "有名"
         },
         {
-          "display": "三島由紀夫",
-          "prompt": "金閣寺",
+          "display": "永久",
+          "prompt": "永遠",
           "accept": [
-            "三島"
-          ]
-        },
-        {
-          "display": "樋口一葉",
-          "prompt": "たけくらべ",
-          "accept": [
-            "樋口",
-            "一葉"
-          ]
-        },
-        {
-          "display": "小林多喜二",
-          "prompt": "蟹工船",
-          "accept": [
-            "小林"
-          ]
-        },
-        {
-          "display": "中島敦",
-          "prompt": "山月記",
-          "accept": [
-            "中島"
+            "恒久"
           ]
         }
       ]

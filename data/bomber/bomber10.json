@@ -475,48 +475,84 @@
       ]
     },
     {
-      "q": "パネルの地名・駅名の読みを答えてください。",
-      "panels": true,
+      "q": "日本語の国名が「ン」で終わる国を答えてください。",
+      "slots": 6,
       "answers": [
         {
-          "display": "にっぽり",
-          "prompt": "日暮里"
+          "display": "日本",
+          "accept": [
+            "にほん",
+            "にっぽん"
+          ]
         },
         {
-          "display": "おかちまち",
-          "prompt": "御徒町"
+          "display": "スペイン"
         },
         {
-          "display": "あびこ",
-          "prompt": "我孫子"
+          "display": "スウェーデン"
         },
         {
-          "display": "とどろき",
-          "prompt": "等々力"
+          "display": "イラン"
         },
         {
-          "display": "ひらかた",
-          "prompt": "枚方"
+          "display": "パキスタン"
         },
         {
-          "display": "じゅうそう",
-          "prompt": "十三"
+          "display": "アフガニスタン"
         },
         {
-          "display": "とねり",
-          "prompt": "舎人"
+          "display": "フィリピン"
         },
         {
-          "display": "ぜぜ",
-          "prompt": "膳所"
+          "display": "ヨルダン"
         },
         {
-          "display": "はなてん",
-          "prompt": "放出"
+          "display": "レバノン"
         },
         {
-          "display": "きれうりわり",
-          "prompt": "喜連瓜破"
+          "display": "オマーン"
+        },
+        {
+          "display": "バーレーン"
+        },
+        {
+          "display": "スーダン"
+        },
+        {
+          "display": "南スーダン"
+        },
+        {
+          "display": "ブータン"
+        },
+        {
+          "display": "カザフスタン"
+        },
+        {
+          "display": "ウズベキスタン"
+        },
+        {
+          "display": "タジキスタン"
+        },
+        {
+          "display": "トルクメニスタン"
+        },
+        {
+          "display": "アゼルバイジャン"
+        },
+        {
+          "display": "カメルーン"
+        },
+        {
+          "display": "ガボン"
+        },
+        {
+          "display": "ベナン"
+        },
+        {
+          "display": "バチカン",
+          "accept": [
+            "バチカン市国"
+          ]
         }
       ]
     }
