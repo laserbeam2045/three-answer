@@ -475,91 +475,48 @@
       ]
     },
     {
-      "q": "パネルの意味を表す、楽譜の記号（音楽用語）を答えてください。",
+      "q": "パネルの3つの言葉のどれにも付けられる、共通のカタカナ語を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "フォルテ",
-          "prompt": "強く",
-          "accept": [
-            "forte",
-            "f"
-          ]
+          "display": "ケーキ",
+          "prompt": "ショート・チーズ・パン"
         },
         {
-          "display": "ピアノ",
-          "prompt": "弱く",
-          "accept": [
-            "piano",
-            "p"
-          ]
+          "display": "ボール",
+          "prompt": "サッカー・ドッジ・ミラー"
         },
         {
-          "display": "クレッシェンド",
-          "prompt": "だんだん強く",
-          "accept": [
-            "crescendo",
-            "cresc"
-          ]
+          "display": "クリーム",
+          "prompt": "アイス・シュー・ハンド"
         },
         {
-          "display": "デクレッシェンド",
-          "prompt": "だんだん弱く",
-          "accept": [
-            "ディミヌエンド",
-            "decrescendo",
-            "diminuendo",
-            "decresc",
-            "dim"
-          ]
+          "display": "タイム",
+          "prompt": "ランチ・ティー・ハーフ"
         },
         {
-          "display": "フォルティッシモ",
-          "prompt": "とても強く",
-          "accept": [
-            "fortissimo",
-            "ff"
-          ]
+          "display": "カード",
+          "prompt": "クレジット・ポイント・ギフト"
         },
         {
-          "display": "ピアニッシモ",
-          "prompt": "とても弱く",
-          "accept": [
-            "pianissimo",
-            "pp"
-          ]
+          "display": "ハウス",
+          "prompt": "ビニール・ライブ・ゲスト"
         },
         {
-          "display": "スタッカート",
-          "prompt": "音を短く切って",
-          "accept": [
-            "staccato"
-          ]
+          "display": "キー",
+          "prompt": "マスター・スペア・ホルダー"
         },
         {
-          "display": "レガート",
-          "prompt": "なめらかに",
-          "accept": [
-            "legato"
-          ]
+          "display": "バス",
+          "prompt": "スクール・ナイト・リムジン"
         },
         {
-          "display": "リタルダンド",
-          "prompt": "だんだん遅く",
-          "accept": [
-            "ラレンタンド",
-            "ritardando",
-            "rallentando",
-            "rit"
-          ]
+          "display": "アウト",
+          "prompt": "テイク・ノック・ログ"
         },
         {
-          "display": "ア・テンポ",
-          "prompt": "もとの速さで",
-          "accept": [
-            "アテンポ",
-            "a tempo"
-          ]
+          "display": "ジャック",
+          "prompt": "ハイ・ブラック・ユニオン"
         }
       ]
     }
