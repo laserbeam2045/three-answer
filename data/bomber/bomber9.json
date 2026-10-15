@@ -1458,59 +1458,48 @@
       ]
     },
     {
-      "q": "オセアニアの国を答えてください。",
-      "slots": 6,
+      "q": "パネルの遊び・スポーツの名前の読みを答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "オーストラリア"
+          "display": "すもう",
+          "prompt": "相撲"
         },
         {
-          "display": "ニュージーランド"
+          "display": "いご",
+          "prompt": "囲碁"
         },
         {
-          "display": "パプアニューギニア"
+          "display": "たけうま",
+          "prompt": "竹馬"
         },
         {
-          "display": "フィジー"
+          "display": "けんだま",
+          "prompt": "剣玉"
         },
         {
-          "display": "ソロモン諸島",
-          "accept": [
-            "ソロモン"
-          ]
+          "display": "たこ",
+          "prompt": "凧"
         },
         {
-          "display": "バヌアツ"
+          "display": "こま",
+          "prompt": "独楽"
         },
         {
-          "display": "サモア"
+          "display": "すごろく",
+          "prompt": "双六"
         },
         {
-          "display": "トンガ"
+          "display": "はごいた",
+          "prompt": "羽子板"
         },
         {
-          "display": "キリバス"
+          "display": "かるた",
+          "prompt": "歌留多"
         },
         {
-          "display": "ツバル"
-        },
-        {
-          "display": "ナウル"
-        },
-        {
-          "display": "マーシャル諸島",
-          "accept": [
-            "マーシャル"
-          ]
-        },
-        {
-          "display": "ミクロネシア連邦",
-          "accept": [
-            "ミクロネシア"
-          ]
-        },
-        {
-          "display": "パラオ"
+          "display": "けまり",
+          "prompt": "蹴鞠"
         }
       ]
     }

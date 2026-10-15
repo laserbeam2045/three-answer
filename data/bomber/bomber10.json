@@ -475,83 +475,90 @@
       ]
     },
     {
-      "q": "日本語の国名が「ン」で終わる国を答えてください。",
-      "slots": 6,
+      "q": "パネルの意味を表す、楽譜の記号（音楽用語）を答えてください。",
+      "panels": true,
       "answers": [
         {
-          "display": "日本",
+          "display": "フォルテ",
+          "prompt": "強く",
           "accept": [
-            "にほん",
-            "にっぽん"
+            "forte",
+            "f"
           ]
         },
         {
-          "display": "スペイン"
-        },
-        {
-          "display": "スウェーデン"
-        },
-        {
-          "display": "イラン"
-        },
-        {
-          "display": "パキスタン"
-        },
-        {
-          "display": "アフガニスタン"
-        },
-        {
-          "display": "フィリピン"
-        },
-        {
-          "display": "ヨルダン"
-        },
-        {
-          "display": "レバノン"
-        },
-        {
-          "display": "オマーン"
-        },
-        {
-          "display": "バーレーン"
-        },
-        {
-          "display": "スーダン"
-        },
-        {
-          "display": "南スーダン"
-        },
-        {
-          "display": "ブータン"
-        },
-        {
-          "display": "カザフスタン"
-        },
-        {
-          "display": "ウズベキスタン"
-        },
-        {
-          "display": "タジキスタン"
-        },
-        {
-          "display": "トルクメニスタン"
-        },
-        {
-          "display": "アゼルバイジャン"
-        },
-        {
-          "display": "カメルーン"
-        },
-        {
-          "display": "ガボン"
-        },
-        {
-          "display": "ベナン"
-        },
-        {
-          "display": "バチカン",
+          "display": "ピアノ",
+          "prompt": "弱く",
           "accept": [
-            "バチカン市国"
+            "piano",
+            "p"
+          ]
+        },
+        {
+          "display": "クレッシェンド",
+          "prompt": "だんだん強く",
+          "accept": [
+            "crescendo",
+            "cresc"
+          ]
+        },
+        {
+          "display": "デクレッシェンド",
+          "prompt": "だんだん弱く",
+          "accept": [
+            "ディミヌエンド",
+            "decrescendo",
+            "diminuendo",
+            "decresc",
+            "dim"
+          ]
+        },
+        {
+          "display": "フォルティッシモ",
+          "prompt": "とても強く",
+          "accept": [
+            "fortissimo",
+            "ff"
+          ]
+        },
+        {
+          "display": "ピアニッシモ",
+          "prompt": "とても弱く",
+          "accept": [
+            "pianissimo",
+            "pp"
+          ]
+        },
+        {
+          "display": "スタッカート",
+          "prompt": "音を短く切って",
+          "accept": [
+            "staccato"
+          ]
+        },
+        {
+          "display": "レガート",
+          "prompt": "なめらかに",
+          "accept": [
+            "legato"
+          ]
+        },
+        {
+          "display": "リタルダンド",
+          "prompt": "だんだん遅く",
+          "accept": [
+            "ラレンタンド",
+            "ritardando",
+            "rallentando",
+            "rit"
+          ]
+        },
+        {
+          "display": "ア・テンポ",
+          "prompt": "もとの速さで",
+          "accept": [
+            "アテンポ",
+            "a tempo"
           ]
         }
       ]
