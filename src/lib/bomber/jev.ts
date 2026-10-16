@@ -84,7 +84,11 @@ function buildQuestions(question: BomberQuestion, input: string, candidates: num
       instructions: whole
         ? `お題「${a.prompt}」の□に入る答えは「${a.display}」で、全体は「${whole}」。` +
           `入力「${input}」は、この□の答えを（読みがな・別の表記・□の前後も含めた形などで）正しく書いたものか？`
-        : `入力「${input}」は「${a.display}」と同じものを指す、別の書き方か？`,
+        : a.prompt && !a.image
+          ? // パネル問題は、お題に対する答えとして同じことを言っているかで判断させる（「104」に「電話番号」など）
+            `問題「${question.q}」のお題「${a.prompt.replace(/\n/g, "・")}」の正解は「${a.display}」。` +
+            `入力「${input}」は、このお題の答えとして正解と同じものを（読みがな・別の表記・言い換えなどで）言っているか？`
+          : `入力「${input}」は「${a.display}」と同じものを指す、別の書き方か？`,
       criteria: CRITERIA,
     };
   });

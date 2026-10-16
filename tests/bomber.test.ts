@@ -648,6 +648,38 @@ describe("パネル問題（難読漢字など）", () => {
   });
 });
 
+describe("漢字を答えるパネル（readings）", () => {
+  const Q: BomberQuestion = {
+    q: "パネルの漢字に「糸へん」を付けてできる漢字は？",
+    panels: true,
+    readings: true,
+    answers: [
+      { display: "細", prompt: "田" },
+      { display: "綱", prompt: "岡" },
+      { display: "縞", prompt: "高" },
+      { display: "結", prompt: "吉" },
+    ],
+  };
+
+  it("答えの漢字の音読み・訓読み（送り仮名つき）でも正解にする", () => {
+    expect(matchAnswer(Q, "細")).toBe(0);
+    expect(matchAnswer(Q, "こまかい")).toBe(0);
+    expect(matchAnswer(Q, "ほそい")).toBe(0);
+    expect(matchAnswer(Q, "サイ")).toBe(0);
+    expect(matchAnswer(Q, "つな")).toBe(1);
+    expect(matchAnswer(Q, "しま")).toBe(2);
+    expect(matchAnswer(Q, "むすぶ")).toBe(3);
+  });
+
+  it("ほかの答えと重なる読み（綱と縞の「こう」）はどちらの正解にもしない", () => {
+    expect(matchAnswer(Q, "こう")).toBe(-1);
+  });
+
+  it("readings が無い問題では読みを足さない", () => {
+    expect(matchAnswer({ ...Q, readings: undefined }, "こまかい")).toBe(-1);
+  });
+});
+
 describe("虫食い（□）のパネル", () => {
   const Q: BomberQuestion = {
     q: "ことわざの□に入る言葉は？",

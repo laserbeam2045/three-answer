@@ -1,4 +1,5 @@
 import type { BomberQuestion } from "../types";
+import { KANJI_READINGS } from "./kanjiReadings";
 
 /** ファイブボンバーで正解1つあたりの得点 */
 export const BOMBER_POINTS = 10;
@@ -97,8 +98,8 @@ export function normalizeAnswer(input: string): string {
   return t;
 }
 
-/** その正解として受け付ける書き方（正規化済み）の集合 */
-export function acceptedForms(question: BomberQuestion, answerIndex: number): Set<string> {
+/** データに書いた表記・別解（と接頭語・接尾語の組み合わせ）による書き方（正規化済み） */
+function baseForms(question: BomberQuestion, answerIndex: number): Set<string> {
   const a = question.answers[answerIndex];
   const bases = [a.display, ...(a.accept ?? [])].map(normalizeAnswer).filter(Boolean);
   const prefixes = ["", ...(question.prefixes ?? []).map(normalizeAnswer)];
@@ -109,6 +110,34 @@ export function acceptedForms(question: BomberQuestion, answerIndex: number): Se
       for (const s of suffixes) forms.add(p + b + s);
     }
   }
+  return forms;
+}
+
+const readingCache = new WeakMap<BomberQuestion, Set<string>[]>();
+/**
+ * `readings: true` の問題で、答えの漢字1文字の読みから足す書き方（答えごと）。
+ * 同じ問題のほかの答えと重なる読み（綱と縞の「こう」など）は、どちらにも足さない。
+ */
+function readingForms(question: BomberQuestion): Set<string>[] {
+  const cached = readingCache.get(question);
+  if (cached) return cached;
+  const bases = question.answers.map((_, i) => baseForms(question, i));
+  const cand = question.answers.map((a) =>
+    [...a.display].length === 1 ? (KANJI_READINGS[a.display] ?? []).map(normalizeAnswer) : []
+  );
+  const owners = new Map<string, Set<number>>();
+  const own = (f: string, i: number) => (owners.get(f) ?? owners.set(f, new Set()).get(f)!).add(i);
+  bases.forEach((set, i) => set.forEach((f) => own(f, i)));
+  cand.forEach((list, i) => list.forEach((f) => own(f, i)));
+  const result = cand.map((list, i) => new Set(list.filter((f) => f && owners.get(f)!.size === 1 && !bases[i].has(f))));
+  readingCache.set(question, result);
+  return result;
+}
+
+/** その正解として受け付ける書き方（正規化済み）の集合 */
+export function acceptedForms(question: BomberQuestion, answerIndex: number): Set<string> {
+  const forms = baseForms(question, answerIndex);
+  if (question.readings) for (const f of readingForms(question)[answerIndex]) forms.add(f);
   return forms;
 }
 
