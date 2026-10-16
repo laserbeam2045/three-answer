@@ -559,43 +559,43 @@
       "answers": [
         {
           "display": "ケーキ",
-          "prompt": "ショート・チーズ・パン"
+          "prompt": "ショート\nチーズ\nパン"
         },
         {
           "display": "ボール",
-          "prompt": "サッカー・ドッジ・ミラー"
+          "prompt": "サッカー\nドッジ\nミラー"
         },
         {
           "display": "クリーム",
-          "prompt": "アイス・シュー・ハンド"
+          "prompt": "アイス\nシュー\nハンド"
         },
         {
           "display": "タイム",
-          "prompt": "ランチ・ティー・ハーフ"
+          "prompt": "ランチ\nティー\nハーフ"
         },
         {
           "display": "カード",
-          "prompt": "クレジット・ポイント・ギフト"
+          "prompt": "クレジット\nポイント\nギフト"
         },
         {
           "display": "ハウス",
-          "prompt": "ビニール・ライブ・ゲスト"
+          "prompt": "ビニール\nライブ\nゲスト"
         },
         {
           "display": "キー",
-          "prompt": "マスター・スペア・ホルダー"
+          "prompt": "マスター\nスペア\nホルダー"
         },
         {
           "display": "バス",
-          "prompt": "スクール・ナイト・リムジン"
+          "prompt": "スクール\nナイト\nリムジン"
         },
         {
           "display": "アウト",
-          "prompt": "テイク・ノック・ログ"
+          "prompt": "テイク\nノック\nログ"
         },
         {
           "display": "ジャック",
-          "prompt": "ハイ・ブラック・ユニオン"
+          "prompt": "ハイ\nブラック\nユニオン"
         }
       ]
     }

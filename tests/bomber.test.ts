@@ -648,6 +648,39 @@ describe("パネル問題（難読漢字など）", () => {
   });
 });
 
+describe("虫食い（□）のパネル", () => {
+  const Q: BomberQuestion = {
+    q: "ことわざの□に入る言葉は？",
+    panels: true,
+    answers: [
+      { display: "綴じ", prompt: "破れ鍋に□□蓋", accept: ["とじ", "破れ鍋に綴じ蓋"] },
+      { display: "焼", prompt: "手を□く（てこずる）", accept: ["や", "手を焼く"] },
+      { display: "蛙", prompt: "□の子は□", accept: ["かえる"] },
+      { display: "金棒", prompt: "鬼に□□", accept: ["かなぼう"] },
+      { display: "水", prompt: "焼け石に□", accept: ["みず"] },
+    ],
+  };
+
+  it("□の前後も含めて書いた答えを正解にする", () => {
+    expect(matchAnswer(Q, "綴じ")).toBe(0);
+    expect(matchAnswer(Q, "綴じ蓋")).toBe(0);
+    expect(matchAnswer(Q, "とじ蓋")).toBe(0);
+    expect(matchAnswer(Q, "破れ鍋に綴じ蓋")).toBe(0);
+    expect(matchAnswer(Q, "焼く")).toBe(1);
+    expect(matchAnswer(Q, "手を焼く")).toBe(1);
+    expect(matchAnswer(Q, "蛙の子")).toBe(2);
+    expect(matchAnswer(Q, "鬼に金棒")).toBe(3);
+  });
+
+  it("□の答えを含まない入力や、言葉に無い入力は正解にしない", () => {
+    expect(matchAnswer(Q, "蓋")).toBe(-1);
+    expect(matchAnswer(Q, "破れ鍋")).toBe(-1);
+    expect(matchAnswer(Q, "てこずる")).toBe(-1);
+    expect(matchAnswer(Q, "綴じ紐")).toBe(-1);
+    expect(matchAnswer(Q, "焼け石に水を")).toBe(-1);
+  });
+});
+
 describe("写真パネル", () => {
   const img = (n: number) => ({
     src: `/bomber-img/00000000000${n}.jpg`,

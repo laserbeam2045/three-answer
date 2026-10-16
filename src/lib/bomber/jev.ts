@@ -1,5 +1,5 @@
 import type { BomberQuestion } from "../types";
-import { acceptedForms, normalizeAnswer } from "./match";
+import { acceptedForms, fillPrompt, normalizeAnswer } from "./match";
 
 /**
  * 表記ゆれの判定を Jev（typesafe.ai の判断特化モデル）に任せる。
@@ -77,9 +77,14 @@ function buildQuestions(question: BomberQuestion, input: string, candidates: num
   const questions: Record<string, unknown> = {};
   candidates.forEach((i) => {
     const a = question.answers[i];
+    // 虫食い（□）のお題は、□ の部分を答えたのか（前後も含めて書いたのか）を、言葉全体と照らして判断させる
+    const whole = fillPrompt(a.prompt, a.display);
     questions[`a${i}`] = {
       type: "noul",
-      instructions: `入力「${input}」は「${a.display}」と同じものを指す、別の書き方か？`,
+      instructions: whole
+        ? `お題「${a.prompt}」の□に入る答えは「${a.display}」で、全体は「${whole}」。` +
+          `入力「${input}」は、この□の答えを（読みがな・別の表記・□の前後も含めた形などで）正しく書いたものか？`
+        : `入力「${input}」は「${a.display}」と同じものを指す、別の書き方か？`,
       criteria: CRITERIA,
     };
   });

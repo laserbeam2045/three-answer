@@ -14,7 +14,8 @@ const HIT_MS = 1800;
  * PC は従来どおり大きめ（長いことわざだけ一段小さく）。
  */
 function promptSize(prompt: string): string {
-  const n = [...prompt].length;
+  // 改行入りの出題（共通のカタカナ語の3つの言葉など）は、いちばん長い行で決める
+  const n = Math.max(...prompt.split("\n").map((line) => [...line].length));
   if (n <= 2) return "text-lg sm:text-2xl";
   if (n === 3) return "text-base sm:text-2xl";
   if (n === 4) return "text-sm sm:text-2xl";
@@ -174,7 +175,7 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               </button>
             ) : (
               <span
-                className={`relative font-display font-extrabold leading-tight break-all ${promptSize(p.prompt)} ${
+                className={`relative font-display font-extrabold leading-tight break-all whitespace-pre-line ${promptSize(p.prompt)} ${
                   p.display ? "text-ink/70" : "text-ink"
                 }`}
               >

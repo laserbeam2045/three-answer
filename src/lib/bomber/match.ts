@@ -112,12 +112,38 @@ export function acceptedForms(question: BomberQuestion, answerIndex: number): Se
   return forms;
 }
 
+/**
+ * 虫食い（□）のパネルの出題を、答えで埋めた言い方にする（かっこ書きのヒントは除く）。
+ * 例: 「破れ鍋に□□蓋」＋「綴じ」→「破れ鍋に綴じ蓋」。□ が無ければ null。
+ */
+export function fillPrompt(prompt: string | undefined, fill: string): string | null {
+  if (!prompt || !prompt.includes("□")) return null;
+  return prompt
+    .replace(/[（(][^）)]*[）)]/g, "")
+    .replace(/□+/g, fill)
+    .trim();
+}
+
 /** 入力に一致する正解の index。どれにも一致しなければ -1 */
 export function matchAnswer(question: BomberQuestion, input: string): number {
   const n = normalizeAnswer(input);
   if (!n) return -1;
   for (let i = 0; i < question.answers.length; i++) {
     if (acceptedForms(question, i).has(n)) return i;
+  }
+  // 虫食いのパネルは、□ の前後も含めて書いても正解にする（「破れ鍋に□□蓋」に「綴じ蓋」「破れ鍋に綴じ蓋」など）。
+  // 入力が「□を埋めた言い方」の一部で、□ に入る部分をまるごと含んでいれば正解とみなす。
+  if (question.panels) {
+    for (let i = 0; i < question.answers.length; i++) {
+      const a = question.answers[i];
+      if (!a.prompt?.includes("□")) continue;
+      for (const fill of [a.display, ...(a.accept ?? [])]) {
+        const f = normalizeAnswer(fill);
+        const phrase = fillPrompt(a.prompt, fill);
+        if (!f || !phrase) continue;
+        if (n.length > f.length && n.includes(f) && normalizeAnswer(phrase).includes(n)) return i;
+      }
+    }
   }
   return -1;
 }
