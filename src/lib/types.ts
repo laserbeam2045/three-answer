@@ -39,6 +39,8 @@ export interface BomberAnswer {
   accept?: string[];
   /** 写真パネル。パネルに prompt（A・B…）の代わりに写真を見せる */
   image?: BomberImage;
+  /** パネルが開いたときに答えのそばに出す読み（部首を付けてできる漢字の「ほそい」など） */
+  reading?: string;
 }
 
 /**
@@ -335,6 +337,8 @@ export interface BomberPanelView {
   isYou: boolean;
   /** 写真パネルなら、その画像 */
   image?: BomberImageView;
+  /** 開いたパネルで答えのそばに出す読み */
+  reading?: string;
 }
 
 export interface BomberRevealedAnswer {
@@ -342,6 +346,8 @@ export interface BomberRevealedAnswer {
   prompt?: string;
   /** 写真パネルの画像 */
   image?: BomberImage;
+  /** パネルで答えのそばに出す読み */
+  reading?: string;
   display: string;
   /** この問題で誰かが答えていれば、その人の名前 */
   by: string | null;

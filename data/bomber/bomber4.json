@@ -149,28 +149,32 @@
           "prompt": "公",
           "accept": [
             "まつ"
-          ]
+          ],
+          "reading": "まつ"
         },
         {
           "display": "梅",
           "prompt": "毎",
           "accept": [
             "うめ"
-          ]
+          ],
+          "reading": "うめ"
         },
         {
           "display": "桃",
           "prompt": "兆",
           "accept": [
             "もも"
-          ]
+          ],
+          "reading": "もも"
         },
         {
           "display": "椿",
           "prompt": "春",
           "accept": [
             "つばき"
-          ]
+          ],
+          "reading": "つばき"
         },
         {
           "display": "楓",
@@ -178,21 +182,24 @@
           "accept": [
             "かえで",
             "もみじ"
-          ]
+          ],
+          "reading": "かえで"
         },
         {
           "display": "柊",
           "prompt": "冬",
           "accept": [
             "ひいらぎ"
-          ]
+          ],
+          "reading": "ひいらぎ"
         },
         {
           "display": "桐",
           "prompt": "同",
           "accept": [
             "きり"
-          ]
+          ],
+          "reading": "きり"
         },
         {
           "display": "楠",
@@ -200,21 +207,24 @@
           "accept": [
             "くすのき",
             "くす"
-          ]
+          ],
+          "reading": "くすのき"
         },
         {
           "display": "榎",
           "prompt": "夏",
           "accept": [
             "えのき"
-          ]
+          ],
+          "reading": "えのき"
         },
         {
           "display": "榊",
           "prompt": "神",
           "accept": [
             "さかき"
-          ]
+          ],
+          "reading": "さかき"
         }
       ],
       "readings": true

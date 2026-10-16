@@ -191,6 +191,9 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
                 >
                   {p.display}
                 </span>
+                {p.reading && (
+                  <span className="relative text-[9px] sm:text-xs text-gold-3 leading-tight break-all">{p.reading}</span>
+                )}
                 <span className="relative text-[9px] sm:text-xs text-muted truncate max-w-full">{p.by ?? "正解者なし"}</span>
               </>
             ) : (

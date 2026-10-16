@@ -103,7 +103,8 @@
           "prompt": "化",
           "accept": [
             "はな"
-          ]
+          ],
+          "reading": "はな"
         },
         {
           "display": "草",
@@ -111,7 +112,8 @@
           "accept": [
             "くさ",
             "そう"
-          ]
+          ],
+          "reading": "くさ"
         },
         {
           "display": "菜",
@@ -119,14 +121,16 @@
           "accept": [
             "な",
             "さい"
-          ]
+          ],
+          "reading": "な"
         },
         {
           "display": "荷",
           "prompt": "何",
           "accept": [
             "に"
-          ]
+          ],
+          "reading": "に"
         },
         {
           "display": "薬",
@@ -134,7 +138,8 @@
           "accept": [
             "くすり",
             "やく"
-          ]
+          ],
+          "reading": "くすり"
         },
         {
           "display": "芽",
@@ -142,7 +147,8 @@
           "accept": [
             "め",
             "が"
-          ]
+          ],
+          "reading": "め"
         },
         {
           "display": "苗",
@@ -150,28 +156,32 @@
           "accept": [
             "なえ",
             "びょう"
-          ]
+          ],
+          "reading": "なえ"
         },
         {
           "display": "苺",
           "prompt": "母",
           "accept": [
             "いちご"
-          ]
+          ],
+          "reading": "いちご"
         },
         {
           "display": "茜",
           "prompt": "西",
           "accept": [
             "あかね"
-          ]
+          ],
+          "reading": "あかね"
         },
         {
           "display": "萩",
           "prompt": "秋",
           "accept": [
             "はぎ"
-          ]
+          ],
+          "reading": "はぎ"
         }
       ],
       "readings": true
@@ -496,7 +506,7 @@
       "answers": [
         {
           "display": "蛙",
-          "prompt": "古池や□□飛びこむ水の音（芭蕉）",
+          "prompt": "古池や□飛びこむ水の音（芭蕉）",
           "accept": [
             "かわず",
             "かえる"
@@ -669,7 +679,7 @@
         },
         {
           "display": "ケーキ",
-          "prompt": "パン□□□□（厚いホットケーキ）",
+          "prompt": "パン□□□（厚いホットケーキ）",
           "accept": [
             "パンケーキ"
           ]
@@ -764,7 +774,7 @@
         },
         {
           "display": "たんこぶ",
-          "prompt": "目の上の□□□",
+          "prompt": "目の上の□□□□",
           "accept": [
             "瘤",
             "目の上のたんこぶ"
@@ -780,7 +790,7 @@
         },
         {
           "display": "くじら",
-          "prompt": "目□□を立てる",
+          "prompt": "目□□□を立てる",
           "accept": [
             "くじら",
             "目くじらを立てる"

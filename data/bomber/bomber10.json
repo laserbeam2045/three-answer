@@ -13,21 +13,24 @@
           "accept": [
             "こたえ",
             "とう"
-          ]
+          ],
+          "reading": "こたえ"
         },
         {
           "display": "箸",
           "prompt": "者",
           "accept": [
             "はし"
-          ]
+          ],
+          "reading": "はし"
         },
         {
           "display": "笹",
           "prompt": "世",
           "accept": [
             "ささ"
-          ]
+          ],
+          "reading": "ささ"
         },
         {
           "display": "管",
@@ -35,14 +38,16 @@
           "accept": [
             "くだ",
             "かん"
-          ]
+          ],
+          "reading": "かん"
         },
         {
           "display": "筍",
           "prompt": "旬",
           "accept": [
             "たけのこ"
-          ]
+          ],
+          "reading": "たけのこ"
         }
       ],
       "readings": true
@@ -142,7 +147,7 @@
         },
         {
           "display": "へそ",
-          "prompt": "□で茶を沸かす",
+          "prompt": "□□で茶を沸かす",
           "accept": [
             "臍",
             "へそで茶を沸かす"

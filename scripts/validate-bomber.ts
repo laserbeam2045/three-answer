@@ -28,6 +28,10 @@ for (const set of allBomberSets()) {
       if (prompts.some((x) => !x)) errors.push(`${where}: パネル問題の答えに prompt がありません`);
       if (new Set(prompts).size !== prompts.length) errors.push(`${where}: パネルの出題が重複しています`);
       for (const a of q.answers) {
+        // □ の数は答えの文字数とそろえる（「青写真」なら□□□）
+        const runs = a.prompt?.match(/□+/g) ?? [];
+        if (runs.some((r) => r.length !== [...a.display].length))
+          errors.push(`${where}: 「${a.prompt}」の□の数が答え「${a.display}」の文字数と合いません`);
         // パネルに見えている出題そのものを打っただけで正解にならないように
         if (a.prompt && acceptedForms(q, q.answers.indexOf(a)).has(normalizeAnswer(a.prompt)))
           errors.push(`${where}: パネル「${a.prompt}」をそのまま打つと正解になってしまいます`);

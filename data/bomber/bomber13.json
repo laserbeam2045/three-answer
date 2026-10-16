@@ -117,7 +117,8 @@
           "accept": [
             "え",
             "かい"
-          ]
+          ],
+          "reading": "え"
         },
         {
           "display": "紙",
@@ -125,7 +126,8 @@
           "accept": [
             "かみ",
             "し"
-          ]
+          ],
+          "reading": "かみ"
         },
         {
           "display": "細",
@@ -133,7 +135,8 @@
           "accept": [
             "ほそい",
             "さい"
-          ]
+          ],
+          "reading": "ほそい"
         },
         {
           "display": "終",
@@ -141,7 +144,8 @@
           "accept": [
             "おわる",
             "しゅう"
-          ]
+          ],
+          "reading": "おわる"
         },
         {
           "display": "結",
@@ -149,14 +153,16 @@
           "accept": [
             "むすぶ",
             "けつ"
-          ]
+          ],
+          "reading": "むすぶ"
         },
         {
           "display": "線",
           "prompt": "泉",
           "accept": [
             "せん"
-          ]
+          ],
+          "reading": "せん"
         },
         {
           "display": "綿",
@@ -164,28 +170,32 @@
           "accept": [
             "わた",
             "めん"
-          ]
+          ],
+          "reading": "わた"
         },
         {
           "display": "綱",
           "prompt": "岡",
           "accept": [
             "つな"
-          ]
+          ],
+          "reading": "つな"
         },
         {
           "display": "績",
           "prompt": "責",
           "accept": [
             "せき"
-          ]
+          ],
+          "reading": "せき"
         },
         {
           "display": "縞",
           "prompt": "高",
           "accept": [
             "しま"
-          ]
+          ],
+          "reading": "しま"
         }
       ],
       "readings": true

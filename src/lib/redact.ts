@@ -175,6 +175,7 @@ function bomberView(
           {
             ...(a.prompt ? { prompt: a.prompt } : {}),
             ...(a.image ? { image: a.image } : {}),
+            ...(a.reading ? { reading: a.reading } : {}),
             display: a.display,
             by: by ? nameOf(by.token) : null,
           },
@@ -229,6 +230,8 @@ function bomberView(
               by: filled ? nameOf(filled.token) : null,
               isYou: filled?.token === token,
               ...(image ? { image } : {}),
+              // 読みは答えと同じく、開いたパネルにだけ付ける
+              ...(filled && a.reading ? { reading: a.reading } : {}),
             };
           })
         : null,

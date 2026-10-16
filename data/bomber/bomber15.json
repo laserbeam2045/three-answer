@@ -76,7 +76,8 @@
           "accept": [
             "くも",
             "うん"
-          ]
+          ],
+          "reading": "くも"
         },
         {
           "display": "雷",
@@ -84,7 +85,8 @@
           "accept": [
             "かみなり",
             "らい"
-          ]
+          ],
+          "reading": "かみなり"
         },
         {
           "display": "零",
@@ -92,7 +94,8 @@
           "accept": [
             "れい",
             "ぜろ"
-          ]
+          ],
+          "reading": "れい"
         },
         {
           "display": "霜",
@@ -100,7 +103,8 @@
           "accept": [
             "しも",
             "そう"
-          ]
+          ],
+          "reading": "しも"
         },
         {
           "display": "霧",
@@ -108,7 +112,8 @@
           "accept": [
             "きり",
             "む"
-          ]
+          ],
+          "reading": "きり"
         },
         {
           "display": "露",
@@ -116,35 +121,40 @@
           "accept": [
             "つゆ",
             "ろ"
-          ]
+          ],
+          "reading": "つゆ"
         },
         {
           "display": "雫",
           "prompt": "下",
           "accept": [
             "しずく"
-          ]
+          ],
+          "reading": "しずく"
         },
         {
           "display": "雹",
           "prompt": "包",
           "accept": [
             "ひょう"
-          ]
+          ],
+          "reading": "ひょう"
         },
         {
           "display": "霰",
           "prompt": "散",
           "accept": [
             "あられ"
-          ]
+          ],
+          "reading": "あられ"
         },
         {
           "display": "霙",
           "prompt": "英",
           "accept": [
             "みぞれ"
-          ]
+          ],
+          "reading": "みぞれ"
         }
       ],
       "readings": true
@@ -204,10 +214,10 @@
           ]
         },
         {
-          "display": "鼈",
-          "prompt": "月と□□□",
+          "display": "すっぽん",
+          "prompt": "月と□□□□",
           "accept": [
-            "すっぽん",
+            "鼈",
             "スッポン",
             "月とすっぽん"
           ]
@@ -638,7 +648,7 @@
         },
         {
           "display": "目抜き",
-          "prompt": "□□通り（町でいちばんの大通り）",
+          "prompt": "□□□通り（町でいちばんの大通り）",
           "accept": [
             "目貫",
             "めぬき",
@@ -748,7 +758,7 @@
         },
         {
           "display": "揃",
-          "prompt": "三拍子□□う",
+          "prompt": "三拍子□う",
           "accept": [
             "そろ",
             "三拍子揃う",

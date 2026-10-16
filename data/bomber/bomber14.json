@@ -1,7 +1,7 @@
 {
   "id": "bomber14",
   "title": "拾肆 きつねび",
-  "description": "けものへんの漢字・ICカード・平成の出来事など、本家の過去問から10問。",
+  "description": "けものへんの漢字・当て字の外来語・平成の出来事など、本家の過去問から10問。",
   "questions": [
     {
       "q": "「自〇自〇」の形の四字熟語を答えてください。",
@@ -88,7 +88,8 @@
           "accept": [
             "ねこ",
             "びょう"
-          ]
+          ],
+          "reading": "ねこ"
         },
         {
           "display": "猿",
@@ -96,21 +97,24 @@
           "accept": [
             "さる",
             "えん"
-          ]
+          ],
+          "reading": "さる"
         },
         {
           "display": "狐",
           "prompt": "瓜",
           "accept": [
             "きつね"
-          ]
+          ],
+          "reading": "きつね"
         },
         {
           "display": "狸",
           "prompt": "里",
           "accept": [
             "たぬき"
-          ]
+          ],
+          "reading": "たぬき"
         },
         {
           "display": "狼",
@@ -118,7 +122,8 @@
           "accept": [
             "おおかみ",
             "ろう"
-          ]
+          ],
+          "reading": "おおかみ"
         },
         {
           "display": "猪",
@@ -126,14 +131,16 @@
           "accept": [
             "いのしし",
             "ちょ"
-          ]
+          ],
+          "reading": "いのしし"
         },
         {
           "display": "狢",
           "prompt": "各",
           "accept": [
             "むじな"
-          ]
+          ],
+          "reading": "むじな"
         },
         {
           "display": "狗",
@@ -141,14 +148,16 @@
           "accept": [
             "いぬ",
             "く"
-          ]
+          ],
+          "reading": "いぬ"
         },
         {
           "display": "獏",
           "prompt": "莫",
           "accept": [
             "ばく"
-          ]
+          ],
+          "reading": "ばく"
         },
         {
           "display": "狒",
@@ -156,7 +165,8 @@
           "accept": [
             "ひ",
             "ひひ"
-          ]
+          ],
+          "reading": "ひひ"
         }
       ],
       "readings": true
@@ -250,75 +260,51 @@
       ]
     },
     {
-      "q": "パネルの会社・地域の交通系ICカードの名前を答えてください（カタカナで可）。",
+      "q": "パネルの漢字で書いた外来語の読みを、カタカナで答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "Suica",
-          "prompt": "JR東日本",
-          "accept": [
-            "スイカ"
-          ]
+          "display": "コーヒー",
+          "prompt": "珈琲"
         },
         {
-          "display": "PASMO",
-          "prompt": "関東の私鉄・バス",
-          "accept": [
-            "パスモ"
-          ]
+          "display": "ビール",
+          "prompt": "麦酒"
         },
         {
-          "display": "ICOCA",
-          "prompt": "JR西日本",
-          "accept": [
-            "イコカ"
-          ]
+          "display": "タバコ",
+          "prompt": "煙草"
         },
         {
-          "display": "TOICA",
-          "prompt": "JR東海",
-          "accept": [
-            "トイカ"
-          ]
+          "display": "ガラス",
+          "prompt": "硝子"
         },
         {
-          "display": "Kitaca",
-          "prompt": "JR北海道",
-          "accept": [
-            "キタカ"
-          ]
+          "display": "クラブ",
+          "prompt": "倶楽部"
         },
         {
-          "display": "SUGOCA",
-          "prompt": "JR九州",
-          "accept": [
-            "スゴカ"
-          ]
+          "display": "ボタン",
+          "prompt": "釦"
         },
         {
-          "display": "manaca",
-          "prompt": "名古屋の私鉄・地下鉄",
-          "accept": [
-            "マナカ"
-          ]
+          "display": "カタログ",
+          "prompt": "型録"
         },
         {
-          "display": "PiTaPa",
-          "prompt": "関西の私鉄",
-          "accept": [
-            "ピタパ"
-          ]
+          "display": "マッチ",
+          "prompt": "燐寸"
         },
         {
-          "display": "nimoca",
-          "prompt": "西日本鉄道（福岡）",
-          "accept": [
-            "ニモカ"
-          ]
+          "display": "ランプ",
+          "prompt": "洋灯"
         },
         {
-          "display": "はやかけん",
-          "prompt": "福岡市地下鉄"
+          "display": "ビロード",
+          "prompt": "天鵞絨",
+          "accept": [
+            "ベルベット"
+          ]
         }
       ]
     },
@@ -742,7 +728,7 @@
         },
         {
           "display": "クールビズ",
-          "prompt": "2005年 夏の軽装「□□□□」が始まる",
+          "prompt": "2005年 夏の軽装「□□□□□」が始まる",
           "accept": [
             "COOLBIZ"
           ]
@@ -770,10 +756,11 @@
           ]
         },
         {
-          "display": "地上",
-          "prompt": "2011年 □□デジタル放送に完全移行",
+          "display": "デジタル",
+          "prompt": "2011年 地上□□□□放送に完全移行",
           "accept": [
-            "ちじょう"
+            "地上デジタル",
+            "地上デジタル放送"
           ]
         },
         {
@@ -823,7 +810,7 @@
         },
         {
           "display": "足並み",
-          "prompt": "□□を揃える",
+          "prompt": "□□□を揃える",
           "accept": [
             "足並みを揃える"
           ]
@@ -864,7 +851,7 @@
         },
         {
           "display": "青写真",
-          "prompt": "□□を描く（将来の計画）",
+          "prompt": "□□□を描く（将来の計画）",
           "accept": [
             "あおじゃしん",
             "青写真を描く"
@@ -880,7 +867,7 @@
         },
         {
           "display": "網",
-          "prompt": "□□の目をくぐる",
+          "prompt": "□の目をくぐる",
           "accept": [
             "あみ",
             "網の目をくぐる"

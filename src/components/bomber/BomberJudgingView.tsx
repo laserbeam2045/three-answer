@@ -70,7 +70,7 @@ export default function BomberJudgingView({ room }: { room: UseRoomResult }) {
 
         {isPanel ? (
           <BomberPanels
-            panels={judged.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false, image: a.image }))}
+            panels={judged.answers.map((a) => ({ prompt: a.prompt!, display: a.display, by: a.by, isYou: false, image: a.image, reading: a.reading }))}
           />
         ) : (
           <BomberSlots

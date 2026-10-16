@@ -12,21 +12,24 @@
           "prompt": "艮",
           "accept": [
             "ぎん"
-          ]
+          ],
+          "reading": "ぎん"
         },
         {
           "display": "銅",
           "prompt": "同",
           "accept": [
             "どう"
-          ]
+          ],
+          "reading": "どう"
         },
         {
           "display": "鉄",
           "prompt": "失",
           "accept": [
             "てつ"
-          ]
+          ],
+          "reading": "てつ"
         },
         {
           "display": "鈴",
@@ -34,28 +37,32 @@
           "accept": [
             "すず",
             "りん"
-          ]
+          ],
+          "reading": "すず"
         },
         {
           "display": "針",
           "prompt": "十",
           "accept": [
             "はり"
-          ]
+          ],
+          "reading": "はり"
         },
         {
           "display": "鉢",
           "prompt": "本",
           "accept": [
             "はち"
-          ]
+          ],
+          "reading": "はち"
         },
         {
           "display": "釘",
           "prompt": "丁",
           "accept": [
             "くぎ"
-          ]
+          ],
+          "reading": "くぎ"
         },
         {
           "display": "鍵",
@@ -63,7 +70,8 @@
           "accept": [
             "かぎ",
             "けん"
-          ]
+          ],
+          "reading": "かぎ"
         },
         {
           "display": "鏡",
@@ -71,7 +79,8 @@
           "accept": [
             "かがみ",
             "きょう"
-          ]
+          ],
+          "reading": "かがみ"
         },
         {
           "display": "鋸",
@@ -79,7 +88,8 @@
           "accept": [
             "のこぎり",
             "きょ"
-          ]
+          ],
+          "reading": "のこぎり"
         }
       ],
       "readings": true
