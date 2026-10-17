@@ -1,7 +1,7 @@
 {
   "id": "bomber15",
   "title": "拾伍 しらぬい",
-  "description": "雨かんむりの漢字・世界のスープ（写真）・刀の言葉など、本家の過去問から10問。",
+  "description": "雨かんむりの漢字・和菓子（写真）・干支の漢字など、本家の過去問から10問。",
   "questions": [
     {
       "q": "新幹線の列車の愛称を答えてください（「のぞみ」など。2026年現在のもの）。",
@@ -198,11 +198,12 @@
         },
         {
           "display": "鰻",
-          "prompt": "□登り",
+          "prompt": "□の寝床（細長い家）",
           "accept": [
             "うなぎ",
-            "鰻登り",
-            "うなぎのぼり"
+            "ウナギ",
+            "鰻の寝床",
+            "うなぎの寝床"
           ]
         },
         {
@@ -333,233 +334,254 @@
       ]
     },
     {
-      "q": "写真の、世界のスープ料理の名前を答えてください。",
+      "q": "写真の和菓子の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "コーンスープ",
+          "display": "たい焼き",
           "prompt": "A",
           "accept": [
-            "コーンポタージュ",
-            "ポタージュ"
+            "鯛焼き",
+            "たいやき"
           ],
           "image": {
-            "src": "/bomber-img/770a13564038.jpg",
-            "author": "KKPCW（kyu3）",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saizeriya%27s_Corn_potage.jpg"
-          }
-        },
-        {
-          "display": "ミネストローネ",
-          "prompt": "B",
-          "image": {
-            "src": "/bomber-img/d53e1804554e.jpg",
-            "author": "Katrin Morenz from Aachen, Deutschland",
-            "license": "CC BY-SA 2.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minestrone_soup.jpg"
-          }
-        },
-        {
-          "display": "ボルシチ",
-          "prompt": "C",
-          "image": {
-            "src": "/bomber-img/c639eae34a2c.jpg",
-            "author": "liz west from Boxborough, MA",
-            "license": "CC BY 2.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borscht_served.jpg"
-          }
-        },
-        {
-          "display": "クラムチャウダー",
-          "prompt": "D",
-          "accept": [
-            "チャウダー"
-          ],
-          "image": {
-            "src": "/bomber-img/34d14608e255.jpg",
-            "author": "Prayitno / Thank you for (12 millions +) view from Los Angeles, USA",
-            "license": "CC BY 2.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sourdough_Bread_Bowl_%2B_Clam_Chowder_Soup_(5838235665).jpg"
-          }
-        },
-        {
-          "display": "ポトフ",
-          "prompt": "E",
-          "image": {
-            "src": "/bomber-img/1c712ef18a3e.jpg",
-            "author": "Benoît Prieur",
+            "src": "/bomber-img/10529a294fb5.jpg",
+            "author": "Ocdp",
             "license": "CC0",
             "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Restaurant_Volga_(Lyon)_-_pot_au_feu_arm%C3%A9nien.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taiyaki_003.jpg"
           }
         },
         {
-          "display": "トムヤムクン",
-          "prompt": "F",
+          "display": "どら焼き",
+          "prompt": "B",
+          "accept": [
+            "どらやき",
+            "銅鑼焼き"
+          ],
           "image": {
-            "src": "/bomber-img/fdf8062cc6f3.jpg",
-            "author": "Takeaway",
+            "src": "/bomber-img/4fd846b8928a.jpg",
+            "author": "Ocdp",
             "license": "CC BY-SA 3.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tom_yam_kung_maenam.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dorayaki_001_(3).jpg"
           }
         },
         {
-          "display": "サムゲタン",
-          "prompt": "G",
+          "display": "大福",
+          "prompt": "C",
           "accept": [
-            "参鶏湯"
+            "だいふく",
+            "大福餅"
           ],
           "image": {
-            "src": "/bomber-img/7c59a0d88ae4.jpg",
-            "author": "wizdata",
+            "src": "/bomber-img/dafca44aeeeb.jpg",
+            "author": "Ocdp",
             "license": "CC0",
             "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samgye-tang_2.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daifuku_001.jpg"
           }
         },
         {
-          "display": "ガスパチョ",
+          "display": "みたらし団子",
+          "prompt": "D",
+          "accept": [
+            "みたらしだんご",
+            "御手洗団子",
+            "みたらし"
+          ],
+          "image": {
+            "src": "/bomber-img/e92ead112141.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitarashi_dango_001.jpg"
+          }
+        },
+        {
+          "display": "桜餅",
+          "prompt": "E",
+          "accept": [
+            "さくらもち",
+            "長命寺餅",
+            "長命寺"
+          ],
+          "image": {
+            "src": "/bomber-img/147570139fd2.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakura-mochi_003.jpg"
+          }
+        },
+        {
+          "display": "羊羹",
+          "prompt": "F",
+          "accept": [
+            "ようかん",
+            "ヨウカン"
+          ],
+          "image": {
+            "src": "/bomber-img/7a649d8c903b.jpg",
+            "author": "Ocdp",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Youkan_002.jpg"
+          }
+        },
+        {
+          "display": "おはぎ",
+          "prompt": "G",
+          "accept": [
+            "御萩",
+            "ぼたもち",
+            "牡丹餅"
+          ],
+          "image": {
+            "src": "/bomber-img/b588ffcf337d.jpg",
+            "author": "Tomomarusan",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ohagi_Botamochi.jpg"
+          }
+        },
+        {
+          "display": "あんみつ",
           "prompt": "H",
           "accept": [
-            "ガスパッチョ"
+            "餡蜜"
           ],
           "image": {
-            "src": "/bomber-img/2104d4a1f743.jpg",
-            "author": "Wikimedia Commons の投稿者",
+            "src": "/bomber-img/36dba1f33d7c.jpg",
+            "author": "akira yamada from Yokohama (横浜市中区伊勢佐木町 - Isezakicho)",
             "license": "CC BY-SA 2.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomato_gazpacho.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anmitsu_in_Isezakicho.jpg"
           }
         },
         {
-          "display": "ビシソワーズ",
+          "display": "八ッ橋",
           "prompt": "I",
           "accept": [
-            "ヴィシソワーズ"
+            "八つ橋",
+            "八ツ橋",
+            "やつはし",
+            "焼き八ッ橋"
           ],
           "image": {
-            "src": "/bomber-img/e93176288859.jpg",
-            "author": "BocaDorada",
-            "license": "CC BY-SA 2.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vichyssoise.jpg"
+            "src": "/bomber-img/11a8653c3864.jpg",
+            "author": "PekePON",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yatsuhashi_20160422.JPG"
           }
         },
         {
-          "display": "ブイヤベース",
+          "display": "練り切り",
           "prompt": "J",
+          "accept": [
+            "ねりきり",
+            "練切",
+            "上生菓子"
+          ],
           "image": {
-            "src": "/bomber-img/b33e5e74504f.jpg",
-            "author": "Sergey A. Demidov",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:20250903_Bouillabaisse_in_Khimki_(90108).jpg"
+            "src": "/bomber-img/847b25853432.jpg",
+            "author": "Tarobo",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nerikiri_natsu.jpg"
           }
         }
       ]
     },
     {
-      "q": "元素記号がアルファベット1文字の元素を答えてください（元素名でも記号でも可）。",
-      "slots": 8,
-      "strict": true,
+      "q": "パネルの干支（えと）の漢字の読みを答えてください（動物の名前でも可）。",
+      "panels": true,
       "answers": [
         {
-          "display": "水素",
+          "display": "とら",
+          "prompt": "寅",
           "accept": [
-            "H",
-            "すいそ"
+            "虎",
+            "トラ"
           ]
         },
         {
-          "display": "ホウ素",
+          "display": "うま",
+          "prompt": "午",
           "accept": [
-            "B",
-            "ほうそ"
+            "馬",
+            "ウマ"
           ]
         },
         {
-          "display": "炭素",
+          "display": "たつ",
+          "prompt": "辰",
           "accept": [
-            "C",
-            "たんそ"
+            "竜",
+            "龍",
+            "りゅう"
           ]
         },
         {
-          "display": "窒素",
+          "display": "ね",
+          "prompt": "子",
           "accept": [
-            "N",
-            "ちっそ"
+            "ねずみ",
+            "鼠",
+            "ネズミ"
           ]
         },
         {
-          "display": "酸素",
+          "display": "さる",
+          "prompt": "申",
           "accept": [
-            "O",
-            "さんそ"
+            "猿",
+            "サル"
           ]
         },
         {
-          "display": "フッ素",
+          "display": "いぬ",
+          "prompt": "戌",
           "accept": [
-            "F",
-            "ふっそ"
+            "犬",
+            "イヌ"
           ]
         },
         {
-          "display": "リン",
+          "display": "とり",
+          "prompt": "酉",
           "accept": [
-            "P",
-            "燐"
+            "鳥",
+            "鶏",
+            "にわとり",
+            "ニワトリ"
           ]
         },
         {
-          "display": "硫黄",
+          "display": "う",
+          "prompt": "卯",
           "accept": [
-            "S",
-            "いおう"
+            "うさぎ",
+            "兎",
+            "ウサギ"
           ]
         },
         {
-          "display": "カリウム",
+          "display": "ひつじ",
+          "prompt": "未",
           "accept": [
-            "K"
+            "羊",
+            "ヒツジ"
           ]
         },
         {
-          "display": "バナジウム",
+          "display": "い",
+          "prompt": "亥",
           "accept": [
-            "V"
-          ]
-        },
-        {
-          "display": "イットリウム",
-          "accept": [
-            "Y"
-          ]
-        },
-        {
-          "display": "ヨウ素",
-          "accept": [
-            "I",
-            "ようそ"
-          ]
-        },
-        {
-          "display": "タングステン",
-          "accept": [
-            "W"
-          ]
-        },
-        {
-          "display": "ウラン",
-          "accept": [
-            "U"
+            "いのしし",
+            "猪",
+            "イノシシ"
           ]
         }
       ]
