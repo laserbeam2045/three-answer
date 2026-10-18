@@ -740,6 +740,17 @@ describe("虫食い（□）のパネル", () => {
     expect(matchAnswer(Q, "鬼に金棒")).toBe(3);
   });
 
+  it("言葉全体のかなの読みと、濁点の有無（連濁）が違っても正解にする（とじぶた／とじふた）", () => {
+    const Q2: BomberQuestion = {
+      ...Q,
+      answers: Q.answers.map((a, i) => (i === 0 ? { ...a, accept: [...(a.accept ?? []), "われなべにとじふた"] } : a)),
+    };
+    expect(matchAnswer(Q2, "とじぶた")).toBe(0);
+    expect(matchAnswer(Q2, "とじふた")).toBe(0);
+    expect(matchAnswer(Q2, "われなべにとじぶた")).toBe(0);
+    expect(matchAnswer(Q2, "ふた")).toBe(-1);
+  });
+
   it("□の答えを含まない入力や、言葉に無い入力は正解にしない", () => {
     expect(matchAnswer(Q, "蓋")).toBe(-1);
     expect(matchAnswer(Q, "破れ鍋")).toBe(-1);

@@ -13,6 +13,10 @@ export const runtime = "nodejs";
 export const preferredRegion = "hnd1";
 export const dynamic = "force-dynamic";
 
+// この関数（インスタンス）が起動した時刻。起動直後の遅さ（コールドスタート）を見分けるため Server-Timing に出す
+const BOOTED_AT = Date.now();
+let served = 0;
+
 const VALID_TYPES = new Set([
   "setName",
   "sit",
@@ -57,9 +61,14 @@ export async function POST(
   // 受付時刻。AI 判定を待つ間に時間切れ扱いにならないよう、この時刻で判定する
   const now = Date.now();
   const store = getStore();
+  const cold = served++ === 0;
+  const t0 = performance.now();
+  let tLoad = 0;
+  let tJev = 0;
   try {
     // 在席の記録と状態の読み込みを1回で行う（Redis の月間リクエスト数を節約する）
     const { state: current, presence } = await store.touchAndLoad(roomId, token, true, now);
+    tLoad = performance.now() - t0;
     if (!current) throw new RoomNotFoundError();
 
     // ファイブボンバーの回答がローカルの照合で一致しなければ、表記ゆれを AI（Jev）で判定しておく。
@@ -70,7 +79,9 @@ export async function POST(
       const input = cleanAnswerInput(action.text);
       const question = questionNeedingAi(current, token, input, getBomberSet);
       if (question) {
+        const tj = performance.now();
         const answerIndex = await judgeWithJev(question, input);
+        tJev = performance.now() - tj;
         if (answerIndex >= 0) bomberHint = { qIndex: current.qIndex, text: input, answerIndex };
       }
     }
@@ -88,7 +99,16 @@ export async function POST(
       bomberHint ? undefined : current
     );
     const redacted = redact(state, presence, token, now, getSet, allSets, false);
-    return NextResponse.json({ state: redacted, serverNow: now });
+    const total = performance.now() - t0;
+    // 重さの原因を調べられるよう、処理時間を返す（cold=1 は起動直後のインスタンス）
+    return NextResponse.json(
+      { state: redacted, serverNow: now },
+      {
+        headers: {
+          "Server-Timing": `load;dur=${tLoad.toFixed(1)}, jev;dur=${tJev.toFixed(1)}, total;dur=${total.toFixed(1)}, cold;desc="${cold ? 1 : 0}", uptime;dur=${Date.now() - BOOTED_AT}`,
+        },
+      }
+    );
   } catch (e) {
     if (e instanceof RoomNotFoundError) {
       return NextResponse.json({ error: "ルームが見つかりません" }, { status: 404 });

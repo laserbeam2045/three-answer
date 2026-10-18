@@ -136,6 +136,11 @@ export function acceptedForms(question: BomberQuestion, answerIndex: number): Se
   return forms;
 }
 
+/** 濁点・半濁点を外す（「ぶ」→「ふ」、「ぱ」→「は」）。連濁の違いを吸収するための比較用 */
+function stripDakuten(s: string): string {
+  return s.normalize("NFD").replace(/[゙゚]/g, "").normalize("NFC");
+}
+
 /**
  * 虫食い（□）のパネルの出題を、答えで埋めた言い方にする（かっこ書きのヒントは除く）。
  * 例: 「破れ鍋に□□蓋」＋「綴じ」→「破れ鍋に綴じ蓋」。□ が無ければ null。
@@ -173,7 +178,10 @@ export function matchAnswers(question: BomberQuestion, input: string): number[] 
         if (phrase) phrases.add(normalizeAnswer(phrase));
       }
       const covers = forms.some((f) => n.length > f.length && n.includes(f));
-      if (covers && [...phrases].some((p) => p.includes(n))) hits.push(i);
+      // 言葉全体との照らし合わせでは、濁点・半濁点の有無を区別しない（「綴じ蓋」を「とじぶた」と書いても、
+      // 登録した読み「…とじふた」と合うように。つながって濁る音＝連濁の違いを吸収する）
+      const sn = stripDakuten(n);
+      if (covers && [...phrases].some((p) => p.includes(n) || stripDakuten(p).includes(sn))) hits.push(i);
     }
   }
   return hits;
