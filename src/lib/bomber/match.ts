@@ -99,7 +99,7 @@ export function normalizeAnswer(input: string): string {
 }
 
 /** データに書いた表記・別解（と接頭語・接尾語の組み合わせ）による書き方（正規化済み） */
-function baseForms(question: BomberQuestion, answerIndex: number): Set<string> {
+export function baseForms(question: BomberQuestion, answerIndex: number): Set<string> {
   const a = question.answers[answerIndex];
   const bases = [a.display, ...(a.accept ?? [])].map(normalizeAnswer).filter(Boolean);
   const prefixes = ["", ...(question.prefixes ?? []).map(normalizeAnswer)];
@@ -116,20 +116,15 @@ function baseForms(question: BomberQuestion, answerIndex: number): Set<string> {
 const readingCache = new WeakMap<BomberQuestion, Set<string>[]>();
 /**
  * `readings: true` の問題で、答えの漢字1文字の読みから足す書き方（答えごと）。
- * 同じ問題のほかの答えと重なる読み（綱と縞の「こう」など）は、どちらにも足さない。
+ * ほかの答えと読みが重なってもよい（石と席の「せき」、綱と縞の「こう」）。
+ * 重なった読みで答えたときは、まだ答えていない方を正解にする（`matchAnswers` と回答の処理）。
  */
 function readingForms(question: BomberQuestion): Set<string>[] {
   const cached = readingCache.get(question);
   if (cached) return cached;
-  const bases = question.answers.map((_, i) => baseForms(question, i));
-  const cand = question.answers.map((a) =>
-    [...a.display].length === 1 ? (KANJI_READINGS[a.display] ?? []).map(normalizeAnswer) : []
+  const result = question.answers.map(
+    (a) => new Set([...a.display].length === 1 ? (KANJI_READINGS[a.display] ?? []).map(normalizeAnswer).filter(Boolean) : [])
   );
-  const owners = new Map<string, Set<number>>();
-  const own = (f: string, i: number) => (owners.get(f) ?? owners.set(f, new Set()).get(f)!).add(i);
-  bases.forEach((set, i) => set.forEach((f) => own(f, i)));
-  cand.forEach((list, i) => list.forEach((f) => own(f, i)));
-  const result = cand.map((list, i) => new Set(list.filter((f) => f && owners.get(f)!.size === 1 && !bases[i].has(f))));
   readingCache.set(question, result);
   return result;
 }
@@ -153,26 +148,38 @@ export function fillPrompt(prompt: string | undefined, fill: string): string | n
     .trim();
 }
 
-/** 入力に一致する正解の index。どれにも一致しなければ -1 */
-export function matchAnswer(question: BomberQuestion, input: string): number {
+/**
+ * 入力に一致する正解の index をすべて（優先する順に）返す。
+ * 同じ読みの答えが複数ある（石と席の「せき」など）と2つ以上になる。回答の処理では、まだ答えていないものを選ぶ。
+ */
+export function matchAnswers(question: BomberQuestion, input: string): number[] {
   const n = normalizeAnswer(input);
-  if (!n) return -1;
+  if (!n) return [];
+  const hits: number[] = [];
   for (let i = 0; i < question.answers.length; i++) {
-    if (acceptedForms(question, i).has(n)) return i;
+    if (acceptedForms(question, i).has(n)) hits.push(i);
   }
   // 虫食いのパネルは、□ の前後も含めて書いても正解にする（「破れ鍋に□□蓋」に「綴じ蓋」「破れ鍋に綴じ蓋」など）。
   // 入力が「□を埋めた言い方」の一部で、□ に入る部分をまるごと含んでいれば正解とみなす。
   if (question.panels) {
     for (let i = 0; i < question.answers.length; i++) {
       const a = question.answers[i];
-      if (!a.prompt?.includes("□")) continue;
+      if (hits.includes(i) || !a.prompt?.includes("□")) continue;
       for (const fill of [a.display, ...(a.accept ?? [])]) {
         const f = normalizeAnswer(fill);
         const phrase = fillPrompt(a.prompt, fill);
         if (!f || !phrase) continue;
-        if (n.length > f.length && n.includes(f) && normalizeAnswer(phrase).includes(n)) return i;
+        if (n.length > f.length && n.includes(f) && normalizeAnswer(phrase).includes(n)) {
+          hits.push(i);
+          break;
+        }
       }
     }
   }
-  return -1;
+  return hits;
+}
+
+/** 入力に一致する正解の index（いちばん優先するもの）。どれにも一致しなければ -1 */
+export function matchAnswer(question: BomberQuestion, input: string): number {
+  return matchAnswers(question, input)[0] ?? -1;
 }

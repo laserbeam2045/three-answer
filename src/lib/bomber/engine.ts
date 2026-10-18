@@ -8,6 +8,7 @@ import {
   BOMBER_SECONDS_PER_ANSWER_OPTIONS,
   BOMBER_SLOTS,
   matchAnswer,
+  matchAnswers,
   slotsFor,
 } from "./match";
 
@@ -214,7 +215,11 @@ export function bomberAnswer(
   if (!set) throw new EngineError("set not found");
   const question = set.questions[state.qIndex];
 
-  let index = matchAnswer(question, input);
+  // 同じ読みの答えが複数ある（石と席の「せき」など）ときは、まだ答えていない方を正解にする。
+  // 一致したものがすべて答え済みなら「既出」。
+  const hits = matchAnswers(question, input);
+  const given = (i: number) => round.slots.some((s) => s.answerIndex === i);
+  let index = hits.find((i) => !given(i)) ?? hits[0] ?? -1;
   let ai = false;
   if (
     index < 0 &&

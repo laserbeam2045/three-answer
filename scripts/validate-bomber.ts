@@ -5,7 +5,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { allBomberSets } from "../src/lib/sets";
-import { BOMBER_MAX_SLOTS, BOMBER_SLOTS, acceptedForms, normalizeAnswer } from "../src/lib/bomber/match";
+import { BOMBER_MAX_SLOTS, BOMBER_SLOTS, acceptedForms, baseForms, normalizeAnswer } from "../src/lib/bomber/match";
 
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -68,7 +68,9 @@ for (const set of allBomberSets()) {
       for (const raw of [a.display, ...(a.accept ?? [])]) {
         if (!normalizeAnswer(raw)) errors.push(`${where}: 「${raw}」は正規化すると空になります`);
       }
-      for (const form of acceptedForms(q, ai)) {
+      // データに書いた表記・別解どうしの重なりを調べる。readings（漢字の読み）による重なり（石と席の「せき」）は
+      // 回答の処理で「まだ答えていない方」を選ぶので、エラーにしない
+      for (const form of baseForms(q, ai)) {
         const prev = owner.get(form);
         if (prev !== undefined && prev !== ai) {
           errors.push(

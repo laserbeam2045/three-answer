@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { firstAnswerer, questionNeedingAi } from "@/lib/bomber/engine";
-import { BOMBER_MAX_PLAYERS, matchAnswer, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
+import { BOMBER_MAX_PLAYERS, matchAnswer, matchAnswers, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
 import { BOMBER_REVEAL_LIMIT, redact } from "@/lib/redact";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
 
@@ -671,12 +671,48 @@ describe("漢字を答えるパネル（readings）", () => {
     expect(matchAnswer(Q, "むすぶ")).toBe(3);
   });
 
-  it("ほかの答えと重なる読み（綱と縞の「こう」）はどちらの正解にもしない", () => {
-    expect(matchAnswer(Q, "こう")).toBe(-1);
+  it("ほかの答えと重なる読み（綱と縞の「こう」）は、両方の候補として返す", () => {
+    expect(matchAnswers(Q, "こう")).toEqual([1, 2]);
   });
 
   it("readings が無い問題では読みを足さない", () => {
     expect(matchAnswer({ ...Q, readings: undefined }, "こまかい")).toBe(-1);
+  });
+});
+
+describe("同じ読みの答え（石と席の「せき」）", () => {
+  const Q: BomberQuestion = {
+    q: "パネルの「一」で始まる慣用句の□に入る漢字は？",
+    panels: true,
+    readings: true,
+    answers: [
+      { display: "石", prompt: "一□を投じる", accept: ["せき", "一石を投じる"] },
+      { display: "席", prompt: "一□設ける" },
+      { display: "目", prompt: "一□置く" },
+      { display: "役", prompt: "一□買う" },
+      { display: "旗", prompt: "一□揚げる" },
+    ],
+  };
+  const bset: BomberSet = { id: "bseki", title: "せき", description: "テスト用", questions: [Q] };
+
+  it("同じ読みで続けて答えると、まだ答えていない方が正解になり、両方とも答え済みなら既出", () => {
+    const get = (id: string) => (id === "bseki" ? bset : getBomberSet(id));
+    const s = createRoom("rseki", HOST, "ホスト", 0);
+    const presence = presenceFor([HOST, "p1"], 0);
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presence, now, getSet, allSets, get);
+    run(HOST, { type: "setMode", mode: "bomber" }, 0);
+    run("p1", { type: "setName", name: "p1" }, 0);
+    run("p1", { type: "bomberJoin" }, 0);
+    run(HOST, { type: "selectSet", setId: "bseki" }, 0);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    run("p1", { type: "bomberAnswer", text: "せき" }, at);
+    run("p1", { type: "bomberAnswer", text: "セキ" }, at + 1);
+    expect(s.bomberRound!.slots.map((x) => x.answerIndex)).toEqual([0, 1]);
+    run("p1", { type: "bomberAnswer", text: "せき" }, at + 2);
+    expect(s.bomberRound!.slots).toHaveLength(2);
+    expect(s.bomberRound!.lastMiss).toMatchObject({ text: "せき", reason: "dup" });
   });
 });
 
