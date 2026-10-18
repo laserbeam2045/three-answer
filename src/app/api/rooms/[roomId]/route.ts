@@ -30,7 +30,9 @@ export async function GET(
   const store = getStore();
   try {
     // 在席の記録と状態の読み込みを1回で行う（Redis の月間リクエスト数を節約する）
+    const t0 = performance.now();
     const { state: loaded, presence } = await store.touchAndLoad(roomId, token, visible, now);
+    const t1 = performance.now();
     if (!loaded) throw new RoomNotFoundError();
 
     const state = await store.mutate(
@@ -43,8 +45,18 @@ export async function GET(
       loaded
     );
 
+    const t2 = performance.now();
     const redacted = redact(state, presence, token, now, getSet, allSets, spectatorReveal);
-    return NextResponse.json({ state: redacted, serverNow: now });
+    const t3 = performance.now();
+    // 重さの原因を調べられるよう、処理時間を Server-Timing で返す（ブラウザの開発ツールや curl で見える）
+    return NextResponse.json(
+      { state: redacted, serverNow: now },
+      {
+        headers: {
+          "Server-Timing": `load;dur=${(t1 - t0).toFixed(1)}, mutate;dur=${(t2 - t1).toFixed(1)}, redact;dur=${(t3 - t2).toFixed(1)}`,
+        },
+      }
+    );
   } catch (e) {
     if (e instanceof RoomNotFoundError) {
       return NextResponse.json({ error: "ルームが見つかりません" }, { status: 404 });

@@ -161,19 +161,19 @@ export function matchAnswers(question: BomberQuestion, input: string): number[] 
   }
   // 虫食いのパネルは、□ の前後も含めて書いても正解にする（「破れ鍋に□□蓋」に「綴じ蓋」「破れ鍋に綴じ蓋」など）。
   // 入力が「□を埋めた言い方」の一部で、□ に入る部分をまるごと含んでいれば正解とみなす。
+  // 「言い方」には、□を答えで埋めたもののほか、データにある言葉全体の書き方（かなの読み「めいおうせい」など）も含める。
   if (question.panels) {
     for (let i = 0; i < question.answers.length; i++) {
       const a = question.answers[i];
       if (hits.includes(i) || !a.prompt?.includes("□")) continue;
+      const forms = [...acceptedForms(question, i)];
+      const phrases = new Set(forms);
       for (const fill of [a.display, ...(a.accept ?? [])]) {
-        const f = normalizeAnswer(fill);
         const phrase = fillPrompt(a.prompt, fill);
-        if (!f || !phrase) continue;
-        if (n.length > f.length && n.includes(f) && normalizeAnswer(phrase).includes(n)) {
-          hits.push(i);
-          break;
-        }
+        if (phrase) phrases.add(normalizeAnswer(phrase));
       }
+      const covers = forms.some((f) => n.length > f.length && n.includes(f));
+      if (covers && [...phrases].some((p) => p.includes(n))) hits.push(i);
     }
   }
   return hits;

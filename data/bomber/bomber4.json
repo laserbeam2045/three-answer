@@ -16,50 +16,71 @@
         },
         {
           "display": "日本放送協会",
-          "prompt": "NHK"
+          "prompt": "NHK",
+          "accept": [
+            "にっぽんほうそうきょうかい"
+          ]
         },
         {
           "display": "日本旅客鉄道",
-          "prompt": "JR"
+          "prompt": "JR",
+          "accept": [
+            "にっぽんりょかくてつどう"
+          ]
         },
         {
           "display": "世界保健機関",
-          "prompt": "WHO"
+          "prompt": "WHO",
+          "accept": [
+            "せかいほけんきかん"
+          ]
         },
         {
           "display": "国際オリンピック委員会",
-          "prompt": "IOC"
+          "prompt": "IOC",
+          "accept": [
+            "こくさいおりんぴっくいいんかい"
+          ]
         },
         {
           "display": "アメリカ航空宇宙局",
           "prompt": "NASA",
           "accept": [
             "米航空宇宙局",
-            "航空宇宙局"
+            "航空宇宙局",
+            "あめりかこうくううちゅうきょく"
           ]
         },
         {
           "display": "デオキシリボ核酸",
-          "prompt": "DNA"
+          "prompt": "DNA",
+          "accept": [
+            "でおきしりぼかくさん"
+          ]
         },
         {
           "display": "国連児童基金",
           "prompt": "UNICEF",
           "accept": [
             "国際連合児童基金",
-            "ユニセフ"
+            "ユニセフ",
+            "こくれんじどうききん"
           ]
         },
         {
           "display": "宇宙航空研究開発機構",
-          "prompt": "JAXA"
+          "prompt": "JAXA",
+          "accept": [
+            "うちゅうこうくうけんきゅうかいはつきこう"
+          ]
         },
         {
           "display": "国連教育科学文化機関",
           "prompt": "UNESCO",
           "accept": [
             "国際連合教育科学文化機関",
-            "ユネスコ"
+            "ユネスコ",
+            "こくれんきょういくかがくぶんかきかん"
           ]
         }
       ]
@@ -807,7 +828,8 @@
         {
           "display": "アラブ首長国連邦",
           "accept": [
-            "UAE"
+            "UAE",
+            "あらぶしゅちょうこくれんぽう"
           ]
         },
         {

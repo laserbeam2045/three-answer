@@ -1,11 +1,11 @@
 {
   "id": "bomber19",
   "title": "拾玖 かげろう",
-  "description": "「瓜」の付く植物・88星座・宇宙の言葉など、本家の過去問から10問。",
+  "description": "「瓜」の付く植物・88星座・楽器（写真）など、本家の過去問から10問。",
   "questions": [
     {
       "q": "全天の88星座を答えてください（「座」は省略可）。",
-      "slots": 15,
+      "slots": 25,
       "suffixes": [
         "座"
       ],
@@ -571,7 +571,8 @@
           "prompt": "明日は明日の□が吹く",
           "accept": [
             "かぜ",
-            "明日は明日の風が吹く"
+            "明日は明日の風が吹く",
+            "あしたはあしたのかぜがふく"
           ]
         },
         {
@@ -579,7 +580,8 @@
           "prompt": "頭隠して□隠さず",
           "accept": [
             "しり",
-            "頭隠して尻隠さず"
+            "頭隠して尻隠さず",
+            "あたまかくしてしりかくさず"
           ]
         },
         {
@@ -587,14 +589,18 @@
           "prompt": "雨降って□固まる",
           "accept": [
             "じ",
-            "雨降って地固まる"
+            "雨降って地固まる",
+            "ち",
+            "あめふってちかたまる"
           ]
         },
         {
           "display": "静けさ",
           "prompt": "嵐の前の□□□",
           "accept": [
-            "嵐の前の静けさ"
+            "嵐の前の静けさ",
+            "しずけさ",
+            "あらしのまえのしずけさ"
           ]
         },
         {
@@ -602,14 +608,17 @@
           "prompt": "後は野となれ□となれ",
           "accept": [
             "やま",
-            "後は野となれ山となれ"
+            "後は野となれ山となれ",
+            "ごはのとなれやまとなれ"
           ]
         },
         {
           "display": "取る",
           "prompt": "揚げ足を□□",
           "accept": [
-            "揚げ足を取る"
+            "揚げ足を取る",
+            "とる",
+            "あげあしをとる"
           ]
         },
         {
@@ -617,7 +626,8 @@
           "prompt": "□□取らず",
           "accept": [
             "あぶはち",
-            "虻蜂取らず"
+            "虻蜂取らず",
+            "あぶはちとらず"
           ]
         },
         {
@@ -625,7 +635,8 @@
           "prompt": "悪銭□につかず",
           "accept": [
             "み",
-            "悪銭身につかず"
+            "悪銭身につかず",
+            "あくせんみにつかず"
           ]
         },
         {
@@ -633,14 +644,17 @@
           "prompt": "当たるも□□当たらぬも□□",
           "accept": [
             "はっけ",
-            "当たるも八卦当たらぬも八卦"
+            "当たるも八卦当たらぬも八卦",
+            "とうたるもはっけあたらぬもはっけ"
           ]
         },
         {
           "display": "呼吸",
           "prompt": "阿吽の□□",
           "accept": [
-            "阿吽の呼吸"
+            "阿吽の呼吸",
+            "こきゅう",
+            "あうんのこきゅう"
           ]
         }
       ]
@@ -663,7 +677,8 @@
           "accept": [
             "こめ",
             "お米",
-            "稲"
+            "稲",
+            "べい"
           ]
         },
         {
@@ -729,142 +744,134 @@
       ]
     },
     {
-      "q": "写真のチーズの名前を答えてください。",
+      "q": "写真の楽器の名前を答えてください。",
       "panels": true,
       "answers": [
         {
-          "display": "モッツァレラ",
+          "display": "トランペット",
           "prompt": "A",
-          "accept": [
-            "モッツァレラチーズ",
-            "モッツアレラ",
-            "モッツァレッラ"
-          ],
           "image": {
-            "src": "/bomber-img/d49a65fc08f7.jpg",
-            "author": "Popo le Chien",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mozzarella_di_bufala3.jpg"
+            "src": "/bomber-img/f9c164eed02d.jpg",
+            "author": "Yamaha Corporation",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yamaha_Trumpet_YTR-8335LA.tif"
           }
         },
         {
-          "display": "カマンベール",
+          "display": "バイオリン",
           "prompt": "B",
           "accept": [
-            "カマンベールチーズ"
+            "ヴァイオリン"
           ],
           "image": {
-            "src": "/bomber-img/36abe2a99b1a.jpg",
-            "author": "Roy Zuo",
+            "src": "/bomber-img/88dbb53abad1.jpg",
+            "author": "Just plain Bill",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Violin_VL100.jpg"
+          }
+        },
+        {
+          "display": "フルート",
+          "prompt": "C",
+          "image": {
+            "src": "/bomber-img/6fda783d8844.jpg",
+            "author": "Petar Milošević",
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:(20251230)_Camembert_cheese_01.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Western_concert_flute_(Yamaha).jpg"
           }
         },
         {
-          "display": "エメンタール",
-          "prompt": "C",
-          "accept": [
-            "エメンタールチーズ",
-            "エメンタラー"
-          ],
-          "image": {
-            "src": "/bomber-img/cd24cef254e1.jpg",
-            "author": "Coyau",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emmental_(fromage)_01.jpg"
-          }
-        },
-        {
-          "display": "チェダー",
+          "display": "サックス",
           "prompt": "D",
           "accept": [
-            "チェダーチーズ"
+            "サクソフォン",
+            "サクソフォーン"
           ],
           "image": {
-            "src": "/bomber-img/56fc457a4572.jpg",
-            "author": "J.P.Lon",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Somerset-Cheddar.jpg"
-          }
-        },
-        {
-          "display": "カッテージチーズ",
-          "prompt": "E",
-          "accept": [
-            "カッテージ"
-          ],
-          "image": {
-            "src": "/bomber-img/08622924e649.jpg",
-            "author": "FASTILY (TALK)",
+            "src": "/bomber-img/9a6b7e1c6a2b.jpg",
+            "author": "Nabokov (talk) . Required citation is: \"Photo by Tom Oates, 2008\"",
             "license": "CC BY-SA 3.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cottagecheese200px.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:TenorSopranoSax_(1).jpg"
           }
         },
         {
-          "display": "パルミジャーノ・レッジャーノ",
-          "prompt": "F",
-          "accept": [
-            "パルミジャーノ",
-            "パルメザン",
-            "パルメザンチーズ",
-            "パルミジャーノレッジャーノ"
-          ],
+          "display": "トロンボーン",
+          "prompt": "E",
           "image": {
-            "src": "/bomber-img/149bfce9f872.jpg",
-            "author": "Benoît Prieur",
-            "license": "CC0",
-            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parmesan_cheese_knife_on_block_of_cheese.jpg"
+            "src": "/bomber-img/0519b4220de8.jpg",
+            "author": "Esolomon",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Posaune.gif"
           }
         },
         {
-          "display": "ゴルゴンゾーラ",
+          "display": "クラリネット",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/a1d0a1921475.jpg",
+            "author": "Yamaha Corporation; collage User:Gisbert K",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yamaha_657_CSG_30.jpg"
+          }
+        },
+        {
+          "display": "ハープ",
           "prompt": "G",
           "accept": [
-            "ブルーチーズ"
+            "竪琴"
           ],
           "image": {
-            "src": "/bomber-img/04fb61948030.jpg",
-            "author": "Jon Sullivan",
-            "license": "Public domain",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorgonzola_and_a_pear.jpg"
+            "src": "/bomber-img/941f81ad2990.jpg",
+            "author": "N.S.M. s.p.a",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvi_harp_Diana.jpg"
           }
         },
         {
-          "display": "マスカルポーネ",
+          "display": "チェロ",
           "prompt": "H",
+          "accept": [
+            "セロ"
+          ],
           "image": {
-            "src": "/bomber-img/37af8af829a8.jpg",
-            "author": "Ramagliolo9 at Italian Wikipedia",
+            "src": "/bomber-img/0fa2a9a37537.jpg",
+            "author": "Rbhu23",
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mascarpone_2.jpg"
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dale_Henderson,_cellist_(cropped).jpg"
           }
         },
         {
-          "display": "ミモレット",
+          "display": "ホルン",
           "prompt": "I",
+          "accept": [
+            "フレンチホルン"
+          ],
           "image": {
-            "src": "/bomber-img/d931fdbf43af.jpg",
-            "author": "Jastrow at French Wikipedia",
-            "license": "Public domain",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimolette_vieille_etuvee.jpg"
+            "src": "/bomber-img/230392a1a9f1.jpg",
+            "author": "BenP",
+            "license": "CC BY 2.5",
+            "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:French_horn_front.png"
           }
         },
         {
-          "display": "ラクレット",
+          "display": "ファゴット",
           "prompt": "J",
+          "accept": [
+            "バスーン"
+          ],
           "image": {
-            "src": "/bomber-img/0b954f2e0db4.jpg",
-            "author": "Ka23 13",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raclette_20040817_140816.jpg"
+            "src": "/bomber-img/0154836afe05.jpg",
+            "author": "Creator:Giosue Esposito",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bassoon_MET_DP218094.jpg"
           }
         }
       ]
@@ -875,14 +882,18 @@
       "answers": [
         {
           "display": "ビッグバン",
-          "prompt": "宇宙の始まりの大爆発「□□□□□」"
+          "prompt": "宇宙の始まりの大爆発「□□□□□」",
+          "accept": [
+            "うちゅうのはじまりのだいばくはつ「びっぐばん」"
+          ]
         },
         {
           "display": "自",
           "prompt": "地球が1日に1回まわる「□転」",
           "accept": [
             "じ",
-            "自転"
+            "自転",
+            "ちきゅうが1にちに1かいまわる「じてん」"
           ]
         },
         {
@@ -890,51 +901,63 @@
           "prompt": "2006年に惑星から外された「□□星」",
           "accept": [
             "めいおう",
-            "冥王星"
+            "冥王星",
+            "2006ねんにわくせいからはずされた「めいおうせい」"
           ]
         },
         {
           "display": "ひまわり",
           "prompt": "日本の気象衛星「□□□□」",
           "accept": [
-            "向日葵"
+            "向日葵",
+            "にっぽんのきしょうえいせい「ひまわり」"
           ]
         },
         {
-          "display": "種子",
-          "prompt": "JAXAのロケット発射場がある「□□島」",
+          "display": "アームストロング",
+          "prompt": "人類で初めて月を歩いた ニール・□□□□□□□□",
           "accept": [
-            "たねが",
-            "種子島"
+            "ニール・アームストロング",
+            "ニールアームストロング",
+            "じんるいではじめてつきをあるいた にーる・あーむすとろんぐ"
           ]
         },
         {
           "display": "ガガーリン",
-          "prompt": "人類初の宇宙飛行士 ユーリイ・□□□□□"
+          "prompt": "人類初の宇宙飛行士 ユーリイ・□□□□□",
+          "accept": [
+            "じんるいはつのうちゅうひこうし ゆーりい・ががーりん"
+          ]
         },
         {
           "display": "クレーター",
-          "prompt": "月の表面の丸いくぼみ「□□□□□」"
+          "prompt": "月の表面の丸いくぼみ「□□□□□」",
+          "accept": [
+            "つきのひょうめんのまるいくぼみ「くれーたー」"
+          ]
         },
         {
           "display": "star",
           "prompt": "流れ星を英語で「shooting □□□□」",
           "accept": [
-            "スター"
+            "スター",
+            "ながれぼしをえいごで「shooting star」"
           ]
         },
         {
           "display": "ペルセウス",
           "prompt": "8月の「□□□□□座流星群」",
           "accept": [
-            "ペルセウス座"
+            "ペルセウス座",
+            "8つきの「ぺるせうすざりゅうせいぐん」"
           ]
         },
         {
           "display": "おおすみ",
           "prompt": "日本初の人工衛星「□□□□」",
           "accept": [
-            "大隅"
+            "大隅",
+            "にっぽんはつのじんこうえいせい「おおすみ」"
           ]
         }
       ]
@@ -949,7 +972,8 @@
           "accept": [
             "とう",
             "1頭",
-            "一頭"
+            "一頭",
+            "あたま"
           ]
         },
         {
@@ -985,7 +1009,8 @@
           "accept": [
             "そく",
             "1足",
-            "一足"
+            "一足",
+            "あし"
           ]
         },
         {
@@ -1003,7 +1028,8 @@
           "accept": [
             "しゅ",
             "1首",
-            "一首"
+            "一首",
+            "くび"
           ]
         },
         {
@@ -1021,7 +1047,8 @@
           "accept": [
             "てき",
             "1滴",
-            "一滴"
+            "一滴",
+            "しずく"
           ]
         },
         {
@@ -1030,7 +1057,8 @@
           "accept": [
             "わ",
             "1羽",
-            "一羽"
+            "一羽",
+            "はね"
           ]
         }
       ]
@@ -1089,7 +1117,9 @@
           "display": "争う",
           "prompt": "一刻を□□",
           "accept": [
-            "一刻を争う"
+            "一刻を争う",
+            "あらそう",
+            "いっこくをあらそう"
           ]
         },
         {
@@ -1097,14 +1127,18 @@
           "prompt": "一芸に□でる",
           "accept": [
             "ひい",
-            "一芸に秀でる"
+            "一芸に秀でる",
+            "しゅう",
+            "いちげいにひいでる"
           ]
         },
         {
           "display": "担う",
           "prompt": "一翼を□□",
           "accept": [
-            "一翼を担う"
+            "一翼を担う",
+            "になう",
+            "いちよくをになう"
           ]
         },
         {
@@ -1112,7 +1146,9 @@
           "prompt": "一巻の□□り",
           "accept": [
             "終",
-            "一巻の終わり"
+            "一巻の終わり",
+            "おわ",
+            "いちかんのおわり"
           ]
         },
         {
@@ -1120,7 +1156,8 @@
           "prompt": "一戦を□える",
           "accept": [
             "まじ",
-            "一戦を交える"
+            "一戦を交える",
+            "いちせんをまじえる"
           ]
         },
         {
@@ -1128,7 +1165,8 @@
           "prompt": "一途を□□る",
           "accept": [
             "辿",
-            "一途をたどる"
+            "一途をたどる",
+            "いっとをたどる"
           ]
         },
         {
@@ -1136,14 +1174,18 @@
           "prompt": "一矢を□いる",
           "accept": [
             "むく",
-            "一矢を報いる"
+            "一矢を報いる",
+            "ほう",
+            "いっしをむくいる"
           ]
         },
         {
           "display": "会す",
           "prompt": "一堂に□□る",
           "accept": [
-            "一堂に会する"
+            "一堂に会する",
+            "かいす",
+            "いちどうにかいする"
           ]
         },
         {
@@ -1151,7 +1193,8 @@
           "prompt": "一世を□□する",
           "accept": [
             "ふうび",
-            "一世を風靡する"
+            "一世を風靡する",
+            "いっせいをふうびする"
           ]
         },
         {
@@ -1159,7 +1202,8 @@
           "prompt": "一□を案じる",
           "accept": [
             "けい",
-            "一計を案じる"
+            "一計を案じる",
+            "いっけいをあんじる"
           ]
         }
       ]
@@ -1173,42 +1217,54 @@
           "prompt": "右往□□",
           "accept": [
             "さおう",
-            "右往左往"
+            "右往左往",
+            "うおうさおう"
           ]
         },
         {
           "display": "整頓",
           "prompt": "整理□□",
           "accept": [
-            "整理整頓"
+            "整理整頓",
+            "せいとん",
+            "せいりせいとん"
           ]
         },
         {
           "display": "適所",
           "prompt": "適材□□",
           "accept": [
-            "適材適所"
+            "適材適所",
+            "てきしょ",
+            "てきざいてきしょ"
           ]
         },
         {
           "display": "相愛",
           "prompt": "相思□□",
           "accept": [
-            "相思相愛"
+            "相思相愛",
+            "そうあい",
+            "そうしそうあい"
           ]
         },
         {
           "display": "再四",
           "prompt": "再三□□",
           "accept": [
-            "再三再四"
+            "再三再四",
+            "さいよん",
+            "さいさんさいし",
+            "さいし"
           ]
         },
         {
           "display": "私欲",
           "prompt": "私利□□",
           "accept": [
-            "私利私欲"
+            "私利私欲",
+            "しよく",
+            "しりしよく"
           ]
         },
         {
@@ -1217,21 +1273,26 @@
           "accept": [
             "合財",
             "一切合切",
-            "一切合財"
+            "一切合財",
+            "がっさい",
+            "いっさいがっさい"
           ]
         },
         {
           "display": "苦茶",
           "prompt": "滅茶□□",
           "accept": [
-            "滅茶苦茶"
+            "滅茶苦茶",
+            "くちゃ",
+            "めちゃくちゃ"
           ]
         },
         {
           "display": "無耶",
           "prompt": "有耶□□",
           "accept": [
-            "有耶無耶"
+            "有耶無耶",
+            "うやむや"
           ]
         },
         {
@@ -1239,7 +1300,8 @@
           "prompt": "大同□□",
           "accept": [
             "しょうい",
-            "大同小異"
+            "大同小異",
+            "だいどうしょうい"
           ]
         }
       ]

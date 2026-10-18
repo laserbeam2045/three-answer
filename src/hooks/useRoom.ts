@@ -96,11 +96,15 @@ export function useRoom(roomId: string): UseRoomResult {
   const withPendingOverlay = (s: RedactedState): RedactedState =>
     pendingRef.current.reduce(applyOptimistic, s);
 
-  const acceptState = useCallback((s: RedactedState, serverNow: number) => {
+  // 前回受け取った状態（JSON）。ポーリングで同じ内容が返ってきたときは画面を描き直さない
+  const lastJsonRef = useRef<string | null>(null);
+  const acceptState = useCallback((s: RedactedState, serverNow: number, json?: string) => {
     const sample = serverNow - Date.now();
     offsetRef.current =
       offsetRef.current === 0 ? sample : offsetRef.current * 0.7 + sample * 0.3;
     if (stateRef.current && s.v < stateRef.current.v) return;
+    if (json !== undefined && json === lastJsonRef.current && pendingRef.current.length === 0) return;
+    lastJsonRef.current = json ?? null;
     stateRef.current = s;
     setState(withPendingOverlay(s));
   }, []);
@@ -133,7 +137,7 @@ export function useRoom(roomId: string): UseRoomResult {
       }
       const data = (await res.json()) as { state: RedactedState; serverNow: number };
       setConnectionError(null);
-      acceptState(data.state, data.serverNow);
+      acceptState(data.state, data.serverNow, JSON.stringify(data.state));
     } catch {
       // ネットワーク断は無視（次のポーリングで回復）
     } finally {
