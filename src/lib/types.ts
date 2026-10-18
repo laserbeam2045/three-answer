@@ -193,6 +193,11 @@ export interface GameRecord {
 
 export interface RoomState {
   v: number;
+  /**
+   * 最近受け付けた操作の ID（新しいものを後ろに、最大40件）。通信が詰まったときにクライアントが同じ操作を送り直しても、
+   * 二重に反映しないために使う
+   */
+  recentActionIds?: string[];
   roomId: string;
   createdAt: number;
   hostToken: string;

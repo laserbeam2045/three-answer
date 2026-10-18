@@ -15,6 +15,28 @@ function randomToken(): string {
   return s;
 }
 
+/** 操作の ID（送り直しで二重に反映しないため） */
+function randomId(): string {
+  return randomToken().slice(0, 16);
+}
+
+/** 状態取得（ポーリング）を打ち切るまでの時間。ふだんは0.1秒前後で返る */
+const POLL_TIMEOUT_MS = 3000;
+/** 操作の送信を打ち切って送り直すまでの時間と、送る回数。答えの判定（AI を含む）はふだん0.3秒以内 */
+const ACTION_TIMEOUT_MS = 4000;
+const ACTION_ATTEMPTS = 3;
+
+/** 一定時間で打ち切る fetch。たまに接続が十数秒つながらないことがあるため */
+async function fetchWithTimeout(url: string, init: RequestInit, ms: number): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(url, { ...init, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export function getLocalToken(): string {
   if (typeof window === "undefined") return "";
   let t = localStorage.getItem(TOKEN_KEY);
@@ -119,9 +141,11 @@ export function useRoom(roomId: string): UseRoomResult {
       // 未登録クライアントの初回登録時に使われる表示名（登録済みなら無視される）
       const localName = getLocalName();
       const nameParam = localName ? `&name=${encodeURIComponent(localName)}` : "";
-      const res = await fetch(
+      // 詰まった1回のせいで次のポーリングが止まらないよう、一定時間で打ち切る
+      const res = await fetchWithTimeout(
         `/api/rooms/${roomId}?token=${tokenRef.current}&visible=${visible}${reveal}${nameParam}`,
-        { cache: "no-store" }
+        { cache: "no-store" },
+        POLL_TIMEOUT_MS
       );
       if (res.status === 404) {
         setFatalError("ルームが見つかりません。URLを確認してください。");
@@ -189,11 +213,23 @@ export function useRoom(roomId: string): UseRoomResult {
         if (i !== -1) pendingRef.current.splice(i, 1);
       };
       try {
-        const res = await fetch(`/api/rooms/${roomId}/actions`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token: tokenRef.current, action }),
-        });
+        // 通信がたまに詰まる（接続が十数秒つながらない）ことがあるので、一定時間で打ち切って送り直す。
+        // 同じ操作 ID を付けて送るので、最初の送信が実は届いていても二重には反映されない
+        const actionId = randomId();
+        const body = JSON.stringify({ token: tokenRef.current, action, actionId });
+        let res: Response | null = null;
+        for (let attempt = 0; attempt < ACTION_ATTEMPTS && !res; attempt++) {
+          try {
+            res = await fetchWithTimeout(`/api/rooms/${roomId}/actions`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body,
+            }, ACTION_TIMEOUT_MS);
+          } catch (e) {
+            if (attempt === ACTION_ATTEMPTS - 1) throw e;
+          }
+        }
+        if (!res) throw new Error("送信できませんでした");
         if (res.status === 404) {
           removePending();
           setFatalError("ルームが見つかりません。");

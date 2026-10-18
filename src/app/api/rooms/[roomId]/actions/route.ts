@@ -43,7 +43,7 @@ export async function POST(
   ctx: { params: Promise<{ roomId: string }> }
 ) {
   const { roomId } = await ctx.params;
-  let body: { token?: string; action?: Action };
+  let body: { token?: string; action?: Action; actionId?: string };
   try {
     body = await req.json();
   } catch {
@@ -51,6 +51,9 @@ export async function POST(
   }
   const token = body.token;
   const action = body.action;
+  // 送り直しで二重に反映しないための操作の ID（無くてもよい）
+  const actionId = typeof body.actionId === "string" && /^[a-zA-Z0-9]{8,40}$/.test(body.actionId) ? body.actionId : undefined;
+  const seen = (s: { recentActionIds?: string[] }) => !!actionId && !!s.recentActionIds?.includes(actionId);
   if (!token || typeof token !== "string") {
     return NextResponse.json({ error: "tokenが必要です" }, { status: 400 });
   }
@@ -74,7 +77,7 @@ export async function POST(
     // ファイブボンバーの回答がローカルの照合で一致しなければ、表記ゆれを AI（Jev）で判定しておく。
     // 外部 API の待ち時間を CAS のリトライに含めないよう、書き込みの前に済ませる
     let bomberHint: BomberAnswerHint | undefined;
-    if (action.type === "bomberAnswer") {
+    if (action.type === "bomberAnswer" && !seen(current)) {
       normalizeRoom(current);
       const input = cleanAnswerInput(action.text);
       const question = questionNeedingAi(current, token, input, getBomberSet);
@@ -90,10 +93,13 @@ export async function POST(
     const state = await store.mutate(
       roomId,
       (s) => {
+        // 同じ操作の送り直し（すでに反映済み）なら、何もせず今の状態を返す
+        if (seen(s)) return false;
         // アクション適用前にも遅延遷移（期限切れ等）を評価する
         tick(s, presence, now, getSet);
         applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint);
         tick(s, presence, now, getSet);
+        if (actionId) s.recentActionIds = [...(s.recentActionIds ?? []), actionId].slice(-40);
         return true;
       },
       bomberHint ? undefined : current
