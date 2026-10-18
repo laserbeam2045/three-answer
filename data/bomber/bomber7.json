@@ -197,15 +197,15 @@
           "prompt": "思"
         },
         {
+          "display": "こざとへん",
+          "prompt": "院"
+        },
+        {
           "display": "えんにょう",
           "prompt": "建",
           "accept": [
             "いんにょう"
           ]
-        },
-        {
-          "display": "こざとへん",
-          "prompt": "院"
         },
         {
           "display": "おおがい",
@@ -529,17 +529,17 @@
           "prompt": "五十嵐"
         },
         {
-          "display": "しょうじ",
-          "prompt": "東海林",
-          "accept": [
-            "とうかいりん"
-          ]
-        },
-        {
           "display": "くさか",
           "prompt": "日下",
           "accept": [
             "ひのした"
+          ]
+        },
+        {
+          "display": "しょうじ",
+          "prompt": "東海林",
+          "accept": [
+            "とうかいりん"
           ]
         },
         {
@@ -586,16 +586,6 @@
           ]
         },
         {
-          "display": "二",
-          "prompt": "□兎を追う者は一兎をも得ず",
-          "accept": [
-            "2",
-            "二兎を追う者は一兎をも得ず",
-            "に",
-            "にとをおうものはいちうさぎをもえず"
-          ]
-        },
-        {
           "display": "八",
           "prompt": "七転び□起き",
           "accept": [
@@ -604,6 +594,16 @@
             "はち",
             "ななころびやおき",
             "や"
+          ]
+        },
+        {
+          "display": "二",
+          "prompt": "□兎を追う者は一兎をも得ず",
+          "accept": [
+            "2",
+            "二兎を追う者は一兎をも得ず",
+            "に",
+            "にとをおうものはいちうさぎをもえず"
           ]
         },
         {
@@ -617,26 +617,6 @@
           ]
         },
         {
-          "display": "一",
-          "prompt": "九死に□生を得る",
-          "accept": [
-            "1",
-            "九死に一生を得る",
-            "いち",
-            "きゅうしにいっしょうをえる"
-          ]
-        },
-        {
-          "display": "千",
-          "prompt": "悪事□里を走る",
-          "accept": [
-            "1000",
-            "悪事千里を走る",
-            "せん",
-            "あくじせんさとをはしる"
-          ]
-        },
-        {
           "display": "五",
           "prompt": "一寸の虫にも□分の魂",
           "accept": [
@@ -644,6 +624,16 @@
             "一寸の虫にも五分の魂",
             "ご",
             "いっすんのむしにもごぶんのたましい"
+          ]
+        },
+        {
+          "display": "一",
+          "prompt": "九死に□生を得る",
+          "accept": [
+            "1",
+            "九死に一生を得る",
+            "いち",
+            "きゅうしにいっしょうをえる"
           ]
         },
         {
@@ -657,16 +647,6 @@
           ]
         },
         {
-          "display": "六",
-          "prompt": "□十の手習い",
-          "accept": [
-            "6",
-            "六十の手習い",
-            "ろく",
-            "ろくじゅうのてならい"
-          ]
-        },
-        {
           "display": "七",
           "prompt": "親の□光り",
           "accept": [
@@ -674,6 +654,26 @@
             "親の七光り",
             "なな",
             "おやのななひかり"
+          ]
+        },
+        {
+          "display": "千",
+          "prompt": "悪事□里を走る",
+          "accept": [
+            "1000",
+            "悪事千里を走る",
+            "せん",
+            "あくじせんさとをはしる"
+          ]
+        },
+        {
+          "display": "六",
+          "prompt": "□十の手習い",
+          "accept": [
+            "6",
+            "六十の手習い",
+            "ろく",
+            "ろくじゅうのてならい"
           ]
         }
       ],
@@ -692,16 +692,16 @@
           "prompt": "風呂敷"
         },
         {
+          "display": "うちわ",
+          "prompt": "団扇"
+        },
+        {
           "display": "きゅうす",
           "prompt": "急須"
         },
         {
           "display": "そろばん",
           "prompt": "算盤"
-        },
-        {
-          "display": "うちわ",
-          "prompt": "団扇"
         },
         {
           "display": "ろうそく",
@@ -817,23 +817,8 @@
           }
         },
         {
-          "display": "シャム",
-          "prompt": "C",
-          "accept": [
-            "シャム猫",
-            "サイアミーズ"
-          ],
-          "image": {
-            "src": "/bomber-img/cbf2e3679421.jpg",
-            "author": "Meekahoo",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_cat_Vaillante.JPG"
-          }
-        },
-        {
           "display": "ペルシャ",
-          "prompt": "D",
+          "prompt": "C",
           "accept": [
             "ペルシャ猫",
             "ペルシア",
@@ -845,6 +830,21 @@
             "license": "CC BY-SA 2.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Persian.jpg"
+          }
+        },
+        {
+          "display": "シャム",
+          "prompt": "D",
+          "accept": [
+            "シャム猫",
+            "サイアミーズ"
+          ],
+          "image": {
+            "src": "/bomber-img/cbf2e3679421.jpg",
+            "author": "Meekahoo",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_cat_Vaillante.JPG"
           }
         },
         {
@@ -873,14 +873,17 @@
           }
         },
         {
-          "display": "アビシニアン",
+          "display": "メインクーン",
           "prompt": "G",
+          "accept": [
+            "メイン・クーン"
+          ],
           "image": {
-            "src": "/bomber-img/04f712dcc5c7.jpg",
-            "author": "Karin Langner-Bahmann",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustav_chocolate.jpg"
+            "src": "/bomber-img/edd802e17433.jpg",
+            "author": "T. Bjornstad",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maine_Coon_male_NO_Sigdalskauen_Balder.jpg"
           }
         },
         {
@@ -894,17 +897,14 @@
           }
         },
         {
-          "display": "メインクーン",
+          "display": "アビシニアン",
           "prompt": "I",
-          "accept": [
-            "メイン・クーン"
-          ],
           "image": {
-            "src": "/bomber-img/edd802e17433.jpg",
-            "author": "T. Bjornstad",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maine_Coon_male_NO_Sigdalskauen_Balder.jpg"
+            "src": "/bomber-img/04f712dcc5c7.jpg",
+            "author": "Karin Langner-Bahmann",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustav_chocolate.jpg"
           }
         },
         {

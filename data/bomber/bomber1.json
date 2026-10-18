@@ -574,19 +574,8 @@
           }
         },
         {
-          "display": "パグ",
-          "prompt": "E",
-          "image": {
-            "src": "/bomber-img/2926f784037f.jpg",
-            "author": "Abuk SABUK",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fawn_pug_2.5year-old.JPG"
-          }
-        },
-        {
           "display": "ゴールデン・レトリーバー",
-          "prompt": "F",
+          "prompt": "E",
           "accept": [
             "ゴールデンレトリーバー",
             "ゴールデンレトリバー",
@@ -599,6 +588,17 @@
             "license": "CC BY 2.0",
             "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Retriever_Carlos_(10581910556).jpg"
+          }
+        },
+        {
+          "display": "パグ",
+          "prompt": "F",
+          "image": {
+            "src": "/bomber-img/2926f784037f.jpg",
+            "author": "Abuk SABUK",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fawn_pug_2.5year-old.JPG"
           }
         },
         {
@@ -803,12 +803,16 @@
       "panels": true,
       "answers": [
         {
+          "display": "ぼたん",
+          "prompt": "牡丹"
+        },
+        {
           "display": "あじさい",
           "prompt": "紫陽花"
         },
         {
-          "display": "ぼたん",
-          "prompt": "牡丹"
+          "display": "つくし",
+          "prompt": "土筆"
         },
         {
           "display": "コスモス",
@@ -816,14 +820,6 @@
           "accept": [
             "あきざくら"
           ]
-        },
-        {
-          "display": "つくし",
-          "prompt": "土筆"
-        },
-        {
-          "display": "たんぽぽ",
-          "prompt": "蒲公英"
         },
         {
           "display": "あやめ",
@@ -837,16 +833,20 @@
           "prompt": "山茶花"
         },
         {
+          "display": "たんぽぽ",
+          "prompt": "蒲公英"
+        },
+        {
           "display": "りんどう",
           "prompt": "竜胆"
         },
         {
-          "display": "つつじ",
-          "prompt": "躑躅"
-        },
-        {
           "display": "さるすべり",
           "prompt": "百日紅"
+        },
+        {
+          "display": "つつじ",
+          "prompt": "躑躅"
         }
       ]
     },

@@ -501,6 +501,16 @@
           ]
         },
         {
+          "display": "宮島",
+          "prompt": "日本三景：松島・天橋立・□□",
+          "accept": [
+            "厳島",
+            "安芸の宮島",
+            "みやじま",
+            "にっぽんさんけい：まつしま・あまのはしだて・みやじま"
+          ]
+        },
+        {
           "display": "トリュフ",
           "prompt": "世界三大珍味：キャビア・フォアグラ・□□□□",
           "accept": [
@@ -514,16 +524,6 @@
             "おののこまち",
             "せかいさんだいびじょ：くれおぱとら・ようきひ・おのこまち",
             "おのこまち"
-          ]
-        },
-        {
-          "display": "宮島",
-          "prompt": "日本三景：松島・天橋立・□□",
-          "accept": [
-            "厳島",
-            "安芸の宮島",
-            "みやじま",
-            "にっぽんさんけい：まつしま・あまのはしだて・みやじま"
           ]
         },
         {
@@ -637,21 +637,12 @@
       "panels": true,
       "answers": [
         {
-          "display": "応",
-          "prompt": "臨機□変",
+          "display": "口",
+          "prompt": "異□同音",
           "accept": [
-            "臨機応変",
-            "りんきおうへん",
-            "おう"
-          ]
-        },
-        {
-          "display": "刀",
-          "prompt": "単□直入",
-          "accept": [
-            "単刀直入",
-            "かたな",
-            "たんとうちょくにゅう"
+            "異口同音",
+            "くち",
+            "いくどうおん"
           ]
         },
         {
@@ -664,12 +655,21 @@
           ]
         },
         {
-          "display": "晩",
-          "prompt": "大器□成",
+          "display": "霧",
+          "prompt": "五里□中",
           "accept": [
-            "大器晩成",
-            "ばん",
-            "たいきばんせい"
+            "きり",
+            "五里霧中",
+            "ごりむちゅう"
+          ]
+        },
+        {
+          "display": "応",
+          "prompt": "臨機□変",
+          "accept": [
+            "臨機応変",
+            "りんきおうへん",
+            "おう"
           ]
         },
         {
@@ -682,21 +682,21 @@
           ]
         },
         {
-          "display": "口",
-          "prompt": "異□同音",
+          "display": "刀",
+          "prompt": "単□直入",
           "accept": [
-            "異口同音",
-            "くち",
-            "いくどうおん"
+            "単刀直入",
+            "かたな",
+            "たんとうちょくにゅう"
           ]
         },
         {
-          "display": "霧",
-          "prompt": "五里□中",
+          "display": "晩",
+          "prompt": "大器□成",
           "accept": [
-            "きり",
-            "五里霧中",
-            "ごりむちゅう"
+            "大器晩成",
+            "ばん",
+            "たいきばんせい"
           ]
         },
         {
@@ -746,8 +746,19 @@
           }
         },
         {
-          "display": "ボロネーゼ",
+          "display": "カルボナーラ",
           "prompt": "B",
+          "image": {
+            "src": "/bomber-img/f2b5a4d0c6a9.jpg",
+            "author": "Javier Somoza",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg"
+          }
+        },
+        {
+          "display": "ボロネーゼ",
+          "prompt": "C",
           "accept": [
             "ミートソース",
             "ミートソーススパゲッティ",
@@ -758,17 +769,6 @@
             "author": "Chingon",
             "license": "Public domain",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_Bolognese.jpg"
-          }
-        },
-        {
-          "display": "カルボナーラ",
-          "prompt": "C",
-          "image": {
-            "src": "/bomber-img/f2b5a4d0c6a9.jpg",
-            "author": "Javier Somoza",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg"
           }
         },
         {
@@ -787,21 +787,8 @@
           }
         },
         {
-          "display": "ラザニア",
-          "prompt": "E",
-          "accept": [
-            "ラザーニャ"
-          ],
-          "image": {
-            "src": "/bomber-img/9a807a13791e.jpg",
-            "author": "Jon Sullivan (PDphoto.org)",
-            "license": "Public domain",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lasagna.jpg"
-          }
-        },
-        {
           "display": "ペペロンチーノ",
-          "prompt": "F",
+          "prompt": "E",
           "accept": [
             "アーリオ・オーリオ・ペペロンチーノ",
             "アーリオオーリオ"
@@ -812,6 +799,19 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_aglio_e_olio_KB.jpg"
+          }
+        },
+        {
+          "display": "ラザニア",
+          "prompt": "F",
+          "accept": [
+            "ラザーニャ"
+          ],
+          "image": {
+            "src": "/bomber-img/9a807a13791e.jpg",
+            "author": "Jon Sullivan (PDphoto.org)",
+            "license": "Public domain",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lasagna.jpg"
           }
         },
         {
@@ -963,16 +963,16 @@
           ]
         },
         {
-          "display": "ユーロ",
-          "prompt": "フランス"
-        },
-        {
           "display": "ポンド",
           "prompt": "イギリス",
           "accept": [
             "英ポンド",
             "イギリスポンド"
           ]
+        },
+        {
+          "display": "ユーロ",
+          "prompt": "フランス"
         },
         {
           "display": "ウォン",

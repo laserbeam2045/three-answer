@@ -277,23 +277,23 @@
       "panels": true,
       "answers": [
         {
-          "display": "ようかん",
-          "prompt": "羊羹"
-        },
-        {
-          "display": "うどん",
-          "prompt": "饂飩"
+          "display": "てんぷら",
+          "prompt": "天麩羅",
+          "accept": [
+            "天ぷら"
+          ]
         },
         {
           "display": "そうめん",
           "prompt": "素麺"
         },
         {
-          "display": "てんぷら",
-          "prompt": "天麩羅",
-          "accept": [
-            "天ぷら"
-          ]
+          "display": "うどん",
+          "prompt": "饂飩"
+        },
+        {
+          "display": "ようかん",
+          "prompt": "羊羹"
         },
         {
           "display": "わさび",
@@ -364,6 +364,13 @@
           ]
         },
         {
+          "display": "本州",
+          "prompt": "いちばん大きい島",
+          "accept": [
+            "ほんしゅう"
+          ]
+        },
+        {
           "display": "関東平野",
           "prompt": "いちばん大きい平野",
           "accept": [
@@ -371,10 +378,10 @@
           ]
         },
         {
-          "display": "本州",
-          "prompt": "いちばん大きい島",
+          "display": "利根川",
+          "prompt": "いちばん流域面積が広い川",
           "accept": [
-            "ほんしゅう"
+            "とねがわ"
           ]
         },
         {
@@ -383,13 +390,6 @@
           "accept": [
             "青函",
             "せいかんとんねる"
-          ]
-        },
-        {
-          "display": "利根川",
-          "prompt": "いちばん流域面積が広い川",
-          "accept": [
-            "とねがわ"
           ]
         },
         {
@@ -609,17 +609,17 @@
           ]
         },
         {
-          "display": "亜鉛",
-          "prompt": "Zn",
-          "accept": [
-            "あえん"
-          ]
-        },
-        {
           "display": "水銀",
           "prompt": "Hg",
           "accept": [
             "すいぎん"
+          ]
+        },
+        {
+          "display": "亜鉛",
+          "prompt": "Zn",
+          "accept": [
+            "あえん"
           ]
         },
         {

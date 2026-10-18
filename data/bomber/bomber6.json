@@ -525,8 +525,22 @@
           }
         },
         {
-          "display": "ダビデ像",
+          "display": "考える人",
           "prompt": "E",
+          "image": {
+            "src": "/bomber-img/133e7968b345.jpg",
+            "author": "Romainbehar",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris_1er_-_Mus%C3%A9e_du_Louvre_-_Exposition_Michel-Ange_Rodin_-_Corps_vivants_-_Le_Penseur_(Auguste_Rodin)_01.jpg"
+          },
+          "accept": [
+            "かんがえるひと"
+          ]
+        },
+        {
+          "display": "ダビデ像",
+          "prompt": "F",
           "accept": [
             "ダビデ",
             "だびでぞう"
@@ -538,20 +552,6 @@
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michelangelo%27s_David_2015.jpg"
           }
-        },
-        {
-          "display": "考える人",
-          "prompt": "F",
-          "image": {
-            "src": "/bomber-img/133e7968b345.jpg",
-            "author": "Romainbehar",
-            "license": "CC0",
-            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paris_1er_-_Mus%C3%A9e_du_Louvre_-_Exposition_Michel-Ange_Rodin_-_Corps_vivants_-_Le_Penseur_(Auguste_Rodin)_01.jpg"
-          },
-          "accept": [
-            "かんがえるひと"
-          ]
         },
         {
           "display": "小便小僧",
@@ -685,6 +685,15 @@
           ]
         },
         {
+          "display": "筆",
+          "prompt": "弘法にも□の誤り",
+          "accept": [
+            "ふで",
+            "弘法にも筆の誤り",
+            "ぐほうにもふでのあやまり"
+          ]
+        },
+        {
           "display": "釘",
           "prompt": "糠に□",
           "accept": [
@@ -702,15 +711,6 @@
             "暖簾に腕押し",
             "のれんに腕押し",
             "のれんにうでおし"
-          ]
-        },
-        {
-          "display": "筆",
-          "prompt": "弘法にも□の誤り",
-          "accept": [
-            "ふで",
-            "弘法にも筆の誤り",
-            "ぐほうにもふでのあやまり"
           ]
         },
         {

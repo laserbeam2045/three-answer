@@ -8,13 +8,6 @@
       "panels": true,
       "answers": [
         {
-          "display": "未確認飛行物体",
-          "prompt": "UFO",
-          "accept": [
-            "みかくにんひこうぶったい"
-          ]
-        },
-        {
           "display": "日本放送協会",
           "prompt": "NHK",
           "accept": [
@@ -26,6 +19,13 @@
           "prompt": "JR",
           "accept": [
             "にっぽんりょかくてつどう"
+          ]
+        },
+        {
+          "display": "未確認飛行物体",
+          "prompt": "UFO",
+          "accept": [
+            "みかくにんひこうぶったい"
           ]
         },
         {
@@ -52,26 +52,12 @@
           ]
         },
         {
-          "display": "デオキシリボ核酸",
-          "prompt": "DNA",
-          "accept": [
-            "でおきしりぼかくさん"
-          ]
-        },
-        {
           "display": "国連児童基金",
           "prompt": "UNICEF",
           "accept": [
             "国際連合児童基金",
             "ユニセフ",
             "こくれんじどうききん"
-          ]
-        },
-        {
-          "display": "宇宙航空研究開発機構",
-          "prompt": "JAXA",
-          "accept": [
-            "うちゅうこうくうけんきゅうかいはつきこう"
           ]
         },
         {
@@ -82,6 +68,20 @@
             "ユネスコ",
             "こくれんきょういくかがくぶんかきかん"
           ]
+        },
+        {
+          "display": "宇宙航空研究開発機構",
+          "prompt": "JAXA",
+          "accept": [
+            "うちゅうこうくうけんきゅうかいはつきこう"
+          ]
+        },
+        {
+          "display": "デオキシリボ核酸",
+          "prompt": "DNA",
+          "accept": [
+            "でおきしりぼかくさん"
+          ]
         }
       ]
     },
@@ -90,18 +90,18 @@
       "panels": true,
       "answers": [
         {
-          "display": "ニュートン",
-          "prompt": "万有引力",
-          "accept": [
-            "アイザック・ニュートン"
-          ]
-        },
-        {
           "display": "ライト兄弟",
           "prompt": "飛行機",
           "accept": [
             "ライト",
             "ライトきょうだい"
+          ]
+        },
+        {
+          "display": "ニュートン",
+          "prompt": "万有引力",
+          "accept": [
+            "アイザック・ニュートン"
           ]
         },
         {
@@ -112,8 +112,13 @@
           ]
         },
         {
-          "display": "コペルニクス",
-          "prompt": "地動説"
+          "display": "ベル",
+          "prompt": "電話",
+          "accept": [
+            "グラハム・ベル",
+            "グラハムベル",
+            "アレクサンダー・グラハム・ベル"
+          ]
         },
         {
           "display": "ダーウィン",
@@ -123,19 +128,14 @@
           ]
         },
         {
+          "display": "コペルニクス",
+          "prompt": "地動説"
+        },
+        {
           "display": "ノーベル",
           "prompt": "ダイナマイト",
           "accept": [
             "アルフレッド・ノーベル"
-          ]
-        },
-        {
-          "display": "ベル",
-          "prompt": "電話",
-          "accept": [
-            "グラハム・ベル",
-            "グラハムベル",
-            "アレクサンダー・グラハム・ベル"
           ]
         },
         {
@@ -198,6 +198,14 @@
           "reading": "つばき"
         },
         {
+          "display": "桐",
+          "prompt": "同",
+          "accept": [
+            "きり"
+          ],
+          "reading": "きり"
+        },
+        {
           "display": "楓",
           "prompt": "風",
           "accept": [
@@ -213,14 +221,6 @@
             "ひいらぎ"
           ],
           "reading": "ひいらぎ"
-        },
-        {
-          "display": "桐",
-          "prompt": "同",
-          "accept": [
-            "きり"
-          ],
-          "reading": "きり"
         },
         {
           "display": "楠",
@@ -429,22 +429,8 @@
       "panels": true,
       "answers": [
         {
-          "display": "タンポポ",
-          "prompt": "A",
-          "accept": [
-            "蒲公英"
-          ],
-          "image": {
-            "src": "/bomber-img/01c0e9e7fb62.jpg",
-            "author": "Wikimedia Commons の投稿者",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:L%C3%B6wenzahn_uhf.JPG"
-          }
-        },
-        {
           "display": "桜",
-          "prompt": "B",
+          "prompt": "A",
           "accept": [
             "さくら",
             "サクラ",
@@ -456,6 +442,20 @@
             "license": "CC BY-SA 4.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:2020-04-07_Prunus_%C3%97_yedoensis_Tambasasayama,Hyogo(%E4%B8%B9%E6%B3%A2%E7%AF%A0%E5%B1%B1%E5%B8%82%E7%AF%A0%E5%B1%B1%E5%B7%9D%E3%81%AE%E3%82%BD%E3%83%A1%E3%82%A4%E3%83%A8%E3%82%B7%E3%83%8E)DSCF2986%E2%98%86%E5%BD%A1.jpg"
+          }
+        },
+        {
+          "display": "タンポポ",
+          "prompt": "B",
+          "accept": [
+            "蒲公英"
+          ],
+          "image": {
+            "src": "/bomber-img/01c0e9e7fb62.jpg",
+            "author": "Wikimedia Commons の投稿者",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:L%C3%B6wenzahn_uhf.JPG"
           }
         },
         {
@@ -561,24 +561,8 @@
       "panels": true,
       "answers": [
         {
-          "display": "カナダ",
-          "prompt": "加奈陀"
-        },
-        {
           "display": "フランス",
           "prompt": "仏蘭西"
-        },
-        {
-          "display": "イタリア",
-          "prompt": "伊太利"
-        },
-        {
-          "display": "ロシア",
-          "prompt": "露西亜"
-        },
-        {
-          "display": "ドイツ",
-          "prompt": "独逸"
         },
         {
           "display": "イギリス",
@@ -588,32 +572,52 @@
           ]
         },
         {
-          "display": "エジプト",
-          "prompt": "埃及"
+          "display": "イタリア",
+          "prompt": "伊太利"
+        },
+        {
+          "display": "ドイツ",
+          "prompt": "独逸"
+        },
+        {
+          "display": "カナダ",
+          "prompt": "加奈陀"
+        },
+        {
+          "display": "ロシア",
+          "prompt": "露西亜"
         },
         {
           "display": "スペイン",
           "prompt": "西班牙"
         },
         {
-          "display": "オランダ",
-          "prompt": "和蘭"
-        },
-        {
           "display": "メキシコ",
           "prompt": "墨西哥"
         },
         {
-          "display": "トルコ",
-          "prompt": "土耳古"
+          "display": "オランダ",
+          "prompt": "和蘭"
+        },
+        {
+          "display": "エジプト",
+          "prompt": "埃及"
         },
         {
           "display": "ポルトガル",
           "prompt": "葡萄牙"
         },
         {
+          "display": "ブラジル",
+          "prompt": "伯剌西爾"
+        },
+        {
           "display": "スイス",
           "prompt": "瑞西"
+        },
+        {
+          "display": "トルコ",
+          "prompt": "土耳古"
         },
         {
           "display": "ギリシャ",
@@ -621,10 +625,6 @@
           "accept": [
             "ギリシア"
           ]
-        },
-        {
-          "display": "ブラジル",
-          "prompt": "伯剌西爾"
         }
       ]
     },
@@ -632,6 +632,15 @@
       "q": "パネルのマンガの作者を答えてください（姓だけでも可）。",
       "panels": true,
       "answers": [
+        {
+          "display": "手塚治虫",
+          "prompt": "鉄腕アトム",
+          "accept": [
+            "手塚",
+            "てづかおさむ",
+            "てづか"
+          ]
+        },
         {
           "display": "鳥山明",
           "prompt": "ドラゴンボール",
@@ -646,15 +655,6 @@
           "prompt": "ちびまる子ちゃん",
           "accept": [
             "さくら"
-          ]
-        },
-        {
-          "display": "手塚治虫",
-          "prompt": "鉄腕アトム",
-          "accept": [
-            "手塚",
-            "てづかおさむ",
-            "てづか"
           ]
         },
         {

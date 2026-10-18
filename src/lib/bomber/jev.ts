@@ -11,7 +11,7 @@ import { acceptedForms, fillPrompt, normalizeAnswer } from "./match";
 const ENDPOINT = "https://api.typesafe.ai/v1/systemone";
 /** これ未満の確率なら採用しない（迷っている判定で正解にしない） */
 export const JEV_MIN_PROBABILITY = 0.75;
-const TIMEOUT_MS = 4000;
+const TIMEOUT_MS = 2500;
 
 /**
  * 1回の問い合わせで聞く候補の上限。候補ごとに質問を作るため、答えが多い問題（ポケモン151匹など）を

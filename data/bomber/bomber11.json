@@ -974,21 +974,21 @@
           ]
         },
         {
-          "display": "説法",
-          "prompt": "釈迦に□□",
-          "accept": [
-            "せっぽう",
-            "釈迦に説法",
-            "しゃかにせっぽう"
-          ]
-        },
-        {
           "display": "衣装",
           "prompt": "馬子にも□□",
           "accept": [
             "いしょう",
             "馬子にも衣装",
             "まごにもいしょう"
+          ]
+        },
+        {
+          "display": "説法",
+          "prompt": "釈迦に□□",
+          "accept": [
+            "せっぽう",
+            "釈迦に説法",
+            "しゃかにせっぽう"
           ]
         },
         {
@@ -1042,13 +1042,6 @@
           ]
         },
         {
-          "display": "米寿",
-          "prompt": "88歳",
-          "accept": [
-            "べいじゅ"
-          ]
-        },
-        {
           "display": "喜寿",
           "prompt": "77歳",
           "accept": [
@@ -1056,10 +1049,17 @@
           ]
         },
         {
-          "display": "白寿",
-          "prompt": "99歳",
+          "display": "傘寿",
+          "prompt": "80歳",
           "accept": [
-            "はくじゅ"
+            "さんじゅ"
+          ]
+        },
+        {
+          "display": "米寿",
+          "prompt": "88歳",
+          "accept": [
+            "べいじゅ"
           ]
         },
         {
@@ -1070,10 +1070,10 @@
           ]
         },
         {
-          "display": "傘寿",
-          "prompt": "80歳",
+          "display": "白寿",
+          "prompt": "99歳",
           "accept": [
-            "さんじゅ"
+            "はくじゅ"
           ]
         },
         {
@@ -1311,15 +1311,6 @@
           ]
         },
         {
-          "display": "本",
-          "prompt": "□家□元",
-          "accept": [
-            "本家本元",
-            "ほん",
-            "ほんけほんもと"
-          ]
-        },
-        {
           "display": "正",
           "prompt": "□真□銘",
           "accept": [
@@ -1335,6 +1326,24 @@
             "はん",
             "半信半疑",
             "はんしんはんぎ"
+          ]
+        },
+        {
+          "display": "絶",
+          "prompt": "□体□命",
+          "accept": [
+            "絶体絶命",
+            "ぜっ",
+            "ぜったいぜつめい"
+          ]
+        },
+        {
+          "display": "本",
+          "prompt": "□家□元",
+          "accept": [
+            "本家本元",
+            "ほん",
+            "ほんけほんもと"
           ]
         },
         {
@@ -1374,15 +1383,6 @@
           ]
         },
         {
-          "display": "絶",
-          "prompt": "□体□命",
-          "accept": [
-            "絶体絶命",
-            "ぜっ",
-            "ぜったいぜつめい"
-          ]
-        },
-        {
           "display": "不",
           "prompt": "□撓□屈",
           "accept": [
@@ -1399,19 +1399,8 @@
       "panels": true,
       "answers": [
         {
-          "display": "トング",
-          "prompt": "A",
-          "image": {
-            "src": "/bomber-img/8834146de44e.jpg",
-            "author": "Think Fast at English Wikipedia",
-            "license": "CC BY-SA 3.0",
-            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tongs2.JPG"
-          }
-        },
-        {
           "display": "洗濯ばさみ",
-          "prompt": "B",
+          "prompt": "A",
           "accept": [
             "洗濯バサミ",
             "せんたくばさみ"
@@ -1422,6 +1411,17 @@
             "license": "CC BY-SA 3.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clothespin-2459e.jpg"
+          }
+        },
+        {
+          "display": "トング",
+          "prompt": "B",
+          "image": {
+            "src": "/bomber-img/8834146de44e.jpg",
+            "author": "Think Fast at English Wikipedia",
+            "license": "CC BY-SA 3.0",
+            "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tongs2.JPG"
           }
         },
         {
@@ -1440,22 +1440,8 @@
           }
         },
         {
-          "display": "イーゼル",
-          "prompt": "D",
-          "accept": [
-            "画架"
-          ],
-          "image": {
-            "src": "/bomber-img/b9756f059ca3.jpg",
-            "author": "W.carter",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foldable_table_easel_in_Tuntorp_1.jpg"
-          }
-        },
-        {
           "display": "ちょうつがい",
-          "prompt": "E",
+          "prompt": "D",
           "accept": [
             "蝶番",
             "ヒンジ"
@@ -1466,6 +1452,20 @@
             "license": "CC BY-SA 3.0",
             "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
             "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scharnier_lossepen001.jpg"
+          }
+        },
+        {
+          "display": "イーゼル",
+          "prompt": "E",
+          "accept": [
+            "画架"
+          ],
+          "image": {
+            "src": "/bomber-img/b9756f059ca3.jpg",
+            "author": "W.carter",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foldable_table_easel_in_Tuntorp_1.jpg"
           }
         },
         {
