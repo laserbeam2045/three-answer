@@ -7,6 +7,8 @@ import { storeErrorResponse } from "../storeError";
 import { allSets, getSet } from "@/lib/sets";
 
 export const runtime = "nodejs";
+// 保存先（Upstash Redis）が東京にあるので、関数も東京で動かす（米国東部だと1回の読み書きに約150msかかっていた）
+export const preferredRegion = "hnd1";
 export const dynamic = "force-dynamic";
 
 const tokenGen = customAlphabet(
