@@ -22,6 +22,8 @@
 - 状態管理: Upstash Redis (REST, `@upstash/redis`)。環境変数 `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`（Vercel Marketplace 統合の `KV_REST_API_URL` / `KV_REST_API_TOKEN` にもフォールバック）。
 - **ローカル開発時は環境変数が無ければ in-memory ストアに自動フォールバック**（`next dev` の単一プロセスで動作）。
 - リアルタイム同期: クライアントがGETポーリング。WebSocketなし。間隔は画面ごとに変える（ファイブボンバーの回答中は約0.5秒、ロビー・結果画面は約1.5秒、それ以外は約1秒、タブを裏に回しているときは5秒）。
+- **関数のリージョンは東京（hnd1）**（`vercel.json` の `regions`）。保存先の Upstash Redis が東京にあり、既定の米国東部（iad1）で動かすと1回の読み込みに約150msかかってサイトが重かった（東京にしたら約5ms）。状態取得 API は `Server-Timing`（load / mutate / redact）で処理時間を返すので、重いときはまずこれを見る。ルートの `preferredRegion` だけでは無料プランでは効かなかった。
+- ポーリングで同じ状態が返ってきたときは画面を描き直さない（`useRoom` の `acceptState`）。
 - **Redis の月間リクエスト数の節約**: Upstash の無料枠（月50万回）を使い切って、ルームに接続できなくなったことがある。ポーリング1回では、在席の記録・有効期限の延長・在席の読み込み・ルームの読み込みを1つの Lua スクリプト（`touchAndLoad`）で行い、状態が変わったときだけ2回目（CAS書き込み）を使う。保存先に接続できないときは 503 と理由を返し、画面に表示する（`storeError.ts`）。
 - 問題データ: `data/sets/*.json` に静的同梱（ビルドに含める）。
 
