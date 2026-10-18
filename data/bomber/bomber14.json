@@ -685,45 +685,73 @@
       "answers": [
         {
           "display": "したたる",
-          "prompt": "滴る"
+          "prompt": "滴る",
+          "accept": [
+            "したた"
+          ]
         },
         {
           "display": "とどこおる",
-          "prompt": "滞る"
+          "prompt": "滞る",
+          "accept": [
+            "とどこお"
+          ]
         },
         {
           "display": "あなどる",
-          "prompt": "侮る"
+          "prompt": "侮る",
+          "accept": [
+            "あなど"
+          ]
         },
         {
           "display": "うけたまわる",
-          "prompt": "承る"
+          "prompt": "承る",
+          "accept": [
+            "うけたまわ"
+          ]
         },
         {
           "display": "はかどる",
-          "prompt": "捗る"
+          "prompt": "捗る",
+          "accept": [
+            "はかど"
+          ]
         },
         {
           "display": "ひるがえる",
-          "prompt": "翻る"
+          "prompt": "翻る",
+          "accept": [
+            "ひるがえ"
+          ]
         },
         {
           "display": "あざける",
-          "prompt": "嘲る"
+          "prompt": "嘲る",
+          "accept": [
+            "あざけ"
+          ]
         },
         {
           "display": "みなぎる",
-          "prompt": "漲る"
+          "prompt": "漲る",
+          "accept": [
+            "みなぎ"
+          ]
         },
         {
           "display": "さえずる",
-          "prompt": "囀る"
+          "prompt": "囀る",
+          "accept": [
+            "さえず"
+          ]
         },
         {
           "display": "おもんぱかる",
           "prompt": "慮る",
           "accept": [
-            "おもんばかる"
+            "おもんばかる",
+            "おもんぱか"
           ]
         }
       ]

@@ -768,43 +768,73 @@
       "answers": [
         {
           "display": "りりしい",
-          "prompt": "凛凛しい"
+          "prompt": "凛凛しい",
+          "accept": [
+            "りり"
+          ]
         },
         {
           "display": "みずみずしい",
-          "prompt": "瑞瑞しい"
+          "prompt": "瑞瑞しい",
+          "accept": [
+            "みずみず"
+          ]
         },
         {
           "display": "そうぞうしい",
-          "prompt": "騒騒しい"
+          "prompt": "騒騒しい",
+          "accept": [
+            "そうぞう"
+          ]
         },
         {
           "display": "しらじらしい",
-          "prompt": "白白しい"
+          "prompt": "白白しい",
+          "accept": [
+            "しらじら"
+          ]
         },
         {
           "display": "とげとげしい",
-          "prompt": "刺刺しい"
+          "prompt": "刺刺しい",
+          "accept": [
+            "とげとげ"
+          ]
         },
         {
           "display": "ういういしい",
-          "prompt": "初初しい"
+          "prompt": "初初しい",
+          "accept": [
+            "ういうい"
+          ]
         },
         {
           "display": "ぎょうぎょうしい",
-          "prompt": "仰仰しい"
+          "prompt": "仰仰しい",
+          "accept": [
+            "ぎょうぎょう"
+          ]
         },
         {
           "display": "こうごうしい",
-          "prompt": "神神しい"
+          "prompt": "神神しい",
+          "accept": [
+            "こうごう"
+          ]
         },
         {
           "display": "たけだけしい",
-          "prompt": "猛猛しい"
+          "prompt": "猛猛しい",
+          "accept": [
+            "たけだけ"
+          ]
         },
         {
           "display": "けばけばしい",
-          "prompt": "毳毳しい"
+          "prompt": "毳毳しい",
+          "accept": [
+            "けばけば"
+          ]
         }
       ]
     },

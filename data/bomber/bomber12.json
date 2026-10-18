@@ -634,43 +634,73 @@
       "answers": [
         {
           "display": "とぎれる",
-          "prompt": "途切れる"
+          "prompt": "途切れる",
+          "accept": [
+            "とぎ"
+          ]
         },
         {
           "display": "みとれる",
-          "prompt": "見蕩れる"
+          "prompt": "見蕩れる",
+          "accept": [
+            "みと"
+          ]
         },
         {
           "display": "うぬぼれる",
-          "prompt": "自惚れる"
+          "prompt": "自惚れる",
+          "accept": [
+            "うぬぼ"
+          ]
         },
         {
           "display": "たそがれる",
-          "prompt": "黄昏れる"
+          "prompt": "黄昏れる",
+          "accept": [
+            "たそが"
+          ]
         },
         {
           "display": "くたびれる",
-          "prompt": "草臥れる"
+          "prompt": "草臥れる",
+          "accept": [
+            "くたび"
+          ]
         },
         {
           "display": "うなだれる",
-          "prompt": "項垂れる"
+          "prompt": "項垂れる",
+          "accept": [
+            "うなだ"
+          ]
         },
         {
           "display": "しぐれる",
-          "prompt": "時雨れる"
+          "prompt": "時雨れる",
+          "accept": [
+            "しぐ"
+          ]
         },
         {
           "display": "もつれる",
-          "prompt": "縺れる"
+          "prompt": "縺れる",
+          "accept": [
+            "もつ"
+          ]
         },
         {
           "display": "わるびれる",
-          "prompt": "悪怯れる"
+          "prompt": "悪怯れる",
+          "accept": [
+            "わるび"
+          ]
         },
         {
           "display": "にこぼれる",
-          "prompt": "煮零れる"
+          "prompt": "煮零れる",
+          "accept": [
+            "にこぼ"
+          ]
         }
       ]
     },
