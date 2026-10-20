@@ -4,6 +4,13 @@ import { applyAction, EngineError, normalizeRoom, tick } from "@/lib/engine";
 import { cleanAnswerInput, questionNeedingAi } from "@/lib/bomber/engine";
 import { judgeWithJev } from "@/lib/bomber/jev";
 import { loadMojiPool } from "@/lib/moji/pool";
+import {
+  MOJI_DEFAULT_RATE_MAX,
+  MOJI_DEFAULT_RATE_MIN,
+  MOJI_MAX_PLAYERS,
+  MOJI_MIN_PLAYERS,
+  mojiRateBuckets,
+} from "@/lib/moji/engine";
 import type { MojiQuestion } from "@/lib/types";
 import { redact } from "@/lib/redact";
 import { getStore, RoomNotFoundError } from "@/lib/store";
@@ -39,6 +46,7 @@ const VALID_TYPES = new Set([
   "bomberKick",
   "bomberAnswer",
   "setMojiSeconds",
+  "setMojiRate",
   "mojiJoin",
   "mojiLeave",
   "mojiKick",
@@ -98,8 +106,17 @@ export async function POST(
     }
 
     // ひと文字リーグの開始・次の問題では、人数に合う問題を選ぶために候補を読み込んでおく
+    // （いなくなった人が外れて人数が減ることがあるので、今の人数と1人少ない人数の分を読む。正答率は選んだ範囲の分だけ）
     let mojiPool: MojiQuestion[] | undefined;
-    if (current.mode === "moji" && (action.type === "start" || action.type === "next")) mojiPool = await loadMojiPool();
+    if (current.mode === "moji" && (action.type === "start" || action.type === "next") && !seen(current)) {
+      const probe = structuredClone(current);
+      normalizeRoom(probe);
+      tick(probe, presence, now, getSet);
+      const n = probe.mojiPlayers?.length ?? 0;
+      const lengths = [n, n - 1].filter((l) => l >= MOJI_MIN_PLAYERS && l <= MOJI_MAX_PLAYERS);
+      const { mojiRateMin = MOJI_DEFAULT_RATE_MIN, mojiRateMax = MOJI_DEFAULT_RATE_MAX } = probe.settings;
+      if (lengths.length > 0) mojiPool = await loadMojiPool(lengths, mojiRateBuckets(mojiRateMin, mojiRateMax));
+    }
 
     // AI 判定を待った場合は、その間にほかの人の操作が入っているかもしれないので読み直す
     const state = await store.mutate(

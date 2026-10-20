@@ -249,7 +249,7 @@ export interface RoomState {
   answers: Record<Role, AnswerState>;
   results: QuestionResult[];
   /** bomberSecondsPerAnswer: ファイブボンバーの答え1つあたりの秒数（制限時間 = これ × 答える数） */
-  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number };
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number; mojiRateMin?: number; mojiRateMax?: number };
   mode: GameMode;
   /** ファイブボンバーの参加者（参加順。回答はこの順に回る） */
   bomberPlayers: string[];
@@ -290,6 +290,7 @@ export type Action =
   | { type: "bomberKick"; id: string }
   | { type: "bomberAnswer"; text: string }
   | { type: "setMojiSeconds"; seconds: number }
+  | { type: "setMojiRate"; min: number; max: number }
   | { type: "mojiJoin" }
   | { type: "mojiLeave" }
   | { type: "mojiKick"; id: string }
@@ -351,7 +352,7 @@ export interface RedactedState {
   allHands: Record<Role, string[]> | null; // resultsフェーズ or 観戦reveal時
   history: { result: QuestionResult; question: RevealedQuestion }[] | null; // resultsフェーズ
   score: number | null; // resultsフェーズ
-  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number };
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number; mojiRateMin?: number; mojiRateMax?: number };
   mode: GameMode;
   /** 現在のモードのセットの問題数 */
   questionCount: number;

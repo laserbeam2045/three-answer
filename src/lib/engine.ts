@@ -40,6 +40,7 @@ import {
   mojiTick,
   normalizeMoji,
   setMojiSeconds,
+  setMojiRate,
   type MojiPool,
 } from "./moji/engine";
 
@@ -216,7 +217,8 @@ export function applyAction(
       action.type === "mojiKick" ||
       action.type === "mojiInput" ||
       action.type === "mojiLock" ||
-      action.type === "setMojiSeconds")
+      action.type === "setMojiSeconds" ||
+      action.type === "setMojiRate")
   )
     throw new EngineError("ひと文字リーグのモードではありません");
   if (
@@ -411,6 +413,8 @@ export function applyAction(
 
     case "setMojiSeconds":
       return setMojiSeconds(state, token, action.seconds);
+    case "setMojiRate":
+      return setMojiRate(state, token, action.min, action.max);
     case "mojiJoin":
       return mojiJoin(state, token);
     case "mojiLeave":

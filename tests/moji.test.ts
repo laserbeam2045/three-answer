@@ -106,6 +106,31 @@ describe("ひと文字リーグ", () => {
     expect(s.gameRecords.at(-1)).toMatchObject({ mode: "moji", score: 0, total: MOJI_GAME_LENGTH * 10 });
   });
 
+  it("ロビーで選んだ正答率の範囲の問題だけが出る", () => {
+    const mixed: MojiQuestion[] = [
+      { id: 201, q: "やさしい", answer: "あい", reading: "あい", rate: 95 },
+      { id: 202, q: "ふつう", answer: "うえ", reading: "うえ", rate: 65 },
+      { id: 203, q: "むずかしい", answer: "おか", reading: "おか", rate: 12 },
+    ];
+    const s = createRoom("rm3", HOST, "ホスト", 0);
+    const all = [HOST, "p1"];
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presenceFor(all, now), now, getSet, allSets, undefined, undefined, mixed);
+    run(HOST, { type: "setMode", mode: "moji" }, 0);
+    run(HOST, { type: "mojiJoin" }, 0);
+    run("p1", { type: "mojiJoin" }, 0);
+    expect(() => run("p1", { type: "setMojiRate", min: 70, max: 100 }, 0)).toThrow("ルーム作成者");
+    expect(() => run(HOST, { type: "setMojiRate", min: 70, max: 70 }, 0)).toThrow("正しくありません");
+    expect(() => run(HOST, { type: "setMojiRate", min: 15, max: 70 }, 0)).toThrow("正しくありません");
+    run(HOST, { type: "setMojiRate", min: 90, max: 100 }, 0);
+    run(HOST, { type: "start" }, 0);
+    expect(s.mojiCurrent!.id).toBe(201);
+    run(HOST, { type: "backToLobby" }, 1);
+    run(HOST, { type: "setMojiRate", min: 0, max: 30 }, 1);
+    run(HOST, { type: "start" }, 1);
+    expect(s.mojiCurrent!.id).toBe(203);
+  });
+
   it("2人未満では始められない", () => {
     const { run } = room(["p1"]);
     expect(() => run(HOST, { type: "start" }, 0)).toThrow("2人以上");

@@ -110,6 +110,8 @@ export function useRoom(roomId: string): UseRoomResult {
         return { ...s, settings: { ...s.settings, bomberSecondsPerAnswer: action.seconds } };
       case "setMojiSeconds":
         return { ...s, settings: { ...s.settings, mojiSeconds: action.seconds } };
+      case "setMojiRate":
+        return { ...s, settings: { ...s.settings, mojiRateMin: action.min, mojiRateMax: action.max } };
       case "mojiLock":
         if (s.phase === "question" && s.moji.round) {
           return { ...s, moji: { ...s.moji, round: { ...s.moji.round, myLocked: action.locked } } };

@@ -16,6 +16,20 @@ export const MOJI_GAME_LENGTH = 10;
 export const MOJI_POINTS = 10;
 export const MOJI_SECONDS_OPTIONS = [15, 20, 30, 45, 60];
 export const MOJI_DEFAULT_SECONDS = 30;
+/** 出題する問題の正答率の範囲（%）。10%きざみで、下限以上・上限未満（上限100のときは100%も含む） */
+export const MOJI_RATE_STEP = 10;
+export const MOJI_DEFAULT_RATE_MIN = 60;
+export const MOJI_DEFAULT_RATE_MAX = 70;
+/** 正答率（%、切り捨て）の10%きざみの区切り。100% は 90〜100% に入れる */
+export function mojiRateBucket(rate: number): number {
+  return Math.min(9, Math.max(0, Math.floor(rate / MOJI_RATE_STEP)));
+}
+/** 範囲に入る区切りの一覧 */
+export function mojiRateBuckets(min: number, max: number): number[] {
+  const out: number[] = [];
+  for (let b = min / MOJI_RATE_STEP; b < max / MOJI_RATE_STEP; b++) out.push(b);
+  return out;
+}
 /** この時間ポーリングが途絶えた参加者は、タブを閉じた・通信が切れたとみなして外す */
 export const MOJI_GONE_MS = 15_000;
 
@@ -29,6 +43,8 @@ export function normalizeMoji(state: RoomState): void {
   state.mojiResults ??= [];
   state.mojiUsedIds ??= [];
   state.settings.mojiSeconds ??= MOJI_DEFAULT_SECONDS;
+  state.settings.mojiRateMin ??= MOJI_DEFAULT_RATE_MIN;
+  state.settings.mojiRateMax ??= MOJI_DEFAULT_RATE_MAX;
 }
 
 /** 中止を除いた、終わった問題の数 */
@@ -45,11 +61,14 @@ function requireHost(state: RoomState, token: string, message: string): void {
   if (token !== state.hostToken) throw new EngineError(message);
 }
 
-/** 人数と読みの文字数が同じ、まだ出していない問題を1つ選ぶ */
+/** 人数と読みの文字数が同じで、正答率が選んだ範囲に入る、まだ出していない問題を1つ選ぶ */
 function pickQuestion(state: RoomState, pool: MojiPool, n: number, random: () => number): MojiQuestion {
   const used = new Set(state.mojiUsedIds);
-  const cands = pool.filter((q) => readingChars(q.reading).length === n && !used.has(q.id));
-  if (cands.length === 0) throw new EngineError(`${n}人で遊べる問題がもうありません`);
+  const buckets = new Set(mojiRateBuckets(state.settings.mojiRateMin ?? MOJI_DEFAULT_RATE_MIN, state.settings.mojiRateMax ?? MOJI_DEFAULT_RATE_MAX));
+  const cands = pool.filter(
+    (q) => readingChars(q.reading).length === n && buckets.has(mojiRateBucket(q.rate)) && !used.has(q.id)
+  );
+  if (cands.length === 0) throw new EngineError(`この正答率の範囲で${n}人で遊べる問題がもうありません`);
   return cands[Math.floor(random() * cands.length)];
 }
 
@@ -230,6 +249,15 @@ export function mojiLock(state: RoomState, token: string, locked: boolean, now: 
   const input = myInput(state, token, now);
   if (locked && !input.char) throw new EngineError("文字を入れてから決定してください");
   input.locked = locked;
+}
+
+export function setMojiRate(state: RoomState, token: string, min: number, max: number): void {
+  if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
+  requireHost(state, token, "正答率の範囲はルーム作成者のみ変更できます");
+  const ok = (v: number) => Number.isInteger(v) && v >= 0 && v <= 100 && v % MOJI_RATE_STEP === 0;
+  if (!ok(min) || !ok(max) || min >= max) throw new EngineError("正答率の範囲が正しくありません");
+  state.settings.mojiRateMin = min;
+  state.settings.mojiRateMax = max;
 }
 
 export function setMojiSeconds(state: RoomState, token: string, seconds: number): void {

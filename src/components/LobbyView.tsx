@@ -9,7 +9,8 @@ import BomberPlayersPanel from "@/components/bomber/BomberPlayersPanel";
 import BomberRulesContent from "@/components/bomber/BomberRulesContent";
 import MojiPlayersPanel from "@/components/moji/MojiPlayersPanel";
 import MojiRulesContent from "@/components/moji/MojiRulesContent";
-import { MOJI_DEFAULT_SECONDS, MOJI_MAX_PLAYERS, MOJI_MIN_PLAYERS, MOJI_SECONDS_OPTIONS } from "@/lib/moji/engine";
+import MojiRatePanel, { mojiAvailable } from "@/components/moji/MojiRatePanel";
+import { MOJI_DEFAULT_RATE_MAX, MOJI_DEFAULT_RATE_MIN, MOJI_DEFAULT_SECONDS, MOJI_MAX_PLAYERS, MOJI_MIN_PLAYERS, MOJI_SECONDS_OPTIONS } from "@/lib/moji/engine";
 import { BOMBER_MAX_PLAYERS, BOMBER_SECONDS_PER_ANSWER_OPTIONS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { GameMode, Role } from "@/lib/types";
 
@@ -88,6 +89,14 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
   const startReasons: string[] = [];
   if (isMoji) {
     if (state.moji.players.length < MOJI_MIN_PLAYERS) startReasons.push(`参加者が${MOJI_MIN_PLAYERS}人以上必要です`);
+    else if (
+      mojiAvailable(
+        state.moji.players.length,
+        state.settings.mojiRateMin ?? MOJI_DEFAULT_RATE_MIN,
+        state.settings.mojiRateMax ?? MOJI_DEFAULT_RATE_MAX
+      ) === 0
+    )
+      startReasons.push("この正答率の範囲には、いまの人数で遊べる問題がありません");
     const inactive = state.moji.players.filter((p) => !p.active);
     if (inactive.length > 0) {
       startReasons.push(`${inactive.map((p) => p.name).join("・")}さんが席を離れています`);
@@ -211,6 +220,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
 
       {isBomber && <BomberPlayersPanel room={room} />}
       {isMoji && <MojiPlayersPanel room={room} />}
+      {isMoji && <MojiRatePanel room={room} />}
 
       {/* 3. 席パネル */}
       {state.mode === "three" && (

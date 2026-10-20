@@ -19,7 +19,7 @@ export default function MojiRulesContent() {
           全員の文字が正しければ正解。{MOJI_MIN_PLAYERS}〜{MOJI_MAX_PLAYERS}人で遊べます。
         </p>
         <p>
-          問題は、正答率がだいたい60〜70%のものから、<strong className="text-gold">読みの文字数が参加人数と同じ</strong>ものが自動で選ばれます（3人なら3文字の答え）。
+          問題は、ロビーで選んだ正答率の範囲（最初は60〜70%）から、<strong className="text-gold">読みの文字数が参加人数と同じ</strong>ものが自動で選ばれます（3人なら3文字の答え）。正答率が高いほどやさしい問題です。
         </p>
       </RuleSection>
       <RuleSection title="答え方">
