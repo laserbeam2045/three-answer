@@ -12,6 +12,9 @@ import RoomHeader from "@/components/RoomHeader";
 import BomberQuestionView from "@/components/bomber/BomberQuestionView";
 import BomberJudgingView from "@/components/bomber/BomberJudgingView";
 import BomberResultsView from "@/components/bomber/BomberResultsView";
+import MojiQuestionView from "@/components/moji/MojiQuestionView";
+import MojiJudgingView from "@/components/moji/MojiJudgingView";
+import MojiResultsView from "@/components/moji/MojiResultsView";
 
 export default function RoomPage({ params }: { params: Promise<{ roomId: string }> }) {
   const { roomId } = use(params);
@@ -54,6 +57,12 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
             {state.phase === "judging" && <BomberJudgingView room={room} />}
             {state.phase === "results" && <BomberResultsView room={room} />}
           </>
+        ) : state.mode === "moji" ? (
+          <>
+            {state.phase === "question" && <MojiQuestionView room={room} />}
+            {state.phase === "judging" && <MojiJudgingView room={room} />}
+            {state.phase === "results" && <MojiResultsView room={room} />}
+          </>
         ) : (
           <>
             {state.phase === "question" && <QuestionView room={room} />}
@@ -62,7 +71,7 @@ export default function RoomPage({ params }: { params: Promise<{ roomId: string 
           </>
         )}
       </div>
-      {state.mode !== "bomber" && state.phase === "question" && state.pausedRoles.length > 0 && (
+      {state.mode === "three" && state.phase === "question" && state.pausedRoles.length > 0 && (
         <PauseOverlay room={room} />
       )}
       {connectionError && (

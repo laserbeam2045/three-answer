@@ -16,6 +16,9 @@ import { normalizeRoom, roleOf } from "./engine";
 import { allBomberSets as defaultAllBomberSets, getBomberSet as defaultGetBomberSet } from "./sets";
 import { maxBomberPoints, nextPlayer, roundPoints, totalBomberPoints } from "./bomber/engine";
 import { BOMBER_SLOTS } from "./bomber/match";
+import type { MojiResult, MojiRevealed, MojiView } from "./types";
+import { MOJI_GAME_LENGTH, MOJI_MAX_PLAYERS, MOJI_MIN_PLAYERS, mojiDoneCount, mojiScore } from "./moji/engine";
+import { readingChars } from "./moji/kana";
 
 /**
  * 判定・結果画面で見せる正解の数の上限。ひみつ道具（3,000個以上）のように答えが多い問題で
@@ -49,8 +52,9 @@ export function redact(
   normalizeRoom(state);
   const myRole = roleOf(state, token);
   const isBomber = state.mode === "bomber";
+  const isMoji = state.mode === "moji";
   // set はスリーアンサーのセット。ファイブボンバー中は undefined になり、手札などは返らない
-  const set = state.setId && !isBomber ? getSet(state.setId) : undefined;
+  const set = state.setId && state.mode === "three" ? getSet(state.setId) : undefined;
   const bomberSet = state.setId && isBomber ? getBomberSet(state.setId) : undefined;
   const isSpectator = myRole === null;
 
@@ -67,7 +71,7 @@ export function redact(
 
   // ファイブボンバーでは参加者、スリーアンサーでは着席者以外が観戦者
   const seatTokens = new Set<string | undefined>(
-    isBomber ? state.bomberPlayers : Object.values(state.seats)
+    isBomber ? state.bomberPlayers : isMoji ? (state.mojiPlayers ?? []) : Object.values(state.seats)
   );
   const spectators = Object.entries(state.clients)
     .filter(([t]) => !seatTokens.has(t))
@@ -111,7 +115,9 @@ export function redact(
     timer: state.timer,
     pausedRoles: state.pausedRoles,
     question:
-      state.phase === "question" && (set || bomberSet)
+      state.phase === "question" && isMoji && state.mojiCurrent
+        ? { q: state.mojiCurrent.q, qLength: state.mojiCurrent.q.length }
+        : state.phase === "question" && (set || bomberSet)
         ? {
             q: (set ?? bomberSet)!.questions[state.qIndex].q,
             qLength: (set ?? bomberSet)!.questions[state.qIndex].q.length,
@@ -131,8 +137,72 @@ export function redact(
     score: isResults && !isBomber ? state.results.filter((r) => r.correct).length : null,
     settings: state.settings,
     mode: state.mode,
-    questionCount: (isBomber ? bomberSet?.questions.length : set?.questions.length) ?? (isBomber ? 10 : 20),
+    questionCount: isMoji ? MOJI_GAME_LENGTH : ((isBomber ? bomberSet?.questions.length : set?.questions.length) ?? (isBomber ? 10 : 20)),
     bomber: bomberView(state, presence, token, now, bomberSet, allBomberSets),
+    moji: mojiView(state, presence, token, now),
+  };
+}
+
+/** ひと文字リーグの画面用の状態。出題中は答え（読み）も、ほかの人が書いた文字も返さない */
+function mojiView(state: RoomState, presence: PresenceMap, token: string, now: number): MojiView {
+  const nameOf = (t: string) => state.clients[t]?.name ?? "（退出した人）";
+  const round = state.phase === "question" ? state.mojiRound : null;
+  const players = (state.mojiPlayers ?? []).map((t) => {
+    const pos = round ? round.participants.indexOf(t) : -1;
+    const input = round?.inputs[t];
+    return {
+      token: t,
+      name: nameOf(t),
+      active: isActive(presence[t], now),
+      isYou: t === token,
+      position: pos >= 0 ? pos : null,
+      locked: input?.locked ?? false,
+      typed: !!input?.char,
+    };
+  });
+  const reveal = (r: MojiResult): MojiRevealed => {
+    const expected = readingChars(r.question.reading);
+    return {
+      qIndex: r.qIndex,
+      q: r.question.q,
+      answer: r.question.answer,
+      reading: r.question.reading,
+      rate: r.question.rate,
+      status: r.status,
+      chars: r.participants.map((t, i) => ({
+        name: nameOf(t),
+        isYou: t === token,
+        input: r.inputs[i],
+        expected: [...r.question.reading.normalize("NFKC")][i] ?? expected[i] ?? "",
+        correct: r.correct[i],
+      })),
+    };
+  };
+  const results = state.mojiResults ?? [];
+  const last = results[results.length - 1];
+  const mine = round?.inputs[token];
+  const myPos = round ? round.participants.indexOf(token) : -1;
+  const { score, total } = mojiScore(state);
+  return {
+    players,
+    isPlayer: (state.mojiPlayers ?? []).includes(token),
+    minPlayers: MOJI_MIN_PLAYERS,
+    maxPlayers: MOJI_MAX_PLAYERS,
+    gameLength: MOJI_GAME_LENGTH,
+    doneCount: mojiDoneCount(state),
+    round: round
+      ? {
+          length: round.participants.length,
+          myPosition: myPos >= 0 ? myPos : null,
+          myChar: mine?.char ?? null,
+          myLocked: mine?.locked ?? false,
+          waiting: state.timer?.paused ?? false,
+        }
+      : null,
+    judged: state.phase === "judging" && last && last.qIndex === state.qIndex ? reveal(last) : null,
+    history: state.phase === "results" ? results.map(reveal) : null,
+    score,
+    total,
   };
 }
 

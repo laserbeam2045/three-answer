@@ -300,11 +300,11 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
                 >
                   <span className="text-muted text-xs w-12 shrink-0">{i + 1}戦目</span>
                   <span className="font-bold truncate min-w-0">
-                    {meta?.title ?? r.setId}
+                    {r.setId === "moji" ? "ひと文字リーグ" : meta?.title ?? r.setId}
                   </span>
                   <span className="ml-auto shrink-0 font-black text-gold">
                     {r.score}
-                    {r.mode === "bomber" && "点"}
+                    {r.mode !== "three" && "点"}
                     <span className="text-muted font-normal text-xs"> / {r.total}</span>
                   </span>
                   <span className="text-muted text-xs shrink-0 hidden sm:inline">

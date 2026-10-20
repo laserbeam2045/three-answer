@@ -3,6 +3,8 @@ import type { Action, BomberAnswerHint } from "@/lib/types";
 import { applyAction, EngineError, normalizeRoom, tick } from "@/lib/engine";
 import { cleanAnswerInput, questionNeedingAi } from "@/lib/bomber/engine";
 import { judgeWithJev } from "@/lib/bomber/jev";
+import { loadMojiPool } from "@/lib/moji/pool";
+import type { MojiQuestion } from "@/lib/types";
 import { redact } from "@/lib/redact";
 import { getStore, RoomNotFoundError } from "@/lib/store";
 import { storeErrorResponse } from "../../storeError";
@@ -36,6 +38,12 @@ const VALID_TYPES = new Set([
   "bomberRest",
   "bomberKick",
   "bomberAnswer",
+  "setMojiSeconds",
+  "mojiJoin",
+  "mojiLeave",
+  "mojiKick",
+  "mojiInput",
+  "mojiLock",
 ]);
 
 export async function POST(
@@ -89,6 +97,10 @@ export async function POST(
       }
     }
 
+    // ひと文字リーグの開始・次の問題では、人数に合う問題を選ぶために候補を読み込んでおく
+    let mojiPool: MojiQuestion[] | undefined;
+    if (current.mode === "moji" && (action.type === "start" || action.type === "next")) mojiPool = await loadMojiPool();
+
     // AI 判定を待った場合は、その間にほかの人の操作が入っているかもしれないので読み直す
     const state = await store.mutate(
       roomId,
@@ -97,7 +109,7 @@ export async function POST(
         if (seen(s)) return false;
         // アクション適用前にも遅延遷移（期限切れ等）を評価する
         tick(s, presence, now, getSet);
-        applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint);
+        applyAction(s, token, action, presence, now, getSet, allSets, getBomberSet, bomberHint, mojiPool);
         tick(s, presence, now, getSet);
         if (actionId) s.recentActionIds = [...(s.recentActionIds ?? []), actionId].slice(-40);
         return true;

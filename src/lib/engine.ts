@@ -26,6 +26,21 @@ import {
   type GetBomberSet,
 } from "./bomber/engine";
 import { BOMBER_DEFAULT_SECONDS_PER_ANSWER } from "./bomber/match";
+import {
+  MOJI_DEFAULT_SECONDS,
+  mojiBackToLobby,
+  mojiInput,
+  mojiJoin,
+  mojiKick,
+  mojiLeave,
+  mojiLock,
+  mojiNext,
+  mojiStart,
+  mojiTick,
+  normalizeMoji,
+  setMojiSeconds,
+  type MojiPool,
+} from "./moji/engine";
 
 export { EngineError };
 
@@ -59,11 +74,16 @@ export function createRoom(
     pausedRoles: [],
     answers: freshAnswers(),
     results: [],
-    settings: { answerSeconds: 45, bomberSecondsPerAnswer: BOMBER_DEFAULT_SECONDS_PER_ANSWER },
+    settings: { answerSeconds: 45, bomberSecondsPerAnswer: BOMBER_DEFAULT_SECONDS_PER_ANSWER, mojiSeconds: MOJI_DEFAULT_SECONDS },
     mode: "three",
     bomberPlayers: [],
     bomberRound: null,
     bomberResults: [],
+    mojiPlayers: [],
+    mojiCurrent: null,
+    mojiRound: null,
+    mojiResults: [],
+    mojiUsedIds: [],
   };
 }
 
@@ -80,6 +100,7 @@ export function normalizeRoom(state: RoomState): void {
   }
   // 以前は「1問あたりの秒数」（bomberSeconds）だった。答え1つあたりに変えたので、無ければ既定値にする
   state.settings.bomberSecondsPerAnswer ??= BOMBER_DEFAULT_SECONDS_PER_ANSWER;
+  normalizeMoji(state);
 }
 
 export function roleOf(state: RoomState, token: string): Role | null {
@@ -107,6 +128,7 @@ export function tick(
 ): boolean {
   normalizeRoom(state);
   if (state.mode === "bomber") return bomberTick(state, presence, now);
+  if (state.mode === "moji") return mojiTick(state, presence, now);
 
   let changed = false;
 
@@ -174,15 +196,28 @@ export function applyAction(
   getSet: (id: string) => QuestionSet | undefined,
   allSets: () => QuestionSet[],
   getBomberSet: GetBomberSet = defaultGetBomberSet,
-  bomberHint?: BomberAnswerHint
+  bomberHint?: BomberAnswerHint,
+  /** ひと文字リーグの問題の候補（開始・次の問題で使う。サーバーが読み込んで渡す） */
+  mojiPool?: MojiPool
 ): void {
   normalizeRoom(state);
   ensureClient(state, token);
   const role = roleOf(state, token);
   const bomber = state.mode === "bomber";
+  const moji = state.mode === "moji";
 
-  if (bomber && (action.type === "select" || action.type === "lock" || action.type === "unlock"))
+  if (state.mode !== "three" && (action.type === "select" || action.type === "lock" || action.type === "unlock"))
     throw new EngineError("このモードでは使えない操作です");
+  if (
+    !moji &&
+    (action.type === "mojiJoin" ||
+      action.type === "mojiLeave" ||
+      action.type === "mojiKick" ||
+      action.type === "mojiInput" ||
+      action.type === "mojiLock" ||
+      action.type === "setMojiSeconds")
+  )
+    throw new EngineError("ひと文字リーグのモードではありません");
   if (
     !bomber &&
     (action.type === "bomberJoin" ||
@@ -251,6 +286,7 @@ export function applyAction(
 
     case "start": {
       if (bomber) return bomberStart(state, token, presence, now, getBomberSet);
+      if (moji) return mojiStart(state, token, presence, now, mojiPool);
       if (state.phase !== "lobby") throw new EngineError("すでに開始しています");
       if (token !== state.hostToken)
         throw new EngineError("ルーム作成者のみゲームを開始できます");
@@ -303,6 +339,7 @@ export function applyAction(
 
     case "next": {
       if (bomber) return bomberNext(state, token, now, getBomberSet);
+      if (moji) return mojiNext(state, token, now, mojiPool);
       if (state.phase !== "judging") throw new EngineError("判定フェーズではありません");
       if (token !== state.hostToken)
         throw new EngineError("次へ進めるのはルーム作成者のみです");
@@ -326,6 +363,7 @@ export function applyAction(
 
     case "backToLobby": {
       if (bomber) return bomberBackToLobby(state, token);
+      if (moji) return mojiBackToLobby(state, token);
       if (state.phase !== "results") throw new EngineError("結果フェーズではありません");
       if (role === null && token !== state.hostToken)
         throw new EngineError("着席者またはホストのみ操作できます");
@@ -345,7 +383,7 @@ export function applyAction(
       if (state.phase !== "lobby") throw new EngineError("ロビーでのみ変更できます");
       if (token !== state.hostToken)
         throw new EngineError("ゲームの種類はルーム作成者のみ選べます");
-      if (action.mode !== "three" && action.mode !== "bomber")
+      if (action.mode !== "three" && action.mode !== "bomber" && action.mode !== "moji")
         throw new EngineError("不正なモードです");
       if (state.mode === action.mode) return;
       state.mode = action.mode;
@@ -369,6 +407,19 @@ export function applyAction(
 
     case "bomberAnswer":
       return bomberAnswer(state, token, action.text, now, getBomberSet, bomberHint);
+
+    case "setMojiSeconds":
+      return setMojiSeconds(state, token, action.seconds);
+    case "mojiJoin":
+      return mojiJoin(state, token);
+    case "mojiLeave":
+      return mojiLeave(state, token);
+    case "mojiKick":
+      return mojiKick(state, token, action.token);
+    case "mojiInput":
+      return mojiInput(state, token, action.char, now);
+    case "mojiLock":
+      return mojiLock(state, token, action.locked === true, now);
 
     default: {
       const _exhaustive: never = action;

@@ -108,6 +108,13 @@ export function useRoom(roomId: string): UseRoomResult {
         return { ...s, settings: { ...s.settings, answerSeconds: action.seconds } };
       case "setBomberSeconds":
         return { ...s, settings: { ...s.settings, bomberSecondsPerAnswer: action.seconds } };
+      case "setMojiSeconds":
+        return { ...s, settings: { ...s.settings, mojiSeconds: action.seconds } };
+      case "mojiLock":
+        if (s.phase === "question" && s.moji.round) {
+          return { ...s, moji: { ...s.moji, round: { ...s.moji.round, myLocked: action.locked } } };
+        }
+        return s;
       case "setMode":
         return s.mode === action.mode ? s : { ...s, mode: action.mode, setId: null };
       default:
@@ -174,6 +181,7 @@ export function useRoom(roomId: string): UseRoomResult {
     void poll();
     // ポーリングの間隔。保存先（Redis）の月間リクエスト数を節約するため、すぐには変わらない画面ほど空ける。
     // - ファイブボンバーの回答中: 爆弾が素早く回るので約0.5秒
+    // - ひと文字リーグの回答中: ほかの人の「決定」がすぐ見えるよう約0.7秒
     // - ロビー・結果画面: 約1.5秒
     // - それ以外: 約1秒
     // - タブを裏に回しているとき: 5秒（15秒通信が無いと自動で外れる判定に間に合う間隔）
@@ -185,7 +193,9 @@ export function useRoom(roomId: string): UseRoomResult {
         ? 5000
         : s?.mode === "bomber" && s.phase === "question"
           ? 450
-          : s?.phase === "lobby" || s?.phase === "results"
+          : s?.mode === "moji" && s.phase === "question"
+            ? 700
+            : s?.phase === "lobby" || s?.phase === "results"
             ? 1500
             : 950;
       const now = Date.now();

@@ -31,7 +31,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
   const canBack = isPlayer || state.you.isHost;
   const clearedCount = history.filter((h) => h.cleared).length;
   const titleOf = (setId: string) =>
-    [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
+    setId === "moji" ? "ひと文字リーグ" : [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
 
   const onBack = async () => {
     if (busy || !canBack) return;
@@ -153,7 +153,7 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
                 <span className="font-bold truncate min-w-0">{titleOf(r.setId)}</span>
                 <span className="ml-auto shrink-0 font-black text-gold">
                   {r.score}
-                  {r.mode === "bomber" && "点"}
+                  {r.mode !== "three" && "点"}
                   <span className="text-muted font-normal text-xs"> / {r.total}</span>
                 </span>
               </div>

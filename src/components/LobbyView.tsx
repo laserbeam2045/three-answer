@@ -7,6 +7,9 @@ import OrnateTitle from "@/components/OrnateTitle";
 import RulesContent from "@/components/RulesContent";
 import BomberPlayersPanel from "@/components/bomber/BomberPlayersPanel";
 import BomberRulesContent from "@/components/bomber/BomberRulesContent";
+import MojiPlayersPanel from "@/components/moji/MojiPlayersPanel";
+import MojiRulesContent from "@/components/moji/MojiRulesContent";
+import { MOJI_DEFAULT_SECONDS, MOJI_MAX_PLAYERS, MOJI_MIN_PLAYERS, MOJI_SECONDS_OPTIONS } from "@/lib/moji/engine";
 import { BOMBER_MAX_PLAYERS, BOMBER_SECONDS_PER_ANSWER_OPTIONS, BOMBER_SLOTS } from "@/lib/bomber/match";
 import type { GameMode, Role } from "@/lib/types";
 
@@ -21,6 +24,7 @@ const SECONDS_OPTIONS = [30, 45, 60, 90];
 const MODES: { mode: GameMode; title: string; desc: string }[] = [
   { mode: "three", title: "Three Answer", desc: "3人でカードを合体させて答える協力クイズ" },
   { mode: "bomber", title: "ファイブボンバー", desc: `1〜${BOMBER_MAX_PLAYERS}人で答えを5つつなぐリレークイズ` },
+  { mode: "moji", title: "ひと文字リーグ", desc: `${MOJI_MIN_PLAYERS}〜${MOJI_MAX_PLAYERS}人で1文字ずつ答えをつくる協力クイズ` },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -78,10 +82,17 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
   };
 
   const isBomber = state.mode === "bomber";
+  const isMoji = state.mode === "moji";
 
   // ---- 開始条件 ----
   const startReasons: string[] = [];
-  if (isBomber) {
+  if (isMoji) {
+    if (state.moji.players.length < MOJI_MIN_PLAYERS) startReasons.push(`参加者が${MOJI_MIN_PLAYERS}人以上必要です`);
+    const inactive = state.moji.players.filter((p) => !p.active);
+    if (inactive.length > 0) {
+      startReasons.push(`${inactive.map((p) => p.name).join("・")}さんが席を離れています`);
+    }
+  } else if (isBomber) {
     if (state.bomber.players.length === 0) startReasons.push("参加者がいません");
     const inactive = state.bomber.players.filter((p) => !p.active);
     if (inactive.length > 0) {
@@ -98,16 +109,20 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       );
     }
   }
-  if (!state.setId) {
+  if (!isMoji && !state.setId) {
     startReasons.push("問題セットを選択してください");
   }
   const canStart = startReasons.length === 0;
 
   const titleOf = (setId: string) =>
-    [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
+    setId === "moji" ? "ひと文字リーグ" : [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
   const setMeta = isBomber ? state.bomber.setMeta : state.setMeta;
-  const secondsOptions = isBomber ? BOMBER_SECONDS_PER_ANSWER_OPTIONS : SECONDS_OPTIONS;
-  const currentSeconds = isBomber ? state.settings.bomberSecondsPerAnswer : state.settings.answerSeconds;
+  const secondsOptions = isMoji ? MOJI_SECONDS_OPTIONS : isBomber ? BOMBER_SECONDS_PER_ANSWER_OPTIONS : SECONDS_OPTIONS;
+  const currentSeconds = isMoji
+    ? state.settings.mojiSeconds ?? MOJI_DEFAULT_SECONDS
+    : isBomber
+      ? state.settings.bomberSecondsPerAnswer
+      : state.settings.answerSeconds;
 
   let youChipMarked = false;
 
@@ -167,7 +182,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>ゲームの種類</SectionTitle>
         <HostOnlyNote show={!state.you.isHost} />
-        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
           {MODES.map((m) => {
             const selected = state.mode === m.mode;
             return (
@@ -195,9 +210,10 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       </section>
 
       {isBomber && <BomberPlayersPanel room={room} />}
+      {isMoji && <MojiPlayersPanel room={room} />}
 
       {/* 3. 席パネル */}
-      {!isBomber && (
+      {state.mode === "three" && (
       <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>プレイヤー席</SectionTitle>
         <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
@@ -271,7 +287,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         ) : (
           <div className="flex flex-wrap gap-2">
             {state.spectators.map((sp, i) => {
-              const youAreSpectator = isBomber ? !state.bomber.isPlayer : state.you.role === null;
+              const youAreSpectator = isMoji ? !state.moji.isPlayer : isBomber ? !state.bomber.isPlayer : state.you.role === null;
               const markYou = youAreSpectator && !youChipMarked && sp.name === state.you.name;
               if (markYou) youChipMarked = true;
               return (
@@ -298,7 +314,8 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
         )}
       </section>
 
-      {/* 5. 問題セット選択（ルーム作成者のみ操作可） */}
+      {/* 5. 問題セット選択（ルーム作成者のみ操作可）。ひと文字リーグは人数に合わせて自動で選ぶのでセットは無い */}
+      {!isMoji && (
       <section className="ornate-2 p-3 sm:p-5">
         <SectionTitle>問題セット</SectionTitle>
         <HostOnlyNote show={!state.you.isHost} />
@@ -346,6 +363,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
           })}
         </div>
       </section>
+      )}
 
       {/* 6. 制限時間設定（ルーム作成者のみ操作可） */}
       <section className="ornate-2 p-3 sm:p-5">
@@ -364,9 +382,11 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                   state.you.isHost
                     ? () =>
                         void send(
-                          isBomber
-                            ? { type: "setBomberSeconds", seconds: sec }
-                            : { type: "setAnswerSeconds", seconds: sec }
+                          isMoji
+                            ? { type: "setMojiSeconds", seconds: sec }
+                            : isBomber
+                              ? { type: "setBomberSeconds", seconds: sec }
+                              : { type: "setAnswerSeconds", seconds: sec }
                         )
                     : undefined
                 }
@@ -433,7 +453,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
                 <span className="text-ink truncate">{titleOf(rec.setId)}</span>
                 <span className="shrink-0 font-bold text-gold">
                   {rec.score}
-                  {rec.mode === "bomber" && "点"}{" "}
+                  {rec.mode !== "three" && "点"}{" "}
                   <span className="text-muted font-normal">/ {rec.total}</span>
                 </span>
               </li>
@@ -449,7 +469,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
             はじめての方へ ── ルールを見る
           </summary>
           <div className="px-4 sm:px-5 pb-5">
-            {isBomber ? <BomberRulesContent /> : <RulesContent />}
+            {isMoji ? <MojiRulesContent /> : isBomber ? <BomberRulesContent /> : <RulesContent />}
           </div>
         </details>
       </section>

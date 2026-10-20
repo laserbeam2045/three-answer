@@ -100,7 +100,43 @@ export interface BomberSet {
 
 // ---------- ルーム状態 ----------
 
-export type GameMode = "three" | "bomber";
+export type GameMode = "three" | "bomber" | "moji";
+
+// ---------- ひと文字リーグ（1人1文字ずつ答える） ----------
+
+/** ひと文字リーグの問題（クイズのデータベースから、正答率60〜70%で読みがかなのものを取り出したもの） */
+export interface MojiQuestion {
+  id: number;
+  q: string;
+  /** 正解の表記（漢字など） */
+  answer: string;
+  /** 答える読み（かな）。1人1文字ずつ、この文字数ぶんの人数で答える */
+  reading: string;
+  /** 元のデータでの正答率（%） */
+  rate: number;
+}
+
+export interface MojiInput {
+  char: string | null;
+  locked: boolean;
+}
+
+export interface MojiRoundState {
+  /** この問題に答える人（参加順）。i 番目の人が i 文字目を答える。途中参加の人は次の問題から */
+  participants: string[];
+  inputs: Record<string, MojiInput>;
+}
+
+export interface MojiResult {
+  qIndex: number;
+  question: MojiQuestion;
+  participants: string[];
+  /** participants と同じ並びの、それぞれが書いた文字 */
+  inputs: (string | null)[];
+  correct: boolean[];
+  /** cleared = 全員正解, failed = 誰かが不正解, cancelled = 答える人が抜けたので中止（得点に数えない） */
+  status: "cleared" | "failed" | "cancelled";
+}
 
 /** ファイブボンバーで1枠ぶん正解した記録 */
 export interface BomberSlot {
@@ -213,12 +249,20 @@ export interface RoomState {
   answers: Record<Role, AnswerState>;
   results: QuestionResult[];
   /** bomberSecondsPerAnswer: ファイブボンバーの答え1つあたりの秒数（制限時間 = これ × 答える数） */
-  settings: { answerSeconds: number; bomberSecondsPerAnswer: number };
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number };
   mode: GameMode;
   /** ファイブボンバーの参加者（参加順。回答はこの順に回る） */
   bomberPlayers: string[];
   bomberRound: BomberRoundState | null;
   bomberResults: BomberRoundResult[];
+  /** ひと文字リーグの参加者（参加順。この順に1文字目・2文字目…を答える） */
+  mojiPlayers?: string[];
+  /** 出題中・判定中の問題 */
+  mojiCurrent?: MojiQuestion | null;
+  mojiRound?: MojiRoundState | null;
+  mojiResults?: MojiResult[];
+  /** このゲームで出した問題の ID（同じ問題を出さない） */
+  mojiUsedIds?: number[];
 }
 
 // ---------- アクション ----------
@@ -243,7 +287,15 @@ export type Action =
   /** この問題だけお休みする（rest: true）／お休みをやめる（rest: false） */
   | { type: "bomberRest"; rest: boolean }
   | { type: "bomberKick"; token: string }
-  | { type: "bomberAnswer"; text: string };
+  | { type: "bomberAnswer"; text: string }
+  | { type: "setMojiSeconds"; seconds: number }
+  | { type: "mojiJoin" }
+  | { type: "mojiLeave" }
+  | { type: "mojiKick"; token: string }
+  /** 自分の担当の1文字を入れる（決定前なら何度でも変えられる） */
+  | { type: "mojiInput"; char: string }
+  /** 決定する（locked: true）／決定を取り消す（false） */
+  | { type: "mojiLock"; locked: boolean };
 
 // ---------- クライアントに返す状態（redact済み） ----------
 
@@ -297,11 +349,64 @@ export interface RedactedState {
   allHands: Record<Role, string[]> | null; // resultsフェーズ or 観戦reveal時
   history: { result: QuestionResult; question: RevealedQuestion }[] | null; // resultsフェーズ
   score: number | null; // resultsフェーズ
-  settings: { answerSeconds: number; bomberSecondsPerAnswer: number };
+  settings: { answerSeconds: number; bomberSecondsPerAnswer: number; mojiSeconds?: number };
   mode: GameMode;
   /** 現在のモードのセットの問題数 */
   questionCount: number;
   bomber: BomberView;
+  moji: MojiView;
+}
+
+// ---------- ひと文字リーグのクライアント向け状態 ----------
+
+export interface MojiPlayerView {
+  token: string;
+  name: string;
+  active: boolean;
+  isYou: boolean;
+  /** この問題で答える人なら何文字目か（0 から）。途中参加で次の問題からの人は null */
+  position: number | null;
+  /** 決定済みか（文字そのものは判定まで見せない） */
+  locked: boolean;
+  /** 何か入力しているか */
+  typed: boolean;
+}
+
+export interface MojiRevealed {
+  qIndex: number;
+  q: string;
+  answer: string;
+  reading: string;
+  rate: number;
+  status: MojiResult["status"];
+  /** 1文字ずつの結果（参加者の並び順） */
+  chars: { name: string; isYou: boolean; input: string | null; expected: string; correct: boolean }[];
+}
+
+export interface MojiView {
+  players: MojiPlayerView[];
+  isPlayer: boolean;
+  minPlayers: number;
+  maxPlayers: number;
+  /** 1ゲームの問題数 */
+  gameLength: number;
+  /** 中止を除いて、これまでに終わった問題の数 */
+  doneCount: number;
+  /** questionフェーズ中のみ */
+  round: {
+    length: number;
+    myPosition: number | null;
+    myChar: string | null;
+    myLocked: boolean;
+    /** 答える人が席を離れていて一時停止中 */
+    waiting: boolean;
+  } | null;
+  /** judgingフェーズ中のみ */
+  judged: MojiRevealed | null;
+  /** resultsフェーズ中のみ */
+  history: MojiRevealed[] | null;
+  score: number;
+  total: number;
 }
 
 // ---------- ファイブボンバーのクライアント向け状態 ----------

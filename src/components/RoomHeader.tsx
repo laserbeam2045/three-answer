@@ -86,7 +86,7 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
           <div className="shrink-0 text-center px-1">
             {inGame && (
               <span className="font-display font-extrabold text-gold text-sm sm:text-lg tracking-widest whitespace-nowrap">
-                第{state.qIndex + 1}問
+                第{state.mode === "moji" ? Math.min(state.moji.doneCount + (state.phase === "question" ? 1 : 0), state.moji.gameLength) : state.qIndex + 1}問
                 <span className="text-muted text-xs sm:text-sm font-normal font-sans"> / {state.questionCount}</span>
               </span>
             )}
@@ -103,7 +103,7 @@ export default function RoomHeader({ room }: { room: UseRoomResult }) {
               </span>
               <span className="hidden sm:inline">観戦者 {state.spectators.length}人</span>
             </span>
-            {isSpectator && state.mode !== "bomber" && state.phase !== "lobby" && (
+            {isSpectator && state.mode === "three" && state.phase !== "lobby" && (
               <button
                 type="button"
                 onClick={() => setSpectatorReveal(!spectatorReveal)}
