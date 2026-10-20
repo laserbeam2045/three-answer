@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { effectiveElapsed, revealMsFor, LEAD_IN_MS } from "@/lib/time";
+import { redact } from "@/lib/redact";
+import { publicIdOf } from "@/lib/publicId";
 import type {
   PresenceMap,
   QuestionSet,
@@ -334,5 +336,19 @@ describe("engine: バリデーション", () => {
     }
     expect(state.phase).toBe("results");
     expect(state.gameRecords[0]).toMatchObject({ setId: "set2", score: 0, total: 2 });
+  });
+});
+
+describe("redact: トークンを漏らさない", () => {
+  it("席にはほかの人のトークンではなく公開 ID を返す", () => {
+    const now = 1_000_000;
+    const state = setupQuestionPhase("set20", now);
+    const view = redact(state, activePresence(now), "tokB", now, getSet, allSets, false);
+    const json = JSON.stringify(view);
+    expect(json).not.toContain("tokA");
+    expect(json).not.toContain("tokC");
+    expect(view.you.token).toBe("tokB");
+    expect(view.seats.map((s) => s.id)).toEqual(["tokA", "tokB", "tokC"].map(publicIdOf));
+    expect(new Set(view.seats.map((s) => s.id)).size).toBe(3);
   });
 });

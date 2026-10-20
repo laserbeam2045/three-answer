@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { applyAction, createRoom, tick } from "@/lib/engine";
 import { redact } from "@/lib/redact";
+import { publicIdOf } from "@/lib/publicId";
 import { MOJI_GAME_LENGTH } from "@/lib/moji/engine";
 import { isSingleKana, normalizeKanaChar, readingChars } from "@/lib/moji/kana";
 import { allSets, getSet } from "@/lib/sets";
@@ -63,7 +64,7 @@ describe("ひと文字リーグ", () => {
     const at = s.timer!.revealMs;
     run("p1", { type: "mojiInput", char: "わ" }, at);
     const view = redact(s, presenceFor(all, at), "p2", at, getSet, allSets, false);
-    expect(view.moji.players.find((p) => p.token === "p1")!.typed).toBe(true);
+    expect(view.moji.players.find((p) => p.id === publicIdOf("p1"))!.typed).toBe(true);
     const json = JSON.stringify(view);
     expect(json).not.toContain(s.mojiCurrent!.answer);
     expect(view.moji.round!.myChar).toBeNull();
@@ -109,5 +110,22 @@ describe("ひと文字リーグ", () => {
     const { run } = room(["p1"]);
     expect(() => run(HOST, { type: "start" }, 0)).toThrow("2人以上");
   });
-});
 
+  it("ほかの人のトークンは返さず、外すときは公開 ID で指定する", () => {
+    const { s, run, all } = room(["p1-secret-token", "p2-secret-token"]);
+    run(HOST, { type: "start" }, 0);
+    const at = s.timer!.revealMs;
+    const view = redact(s, presenceFor(all, at), "p2-secret-token", at, getSet, allSets, false);
+    const json = JSON.stringify(view);
+    expect(json).not.toContain("p1-secret-token");
+    expect(json).not.toContain(HOST);
+    expect(view.moji.players.map((p) => p.id)).toEqual([publicIdOf("p1-secret-token"), publicIdOf("p2-secret-token")]);
+    // トークンそのものを送っても外れない
+    run(HOST, { type: "mojiKick", id: "p1-secret-token" }, at);
+    expect(s.mojiPlayers).toEqual(["p1-secret-token", "p2-secret-token"]);
+    // ルーム作成者以外は外せない
+    expect(() => run("p2-secret-token", { type: "mojiKick", id: publicIdOf("p1-secret-token") }, at)).toThrow("ルーム作成者");
+    run(HOST, { type: "mojiKick", id: publicIdOf("p1-secret-token") }, at);
+    expect(s.mojiPlayers).toEqual(["p2-secret-token"]);
+  });
+});

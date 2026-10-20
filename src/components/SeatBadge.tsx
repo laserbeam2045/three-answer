@@ -9,7 +9,7 @@ const ROLE_BG: Record<Role, string> = {
 };
 
 export default function SeatBadge({ seat, isYou }: { seat: SeatView; isYou: boolean }) {
-  const occupied = seat.token !== null;
+  const occupied = seat.id !== null;
 
   return (
     <div className="inline-flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-full">

@@ -203,9 +203,9 @@ export function mojiLeave(state: RoomState, token: string): void {
   removePlayer(state, token);
 }
 
-export function mojiKick(state: RoomState, token: string, target: string): void {
+export function mojiKick(state: RoomState, token: string, target: string | null): void {
   requireHost(state, token, "参加者を外せるのはルーム作成者のみです");
-  removePlayer(state, target);
+  if (target) removePlayer(state, target);
 }
 
 function myInput(state: RoomState, token: string, now: number) {

@@ -286,12 +286,13 @@ export type Action =
   | { type: "bomberLeave" }
   /** この問題だけお休みする（rest: true）／お休みをやめる（rest: false） */
   | { type: "bomberRest"; rest: boolean }
-  | { type: "bomberKick"; token: string }
+  /** id: 外す参加者の公開 ID（トークンではない） */
+  | { type: "bomberKick"; id: string }
   | { type: "bomberAnswer"; text: string }
   | { type: "setMojiSeconds"; seconds: number }
   | { type: "mojiJoin" }
   | { type: "mojiLeave" }
-  | { type: "mojiKick"; token: string }
+  | { type: "mojiKick"; id: string }
   /** 自分の担当の1文字を入れる（決定前なら何度でも変えられる） */
   | { type: "mojiInput"; char: string }
   /** 決定する（locked: true）／決定を取り消す（false） */
@@ -313,7 +314,8 @@ export interface RevealedQuestion extends RedactedQuestion {
 
 export interface SeatView {
   role: Role;
-  token: string | null;
+  /** 座っている人の公開 ID（空席なら null）。トークンはほかの人に見せない */
+  id: string | null;
   name: string | null;
   active: boolean;
   locked: boolean;
@@ -360,7 +362,8 @@ export interface RedactedState {
 // ---------- ひと文字リーグのクライアント向け状態 ----------
 
 export interface MojiPlayerView {
-  token: string;
+  /** 公開 ID（トークンではない） */
+  id: string;
   name: string;
   active: boolean;
   isYou: boolean;
@@ -412,7 +415,8 @@ export interface MojiView {
 // ---------- ファイブボンバーのクライアント向け状態 ----------
 
 export interface BomberPlayerView {
-  token: string;
+  /** 公開 ID（トークンではない） */
+  id: string;
   name: string;
   active: boolean;
   isYou: boolean;
@@ -474,7 +478,8 @@ export interface BomberView {
     slots: BomberSlotView[];
     /** 残りの枠を誰が答えるか（今の回答者から順に） */
     upcoming: string[];
-    turnToken: string;
+    /** 今の回答者の公開 ID */
+    turnId: string;
     turnName: string;
     isYourTurn: boolean;
     lastMiss: { name: string; text: string; reason: "wrong" | "dup"; seq: number } | null;

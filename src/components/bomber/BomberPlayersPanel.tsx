@@ -22,7 +22,7 @@ export default function BomberPlayersPanel({ room }: { room: UseRoomResult }) {
         <ol className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 mb-3">
           {players.map((p, i) => (
             <li
-              key={p.token}
+              key={p.id}
               className={`slot ${p.isYou ? "slot-you" : ""} flex items-center gap-1.5 px-2 py-2 min-w-0`}
             >
               <span className="font-display text-gold text-sm font-extrabold min-w-4 shrink-0 text-center tabular-nums">
@@ -40,7 +40,7 @@ export default function BomberPlayersPanel({ room }: { room: UseRoomResult }) {
               {state.you.isHost && !p.isYou && !p.active && (
                 <button
                   type="button"
-                  onClick={() => void send({ type: "bomberKick", token: p.token })}
+                  onClick={() => void send({ type: "bomberKick", id: p.id })}
                   className="ml-auto shrink-0 text-xs text-muted hover:text-ink underline"
                 >
                   外す

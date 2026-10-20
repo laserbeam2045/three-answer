@@ -116,7 +116,7 @@ export default function MojiQuestionView({ room }: { room: UseRoomResult }) {
             const mine = p.isYou;
             return (
               <li
-                key={p.token}
+                key={p.id}
                 className={`slot flex flex-col items-center gap-1 px-1 py-2 min-w-0 ${mine ? "slot-you" : ""} ${
                   p.locked ? "border-gold gold-glow" : ""
                 }`}
@@ -202,9 +202,9 @@ export default function MojiQuestionView({ room }: { room: UseRoomResult }) {
                 .filter((p) => !p.active)
                 .map((p) => (
                   <button
-                    key={p.token}
+                    key={p.id}
                     type="button"
-                    onClick={() => void send({ type: "mojiKick", token: p.token })}
+                    onClick={() => void send({ type: "mojiKick", id: p.id })}
                     className="btn-ghost px-4 py-2 text-sm m-1"
                   >
                     {p.name}さんを外す（この問題は中止）

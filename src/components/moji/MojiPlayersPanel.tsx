@@ -50,7 +50,7 @@ export default function MojiPlayersPanel({ room, compact = false }: { room: UseR
       ) : (
         <ol className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3">
           {players.map((p, i) => (
-            <li key={p.token} className={`slot ${p.isYou ? "slot-you" : ""} flex items-center gap-1.5 px-2 py-2 min-w-0`}>
+            <li key={p.id} className={`slot ${p.isYou ? "slot-you" : ""} flex items-center gap-1.5 px-2 py-2 min-w-0`}>
               <span className="font-display text-gold text-xs font-extrabold shrink-0 tabular-nums">{i + 1}文字目</span>
               <span
                 className={`w-2 h-2 rounded-full shrink-0 ${p.active ? "bg-player-c" : "bg-muted/50"}`}
@@ -63,7 +63,7 @@ export default function MojiPlayersPanel({ room, compact = false }: { room: UseR
               {state.you.isHost && !p.isYou && !p.active && (
                 <button
                   type="button"
-                  onClick={() => void send({ type: "mojiKick", token: p.token })}
+                  onClick={() => void send({ type: "mojiKick", id: p.id })}
                   className="ml-auto shrink-0 text-xs text-muted hover:text-ink underline"
                 >
                   外す

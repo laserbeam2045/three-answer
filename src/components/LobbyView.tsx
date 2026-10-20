@@ -99,10 +99,10 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
       startReasons.push(`${inactive.map((p) => p.name).join("・")}さんが席を離れています`);
     }
   } else {
-    if (state.seats.some((s) => !s.token)) {
+    if (state.seats.some((s) => !s.id)) {
       startReasons.push("3つの席がすべて埋まっていません");
     }
-    const inactiveSeats = state.seats.filter((s) => s.token && !s.active);
+    const inactiveSeats = state.seats.filter((s) => s.id && !s.active);
     if (inactiveSeats.length > 0) {
       startReasons.push(
         `${inactiveSeats.map((s) => s.name ?? `${s.role}席`).join("・")}さんが席を離れています`
@@ -220,7 +220,7 @@ export default function LobbyView({ room }: { room: UseRoomResult }) {
           {state.seats.map((seat) => {
             const style = SEAT_STYLES[seat.role];
             const isYou = seat.role === state.you.role;
-            const isEmpty = !seat.token;
+            const isEmpty = !seat.id;
             const isOtherInactive = !isEmpty && !isYou && !seat.active;
             return (
               <div

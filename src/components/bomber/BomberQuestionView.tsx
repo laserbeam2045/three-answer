@@ -326,7 +326,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
             {state.you.isHost ? (
               <button
                 type="button"
-                onClick={() => void send({ type: "bomberKick", token: round.turnToken })}
+                onClick={() => void send({ type: "bomberKick", id: round.turnId })}
                 className="btn-ghost px-4 py-2 text-sm"
               >
                 {round.turnName}さんを外して次の人へ

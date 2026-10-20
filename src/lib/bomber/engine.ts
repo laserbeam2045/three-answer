@@ -348,9 +348,9 @@ export function bomberLeave(state: RoomState, token: string): void {
   removePlayer(state, token);
 }
 
-export function bomberKick(state: RoomState, token: string, target: string): void {
+export function bomberKick(state: RoomState, token: string, target: string | null): void {
   requireHost(state, token, "参加者を外せるのはルーム作成者のみです");
-  removePlayer(state, target);
+  if (target) removePlayer(state, target);
 }
 
 export function setBomberSeconds(state: RoomState, token: string, seconds: number): void {

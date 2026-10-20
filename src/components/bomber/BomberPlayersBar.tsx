@@ -23,10 +23,10 @@ export default function BomberPlayersBar({ room }: { room: UseRoomResult }) {
     <section className="w-full flex flex-col sm:flex-row sm:items-center gap-2" onClick={(e) => e.stopPropagation()}>
       <ol className="flex-1 min-w-0 flex flex-wrap gap-1.5">
         {players.map((p, i) => {
-          const holding = round?.turnToken === p.token;
+          const holding = round?.turnId === p.id;
           return (
             <li
-              key={p.token}
+              key={p.id}
               className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs ${
                 holding ? "border-gold text-gold-2 bg-gold/10" : p.isYou ? "border-gold-3 text-ink" : "border-line text-ink/80"
               } ${p.resting ? "opacity-50" : ""}`}

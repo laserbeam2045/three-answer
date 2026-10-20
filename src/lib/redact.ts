@@ -19,6 +19,7 @@ import { BOMBER_SLOTS } from "./bomber/match";
 import type { MojiResult, MojiRevealed, MojiView } from "./types";
 import { MOJI_GAME_LENGTH, MOJI_MAX_PLAYERS, MOJI_MIN_PLAYERS, mojiDoneCount, mojiScore } from "./moji/engine";
 import { readingChars } from "./moji/kana";
+import { publicIdOf } from "./publicId";
 
 /**
  * 判定・結果画面で見せる正解の数の上限。ひみつ道具（3,000個以上）のように答えが多い問題で
@@ -62,7 +63,7 @@ export function redact(
     const t = state.seats[role] ?? null;
     return {
       role,
-      token: t,
+      id: t ? publicIdOf(t) : null,
       name: t ? (state.clients[t]?.name ?? null) : null,
       active: t ? isActive(presence[t], now) : false,
       locked: state.phase === "question" ? state.answers[role].locked : false,
@@ -151,7 +152,7 @@ function mojiView(state: RoomState, presence: PresenceMap, token: string, now: n
     const pos = round ? round.participants.indexOf(t) : -1;
     const input = round?.inputs[t];
     return {
-      token: t,
+      id: publicIdOf(t),
       name: nameOf(t),
       active: isActive(presence[t], now),
       isYou: t === token,
@@ -272,7 +273,7 @@ function bomberView(
       target: round.target,
       slots: round.slots.map((s) => slotView(s, state.qIndex)),
       upcoming,
-      turnToken: round.turnToken,
+      turnId: publicIdOf(round.turnToken),
       turnName: nameOf(round.turnToken),
       isYourTurn: round.turnToken === token,
       lastMiss: round.lastMiss
@@ -317,7 +318,7 @@ function bomberView(
       played: state.playedSetIds.includes(s.id),
     })),
     players: players.map((t) => ({
-      token: t,
+      id: publicIdOf(t),
       name: nameOf(t),
       active: isActive(presence[t], now),
       isYou: t === token,

@@ -11,6 +11,7 @@ import { ROLES, isActive } from "./types";
 import { judge } from "./judge";
 import { isExpired, newTimer, pauseTimer, resumeTimer } from "./time";
 import { EngineError } from "./errors";
+import { tokenByPublicId } from "./publicId";
 import { getBomberSet as defaultGetBomberSet } from "./sets";
 import {
   bomberAnswer,
@@ -403,7 +404,7 @@ export function applyAction(
       return bomberRest(state, token, action.rest === true);
 
     case "bomberKick":
-      return bomberKick(state, token, action.token);
+      return bomberKick(state, token, tokenByPublicId(state.bomberPlayers, action.id));
 
     case "bomberAnswer":
       return bomberAnswer(state, token, action.text, now, getBomberSet, bomberHint);
@@ -415,7 +416,7 @@ export function applyAction(
     case "mojiLeave":
       return mojiLeave(state, token);
     case "mojiKick":
-      return mojiKick(state, token, action.token);
+      return mojiKick(state, token, tokenByPublicId(state.mojiPlayers ?? [], action.id));
     case "mojiInput":
       return mojiInput(state, token, action.char, now);
     case "mojiLock":

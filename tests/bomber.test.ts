@@ -3,6 +3,7 @@ import { EngineError, applyAction, createRoom, tick } from "@/lib/engine";
 import { firstAnswerer, questionNeedingAi } from "@/lib/bomber/engine";
 import { BOMBER_MAX_PLAYERS, matchAnswer, matchAnswers, normalizeAnswer, slotsFor } from "@/lib/bomber/match";
 import { BOMBER_REVEAL_LIMIT, redact } from "@/lib/redact";
+import { publicIdOf } from "@/lib/publicId";
 import type { BomberQuestion, BomberSet, PresenceMap, QuestionSet, RoomState } from "@/lib/types";
 
 // ---------- フィクスチャ ----------
@@ -327,7 +328,7 @@ describe("ファイブボンバーの進行", () => {
     // 画面にはお休み中かどうかが出る
     act(s, "p2", { type: "bomberRest", rest: true }, answerAt);
     const view = redact(s, presenceFor([HOST, "p1", "p2"], answerAt), "p1", answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
-    expect(view.bomber.players.find((p) => p.token === "p2")?.resting).toBe(true);
+    expect(view.bomber.players.find((p) => p.id === publicIdOf("p2"))?.resting).toBe(true);
     expect(view.bomber.round!.upcoming.every((n) => n === "p1")).toBe(true);
   });
 
@@ -359,7 +360,7 @@ describe("ファイブボンバーの進行", () => {
 
   it("回答中の人が抜けたら爆弾は次の人へ。全員抜けたらロビーへ", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
-    act(s, HOST, { type: "bomberKick", token: "p1" }, answerAt);
+    act(s, HOST, { type: "bomberKick", id: publicIdOf("p1") }, answerAt);
     expect(s.bomberPlayers).toEqual(["p2", "p3"]);
     expect(s.bomberRound!.turnToken).toBe("p2");
     act(s, "p2", { type: "bomberLeave" }, answerAt);
@@ -576,8 +577,27 @@ describe("答える数と順番", () => {
     const { s, answerAt } = startedRoom(["p1", "p2", "p3", "p4", "p5"], 1_000_000, "bturn");
     for (let k = 0; k < 6; k++) act(s, s.bomberRound!.turnToken, { type: "bomberAnswer", text: `n${k + 1}` }, answerAt);
     expect(s.bomberRound!.turnToken).toBe("p2");
-    act(s, HOST, { type: "bomberKick", token: "p2" }, answerAt);
+    act(s, HOST, { type: "bomberKick", id: publicIdOf("p2") }, answerAt);
     expect(s.bomberRound!.turnToken).toBe("p3");
+  });
+
+  it("ほかの人のトークンは返さず、回答者や外す相手は公開 ID で指定する", () => {
+    const { s, answerAt } = startedRoom(["p1", "p2", "p3"]);
+    const presence = presenceFor([HOST, "p1", "p2", "p3"], answerAt);
+    const view = redact(s, presence, "p2", answerAt, getSet, allSets, false, getBomberSet, () => [bset]);
+    // 名前がトークンと同じなので、自分以外のところに token という項目がないことを確かめる
+    const { you, ...rest } = view;
+    expect(you.token).toBe("p2");
+    expect(JSON.stringify(rest)).not.toMatch(/token/i);
+    expect(JSON.stringify(rest)).not.toContain(HOST);
+    expect(view.bomber.players.map((p) => p.id)).toEqual(["p1", "p2", "p3"].map(publicIdOf));
+    expect(view.bomber.round!.turnId).toBe(publicIdOf("p1"));
+    // トークンそのものを送っても外れない
+    act(s, HOST, { type: "bomberKick", id: "p3" }, answerAt);
+    expect(s.bomberPlayers).toEqual(["p1", "p2", "p3"]);
+    expect(() => act(s, "p2", { type: "bomberKick", id: publicIdOf("p3") }, answerAt)).toThrow(EngineError);
+    act(s, HOST, { type: "bomberKick", id: view.bomber.round!.turnId }, answerAt);
+    expect(s.bomberPlayers).toEqual(["p2", "p3"]);
   });
 });
 
