@@ -8,6 +8,7 @@ import BomberMissList from "@/components/bomber/BomberMissList";
 import BomberPanels from "@/components/bomber/BomberPanels";
 import OrnateTitle from "@/components/OrnateTitle";
 import { useTimer } from "@/hooks/useTimer";
+import Typewriter from "@/components/Typewriter";
 import type { UseRoomResult } from "@/hooks/useRoom";
 
 /** 残りこの秒数からカウントダウンを大きく出す（番組と同じ5秒） */
@@ -78,9 +79,6 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
   if (!state || !state.question || !round || !state.timer) return null;
 
   const { question } = state;
-  const shownText = timer.inReveal
-    ? question.q.slice(0, Math.floor(timer.revealProgress * question.qLength))
-    : question.q;
 
   const answerTotalMs = Math.max(1, state.timer.totalMs - state.timer.revealMs);
   const ratio = Math.max(0, Math.min(1, timer.remainingMs / answerTotalMs));
@@ -148,7 +146,7 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
           </div>
         ) : (
           <p className="font-display text-base sm:text-2xl font-semibold leading-snug sm:leading-relaxed text-center text-ink">
-            {timer.inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
+            <Typewriter text={question.q} timer={state.timer} nowServer={nowServer} />
           </p>
         )}
         {urgent && timer.remainingSec > 0 && (

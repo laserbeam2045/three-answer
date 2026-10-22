@@ -612,8 +612,14 @@ body {
     opacity: 0;
   }
 }
+/* 中身のない inline の印。カーソルは絶対配置にして、文字の並び・折り返しに影響させない */
+.typewriter-caret {
+  position: relative;
+}
 .typewriter-caret::after {
   content: "｜";
+  position: absolute;
+  left: 0;
   animation: blink-caret 0.9s step-end infinite;
   color: var(--color-gold);
 }

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import MojiPlayersPanel from "@/components/moji/MojiPlayersPanel";
 import { useTimer } from "@/hooks/useTimer";
+import Typewriter from "@/components/Typewriter";
 import type { UseRoomResult } from "@/hooks/useRoom";
 
 /** 残りこの秒数からカウントダウンを大きく出す */
@@ -30,7 +31,6 @@ export default function MojiQuestionView({ room }: { room: UseRoomResult }) {
   if (!state || !state.question || !round || !state.timer) return null;
 
   const { question } = state;
-  const shownText = timer.inReveal ? question.q.slice(0, Math.floor(timer.revealProgress * question.qLength)) : question.q;
   const answerTotalMs = Math.max(1, state.timer.totalMs - state.timer.revealMs);
   const ratio = Math.max(0, Math.min(1, timer.remainingMs / answerTotalMs));
   const urgent = !timer.inReveal && timer.remainingSec <= COUNTDOWN_SEC;
@@ -97,7 +97,7 @@ export default function MojiQuestionView({ room }: { room: UseRoomResult }) {
           </span>
         ) : (
           <p className="font-display text-base sm:text-2xl font-semibold leading-snug sm:leading-relaxed text-center text-ink">
-            {timer.inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
+            <Typewriter text={question.q} timer={state.timer} nowServer={nowServer} />
           </p>
         )}
       </section>

@@ -6,6 +6,7 @@ import SeatBadge from "@/components/SeatBadge";
 import PlaySlots from "@/components/PlaySlots";
 import TimerBar from "@/components/TimerBar";
 import { useTimer } from "@/hooks/useTimer";
+import Typewriter from "@/components/Typewriter";
 import type { UseRoomResult } from "@/hooks/useRoom";
 import { ROLES, type Role } from "@/lib/types";
 
@@ -27,12 +28,6 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
   const isSeated = you.role !== null;
   const locked = mySelection?.locked ?? false;
   const passSelected = mySelection !== null && mySelection.cardIndex === null;
-
-  // タイプライター表示（paused中は useTimer が凍結値を返すため自動的に停止する）
-  const inReveal = state.timer !== null && timer.inReveal;
-  const shownText = inReveal
-    ? question.q.slice(0, Math.floor(timer.revealProgress * question.qLength))
-    : question.q;
 
   const decideLabel = passSelected ? "出さないで決定" : "この選択で決定";
 
@@ -62,7 +57,7 @@ export default function QuestionView({ room }: { room: UseRoomResult }) {
           </div>
         ) : (
           <p className="font-display text-lg sm:text-2xl font-semibold leading-relaxed text-center text-ink">
-            {inReveal ? <span className="typewriter-caret">{shownText}</span> : shownText}
+            <Typewriter text={question.q} timer={state.timer} nowServer={nowServer} />
           </p>
         )}
       </section>
