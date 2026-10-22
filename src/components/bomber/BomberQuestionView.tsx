@@ -110,7 +110,8 @@ export default function BomberQuestionView({ room }: { room: UseRoomResult }) {
             <span className="text-xs opacity-70 font-sans font-bold">/ {state.questionCount}</span>
           </span>
         </span>
-        <div className="flex-1 min-w-0 flex items-center gap-3">
+        {/* 問題を読んでいる間と秒数が出たあとで高さが変わらないよう、秒数の行の高さに固定する */}
+        <div className="flex-1 min-w-0 flex items-center gap-3 h-7">
           {timer.inReveal ? (
             <>
               <div className="gauge flex-1" />

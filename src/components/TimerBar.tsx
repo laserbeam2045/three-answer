@@ -3,7 +3,11 @@
 import type { UseRoomResult } from "@/hooks/useRoom";
 import { useTimer } from "@/hooks/useTimer";
 
-/** 残り時間の金のゲージ。残り10秒で赤に変わる */
+/**
+ * 残り時間の金のゲージ。残り10秒で赤に変わる。
+ * 問題を読んでいる間（小さい文字だけ）と秒数が出たあと（大きい文字）で高さが変わり、下の問題文などが
+ * がくっと下がらないよう、高さを固定する
+ */
 export default function TimerBar({ room }: { room: UseRoomResult }) {
   const timer = room.state?.timer ?? null;
   const { remainingMs, remainingSec, inReveal } = useTimer(timer, room.nowServer);
@@ -12,7 +16,7 @@ export default function TimerBar({ room }: { room: UseRoomResult }) {
 
   if (inReveal) {
     return (
-      <div className="w-full flex items-center gap-3 py-1">
+      <div className="w-full flex items-center gap-3 h-9">
         <div className="gauge flex-1" />
         <span className="text-xs sm:text-sm text-muted animate-pulse whitespace-nowrap">
           問題を読んでいます…
@@ -26,7 +30,7 @@ export default function TimerBar({ room }: { room: UseRoomResult }) {
   const low = remainingSec <= 10;
 
   return (
-    <div className="w-full flex items-center gap-3 py-1">
+    <div className="w-full flex items-center gap-3 h-9">
       <div className="gauge flex-1">
         <div className={`gauge-fill ${low ? "low" : ""}`} style={{ width: `${ratio * 100}%` }} />
       </div>
