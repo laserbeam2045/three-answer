@@ -1,6 +1,7 @@
 /**
  * ひと文字リーグ: 参加者が1人1文字ずつ答えを書き、全員の文字が正解の読みと合えば正解。
  * - 問題は、そのときの参加人数と読みの文字数が同じものから1問ずつランダムに選ぶ（同じゲームで同じ問題は出さない）
+ *   このルームでまだ出していない問題を優先し、出し切ったら前に出したのが古い問題から出す
  * - 途中参加: 次の問題から加わる。途中離脱: 答えている人が抜けたら、その問題は中止（得点に数えない）
  * - 1ゲームは、中止を除いて MOJI_GAME_LENGTH 問
  */
@@ -30,6 +31,8 @@ export function mojiRateBuckets(min: number, max: number): number[] {
   for (let b = min / MOJI_RATE_STEP; b < max / MOJI_RATE_STEP; b++) out.push(b);
   return out;
 }
+/** ルームで覚えておく、出した問題の数の上限（古いものから忘れる） */
+export const MOJI_ASKED_LIMIT = 1000;
 /** この時間ポーリングが途絶えた参加者は、タブを閉じた・通信が切れたとみなして外す */
 export const MOJI_GONE_MS = 15_000;
 
@@ -42,6 +45,7 @@ export function normalizeMoji(state: RoomState): void {
   state.mojiRound ??= null;
   state.mojiResults ??= [];
   state.mojiUsedIds ??= [];
+  state.mojiAskedIds ??= [...state.mojiUsedIds];
   state.settings.mojiSeconds ??= MOJI_DEFAULT_SECONDS;
   state.settings.mojiRateMin ??= MOJI_DEFAULT_RATE_MIN;
   state.settings.mojiRateMax ??= MOJI_DEFAULT_RATE_MAX;
@@ -61,7 +65,10 @@ function requireHost(state: RoomState, token: string, message: string): void {
   if (token !== state.hostToken) throw new EngineError(message);
 }
 
-/** 人数と読みの文字数が同じで、正答率が選んだ範囲に入る、まだ出していない問題を1つ選ぶ */
+/**
+ * 人数と読みの文字数が同じで、正答率が選んだ範囲に入り、このゲームでまだ出していない問題を1つ選ぶ。
+ * このルームで一度も出していない問題を優先し、出し切っていたら、前に出したのがいちばん古い問題にする
+ */
 function pickQuestion(state: RoomState, pool: MojiPool, n: number, random: () => number): MojiQuestion {
   const used = new Set(state.mojiUsedIds);
   const buckets = new Set(mojiRateBuckets(state.settings.mojiRateMin ?? MOJI_DEFAULT_RATE_MIN, state.settings.mojiRateMax ?? MOJI_DEFAULT_RATE_MAX));
@@ -69,7 +76,11 @@ function pickQuestion(state: RoomState, pool: MojiPool, n: number, random: () =>
     (q) => readingChars(q.reading).length === n && buckets.has(mojiRateBucket(q.rate)) && !used.has(q.id)
   );
   if (cands.length === 0) throw new EngineError(`この正答率の範囲で${n}人で遊べる問題がもうありません`);
-  return cands[Math.floor(random() * cands.length)];
+  // 出した順の位置（新しいほど大きい）。出していない問題は -1
+  const askedAt = new Map(state.mojiAskedIds!.map((id, i) => [id, i]));
+  const fresh = cands.filter((q) => !askedAt.has(q.id));
+  if (fresh.length > 0) return fresh[Math.floor(random() * fresh.length)];
+  return cands.reduce((a, b) => (askedAt.get(b.id)! < askedAt.get(a.id)! ? b : a));
 }
 
 function startRound(state: RoomState, pool: MojiPool, now: number, random: () => number): void {
@@ -78,6 +89,7 @@ function startRound(state: RoomState, pool: MojiPool, now: number, random: () =>
   if (players.length > MOJI_MAX_PLAYERS) throw new EngineError(`${MOJI_MAX_PLAYERS}人までで遊べます`);
   const q = pickQuestion(state, pool, players.length, random);
   state.mojiUsedIds = [...state.mojiUsedIds!, q.id];
+  state.mojiAskedIds = [...state.mojiAskedIds!.filter((id) => id !== q.id), q.id].slice(-MOJI_ASKED_LIMIT);
   state.mojiCurrent = q;
   state.mojiRound = {
     participants: [...players],

@@ -86,6 +86,7 @@ export function createRoom(
     mojiRound: null,
     mojiResults: [],
     mojiUsedIds: [],
+    mojiAskedIds: [],
   };
 }
 

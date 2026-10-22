@@ -263,6 +263,8 @@ export interface RoomState {
   mojiResults?: MojiResult[];
   /** このゲームで出した問題の ID（同じ問題を出さない） */
   mojiUsedIds?: number[];
+  /** このルームでこれまでに出した問題の ID（出した順。ゲームをまたいで、まだ出していない問題を優先する） */
+  mojiAskedIds?: number[];
 }
 
 // ---------- アクション ----------

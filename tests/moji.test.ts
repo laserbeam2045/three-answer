@@ -131,6 +131,35 @@ describe("ひと文字リーグ", () => {
     expect(s.mojiCurrent!.id).toBe(203);
   });
 
+  it("ゲームをまたいでも、このルームでまだ出していない問題を優先し、出し切ったら古いものから出す", () => {
+    const two: MojiQuestion[] = [
+      { id: 301, q: "一", answer: "あい", reading: "あい", rate: 65 },
+      { id: 302, q: "二", answer: "うえ", reading: "うえ", rate: 65 },
+      { id: 303, q: "三", answer: "おか", reading: "おか", rate: 65 },
+    ];
+    const s = createRoom("rm4", HOST, "ホスト", 0);
+    const all = [HOST, "p1"];
+    const run = (token: string, action: Parameters<typeof applyAction>[2], now: number) =>
+      applyAction(s, token, action, presenceFor(all, now), now, getSet, allSets, undefined, undefined, two);
+    run(HOST, { type: "setMode", mode: "moji" }, 0);
+    run(HOST, { type: "mojiJoin" }, 0);
+    run("p1", { type: "mojiJoin" }, 0);
+    const asked: number[] = [];
+    for (let g = 0; g < 3; g++) {
+      run(HOST, { type: "start" }, g);
+      asked.push(s.mojiCurrent!.id);
+      run(HOST, { type: "backToLobby" }, g);
+    }
+    // 3ゲームで3問すべてが1回ずつ出る（ランダムでも重ならない）
+    expect([...asked].sort()).toEqual([301, 302, 303]);
+    // 出し切ったら、前に出したのがいちばん古い問題から
+    run(HOST, { type: "start" }, 10);
+    expect(s.mojiCurrent!.id).toBe(asked[0]);
+    run(HOST, { type: "backToLobby" }, 10);
+    run(HOST, { type: "start" }, 11);
+    expect(s.mojiCurrent!.id).toBe(asked[1]);
+  });
+
   it("2人未満では始められない", () => {
     const { run } = room(["p1"]);
     expect(() => run(HOST, { type: "start" }, 0)).toThrow("2人以上");
