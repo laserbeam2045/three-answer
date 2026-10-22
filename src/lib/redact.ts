@@ -238,6 +238,7 @@ function bomberView(
       target: r?.target ?? BOMBER_SLOTS,
       cleared: r?.cleared ?? false,
       heldBy: r?.heldBy ? nameOf(r.heldBy) : null,
+      heldByYou: !!r?.heldBy && r.heldBy === token,
       slots: slots.map((s) => slotView(s, qIndex)),
       answers: q.answers.flatMap((a, i) => {
         const by = slots.find((s) => s.answerIndex === i);

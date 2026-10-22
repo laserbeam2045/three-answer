@@ -9,6 +9,7 @@ import SeatBadge from "@/components/SeatBadge";
 import Confetti from "@/components/Confetti";
 import OrnateTitle from "@/components/OrnateTitle";
 import Collapse from "@/components/Collapse";
+import MyStats from "@/components/MyStats";
 
 const ROLE_BG: Record<Role, string> = {
   A: "bg-player-a",
@@ -78,6 +79,23 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
   const highScore = score >= 16;
   const isSeated = state.you.role !== null;
 
+  // 自分の成績（ほかの人の分は出さない）: 自分の札が必要だった問題で正しく出せたか、要らない問題で控えられたか
+  const myRole = state.you.role;
+  let needed = 0;
+  let hit = 0;
+  let extra = 0;
+  for (const h of history) {
+    const req = h.question.required.filter((r) => r.role === myRole);
+    const mine = h.result.played.find((p) => p.role === myRole);
+    if (req.length > 0) {
+      needed++;
+      if (mine && req.some((r) => r.card === mine.card)) hit++;
+    } else if (mine) {
+      extra++;
+    }
+  }
+  const notNeeded = history.length - needed;
+
   const metaOf = (setId: string) =>
     [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId);
 
@@ -112,6 +130,15 @@ export default function ResultsView({ room }: { room: UseRoomResult }) {
           {scoreComment(score)}
         </p>
       </section>
+
+      {myRole && history.length > 0 && (
+        <MyStats
+          stats={[
+            { label: "必要な札を出せた", value: hit, unit: `/ ${needed}問` },
+            { label: "出番なしで控えた", value: notNeeded - extra, unit: `/ ${notNeeded}問` },
+          ]}
+        />
+      )}
 
       {/* 2. 全問履歴 */}
       {history.length > 0 && (

@@ -6,6 +6,7 @@ import BomberMissList from "@/components/bomber/BomberMissList";
 import BomberPanels from "@/components/bomber/BomberPanels";
 import Collapse from "@/components/Collapse";
 import Confetti from "@/components/Confetti";
+import MyStats from "@/components/MyStats";
 import OrnateTitle from "@/components/OrnateTitle";
 import type { UseRoomResult } from "@/hooks/useRoom";
 
@@ -30,6 +31,12 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
   const high = ratio >= 0.8;
   const canBack = isPlayer || state.you.isHost;
   const clearedCount = history.filter((h) => h.cleared).length;
+  // 自分の成績（ほかの人の分は出さない）
+  const teamSlots = history.reduce((n, h) => n + h.slots.length, 0);
+  const mySlots = history.reduce((n, h) => n + h.slots.filter((s) => s.isYou).length, 0);
+  const myMisses = history.reduce((n, h) => n + h.misses.filter((m) => m.isYou).length, 0);
+  const myBooms = history.filter((h) => h.heldByYou).length;
+  const showMine = history.length > 0 && (isPlayer || mySlots + myMisses + myBooms > 0);
   const titleOf = (setId: string) =>
     setId === "moji" ? "ひと文字リーグ" : [...state.setMeta, ...state.bomber.setMeta].find((m) => m.id === setId)?.title ?? setId;
 
@@ -63,6 +70,17 @@ export default function BomberResultsView({ room }: { room: UseRoomResult }) {
           クリア {clearedCount} / {history.length}問
         </p>
       </section>
+
+      {showMine && (
+        <MyStats
+          stats={[
+            { label: "正解", value: mySlots, unit: "個" },
+            { label: "お手つき", value: myMisses, unit: "回", bad: myMisses > 0 },
+            { label: "爆発", value: myBooms, unit: "回", bad: myBooms > 0 },
+          ]}
+          note={teamSlots > 0 ? `チームの正解 ${teamSlots}個のうち ${Math.round((mySlots / teamSlots) * 100)}% を答えました` : undefined}
+        />
+      )}
 
       {history.length > 0 && (
         <section>

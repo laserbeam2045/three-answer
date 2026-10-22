@@ -245,6 +245,10 @@ describe("ファイブボンバーの進行", () => {
     // 2人は交互なので p1 → p2 → p1 の番で爆発
     expect(s.bomberResults[0]).toMatchObject({ cleared: false, heldBy: "p1" });
     expect(s.bomberResults[0].slots).toHaveLength(2);
+    // 画面には、爆発させたのが自分かどうかだけを本人に返す
+    const presence = presenceFor([HOST, "p1", "p2"], end);
+    expect(redact(s, presence, "p1", end, getSet, allSets, false, getBomberSet, () => [bset]).bomber.judged!.heldByYou).toBe(true);
+    expect(redact(s, presence, "p2", end, getSet, allSets, false, getBomberSet, () => [bset]).bomber.judged!.heldByYou).toBe(false);
   });
 
   it("回答者が離席すると止まり、他の人の離席では止まらない", () => {

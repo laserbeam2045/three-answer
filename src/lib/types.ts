@@ -498,6 +498,8 @@ export interface BomberView {
     cleared: boolean;
     /** 爆発したときに爆弾を持っていた人の名前 */
     heldBy: string | null;
+    /** 爆発したときに爆弾を持っていたのが自分か */
+    heldByYou: boolean;
     slots: BomberSlotView[];
     /** 正解の一覧（答えが多い問題は、誰かが答えたものと主なものだけ） */
     answers: BomberRevealedAnswer[];
@@ -513,6 +515,7 @@ export interface BomberView {
         target: number;
         cleared: boolean;
         heldBy: string | null;
+        heldByYou: boolean;
         slots: BomberSlotView[];
         answers: BomberRevealedAnswer[];
         totalAnswers: number;

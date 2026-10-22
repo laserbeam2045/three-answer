@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Collapse from "@/components/Collapse";
 import Confetti from "@/components/Confetti";
+import MyStats from "@/components/MyStats";
 import OrnateTitle from "@/components/OrnateTitle";
 import { MojiChars } from "@/components/moji/MojiJudgingView";
 import type { UseRoomResult } from "@/hooks/useRoom";
@@ -29,6 +30,10 @@ export default function MojiResultsView({ room }: { room: UseRoomResult }) {
   const canBack = isPlayer || state.you.isHost;
   const done = history.filter((h) => h.status !== "cancelled");
   const clearedCount = done.filter((h) => h.status === "cleared").length;
+  // 自分の成績（ほかの人の分は出さない）。中止になった問題は数えない
+  const myChars = done.flatMap((h) => h.chars.filter((c) => c.isYou));
+  const myCorrect = myChars.filter((c) => c.correct).length;
+  const myQuestions = done.filter((h) => h.chars.some((c) => c.isYou)).length;
 
   const onBack = async () => {
     if (busy || !canBack) return;
@@ -54,6 +59,16 @@ export default function MojiResultsView({ room }: { room: UseRoomResult }) {
           正解 {clearedCount} / {done.length}問
         </p>
       </section>
+
+      {myChars.length > 0 && (
+        <MyStats
+          stats={[
+            { label: "正しく書けた", value: myCorrect, unit: `/ ${myChars.length}文字` },
+            { label: "正確さ", value: Math.round((myCorrect / myChars.length) * 100), unit: "%" },
+            { label: "答えた問題", value: myQuestions, unit: `/ ${done.length}問` },
+          ]}
+        />
+      )}
 
       {history.length > 0 && (
         <section>
