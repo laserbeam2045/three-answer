@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { BOMBER_POINTS } from "@/lib/bomber/match";
 import type { BomberPanelView } from "@/lib/types";
@@ -41,6 +41,8 @@ function readingSize(reading: string): string {
  */
 export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) {
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // 写真パネルの写真（大きく見るときの、開く・閉じる動きの起点）
+  const photoRefs = useRef<(HTMLImageElement | null)[]>([]);
   // 前回描画時に開いていたパネル（初回は null＝演出しない）
   const prevOpen = useRef<boolean[] | null>(null);
   const [hits, setHits] = useState<number[]>([]);
@@ -99,6 +101,9 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
   }, [panels]);
 
   const zoomed = zoom !== null ? panels[zoom] : null;
+  // パネルは正解で開くと作り直されるので、写真の要素は使うときにその都度たどる
+  const getZoomOrigin = useCallback(() => (zoom !== null ? (photoRefs.current[zoom] ?? null) : null), [zoom]);
+  const closeZoom = useCallback(() => setZoom(null), []);
 
   return (
     <>
@@ -144,9 +149,14 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  ref={(el) => {
+                    photoRefs.current[i] = el;
+                  }}
                   src={p.image.src}
                   alt={`写真${p.prompt}`}
                   className="h-full w-full object-cover"
+                  // 大きく見ている間は、パネルから写真が抜け出して見えるよう隠しておく
+                  style={zoom === i ? { visibility: "hidden" } : undefined}
                   draggable={false}
                   decoding="async"
                 />
@@ -205,7 +215,14 @@ export default function BomberPanels({ panels }: { panels: BomberPanelView[] }) 
     </div>
     <BomberPhotoCredits items={photos} />
     {zoomed?.image && (
-      <BomberPhotoZoom label={zoomed.prompt} image={zoomed.image} caption={zoomed.display} onClose={() => setZoom(null)} />
+      <BomberPhotoZoom
+        key={zoom}
+        label={zoomed.prompt}
+        image={zoomed.image}
+        caption={zoomed.display}
+        getOrigin={getZoomOrigin}
+        onClose={closeZoom}
+      />
     )}
     </>
   );
